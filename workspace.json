@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "components": "libs/components",
     "primeiro-app": "apps/primeiro-app"
   }
 }
