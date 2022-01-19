@@ -3,7 +3,7 @@ import { Welcome, ComponentsProps } from './welcome';
 
 export default {
   component: Welcome,
-  title: 'Components',
+  title: 'Welcome',
 } as Meta;
 
 const Template: Story<ComponentsProps> = (args) => <Welcome {...args} />;
