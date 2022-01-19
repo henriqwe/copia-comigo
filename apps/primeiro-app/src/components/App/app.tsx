@@ -1,5 +1,5 @@
 import styles from './app.module.css';
-import NxWelcome from './nx-welcome';
+import NxWelcome from './../NxWelcome/nx-welcome';
 
 export function App() {
   return (
