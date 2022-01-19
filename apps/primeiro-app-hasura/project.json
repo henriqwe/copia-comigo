@@ -1,0 +1,6 @@
+{
+  "root": "apps/primeiro-app-hasura",
+  "sourceRoot": "apps/primeiro-app-hasura/src",
+  "projectType": "application",
+  "tags": []
+}

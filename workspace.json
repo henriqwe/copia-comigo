@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "components": "libs/components",
-    "primeiro-app": "apps/primeiro-app"
+    "primeiro-app": "apps/primeiro-app",
+    "primeiro-app-hasura": "apps/primeiro-app-hasura"
   }
 }
