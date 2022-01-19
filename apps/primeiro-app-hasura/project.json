@@ -1,8 +1,18 @@
 {
   "root": "apps/primeiro-app-hasura",
-  "sourceRoot": "apps/primeiro-app-hasura/src",
+  "sourceRoot": "apps/primeiro-app-hasura",
   "projectType": "application",
   "targets": {
+    "hasura": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/primeiro-app-hasura && hasura console"
+          }
+        ]
+      }
+    },
     "echo": {
       "executor": "./tools/executors/echo:echo",
       "options": {
