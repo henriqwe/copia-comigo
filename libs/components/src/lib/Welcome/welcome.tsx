@@ -6,7 +6,7 @@ export interface ComponentsProps {}
 export function Welcome(props: ComponentsProps) {
   return (
     <div>
-      <h1>Seja Bem Vindo(a)!</h1>
+      <h1 className={"text-sky-300"}>Seja Bem Vindo(a)!</h1>
     </div>
   );
 }

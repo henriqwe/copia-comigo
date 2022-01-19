@@ -7,7 +7,7 @@ import App from './components/App/app';
 
 ReactDOM.render(
   <StrictMode>
-    <div className={"bg-gray-500 text-white p-10"}>
+    <div className={"bg-gray-500 p-10"}>
       <App />
     </div>
   </StrictMode>,
