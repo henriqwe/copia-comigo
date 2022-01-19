@@ -1,10 +1,10 @@
 import styles from './app.module.css';
-import NxWelcome from './../NxWelcome/nx-welcome';
+import {Welcome} from "@comigo/components";
 
 export function App() {
   return (
     <>
-      <NxWelcome title="primeiro-app" />
+      <Welcome />
       <div />
     </>
   );
