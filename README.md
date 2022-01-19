@@ -3,7 +3,7 @@
 # Comigo
 
 ---
-####### .env file = COMPOSE_FILE=apps/primeiro-app-hasura/docker-compose.yaml:apps/primeiro-app-hasura/docker-compose.yaml
+####### .env file == COMPOSE_FILE=apps/primeiro-app-hasura/docker-compose.yaml:apps/primeiro-app-hasura/docker-compose.yaml
 
 This project was generated using [Nx](https://nx.dev).
 

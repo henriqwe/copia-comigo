@@ -46,7 +46,7 @@ function echoExecutor(options, context) {
                 case 0:
                     console.info("Executing \"echo\"...");
                     console.info("Options: " + JSON.stringify(options, null, 2));
-                    return [4 /*yield*/, (0, util_1.promisify)(child_process_1.exec)("hasura console")];
+                    return [4 /*yield*/, (0, util_1.promisify)(child_process_1.exec)("echo " + options.textToEcho)];
                 case 1:
                     _a = _b.sent(), stdout = _a.stdout, stderr = _a.stderr;
                     console.log(stdout);
