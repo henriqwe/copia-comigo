@@ -1,12 +1,12 @@
 import { Story, Meta } from '@storybook/react';
-import { Components, ComponentsProps } from './components';
+import { Welcome, ComponentsProps } from './welcome';
 
 export default {
-  component: Components,
+  component: Welcome,
   title: 'Components',
 } as Meta;
 
-const Template: Story<ComponentsProps> = (args) => <Components {...args} />;
+const Template: Story<ComponentsProps> = (args) => <Welcome {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
