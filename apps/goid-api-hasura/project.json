@@ -8,7 +8,7 @@
       "options": {
         "commands": [
           {
-            "command": "cd apps/goportfolio-api-hasura && hasura console --api-port 9603 --console-port 9703"
+            "command": "cd apps/goid-api-hasura && hasura console --api-port 9603 --console-port 9703"
           }
         ]
       }
@@ -19,6 +19,16 @@
         "commands": [
           {
             "command": "cd apps/goid-api-hasura && hasura metadata apply && hasura migrate apply --all-databases && hasura metadata reload"
+          }
+        ]
+      }
+    },
+    "dcompose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "docker-compose -f apps/goid-api-hasura/docker-compose.yaml up -d"
           }
         ]
       }

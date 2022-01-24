@@ -23,6 +23,16 @@
         ]
       }
     },
+    "dcompose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "docker-compose -f apps/goerp-api-hasura/docker-compose.yaml up -d"
+          }
+        ]
+      }
+    },
     "echo": {
       "executor": "./tools/executors/echo:echo",
       "options": {
