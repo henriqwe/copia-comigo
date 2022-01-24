@@ -1,0 +1,10 @@
+table:
+  name: TiposDeKitDeInsumo_estoque_Itens
+  schema: producao
+object_relationships:
+- name: Item
+  using:
+    foreign_key_constraint_on: Item_Id
+- name: TipoDeKitDeInsumo
+  using:
+    foreign_key_constraint_on: TiposDeKitDeInsumo_Id

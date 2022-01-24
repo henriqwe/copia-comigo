@@ -1,0 +1,26 @@
+table:
+  name: Emails
+  schema: contatos
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Categorias
+      - updated_at
+      - Id
+      - deleted_at
+      - Identidades
+      - NomeDoResponsavel
+      - Email
+      - created_at
+  name: Logs_contatos_Emails
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

@@ -1,0 +1,13 @@
+table:
+  name: Tickets
+  schema: atendimentos
+object_relationships:
+- name: Etapa
+  using:
+    foreign_key_constraint_on: Etapa_Id
+- name: Fluxo
+  using:
+    foreign_key_constraint_on: Fluxo_Id
+- name: Tipo
+  using:
+    foreign_key_constraint_on: Tipo_Id

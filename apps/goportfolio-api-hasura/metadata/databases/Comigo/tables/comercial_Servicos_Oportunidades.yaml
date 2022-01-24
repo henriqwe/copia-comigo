@@ -1,0 +1,18 @@
+table:
+  name: Servicos_Oportunidades
+  schema: comercial
+object_relationships:
+- name: Combo
+  using:
+    foreign_key_constraint_on: Combo_Id
+- name: Servico
+  using:
+    foreign_key_constraint_on: Servico_Id
+array_relationships:
+- name: OportunidadesDePropostas
+  using:
+    foreign_key_constraint_on:
+      column: OportunidadeServico_Id
+      table:
+        name: Propostas_Oportunidades
+        schema: propostas

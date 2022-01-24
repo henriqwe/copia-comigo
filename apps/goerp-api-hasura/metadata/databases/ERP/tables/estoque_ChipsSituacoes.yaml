@@ -1,0 +1,4 @@
+table:
+  name: ChipsSituacoes
+  schema: estoque
+is_enum: true

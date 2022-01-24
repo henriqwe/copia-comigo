@@ -1,0 +1,4 @@
+table:
+  name: PedidosDeCompraSituacoes
+  schema: compras
+is_enum: true

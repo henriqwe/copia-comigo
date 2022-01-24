@@ -1,0 +1,4 @@
+table:
+  name: TiposDeTickets
+  schema: atendimentos
+is_enum: true

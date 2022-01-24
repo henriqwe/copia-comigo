@@ -1,0 +1,50 @@
+table:
+  name: Propostas
+  schema: propostas
+object_relationships:
+- name: Situacao
+  using:
+    foreign_key_constraint_on: Situacao_Id
+array_relationships:
+- name: Combos
+  using:
+    foreign_key_constraint_on:
+      column: Proposta_Id
+      table:
+        name: Propostas_Combos
+        schema: propostas
+- name: Instalacoes
+  using:
+    foreign_key_constraint_on:
+      column: Proposta_Id
+      table:
+        name: Propostas_Instalacoes
+        schema: propostas
+- name: Oportunidades
+  using:
+    foreign_key_constraint_on:
+      column: Proposta_Id
+      table:
+        name: Propostas_Oportunidades
+        schema: propostas
+- name: Planos
+  using:
+    foreign_key_constraint_on:
+      column: Proposta_Id
+      table:
+        name: Propostas_Planos
+        schema: propostas
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Proposta_Id
+      table:
+        name: Propostas_Produtos
+        schema: propostas
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Proposta_Id
+      table:
+        name: Propostas_Servicos
+        schema: propostas

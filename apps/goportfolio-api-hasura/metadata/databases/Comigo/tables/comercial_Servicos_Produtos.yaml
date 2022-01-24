@@ -1,0 +1,10 @@
+table:
+  name: Servicos_Produtos
+  schema: comercial
+object_relationships:
+- name: Produto
+  using:
+    foreign_key_constraint_on: Produto_Id
+- name: Servico
+  using:
+    foreign_key_constraint_on: Servico_Id

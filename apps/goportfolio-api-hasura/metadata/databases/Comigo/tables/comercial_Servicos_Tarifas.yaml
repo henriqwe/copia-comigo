@@ -1,0 +1,10 @@
+table:
+  name: Servicos_Tarifas
+  schema: comercial
+object_relationships:
+- name: Servico
+  using:
+    foreign_key_constraint_on: Servico_Id
+- name: Tarifa
+  using:
+    foreign_key_constraint_on: Tarifa_Id

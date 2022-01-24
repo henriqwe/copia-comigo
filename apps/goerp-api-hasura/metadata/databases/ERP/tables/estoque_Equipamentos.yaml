@@ -1,0 +1,26 @@
+table:
+  name: Equipamentos
+  schema: estoque
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Identificador
+      - Imei
+      - Firmware
+      - created_at
+      - deleted_at
+      - updated_at
+      - Id
+      - Item_Id
+  name: Logs_estoque_Equipamentos
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

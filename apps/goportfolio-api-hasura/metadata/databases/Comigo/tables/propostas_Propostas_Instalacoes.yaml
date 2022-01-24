@@ -1,0 +1,7 @@
+table:
+  name: Propostas_Instalacoes
+  schema: propostas
+object_relationships:
+- name: Proposta
+  using:
+    foreign_key_constraint_on: Proposta_Id

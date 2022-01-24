@@ -1,0 +1,12 @@
+table:
+  name: Situacoes
+  schema: pedidosDeCompra
+is_enum: true
+array_relationships:
+- name: Pedidos
+  using:
+    foreign_key_constraint_on:
+      column: Situacao_Id
+      table:
+        name: Pedidos
+        schema: pedidosDeCompra

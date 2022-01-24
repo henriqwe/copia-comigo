@@ -1,0 +1,15 @@
+table:
+  name: Veiculos
+  schema: clientes
+object_relationships:
+- name: Cliente
+  using:
+    foreign_key_constraint_on: Cliente_Id
+array_relationships:
+- name: VeiculosAtivos
+  using:
+    foreign_key_constraint_on:
+      column: Veiculo_Id
+      table:
+        name: VeiculosAtivos
+        schema: clientes

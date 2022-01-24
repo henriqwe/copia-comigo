@@ -1,0 +1,13 @@
+table:
+  name: Orcamentos_Produtos
+  schema: pedidosDeCompra
+object_relationships:
+- name: Fabricante
+  using:
+    foreign_key_constraint_on: Fabricante_Id
+- name: Orcamento
+  using:
+    foreign_key_constraint_on: Orcamento_Id
+- name: PedidosDeCompra_Produto
+  using:
+    foreign_key_constraint_on: PedidosDeCompra_Produto_Id

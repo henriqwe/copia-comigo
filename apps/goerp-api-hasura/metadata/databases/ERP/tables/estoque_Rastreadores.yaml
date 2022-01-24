@@ -1,0 +1,25 @@
+table:
+  name: Rastreadores
+  schema: estoque
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Id
+      - updated_at
+      - Equipamento_Id
+      - created_at
+      - CodigoReferencia
+      - deleted_at
+      - Chip_Id
+  name: Logs_estoque_Rastreadores
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

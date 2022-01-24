@@ -1,0 +1,67 @@
+table:
+  name: Combos
+  schema: comercial
+array_relationships:
+- name: ComboPai
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Combos_Combos
+        schema: comercial
+- name: Combos
+  using:
+    foreign_key_constraint_on:
+      column: ComboPertencente_Id
+      table:
+        name: Combos_Combos
+        schema: comercial
+- name: OportunidadesDeProdutos
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Produtos_Oportunidades
+        schema: comercial
+- name: OportunidadesDeServicos
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Servicos_Oportunidades
+        schema: comercial
+- name: Planos
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Combos_Planos
+        schema: comercial
+- name: Precos
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Combos_Precos
+        schema: comercial
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Combos_Produtos
+        schema: comercial
+- name: Propostas
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Propostas_Combos
+        schema: propostas
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Combo_Id
+      table:
+        name: Combos_Servicos
+        schema: comercial

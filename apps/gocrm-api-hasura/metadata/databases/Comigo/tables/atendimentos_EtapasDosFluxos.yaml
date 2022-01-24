@@ -1,0 +1,15 @@
+table:
+  name: EtapasDosFluxos
+  schema: atendimentos
+object_relationships:
+- name: Fluxo
+  using:
+    foreign_key_constraint_on: Fluxo_Id
+array_relationships:
+- name: Tickets
+  using:
+    foreign_key_constraint_on:
+      column: Etapa_Id
+      table:
+        name: Tickets
+        schema: atendimentos

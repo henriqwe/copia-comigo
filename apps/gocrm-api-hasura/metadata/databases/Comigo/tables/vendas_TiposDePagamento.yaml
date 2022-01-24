@@ -1,0 +1,4 @@
+table:
+  name: TiposDePagamento
+  schema: vendas
+is_enum: true

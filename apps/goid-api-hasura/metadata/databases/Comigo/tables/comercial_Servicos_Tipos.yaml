@@ -1,0 +1,4 @@
+table:
+  name: Servicos_Tipos
+  schema: comercial
+is_enum: true

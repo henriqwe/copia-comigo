@@ -1,0 +1,16 @@
+type CadastrarFornecedorOutput {
+  Id: uuid!
+}
+
+type CadastrarClienteOutput {
+  Id: uuid!
+}
+
+type CadastrarRepresentanteOutput {
+  Id: uuid!
+}
+
+type CadastrarColaboradorOutput {
+  Id: uuid!
+}
+

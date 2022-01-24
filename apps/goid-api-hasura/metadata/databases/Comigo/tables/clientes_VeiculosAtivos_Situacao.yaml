@@ -1,0 +1,12 @@
+table:
+  name: VeiculosAtivos_Situacao
+  schema: clientes
+is_enum: true
+array_relationships:
+- name: VeiculosAtivos
+  using:
+    foreign_key_constraint_on:
+      column: Situacao_Id
+      table:
+        name: VeiculosAtivos
+        schema: clientes

@@ -1,0 +1,80 @@
+version: '3.6'
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pg-init-scripts:/docker-entrypoint-initdb.d
+    # volumes:
+    # - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: postgresql,goerp
+      POSTGRES_PASSWORD: postgrespassword
+      TZ: 'GMT-3'
+      PGTZ: 'GMT-3'
+  graphql-engine:
+    image: hasura/graphql-engine:v2.0.5
+    ports:
+    - "8080:8080"
+    depends_on:
+    - "postgres"
+    restart: always
+    environment:
+      ## postgres database to store Hasura metadata
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
+      ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
+      PG_DATABASE_URL_GOERP: postgres://postgres:postgrespassword@postgres:5432/goerp
+      PG_DATABASE_URL_ESTOQUE: postgres://postgres:postgrespassword@postgres:5432/estoque
+      ## enable the console served by server
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "false" # set to "false" to disable console
+      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      ## uncomment next line to set an admin secret
+      # HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
+      ACTION_BASE_URL: ${ACTION_BASE_URL}
+      EVENT_BASE_URL: ${EVENT_BASE_URL}
+      LOGS_EVENT_BASE_URL: ${LOGS_EVENT_BASE_URL}
+      # HASURA_GRAPHQL_JWT_SECRET: ${HASURA_GRAPHQL_JWT_SECRET}
+      
+volumes:
+  db_data:
+
+# hasura migrate apply --version 1632223752983 --skip-execution --database-name ERP
+# hasura migrate squash --name "criando-tabelas-restantes-e-relacionamentos-para-modulo-de-estoque" --from 1632165923795 --database-name ERP
+# --endpoint http://localhost:8082/
+
+# docker volume prune & docker ps -aq | xargs -I {} docker stop {} | xargs -I {} docker rm {} & docker images -aq | xargs -I {} docker rmi -f {} & docker stop $(docker ps -a -q) & docker rm $(docker ps -a -q) & docker rmi -f $(docker images -a -q) & docker-compose down --remove-orphans -v & docker-compose rm -v
+
+# docker stop $(docker ps -a -q) 
+# docker ps -aq | xargs -I {} docker stop {} | xargs -I {} docker rm {}
+# docker images -aq | xargs -I {} docker rmi -f {} 
+# docker rm $(docker ps -a -q)
+# docker rmi -f $(docker images -a -q)
+# docker-compose down --remove-orphans -v
+# docker volume prune 
+# docker-compose rm -v
+
+# hasura metadata apply
+# hasura migrate apply --all-databases
+
+# docker stop $(docker ps -a -q)
+# docker rm $(docker ps -a -q)
+# docker rmi -f $(docker images -a -q)
+
+# docker-compose down --remove-orphans -v
+# docker-compose rm -v
+
+# docker volume prune
+# docker ps -aq | xargs -I {} docker stop {} | xargs -I {} docker rm {}
+# docker images -aq | xargs -I {} docker rmi -f {}
+
+# docker volume prune & docker ps -aq | xargs -I {} docker stop {} | xargs -I {} docker rm {} & docker images -aq | xargs -I {} docker rmi -f {} & docker stop $(docker ps -a -q) & docker rm $(docker ps -a -q) & docker rmi -f $(docker images -a -q) & docker-compose down --remove-orphans -v & docker-compose rm -v
+
+# CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+# SELECT gen_random_uuid();
+
+# docker-compose up
+

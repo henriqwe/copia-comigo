@@ -1,0 +1,13 @@
+table:
+  name: Combos_Servicos
+  schema: comercial
+object_relationships:
+- name: Combo
+  using:
+    foreign_key_constraint_on: Combo_Id
+- name: Servico
+  using:
+    foreign_key_constraint_on: Servico_Id
+- name: ServicosPreco
+  using:
+    foreign_key_constraint_on: ServicoPreco_Id

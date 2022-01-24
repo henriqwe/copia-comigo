@@ -1,0 +1,4 @@
+table:
+  name: TiposDeRecorrencia
+  schema: vendas
+is_enum: true

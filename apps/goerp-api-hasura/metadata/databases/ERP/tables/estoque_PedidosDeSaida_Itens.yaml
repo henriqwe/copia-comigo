@@ -1,0 +1,10 @@
+table:
+  name: PedidosDeSaida_Itens
+  schema: estoque
+object_relationships:
+- name: Item
+  using:
+    foreign_key_constraint_on: Produto_Id
+- name: PedidosDeSaida
+  using:
+    foreign_key_constraint_on: Pedido_Id

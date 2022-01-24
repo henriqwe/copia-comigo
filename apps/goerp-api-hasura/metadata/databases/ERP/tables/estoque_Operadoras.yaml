@@ -1,0 +1,26 @@
+table:
+  name: Operadoras
+  schema: estoque
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Nome
+      - Senha
+      - Usuario
+      - updated_at
+      - Id
+      - deleted_at
+      - created_at
+      - Apn
+  name: Logs_estoque_Operadoras
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

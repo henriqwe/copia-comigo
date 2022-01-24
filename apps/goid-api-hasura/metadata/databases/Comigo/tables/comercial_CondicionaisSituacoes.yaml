@@ -1,0 +1,4 @@
+table:
+  name: CondicionaisSituacoes
+  schema: comercial
+is_enum: true

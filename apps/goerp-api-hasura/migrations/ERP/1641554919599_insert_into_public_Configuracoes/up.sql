@@ -1,0 +1,1 @@
+INSERT INTO "public"."Configuracoes"("Id", "created_at", "updated_at", "deleted_at", "Nome", "Slug", "Valor") VALUES (E'3a0afe3f-8f23-4d03-9388-32e6b28967d6', E'2022-01-07T08:28:39.551142-03:00', E'2022-01-07T08:28:39.551142-03:00', null, E'Prestador de serviço para os preços', E'prestadorPrecos', '[]');

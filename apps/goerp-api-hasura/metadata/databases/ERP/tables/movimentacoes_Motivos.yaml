@@ -1,0 +1,12 @@
+table:
+  name: Motivos
+  schema: movimentacoes
+is_enum: true
+array_relationships:
+- name: Movimentacoes
+  using:
+    foreign_key_constraint_on:
+      column: Motivo_Id
+      table:
+        name: Movimentacoes
+        schema: movimentacoes

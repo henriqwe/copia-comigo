@@ -1,0 +1,18 @@
+table:
+  name: Atributos
+  schema: comercial
+array_relationships:
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Atributo_Id
+      table:
+        name: Produtos_Atributos
+        schema: comercial
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Atributo_Id
+      table:
+        name: Servicos_Atributos
+        schema: comercial

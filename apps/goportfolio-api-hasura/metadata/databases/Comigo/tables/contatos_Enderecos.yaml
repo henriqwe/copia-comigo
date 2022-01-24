@@ -1,0 +1,31 @@
+table:
+  name: Enderecos
+  schema: contatos
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Id
+      - deleted_at
+      - Bairro
+      - Cep
+      - updated_at
+      - Complemento
+      - Numero
+      - Logradouro
+      - Identidades
+      - created_at
+      - Cidade_Id
+      - Categorias
+      - Estado_Id
+  name: Logs_contatos_Enderecos
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

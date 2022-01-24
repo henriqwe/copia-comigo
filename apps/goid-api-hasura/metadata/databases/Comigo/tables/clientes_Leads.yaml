@@ -1,0 +1,15 @@
+table:
+  name: Leads
+  schema: clientes
+object_relationships:
+- name: Cliente
+  using:
+    foreign_key_constraint_on: Cliente_Id
+array_relationships:
+- name: PerfisComerciais
+  using:
+    foreign_key_constraint_on:
+      column: Lead_Id
+      table:
+        name: PerfisComerciais
+        schema: clientes

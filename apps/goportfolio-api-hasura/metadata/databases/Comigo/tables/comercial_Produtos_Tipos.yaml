@@ -1,0 +1,12 @@
+table:
+  name: Produtos_Tipos
+  schema: comercial
+is_enum: true
+array_relationships:
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Tipo_Id
+      table:
+        name: Produtos
+        schema: comercial

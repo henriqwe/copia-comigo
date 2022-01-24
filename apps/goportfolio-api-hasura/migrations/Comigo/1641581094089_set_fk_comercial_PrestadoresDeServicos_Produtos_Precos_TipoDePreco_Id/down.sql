@@ -1,0 +1,1 @@
+alter table "comercial"."PrestadoresDeServicos_Produtos_Precos" drop constraint "PrestadoresDeServicos_Produtos_Precos_TipoDePreco_Id_fkey";

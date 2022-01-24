@@ -1,0 +1,13 @@
+table:
+  name: Pessoa
+  schema: identidades
+object_relationships:
+- name: Fornecedor
+  using:
+    manual_configuration:
+      column_mapping:
+        Id: Pessoa_Id
+      insertion_order: null
+      remote_table:
+        name: Fornecedores
+        schema: identidades

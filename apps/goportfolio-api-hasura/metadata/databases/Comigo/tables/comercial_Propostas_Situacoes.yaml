@@ -1,0 +1,4 @@
+table:
+  name: Propostas_Situacoes
+  schema: comercial
+is_enum: true

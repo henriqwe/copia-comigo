@@ -1,0 +1,54 @@
+table:
+  name: Chips
+  schema: producao
+object_relationships:
+- name: Item
+  using:
+    foreign_key_constraint_on: Item_Id
+- name: Operadora
+  using:
+    foreign_key_constraint_on: Operadora_Id
+- name: Rastreador
+  using:
+    foreign_key_constraint_on:
+      column: Chip_Id
+      table:
+        name: Rastreadores
+        schema: producao
+- name: Situacao
+  using:
+    foreign_key_constraint_on: Situacao_Id
+array_relationships:
+- name: Rastreadores
+  using:
+    foreign_key_constraint_on:
+      column: Chip_Id
+      table:
+        name: Rastreadores
+        schema: producao
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Id
+      - Item_Id
+      - Iccid
+      - DataSuspensao
+      - Operadora_Id
+      - Situacao_Id
+      - TempoDaSuspensao
+      - NumeroDaLinha
+      - deleted_at
+      - updated_at
+      - created_at
+  name: Logs_producao_Chips
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

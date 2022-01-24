@@ -1,0 +1,11 @@
+table:
+  name: Perguntas
+  schema: vendas
+array_relationships:
+- name: Grupos
+  using:
+    foreign_key_constraint_on:
+      column: Pergunta_Id
+      table:
+        name: GruposDePerguntas_Perguntas
+        schema: vendas

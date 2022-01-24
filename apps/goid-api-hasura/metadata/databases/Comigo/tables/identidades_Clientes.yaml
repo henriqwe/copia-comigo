@@ -1,0 +1,60 @@
+table:
+  name: Clientes
+  schema: identidades
+object_relationships:
+- name: Pessoa
+  using:
+    foreign_key_constraint_on: Pessoa_Id
+array_relationships:
+- name: Leads
+  using:
+    manual_configuration:
+      column_mapping:
+        Id: Cliente_Id
+      insertion_order: null
+      remote_table:
+        name: Leads
+        schema: clientes
+- name: Usuarios
+  using:
+    manual_configuration:
+      column_mapping:
+        Id: Cliente_Id
+      insertion_order: null
+      remote_table:
+        name: Usuarios
+        schema: autenticacao
+- name: Veiculos
+  using:
+    foreign_key_constraint_on:
+      column: Cliente_Id
+      table:
+        name: Veiculos
+        schema: clientes
+- name: VeiculosAtivos
+  using:
+    foreign_key_constraint_on:
+      column: Cliente_Id
+      table:
+        name: VeiculosAtivos
+        schema: clientes
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - updated_at
+      - Id
+      - deleted_at
+      - Pessoa_Id
+      - created_at
+  name: Logs_identidades_Clientes
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

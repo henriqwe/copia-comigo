@@ -1,0 +1,3 @@
+table:
+  name: Itens_PedidosDeSaida
+  schema: estoque

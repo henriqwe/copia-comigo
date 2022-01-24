@@ -1,0 +1,32 @@
+table:
+  name: Grupos
+  schema: estoque
+array_relationships:
+- name: Itens
+  using:
+    foreign_key_constraint_on:
+      column: Grupo_Id
+      table:
+        name: Itens
+        schema: estoque
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Descricao
+      - updated_at
+      - Id
+      - deleted_at
+      - created_at
+      - Nome
+  name: Logs_estoque_Grupos
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

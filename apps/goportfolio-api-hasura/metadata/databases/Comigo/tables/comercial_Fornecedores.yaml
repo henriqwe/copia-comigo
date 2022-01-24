@@ -1,0 +1,25 @@
+table:
+  name: Fornecedores
+  schema: comercial
+array_relationships:
+- name: ContratosBases
+  using:
+    foreign_key_constraint_on:
+      column: Parceiro_Id
+      table:
+        name: ContratosBase
+        schema: comercial
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Fornecedor_Id
+      table:
+        name: Fornecedores_Produtos
+        schema: comercial
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Fornecedor_Id
+      table:
+        name: Fornecedores_Servicos
+        schema: comercial

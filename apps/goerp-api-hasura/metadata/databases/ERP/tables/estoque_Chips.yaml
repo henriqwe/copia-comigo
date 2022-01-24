@@ -1,0 +1,24 @@
+table:
+  name: Chips
+  schema: estoque
+event_triggers:
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - NumeroDaLinha
+      - Iccid
+      - created_at
+      - updated_at
+      - Id
+      - Operadora_Id
+  name: Logs_estoque_Chips
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

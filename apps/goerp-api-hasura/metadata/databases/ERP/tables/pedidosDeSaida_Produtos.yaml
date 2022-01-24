@@ -1,0 +1,13 @@
+table:
+  name: Produtos
+  schema: pedidosDeSaida
+object_relationships:
+- name: Fabricante
+  using:
+    foreign_key_constraint_on: Fabricante_Id
+- name: Pedido
+  using:
+    foreign_key_constraint_on: Pedido_Id
+- name: Produto
+  using:
+    foreign_key_constraint_on: Produto_Id
