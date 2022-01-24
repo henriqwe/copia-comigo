@@ -1,3 +1,12 @@
 table:
   name: OrdemDeServico_Agendamentos_Situacoes
   schema: operacional
+is_enum: true
+array_relationships:
+- name: Agendamentos
+  using:
+    foreign_key_constraint_on:
+      column: Situacao_Id
+      table:
+        name: OrdemDeServico_Agendamentos
+        schema: operacional
