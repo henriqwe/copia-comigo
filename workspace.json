@@ -3,6 +3,9 @@
   "projects": {
     "components": "libs/components",
     "primeiro-app": "apps/primeiro-app",
-    "primeiro-app-hasura": "apps/primeiro-app-hasura"
+    "gocrm-api-hasura": "apps/gocrm-api-hasura",
+    "goerp-api-hasura": "apps/goerp-api-hasura",
+    "goid-api-hasura": "apps/goid-api-hasura",
+    "goportfolio-api-hasura": "apps/goportfolio-api-hasura"
   }
 }

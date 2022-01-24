@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:13
     ports:
-      - 5433:5432
+      - 5423:5422
     restart: always
     volumes:
       - ./pg-init-scripts:/docker-entrypoint-initdb.d
@@ -15,17 +15,17 @@ services:
   graphql-engine:
     image: hasura/graphql-engine:v2.1.1
     ports:
-    - "8081:8080"
+    - "9002:8080"
     depends_on:
     - "postgres"
     restart: always
     environment:
       ## postgres database to store Hasura metadata
-      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/hasura
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/hasura
       ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
       REMOTE_SCHEMA_GOID_URL: ${REMOTE_SCHEMA_GOID_URL}
-      PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/erp
-      # PG_DATABASE_URL_RASTREAMENTO: postgres://postgres:postgrespassword@postgres:5432/rastreamento
+      PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/erp
+      # PG_DATABASE_URL_RASTREAMENTO: postgres://postgres:postgrespassword@postgres:5422/rastreamento
       ## enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
       ## enable debugging mode. It is recommended to disable this in production
@@ -36,8 +36,8 @@ services:
       ## uncomment next line to set type logs
       # HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       ## uncomment next line to set an admin secret
-      HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
-      REMOTE_SCHEMA_GOID_ADMIN_SECRET: ${REMOTE_SCHEMA_GOID_ADMIN_SECRET}
+      HASURA_GRAPHQL_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
+      REMOTE_SCHEMA_GOID_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
 volumes:
   db_data:
 

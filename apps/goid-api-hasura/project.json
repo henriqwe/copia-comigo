@@ -1,0 +1,34 @@
+{
+  "root": "apps/goid-api-hasura",
+  "sourceRoot": "apps/goid-api-hasura",
+  "projectType": "application",
+  "targets": {
+    "hasura": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/goportfolio-api-hasura && hasura console --api-port 9603 --console-port 9703"
+          }
+        ]
+      }
+    },
+    "hasura-update": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/goid-api-hasura && hasura metadata apply && hasura migrate apply --all-databases && hasura metadata reload"
+          }
+        ]
+      }
+    },
+    "echo": {
+      "executor": "./tools/executors/echo:echo",
+      "options": {
+        "textToEcho": "Hello World"
+      }
+    }
+  },
+  "tags": []
+}
