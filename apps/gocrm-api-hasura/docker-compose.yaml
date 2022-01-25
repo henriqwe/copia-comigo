@@ -6,7 +6,7 @@ services:
     expose:
       - "5422" # Publishes 5422 to other containers but NOT to host machine
     ports:
-      - 5422:5422
+      - 5401:5422
     restart: always
     volumes:
       - ./pg-init-scripts:/docker-entrypoint-initdb.d
@@ -29,6 +29,8 @@ services:
       PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/comigo
       ## enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
+      REMOTE_SCHEMA_GOID_URL: ${REMOTE_SCHEMA_GOID_URL}
+      REMOTE_SCHEMA_GOPORTFOLIO_URL: ${REMOTE_SCHEMA_GOPORTFOLIO_URL}
       ## enable debugging mode. It is recommended to disable this in production
       HASURA_GRAPHQL_DEV_MODE: "true"
       # variáveis de ambiente para ações e eventos
@@ -38,5 +40,7 @@ services:
       # HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       ## uncomment next line to set an admin secret
       HASURA_GRAPHQL_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
+      REMOTE_SCHEMA_GOID_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
+      REMOTE_SCHEMA_GOPORTFOLIO_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
 volumes:
   db_data: null

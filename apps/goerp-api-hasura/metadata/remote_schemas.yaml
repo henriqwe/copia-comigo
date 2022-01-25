@@ -11,8 +11,8 @@
   definition:
     headers:
     - name: x-hasura-admin-secret
-      value: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
+      value_from_env: REMOTE_SCHEMA_GOPORTFOLIO_ADMIN_SECRET
     timeout_seconds: 60
-    url: http://192.168.3.102:8082/v1/graphql
+    url_from_env: REMOTE_SCHEMA_GOPORTFOLIO_URL
   comment: ""
   permissions: null

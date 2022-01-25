@@ -2,8 +2,9 @@ version: '3.6'
 services:
   postgres:
     image: postgres:13
+    command: -p 5422
     ports:
-      - 5423:5422
+      - 5402:5422
     restart: always
     volumes:
       - ./pg-init-scripts:/docker-entrypoint-initdb.d
@@ -24,6 +25,7 @@ services:
       HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/hasura
       ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
       REMOTE_SCHEMA_GOID_URL: ${REMOTE_SCHEMA_GOID_URL}
+      REMOTE_SCHEMA_GOPORTFOLIO_URL: ${REMOTE_SCHEMA_GOPORTFOLIO_URL}
       PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/erp
       # PG_DATABASE_URL_RASTREAMENTO: postgres://postgres:postgrespassword@postgres:5422/rastreamento
       ## enable the console served by server
@@ -37,7 +39,8 @@ services:
       # HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       ## uncomment next line to set an admin secret
       HASURA_GRAPHQL_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
-      REMOTE_SCHEMA_GOID_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
+      REMOTE_SCHEMA_GOID_ADMIN_SECRET: ${REMOTE_SCHEMA_GOID_ADMIN_SECRET}
+      REMOTE_SCHEMA_GOPORTFOLIO_ADMIN_SECRET: ${REMOTE_SCHEMA_GOPORTFOLIO_ADMIN_SECRET}
 volumes:
   db_data:
 

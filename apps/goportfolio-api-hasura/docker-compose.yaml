@@ -6,7 +6,7 @@ services:
     expose:
       - "5422" # Publishes 5422 to other containers but NOT to host machine
     ports:
-      - 5425:5422
+      - 5404:5422
     restart: always
     volumes:
       - ./pg-init-scripts:/docker-entrypoint-initdb.d
