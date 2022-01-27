@@ -4,6 +4,7 @@
     "components": "libs/components",
     "gocrm-api-hasura": "apps/gocrm-api-hasura",
     "goerp-api-hasura": "apps/goerp-api-hasura",
+    "goerp-frontend": "apps/goerp-frontend",
     "goid-api-hasura": "apps/goid-api-hasura",
     "goportfolio-api-hasura": "apps/goportfolio-api-hasura",
     "primeiro-app": "apps/primeiro-app"
