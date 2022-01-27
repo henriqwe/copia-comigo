@@ -6,7 +6,6 @@
     "goerp-api-hasura": "apps/goerp-api-hasura",
     "goid-api-hasura": "apps/goid-api-hasura",
     "goportfolio-api-hasura": "apps/goportfolio-api-hasura",
-    "primeiro-app": "apps/primeiro-app",
-    "primeiro-app-next": "apps/primeiro-app-next"
+    "primeiro-app": "apps/primeiro-app"
   }
 }
