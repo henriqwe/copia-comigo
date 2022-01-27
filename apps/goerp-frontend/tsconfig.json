@@ -1,28 +1,47 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsx": "preserve",
-    "allowJs": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "types": [
-      "node",
-      "jest"
+    "baseUrl": "src",
+    "paths": {
+      "&/*": [
+        "components/dominios/*"
+      ],
+      "&R/*": [
+        "components/dominios/rastreamento/*"
+      ],
+      "&A/*": [
+        "components/dominios/assistencia/*"
+      ],
+      "&M/*": [
+        "components/dominios/maxline/*"
+      ],
+      "@/*": [
+        "components/*"
+      ]
+    },
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "strict": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "jsx": "preserve",
     "incremental": true
   },
   "include": [
+    "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "next-env.d.ts"
-  ],
+    "**/*.tsx"
+, "src/pages/erp/operacional/ordens-de-servico/[id].tsx.bkp"  ],
   "exclude": [
     "node_modules"
   ]
