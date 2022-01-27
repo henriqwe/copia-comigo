@@ -3,6 +3,7 @@
   "projects": {
     "components": "libs/components",
     "gocrm-api-hasura": "apps/gocrm-api-hasura",
+    "gocrm-frontend": "apps/gocrm-frontend",
     "goerp-api-hasura": "apps/goerp-api-hasura",
     "goerp-frontend": "apps/goerp-frontend",
     "goid-api-hasura": "apps/goid-api-hasura",
