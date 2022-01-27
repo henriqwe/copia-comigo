@@ -6,7 +6,6 @@ import {
 } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context'
 import { useMemo } from 'react'
-import fetch from 'cross-fetch'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
@@ -16,8 +15,7 @@ function createApolloClient(usuario) {
     headers: {
       'content-type': 'application/json',
       'x-hasura-admin-secret': process.env.NEXT_PUBLIC_HASURA_ADMIN_SECRET
-    },
-    fetch
+    }
   })
 
   const authLink = setContext((_, { headers }) => {
