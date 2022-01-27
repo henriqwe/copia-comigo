@@ -8,6 +8,7 @@
     "goerp-frontend": "apps/goerp-frontend",
     "goid-api-hasura": "apps/goid-api-hasura",
     "goportfolio-api-hasura": "apps/goportfolio-api-hasura",
-    "rubick-app": "apps/rubick-app"
+    "rubick-app": "apps/rubick-app",
+    "thinker-app": "apps/thinker-app"
   }
 }
