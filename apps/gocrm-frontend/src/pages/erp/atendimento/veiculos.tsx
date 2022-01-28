@@ -1,7 +1,7 @@
-import * as vehicles from '@/domains/erp/services/Vehicles'
-import * as clients from '@/domains/erp/identities/Clients'
+import * as vehicles from '&crm/domains/erp/services/Vehicles'
+import * as clients from '&crm/domains/erp/identities/Clients'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Vehicles() {

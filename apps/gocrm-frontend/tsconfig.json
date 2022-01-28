@@ -1,46 +1,27 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "src",
-    "paths": {
-      "&/*": [
-        "components/dominios/*"
-      ],
-      "&R/*": [
-        "components/dominios/rastreamento/*"
-      ],
-      "&A/*": [
-        "components/dominios/assistencia/*"
-      ],
-      "&M/*": [
-        "components/dominios/maxline/*"
-      ],
-      "@/*": [
-        "components/*"
-      ]
-    },
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "jsx": "preserve",
     "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node",
+      "jest"
+    ],
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "next-env.d.ts"
   ],
   "exclude": [
     "node_modules"

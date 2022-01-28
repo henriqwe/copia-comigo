@@ -1,6 +1,6 @@
-import * as clients from '@/domains/erp/clients'
+import * as clients from '&crm/domains/erp/clients'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import BaseTemplate from '@/templates/Base'
 
 export default function Providers() {

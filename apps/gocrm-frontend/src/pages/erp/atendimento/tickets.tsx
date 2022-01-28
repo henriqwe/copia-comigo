@@ -1,10 +1,10 @@
-import * as tickets from '@/domains/erp/services/Tickets'
-import * as flows from '@/domains/erp/services/Registration/Flows'
-import * as users from '@/domains/erp/identities/Users'
-import * as leads from '@/domains/erp/services/Leads'
-import * as clients from '@/domains/erp/identities/Clients'
+import * as tickets from '&crm/domains/erp/services/Tickets'
+import * as flows from '&crm/domains/erp/services/Registration/Flows'
+import * as users from '&crm/domains/erp/identities/Users'
+import * as leads from '&crm/domains/erp/services/Leads'
+import * as clients from '&crm/domains/erp/identities/Clients'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Tickets() {

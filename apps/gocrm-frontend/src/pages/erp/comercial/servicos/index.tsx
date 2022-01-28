@@ -1,6 +1,6 @@
-import * as services from '@/domains/erp/commercial/Services'
+import * as services from '&crm/domains/erp/commercial/Services'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Products() {

@@ -1,9 +1,8 @@
-import BaseTemplate from '@/templates/Base'
-
+import * as template from '@comigo/ui-templates'
 export default function Home() {
-  return (
-    <BaseTemplate>
+  return (  
+    <template.Base theme={'ligth'} >
       <div>Teste</div>
-    </BaseTemplate>
+    </template.Base>
   )
 }

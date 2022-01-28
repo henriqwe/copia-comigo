@@ -1,7 +1,7 @@
-import * as contracts from '@/domains/erp/commercial/Contracts'
-import * as partners from '@/domains/erp/commercial/Providers'
+import * as contracts from '&crm/domains/erp/commercial/Contracts'
+import * as partners from '&crm/domains/erp/commercial/Providers'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Contracts() {

@@ -1,6 +1,6 @@
-import * as propostas from '@/domains/erp/commercial/Proposals'
+import * as propostas from '&crm/domains/erp/commercial/Proposals'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Propostas() {

@@ -1,9 +1,9 @@
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import FormAndTabs from '@/templates/FormAndTabs'
 
-import * as contracts from '@/domains/erp/commercial/Contracts'
-import * as partners from '@/domains/erp/commercial/Providers'
+import * as contracts from '&crm/domains/erp/commercial/Contracts'
+import * as partners from '&crm/domains/erp/commercial/Providers'
 
 export default function UpdateProduct() {
   return (

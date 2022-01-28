@@ -1,6 +1,6 @@
-import * as questionsGroups from '@/domains/erp/services/Registration/Questions/Groups'
+import * as questionsGroups from '&crm/domains/erp/services/Registration/Questions/Groups'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function QuestionsGroups() {

@@ -1,6 +1,6 @@
-import * as atributos from '@/domains/erp/commercial/Registration/Attributes'
+import * as atributos from '&crm/domains/erp/commercial/Registration/Attributes'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Atributos() {

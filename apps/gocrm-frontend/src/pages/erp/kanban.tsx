@@ -1,14 +1,14 @@
 import dynamic from 'next/dynamic'
 
-import * as flowStages from '@/domains/erp/services/Registration/Flows/Stage'
-import * as flows from '@/domains/erp/services/Registration/Flows'
-import * as tickets from '@/domains/erp/services/Tickets'
+import * as flowStages from '&crm/domains/erp/services/Registration/Flows/Stage'
+import * as flows from '&crm/domains/erp/services/Registration/Flows'
+import * as tickets from '&crm/domains/erp/services/Tickets'
 import * as buttons from '@/common/Buttons'
 import * as form from '@/common/Form'
 import * as icons from '@/common/Icons'
 import * as common from '@/common'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import Base from '@/templates/Base'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'

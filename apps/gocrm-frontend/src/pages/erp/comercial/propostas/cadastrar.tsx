@@ -2,15 +2,15 @@ import { GetServerSideProps } from 'next'
 
 // TODO: Retirar todos os UserProvider de páginas para usar middlewares
 
-import * as proposals from '@/domains/erp/commercial/Proposals'
-import * as services from '@/domains/erp/commercial/Services'
-import * as combos from '@/domains/erp/commercial/Combos'
-import * as plans from '@/domains/erp/commercial/Plans'
-import * as products from '@/domains/erp/commercial/Products'
-import * as tickets from '@/domains/erp/services/Tickets'
+import * as proposals from '&crm/domains/erp/commercial/Proposals'
+import * as services from '&crm/domains/erp/commercial/Services'
+import * as combos from '&crm/domains/erp/commercial/Combos'
+import * as plans from '&crm/domains/erp/commercial/Plans'
+import * as products from '&crm/domains/erp/commercial/Products'
+import * as tickets from '&crm/domains/erp/services/Tickets'
 
-import * as leads from '@/domains/erp/services/Leads'
-import * as users from '@/domains/erp/identities/Users'
+import * as leads from '&crm/domains/erp/services/Leads'
+import * as users from '&crm/domains/erp/identities/Users'
 
 import { CreateProposalPage } from '@/pages/CreateProposal'
 

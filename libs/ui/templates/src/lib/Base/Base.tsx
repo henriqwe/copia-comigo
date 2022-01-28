@@ -1,10 +1,7 @@
 import { ReactNode, useState } from 'react'
 
 import * as common from '@comigo/ui-common'
-
-import ChangeCompany from '@/domains/_compartilhado/ChangeCompany'
-import MainNavigation from '@/domains/_compartilhado/MainNavigation'
-import Logout from '@/domains/_compartilhado/Logout'
+import * as blocks from '@comigo/ui-blocks'
 
 type BaseTemplateProps = {
   children: ReactNode
@@ -16,6 +13,15 @@ type BaseTemplateProps = {
   noGrid?: boolean
   currentLocation?: { title: string; url: string }[]
   theme: string
+  mainMenuItens:any 
+  rotas: any
+  companies:{
+    name: string,
+    ram: string,
+    cpus: string,
+    disk: string,
+    active?: boolean
+  }[]
 }
 
 export function Base({
@@ -24,7 +30,10 @@ export function Base({
   reload = { action: () => null, state: false },
   noGrid = false,
   currentLocation = [],
-  theme
+  theme,
+  mainMenuItens,
+  rotas,
+  companies
 }: BaseTemplateProps) {
   const [disabled, setDisabled] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -32,7 +41,7 @@ export function Base({
   const [empresa, setEmpresa] = useState('GoCRM')
   return (
     <div className="flex">
-      <MainNavigation />
+      <blocks.MainNavigation mainMenuItens={mainMenuItens} rotas={rotas}/>
       <div className="content">
         <div className="z-10 top-bar">
           <common.Breadcrumb
@@ -50,17 +59,19 @@ export function Base({
           <div className="grid grid-cols-12 gap-6 mt-5">{children}</div>
         )}
       </div>
-      <ChangeCompany
+      <blocks.ChangeCompany
         empresa={empresa}
         setEmpresa={setEmpresa}
         open={open}
         setOpen={setOpen}
+        companies={companies}
       />
-      <Logout
+      <blocks.Logout
         disabled={disabled}
         open={showModal}
         setDisabled={setDisabled}
         setOpen={setShowModal}
+        rotas={rotas}
       />
     </div>
   )

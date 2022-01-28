@@ -1,8 +1,8 @@
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import FormAndTabs from '@/templates/FormAndTabs'
 
-import * as providers from '@/domains/erp/commercial/Providers'
+import * as providers from '&crm/domains/erp/commercial/Providers'
 
 export default function UpdateProvider() {
   return (

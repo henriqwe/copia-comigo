@@ -1,6 +1,6 @@
-import * as conditionals from '@/domains/erp/commercial/Registration/Conditionals'
+import * as conditionals from '&crm/domains/erp/commercial/Registration/Conditionals'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Conditionals() {

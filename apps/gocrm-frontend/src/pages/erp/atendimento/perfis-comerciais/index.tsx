@@ -1,7 +1,7 @@
-import * as businessProfiles from '@/domains/erp/services/BusinessProfiles'
+import * as businessProfiles from '&crm/domains/erp/services/BusinessProfiles'
 
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 export default function BusinessProfiles() {
   return (

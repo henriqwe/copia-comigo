@@ -1,5 +1,5 @@
 import BaseTemplate from '@/templates/Base'
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 export default function Home() {
   return (

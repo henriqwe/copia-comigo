@@ -1,7 +1,7 @@
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
-import * as clients from '@/domains/erp/identities/Clients'
+import * as clients from '&crm/domains/erp/identities/Clients'
 
 export default function Clients() {
   return (

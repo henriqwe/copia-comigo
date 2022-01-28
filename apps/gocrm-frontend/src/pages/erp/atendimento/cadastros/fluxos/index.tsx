@@ -1,7 +1,7 @@
-import * as flows from '@/domains/erp/services/Registration/Flows'
+import * as flows from '&crm/domains/erp/services/Registration/Flows'
 
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 export default function Flows() {
   return (

@@ -1,11 +1,11 @@
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import FormAndTabs from '@/templates/FormAndTabs'
 
-import * as products from '@/domains/erp/commercial/Products'
-import * as services from '@/domains/erp/commercial/Services'
-import * as combos from '@/domains/erp/commercial/Combos'
-import * as attributes from '@/domains/erp/commercial/Registration/Attributes'
+import * as products from '&crm/domains/erp/commercial/Products'
+import * as services from '&crm/domains/erp/commercial/Services'
+import * as combos from '&crm/domains/erp/commercial/Combos'
+import * as attributes from '&crm/domains/erp/commercial/Registration/Attributes'
 
 export default function UpdateProduct() {
   return (

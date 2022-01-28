@@ -1,8 +1,8 @@
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import Base from '@/templates/Base'
 
-import * as clients from '@/domains/erp/identities/Clients'
+import * as clients from '&crm/domains/erp/identities/Clients'
 
 export default function CreateClient() {
   return (

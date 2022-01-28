@@ -1,8 +1,8 @@
-import * as businessProfiles from '@/domains/erp/services/BusinessProfiles'
-import * as leads from '@/domains/erp/services/Leads'
-import * as questionsGroups from '@/domains/erp/services/Registration/Questions/Groups'
+import * as businessProfiles from '&crm/domains/erp/services/BusinessProfiles'
+import * as leads from '&crm/domains/erp/services/Leads'
+import * as questionsGroups from '&crm/domains/erp/services/Registration/Questions/Groups'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import Base from '@/templates/Base'
 import { GetServerSideProps } from 'next'
 

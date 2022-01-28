@@ -1,6 +1,6 @@
-import * as plans from '@/domains/erp/commercial/Plans'
+import * as plans from '&crm/domains/erp/commercial/Plans'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Plans() {

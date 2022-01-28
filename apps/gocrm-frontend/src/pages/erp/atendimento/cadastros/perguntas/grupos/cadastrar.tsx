@@ -1,7 +1,7 @@
-import * as questionsGroups from '@/domains/erp/services/Registration/Questions/Groups'
-import * as questions from '@/domains/erp/services/Registration/Questions'
+import * as questionsGroups from '&crm/domains/erp/services/Registration/Questions/Groups'
+import * as questions from '&crm/domains/erp/services/Registration/Questions'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import Base from '@/templates/Base'
 

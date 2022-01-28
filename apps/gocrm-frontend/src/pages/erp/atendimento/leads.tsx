@@ -1,7 +1,7 @@
-import * as leads from '@/domains/erp/services/Leads'
-import * as clients from '@/domains/erp/identities/Clients'
+import * as leads from '&crm/domains/erp/services/Leads'
+import * as clients from '&crm/domains/erp/identities/Clients'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Leads() {

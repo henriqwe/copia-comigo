@@ -1,12 +1,12 @@
-import * as proposals from '@/domains/erp/commercial/Proposals'
-import * as services from '@/domains/erp/commercial/Services'
-import * as combos from '@/domains/erp/commercial/Combos'
-import * as plans from '@/domains/erp/commercial/Plans'
-import * as products from '@/domains/erp/commercial/Products'
-import * as vehicles from '@/domains/erp/services/Vehicles'
-import * as clients from '@/domains/erp/identities/Clients'
+import * as proposals from '&crm/domains/erp/commercial/Proposals'
+import * as services from '&crm/domains/erp/commercial/Services'
+import * as combos from '&crm/domains/erp/commercial/Combos'
+import * as plans from '&crm/domains/erp/commercial/Plans'
+import * as products from '&crm/domains/erp/commercial/Products'
+import * as vehicles from '&crm/domains/erp/services/Vehicles'
+import * as clients from '&crm/domains/erp/identities/Clients'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import Base from '@/templates/Base'
 

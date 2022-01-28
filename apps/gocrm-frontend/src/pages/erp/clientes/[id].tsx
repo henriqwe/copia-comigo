@@ -1,9 +1,9 @@
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
-import * as activeVehicles from '@/domains/erp/clients'
-import * as clients from '@/domains/erp/identities/Clients'
-import * as tickets from '@/domains/erp/services/Tickets'
-import * as proposals from '@/domains/erp/commercial/Proposals'
+import * as activeVehicles from '&crm/domains/erp/clients'
+import * as clients from '&crm/domains/erp/identities/Clients'
+import * as tickets from '&crm/domains/erp/services/Tickets'
+import * as proposals from '&crm/domains/erp/commercial/Proposals'
 import BaseTemplate from '@/templates/Base'
 
 export default function UpdateProvider() {

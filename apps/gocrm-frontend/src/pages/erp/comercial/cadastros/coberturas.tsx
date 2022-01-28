@@ -1,6 +1,6 @@
-import * as coverages from '@/domains/erp/commercial/Registration/Coverages'
+import * as coverages from '&crm/domains/erp/commercial/Registration/Coverages'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Conditionals() {

@@ -1,7 +1,7 @@
-import * as questions from '@/domains/erp/services/Registration/Questions'
+import * as questions from '&crm/domains/erp/services/Registration/Questions'
 
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 export default function Perguntas() {
   return (

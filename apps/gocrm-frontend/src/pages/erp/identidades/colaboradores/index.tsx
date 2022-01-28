@@ -1,6 +1,6 @@
-import * as collaborator from '@/domains/erp/identities/Collaborators'
+import * as collaborator from '&crm/domains/erp/identities/Collaborators'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function Collaborator() {

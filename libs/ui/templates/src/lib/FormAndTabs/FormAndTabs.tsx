@@ -1,10 +1,8 @@
 import { ReactNode, useState } from 'react'
 
 import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
 
-import Logout from '@/domains/_compartilhado/Logout'
-import ChangeCompany from '@/domains/_compartilhado/ChangeCompany'
-import MainNavigation from '@/domains/_compartilhado/MainNavigation'
 
 type TemplateProps = {
   children: ReactNode
@@ -16,6 +14,15 @@ type TemplateProps = {
   }
   currentLocation: { title: string; url: string }[]
   theme: string
+  mainMenuItens:any 
+  rotas: any
+  companies:{
+    name: string,
+    ram: string,
+    cpus: string,
+    disk: string,
+    active?: boolean
+  }[]
 }
 
 export function FormAndTabs({
@@ -24,7 +31,10 @@ export function FormAndTabs({
   title,
   reload,
   currentLocation,
-  theme
+  theme, 
+  mainMenuItens,
+  rotas,
+  companies
 }: TemplateProps) {
   const [desativado, setDesativado] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -39,7 +49,7 @@ export function FormAndTabs({
       </div>
 
       <div className="flex">
-        <MainNavigation />
+        <blocks.MainNavigation mainMenuItens={mainMenuItens} rotas={rotas}/>
         <div className="content">
           <div className="z-40 top-bar">
             <common.Breadcrumb
@@ -58,17 +68,19 @@ export function FormAndTabs({
             </div>
           </div>
         </div>
-        <ChangeCompany
+        <blocks.ChangeCompany
           empresa={empresa}
           setEmpresa={setEmpresa}
           open={open}
           setOpen={setOpen}
+          companies={companies}
         />
-        <Logout
+        <blocks.Logout
           disabled={desativado}
           open={showModal}
           setDisabled={setDesativado}
           setOpen={setShowModal}
+          rotas={rotas}
         />
       </div>
     </>

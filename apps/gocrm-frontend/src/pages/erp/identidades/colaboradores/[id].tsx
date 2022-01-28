@@ -1,8 +1,8 @@
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import FormAndTabs from '@/templates/FormAndTabs'
 
-import * as collaborator from '@/domains/erp/identities/Collaborators'
+import * as collaborator from '&crm/domains/erp/identities/Collaborators'
 
 export default function UpdateClient() {
   return (

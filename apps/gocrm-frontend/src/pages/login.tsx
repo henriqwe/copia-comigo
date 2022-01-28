@@ -1,7 +1,7 @@
 import { Auth } from 'aws-amplify'
-import * as buttons from '@/common/Buttons'
-import rotas from '@/domains/routes'
-import Authentication from '@/templates/Authentication'
+import * as common from '@comigo/ui-common'
+import rotas from '&crm/domains/routes'
+import * as template from '@comigo/ui-templates'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 
@@ -30,7 +30,7 @@ export default function Login() {
   }
 
   return (
-    <Authentication
+    <template.Authentication
       leftContent={
         <>
           <img
@@ -91,7 +91,7 @@ export default function Login() {
             <a href="">Esqueceu sua senha?</a>
           </div>
           <div className="mt-5 text-center intro-x xl:mt-8 xl:text-left">
-            <buttons.PrimaryButton
+            <common.buttons.PrimaryButton
               title="Login"
               onClick={handleSignIn}
               className="w-full px-4 py-3 align-top btn btn-primary xl:w-32 xl:mr-3"

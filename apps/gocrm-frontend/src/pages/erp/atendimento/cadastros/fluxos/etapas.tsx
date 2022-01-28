@@ -1,7 +1,7 @@
-import * as flowStages from '@/domains/erp/services/Registration/Flows/Stage'
-import * as flows from '@/domains/erp/services/Registration/Flows'
+import * as flowStages from '&crm/domains/erp/services/Registration/Flows/Stage'
+import * as flows from '&crm/domains/erp/services/Registration/Flows'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
 
 export default function FlowStages() {

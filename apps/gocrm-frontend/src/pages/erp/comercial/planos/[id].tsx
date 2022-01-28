@@ -1,8 +1,8 @@
-import * as conditionals from '@/domains/erp/commercial/Registration/Conditionals'
-import * as services from '@/domains/erp/commercial/Services'
-import * as plans from '@/domains/erp/commercial/Plans'
+import * as conditionals from '&crm/domains/erp/commercial/Registration/Conditionals'
+import * as services from '&crm/domains/erp/commercial/Services'
+import * as plans from '&crm/domains/erp/commercial/Plans'
 
-import rotas from '@/domains/routes'
+import rotas from '&crm/domains/routes'
 
 import Base from '@/templates/Base'
 
