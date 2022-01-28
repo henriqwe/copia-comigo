@@ -1,6 +1,6 @@
 {
-  "root": "libs/components",
-  "sourceRoot": "libs/components/src",
+  "root": "libs/ui/common",
+  "sourceRoot": "libs/ui/common/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,14 +8,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/components/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/ui/common/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/components"],
+      "outputs": ["coverage/libs/ui/common"],
       "options": {
-        "jestConfig": "libs/components/jest.config.js",
+        "jestConfig": "libs/ui/common/jest.config.js",
         "passWithNoTests": true
       }
     },
@@ -25,7 +25,7 @@
         "uiFramework": "@storybook/react",
         "port": 4400,
         "config": {
-          "configFolder": "libs/components/.storybook"
+          "configFolder": "libs/ui/common/.storybook"
         }
       },
       "configurations": {
@@ -41,7 +41,7 @@
         "uiFramework": "@storybook/react",
         "outputPath": "dist/storybook/components",
         "config": {
-          "configFolder": "libs/components/.storybook"
+          "configFolder": "libs/ui/common/.storybook"
         }
       },
       "configurations": {

@@ -19,7 +19,8 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "thinker-app:build",
-        "dev": true
+        "dev": true,
+        "port": 5003
       },
       "configurations": {
         "production": {

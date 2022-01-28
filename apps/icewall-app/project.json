@@ -19,7 +19,8 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "icewall-app:build",
-        "dev": true
+        "dev": true,
+        "port": 5001
       },
       "configurations": {
         "production": {

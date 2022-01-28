@@ -61,7 +61,7 @@
  */
 @import "@left4code/tw-starter/dist/css/_breadcrumb.css";
 /* @import "@left4code/tw-starter/dist/css/_accordion.css"; */
-/* @import "@left4code/tw-starter/dist/css/_alert.css"; */
+ @import "@left4code/tw-starter/dist/css/_alert.css";
 @import "@left4code/tw-starter/dist/css/_btn.css";
 @import "@left4code/tw-starter/dist/css/_dropdown.css";
 /* @import "@left4code/tw-starter/dist/css/_file.css"; */

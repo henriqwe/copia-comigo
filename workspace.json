@@ -1,7 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "components": "libs/components",
     "gocrm-api-hasura": "apps/gocrm-api-hasura",
     "gocrm-frontend": "apps/gocrm-frontend",
     "goerp-api-hasura": "apps/goerp-api-hasura",
@@ -10,6 +9,7 @@
     "goportfolio-api-hasura": "apps/goportfolio-api-hasura",
     "icewall-app": "apps/icewall-app",
     "rubick-app": "apps/rubick-app",
-    "thinker-app": "apps/thinker-app"
+    "thinker-app": "apps/thinker-app",
+    "ui-common": "libs/ui/common"
   }
 }

@@ -19,7 +19,8 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "rubick-app:build",
-        "dev": true
+        "dev": true,
+        "port": 5002
       },
       "configurations": {
         "production": {

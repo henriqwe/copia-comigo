@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@comigo/components": ["libs/components/src/index.ts"]
+      "@comigo/ui-common": ["libs/ui/common/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
