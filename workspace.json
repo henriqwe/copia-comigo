@@ -11,6 +11,8 @@
     "icewall-app": "apps/icewall-app",
     "rubick-app": "apps/rubick-app",
     "thinker-app": "apps/thinker-app",
-    "ui-common": "libs/ui/common"
+    "ui-blocks": "libs/ui/blocks",
+    "ui-common": "libs/ui/common",
+    "ui-templates": "libs/ui/templates"
   }
 }
