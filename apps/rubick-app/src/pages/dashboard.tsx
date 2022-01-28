@@ -1,554 +1,556 @@
+import styles from './dashboard.module.css';
+
 export function Index() {
   return (
       <div className="flex">
-        <nav className="side-nav">
+        <nav className={styles['side-nav']}>
           <a href="" className="flex items-center pt-4 pl-5 intro-x">
             <img alt="Rubick Tailwind HTML Admin Template" className="w-6" src="/dist/images/logo.svg" />
               <span className="hidden ml-3 text-lg text-white xl:block"> Ru<span
                 className="font-medium">bick</span> </span>
           </a>
-          <div className="my-6 side-nav__devider"/>
+          <div className={ 'my-6 ' + styles['side-nav__devider']}/>
           <ul>
             <li>
-              <a href="/teste" className="side-menu side-menu--active">
-                <div className="side-menu__icon"><i data-feather="home"/></div>
-                <div className="side-menu__title">
+              <a href="/teste" className={styles['side-menu'] + ' ' + styles['side-active']}>
+                <div className={styles['side-menu__icon']}><i data-feather="home"/></div>
+                <div className={styles['side-menu__title']}>
                   Dashboard
-                  <div className="transform rotate-180 side-menu__sub-icon"><i data-feather="chevron-down"/></div>
+                  <div className={`transform rotate-180 ${styles['side-menu__sub-icon']}`}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
-              <ul className="side-menu__sub-open">
+              <ul className={styles['side-menu__sub-open']}>
                 <li>
-                  <a href="index.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Overview 1</div>
+                  <a href="index.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Overview 1</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-dashboard-overview-2.html" className="side-menu side-menu--active">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Overview 2</div>
+                  <a href="side-menu-light-dashboard-overview-2.html" className={styles['side-menu'] + ' ' + styles['side-active']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Overview 2</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-dashboard-overview-3.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Overview 3</div>
+                  <a href="side-menu-light-dashboard-overview-3.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Overview 3</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="box"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="box"/></div>
+                <div className={styles['side-menu__title']}>
                   Menu Layout
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="index.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Side Menu</div>
+                  <a href="index.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Side Menu</div>
                   </a>
                 </li>
                 <li>
-                  <a href="simple-menu-light-dashboard-overview-1.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Simple Menu</div>
+                  <a href="simple-menu-light-dashboard-overview-1.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Simple Menu</div>
                   </a>
                 </li>
                 <li>
-                  <a href="top-menu-light-dashboard-overview-1.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Top Menu</div>
+                  <a href="top-menu-light-dashboard-overview-1.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Top Menu</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="side-menu-light-inbox.html" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="inbox"/></div>
-                <div className="side-menu__title"> Inbox</div>
+              <a href="side-menu-light-inbox.html" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="inbox"/></div>
+                <div className={styles['side-menu__title']}> Inbox</div>
               </a>
             </li>
             <li>
-              <a href="side-menu-light-file-manager.html" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="hard-drive"/></div>
-                <div className="side-menu__title"> File Manager</div>
+              <a href="side-menu-light-file-manager.html" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="hard-drive"/></div>
+                <div className={styles['side-menu__title']}> File Manager</div>
               </a>
             </li>
             <li>
-              <a href="side-menu-light-point-of-sale.html" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="credit-card"/></div>
-                <div className="side-menu__title"> Point of Sale</div>
+              <a href="side-menu-light-point-of-sale.html" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="credit-card"/></div>
+                <div className={styles['side-menu__title']}> Point of Sale</div>
               </a>
             </li>
             <li>
-              <a href="side-menu-light-chat.html" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="message-square"/></div>
-                <div className="side-menu__title"> Chat</div>
+              <a href="side-menu-light-chat.html" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="message-square"/></div>
+                <div className={styles['side-menu__title']}> Chat</div>
               </a>
             </li>
             <li>
-              <a href="side-menu-light-post.html" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="file-text"/></div>
-                <div className="side-menu__title"> Post</div>
+              <a href="side-menu-light-post.html" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="file-text"/></div>
+                <div className={styles['side-menu__title']}> Post</div>
               </a>
             </li>
             <li>
-              <a href="side-menu-light-calendar.html" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="calendar"/></div>
-                <div className="side-menu__title"> Calendar</div>
+              <a href="side-menu-light-calendar.html" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="calendar"/></div>
+                <div className={styles['side-menu__title']}> Calendar</div>
               </a>
             </li>
             <li className="my-6 side-nav__devider"/>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="edit"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="edit"/></div>
+                <div className={styles['side-menu__title']}>
                   Crud
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="side-menu-light-crud-data-list.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Data List</div>
+                  <a href="side-menu-light-crud-data-list.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Data List</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-crud-form.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Form</div>
+                  <a href="side-menu-light-crud-form.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Form</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="users"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="users"/></div>
+                <div className={styles['side-menu__title']}>
                   Users
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="side-menu-light-users-layout-1.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Layout 1</div>
+                  <a href="side-menu-light-users-layout-1.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Layout 1</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-users-layout-2.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Layout 2</div>
+                  <a href="side-menu-light-users-layout-2.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Layout 2</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-users-layout-3.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Layout 3</div>
+                  <a href="side-menu-light-users-layout-3.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Layout 3</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="trello"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="trello"/></div>
+                <div className={styles['side-menu__title']}>
                   Profile
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="side-menu-light-profile-overview-1.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Overview 1</div>
+                  <a href="side-menu-light-profile-overview-1.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Overview 1</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-profile-overview-2.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Overview 2</div>
+                  <a href="side-menu-light-profile-overview-2.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Overview 2</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-profile-overview-3.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Overview 3</div>
+                  <a href="side-menu-light-profile-overview-3.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Overview 3</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="layout"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="layout"/></div>
+                <div className={styles['side-menu__title']}>
                   Pages
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="javascript:;" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title">
+                  <a href="javascript:;" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}>
                       Wizards
-                      <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                      <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                     </div>
                   </a>
                   <ul className="">
                     <li>
-                      <a href="side-menu-light-wizard-layout-1.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 1</div>
+                      <a href="side-menu-light-wizard-layout-1.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 1</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-wizard-layout-2.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 2</div>
+                      <a href="side-menu-light-wizard-layout-2.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 2</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-wizard-layout-3.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 3</div>
+                      <a href="side-menu-light-wizard-layout-3.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 3</div>
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:;" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title">
+                  <a href="javascript:;" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}>
                       Blog
-                      <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                      <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                     </div>
                   </a>
                   <ul className="">
                     <li>
-                      <a href="side-menu-light-blog-layout-1.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 1</div>
+                      <a href="side-menu-light-blog-layout-1.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 1</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-blog-layout-2.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 2</div>
+                      <a href="side-menu-light-blog-layout-2.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 2</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-blog-layout-3.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 3</div>
+                      <a href="side-menu-light-blog-layout-3.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 3</div>
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:;" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title">
+                  <a href="javascript:;" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}>
                       Pricing
-                      <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                      <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                     </div>
                   </a>
                   <ul className="">
                     <li>
-                      <a href="side-menu-light-pricing-layout-1.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 1</div>
+                      <a href="side-menu-light-pricing-layout-1.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 1</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-pricing-layout-2.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 2</div>
+                      <a href="side-menu-light-pricing-layout-2.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 2</div>
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:;" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title">
+                  <a href="javascript:;" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}>
                       Invoice
-                      <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                      <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                     </div>
                   </a>
                   <ul className="">
                     <li>
-                      <a href="side-menu-light-invoice-layout-1.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 1</div>
+                      <a href="side-menu-light-invoice-layout-1.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 1</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-invoice-layout-2.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 2</div>
+                      <a href="side-menu-light-invoice-layout-2.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 2</div>
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:;" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title">
+                  <a href="javascript:;" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}>
                       FAQ
-                      <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                      <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                     </div>
                   </a>
                   <ul className="">
                     <li>
-                      <a href="side-menu-light-faq-layout-1.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 1</div>
+                      <a href="side-menu-light-faq-layout-1.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 1</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-faq-layout-2.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 2</div>
+                      <a href="side-menu-light-faq-layout-2.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 2</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-faq-layout-3.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Layout 3</div>
+                      <a href="side-menu-light-faq-layout-3.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Layout 3</div>
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="login-light-login.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Login</div>
+                  <a href="login-light-login.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Login</div>
                   </a>
                 </li>
                 <li>
-                  <a href="login-light-register.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Register</div>
+                  <a href="login-light-register.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Register</div>
                   </a>
                 </li>
                 <li>
-                  <a href="main-light-error-page.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Error Page</div>
+                  <a href="main-light-error-page.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Error Page</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-update-profile.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Update profile</div>
+                  <a href="side-menu-light-update-profile.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Update profile</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-change-password.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Change Password</div>
+                  <a href="side-menu-light-change-password.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Change Password</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li className="my-6 side-nav__devider"/>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="inbox"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="inbox"/></div>
+                <div className={styles['side-menu__title']}>
                   Components
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="javascript:;" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title">
+                  <a href="javascript:;" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}>
                       Table
-                      <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                      <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                     </div>
                   </a>
                   <ul className="">
                     <li>
-                      <a href="side-menu-light-regular-table.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Regular Table</div>
+                      <a href="side-menu-light-regular-table.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Regular Table</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-tabulator.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Tabulator</div>
+                      <a href="side-menu-light-tabulator.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Tabulator</div>
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="javascript:;" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title">
+                  <a href="javascript:;" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}>
                       Overlay
-                      <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                      <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                     </div>
                   </a>
                   <ul className="">
                     <li>
-                      <a href="side-menu-light-modal.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Modal</div>
+                      <a href="side-menu-light-modal.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Modal</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-slide-over.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Slide Over</div>
+                      <a href="side-menu-light-slide-over.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Slide Over</div>
                       </a>
                     </li>
                     <li>
-                      <a href="side-menu-light-notification.html" className="side-menu">
-                        <div className="side-menu__icon"><i data-feather="zap"/></div>
-                        <div className="side-menu__title">Notification</div>
+                      <a href="side-menu-light-notification.html" className={styles['side-menu']}>
+                        <div className={styles['side-menu__icon']}><i data-feather="zap"/></div>
+                        <div className={styles['side-menu__title']}>Notification</div>
                       </a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="side-menu-light-accordion.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Accordion</div>
+                  <a href="side-menu-light-accordion.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Accordion</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-button.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Button</div>
+                  <a href="side-menu-light-button.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Button</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-alert.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Alert</div>
+                  <a href="side-menu-light-alert.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Alert</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-progress-bar.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Progress Bar</div>
+                  <a href="side-menu-light-progress-bar.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Progress Bar</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-tooltip.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Tooltip</div>
+                  <a href="side-menu-light-tooltip.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Tooltip</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-dropdown.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Dropdown</div>
+                  <a href="side-menu-light-dropdown.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Dropdown</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-typography.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Typography</div>
+                  <a href="side-menu-light-typography.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Typography</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-icon.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Icon</div>
+                  <a href="side-menu-light-icon.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Icon</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-loading-icon.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Loading Icon</div>
+                  <a href="side-menu-light-loading-icon.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Loading Icon</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="sidebar"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="sidebar"/></div>
+                <div className={styles['side-menu__title']}>
                   Forms
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="side-menu-light-regular-form.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Regular Form</div>
+                  <a href="side-menu-light-regular-form.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Regular Form</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-datepicker.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Datepicker</div>
+                  <a href="side-menu-light-datepicker.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Datepicker</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-tom-select.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Tom Select</div>
+                  <a href="side-menu-light-tom-select.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Tom Select</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-file-upload.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> File Upload</div>
+                  <a href="side-menu-light-file-upload.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> File Upload</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-wysiwyg-editor.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Wysiwyg Editor</div>
+                  <a href="side-menu-light-wysiwyg-editor.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Wysiwyg Editor</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-validation.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Validation</div>
+                  <a href="side-menu-light-validation.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Validation</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:;" className="side-menu">
-                <div className="side-menu__icon"><i data-feather="hard-drive"/></div>
-                <div className="side-menu__title">
+              <a href="javascript:;" className={styles['side-menu']}>
+                <div className={styles['side-menu__icon']}><i data-feather="hard-drive"/></div>
+                <div className={styles['side-menu__title']}>
                   Widgets
-                  <div className="side-menu__sub-icon "><i data-feather="chevron-down"/></div>
+                  <div className={styles['side-menu__sub-icon']}><i data-feather="chevron-down"/></div>
                 </div>
               </a>
               <ul className="">
                 <li>
-                  <a href="side-menu-light-chart.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Chart</div>
+                  <a href="side-menu-light-chart.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Chart</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-slider.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Slider</div>
+                  <a href="side-menu-light-slider.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Slider</div>
                   </a>
                 </li>
                 <li>
-                  <a href="side-menu-light-image-zoom.html" className="side-menu">
-                    <div className="side-menu__icon"><i data-feather="activity"/></div>
-                    <div className="side-menu__title"> Image Zoom</div>
+                  <a href="side-menu-light-image-zoom.html" className={styles['side-menu']}>
+                    <div className={styles['side-menu__icon']}><i data-feather="activity"/></div>
+                    <div className={styles['side-menu__title']}> Image Zoom</div>
                   </a>
                 </li>
               </ul>
@@ -684,7 +686,7 @@ export function Index() {
               <div className="pt-2 notification-content dropdown-menu">
                 <div className="notification-content__box dropdown-menu__content box dark:bg-dark-6">
                   <div className="notification-content__title">Notifications</div>
-                  <div className="relative flex items-center cursor-pointer ">
+                  <div className="relative flex items-center cursor-pointer">
                     <div className="flex-none w-12 h-12 mr-1 image-fit">
                       <img alt="Rubick Tailwind HTML Admin Template" className="rounded-full"
                            src="/dist/images/profile-10.jpg"/>
