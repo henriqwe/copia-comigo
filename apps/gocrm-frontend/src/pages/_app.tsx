@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 import '@lourenci/react-kanban/dist/styles.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import 'styles/app.scss'
+import 'styles/app.css'
 
 import { useApollo } from 'utils/apollo'
 import NextNprogress from 'nextjs-progressbar'
