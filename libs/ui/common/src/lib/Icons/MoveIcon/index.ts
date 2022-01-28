@@ -1,0 +1,1 @@
+export * as MoveIcon from './MoveIcon'

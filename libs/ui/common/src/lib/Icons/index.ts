@@ -1,39 +1,18 @@
-import AddIcon from './AddIcon'
-import AuthorizationIcon from './AuthorizationIcon'
-import BlockIcon from './BlockIcon'
-import MoveIcon from './MoveIcon'
-import PrinterIcon from './PrinterIcon'
-import CloseIcon from './CloseIcon'
-import CheckIcon from './CheckIcon'
-import ConfigIcon from './ConfigIcon'
-import ReturnIcon from './ReturnIcon'
-import EditIcon from './EditIcon'
-import DeleteIcon from './DeleteIcon'
-import ReloadIcon from './ReloadIcon'
-import DownArrowIcon from './DownArrowIcon'
-import ViewIcon from './ViewIcon'
-import RemoveSelectItemIcon from './RemoveSelectItemIcon'
-import BurguerIcon from './BurguerIcon'
-import DollarIcon from './DollarIcon'
-import UserIcon from './UserIcon'
-
-export {
-  AuthorizationIcon,
-  AddIcon,
-  BlockIcon,
-  MoveIcon,
-  PrinterIcon,
-  CheckIcon,
-  ConfigIcon,
-  ReturnIcon,
-  EditIcon,
-  DeleteIcon,
-  ReloadIcon,
-  DownArrowIcon,
-  ViewIcon,
-  RemoveSelectItemIcon,
-  BurguerIcon,
-  DollarIcon,
-  CloseIcon,
-  UserIcon
-}
+export * as AddIcon from './AddIcon'
+export * as AuthorizationIcon from './AuthorizationIcon'
+export * as BlockIcon from './BlockIcon'
+export * as MoveIcon from './MoveIcon'
+export * as PrinterIcon from './PrinterIcon'
+export * as CloseIcon from './CloseIcon'
+export * as CheckIcon from './CheckIcon'
+export * as ConfigIcon from './ConfigIcon'
+export * as ReturnIcon from './ReturnIcon'
+export * as EditIcon from './EditIcon'
+export * as DeleteIcon from './DeleteIcon'
+export * as ReloadIcon from './ReloadIcon'
+export * as DownArrowIcon from './DownArrowIcon'
+export * as ViewIcon from './ViewIcon'
+export * as RemoveSelectItemIcon from './RemoveSelectItemIcon'
+export * as BurguerIcon from './BurguerIcon'
+export * as DollarIcon from './DollarIcon'
+export * as UserIcon from './UserIcon'

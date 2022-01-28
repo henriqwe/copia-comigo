@@ -1,0 +1,1 @@
+export * as CloseIcon from './CloseIcon'

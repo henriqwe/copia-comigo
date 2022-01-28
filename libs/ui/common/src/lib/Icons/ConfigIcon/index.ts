@@ -1,0 +1,1 @@
+export * as ConfigIcon from './ConfigIcon'

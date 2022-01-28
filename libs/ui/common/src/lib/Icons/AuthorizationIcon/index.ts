@@ -1,0 +1,1 @@
+export * as AuthorizationIcon from './AuthorizationIcon'

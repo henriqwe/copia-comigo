@@ -1,25 +1,11 @@
-import Input from './Input'
-import ZipCodeInput from './ZipCodeInput'
-import CNPJInput from './CNPJInput'
-import CPFInput from './CPFInput'
-import BRPhoneInput from './BRPhoneInput'
-import FormLine from './FormLine'
-import LicensePlateInput from './LicensePlateInput'
-import Select from './Select'
-import SelectWithGroup from './SelectWithGroup'
-import MultiSelect from './MultiSelect'
-import Switch from './Switch'
-
-export {
-  Input,
-  ZipCodeInput,
-  CNPJInput,
-  CPFInput,
-  BRPhoneInput,
-  FormLine,
-  LicensePlateInput,
-  Select,
-  SelectWithGroup,
-  MultiSelect,
-  Switch
-}
+export * as Input from './Input'
+export * as ZipCodeInput from './ZipCodeInput'
+export * as CNPJInput from './CNPJInput'
+export * as CPFInput from './CPFInput'
+export * as BRPhoneInput from './BRPhoneInput'
+export * as FormLine from './FormLine'
+export * as LicensePlateInput from './LicensePlateInput'
+export * as Select from './Select'
+export * as SelectWithGroup from './SelectWithGroup'
+export * as MultiSelect from './MultiSelect'
+export * as Switch from './Switch'

@@ -1,0 +1,1 @@
+export * as BurguerIcon from './BurguerIcon'

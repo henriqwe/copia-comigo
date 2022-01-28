@@ -1,0 +1,1 @@
+export * as ConfigMessage from './ConfigMessage'

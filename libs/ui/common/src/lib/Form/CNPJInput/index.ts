@@ -1,0 +1,1 @@
+export * as CNPJInput from './CNPJInput'

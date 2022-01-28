@@ -1,0 +1,1 @@
+export * as GenericTitle from './GenericTitle'

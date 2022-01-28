@@ -1,0 +1,1 @@
+export * as RemoveSelectItemIcon from './RemoveSelectItemIcon'

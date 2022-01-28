@@ -1,0 +1,1 @@
+export * as DeleteIcon from './DeleteIcon'
