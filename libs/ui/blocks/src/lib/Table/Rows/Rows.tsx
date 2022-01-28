@@ -1,4 +1,4 @@
-import * as table from '@/blocks/Table/itens'
+import * as blocks from '@comigo/ui-blocks'
 
 type RowsType = {
   lines: any[]
@@ -15,7 +15,7 @@ export default function Rows({ lines, columns, actions }: RowsType) {
   return (
     <>
       {lines.map((item, index) => (
-        <table.Row
+        <blocks.Table.Row
           columns={columns}
           item={item}
           actions={actions}

@@ -1,20 +1,20 @@
-import Table from './'
+import {Table} from './'
 
-import EmptyLine from './EmptyLine'
+import {EmptyLine} from './EmptyLine'
 
-import Rows from './Rows'
-import Row from './Row'
-import ActionsRow from './ActionsRow'
-import TableSkeleton from './Skeleton'
+import {Rows} from './Rows'
+import {Row} from './Row'
+import {ActionsRow} from './ActionsRow'
+import {TableSkeleton} from './TableSkeleton'
 
-import ColumnTitle from './ColumnTitle'
-import Search from './Search'
+import {ColumnTitle} from './ColumnTitle'
+import {Search} from './Search'
 
-import Field from './Columns/Field'
-import FieldWithTitleAndSubtitle from './Columns/FieldWithTitleAndSubtitle'
-import StatusField from './Columns/StatusField'
+import {Field} from './Columns/Field'
+import {FieldWithTitleAndSubtitle} from './Columns/FieldWithTitleAndSubtitle'
+import {StatusField} from './Columns/StatusField'
 
-import Pagination from './Pagination'
+import {Pagination} from './Pagination'
 
 export {
   Table,

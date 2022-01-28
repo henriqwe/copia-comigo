@@ -1,1 +1,1 @@
-export * as Skeleton from './Skeleton'
+export {TableSkeleton} from './Skeleton'

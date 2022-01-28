@@ -1,4 +1,4 @@
-export default function Field({
+export function Field({
   value,
   position = 'right'
 }: {

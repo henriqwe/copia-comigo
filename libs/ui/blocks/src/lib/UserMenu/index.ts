@@ -1,1 +1,1 @@
-export * as UserMenu from './UserMenu'
+export {UserMenu} from './UserMenu'

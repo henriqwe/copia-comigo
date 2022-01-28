@@ -1,4 +1,4 @@
-import * as table from '@/blocks/Table/itens'
+import * as blocks from '@comigo/ui-blocks'
 import { ptBRtimeStamp } from 'utils/formaters'
 
 type RowProps = {
@@ -13,13 +13,13 @@ type RowProps = {
   item: any
 }
 
-export default function Row({ columns, item, actions }: RowProps) {
+export function Row({ columns, item, actions }: RowProps) {
   return (
     <tr className="intro-x" data-testid="linha">
       {columns.map((coluna, index) => {
         if (coluna.type === 'date') {
           return (
-            <table.Field
+            <blocks.Table.Field
               key={`table-cell-${index}`}
               value={ptBRtimeStamp(item[coluna.fieldName])}
             />
@@ -27,7 +27,7 @@ export default function Row({ columns, item, actions }: RowProps) {
         }
         if (coluna.type === 'relationship') {
           return (
-            <table.Field
+            <blocks.Table.Field
               key={`table-cell-${index}`}
               value={item[coluna.relationshipName as string][coluna.fieldName]}
             />
@@ -35,7 +35,7 @@ export default function Row({ columns, item, actions }: RowProps) {
         }
         if (coluna.type === 'handler' && coluna.handler) {
           return (
-            <table.Field
+            <blocks.Table.Field
               key={`table-cell-${index}`}
               value={coluna.handler(item[coluna.fieldName as string])}
             />
@@ -43,7 +43,7 @@ export default function Row({ columns, item, actions }: RowProps) {
         }
         if (coluna.type === undefined) {
           return (
-            <table.Field
+            <blocks.Table.Field
               key={`table-cell-${index}`}
               value={item[coluna.fieldName]}
             />

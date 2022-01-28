@@ -2,7 +2,7 @@ type EmptyLineProps = {
   itensLength: number
 }
 
-export default function EmptyLine({ itensLength }: EmptyLineProps) {
+export function EmptyLine({ itensLength }: EmptyLineProps) {
   return (
     <tr className="intro-x">
       <td colSpan={itensLength} className="text-center">

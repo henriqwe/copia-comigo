@@ -1,20 +1,20 @@
 import { Menu, Transition } from '@headlessui/react'
 import { LogoutIcon, UserIcon } from '@heroicons/react/outline'
 import { Dispatch, Fragment, SetStateAction } from 'react'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 
 type UserMenuProps = {
   setShowModal: Dispatch<SetStateAction<boolean>>
 }
 
-export default function UserMenu({ setShowModal }: UserMenuProps) {
+export function UserMenu({ setShowModal }: UserMenuProps) {
   return (
     <div className="pt-1 pl-4">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex items-center justify-center w-full border-b border-gray-200 lg:flex-row dark:border-dark-5">
             <div className="w-8 h-8 image-fit">
-              <icons.UserIcon />
+              <common.Icons.UserIcon />
             </div>
           </Menu.Button>
         </div>

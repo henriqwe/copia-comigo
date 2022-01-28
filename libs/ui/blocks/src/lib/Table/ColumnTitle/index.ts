@@ -1,1 +1,1 @@
-export * as ColumnTitle from './ColumnTitle'
+export {ColumnTitle} from './ColumnTitle'

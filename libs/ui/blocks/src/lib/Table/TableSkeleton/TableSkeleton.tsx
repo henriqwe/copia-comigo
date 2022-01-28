@@ -1,6 +1,6 @@
 import Skeleton from 'react-loading-skeleton'
 
-export default function TableSkeleton() {
+export function TableSkeleton() {
   return (
     <div className="mt-4">
       <div className="flex justify-end w-full gap-4 mb-2">

@@ -1,1 +1,1 @@
-export * as MenuActions from './MenuActions'
+export {MenuActions} from './MenuActions'

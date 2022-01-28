@@ -1,1 +1,1 @@
-export * as any from './EmptyLine'
+export {EmptyLine} from './EmptyLine'

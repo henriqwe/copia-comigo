@@ -1,1 +1,1 @@
-export * as Table from './Table'
+export {Table} from './Table'

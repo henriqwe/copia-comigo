@@ -1,5 +1,4 @@
-import * as common from '@/common'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 import { Dispatch, ReactChild, ReactNode, SetStateAction } from 'react'
 
 type SubMenuItemType = {
@@ -12,7 +11,7 @@ type SubMenuItemType = {
   setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export default function SubItemDoMenu({
+export function MenuItemLevel2({
   title,
   url,
   icon,
@@ -38,7 +37,7 @@ export default function SubItemDoMenu({
               {title}
               {children && (
                 <div className="transform side-menu__sub-icon">
-                  <icons.DownArrowIcon
+                  <common.icons.DownArrowIcon
                     className={`w-4 h-4 mx-4 transition ${
                       open && 'rotate-180'
                     }`}

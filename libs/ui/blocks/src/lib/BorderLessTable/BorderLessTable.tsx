@@ -27,7 +27,7 @@ type TableListType = {
   actions?: (item: any) => any
 }
 
-const Table = ({
+export const Table = ({
   colection = [],
   columnTitles = [],
   search,
@@ -80,5 +80,3 @@ const Table = ({
     </>
   )
 }
-
-export default Table

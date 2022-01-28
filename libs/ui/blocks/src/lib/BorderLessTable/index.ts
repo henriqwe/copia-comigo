@@ -1,1 +1,1 @@
-export * as BorderLessTable from './BorderLessTable'
+export {BorderLessTable} from './BorderLessTable'

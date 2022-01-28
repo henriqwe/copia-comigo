@@ -3,7 +3,7 @@ type ColumnTitleProps = {
   disableActions: boolean
 }
 
-export default function ColumnTitle({
+export function ColumnTitle({
   columns = [],
   disableActions
 }: ColumnTitleProps) {

@@ -1,7 +1,5 @@
 import { Dispatch, SetStateAction, useState } from 'react'
-import * as form from '@/common/Form'
-import * as buttons from '@/common/Buttons'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 import { useForm } from 'react-hook-form'
 
 type SearchProps = {
@@ -20,14 +18,14 @@ type SearchProps = {
   sideBar?: boolean
 }
 
-export default function Search({ search, pagination, sideBar }: SearchProps) {
+export function Search({ search, pagination, sideBar }: SearchProps) {
   const { register, watch, setValue } = useForm()
   const [showRemoveButton, setShowRemoveButton] = useState(false)
 
   return (
     <div className={'flex items-start justify-end gap-4 pt-4'}>
       <div className={`flex-1 mb-2 ${sideBar ? '' : 'max-w-1/2'}`}>
-        <form.Input
+        <common.form.Input
           fieldName="searchValue"
           title={`Digite o ${search?.field.map((item) => ' ' + item)} desejado`}
           register={register}
@@ -35,8 +33,8 @@ export default function Search({ search, pagination, sideBar }: SearchProps) {
       </div>
       <div className="flex justify-between gap-4">
         {showRemoveButton && (
-          <buttons.CancelButton
-            icon={<icons.CloseIcon />}
+          <common.buttons.CancelButton
+            icon={<common.icons.CloseIcon />}
             title=""
             onClick={() => {
               setValue('searchValue', undefined)
@@ -53,7 +51,7 @@ export default function Search({ search, pagination, sideBar }: SearchProps) {
             className={`h-10 my-0`}
           />
         )}
-        <buttons.SecondaryButton
+        <common.buttons.SecondaryButton
           handler={() => {
             pagination?.setFilters((old) => {
               return {
@@ -68,7 +66,7 @@ export default function Search({ search, pagination, sideBar }: SearchProps) {
           disabled={
             watch('searchValue') === undefined || watch('searchValue') === ''
           }
-          title={<icons.ViewIcon />}
+          title={<common.icons.ViewIcon />}
           buttonClassName="h-10"
         />
       </div>
