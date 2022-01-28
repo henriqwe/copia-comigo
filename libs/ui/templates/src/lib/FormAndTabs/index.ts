@@ -1,1 +1,1 @@
-export * as FormAndTabs from './FormAndTabs'
+export { FormAndTabs } from './FormAndTabs'

@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react'
 
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 
 import ChangeCompany from '@/domains/_compartilhado/ChangeCompany'
 import MainNavigation from '@/domains/_compartilhado/MainNavigation'
@@ -15,14 +15,16 @@ type BaseTemplateProps = {
   }
   noGrid?: boolean
   currentLocation?: { title: string; url: string }[]
+  theme: string
 }
 
-export default function Base({
+export function Base({
   children,
   title = 'Dashboard',
   reload = { action: () => null, state: false },
   noGrid = false,
-  currentLocation = []
+  currentLocation = [],
+  theme
 }: BaseTemplateProps) {
   const [disabled, setDisabled] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -39,10 +41,11 @@ export default function Base({
             currentLocation={currentLocation}
             setOpen={setOpen}
             setShowModal={setShowModal}
+            theme={theme}
           />
         </div>
         {noGrid ? (
-          <>{children}</>
+          <div>{children}</div>
         ) : (
           <div className="grid grid-cols-12 gap-6 mt-5">{children}</div>
         )}
