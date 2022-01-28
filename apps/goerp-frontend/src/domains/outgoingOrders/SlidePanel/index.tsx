@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as outgoingOrders from '&erp/domains/outgoingOrders'
 
-export default function SlidePanel() {
+export function SlidePanel() {
   const { setSlidePanelState, slidePanelState } = outgoingOrders.useUpdate()
 
   let title = 'Autorizar pedido de saída'

@@ -1,23 +1,11 @@
-import List from './ListOperators'
-import RowActions from './ListOperators/rowActions'
-import Create from './SlidePanel/CreateOperator'
-import Update from './SlidePanel/UpdateOperator'
-import SlidePanel from './SlidePanel'
-import InternalNavigation from './InternalNavigation'
-import {
+export { List } from './ListOperators'
+export { RowActions } from './ListOperators/rowActions'
+export { Create } from './SlidePanel/CreateOperator'
+export { Update } from './SlidePanel/UpdateOperator'
+export { SlidePanel } from './SlidePanel'
+export { InternalNavigation } from './InternalNavigation'
+export {
   OperatorContext,
   OperatorProvider,
   useOperator
 } from './OperatorContext'
-
-export {
-  List,
-  RowActions,
-  Create,
-  SlidePanel,
-  Update,
-  InternalNavigation,
-  OperatorContext,
-  OperatorProvider,
-  useOperator
-}

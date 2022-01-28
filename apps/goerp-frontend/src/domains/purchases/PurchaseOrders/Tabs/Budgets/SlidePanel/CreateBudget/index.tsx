@@ -6,11 +6,10 @@ import * as common from '@comigo/ui-common'
 
 
 import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
-import { notification } from 'utils/notification'
 import { BRLMoneyUnformat, BRLMoneyInputFormat } from '@comigo/utils'
-import { showError } from 'utils/showError'
+import * as utils from '@comigo/utils'
 
-export default function CreateBudget() {
+export function Create() {
   const {
     setSlidePanelState,
     createBudget,

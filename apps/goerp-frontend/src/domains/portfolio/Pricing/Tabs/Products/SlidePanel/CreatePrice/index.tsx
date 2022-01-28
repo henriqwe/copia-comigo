@@ -21,7 +21,7 @@ type ProductProvider = {
   Precos: { Id: string; Valor: string }[]
 }
 
-export default function CreateProductPrice() {
+export function Price() {
   const [productProvider, setProductProvider] = useState<ProductProvider>()
   const [prices, setPrices] = useState<
     {

@@ -15,7 +15,7 @@ type ProductProvider = {
   Precos: { Id: string; Valor: string }[]
 }
 
-export default function CreateItemLink() {
+export function ItemLink() {
   const [productProvider, setProductProvider] = useState<ProductProvider>()
   const [itensArray, setItensArray] = useState<
     {

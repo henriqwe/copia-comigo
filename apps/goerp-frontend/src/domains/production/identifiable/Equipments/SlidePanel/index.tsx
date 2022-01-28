@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as equipments from '&erp/domains/production/identifiable/Equipments'
 
-export default function SlideLateral() {
+export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = equipments.useEquipment()
   return (
     <blocks.Modal

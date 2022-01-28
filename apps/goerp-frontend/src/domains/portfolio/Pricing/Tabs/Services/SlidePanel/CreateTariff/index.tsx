@@ -22,7 +22,7 @@ type ServiceProvider = {
   }[]
 }
 
-export default function CreateServiceTariff() {
+export  function Tariff() {
   const [serviceProvider, setServiceProvider] = useState<ServiceProvider>()
   const {
     createServiceTariffLoading,

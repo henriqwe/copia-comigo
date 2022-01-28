@@ -4,7 +4,7 @@ import * as common from '@comigo/ui-common'
 import * as chips from '&erp/domains/production/identifiable/Chips'
 import * as utils from '@comigo/utils'
 
-export default function rowActions({
+export function RowActions({
   item
 }: {
   item: GraphQLTypes['producao_Chips']

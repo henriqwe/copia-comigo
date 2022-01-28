@@ -4,7 +4,7 @@ import * as blocks from '@comigo/ui-blocks'
 import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
 import { BRLMoneyFormat } from '@comigo/utils'
 
-export default function List() {
+export function List() {
   const { budgetsData, setSlidePanelState, providersData } =
     purchaseOrders.budgets.useBudget()
   const { purchaseOrderData } = purchaseOrders.useUpdate()

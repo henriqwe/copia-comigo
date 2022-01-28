@@ -10,7 +10,7 @@ import { GraphQLTypes } from '&erp/graphql/generated/zeus'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as utils from '@comigo/utils'
 
-export default function UpdateIdentifier() {
+export function Update() {
   const {
     updateIdentifierLoading,
     updateIdentifier,

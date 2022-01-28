@@ -6,7 +6,7 @@ import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
 import * as common from '@comigo/ui-common'
 import * as utils from '@comigo/utils'
 
-export default function RowActions({
+export function RowActions({
   item
 }: {
   item: GraphQLTypes['pedidosDeCompra_Orcamentos']

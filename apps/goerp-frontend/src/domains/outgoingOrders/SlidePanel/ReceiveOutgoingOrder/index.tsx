@@ -6,7 +6,7 @@ import * as common from '@comigo/ui-common'
 import * as outgoingOrders from '&erp/domains/outgoingOrders'
 import * as utils from '@comigo/utils'
 
-export default function ReceiveOutgoingOrder() {
+export function Receive() {
   const {
     outgoingOrderProductsRefetch,
     authorizedOutgoingOrderProductsData,

@@ -1,7 +1,7 @@
 import * as installationKits from '&erp/domains/production/Kits/InstallationKits'
 import * as blocks from '@comigo/ui-blocks'
 
-export default function List() {
+export function List() {
   const { installationKitsData } = installationKits.useList()
   return installationKitsData ? (
     <blocks.Table

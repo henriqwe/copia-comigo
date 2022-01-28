@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products'
 
-export default function SlidePanel() {
+export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = products.useProduct()
   return (
     <blocks.Modal

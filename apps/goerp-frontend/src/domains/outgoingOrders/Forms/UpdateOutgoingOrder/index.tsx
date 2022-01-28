@@ -5,13 +5,12 @@ import * as outgoingOrders from '&erp/domains/outgoingOrders'
 
 import { ptBRtimeStamp } from '@comigo/utils'
 import * as blocks from '@comigo/ui-blocks'
-import { notification } from 'utils/notification'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useEffect, useState } from 'react'
-import { showError } from 'utils/showError'
+import * as utils from '@comigo/utils'
 
-const UpdateOutgoingOrder = () => {
+export const Update = () => {
   const [date, setDate] = useState('')
   const {
     setSlidePanelState,
@@ -276,4 +275,3 @@ const UpdateOutgoingOrder = () => {
   )
 }
 
-export default UpdateOutgoingOrder

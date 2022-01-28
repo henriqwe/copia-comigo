@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as identifiers from '&erp/domains/production/identifiable/Identifiers'
 
-export default function SlidePanel() {
+export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = identifiers.useIdentifier()
   return (
     <blocks.Modal

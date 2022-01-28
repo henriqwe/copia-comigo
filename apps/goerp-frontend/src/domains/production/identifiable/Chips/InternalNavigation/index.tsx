@@ -3,7 +3,7 @@ import { links } from './links'
 
 import { Actions } from './actions'
 
-const InternalNavigation = () => {
+export const InternalNavigation = () => {
   return (
     <common.MainMenu
       ActionsGroup={Actions()}
@@ -13,4 +13,4 @@ const InternalNavigation = () => {
   )
 }
 
-export default InternalNavigation
+

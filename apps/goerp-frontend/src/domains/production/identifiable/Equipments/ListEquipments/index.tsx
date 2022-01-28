@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as equipments from '&erp/domains/production/identifiable/Equipments'
 
-export default function List() {
+export function List() {
   const { equipmentData } = equipments.useEquipment()
   return equipmentData ? (
     <blocks.Table

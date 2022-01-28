@@ -106,7 +106,7 @@ const Formulario = () => {
             register={register}
             error={errors.Utilizacao}
           />
-        </form.FormLine>
+        </common.form.FormLine>
 
         <common.form.FormLine position={2} grid={2}>
           <Controller
@@ -142,7 +142,7 @@ const Formulario = () => {
             type="number"
             disabled={buttonName === 'Editar'}
           />
-        </form.FormLine>
+        </common.form.FormLine>
       </form>
       <div className="flex items-center justify-between w-full px-6 mt-4">
         <common.buttons.GoBackButton />

@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as operators from '&erp/domains/production/identifiable/Chips/Operators'
 
-export default function List() {
+export function List() {
   const { operatorsData } = operators.useOperator()
   return operatorsData ? (
     <blocks.Table
