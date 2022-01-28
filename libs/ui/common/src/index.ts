@@ -23,6 +23,10 @@ export { GenericTitle } from './lib/GenericTitle'
 export { ListRadioGroup } from './lib/ListRadioGroup'
 export { UploadFile } from './lib/UploadFile'
 export { UploadFilePDF } from './lib/UploadFilePDF'
+export { CardVehicle } from './lib/CardVehicle'
+
+
+
 export * as buttons from './lib/Buttons'
 export * as icons from './lib/Icons'
 export * as form from './lib/Form'

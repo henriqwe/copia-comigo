@@ -11,5 +11,13 @@ export  {UserMenu} from './lib/UserMenu'
 export  {Modal} from './lib/Modal'
 export  {Table} from './lib/Table'
 export  {TableSkeleton} from './lib/Table/TableSkeleton'
+export  {ChangeCompany} from './lib/ChangeCompany'
+export  {Logout} from './lib/Logout'
+export  {MainNavigation} from './lib/MainNavigation'
+export  {FloatingCard} from './lib/FloatingCard';
+export  {SideBarGoCustomers} from './lib/SideBarGoCustomers'
+
 export * as table from './lib/Table/itens'
 export * as borderLessTable from './lib/BorderLessTable/itens'
+export * as MenuItens from './lib/MenuItens'
+
