@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-import { MainNavigation, FloatingCard} from "@comigo/ui-shared-components";
+import * as blocks from "@comigo/ui-blocks";
 import { Loader } from '@googlemaps/js-api-loader'
 import MainMenuItens from "../components/domains/MainMenuItens";
 import * as localizations from '../components/domains/monitoring/Localization'
@@ -109,7 +109,7 @@ export function Page() {
           }
         )
         map.setOptions({ styles })  
-        let pano = map.getStreetView()
+        const pano = map.getStreetView()
         pano.setPov(
           {
             heading: 90,
@@ -295,13 +295,13 @@ export function Page() {
   return (
     <div className="flex max-h-screen">
       <div className="h-screen sticky top-0 z-50">
-       <MainNavigation mainMenuItens={MainMenuItens}/>
+       <blocks.MainNavigation mainMenuItens={MainMenuItens}/>
       </div>
    
       <div className="absolute z-50 right-0 flex mr-16 mt-2.5" style={{ height: "95%"}}>
         <div className="w-80">
     
-          <FloatingCard 
+          <blocks.FloatingCard 
           allUserVehicle={allUserVehicle} 
           schemaYup={localizationSchema} 
           consultVehicleHistoric={consultVehicleHistoric} 
@@ -542,7 +542,7 @@ function createNewVehiclePathMarker(
     markersAndLine.line.getPath().clear()
   }
 
-  let bounds = new google.maps.LatLngBounds();
+  const bounds = new google.maps.LatLngBounds();
   const markers = []
   const marker = new google.maps.Marker({
     map,

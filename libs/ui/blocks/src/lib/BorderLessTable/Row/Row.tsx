@@ -1,5 +1,5 @@
 import * as table from '../itens'
-import { ptBRtimeStamp } from 'utils/formaters'
+import { ptBRtimeStamp } from '@comigo/utils'
 
 type RowProps = {
   actions?: (item: { item: { title: string; fieldName: string } }) => void

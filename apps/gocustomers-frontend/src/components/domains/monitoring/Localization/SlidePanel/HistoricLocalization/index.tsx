@@ -1,6 +1,6 @@
 import { Controller, useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
-import {common} from "@comigo/ui-shared-components";
+import * as common from "@comigo/ui-common";
 import * as localizations from '../../index'
 
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
