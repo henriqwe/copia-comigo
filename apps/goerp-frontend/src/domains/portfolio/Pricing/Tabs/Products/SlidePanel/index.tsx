@@ -1,0 +1,24 @@
+import * as blocks from '@comigo/ui-blocks'
+import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products'
+
+export default function SlidePanel() {
+  const { slidePanelState, setSlidePanelState } = products.useProduct()
+  return (
+    <blocks.Modal
+      title={
+        slidePanelState.type === 'pricing'
+          ? 'Precificar produto'
+          : 'Vincular item'
+      }
+      open={slidePanelState.open}
+      handler={setSlidePanelState}
+      formContent={
+        slidePanelState.type === 'pricing' ? (
+          <products.Price />
+        ) : (
+          <products.ItemLink />
+        )
+      }
+    />
+  )
+}

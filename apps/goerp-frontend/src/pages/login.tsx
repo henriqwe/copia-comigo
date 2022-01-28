@@ -1,6 +1,6 @@
 import { Auth } from 'aws-amplify'
 import * as buttons from '@/common/Buttons'
-import rotas from '@/domains/routes'
+import rotas from 'domains/routes'
 import Authentication from '@/templates/Authentication'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'

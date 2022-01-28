@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import rotas from '@/domains/routes'
+import rotas from 'domains/routes'
 import { useEffect } from 'react'
 import * as buttons from '@/common/Buttons'
 
