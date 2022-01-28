@@ -1,1 +1,1 @@
-export * as SideBar from './SideBar'
+export {SideBar} from './SideBar'

@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
-import * as icons from '@/common/Icons'
-import * as buttons from '@/common/Buttons'
+import * as common from '@comigo/ui-common'
 import Skeleton from 'react-loading-skeleton'
 
 type SideBarTabsProps = {
@@ -20,7 +19,7 @@ type ItemType = {
   position: number
 }
 
-export default function SideBarTabs({
+export function SideBarTabs({
   array,
   onChange,
   setArray = () => null,
@@ -123,7 +122,7 @@ export default function SideBarTabs({
                             selectedItem?.content.subtitle ===
                               plan.content.subtitle) && (
                             <div className="flex-shrink-0 text-white">
-                              <icons.CheckIcon className="w-6 h-6" />
+                              <common.icons.CheckIcon className="w-6 h-6" />
                             </div>
                           )}
                         </div>
@@ -145,7 +144,7 @@ export default function SideBarTabs({
       ) : null}
       <div className="flex items-center justify-center mt-2">
         {allowAdding && (
-          <buttons.SecondaryButton
+          <common.buttons.SecondaryButton
             handler={() =>
               addFunction
                 ? addFunction()

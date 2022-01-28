@@ -1,1 +1,0 @@
-export * as Skeleton from './Skeleton'

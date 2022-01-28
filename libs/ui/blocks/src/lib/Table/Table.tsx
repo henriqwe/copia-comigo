@@ -1,4 +1,4 @@
-import * as table from '@/blocks/Table/itens'
+import * as table from './itens'
 import { Dispatch, SetStateAction } from 'react'
 
 type TableListType = {
@@ -27,7 +27,7 @@ type TableListType = {
   actions?: (item: any) => any
 }
 
-const Table = ({
+export const Table = ({
   colection = [],
   columnTitles = [],
   search,
@@ -81,4 +81,3 @@ const Table = ({
   )
 }
 
-export default Table

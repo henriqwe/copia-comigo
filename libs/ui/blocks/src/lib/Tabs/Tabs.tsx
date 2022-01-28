@@ -8,7 +8,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Tabs({ categories }: TabsProps) {
+export function Tabs({ categories }: TabsProps) {
   return (
     <div className="w-full px-2 sm:px-0">
       <Tab.Group>

@@ -17,7 +17,7 @@ type PaginationProps = {
   tableName: string
 }
 let option = 10
-export default function Pagination({
+export function Pagination({
   collection,
   pagination,
   tableName

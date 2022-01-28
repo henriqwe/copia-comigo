@@ -1,8 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
-
-export default function MenuActions() {
+ 
+export function MenuActions() {
   return (
     <Menu as="div" className="relative z-50 inline-block text-left">
       <div>

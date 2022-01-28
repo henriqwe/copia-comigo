@@ -1,7 +1,7 @@
 import { Fragment, ReactNode } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 
 type ModalProps = {
   open: boolean
@@ -10,7 +10,7 @@ type ModalProps = {
   title: string
 }
 
-export default function Modal({
+export function Modal({
   open,
   handler,
   formContent,

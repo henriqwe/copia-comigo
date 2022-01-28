@@ -1,4 +1,4 @@
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 import { ReactNode } from 'react'
 
 type DataListProps = {
@@ -8,7 +8,7 @@ type DataListProps = {
   }[]
 }
 
-export default function DataList({ data }: DataListProps) {
+export function DataList({ data }: DataListProps) {
   return (
     <div className="overflow-hidden bg-white shadow">
       <div className="border-t">

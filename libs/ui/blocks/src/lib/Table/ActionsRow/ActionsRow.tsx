@@ -1,4 +1,4 @@
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 import router from 'next/router'
 import { useState } from 'react'
 
@@ -20,7 +20,7 @@ type ModalStateType = {
   disable: boolean
 }
 
-export default function ActionsRow({ actions }: ActionsRowProps) {
+export function ActionsRow({ actions }: ActionsRowProps) {
   const [modalState, setModalState] = useState<ModalStateType>({
     opened: false,
     data: null,

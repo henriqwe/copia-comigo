@@ -1,1 +1,1 @@
-export * as StatusField from './StatusField'
+export {StatusField} from './StatusField'

@@ -1,4 +1,4 @@
-export default function FieldWithTitleAndSubtitle({
+export function FieldWithTitleAndSubtitle({
   title,
   subtitle
 }: {

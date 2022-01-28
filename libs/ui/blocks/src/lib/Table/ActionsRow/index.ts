@@ -1,1 +1,1 @@
-export * as ActionsRow from './ActionsRow'
+export {ActionsRow} from './ActionsRow'

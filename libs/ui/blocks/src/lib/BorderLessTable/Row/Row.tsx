@@ -1,4 +1,4 @@
-import * as table from '@/blocks/BorderLessTable/itens'
+import * as table from '../itens'
 import { ptBRtimeStamp } from 'utils/formaters'
 
 type RowProps = {
@@ -13,7 +13,7 @@ type RowProps = {
   item: any
 }
 
-export default function Row({ columns, item, actions }: RowProps) {
+export function Row({ columns, item, actions }: RowProps) {
   return (
     <tr className="intro-x" data-testid="linha">
       {columns.map((coluna, index) => {

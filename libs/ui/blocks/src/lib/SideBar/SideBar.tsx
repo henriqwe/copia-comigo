@@ -1,6 +1,6 @@
 import React, { ReactChild } from 'react'
 
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 
 import Level1 from '@/domains/_compartilhado/MenuItens/Level1'
 import Level2 from '@/domains/_compartilhado/MenuItens/Level2'
@@ -28,7 +28,7 @@ type SideBarProps = {
   imageUrl: string
 }
 
-export default function SideBar({ mainMenuItens, imageUrl }: SideBarProps) {
+export function SideBar({ mainMenuItens, imageUrl }: SideBarProps) {
   return (
     <nav className="side-nav">
       <common.LogoWithLink url={rotas.erp.home} imageUrl={imageUrl} />

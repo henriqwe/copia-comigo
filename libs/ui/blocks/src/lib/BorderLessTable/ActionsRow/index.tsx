@@ -1,1 +1,1 @@
-export * as ActivityCard from './ActionsRow'
+export {ActionsRow} from './ActionsRow'

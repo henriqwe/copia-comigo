@@ -1,4 +1,4 @@
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 import { ReactChild } from 'react'
 
 type ItemNivel3 = {
@@ -8,7 +8,7 @@ type ItemNivel3 = {
   active?: boolean
 }
 
-export default function ItemNivel3({ title, url, icon, active }: ItemNivel3) {
+export function MenuItemLevel3({ title, url, icon, active }: ItemNivel3) {
   return (
     <li>
       <common.Link

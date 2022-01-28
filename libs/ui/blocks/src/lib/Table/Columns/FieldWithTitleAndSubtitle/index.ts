@@ -1,1 +1,1 @@
-export * as FieldWithTitleAndSubtitle from './FieldWithTitleAndSubtitle'
+export {FieldWithTitleAndSubtitle} from './FieldWithTitleAndSubtitle'

@@ -1,1 +1,1 @@
-export * as MenuItemLevel3 from './MenuItemLevel3'
+export {MenuItemLevel3} from './MenuItemLevel3'

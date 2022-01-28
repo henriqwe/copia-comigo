@@ -1,1 +1,1 @@
-export * as SideBarTabs from './SideBarTabs'
+export {SideBarTabs} from './SideBarTabs'

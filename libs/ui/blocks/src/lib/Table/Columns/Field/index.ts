@@ -1,1 +1,1 @@
-export * as Field from './Field'
+export {Field} from './Field'

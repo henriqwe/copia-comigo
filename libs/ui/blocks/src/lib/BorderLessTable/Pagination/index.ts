@@ -1,1 +1,1 @@
-export * as any from './Pagination'
+export {Pagination} from './Pagination'
