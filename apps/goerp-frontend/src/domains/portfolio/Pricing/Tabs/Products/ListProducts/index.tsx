@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products'
 
-export default function List() {
+export function List() {
   const { productsData } = products.useProduct()
   return productsData ? (
     <>

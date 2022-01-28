@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as services from '&erp/domains/portfolio/Pricing/Tabs/Services'
 
-export default function List() {
+export function List() {
   const { servicesData } = services.useService()
   return servicesData ? (
     <>

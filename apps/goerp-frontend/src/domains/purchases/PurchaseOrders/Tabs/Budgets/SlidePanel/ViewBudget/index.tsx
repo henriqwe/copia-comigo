@@ -4,7 +4,7 @@ import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
 import { useEffect, useState } from 'react'
 import { BRLMoneyFormat } from '@comigo/utils'
 
-export default function ViewBudget() {
+export function View() {
   const [providerName, setProviderName] = useState('')
   const { slidePanelState, budgetProductsData, SearchProvider, providersData } =
     purchaseOrders.budgets.useBudget()

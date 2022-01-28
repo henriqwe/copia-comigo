@@ -1,7 +1,7 @@
 import * as kitsTypes from '&erp/domains/production/Kits/InputKits/KitsTypes'
 import * as blocks from '@comigo/ui-blocks'
 
-export default function List() {
+export function List() {
   const { kitsTypesData } = kitsTypes.useList()
   return kitsTypesData ? (
     <blocks.Table

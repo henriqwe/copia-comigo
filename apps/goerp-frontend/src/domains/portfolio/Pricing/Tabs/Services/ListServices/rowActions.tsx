@@ -6,7 +6,7 @@ import * as services from '&erp/domains/portfolio/Pricing/Tabs/Services'
 import * as providers from '&erp/domains/portfolio/Pricing'
 import { useState, useEffect } from 'react'
 
-export default function RowActions({
+export function RowActions({
   item
 }: {
   item: GraphQLTypes['comercial_Servicos']

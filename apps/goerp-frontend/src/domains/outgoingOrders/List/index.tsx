@@ -1,7 +1,7 @@
 import * as outgoingOrders from '&erp/domains/outgoingOrders'
 import * as blocks from '@comigo/ui-blocks'
 
-export default function List() {
+export function List() {
   const { outGoingOrdersData } = outgoingOrders.useList()
   return outGoingOrdersData ? (
     <blocks.Table
@@ -20,7 +20,7 @@ export default function List() {
           type: 'date'
         }
       ]}
-      actions={outgoingOrders.rowActions}
+      actions={outgoingOrders.RowActions}
     />
   ) : (
     <blocks.TableSkeleton />

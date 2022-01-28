@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as chips from '&erp/domains/production/identifiable/Chips'
 
-export default function SlidePanel() {
+export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = chips.useChips()
   return (
     <blocks.Modal

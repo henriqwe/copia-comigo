@@ -4,7 +4,7 @@ import * as common from '@comigo/ui-common'
 import * as installationKits from '&erp/domains/production/Kits/InstallationKits'
 import * as utils from '@comigo/utils'
 
-export default function RowActions({
+export function RowActions({
   item
 }: {
   item: GraphQLTypes['producao_KitsDeInstalacao']

@@ -5,7 +5,7 @@ import * as inputKits from '&erp/domains/production/Kits/InputKits'
 import * as utils from '@comigo/utils'
 import rotas from '&erp/domains/routes'
 
-export default function RowActions({
+export function RowActions({
   item
 }: {
   item: GraphQLTypes['producao_KitsDeInsumo']

@@ -9,12 +9,11 @@ import { useEffect, useState } from 'react'
 
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { notification } from 'utils/notification'
 import { useRouter } from 'next/router'
 import rotas from '&erp/domains/routes'
-import { showError } from 'utils/showError'
+import * as utils from '@comigo/utils'
 
-const UpdatePurchaseOrder = () => {
+export const Update = () => {
   const router = useRouter()
   const [date, setDate] = useState('')
   const {
@@ -306,5 +305,3 @@ const UpdatePurchaseOrder = () => {
     </common.Card>
   )
 }
-
-export default UpdatePurchaseOrder

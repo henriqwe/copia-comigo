@@ -1,10 +1,10 @@
 import * as blocks from '@comigo/ui-blocks'
-import ListarLogs from './LogsList'
+import { LogsList } from './LogsList'
 
 const sections = {
-  Logs: <ListarLogs />
+  Logs: <LogsList />
 }
 
-export default function Tabs() {
+export function Tabs() {
   return <blocks.Tabs categories={sections} />
 }

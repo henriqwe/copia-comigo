@@ -10,7 +10,7 @@ import { GraphQLTypes } from '&erp/graphql/generated/zeus'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as utils from '@comigo/utils'
 
-export default function UpdateEquipment() {
+export function Update() {
   const {
     updateEquipmentLoading,
     updateEquipment,

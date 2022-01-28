@@ -19,7 +19,7 @@ type FormData = {
   Telefone: string
 }
 
-export default function Update() {
+export function Update() {
   const {
     updateChip,
     updateChipLoading,

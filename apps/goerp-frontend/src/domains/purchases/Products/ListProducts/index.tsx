@@ -1,7 +1,7 @@
 import * as products from '&erp/domains/purchases/Products'
 import * as blocks from '@comigo/ui-blocks'
 
-export default function List() {
+export function List() {
   const { productsData } = products.useList()
   return productsData ? (
     <blocks.Table

@@ -4,7 +4,7 @@ import * as common from '@comigo/ui-common'
 import * as equipments from '&erp/domains/production/identifiable/Equipments'
 import * as utils from '@comigo/utils'
 
-export default function rowActions({
+export function RowActions({
   item
 }: {
   item: GraphQLTypes['producao_Equipamentos']

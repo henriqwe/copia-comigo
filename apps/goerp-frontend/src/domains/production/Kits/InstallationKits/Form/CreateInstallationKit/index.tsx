@@ -74,7 +74,7 @@ type Tracker = {
   }
 }
 
-const CreateInstallationKit = () => {
+export const Create = () => {
   const [lastNumber, setLastNumber] = useState(0)
   const [trackersGroup, setTrackersGroup] = useState<number[]>([1])
   const [itensPerFamily, setitensPerFamily] = useState<itens[]>([])
@@ -298,7 +298,7 @@ const CreateInstallationKit = () => {
               />
             </>
           )}
-        </form.FormLine>
+        </common.form.FormLine>
 
         {watch('Tipo_Id') === undefined ? (
           <div />
@@ -415,7 +415,7 @@ const CreateInstallationKit = () => {
                         }}
                       />
                     )}
-                  </form.FormLine>
+                  </common.form.FormLine>
                 )
             )}
 
@@ -443,5 +443,3 @@ const CreateInstallationKit = () => {
     </common.Card>
   )
 }
-
-export default CreateInstallationKit

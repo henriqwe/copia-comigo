@@ -7,6 +7,6 @@ const sections = {
   Logs: <ListarLogs />
 }
 
-export default function Tabs() {
+export function Tabs() {
   return <blocks.Tabs categories={sections} />
 }

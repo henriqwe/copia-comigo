@@ -86,7 +86,7 @@ const Cadastrar = () => {
               error={errors.Utilizacao}
             />
           </div>
-        </form.FormLine>
+        </common.form.FormLine>
         {/* <common.LinhaDeFormulario posicao={2} grid={7}>
 
         </common.LinhaDeFormulario> */}
@@ -130,7 +130,7 @@ const Cadastrar = () => {
             error={errors.NCM}
             type="number"
           />
-        </form.FormLine>
+        </common.form.FormLine>
         <div className="flex items-center justify-between w-full px-6 mt-4">
           <common.buttons.GoBackButton />
           <common.buttons.PrimaryButton

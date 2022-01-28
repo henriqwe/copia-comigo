@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
 
-export default function SlidePanel() {
+export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } =
     purchaseOrders.budgets.useBudget()
 

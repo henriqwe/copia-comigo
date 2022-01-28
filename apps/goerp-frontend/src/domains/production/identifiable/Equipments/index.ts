@@ -1,27 +1,12 @@
-import List from './ListEquipments'
-import RowActions from './ListEquipments/rowActions'
-import Create from './Form/CreateEquipment'
-import Update from './SlidePanel/UpdateEquipment'
-import SlidePanel from './SlidePanel'
-import InternalNavigation from './InternalNavigation'
-import {
+export { List } from './ListEquipments'
+export { RowActions } from './ListEquipments/rowActions'
+export { Create } from './Form/CreateEquipment'
+export { Update } from './SlidePanel/UpdateEquipment'
+export { SlidePanel } from './SlidePanel'
+export { InternalNavigation } from './InternalNavigation'
+export {
   EquipmentContext,
   EquipmentProvider,
   useEquipment
 } from './EquipmentContext'
-import { CreateContext, CreateProvider, useCreate } from './CreateContext'
-
-export {
-  List,
-  RowActions,
-  SlidePanel,
-  Create,
-  Update,
-  InternalNavigation,
-  CreateContext,
-  CreateProvider,
-  useCreate,
-  EquipmentContext,
-  EquipmentProvider,
-  useEquipment
-}
+export { CreateContext, CreateProvider, useCreate } from './CreateContext'

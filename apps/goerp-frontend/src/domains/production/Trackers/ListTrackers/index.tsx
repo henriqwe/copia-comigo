@@ -1,7 +1,7 @@
 import * as trackers from '&erp/domains/production/Trackers'
 import * as blocks from '@comigo/ui-blocks'
 
-export default function List() {
+export function List() {
   const { trackersData } = trackers.useList()
   return trackersData ? (
     <blocks.Table

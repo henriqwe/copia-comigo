@@ -1,16 +1,15 @@
 import { useForm } from 'react-hook-form'
 
 import * as common from '@comigo/ui-common'
-
+import * as utils from '@comigo/utils'
 
 import * as operators from '&erp/domains/production/identifiable/Chips/Operators'
 
 import { useEffect } from 'react'
 import { GraphQLTypes } from '&erp/graphql/generated/zeus'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { notification } from 'utils/notification'
 
-export default function UpdateOperator() {
+export function Update() {
   const {
     updateOperatorLoading,
     updateOperator,

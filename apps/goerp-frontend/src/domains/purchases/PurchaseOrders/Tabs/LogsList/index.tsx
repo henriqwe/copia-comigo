@@ -1,7 +1,7 @@
 import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
 import * as blocks from '@comigo/ui-blocks'
 
-export default function LogsList() {
+export function LogsList() {
   const { purchaseOrderLogsData } = purchaseOrders.useUpdate()
   return purchaseOrderLogsData ? (
     <blocks.Table

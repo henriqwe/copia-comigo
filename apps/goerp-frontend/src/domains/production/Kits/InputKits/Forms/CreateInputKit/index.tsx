@@ -260,7 +260,7 @@ const CreateInputKit = () => {
               />
             </>
           )}
-        </form.FormLine>
+        </common.form.FormLine>
         {kitsTypesData?.length === 0 ? (
           <div />
         ) : (
@@ -351,7 +351,7 @@ const CreateInputKit = () => {
                     register={register}
                   />
                 </div>
-              </form.FormLine>
+              </common.form.FormLine>
             ))}
           </>
         )}

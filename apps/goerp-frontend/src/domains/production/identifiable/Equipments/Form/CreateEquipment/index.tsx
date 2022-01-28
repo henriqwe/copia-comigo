@@ -30,7 +30,7 @@ type itens = {
   Familia: { Nome: string }
 }
 
-const Formulario = () => {
+export const Create = () => {
   const [lastNumber, setLastNumber] = useState(0)
   const [equipmentsGroup, setEquipmentsGroup] = useState<number[]>([1])
   const [itensPerFamily, setItensPerFamily] = useState<itens[]>([])
@@ -139,7 +139,7 @@ const Formulario = () => {
       <form>
         <common.form.FormLine position={1} grid={!configData?.Valor[0] ? 1 : 3}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas} >
               Selecione a família de itens para equipamentos em configurações
               primeiro
             </common.ConfigMessage>
@@ -193,7 +193,7 @@ const Formulario = () => {
           ) : (
             ''
           )}
-        </form.FormLine>
+        </common.form.FormLine>
         <common.Separator />
         {amount === undefined ? (
           <div />
@@ -272,7 +272,7 @@ const Formulario = () => {
                         }}
                       />
                     )}
-                  </form.FormLine>
+                  </common.form.FormLine>
                 )
             )}
 
@@ -300,5 +300,3 @@ const Formulario = () => {
     </common.Card>
   )
 }
-
-export default Formulario

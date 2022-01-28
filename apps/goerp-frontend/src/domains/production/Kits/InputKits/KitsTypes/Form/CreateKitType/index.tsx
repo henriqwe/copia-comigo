@@ -68,7 +68,7 @@ const CreateKitType = () => {
           <div>
             <common.form.Input fieldName="nome" title="Nome" register={register} />
           </div>
-        </form.FormLine>
+        </common.form.FormLine>
 
         {itensGroup.map(
           (item, index) =>
@@ -125,7 +125,7 @@ const CreateKitType = () => {
                     }}
                   />
                 )}
-              </form.FormLine>
+              </common.form.FormLine>
             )
         )}
 

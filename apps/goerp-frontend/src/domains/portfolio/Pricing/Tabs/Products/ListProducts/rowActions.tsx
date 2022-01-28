@@ -6,7 +6,7 @@ import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products'
 import * as providers from '&erp/domains/portfolio/Pricing'
 import { useEffect, useState } from 'react'
 
-export default function RowActions({
+export function RowActions({
   item
 }: {
   item: GraphQLTypes['comercial_Produtos']

@@ -2,7 +2,7 @@ import * as chips from '&erp/domains/production/identifiable/Chips'
 import * as blocks from '@comigo/ui-blocks'
 import { phoneFormat } from '@comigo/utils'
 
-export default function List() {
+export function List() {
   const { chipsData } = chips.useChips()
   return chipsData ? (
     <blocks.Table
@@ -32,7 +32,7 @@ export default function List() {
           }
         }
       ]}
-      actions={chips.rowActions}
+      actions={chips.RowActions}
     />
   ) : (
     <blocks.TableSkeleton />

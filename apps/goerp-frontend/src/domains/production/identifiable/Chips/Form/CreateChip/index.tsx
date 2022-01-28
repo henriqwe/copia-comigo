@@ -9,9 +9,8 @@ import * as common from '@comigo/ui-common'
 import * as operators from '&erp/domains/production/identifiable/Chips/Operators'
 import * as chips from '&erp/domains/production/identifiable/Chips'
 import { useState, useEffect } from 'react'
-import { notification } from 'utils/notification'
 import { phoneUnformat } from '@comigo/utils'
-import { showError } from 'utils/showError'
+import * as utils from '@comigo/utils'
 
 type itens = {
   Id: string
@@ -33,7 +32,7 @@ type itens = {
   Familia: { Nome: string }
 }
 
-const CreateChip = () => {
+export const Create = () => {
   const [chipsGroup, setChipsGroup] = useState<number[]>([1])
   const [lastNumber, setLastNumber] = useState(0)
   const [amount, setAmount] = useState<number>()
@@ -142,7 +141,7 @@ const CreateChip = () => {
       <form>
         <common.form.FormLine position={1} grid={!configData?.Valor[0] ? 1 : 3}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas}>
               Selecione a família de itens para chips em configurações primeiro
             </common.ConfigMessage>
           ) : (
@@ -191,7 +190,7 @@ const CreateChip = () => {
           ) : (
             ''
           )}
-        </form.FormLine>
+        </common.form.FormLine>
         <common.Separator />
         {amount === undefined ? (
           <div />
@@ -275,7 +274,7 @@ const CreateChip = () => {
                         }}
                       />
                     )}
-                  </form.FormLine>
+                  </common.form.FormLine>
                 )
             )}
 
@@ -305,4 +304,3 @@ const CreateChip = () => {
   )
 }
 
-export default CreateChip

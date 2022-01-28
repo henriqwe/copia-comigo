@@ -12,7 +12,7 @@ import * as products from '&erp/domains/purchases/Products'
 import { useEffect, useState } from 'react'
 import * as utils from '@comigo/utils'
 
-const CreatePurchaseOrder = () => {
+export const Create = () => {
   const [productsGroup, setProductsGroup] = useState<number[]>([1])
   const [lastNumber, setLastNumber] = useState(0)
   const [reload, setReload] = useState(false)
@@ -163,7 +163,7 @@ const CreatePurchaseOrder = () => {
                     }}
                   />
                 )}
-              </form.FormLine>
+              </common.form.FormLine>
             )
         )}
 
@@ -190,5 +190,3 @@ const CreatePurchaseOrder = () => {
     </common.Card>
   )
 }
-
-export default CreatePurchaseOrder

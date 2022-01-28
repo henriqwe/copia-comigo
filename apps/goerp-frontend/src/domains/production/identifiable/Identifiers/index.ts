@@ -1,27 +1,12 @@
-import List from './ListIdentifiers'
-import RowActions from './ListIdentifiers/rowActions'
-import Create from './Form/CreateIdentifier'
-import Update from './SlidePanel/UpdateIdentifier'
-import SlidePanel from './SlidePanel'
-import InternalNavigation from './InternalNavigation'
-import {
+export { List } from './ListIdentifiers'
+export { RowActions } from './ListIdentifiers/rowActions'
+export { Create } from './Form/CreateIdentifier'
+export { Update } from './SlidePanel/UpdateIdentifier'
+export { SlidePanel } from './SlidePanel'
+export { InternalNavigation } from './InternalNavigation'
+export {
   IdentifierContext,
   IdentifierProvider,
   useIdentifier
 } from './IdentifierContext'
-import { CreateContext, CreateProvider, useCreate } from './CadastrarContext'
-
-export {
-  List,
-  RowActions,
-  SlidePanel,
-  Create,
-  Update,
-  InternalNavigation,
-  CreateContext,
-  CreateProvider,
-  useCreate,
-  IdentifierContext,
-  IdentifierProvider,
-  useIdentifier
-}
+export { CreateContext, CreateProvider, useCreate } from './CadastrarContext'

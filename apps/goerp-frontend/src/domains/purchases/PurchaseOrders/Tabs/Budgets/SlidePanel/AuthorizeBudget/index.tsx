@@ -6,7 +6,7 @@ import * as common from '@comigo/ui-common'
 import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
 import * as utils from '@comigo/utils'
 
-export default function AuthorizeBudget() {
+export function Authorize() {
   const { setSlidePanelState, slidePanelState, budgetsRefetch } =
     purchaseOrders.budgets.useBudget()
   const {

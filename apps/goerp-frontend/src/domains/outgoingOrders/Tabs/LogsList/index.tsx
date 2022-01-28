@@ -1,7 +1,7 @@
 import * as outgoingOrders from '&erp/domains/outgoingOrders'
 import * as blocks from '@comigo/ui-blocks'
 
-export default function LogsLits() {
+export function LogsList() {
   const { outgoingOrderLogsData } = outgoingOrders.useUpdate()
   return outgoingOrderLogsData ? (
     <blocks.Table

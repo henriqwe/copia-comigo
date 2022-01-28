@@ -6,7 +6,7 @@ import * as common from '@comigo/ui-common'
 import * as providers from '&erp/domains/portfolio/Pricing'
 import { useForm } from 'react-hook-form'
 
-export default function UpdateProvider() {
+export function Update() {
   const { providerData } = providers.useUpdate()
 
   const { register, reset } = useForm()
@@ -34,7 +34,7 @@ export default function UpdateProvider() {
               register={register}
               disabled={true}
             />
-          </form.FormLine>
+          </common.form.FormLine>
 
           <div className="flex items-center justify-between w-full px-6">
             <common.buttons.GoBackButton />

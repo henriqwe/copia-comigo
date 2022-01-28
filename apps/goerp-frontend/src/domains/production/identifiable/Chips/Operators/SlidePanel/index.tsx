@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as operators from '&erp/domains/production/identifiable/Chips/Operators'
 
-export default function SlidePanel() {
+export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = operators.useOperator()
   return (
     <blocks.Modal

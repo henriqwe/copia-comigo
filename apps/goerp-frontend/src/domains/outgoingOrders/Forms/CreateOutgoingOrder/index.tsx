@@ -12,7 +12,7 @@ import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturer
 import { useEffect, useState } from 'react'
 import * as utils from '@comigo/utils'
 
-const CreateOutgoingOrder = () => {
+export const Create = () => {
   const [productsGroups, setproductsGroups] = useState<number[]>([1])
   const [lastNumber, setlastNumber] = useState(0)
   const [reload, setReload] = useState(false)
@@ -168,7 +168,7 @@ const CreateOutgoingOrder = () => {
                     }}
                   />
                 )}
-              </form.FormLine>
+              </common.form.FormLine>
             )
         )}
 
@@ -195,5 +195,3 @@ const CreateOutgoingOrder = () => {
     </common.Card>
   )
 }
-
-export default CreateOutgoingOrder

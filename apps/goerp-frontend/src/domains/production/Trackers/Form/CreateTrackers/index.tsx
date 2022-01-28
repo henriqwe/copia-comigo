@@ -53,7 +53,7 @@ type Equipamentos = {
   }
 }
 
-const CreateTrackers = () => {
+export const Create = () => {
   const [lastNumber, setLastNumber] = useState(0)
   const [trackersGroup, setTrackersGroup] = useState<number[]>([1])
   const [itensPerFamily, setItensPerFamily] = useState<itens[]>([])
@@ -158,7 +158,7 @@ const CreateTrackers = () => {
       <form>
         <common.form.FormLine position={1} grid={initialGrid()}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas}>
               Selecione a família de itens para rastreadores em configurações
               primeiro
             </common.ConfigMessage>
@@ -211,7 +211,7 @@ const CreateTrackers = () => {
               )}
             />
           )}
-        </form.FormLine>
+        </common.form.FormLine>
         {chipsData?.length === 0 || equipmentsData.length === 0 ? (
           <div />
         ) : watch('Item_Id') === undefined ? (
@@ -307,7 +307,7 @@ const CreateTrackers = () => {
                         }}
                       />
                     )}
-                  </form.FormLine>
+                  </common.form.FormLine>
                 )
             )}
 
@@ -335,5 +335,3 @@ const CreateTrackers = () => {
     </common.Card>
   )
 }
-
-export default CreateTrackers

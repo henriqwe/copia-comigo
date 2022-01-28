@@ -30,7 +30,7 @@ type itens = {
   Familia: { Nome: string }
 }
 
-const CreateIdentifiers = () => {
+export const Create = () => {
   const [identifiersGroup, setIdentifiersGroup] = useState<number[]>([1])
   const [lastNumber, setLastNumber] = useState(0)
   const [manufacturer, setManufacturer] = useState()
@@ -131,7 +131,7 @@ const CreateIdentifiers = () => {
       <form>
         <common.form.FormLine position={1} grid={!configData?.Valor[0] ? 1 : 2}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas} >
               Selecione a família de itens para identificadores em configurações
               primeiro
             </common.ConfigMessage>
@@ -191,7 +191,7 @@ const CreateIdentifiers = () => {
           ) : (
             ''
           )}
-        </form.FormLine>
+        </common.form.FormLine>
         <common.Separator />
         {amount === undefined ? (
           <div />
@@ -228,7 +228,7 @@ const CreateIdentifiers = () => {
                         }}
                       />
                     )}
-                  </form.FormLine>
+                  </common.form.FormLine>
                 )
             )}
 
@@ -256,5 +256,3 @@ const CreateIdentifiers = () => {
     </common.Card>
   )
 }
-
-export default CreateIdentifiers
