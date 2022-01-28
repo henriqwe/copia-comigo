@@ -1,17 +1,23 @@
-import * as buttons from '@/common/Buttons'
-import rotas from '@/domains/routes'
+import * as common from '@comigo/ui-common'
 import { useRouter } from 'next/router'
 
 type ConfigMessageProps = {
   children: React.ReactNode
+  rotas: {
+    erp: {
+      configuracoes: {
+        index: string
+      }
+    }
+  }
 }
 
-function ConfigMessage({ children }: ConfigMessageProps) {
+export function ConfigMessage({ children, rotas }: ConfigMessageProps) {
   const router = useRouter()
   return (
     <div className="flex flex-col items-center justify-center my-8">
       <p className="pb-4 text-xl">{children}</p>
-      <buttons.SecondaryButton
+      <common.buttons.SecondaryButton
         handler={() => router.push(rotas.erp.configuracoes.index)}
         title="Configurar"
         type="button"
@@ -19,5 +25,3 @@ function ConfigMessage({ children }: ConfigMessageProps) {
     </div>
   )
 }
-
-export default ConfigMessage

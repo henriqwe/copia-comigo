@@ -1,6 +1,6 @@
 import InputMask from 'react-input-mask'
 import { Control, Controller } from 'react-hook-form'
-import * as form from '@/common/Form'
+import * as common from '@comigo/ui-common'
 import {
   DeepMap,
   FieldError,
@@ -19,7 +19,7 @@ type CPFInputProps = {
   iconPosition?: 'left' | 'right'
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-function CPFInput({
+export function CPFInput({
   control,
   error,
   disabled = false,
@@ -36,7 +36,7 @@ function CPFInput({
           onChange={onChange}
           disabled={disabled}
         >
-          <form.Input
+          <common.form.Input
             fieldName="Identificador"
             title="CPF"
             error={error}
@@ -47,5 +47,3 @@ function CPFInput({
     />
   )
 }
-
-export default CPFInput

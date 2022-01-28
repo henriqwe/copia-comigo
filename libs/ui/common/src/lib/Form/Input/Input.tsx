@@ -17,7 +17,7 @@ type InputType = {
   iconPosition?: 'left' | 'right'
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-function Input({
+export function Input({
   title,
   fieldName,
   register = () => {
@@ -70,5 +70,3 @@ function Input({
     </div>
   )
 }
-
-export default Input

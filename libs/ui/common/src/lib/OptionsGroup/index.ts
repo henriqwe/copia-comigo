@@ -1,1 +1,1 @@
-export * as OptionsGroup from './OptionsGroup'
+export { OptionsGroup } from './OptionsGroup'

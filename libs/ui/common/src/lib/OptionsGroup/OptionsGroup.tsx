@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 
 type OptionsGroupProps = {
   setCompanies: Dispatch<SetStateAction<string>>
@@ -13,7 +13,7 @@ type OptionsGroupProps = {
   }[]
 }
 
-export default function OptionsGroup({
+export function OptionsGroup({
   setCompanies,
   companies
 }: OptionsGroupProps) {
@@ -50,8 +50,7 @@ export default function OptionsGroup({
                 }
               >
                 {({ checked }) => (
-                  <>
-                    <div className="flex items-center justify-between w-full">
+                  <div className="flex items-center justify-between w-full">
                       <div className="flex items-center">
                         <div className="text-sm">
                           <RadioGroup.Label
@@ -82,11 +81,10 @@ export default function OptionsGroup({
                       </div>
                       {checked && (
                         <div className="flex-shrink-0 text-white">
-                          <icons.CheckIcon className="w-6 h-6" />
+                          <common.icons.CheckIcon className="w-6 h-6" />
                         </div>
                       )}
                     </div>
-                  </>
                 )}
               </RadioGroup.Option>
             ))}

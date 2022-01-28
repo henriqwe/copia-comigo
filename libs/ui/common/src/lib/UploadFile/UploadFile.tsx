@@ -2,10 +2,7 @@ import axios from 'axios'
 import { useMemo, useState } from 'react'
 import { useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
-import * as buttons from '@/common/Buttons'
-import * as common from '@/common'
-import * as form from '@/common/Form'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 
 import { notification } from 'utils/notification'
 import {
@@ -85,7 +82,7 @@ const rejectStyle = {
   borderColor: '#ff1744'
 }
 
-const UploadFile = ({
+export const UploadFile = ({
   documentName,
   Id,
   getId,
@@ -232,7 +229,7 @@ const UploadFile = ({
       </p>
       <div className="grid grid-cols-2 gap-4">
         <div className="flex items-end gap-4 justify-star">
-          <buttons.SecondaryButton
+          <common.common.buttons.SecondaryButton
             handler={async () => {
               await axios
                 .get<any>('/api/upload/presigned', {
@@ -243,20 +240,20 @@ const UploadFile = ({
                   notification(error /*'Ops, algo deu errado'*/, 'error')
                 )
             }}
-            title={<icons.ViewIcon />}
+            title={<common.icons.ViewIcon />}
             disabled={edit}
             buttonClassName="my-2"
           />
 
           {edit ? (
-            <buttons.CancelButton
+            <common.buttons.CancelButton
               onClick={() => setEdit(false)}
               title=""
-              icon={<icons.BlockIcon />}
+              icon={<common.icons.BlockIcon />}
             />
           ) : (
-            <buttons.PrimaryButton
-              title={<icons.EditIcon className="w-5 h-5 text-white" />}
+            <common.buttons.PrimaryButton
+              title={<common.icons.EditIcon className="w-5 h-5 text-white" />}
               onClick={() => setEdit(true)}
               disabled={situation === 'aprovado'}
             />
@@ -264,15 +261,15 @@ const UploadFile = ({
         </div>
 
         <div className="flex items-end justify-end gap-4">
-          <buttons.CancelButton
+          <common.buttons.CancelButton
             onClick={() => setOpenSlide(true)}
             title=""
-            icon={<icons.BlockIcon />}
+            icon={<common.icons.BlockIcon />}
             disabled={situation !== 'anexado'}
           />
 
-          <buttons.PrimaryButton
-            title={<icons.CheckIcon className="w-5 h-5" />}
+          <common.buttons.PrimaryButton
+            title={<common.icons.CheckIcon className="w-5 h-5" />}
             onClick={approveDocumentSubmit}
             disabled={situation !== 'anexado'}
           />
@@ -297,7 +294,7 @@ const UploadFile = ({
         color="red"
       >
         <div className="my-2">
-          <form.Input
+          <common.form.Input
             fieldName="MotivoRecusado"
             title="Motivo da recusa"
             register={register}
@@ -356,5 +353,3 @@ function constroiFormularioComArquivo(arquivos) {
 //     </li>
 //   ))
 // }
-
-export default UploadFile

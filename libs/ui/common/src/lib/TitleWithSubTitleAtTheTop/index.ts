@@ -1,1 +1,1 @@
-export * as TitleWithSubTitleAtTheTop from './TitleWithSubTitleAtTheTop'
+export { TitleWithSubTitleAtTheTop } from './TitleWithSubTitleAtTheTop'

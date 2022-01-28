@@ -1,1 +1,1 @@
-export * as UploadFilePDF from './UploadFilePDF'
+export { UploadFilePDF } from './UploadFilePDF'

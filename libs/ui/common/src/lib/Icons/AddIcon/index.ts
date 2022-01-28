@@ -1,1 +1,1 @@
-export * as AddIcon from './AddIcon'
+export { AddIcon } from './AddIcon'

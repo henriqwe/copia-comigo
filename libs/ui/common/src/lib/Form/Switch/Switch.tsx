@@ -7,7 +7,7 @@ type SwitchProps = {
   size?: 'big' | 'medium' | 'small'
 }
 
-export default function Switch({
+export function Switch({
   value,
   onChange,
   alt = 'switch',

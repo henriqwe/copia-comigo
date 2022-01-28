@@ -35,7 +35,7 @@ type SelectProps = {
   error?: DeepMap<FieldValues, FieldError>
 }
 
-function Select({
+export function Select({
   noSearch = false,
   itens,
   onChange,
@@ -211,8 +211,7 @@ function Select({
                       value={''}
                     >
                       {({ selected }) => (
-                        <>
-                          <span
+                        <span
                             className={`${
                               selected ? 'font-medium' : 'font-normal'
                             } flex truncate`}
@@ -227,7 +226,6 @@ function Select({
                               </span>
                             ) : null}
                           </span>
-                        </>
                       )}
                     </Listbox.Option>
                   )}
@@ -243,5 +241,3 @@ function Select({
     </>
   )
 }
-
-export default Select

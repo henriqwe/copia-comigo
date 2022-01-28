@@ -1,5 +1,4 @@
-import * as icons from '../../Icons'
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 
 type DeleteButtonProps = {
   onClick: () => void
@@ -9,7 +8,7 @@ type DeleteButtonProps = {
   className?: string
 }
 
-export default function DeleteButton({
+export function DeleteButton({
   onClick,
   size = 'medium',
   loading = false,
@@ -43,7 +42,7 @@ export default function DeleteButton({
         {loading ? (
           <common.AnimatedSpin />
         ) : (
-          <icons.DeleteIcon className={`text-theme-2 ${height} ${width}`} />
+          <common.icons.DeleteIcon className={`text-theme-2 ${height} ${width}`} />
         )}
       </button>
     </div>

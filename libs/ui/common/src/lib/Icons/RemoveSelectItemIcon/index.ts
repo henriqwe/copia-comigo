@@ -1,1 +1,1 @@
-export * as RemoveSelectItemIcon from './RemoveSelectItemIcon'
+export { RemoveSelectItemIcon } from './RemoveSelectItemIcon'

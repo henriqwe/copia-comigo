@@ -6,7 +6,7 @@ type FormLineProps = {
   grid?: number
 }
 
-const FormLine = ({ children, position, grid = 12 }: FormLineProps) => {
+export const FormLine = ({ children, position, grid = 12 }: FormLineProps) => {
   const colunasDoGrid = [
     'sm:grid-cols-1',
     'sm:grid-cols-2',
@@ -31,5 +31,3 @@ const FormLine = ({ children, position, grid = 12 }: FormLineProps) => {
     </div>
   )
 }
-
-export default FormLine

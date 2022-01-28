@@ -1,1 +1,1 @@
-export * as FormLine from './FormLine'
+export { FormLine } from './FormLine'

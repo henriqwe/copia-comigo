@@ -1,1 +1,1 @@
-export * as UploadFile from './UploadFile'
+export { UploadFile } from './UploadFile'

@@ -1,1 +1,1 @@
-export * as BurguerIcon from './BurguerIcon'
+export { BurguerIcon } from './BurguerIcon'

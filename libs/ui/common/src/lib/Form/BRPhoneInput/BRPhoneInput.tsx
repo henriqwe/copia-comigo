@@ -1,6 +1,6 @@
 import InputMask from 'react-input-mask'
 import { Control, Controller } from 'react-hook-form'
-import * as form from '@/common/Form'
+import * as common from '@comigo/ui-common'
 import {
   DeepMap,
   FieldError,
@@ -19,7 +19,7 @@ type BRPhoneInputProps = {
   iconPosition?: 'left' | 'right'
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-function BRPhoneInput({
+export function BRPhoneInput({
   control,
   index,
   error,
@@ -38,7 +38,7 @@ function BRPhoneInput({
           onChange={onChange}
           disabled={disabled}
         >
-          <form.Input
+          <common.form.Input
             fieldName="Telefone"
             title="Telefone"
             error={error}
@@ -50,5 +50,3 @@ function BRPhoneInput({
     />
   )
 }
-
-export default BRPhoneInput

@@ -1,1 +1,1 @@
-export * as EditIcon from './EditIcon'
+export { EditIcon } from './EditIcon'

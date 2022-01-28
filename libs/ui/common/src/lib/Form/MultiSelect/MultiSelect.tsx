@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { DeepMap, FieldError, FieldValues } from 'react-hook-form'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
 type MultiSelectProps = {
@@ -36,7 +36,7 @@ type Itens = {
   type?: string
 }
 
-export default function MultiSelect({
+export function MultiSelect({
   noSearch = false,
   itens,
   onChange,
@@ -182,7 +182,7 @@ export default function MultiSelect({
                                   className="ml-1 bg-gray-100 rounded-full cursor-pointer"
                                   onClick={() => removePerson(person)}
                                 >
-                                  <icons.RemoveSelectItemIcon />
+                                  <common.icons.RemoveSelectItemIcon />
                                 </div>
                               )}
                             </div>

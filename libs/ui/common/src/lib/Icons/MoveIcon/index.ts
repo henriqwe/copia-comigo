@@ -1,1 +1,1 @@
-export * as MoveIcon from './MoveIcon'
+export { MoveIcon } from './MoveIcon'

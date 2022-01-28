@@ -1,4 +1,4 @@
-export default function Header() {
+export function Header() {
   return (
     <div className="flex flex-wrap items-center justify-between col-span-12 mt-2 intro-y sm:flex-nowrap">
       <button className="mr-2 shadow-md btn btn-primary">

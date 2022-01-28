@@ -6,7 +6,7 @@ type ListItemProps = {
   position: number
 }
 
-const ListItem = ({ children, title, position }: ListItemProps) => (
+export const ListItem = ({ children, title, position }: ListItemProps) => (
   <dl className={`${position % 2 !== 0 ? 'dark:bg-dark-6 bg-gray-100' : ''}`}>
     <div className="px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-3 sm:gap-8">
       <dt className="flex items-center justify-end flex-1 h-10 text-sm font-medium text-gray-500">
@@ -19,5 +19,3 @@ const ListItem = ({ children, title, position }: ListItemProps) => (
     </div>
   </dl>
 )
-
-export default ListItem

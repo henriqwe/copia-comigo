@@ -1,1 +1,1 @@
-export * as CloseIcon from './CloseIcon'
+export { CloseIcon } from './CloseIcon'

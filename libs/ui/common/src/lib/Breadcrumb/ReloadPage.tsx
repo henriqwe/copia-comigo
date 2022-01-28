@@ -1,5 +1,5 @@
 import { RefreshIcon } from '@heroicons/react/outline'
-import AnimateSpin from '../AnimatedSpin'
+import * as common from '@comigo/ui-common'
 
 export default function ReloadPage({
   reload
@@ -7,7 +7,7 @@ export default function ReloadPage({
   reload: { state: boolean; action: () => void }
 }) {
   return reload.state ? (
-    <AnimateSpin
+    <common.AnimatedSpin
       className="w-6 h-6 cursor-pointer text-theme-1 dark:text-theme-2"
       data-testid="spin"
     />

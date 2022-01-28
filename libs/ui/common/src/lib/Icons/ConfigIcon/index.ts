@@ -1,1 +1,1 @@
-export * as ConfigIcon from './ConfigIcon'
+export { ConfigIcon } from './ConfigIcon'

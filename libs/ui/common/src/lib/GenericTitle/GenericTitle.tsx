@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 
 type GenericTitleProps = {
   icon?: ReactNode
@@ -9,7 +9,7 @@ type GenericTitleProps = {
   className?: string
 }
 
-const GenericTitle = ({
+export const GenericTitle = ({
   title,
   subtitle,
   icon,
@@ -19,7 +19,7 @@ const GenericTitle = ({
   <div className={`flex items-center ${className}`}>
     {showIcon ? (
       <div className="flex items-center justify-center w-5 h-5 rounded-full">
-        <p className="text-2xl">{icon ? icon : <icons.CheckIcon />}</p>
+        <p className="text-2xl">{icon ? icon : <common.icons.CheckIcon />}</p>
       </div>
     ) : (
       ''

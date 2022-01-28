@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useMemo, useState } from 'react'
 import { useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 
 import { notification } from 'utils/notification'
 
@@ -45,7 +45,7 @@ const rejectStyle = {
   borderColor: '#ff1744'
 }
 
-const UploadFilePDF = ({
+export const UploadFilePDF = ({
   documentName,
   Id,
   path,

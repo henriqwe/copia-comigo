@@ -1,4 +1,4 @@
-const AnimatedSpin = ({ ...props }: React.ComponentProps<'svg'>) => (
+export const AnimatedSpin = ({ ...props }: React.ComponentProps<'svg'>) => (
   <svg
     {...props}
     className={`animate-spin ${props.className}`}
@@ -21,5 +21,3 @@ const AnimatedSpin = ({ ...props }: React.ComponentProps<'svg'>) => (
     ></path>
   </svg>
 )
-
-export default AnimatedSpin

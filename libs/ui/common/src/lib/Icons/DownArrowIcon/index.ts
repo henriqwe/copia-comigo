@@ -1,1 +1,1 @@
-export * as DownArrowIcon from './DownArrowIcon'
+export { DownArrowIcon } from './DownArrowIcon'

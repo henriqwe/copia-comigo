@@ -7,7 +7,7 @@ type GoBackButtonProps = {
   onClick?: () => void
 }
 
-const GoBackButton = ({
+export const GoBackButton = ({
   className,
   disabled = false,
   title = 'Voltar',
@@ -22,5 +22,3 @@ const GoBackButton = ({
     {title}
   </button>
 )
-
-export default GoBackButton

@@ -1,7 +1,7 @@
 import { RadioGroup } from '@headlessui/react'
 import React, { Dispatch, SetStateAction, useState, ReactNode } from 'react'
 
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 
 type ListRadioGroupProps = {
   options: { value: string; content: ReactNode }[]
@@ -10,7 +10,7 @@ type ListRadioGroupProps = {
   selectedValue?: { value: string; content: ReactNode }
 }
 
-function ListRadioGroup({
+export function ListRadioGroup({
   options,
   setSelectedOption,
   horizontal = false,
@@ -66,7 +66,7 @@ function ListRadioGroup({
                   {opcao.content}
                   {opcao.value === selected?.value && (
                     <div className="flex-shrink-0 text-white">
-                      <icons.CheckIcon className="w-6 h-6" />
+                      <common.icons.CheckIcon className="w-6 h-6" />
                     </div>
                   )}
                 </div>
@@ -78,5 +78,3 @@ function ListRadioGroup({
     </div>
   )
 }
-
-export default ListRadioGroup

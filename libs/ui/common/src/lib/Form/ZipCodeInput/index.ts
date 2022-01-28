@@ -1,1 +1,1 @@
-export * as ZipCodeInput from './ZipCodeInput'
+export { ZipCodeInput } from './ZipCodeInput'

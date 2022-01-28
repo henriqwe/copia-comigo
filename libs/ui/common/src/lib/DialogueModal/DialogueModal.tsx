@@ -7,7 +7,7 @@ type DialogueModalProps = {
   setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-function DialogueModal({ children, open, setOpen }: DialogueModalProps) {
+export function DialogueModal({ children, open, setOpen }: DialogueModalProps) {
   return (
     <Transition appear show={open} as={Fragment}>
         <Dialog
@@ -78,5 +78,3 @@ function DialogueModal({ children, open, setOpen }: DialogueModalProps) {
       </Transition>
   )
 }
-
-export default DialogueModal

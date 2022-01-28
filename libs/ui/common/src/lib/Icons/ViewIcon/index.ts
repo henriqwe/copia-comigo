@@ -1,1 +1,1 @@
-export * as ViewIcon from './ViewIcon'
+export { ViewIcon } from './ViewIcon'

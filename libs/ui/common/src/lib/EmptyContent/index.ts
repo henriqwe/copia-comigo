@@ -1,1 +1,1 @@
-export * as EmptyContent from './EmptyContent'
+export { EmptyContent } from './EmptyContent'

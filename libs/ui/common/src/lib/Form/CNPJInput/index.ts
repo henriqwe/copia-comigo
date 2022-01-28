@@ -1,1 +1,1 @@
-export * as CNPJInput from './CNPJInput'
+export { CNPJInput } from './CNPJInput'

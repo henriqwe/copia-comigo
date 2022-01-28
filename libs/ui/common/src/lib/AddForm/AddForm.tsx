@@ -9,7 +9,7 @@ type AddFormProps = {
   condition?: any
 }
 
-export default function AddForm({
+export function AddForm({
   array,
   setArray,
   children,

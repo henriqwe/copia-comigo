@@ -26,7 +26,7 @@ type Itens = {
   children?: Itens[]
 }
 
-function SelectWithGroup({
+export function SelectWithGroup({
   noSearch,
   itens,
   onChange,
@@ -270,15 +270,13 @@ function SelectWithGroup({
                       value={''}
                     >
                       {({ selected }) => (
-                        <>
-                          <span
+                        <span
                             className={`${
                               selected ? 'font-medium' : 'font-normal'
                             } flex truncate`}
                           >
                             {'Nem um resultado encontrado.'}
                           </span>
-                        </>
                       )}
                     </Listbox.Option>
                   )}
@@ -294,5 +292,3 @@ function SelectWithGroup({
     </>
   )
 }
-
-export default SelectWithGroup

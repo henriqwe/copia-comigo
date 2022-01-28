@@ -1,12 +1,10 @@
 import React, { Dispatch, SetStateAction, useState } from 'react'
-import Actions from '@/common/MainMenu/Actions'
-import Filters from '@/common/MainMenu/Filters'
-import Links from '@/common/MainMenu/Links'
+import Actions from './Actions'
+import Filters from './Filters'
+import Links from './Links'
 import { useRouter } from 'next/router'
-import * as buttons from '@/common/Buttons'
-import * as icons from '@/common/Icons'
-import * as common from '@/common'
-import Search from '@/blocks/Table/Search'
+import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
 
 type MainMenuProps = {
   LinkGroup?: {
@@ -30,7 +28,7 @@ type MainMenuProps = {
   setFilters?: Dispatch<SetStateAction<any>>
 }
 
-export default function MainMenu({
+export function MainMenu({
   LinkGroup = [],
   FiltersGroup = [],
   ActionsGroup = [],
@@ -48,12 +46,12 @@ export default function MainMenu({
       >
         {ActionsGroup.length
           ? ActionsGroup.map((item, index) => (
-              <Actions
-                active={item.url === router.asPath}
-                item={item}
-                key={`left-side-nav-filter-${index}`}
-              />
-            ))
+            <Actions
+              active={item.url === router.asPath}
+              item={item}
+              key={`left-side-nav-filter-${index}`}
+            />
+          ))
           : null}
       </div>
 
@@ -71,7 +69,7 @@ export default function MainMenu({
 
       {search && (
         <>
-          <Search
+          <blocks.Search
             search={search}
             pagination={{
               filters: filters as {
@@ -89,17 +87,16 @@ export default function MainMenu({
       )}
 
       <div
-        className={`mt-3 ${
-          LinkGroup.length ? 'pt-4 border-t border-gray-300' : ''
-        } dark:border-dark-5`}
+        className={`mt-3 ${LinkGroup.length ? 'pt-4 border-t border-gray-300' : ''
+          } dark:border-dark-5`}
         data-testid="filtros"
       >
         {filters ? (
           filters.where ? (
             Object.keys(filters.where).length > 1 ? (
-              <buttons.CancelButton
+              <common.buttons.CancelButton
                 title="Remover filtros"
-                icon={<icons.DeleteIcon className="w-5 h-5 mr-2 text-white" />}
+                icon={<common.icons.DeleteIcon className="w-5 h-5 mr-2 text-white" />}
                 onClick={() => {
                   setFilters((old: { limit: number }) => {
                     return {
@@ -122,12 +119,12 @@ export default function MainMenu({
 
         {FiltersGroup.length
           ? FiltersGroup.map((item, index) => (
-              <Filters
-                item={item}
-                key={`left-side-nav-filter-${index}`}
-                disabledAll={disabledAll}
-              />
-            ))
+            <Filters
+              item={item}
+              key={`left-side-nav-filter-${index}`}
+              disabledAll={disabledAll}
+            />
+          ))
           : ''}
       </div>
     </div>

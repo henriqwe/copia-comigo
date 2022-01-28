@@ -1,1 +1,1 @@
-export * as AddForm from './AddForm'
+export { AddForm } from './AddForm'

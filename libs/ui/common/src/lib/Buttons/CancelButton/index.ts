@@ -1,1 +1,1 @@
-export * as CancelButton from './CancelButton'
+export { CancelButton } from './CancelButton'

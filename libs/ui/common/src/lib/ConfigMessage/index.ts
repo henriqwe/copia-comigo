@@ -1,1 +1,1 @@
-export * as ConfigMessage from './ConfigMessage'
+export { ConfigMessage } from './ConfigMessage'

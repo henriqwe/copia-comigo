@@ -1,1 +1,1 @@
-export * as PrinterIcon from './PrinterIcon'
+export { PrinterIcon } from './PrinterIcon'

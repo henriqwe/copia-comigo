@@ -1,1 +1,1 @@
-export * as GenericTitle from './GenericTitle'
+export { GenericTitle } from './GenericTitle'

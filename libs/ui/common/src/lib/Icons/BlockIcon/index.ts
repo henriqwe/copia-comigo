@@ -1,1 +1,1 @@
-export * as BlockIcon from './BlockIcon'
+export { BlockIcon } from './BlockIcon'

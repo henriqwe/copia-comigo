@@ -1,1 +1,1 @@
-export * as CPFInput from './CPFInput'
+export { CPFInput } from './CPFInput'

@@ -1,1 +1,1 @@
-export * as Header from './Header'
+export { Header } from './Header'

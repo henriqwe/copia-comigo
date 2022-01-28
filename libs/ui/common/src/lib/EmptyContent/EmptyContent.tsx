@@ -1,4 +1,4 @@
-export default function EmptyContent() {
+export function EmptyContent() {
   return (
     <div className="intro-x">
       <p className="text-center">Nenhum registro encontrado!</p>

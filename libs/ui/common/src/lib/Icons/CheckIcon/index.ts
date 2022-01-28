@@ -1,1 +1,1 @@
-export * as CheckIcon from './CheckIcon'
+export { CheckIcon } from './CheckIcon'

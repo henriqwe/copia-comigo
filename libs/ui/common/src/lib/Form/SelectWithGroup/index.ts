@@ -1,1 +1,1 @@
-export * as SelectWithGroup from './SelectWithGroup'
+export { SelectWithGroup } from './SelectWithGroup'

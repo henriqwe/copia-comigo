@@ -1,1 +1,1 @@
-export * as ReloadIcon from './ReloadIcon'
+export { ReloadIcon } from './ReloadIcon'

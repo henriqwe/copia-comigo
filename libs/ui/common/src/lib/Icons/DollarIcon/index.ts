@@ -1,1 +1,1 @@
-export * as DollarIcon from './DollarIcon'
+export { DollarIcon } from './DollarIcon'

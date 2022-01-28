@@ -1,1 +1,1 @@
-export * as OpenModalLink from './OpenModalLink'
+export { OpenModalLink } from './OpenModalLink'

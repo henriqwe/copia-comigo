@@ -6,7 +6,7 @@ type ActivityCardProps = {
   description?: ReactNode
 }
 
-export default function ActivityCard({
+export function ActivityCard({
   title,
   date,
   description

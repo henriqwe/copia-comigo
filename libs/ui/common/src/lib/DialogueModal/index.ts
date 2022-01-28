@@ -1,1 +1,1 @@
-export * as DialogueModal from './DialogueModal'
+export { DialogueModal } from './DialogueModal'

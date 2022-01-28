@@ -1,1 +1,1 @@
-export * as ReturnIcon from './ReturnIcon'
+export { UserIcon } from './UserIcon'

@@ -1,1 +1,1 @@
-export * as AnimatedSpin from './AnimatedSpin'
+export { AnimatedSpin } from './AnimatedSpin'

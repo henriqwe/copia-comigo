@@ -1,7 +1,7 @@
 import { Fragment, ReactNode, useRef } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationIcon } from '@heroicons/react/outline'
-import SpinAnimado from '@/common/AnimatedSpin'
+import * as common from '@comigo/ui-common'
 
 type ModalProps = {
   onClose: () => void
@@ -15,7 +15,7 @@ type ModalProps = {
   color?: 'green' | 'red'
 }
 
-export default function Modal({
+export function Modal({
   onClose,
   handleSubmit,
   open,
@@ -92,14 +92,13 @@ export default function Modal({
               <div className="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button
                   type="button"
-                  className={`inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm ${
-                    color === 'green' ? 'bg-primary-4' : 'bg-primary-3'
-                  }  hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm disabled:bg-gray-600`}
+                  className={`inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm ${color === 'green' ? 'bg-primary-4' : 'bg-primary-3'
+                    }  hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm disabled:bg-gray-600`}
                   onClick={handleSubmit}
                   disabled={disabled}
                 >
                   {disabled ? (
-                    <SpinAnimado className="w-5 h-5 text-white" />
+                    <common.AnimatedSpin className="w-5 h-5 text-white" />
                   ) : (
                     buttonTitle
                   )}

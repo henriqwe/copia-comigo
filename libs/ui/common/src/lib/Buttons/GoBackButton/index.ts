@@ -1,1 +1,1 @@
-export * as GoBackButton from './GoBackButton'
+export { GoBackButton } from './GoBackButton'

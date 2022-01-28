@@ -1,1 +1,1 @@
-export * as BRPhoneInput from './BRPhoneInput'
+export { BRPhoneInput } from './BRPhoneInput'

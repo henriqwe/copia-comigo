@@ -1,1 +1,1 @@
-export * as AuthorizationIcon from './AuthorizationIcon'
+export { AuthorizationIcon } from './AuthorizationIcon'

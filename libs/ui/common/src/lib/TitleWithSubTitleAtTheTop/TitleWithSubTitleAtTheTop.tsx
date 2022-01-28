@@ -3,7 +3,7 @@ type TitleWithSubTitleAtTheTopProps = {
   subtitle: string
 }
 
-function TitleWithSubTitleAtTheTop({
+export function TitleWithSubTitleAtTheTop({
   title,
   subtitle
 }: TitleWithSubTitleAtTheTopProps) {
@@ -14,5 +14,3 @@ function TitleWithSubTitleAtTheTop({
     </div>
   )
 }
-
-export default TitleWithSubTitleAtTheTop

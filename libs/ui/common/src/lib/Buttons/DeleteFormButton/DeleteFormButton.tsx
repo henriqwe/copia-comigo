@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 
 type DeleteFormButtonProps = {
   array: number[]
@@ -8,7 +8,7 @@ type DeleteFormButtonProps = {
   number: number
 }
 
-function DeleteFormButton({
+export function DeleteFormButton({
   array,
   setArray,
   loading,
@@ -25,9 +25,8 @@ function DeleteFormButton({
         } py-2 px-4 rounded-md bg-primary-3 transition text-white flex items-center`}
         type="button"
       >
-        <icons.DeleteIcon width={28} height={28} className={'text-theme-2'} />
+        <common.icons.DeleteIcon width={28} height={28} className={'text-theme-2'} />
       </button>
     </div>
   )
 }
-export default DeleteFormButton

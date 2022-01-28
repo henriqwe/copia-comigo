@@ -1,4 +1,4 @@
-export default function Divider({
+export function Divider({
   className = 'my-6'
 }: {
   className?: string

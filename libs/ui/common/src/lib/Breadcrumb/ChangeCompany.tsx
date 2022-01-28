@@ -1,13 +1,12 @@
 import { OfficeBuildingIcon } from '@heroicons/react/outline'
-import { useTheme } from 'contexts/ThemeContext'
 import { Dispatch, SetStateAction } from 'react'
 
 type ChangeCompanyProps = {
   setOpen: Dispatch<SetStateAction<boolean>>
+  theme: string
 }
 
-export default function ChangeCompany({ setOpen }: ChangeCompanyProps) {
-  const { theme } = useTheme()
+export default function ChangeCompany({ setOpen, theme }: ChangeCompanyProps) {
   return (
     <div className="relative inline-block pl-2 align-middle transition duration-200 ease-in select-none">
       <button

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import SpinAnimado from '../../AnimatedSpin'
+import * as common from '@comigo/ui-common'
 
 type CancelButtonProps = {
   disabled?: boolean
@@ -11,7 +11,7 @@ type CancelButtonProps = {
   onClick: () => void
 }
 
-const CancelButton = ({
+export const CancelButton = ({
   className,
   disabled = false,
   title = 'Cancelar',
@@ -28,10 +28,8 @@ const CancelButton = ({
   >
     <span className="flex">
       {icon && iconPosition === 'left' ? icon : null}
-      {loading && <SpinAnimado className="w-5 h-5 mr-2" />} {title}{' '}
+      {loading && <common.AnimatedSpin className="w-5 h-5 mr-2" />} {title}{' '}
       {icon && iconPosition === 'right' ? icon : null}
     </span>
   </button>
 )
-
-export default CancelButton

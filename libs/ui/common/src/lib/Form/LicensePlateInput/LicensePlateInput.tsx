@@ -1,6 +1,6 @@
 import InputMask, { BeforeMaskedStateChangeStates } from 'react-input-mask'
 import { Control, Controller } from 'react-hook-form'
-import * as form from '@/common/Form'
+import * as common from '@comigo/ui-common'
 import {
   DeepMap,
   FieldError,
@@ -19,7 +19,7 @@ type LicensePlateInputProps = {
   iconPosition?: 'left' | 'right'
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-function LicensePlateInput({
+export function LicensePlateInput({
   control,
   error,
   disabled = false,
@@ -48,7 +48,7 @@ function LicensePlateInput({
           disabled={disabled}
           beforeMaskedStateChange={beforeMaskedStateChange}
         >
-          <form.Input
+          <common.form.Input
             fieldName="Placa"
             title="Placa"
             // onChange={(e) => {
@@ -64,5 +64,3 @@ function LicensePlateInput({
     />
   )
 }
-
-export default LicensePlateInput

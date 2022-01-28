@@ -1,4 +1,4 @@
-export default function RemoveSelectItemIcon() {
+export function RemoveSelectItemIcon() {
   return (
     <svg
       width="15"

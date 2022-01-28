@@ -1,12 +1,12 @@
 import { Dispatch, Fragment, SetStateAction } from 'react'
 
-import Link from '@/common/Link'
 
-import * as blocks from '@/blocks'
+import * as blocks from '@comigo/ui-blocks'
+import * as common from '@comigo/ui-common'
+import ReloadPage from './ReloadPage'
 import ChangeTheme from './ChangeTheme'
 import ChangeCompany from './ChangeCompany'
 import { ChevronRightIcon } from '@heroicons/react/outline'
-import ReloadPage from '@/common/Breadcrumb/ReloadPage'
 
 type Props = {
   title: string
@@ -14,14 +14,16 @@ type Props = {
   currentLocation: { title: string; url: string }[]
   setOpen: Dispatch<SetStateAction<boolean>>
   setShowModal: Dispatch<SetStateAction<boolean>>
+  theme: string
 }
 
-const Breadcrumb = ({
+export const Breadcrumb = ({
   title,
   reload,
   currentLocation,
   setOpen,
-  setShowModal
+  setShowModal,
+  theme
 }: Props) => {
   return (
     <div className="flex items-center justify-between flex-1">
@@ -32,10 +34,10 @@ const Breadcrumb = ({
             return (
               // <div key={`link-breadcrumb-${index}`}>
               <Fragment key={`link-breadcrumb-${index}`}>
-                {index != 0 && <ChevronRightIcon className="w-3 h-3 mx-0.5" />}
-                <Link to={item.url} className="breadcrumb--active text-tiny">
+                {index !== 0 && <ChevronRightIcon className="w-3 h-3 mx-0.5" />}
+                <common.Link to={item.url} className="breadcrumb--active text-tiny">
                   {item.title}
-                </Link>
+                </common.Link>
               </Fragment>
             )
           })}
@@ -43,7 +45,7 @@ const Breadcrumb = ({
         <div className="text-xl">{title}</div>
       </div>
       <div className="flex items-center justify-center gap-4 divide-x divide-green-500">
-        <ChangeCompany setOpen={setOpen} />
+        <ChangeCompany setOpen={setOpen} theme={theme}/>
         <ReloadPage reload={reload} />
         <div className="flex items-center">
           <ChangeTheme />
@@ -53,5 +55,3 @@ const Breadcrumb = ({
     </div>
   )
 }
-
-export default Breadcrumb

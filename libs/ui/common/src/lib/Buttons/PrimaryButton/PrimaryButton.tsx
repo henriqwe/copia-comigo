@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import SpinAnimado from '../../AnimatedSpin'
+import * as common from '@comigo/ui-common'
 
 type PrimaryButtonProps = {
   disabled?: boolean
@@ -10,7 +10,7 @@ type PrimaryButtonProps = {
   type?: 'submit' | 'button' | 'reset' | undefined
 }
 
-const PrimaryButton = ({
+export const PrimaryButton = ({
   className,
   disabled = false,
   title,
@@ -24,7 +24,7 @@ const PrimaryButton = ({
     type={type}
     onClick={onClick}
   >
-    {loading && <SpinAnimado className="w-5 h-5 mr-2" />} {title}
+    {loading && <common.AnimatedSpin className="w-5 h-5 mr-2" />} {title}
   </button>
 )
 

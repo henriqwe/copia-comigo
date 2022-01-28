@@ -6,11 +6,11 @@ type DataListLineProps = {
   position: number
 }
 
-function DataListLine({ title, value, position }: DataListLineProps) {
+export function DataListLine({ title, value, position }: DataListLineProps) {
   return (
     <div
       className={`px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6 ${
-        position % 2 == 0
+        position % 2 === 0
           ? 'dark:bg-dark-6 bg-gray-100'
           : 'dark:bg-dark-3 bg-gray-200'
       }`}
@@ -23,4 +23,3 @@ function DataListLine({ title, value, position }: DataListLineProps) {
   )
 }
 
-export default DataListLine

@@ -1,1 +1,1 @@
-export * as LicensePlateInput from './LicensePlateInput'
+export { LicensePlateInput } from './LicensePlateInput'

@@ -1,1 +1,1 @@
-export * as DeleteButton from './DeleteButton'
+export { DeleteButton } from './DeleteButton'

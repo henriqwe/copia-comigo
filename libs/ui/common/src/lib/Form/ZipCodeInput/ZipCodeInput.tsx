@@ -1,6 +1,6 @@
 import InputMask from 'react-input-mask'
 import { Control, Controller } from 'react-hook-form'
-import * as form from '@/common/Form'
+import * as common from '@comigo/ui-common'
 import {
   DeepMap,
   FieldError,
@@ -20,7 +20,7 @@ type ZipCodeInputProps = {
   iconPosition?: 'left' | 'right'
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-function ZipCodeInput({
+export function ZipCodeInput({
   control,
   error,
   disabled = false,
@@ -48,11 +48,9 @@ function ZipCodeInput({
           }}
           disabled={disabled}
         >
-          <form.Input fieldName="Cep" title="Cep" error={error} {...rest} />
+          <common.form.Input fieldName="Cep" title="Cep" error={error} {...rest} />
         </InputMask>
       )}
     />
   )
 }
-
-export default ZipCodeInput

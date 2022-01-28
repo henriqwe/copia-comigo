@@ -1,6 +1,6 @@
 import { CogIcon } from '@heroicons/react/solid'
 
-function ConfigIcon({ ...props }: React.ComponentProps<'svg'>) {
+export function ConfigIcon({ ...props }: React.ComponentProps<'svg'>) {
   return (
     <>
       <CogIcon
@@ -20,5 +20,3 @@ function ConfigIcon({ ...props }: React.ComponentProps<'svg'>) {
     </>
   )
 }
-
-export default ConfigIcon

@@ -1,1 +1,1 @@
-export * as DeleteFormButton from './DeleteFormButton'
+export { DeleteFormButton } from './DeleteFormButton'

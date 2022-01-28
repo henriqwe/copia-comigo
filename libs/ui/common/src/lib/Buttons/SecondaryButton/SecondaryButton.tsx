@@ -1,5 +1,4 @@
-import * as common from '@/common'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 import { ReactNode } from 'react'
 
 type SecondaryButtonProps = {
@@ -14,7 +13,7 @@ type SecondaryButtonProps = {
   type?: 'submit' | 'button' | 'reset'
 }
 
-function SecondaryButton({
+export function SecondaryButton({
   handler,
   loading = false,
   disabled = false,
@@ -39,10 +38,9 @@ function SecondaryButton({
         ) : title ? (
           title
         ) : (
-          <icons.AddIcon className={className} />
+          <common.icons.AddIcon className={className} />
         )}
       </button>
     </div>
   )
 }
-export default SecondaryButton

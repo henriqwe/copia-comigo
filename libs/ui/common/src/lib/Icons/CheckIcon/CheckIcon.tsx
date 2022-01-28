@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from '@heroicons/react/solid'
 
-function CheckIcon({ ...props }: React.ComponentProps<'svg'>) {
+export function CheckIcon({ ...props }: React.ComponentProps<'svg'>) {
   return (
     <>
       <CheckCircleIcon
@@ -20,5 +20,3 @@ function CheckIcon({ ...props }: React.ComponentProps<'svg'>) {
     </>
   )
 }
-
-export default CheckIcon
