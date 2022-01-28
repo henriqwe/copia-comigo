@@ -1,11 +1,10 @@
-// apps/primeiro-app/postcss.config.js
 const { join } = require('path');
 
 module.exports = {
-  plugins: {
-    tailwindcss: {
-      config: join(__dirname, 'tailwind.config.js'),
+    plugins: {
+        autoprefixer: {},
+        tailwindcss: {
+            config: join(__dirname, 'tailwind.config.js'),
+        },
     },
-    autoprefixer: {},
-  },
 };
