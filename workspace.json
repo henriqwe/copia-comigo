@@ -13,6 +13,7 @@
     "thinker-app": "apps/thinker-app",
     "ui-blocks": "libs/ui/blocks",
     "ui-common": "libs/ui/common",
-    "ui-templates": "libs/ui/templates"
+    "ui-templates": "libs/ui/templates",
+    "utils": "libs/utils"
   }
 }

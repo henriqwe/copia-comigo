@@ -3,8 +3,7 @@ import { useMemo, useState } from 'react'
 import { useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import * as common from '@comigo/ui-common'
-
-import { notification } from 'utils/notification'
+import * as utils from '@comigo/utils'
 
 type UploadFilePDFProps = {
   multiplo?: string
@@ -81,10 +80,10 @@ export const UploadFilePDF = ({
         // FIXME: remover setTimeOut
         setTimeout(async () => {
           refetch && refetch()
-          notification('Arquivo inserido com sucesso', 'success')
+          utils.notification('Arquivo inserido com sucesso', 'success')
         }, 1000)
       })
-      .catch((err) => notification('Ops! algo deu errado', 'error'))
+      .catch((err) => utils.notification('Ops! algo deu errado', 'error'))
   }
 
   useEffect(() => {

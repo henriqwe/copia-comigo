@@ -3,8 +3,7 @@ import { useMemo, useState } from 'react'
 import { useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import * as common from '@comigo/ui-common'
-
-import { notification } from 'utils/notification'
+import * as utils from '@comigo/utils'
 import {
   ApolloCache,
   DefaultContext,
@@ -15,7 +14,6 @@ import {
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { showError } from 'utils/showError'
 
 type UploadFileProps = {
   multiplo?: string
@@ -139,12 +137,12 @@ export const UploadFile = ({
               setDeclineMotive(response[response.length - 1]?.MotivoRecusa)
               setItemExists(true)
               setEdit(false)
-              notification('Envio concluído', 'success')
+              utils.notification('Envio concluído', 'success')
             }
           })
         }, 1000)
       })
-      .catch((err) => notification('Ops! algo deu errado', 'error'))
+      .catch((err) => utils.notification('Ops! algo deu errado', 'error'))
   }
 
   async function approveDocumentSubmit() {
@@ -155,7 +153,7 @@ export const UploadFile = ({
     }).then(() => {
       refetch()
       setSituation('aprovado')
-      notification('Documento aprovado com sucesso', 'success')
+      utils.notification('Documento aprovado com sucesso', 'success')
     })
   }
 
@@ -169,7 +167,7 @@ export const UploadFile = ({
       refetch()
       setOpenSlide(false)
       setSituation('recusado')
-      notification('Documento recusado com sucesso', 'success')
+      utils.notification('Documento recusado com sucesso', 'success')
     })
   }
 
@@ -229,7 +227,7 @@ export const UploadFile = ({
       </p>
       <div className="grid grid-cols-2 gap-4">
         <div className="flex items-end gap-4 justify-star">
-          <common.common.buttons.SecondaryButton
+          <common.buttons.SecondaryButton
             handler={async () => {
               await axios
                 .get<any>('/api/upload/presigned', {
@@ -237,7 +235,7 @@ export const UploadFile = ({
                 })
                 .then((response) => window.open(response.data.url, '_ blank'))
                 .catch((error) =>
-                  notification(error /*'Ops, algo deu errado'*/, 'error')
+                  utils.notification(error /*'Ops, algo deu errado'*/, 'error')
                 )
             }}
             title={<common.icons.ViewIcon />}

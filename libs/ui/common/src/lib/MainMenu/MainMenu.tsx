@@ -69,7 +69,7 @@ export function MainMenu({
 
       {search && (
         <>
-          <blocks.Search
+          <blocks.table.Search
             search={search}
             pagination={{
               filters: filters as {
