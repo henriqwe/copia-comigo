@@ -1,1 +1,1 @@
-export * as LogoWithLink from './LogoWithLink'
+export {LogoWithLink} from './LogoWithLink'

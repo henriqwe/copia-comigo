@@ -1,5 +1,5 @@
 import * as blocks from '@comigo/ui-blocks'
-import { ptBRtimeStamp } from 'utils/formaters'
+import { ptBRtimeStamp } from '@comigo/utils'
 
 type RowProps = {
   actions?: (item: { item: { title: string; fieldName: string } }) => void

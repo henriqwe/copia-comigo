@@ -236,7 +236,7 @@ function pagAllVehicles({inputSearchValue,setInputSearchValue,titleFilter,setTit
           <div className=''>
             <div className="px-3 py-3 bg-gray-100">
               <div className='ring-1 ring-gray-300 rounded-sm'>
-                <common.Form.Input
+                <common.form.Input
                   fieldName='Veículos'
                   title="Pesquise o veiculo aqui"
                   onChange={(e)=>{setInputSearchValue(e.target.value)}}

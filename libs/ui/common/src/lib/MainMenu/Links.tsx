@@ -1,5 +1,5 @@
 import { UserIcon } from '@heroicons/react/solid'
-import Link from '@/common/Link'
+import * as common from '@comigo/ui-common'
 
 /* <a href="" className="flex items-center px-3 py-2 mt-2 rounded-md">
 <i className="w-4 h-4 mr-2" data-feather="video"></i> Famílias
@@ -16,7 +16,7 @@ type LinksProps = {
 export default function Links({ active = false, item }: LinksProps) {
   // const activeClass = !active ? 'text-theme-1' : 'bg-theme-1 text-white'
   return (
-    <Link
+    <common.Link
       to={item.url}
       className={`flex items-center px-3 py-2 my-2 font-medium rounded-md ${
         !active
@@ -25,6 +25,6 @@ export default function Links({ active = false, item }: LinksProps) {
       }`}
     >
       <UserIcon className="w-4 h-4 mr-2" /> {item.title}
-    </Link>
+    </common.Link>
   )
 }

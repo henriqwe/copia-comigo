@@ -25,7 +25,7 @@ export function Search({ search, pagination, sideBar }: SearchProps) {
   return (
     <div className={'flex items-start justify-end gap-4 pt-4'}>
       <div className={`flex-1 mb-2 ${sideBar ? '' : 'max-w-1/2'}`}>
-        <common.Form.Input
+        <common.form.Input
           fieldName="searchValue"
           title={`Digite o ${search?.field.map((item) => ' ' + item)} desejado`}
           register={register}
@@ -34,7 +34,7 @@ export function Search({ search, pagination, sideBar }: SearchProps) {
       <div className="flex justify-between gap-4">
         {showRemoveButton && (
           <common.Buttons.CancelButton
-            icon={<common.Icons.CloseIcon />}
+            icon={<common.icons.CloseIcon />}
             title=""
             onClick={() => {
               setValue('searchValue', undefined)
@@ -66,7 +66,7 @@ export function Search({ search, pagination, sideBar }: SearchProps) {
           disabled={
             watch('searchValue') === undefined || watch('searchValue') === ''
           }
-          title={<common.Icons.ViewIcon />}
+          title={<common.icons.ViewIcon />}
           buttonClassName="h-10"
         />
       </div>

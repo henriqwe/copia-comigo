@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import * as common from "@comigo/ui-common";
 import * as localizations from '../../index'
 
-import { yupResolver } from '@hookform/resolvers/yup/dist/yup'
+import { yupResolver } from '@hookform/resolvers/yup'
 // import { showError } from 'utils/showError'
 // import { getStreetNameByLatLng } from '../../../api'
 import {

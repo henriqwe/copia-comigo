@@ -6,6 +6,7 @@ import * as localizations from '../components/domains/monitoring/Localization'
 import {getStreetNameByLatLng} from '../components/domains/monitoring/Localization/api'
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import React from 'react';
+import rotas from '../components/domains/routes'
 
 type vehicle = {
   crs: string
@@ -295,7 +296,7 @@ export function Page() {
   return (
     <div className="flex max-h-screen">
       <div className="h-screen sticky top-0 z-50">
-       <blocks.MainNavigation mainMenuItens={MainMenuItens}/>
+       <blocks.MainNavigation mainMenuItens={MainMenuItens} rotas={rotas}/>
       </div>
    
       <div className="absolute z-50 right-0 flex mr-16 mt-2.5" style={{ height: "95%"}}>

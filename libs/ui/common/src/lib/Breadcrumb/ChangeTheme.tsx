@@ -1,8 +1,12 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/outline'
-import { useTheme } from 'contexts/ThemeContext'
 
-export default function ChangeTheme() {
-  const { changeTheme, theme } = useTheme()
+type ChangeThemeProps={
+  theme: string
+  changeTheme: () => void
+}
+
+export default function ChangeTheme({
+  theme,changeTheme}:ChangeThemeProps) {
   return (
     <div className="relative inline-block pl-2 align-middle transition duration-200 ease-in select-none">
       <button

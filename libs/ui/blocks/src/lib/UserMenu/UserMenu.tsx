@@ -14,7 +14,7 @@ export function UserMenu({ setShowModal }: UserMenuProps) {
         <div>
           <Menu.Button className="inline-flex items-center justify-center w-full border-b border-gray-200 lg:flex-row dark:border-dark-5">
             <div className="w-8 h-8 image-fit">
-              <common.Icons.UserIcon />
+              <common.icons.UserIcon />
             </div>
           </Menu.Button>
         </div>

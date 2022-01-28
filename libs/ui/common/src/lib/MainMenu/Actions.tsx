@@ -1,5 +1,5 @@
 import router from 'next/router'
-import * as icons from '@/common/Icons'
+import * as common from '@comigo/ui-common'
 
 export type AcoesProps = {
   active: boolean
@@ -21,7 +21,7 @@ export default function Acoes({ active = false, item }: AcoesProps) {
         !active ? '' : ''
       }`}
     >
-      <icons.AddIcon className="w-5 h-5 mr-2" />
+      <common.icons.AddIcon className="w-5 h-5 mr-2" />
       {item.title}
     </button>
   )
