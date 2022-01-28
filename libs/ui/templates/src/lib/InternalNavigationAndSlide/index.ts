@@ -1,1 +1,1 @@
-export * as InternalNavigationAndSlide from './InternalNavigationAndSlide'
+export { InternalNavigationAndSlide } from './InternalNavigationAndSlide'

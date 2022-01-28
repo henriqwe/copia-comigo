@@ -5,7 +5,7 @@ type AuthenticationProps = {
   rightContent: ReactNode
 }
 
-export default function Authentication({
+export function Authentication({
   leftContent,
   rightContent
 }: AuthenticationProps) {
@@ -14,7 +14,7 @@ export default function Authentication({
       <div className="block grid-cols-2 gap-4 xl:grid">
         {/* <!-- BEGIN: Login Info --> */}
         <div className="flex-col hidden min-h-screen xl:flex">
-          <a href="" className="flex items-center pt-5 -intro-x">
+          <a href="http://localhost:3000" className="flex items-center pt-5 -intro-x">
             <img
               alt="GoERP"
               className="w-40"

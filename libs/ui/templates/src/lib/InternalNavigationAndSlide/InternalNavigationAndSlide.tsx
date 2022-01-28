@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react'
 
-import * as common from '@/common'
+import * as common from '@comigo/ui-common'
 
 import Logout from '@/domains/_compartilhado/Logout'
 import ChangeCompany from '@/domains/_compartilhado/ChangeCompany'
@@ -15,14 +15,16 @@ type TemplateProps = {
     state: boolean
   }
   currentLocation: { title: string; url: string }[]
+  theme: string
 }
 
-export default function InternalNavigationAndSlide({
+export function InternalNavigationAndSlide({
   children,
   SubMenu,
   title,
   reload,
-  currentLocation
+  currentLocation,
+  theme
 }: TemplateProps) {
   const [desativado, setDesativado] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -46,6 +48,7 @@ export default function InternalNavigationAndSlide({
               currentLocation={currentLocation}
               setOpen={setOpen}
               setShowModal={setShowModal}
+              theme={theme}
             />
           </div>
           <div className="grid grid-cols-12 gap-6 lg:divide-x">
