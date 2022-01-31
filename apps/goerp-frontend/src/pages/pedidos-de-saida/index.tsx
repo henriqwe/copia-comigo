@@ -1,25 +1,34 @@
-import * as outgoingOrders from '@/domains/erp/outgoingOrders'
+import * as outgoingOrders from '&erp/domains/outgoingOrders'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import { UserProvider } from 'contexts/UserContext'
-import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
+import { UserProvider } from '&erp/contexts/UserContext'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function OutgoingOrders() {
   return (
     <UserProvider>
       <outgoingOrders.ListProvider>
-        <Page />
+        <ThemeProvider>
+          <Page />
+        </ThemeProvider>
       </outgoingOrders.ListProvider>
     </UserProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { outGoingOrdersRefetch, outGoingOrdersLoading } =
     outgoingOrders.useList()
   return (
-    <InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       SubMenu={<outgoingOrders.InternalNavigation />}
       title="Listagem de Pedidos de saída"
       reload={{
@@ -27,15 +36,15 @@ export function Page() {
         state: outGoingOrdersLoading
       }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Compras', url: rotas.erp.compras.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Compras', url: rotas.compras.index },
         {
           title: 'Pedidos',
-          url: rotas.erp.pedidosDeSaida.index
+          url: rotas.pedidosDeSaida.index
         }
       ]}
     >
       <outgoingOrders.List />
-    </InternalNavigationAndSlide>
+    </templates.InternalNavigationAndSlide>
   )
 }

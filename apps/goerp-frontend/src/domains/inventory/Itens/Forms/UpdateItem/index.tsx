@@ -84,7 +84,7 @@ export const Update = () => {
       .then(() => {
         itemRefetch()
         setButtonName('Editar')
-        router.push(rotas.erp.estoque.itens.index)
+        router.push(rotas.estoque.itens.index)
         utils.notification(data.Produto.title + ' editado com sucesso', 'success')
       })
       .catch((err) => {

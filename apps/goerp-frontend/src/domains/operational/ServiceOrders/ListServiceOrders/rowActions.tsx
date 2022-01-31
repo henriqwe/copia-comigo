@@ -15,7 +15,7 @@ export function RowActions({
   const actions = [
     {
       title: 'Editar',
-      url: rotas.erp.operacional.ordensDeServico + '/' + item.Id,
+      url: rotas.operacional.ordensDeServico + '/' + item.Id,
       icon: <common.icons.EditIcon />
     },
     {

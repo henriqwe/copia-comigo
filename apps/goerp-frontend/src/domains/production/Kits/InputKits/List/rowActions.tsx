@@ -14,7 +14,7 @@ export function RowActions({
   const actions = [
     {
       title: 'Devolver',
-      url: rotas.erp.producao.kits.kitsDeInsumo.index + '/' + item.Id,
+      url: rotas.producao.kits.kitsDeInsumo.index + '/' + item.Id,
       icon: <common.icons.ReturnIcon />
     },
     {

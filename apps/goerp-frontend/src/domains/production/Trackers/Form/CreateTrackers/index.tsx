@@ -107,7 +107,7 @@ export const Create = () => {
             }
           })
         })
-        router.push(rotas.erp.producao.rastreadores.index)
+        router.push(rotas.producao.rastreadores.index)
         utils.notification('Rastreador criado com sucesso', 'success')
       })
     } catch (err: any) {
@@ -203,7 +203,7 @@ export const Create = () => {
                     label="Item"
                   />
                   <common.OpenModalLink
-                    onClick={() => router.push(rotas.erp.estoque.index)}
+                    onClick={() => router.push(rotas.estoque.index)}
                   >
                     Cadastrar item
                   </common.OpenModalLink>
@@ -254,7 +254,7 @@ export const Create = () => {
                           <common.OpenModalLink
                             onClick={() =>
                               router.push(
-                                rotas.erp.producao.identificaveis.chips
+                                rotas.producao.identificaveis.chips
                                   .cadastrar
                               )
                             }
@@ -288,7 +288,7 @@ export const Create = () => {
                           <common.OpenModalLink
                             onClick={() =>
                               router.push(
-                                rotas.erp.producao.identificaveis.equipamentos
+                                rotas.producao.identificaveis.equipamentos
                                   .cadastrar
                               )
                             }

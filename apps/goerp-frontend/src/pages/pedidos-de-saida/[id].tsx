@@ -1,21 +1,27 @@
-import * as outgoingOrders from '@/domains/erp/outgoingOrders'
+import * as outgoingOrders from '&erp/domains/outgoingOrders'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import { UserProvider } from 'contexts/UserContext'
-import FormAndTabs from '@/templates/FormAndTabs'
+import { UserProvider } from '&erp/contexts/UserContext'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function OutgoingOrderDetails() {
   return (
     <UserProvider>
       <outgoingOrders.UpdateProvider>
-        <Page />
+        <ThemeProvider>
+          <Page />
+        </ThemeProvider>
       </outgoingOrders.UpdateProvider>
     </UserProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const {
     outgoingOrderLoading,
     outgoingOrderRefetch,
@@ -29,7 +35,10 @@ export function Page() {
     outgoingOrderProductsRefetch()
   }
   return (
-    <FormAndTabs
+    <templates.FormAndTabs
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       Form={<outgoingOrders.Update />}
       title={`${outgoingOrderData?.Id}`}
       reload={{
@@ -37,16 +46,16 @@ export function Page() {
         state: outgoingOrderLoading
       }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Compras', url: rotas.erp.compras.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Compras', url: rotas.compras.index },
         {
           title: 'Pedidos',
-          url: rotas.erp.pedidosDeSaida.index
+          url: rotas.pedidosDeSaida.index
         }
       ]}
     >
       <outgoingOrders.Tabs />
       <outgoingOrders.SlidePanel />
-    </FormAndTabs>
+    </templates.FormAndTabs>
   )
 }

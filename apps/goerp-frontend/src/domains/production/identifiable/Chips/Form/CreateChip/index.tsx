@@ -92,7 +92,7 @@ export const Create = () => {
           Quantidade: chipsValues.length
         }
       }).then(() => {
-        router.push(rotas.erp.producao.identificaveis.chips.index)
+        router.push(rotas.producao.identificaveis.chips.index)
         utils.notification('Chip criado com sucesso', 'success')
       })
     } catch (err: any) {
@@ -175,7 +175,7 @@ export const Create = () => {
                     label="Item"
                   />
                   <common.OpenModalLink
-                    onClick={() => router.push(rotas.erp.estoque.index)}
+                    onClick={() => router.push(rotas.estoque.index)}
                   >
                     Cadastrar item
                   </common.OpenModalLink>

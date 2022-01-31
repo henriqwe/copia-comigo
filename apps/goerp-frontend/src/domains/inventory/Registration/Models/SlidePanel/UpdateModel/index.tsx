@@ -115,7 +115,7 @@ export function Update() {
               />
               <common.OpenModalLink
                 onClick={() => {
-                  router.push(rotas.erp.compras.produtos.cadastrar)
+                  router.push(rotas.compras.produtos.cadastrar)
                 }}
               >
                 Cadastrar produto
@@ -143,7 +143,7 @@ export function Update() {
               />
               <common.OpenModalLink
                 onClick={() => {
-                  router.push(rotas.erp.estoque.cadastros.fabricantes)
+                  router.push(rotas.estoque.cadastros.fabricantes)
                 }}
               >
                 Cadastrar fabricante

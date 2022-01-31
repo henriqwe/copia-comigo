@@ -7,12 +7,14 @@ const {
 } = require("@left4code/tw-starter/dist/js/tailwind-config-helper");
 
 module.exports = {
-    content: 
-    [
-        join(__dirname, 'src/**/*.{js,ts,jsx,tsx}'),
-        ...createGlobPatternsForDependencies(__dirname),
-        '~@left4code/tw-starter/**/*.js'
-    ],
+    content:
+        [
+            join(__dirname, 'src/**/*.{js,ts,jsx,tsx}'),
+            join(__dirname, '../../libs/ui/common/src/**/*.{js,ts,jsx,tsx}'),
+            join(__dirname, '../../libs/ui/blocks/src/**/*.{js,ts,jsx,tsx}'),
+            join(__dirname, '../../libs/ui/templates/src/**/*.{js,ts,jsx,tsx}'),
+            '~@left4code/tw-starter/**/*.js'
+        ],
     darkMode: "class",
     theme: {
         extend: {

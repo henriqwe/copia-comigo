@@ -3,10 +3,10 @@ import rotas from '&erp/domains/routes'
 export const links = [
   {
     title: 'Chips',
-    url: rotas.erp.producao.identificaveis.chips.index
+    url: rotas.producao.identificaveis.chips.index
   },
   {
     title: 'Operadoras',
-    url: rotas.erp.producao.identificaveis.chips.operadoras
+    url: rotas.producao.identificaveis.chips.operadoras
   }
 ]

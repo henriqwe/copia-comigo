@@ -101,7 +101,7 @@ const CreateInputKit = () => {
           dataMovimentacao: moveValues
         }
       }).then(async () => {
-        router.push(rotas.erp.producao.kits.kitsDeInsumo.index)
+        router.push(rotas.producao.kits.kitsDeInsumo.index)
         utils.notification('Kit de insumo criado com sucesso', 'success')
       })
     } catch (err: any) {

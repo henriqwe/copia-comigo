@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 import { useEffect } from 'react'
-import * as buttons from '@/common/Buttons'
+import * as common from '@comigo/ui-common'
 
 export default function Home() {
   const router = useRouter()
@@ -26,11 +26,11 @@ export default function Home() {
           Você pode ter errado o endereço ou a página pode ter sido movida.
         </div>
         <div className="py-3 mt-10 intro-x">
-          <buttons.PrimaryButton
+          <common.buttons.PrimaryButton
             title="Voltar para o início"
             onClick={() => {
               document.querySelector('body')?.classList.remove('p-0')
-              router.push(rotas.erp.index)
+              router.push(rotas.index)
             }}
           />
         </div>

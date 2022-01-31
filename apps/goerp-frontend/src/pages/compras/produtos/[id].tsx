@@ -1,18 +1,23 @@
-import * as products from '@/domains/erp/purchases/Products'
+import * as products from '&erp/domains/purchases/Products'
 
-import rotas from 'domains/routes'
-
-import FormAndTabs from '@/templates/FormAndTabs'
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function ProductDetails() {
   return (
-    <products.UpdateProvider>
-      <Page />
-    </products.UpdateProvider>
+    <ThemeProvider>
+      <products.UpdateProvider>
+        <Page />
+      </products.UpdateProvider>
+    </ThemeProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const {
     //logRefetch,
     updateProductLoading,
@@ -24,21 +29,24 @@ export function Page() {
     productRefetch()
   }
   return (
-    <FormAndTabs
+    <templates.FormAndTabs
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       Form={<products.Update />}
       title={`${productData?.Nome}`}
       reload={{ action: refetch, state: updateProductLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Pedidos de Compra', url: rotas.erp.compras.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Pedidos de Compra', url: rotas.compras.index },
         {
           title: 'Produtos',
-          url: rotas.erp.compras.produtos.cadastrar
+          url: rotas.compras.produtos.cadastrar
         }
       ]}
     >
       <div />
       {/* <produtos.ListarLogs /> */}
-    </FormAndTabs>
+    </templates.FormAndTabs>
   )
 }

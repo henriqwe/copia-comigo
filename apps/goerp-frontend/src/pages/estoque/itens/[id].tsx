@@ -1,13 +1,16 @@
-import * as itens from '@/domains/erp/inventory/Itens'
-import * as families from '@/domains/erp/inventory/Registration/Families'
-import * as groups from '@/domains/erp/inventory/Registration/Groups'
-import * as products from '@/domains/erp/purchases/Products'
-import * as addressing from '@/domains/erp/inventory/Registration/Addresses'
-import * as models from '@/domains/erp/inventory/Registration/Models'
+import * as itens from '&erp/domains/inventory/Itens'
+import * as families from '&erp/domains/inventory/Registration/Families'
+import * as groups from '&erp/domains/inventory/Registration/Groups'
+import * as products from '&erp/domains/purchases/Products'
+import * as addressing from '&erp/domains/inventory/Registration/Addresses'
+import * as models from '&erp/domains/inventory/Registration/Models'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import FormAndTabs from '@/templates/FormAndTabs'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function Produtos() {
   return (
@@ -17,7 +20,9 @@ export default function Produtos() {
           <products.ListProvider>
             <addressing.AddressingProvider>
               <models.ModelProvider>
-                <Pagina />
+                <ThemeProvider>
+                  <Page />
+                </ThemeProvider>
               </models.ModelProvider>
             </addressing.AddressingProvider>
           </products.ListProvider>
@@ -27,7 +32,8 @@ export default function Produtos() {
   )
 }
 
-export function Pagina() {
+export function Page() {
+  const { theme } = useTheme()
   const { logsItensRefetch, updateItemLoading, itemRefetch, itemData } =
     itens.useUpdate()
   const { familiesRefetch, parentsFamiliesRefetch } = families.useFamily()
@@ -48,18 +54,21 @@ export function Pagina() {
   }
 
   return (
-    <FormAndTabs
+    <templates.FormAndTabs
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       Form={<itens.Update />}
       title={`${itemData?.Familia.Nome}`}
       reload={{ action: refetch, state: updateItemLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Compras', url: rotas.erp.compras.index },
-        { title: 'Itens', url: rotas.erp.estoque.itens.index }
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Compras', url: rotas.compras.index },
+        { title: 'Itens', url: rotas.estoque.itens.index }
       ]}
     >
       <div />
       <itens.LogsList />
-    </FormAndTabs>
+    </templates.FormAndTabs>
   )
 }

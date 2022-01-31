@@ -1,31 +1,40 @@
-import * as itens from '@/domains/erp/inventory/Itens'
+import * as itens from '&erp/domains/inventory/Itens'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function Itens() {
   return (
     <itens.ListProvider>
-      <Pagina />
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </itens.ListProvider>
   )
 }
 
-export function Pagina() {
+export function Page() {
+  const { theme } = useTheme()
   const { itensRefetch, itensLoading } = itens.useList()
   return (
-    <InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       SubMenu={<itens.InternalNavigation />}
       title="Listagem de Itens"
       reload={{ action: itensRefetch, state: itensLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Estoque', url: rotas.erp.estoque.index },
-        { title: 'Itens', url: rotas.erp.estoque.itens.index }
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Estoque', url: rotas.estoque.index },
+        { title: 'Itens', url: rotas.estoque.itens.index }
       ]}
     >
       <itens.List />
-    </InternalNavigationAndSlide>
+    </templates.InternalNavigationAndSlide>
   )
 }

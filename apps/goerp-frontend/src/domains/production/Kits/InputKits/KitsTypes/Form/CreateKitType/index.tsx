@@ -40,7 +40,7 @@ const CreateKitType = () => {
           data: productsValues
         }
       }).then(() => {
-        router.push(rotas.erp.producao.kits.kitsDeInsumo.tipos.index)
+        router.push(rotas.producao.kits.kitsDeInsumo.tipos.index)
         utils.notification('Tipo de kit criado com sucesso', 'success')
       })
     } catch (err: any) {
@@ -101,7 +101,7 @@ const CreateKitType = () => {
                       />
                       <common.OpenModalLink
                         onClick={() =>
-                          router.push(rotas.erp.estoque.itens.cadastrar)
+                          router.push(rotas.estoque.itens.cadastrar)
                         }
                       >
                         Cadastrar Item

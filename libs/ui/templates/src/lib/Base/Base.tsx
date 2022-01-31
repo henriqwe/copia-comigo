@@ -13,15 +13,16 @@ type BaseTemplateProps = {
   noGrid?: boolean
   currentLocation?: { title: string; url: string }[]
   theme: string
-  mainMenuItens:any 
+  mainMenuItens: any
   rotas: any
-  companies:{
+  companies: {
     name: string,
     ram: string,
     cpus: string,
     disk: string,
     active?: boolean
   }[]
+  imageUrl: string
 }
 
 export function Base({
@@ -33,7 +34,8 @@ export function Base({
   theme,
   mainMenuItens,
   rotas,
-  companies
+  companies,
+  imageUrl
 }: BaseTemplateProps) {
   const [disabled, setDisabled] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -41,7 +43,7 @@ export function Base({
   const [empresa, setEmpresa] = useState('GoCRM')
   return (
     <div className="flex">
-      <blocks.MainNavigation mainMenuItens={mainMenuItens} rotas={rotas}/>
+      <blocks.MainNavigation mainMenuItens={mainMenuItens} rotas={rotas} imageUrl={imageUrl} />
       <div className="content">
         <div className="z-10 top-bar">
           <common.Breadcrumb

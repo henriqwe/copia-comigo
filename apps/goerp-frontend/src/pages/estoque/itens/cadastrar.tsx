@@ -1,14 +1,17 @@
-import * as itens from '@/domains/erp/inventory/Itens'
-import * as families from '@/domains/erp/inventory/Registration/Families'
-import * as groups from '@/domains/erp/inventory/Registration/Groups'
-import * as manufacturers from '@/domains/erp/inventory/Registration/Manufacturers'
-import * as products from '@/domains/erp/purchases/Products'
-import * as addressing from '@/domains/erp/inventory/Registration/Addresses'
-import * as models from '@/domains/erp/inventory/Registration/Models'
+import * as itens from '&erp/domains/inventory/Itens'
+import * as families from '&erp/domains/inventory/Registration/Families'
+import * as groups from '&erp/domains/inventory/Registration/Groups'
+import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers'
+import * as products from '&erp/domains/purchases/Products'
+import * as addressing from '&erp/domains/inventory/Registration/Addresses'
+import * as models from '&erp/domains/inventory/Registration/Models'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
-import Base from '@/templates/Base'
 
 export default function Itens() {
   return (
@@ -19,7 +22,9 @@ export default function Itens() {
             <products.ListProvider>
               <addressing.AddressingProvider>
                 <models.ModelProvider>
-                  <Page />
+                  <ThemeProvider>
+                    <Page />
+                  </ThemeProvider>
                 </models.ModelProvider>
               </addressing.AddressingProvider>
             </products.ListProvider>
@@ -31,6 +36,7 @@ export default function Itens() {
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { manufacturersRefetch, manufacturersLoading } =
     manufacturers.useManufacturer()
   const { familiesRefetch, parentsFamiliesRefetch } = families.useFamily()
@@ -49,20 +55,23 @@ export function Page() {
     manufacturersRefetch()
   }
   return (
-    <Base
+    <templates.Base
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       title="Cadastro de item"
       reload={{ action: refetch, state: manufacturersLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Compras', url: rotas.erp.compras.index },
-        { title: 'Itens', url: rotas.erp.estoque.itens.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Compras', url: rotas.compras.index },
+        { title: 'Itens', url: rotas.estoque.itens.index },
         {
           title: 'Cadastro',
-          url: rotas.erp.estoque.itens.cadastrar
+          url: rotas.estoque.itens.cadastrar
         }
       ]}
     >
       <itens.Create />
-    </Base>
+    </templates.Base>
   )
 }

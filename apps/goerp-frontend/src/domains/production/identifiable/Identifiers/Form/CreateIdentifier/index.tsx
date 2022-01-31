@@ -76,7 +76,7 @@ export const Create = () => {
           Quantidade: identifiersValues.length
         }
       }).then(() => {
-        router.push(rotas.erp.producao.identificaveis.identificadores.index)
+        router.push(rotas.producao.identificaveis.identificadores.index)
         const frase =
           identifiersValues.length > 1
             ? 'Identificadores criados com sucesso'
@@ -169,7 +169,7 @@ export const Create = () => {
                     label="Item"
                   />
                   <common.OpenModalLink
-                    onClick={() => router.push(rotas.erp.estoque.index)}
+                    onClick={() => router.push(rotas.estoque.index)}
                   >
                     Cadastrar item
                   </common.OpenModalLink>

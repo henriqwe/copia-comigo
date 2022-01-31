@@ -1,27 +1,31 @@
-import * as purchaseOrders from '@/domains/erp/purchases/PurchaseOrders'
-import * as products from '@/domains/erp/purchases/Products'
-import * as manufacturers from '@/domains/erp/inventory/Registration/Manufacturers'
-
-import rotas from 'domains/routes'
-
-import { UserProvider } from 'contexts/UserContext'
-import Base from '@/templates/Base'
+import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
+import * as products from '&erp/domains/purchases/Products'
+import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers'
+import { UserProvider } from '&erp/contexts/UserContext'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
+import rotas from '&erp/domains/routes'
 
 export default function CreatePurchaseOrder() {
   return (
     <UserProvider>
-      <purchaseOrders.CreateProvider>
-        <products.ListProvider>
-          <manufacturers.ManufacturerProvider>
-            <Page />
-          </manufacturers.ManufacturerProvider>
-        </products.ListProvider>
-      </purchaseOrders.CreateProvider>
+      <ThemeProvider>
+        <purchaseOrders.CreateProvider>
+          <products.ListProvider>
+            <manufacturers.ManufacturerProvider>
+              <Page />
+            </manufacturers.ManufacturerProvider>
+          </products.ListProvider>
+        </purchaseOrders.CreateProvider>
+      </ThemeProvider>
     </UserProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { productsRefetch, productsLoading } = products.useList()
   const { manufacturersRefetch } = manufacturers.useManufacturer()
 
@@ -30,23 +34,26 @@ export function Page() {
     manufacturersRefetch()
   }
   return (
-    <Base
+    <templates.Base
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       title="Cadastro de Pedido de compras"
       reload={{ action: refetch, state: productsLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Pedidos de Compra', url: rotas.erp.compras.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Pedidos de Compra', url: rotas.compras.index },
         {
           title: 'Pedidos',
-          url: rotas.erp.compras.pedidos.index
+          url: rotas.compras.pedidos.index
         },
         {
           title: 'Cadastro',
-          url: rotas.erp.compras.pedidos.cadastrar
+          url: rotas.compras.pedidos.cadastrar
         }
       ]}
     >
       <purchaseOrders.Create />
-    </Base>
+    </templates.Base>
   )
 }

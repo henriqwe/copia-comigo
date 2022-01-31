@@ -1,17 +1,24 @@
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import * as serviceOrders from '@/domains/erp/operational/ServiceOrders'
-import BaseTemplate from '@/templates/Base'
+import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
+
 
 export default function UpdateServiceOrder() {
   return (
     <serviceOrders.UpdateProvider>
-      <Page />
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </serviceOrders.UpdateProvider>
   )
 }
 
-function Page() {
+export function Page() {
+  const { theme } = useTheme()
   const {
     serviceOrderLoading,
     serviceOrderRefetch,
@@ -25,22 +32,25 @@ function Page() {
   }
 
   return (
-    <BaseTemplate
+    <templates.Base
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       title={`OS: ${serviceOrderData?.CodigoIdentificador}`}
       reload={{
         action: refetch,
         state: serviceOrderLoading
       }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Operacional', url: rotas.erp.operacional.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Operacional', url: rotas.operacional.index },
         {
           title: 'Ordens de serviço',
-          url: rotas.erp.operacional.ordensDeServico
+          url: rotas.operacional.ordensDeServico
         }
       ]}
     >
       <serviceOrders.Update />
-    </BaseTemplate>
+    </templates.Base>
   )
 }

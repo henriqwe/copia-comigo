@@ -1,34 +1,43 @@
-import * as groups from '@/domains/erp/inventory/Registration/Groups'
+import * as groups from '&erp/domains/inventory/Registration/Groups'
 
-import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
-import rotas from 'domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
+import rotas from '&erp/domains/routes'
 
 export default function Groups() {
   return (
     <groups.GroupProvider>
-      <Page />
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </groups.GroupProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { groupsRefetch, groupsLoading } = groups.useGroup()
   return (
-    <InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       SubMenu={<groups.InternalNavigation />}
       title="Grupos de estoque"
       reload={{ action: groupsRefetch, state: groupsLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Estoque', url: rotas.erp.estoque.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Estoque', url: rotas.estoque.index },
         {
           title: 'Grupos',
-          url: rotas.erp.estoque.cadastros.grupos
+          url: rotas.estoque.cadastros.grupos
         }
       ]}
     >
       <groups.List />
       <groups.SlidePanel />
-    </InternalNavigationAndSlide>
+    </templates.InternalNavigationAndSlide>
   )
 }

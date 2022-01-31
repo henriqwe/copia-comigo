@@ -1,35 +1,44 @@
-import * as entries from '@/domains/erp/inventory/Moves/Entries'
+import * as entries from '&erp/domains/inventory/Moves/Entries'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
-import Base from '@/templates/Base'
 
 export default function ValidateEntries() {
   return (
     <entries.ValidateProvider>
-      <Page />
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </entries.ValidateProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   return (
-    <Base
+    <templates.Base
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       title="Entrada de pedidos de compra"
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Compras', url: rotas.erp.compras.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Compras', url: rotas.compras.index },
         {
           title: 'Movimentações',
-          url: rotas.erp.estoque.movimentacoes.index
+          url: rotas.estoque.movimentacoes.index
         },
         {
           title: 'Entradas',
-          url: rotas.erp.estoque.movimentacoes.entradas.index
+          url: rotas.estoque.movimentacoes.entradas.index
         }
       ]}
     >
       <entries.Validate />
-    </Base>
+    </templates.Base>
   )
 }

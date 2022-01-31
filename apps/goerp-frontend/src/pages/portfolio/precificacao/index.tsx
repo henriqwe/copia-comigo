@@ -1,9 +1,12 @@
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import FormAndTabs from '@/templates/FormAndTabs'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
-import * as providers from '@/domains/erp/portfolio/Pricing'
-import * as itens from '@/domains/erp/inventory/Itens'
+import * as providers from '&erp/domains/portfolio/Pricing'
+import * as itens from '&erp/domains/inventory/Itens'
 
 export default function UpdateProvider() {
   return (
@@ -11,7 +14,9 @@ export default function UpdateProvider() {
       <providers.Products.ProductProvider>
         <providers.Services.ServiceProvider>
           <itens.ListProvider>
-            <Page />
+            <ThemeProvider>
+              <Page />
+            </ThemeProvider>
           </itens.ListProvider>
         </providers.Services.ServiceProvider>
       </providers.Products.ProductProvider>
@@ -19,7 +24,8 @@ export default function UpdateProvider() {
   )
 }
 
-function Page() {
+export function Page() {
+  const { theme } = useTheme()
   const { providerLoading, providerRefetch } = providers.useUpdate()
   const { productsRefetch } = providers.Products.useProduct()
   const { servicesRefetch } = providers.Services.useService()
@@ -33,7 +39,10 @@ function Page() {
   }
 
   return (
-    <FormAndTabs
+    <templates.FormAndTabs
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       Form={<providers.Update />}
       title="Parceiro"
       reload={{
@@ -41,15 +50,15 @@ function Page() {
         state: providerLoading
       }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Portfolio', url: rotas.erp.portfolio.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Portfolio', url: rotas.portfolio.index },
         {
           title: 'Precificação',
-          url: rotas.erp.portfolio.precificacao
+          url: rotas.portfolio.precificacao
         }
       ]}
     >
       <providers.Tabs />
-    </FormAndTabs>
+    </templates.FormAndTabs>
   )
 }

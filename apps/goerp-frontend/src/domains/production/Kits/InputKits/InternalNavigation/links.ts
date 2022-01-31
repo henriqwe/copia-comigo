@@ -3,10 +3,10 @@ import rotas from '&erp/domains/routes'
 export const links = [
   {
     title: 'Kits de insumo',
-    url: rotas.erp.producao.kits.kitsDeInsumo.index
+    url: rotas.producao.kits.kitsDeInsumo.index
   },
   {
     title: 'Tipos de Kits',
-    url: rotas.erp.producao.kits.kitsDeInsumo.tipos.index
+    url: rotas.producao.kits.kitsDeInsumo.tipos.index
   }
 ]

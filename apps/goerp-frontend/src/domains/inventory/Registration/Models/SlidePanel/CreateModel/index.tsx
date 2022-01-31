@@ -101,7 +101,7 @@ export function Create({ extra = () => null }: CreateModelProps) {
               />
               <common.OpenModalLink
                 onClick={() => {
-                  router.push(rotas.erp.compras.produtos.cadastrar)
+                  router.push(rotas.compras.produtos.cadastrar)
                 }}
               >
                 Cadastrar produto
@@ -129,7 +129,7 @@ export function Create({ extra = () => null }: CreateModelProps) {
               />
               <common.OpenModalLink
                 onClick={() => {
-                  router.push(rotas.erp.estoque.cadastros.fabricantes)
+                  router.push(rotas.estoque.cadastros.fabricantes)
                 }}
               >
                 Cadastrar fabricante

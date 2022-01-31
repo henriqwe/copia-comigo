@@ -76,7 +76,7 @@ export const Create = () => {
       }
     })
       .then(() => {
-        router.push(rotas.erp.estoque.itens.index)
+        router.push(rotas.estoque.itens.index)
         utils.notification(data.Produto.title + ' cadastrado com sucesso', 'success')
       })
       .catch((err) => {
@@ -139,7 +139,7 @@ export const Create = () => {
                 />
                 <common.OpenModalLink
                   onClick={() => {
-                    router.push(rotas.erp.compras.produtos.cadastrar)
+                    router.push(rotas.compras.produtos.cadastrar)
                   }}
                 >
                   Cadastrar produto

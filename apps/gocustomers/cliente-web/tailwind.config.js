@@ -5,8 +5,6 @@ module.exports = {
   presets: [require('../../../tailwind-workspace-preset.js')],
   content: [
     join(__dirname, 'src/**/*.{js,ts,jsx,tsx}'),
-    join(__dirname, 'src/**/*.{js,ts,jsx,tsx}'),
-    join(__dirname, 'src/**/*.{js,ts,jsx,tsx}'),
     join(__dirname, '../../../libs/ui/common/src/**/*.{js,ts,jsx,tsx}'),
     join(__dirname, '../../../libs/ui/blocks/src/**/*.{js,ts,jsx,tsx}'),
     join(__dirname, '../../../libs/ui/templates/src/**/*.{js,ts,jsx,tsx}'),

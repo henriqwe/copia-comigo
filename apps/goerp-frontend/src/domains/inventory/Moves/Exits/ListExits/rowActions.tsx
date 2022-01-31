@@ -11,7 +11,7 @@ export function RowActions({
   const actions = [
     {
       title: 'Registrar saida',
-      url: rotas.erp.estoque.movimentacoes.saidas.index + '/' + item.Id,
+      url: rotas.estoque.movimentacoes.saidas.index + '/' + item.Id,
       icon: <common.icons.MoveIcon />
     }
   ]

@@ -46,7 +46,7 @@ export const Validate = () => {
           'Entrada de itens no estoque realizado com sucesso',
           'success'
         )
-        router.push(rotas.erp.estoque.movimentacoes.entradas.index)
+        router.push(rotas.estoque.movimentacoes.entradas.index)
       })
     } catch (error: any) {
       utils.showError(error)
@@ -133,7 +133,7 @@ export const Validate = () => {
                   />
                   <common.OpenModalLink
                     onClick={() =>
-                      router.push(rotas.erp.estoque.itens.cadastrar)
+                      router.push(rotas.estoque.itens.cadastrar)
                     }
                   >
                     Cadastrar Item

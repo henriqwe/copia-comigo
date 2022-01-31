@@ -84,7 +84,7 @@ export const Create = () => {
           Quantidade: equipmentsValues.length
         }
       }).then(() => {
-        router.push(rotas.erp.producao.identificaveis.equipamentos.index)
+        router.push(rotas.producao.identificaveis.equipamentos.index)
         const frase =
           equipmentsValues.length > 1
             ? 'Equipamentos criados com sucesso'
@@ -176,7 +176,7 @@ export const Create = () => {
                     label="Item"
                   />
                   <common.OpenModalLink
-                    onClick={() => router.push(rotas.erp.estoque.index)}
+                    onClick={() => router.push(rotas.estoque.index)}
                   >
                     Cadastrar item
                   </common.OpenModalLink>

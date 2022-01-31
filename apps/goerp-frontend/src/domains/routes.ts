@@ -1,70 +1,60 @@
 export default {
-  erp: {
-    home: '/erp',
-    pedidosDeSaida: {
-      index: '/erp/pedidos-de-saida',
-      cadastrar: '/erp/pedidos-de-saida/cadastrar'
-    },
-    estoque: {
-      cadastros: {
-        grupos: '/erp/estoque/cadastros/grupos',
-        familias: '/erp/estoque/cadastros/familias',
-        fabricantes: '/erp/estoque/cadastros/fabricantes',
-        enderecamentos: {
-          index: '/erp/estoque/cadastros/enderecamentos',
-          tipos: '/erp/estoque/cadastros/enderecamentos/tipos'
-        },
-        modelos: '/erp/estoque/cadastros/modelos',
-        index: '/erp/estoque/cadastros'
+  home: '/',
+  pedidosDeSaida: {
+    index: '/pedidos-de-saida',
+    cadastrar: '/pedidos-de-saida/cadastrar'
+  },
+  estoque: {
+    cadastros: {
+      grupos: '/estoque/cadastros/grupos',
+      familias: '/estoque/cadastros/familias',
+      fabricantes: '/estoque/cadastros/fabricantes',
+      enderecamentos: {
+        index: '/estoque/cadastros/enderecamentos',
+        tipos: '/estoque/cadastros/enderecamentos/tipos'
       },
+      modelos: '/estoque/cadastros/modelos',
+      index: '/estoque/cadastros'
+    },
 
-      itens: {
-        index: '/erp/estoque/itens',
-        cadastrar: '/erp/estoque/itens/cadastrar'
+    itens: {
+      index: '/estoque/itens',
+      cadastrar: '/estoque/itens/cadastrar'
+    },
+    movimentacoes: {
+      entradas: {
+        index: '/estoque/movimentacoes/entradas'
       },
-      movimentacoes: {
-        entradas: {
-          index: '/erp/estoque/movimentacoes/entradas'
-        },
-        saidas: {
-          index: '/erp/estoque/movimentacoes/saidas'
-        },
-        index: '/erp/estoque/movimentacoes'
+      saidas: {
+        index: '/estoque/movimentacoes/saidas'
       },
-      index: '/erp/estoque'
+      index: '/estoque/movimentacoes'
     },
-    compras: {
-      pedidos: {
-        index: '/erp/compras/pedidos',
-        cadastrar: '/erp/compras/pedidos/cadastrar'
-      },
-      produtos: {
-        index: '/erp/compras/produtos',
-        cadastrar: '/erp/compras/produtos/cadastrar'
-      },
-      index: '/erp/compras'
-    },
-    operacional: {
-      calendario: '/erp/operacional/calendario',
-      ordensDeServico: '/erp/operacional/ordens-de-servico',
-      index: '/erp/operacional'
-    },
-    portfolio: {
-      precificacao: '/erp/portfolio/precificacao',
-      index: '/erp/portfolio'
-    },
-    configuracoes: {
-      index: '/erp/configuracoes'
-    },
-    index: '/erp'
+    index: '/estoque'
   },
-  assistencia: {
-    home: '/assistencia/',
-    index: '/assistencia/'
+  compras: {
+    pedidos: {
+      index: '/compras/pedidos',
+      cadastrar: '/compras/pedidos/cadastrar'
+    },
+    produtos: {
+      index: '/compras/produtos',
+      cadastrar: '/compras/produtos/cadastrar'
+    },
+    index: '/compras'
   },
-  rastreamento: {
-    home: '/rastreamento/',
-    index: '/rastreamento/'
+  operacional: {
+    calendario: '/operacional/calendario',
+    ordensDeServico: '/operacional/ordens-de-servico',
+    index: '/operacional'
   },
+  portfolio: {
+    precificacao: '/portfolio/precificacao',
+    index: '/portfolio'
+  },
+  configuracoes: {
+    index: '/configuracoes'
+  },
+  index: '/',
   login: '/login/'
 } as const

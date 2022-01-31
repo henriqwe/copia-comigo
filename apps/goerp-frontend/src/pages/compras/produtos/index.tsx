@@ -1,34 +1,43 @@
-import * as products from '@/domains/erp/purchases/Products'
+import * as products from '&erp/domains/purchases/Products'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function Products() {
   return (
     <products.ListProvider>
-      <Page />
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </products.ListProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { productsRefetch, productsLoading } = products.useList()
   return (
-    <InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       SubMenu={<products.InternalNavigation />}
       title="Listagem de Produtos"
       reload={{ action: productsRefetch, state: productsLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Pedidos de Compra', url: rotas.erp.compras.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Pedidos de Compra', url: rotas.compras.index },
         {
           title: 'Produtos',
-          url: rotas.erp.compras.produtos.cadastrar
+          url: rotas.compras.produtos.cadastrar
         }
       ]}
     >
       <products.List />
-    </InternalNavigationAndSlide>
+    </templates.InternalNavigationAndSlide>
   )
 }

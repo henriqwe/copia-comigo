@@ -65,7 +65,7 @@ export const Validate = () => {
           'Saida de itens no estoque realizado com sucesso',
           'success'
         )
-        router.push(rotas.erp.estoque.movimentacoes.saidas.index)
+        router.push(rotas.estoque.movimentacoes.saidas.index)
       })
     } catch (error: any) {
       utils.showError(error)
@@ -106,9 +106,9 @@ export const Validate = () => {
         }
       }).then((resposta) => {
         router.push(
-          rotas.erp.compras.pedidos.index +
-            '/' +
-            resposta?.data.insert_pedidosDeCompra_Pedidos_one.Id
+          rotas.compras.pedidos.index +
+          '/' +
+          resposta?.data.insert_pedidosDeCompra_Pedidos_one.Id
         )
         utils.notification('Pedido de compra criado com sucesso', 'success')
       })
@@ -268,9 +268,9 @@ export const Validate = () => {
               defaultValue={
                 produto.QuantidadeEntregue !== null
                   ? {
-                      key: produto.Produto.Id,
-                      titulo: produto.Produto.Nome
-                    }
+                    key: produto.Produto.Id,
+                    titulo: produto.Produto.Nome
+                  }
                   : undefined
               }
               render={({ field: { onChange, value } }) => (
@@ -289,7 +289,7 @@ export const Validate = () => {
                   />
                   <common.OpenModalLink
                     onClick={() =>
-                      router.push(rotas.erp.estoque.itens.cadastrar)
+                      router.push(rotas.estoque.itens.cadastrar)
                     }
                   >
                     Cadastrar Item

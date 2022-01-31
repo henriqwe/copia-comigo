@@ -44,7 +44,7 @@ const Cadastrar = () => {
       }
     })
       .then(() => {
-        router.push(rotas.erp.compras.produtos.index)
+        router.push(rotas.compras.produtos.index)
         utils.notification(data.Nome + ' cadastrado com sucesso', 'success')
       })
       .catch((err) => {

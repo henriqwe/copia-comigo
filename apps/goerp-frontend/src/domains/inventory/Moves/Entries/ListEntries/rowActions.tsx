@@ -11,7 +11,7 @@ export function RowActions({
   const actions = [
     {
       title: 'Dar entrada',
-      url: rotas.erp.estoque.movimentacoes.entradas.index + '/' + item.Id,
+      url: rotas.estoque.movimentacoes.entradas.index + '/' + item.Id,
       icon: <common.icons.MoveIcon />
     }
   ]

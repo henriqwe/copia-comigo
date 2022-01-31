@@ -1,11 +1,15 @@
-import * as outgoingOrders from '@/domains/erp/outgoingOrders'
-import * as products from '@/domains/erp/purchases/Products'
-import * as manufacturers from '@/domains/erp/inventory/Registration/Manufacturers'
+import * as outgoingOrders from '&erp/domains/outgoingOrders'
+import * as products from '&erp/domains/purchases/Products'
+import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import { UserProvider } from 'contexts/UserContext'
-import Base from '@/templates/Base'
+import { UserProvider } from '&erp/contexts/UserContext'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
+
 
 export default function CreateOutgoingOrder() {
   return (
@@ -13,7 +17,9 @@ export default function CreateOutgoingOrder() {
       <outgoingOrders.CreateProvider>
         <products.ListProvider>
           <manufacturers.ManufacturerProvider>
-            <Page />
+            <ThemeProvider>
+              <Page />
+            </ThemeProvider>
           </manufacturers.ManufacturerProvider>
         </products.ListProvider>
       </outgoingOrders.CreateProvider>
@@ -22,6 +28,7 @@ export default function CreateOutgoingOrder() {
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { productsRefetch, productsLoading } = products.useList()
   const { manufacturersRefetch } = manufacturers.useManufacturer()
 
@@ -30,19 +37,22 @@ export function Page() {
     productsRefetch()
   }
   return (
-    <Base
+    <templates.Base
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       title="Cadastro de Pedido de saída"
       reload={{ action: refetch, state: productsLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Compras', url: rotas.erp.compras.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Compras', url: rotas.compras.index },
         {
           title: 'Pedidos',
-          url: rotas.erp.pedidosDeSaida.index
+          url: rotas.pedidosDeSaida.index
         }
       ]}
     >
       <outgoingOrders.Create />
-    </Base>
+    </templates.Base>
   )
 }

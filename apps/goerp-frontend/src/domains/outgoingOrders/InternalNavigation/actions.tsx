@@ -4,7 +4,7 @@ export function Actions() {
   const actions = [
     {
       title: 'Pedido de saída',
-      url: rotas.erp.pedidosDeSaida.cadastrar
+      url: rotas.pedidosDeSaida.cadastrar
     }
   ]
   return actions

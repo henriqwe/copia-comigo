@@ -98,7 +98,7 @@ export function Create() {
               />
               <common.OpenModalLink
                 onClick={() =>
-                  router.push(rotas.erp.estoque.cadastros.enderecamentos.tipos)
+                  router.push(rotas.estoque.cadastros.enderecamentos.tipos)
                 }
               >
                 Cadastrar tipo de endereçamento

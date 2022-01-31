@@ -1,7 +1,7 @@
 import nc from 'next-connect'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { useTypedClientMutation, $ } from 'graphql/generated/zeus/apollo'
+import { useTypedClientMutation, $ } from '&erp/graphql/generated/zeus/apollo'
 
 const handler = nc<NextApiRequest, NextApiResponse>()
 

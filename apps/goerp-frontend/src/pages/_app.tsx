@@ -6,15 +6,15 @@ import { useEffect } from 'react'
 import '@lourenci/react-kanban/dist/styles.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import 'styles/app.css'
+import '&erp/styles/app.css'
 
-import { useApollo } from 'utils/apollo'
+import { useApollo } from '&erp/utils/apollo'
 import NextNprogress from 'nextjs-progressbar'
 
-import 'utils/amplifyConfig'
+import '&erp/utils/amplifyConfig'
 import { useRouter } from 'next/dist/client/router'
-import { useUser, UserProvider } from 'contexts/UserContext'
-import { ThemeProvider, useTheme } from 'contexts/ThemeContext'
+import { useUser, UserProvider } from '&erp/contexts/UserContext'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
 import { ToastContainer } from 'react-toastify'
 
 export default function WrapperApp({

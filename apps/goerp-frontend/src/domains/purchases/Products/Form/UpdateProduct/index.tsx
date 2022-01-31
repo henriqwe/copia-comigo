@@ -54,7 +54,7 @@ const Formulario = () => {
       .then(() => {
         productRefetch()
         setButtonName('Editar')
-        router.push(rotas.erp.compras.produtos.index)
+        router.push(rotas.compras.produtos.index)
         utils.notification(data.Nome + ' editado com sucesso', 'success')
       })
       .catch((err) => {

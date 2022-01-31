@@ -48,7 +48,7 @@ export const Update = () => {
         setSlidePanelState((oldState) => {
           return { ...oldState, showModal: false }
         })
-        router.push(rotas.erp.compras.pedidos.index)
+        router.push(rotas.compras.pedidos.index)
         utils.notification('Pedido recusado com sucesso', 'success')
       })
       .catch((err) => {
@@ -116,7 +116,7 @@ export const Update = () => {
     }
     if (buttonName === 'Registrar movimentação') {
       router.push(
-        rotas.erp.estoque.movimentacoes.entradas.index + '/' + router.query.id
+        rotas.estoque.movimentacoes.entradas.index + '/' + router.query.id
       )
       return
     }

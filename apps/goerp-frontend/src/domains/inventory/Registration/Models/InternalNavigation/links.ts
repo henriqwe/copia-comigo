@@ -1,18 +1,18 @@
 import rotas from '&erp/domains/routes'
 
 export const links = [
-  { title: 'Grupos', url: rotas.erp.estoque.cadastros.grupos },
-  { title: 'Famílias', url: rotas.erp.estoque.cadastros.familias },
+  { title: 'Grupos', url: rotas.estoque.cadastros.grupos },
+  { title: 'Famílias', url: rotas.estoque.cadastros.familias },
   {
     title: 'Fabricantes',
-    url: rotas.erp.estoque.cadastros.fabricantes
+    url: rotas.estoque.cadastros.fabricantes
   },
   {
     title: 'Endereçamentos',
-    url: rotas.erp.estoque.cadastros.enderecamentos.index
+    url: rotas.estoque.cadastros.enderecamentos.index
   },
   {
     title: 'Modelo',
-    url: rotas.erp.estoque.cadastros.modelos
+    url: rotas.estoque.cadastros.modelos
   }
 ]

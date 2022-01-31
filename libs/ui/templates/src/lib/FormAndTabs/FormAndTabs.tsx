@@ -14,15 +14,16 @@ type TemplateProps = {
   }
   currentLocation: { title: string; url: string }[]
   theme: string
-  mainMenuItens:any 
+  mainMenuItens: any
   rotas: any
-  companies:{
+  companies: {
     name: string,
     ram: string,
     cpus: string,
     disk: string,
     active?: boolean
   }[]
+  imageUrl: string
 }
 
 export function FormAndTabs({
@@ -31,10 +32,11 @@ export function FormAndTabs({
   title,
   reload,
   currentLocation,
-  theme, 
+  theme,
   mainMenuItens,
   rotas,
-  companies
+  companies,
+  imageUrl
 }: TemplateProps) {
   const [desativado, setDesativado] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -49,7 +51,7 @@ export function FormAndTabs({
       </div>
 
       <div className="flex">
-        <blocks.MainNavigation mainMenuItens={mainMenuItens} rotas={rotas}/>
+        <blocks.MainNavigation mainMenuItens={mainMenuItens} rotas={rotas} imageUrl={imageUrl} />
         <div className="content">
           <div className="z-40 top-bar">
             <common.Breadcrumb

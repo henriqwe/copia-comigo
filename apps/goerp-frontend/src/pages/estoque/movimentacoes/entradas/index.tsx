@@ -1,21 +1,30 @@
-import * as entries from '@/domains/erp/inventory/Moves/Entries'
+import * as entries from '&erp/domains/inventory/Moves/Entries'
 
-import rotas from 'domains/routes'
+import rotas from '&erp/domains/routes'
 
-import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function Entries() {
   return (
     <entries.ListProvider>
-      <Page />
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </entries.ListProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { purchaseOrdersRefetch, purchaseOrdersLoading } = entries.useList()
   return (
-    <InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       SubMenu={<entries.InternalNavigation />}
       title="Listagem de Entradas"
       reload={{
@@ -23,19 +32,19 @@ export function Page() {
         state: purchaseOrdersLoading
       }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Estoque', url: rotas.erp.estoque.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Estoque', url: rotas.estoque.index },
         {
           title: 'Movimentações',
-          url: rotas.erp.estoque.movimentacoes.index
+          url: rotas.estoque.movimentacoes.index
         },
         {
           title: 'Entradas',
-          url: rotas.erp.estoque.movimentacoes.entradas.index
+          url: rotas.estoque.movimentacoes.entradas.index
         }
       ]}
     >
       <entries.List />
-    </InternalNavigationAndSlide>
+    </templates.InternalNavigationAndSlide>
   )
 }

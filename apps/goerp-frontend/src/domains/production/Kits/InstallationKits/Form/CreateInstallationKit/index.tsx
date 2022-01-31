@@ -129,7 +129,7 @@ export const Create = () => {
             }
           })
         })
-        router.push(rotas.erp.producao.kits.kitsDeInstalacao.index)
+        router.push(rotas.producao.kits.kitsDeInstalacao.index)
         utils.notification('Kit de instalação criado com sucesso', 'success')
       })
     } catch (err: any) {
@@ -250,7 +250,7 @@ export const Create = () => {
                     <common.OpenModalLink
                       onClick={() =>
                         router.push(
-                          rotas.erp.producao.kits.kitsDeInsumo.tipos.cadastrar
+                          rotas.producao.kits.kitsDeInsumo.tipos.cadastrar
                         )
                       }
                     >
@@ -358,7 +358,7 @@ export const Create = () => {
                           <common.OpenModalLink
                             onClick={() =>
                               router.push(
-                                rotas.erp.producao.rastreadores.cadastrar
+                                rotas.producao.rastreadores.cadastrar
                               )
                             }
                           >
@@ -397,7 +397,7 @@ export const Create = () => {
                           <common.OpenModalLink
                             onClick={() =>
                               router.push(
-                                rotas.erp.producao.kits.kitsDeInsumo.cadastrar
+                                rotas.producao.kits.kitsDeInsumo.cadastrar
                               )
                             }
                           >

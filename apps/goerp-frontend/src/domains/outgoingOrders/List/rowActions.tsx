@@ -17,7 +17,7 @@ export function RowActions({
   const actions = [
     {
       title: 'Editar',
-      url: rotas.erp.pedidosDeSaida.index + '/' + item.Id,
+      url: rotas.pedidosDeSaida.index + '/' + item.Id,
       icon: <common.icons.EditIcon />
     },
     {

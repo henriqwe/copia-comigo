@@ -1,38 +1,47 @@
-import * as serviceOrders from '@/domains/erp/operational/ServiceOrders'
+import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 
-import rotas from 'domains/routes'
-import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function ServiceOrders() {
   return (
     <serviceOrders.ServiceOrderProvider>
-      <Page />
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </serviceOrders.ServiceOrderProvider>
   )
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { serviceOrdersRefetch, serviceOrdersLoading } =
     serviceOrders.useServiceOrder()
   const refetch = () => {
     serviceOrdersRefetch()
   }
   return (
-    <InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       SubMenu={<serviceOrders.InternalNavigation />}
       title="Ordens de Serviço"
       reload={{ action: refetch, state: serviceOrdersLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Operacional', url: rotas.erp.operacional.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Operacional', url: rotas.operacional.index },
         {
           title: 'Ordens de serviço',
-          url: rotas.erp.operacional.ordensDeServico
+          url: rotas.operacional.ordensDeServico
         }
       ]}
     >
       <serviceOrders.List />
       <serviceOrders.SlidePanel />
-    </InternalNavigationAndSlide>
+    </templates.InternalNavigationAndSlide>
   )
 }

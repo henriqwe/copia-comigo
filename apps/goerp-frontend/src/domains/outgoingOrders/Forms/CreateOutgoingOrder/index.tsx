@@ -56,7 +56,7 @@ export const Create = () => {
         }
       }).then((resposta) => {
         router.push(
-          rotas.erp.pedidosDeSaida.index +
+          rotas.pedidosDeSaida.index +
           '/' +
           resposta?.data.insert_pedidosDeSaida_Pedidos_one.Id
         )
@@ -109,7 +109,7 @@ export const Create = () => {
                       />
                       <common.OpenModalLink
                         onClick={() =>
-                          router.push(rotas.erp.compras.produtos.cadastrar)
+                          router.push(rotas.compras.produtos.cadastrar)
                         }
                       >
                         Cadastrar produto

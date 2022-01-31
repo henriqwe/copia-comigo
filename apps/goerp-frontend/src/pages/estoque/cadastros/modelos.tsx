@@ -1,16 +1,21 @@
-import * as models from '@/domains/erp/inventory/Registration/Models'
-import * as manufacturers from '@/domains/erp/inventory/Registration/Manufacturers'
-import * as products from '@/domains/erp/purchases/Products'
+import * as models from '&erp/domains/inventory/Registration/Models'
+import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers'
+import * as products from '&erp/domains/purchases/Products'
 
-import rotas from 'domains/routes'
-import InternalNavigationAndSlide from '@/templates/InternalNavigationAndSlide'
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import mainMenuItens from '&erp/domains/MainMenuItens'
+import companies from '&erp/domains/companies'
 
 export default function Models() {
   return (
     <models.ModelProvider>
       <manufacturers.ManufacturerProvider>
         <products.ListProvider>
-          <Page />
+          <ThemeProvider>
+            <Page />
+          </ThemeProvider>
         </products.ListProvider>
       </manufacturers.ManufacturerProvider>
     </models.ModelProvider>
@@ -18,6 +23,7 @@ export default function Models() {
 }
 
 export function Page() {
+  const { theme } = useTheme()
   const { modelsRefetch, modelsLoading } = models.useModel()
   const { manufacturersRefetch } = manufacturers.useManufacturer()
   const { productsRefetch } = products.useList()
@@ -28,21 +34,24 @@ export function Page() {
     modelsRefetch()
   }
   return (
-    <InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide
+      imageUrl='/imagens/logoRastreamento.png'
+      mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+      theme={theme}
       SubMenu={<models.InternalNavigation />}
       title="Modelos de estoque"
       reload={{ action: refetch, state: modelsLoading }}
       currentLocation={[
-        { title: 'Rastreamento', url: rotas.erp.home },
-        { title: 'Estoque', url: rotas.erp.estoque.index },
+        { title: 'Rastreamento', url: rotas.home },
+        { title: 'Estoque', url: rotas.estoque.index },
         {
           title: 'Modelos',
-          url: rotas.erp.estoque.cadastros.fabricantes
+          url: rotas.estoque.cadastros.fabricantes
         }
       ]}
     >
       <models.List />
       <models.SlidePanel />
-    </InternalNavigationAndSlide>
+    </templates.InternalNavigationAndSlide>
   )
 }
