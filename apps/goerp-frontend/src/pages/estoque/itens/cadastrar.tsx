@@ -36,7 +36,7 @@ export default function Itens() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { manufacturersRefetch, manufacturersLoading } =
     manufacturers.useManufacturer()
   const { familiesRefetch, parentsFamiliesRefetch } = families.useFamily()
@@ -56,6 +56,7 @@ export function Page() {
   }
   return (
     <templates.Base
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

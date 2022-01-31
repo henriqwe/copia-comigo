@@ -28,7 +28,7 @@ export default function CreateOutgoingOrder() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { productsRefetch, productsLoading } = products.useList()
   const { manufacturersRefetch } = manufacturers.useManufacturer()
 
@@ -38,6 +38,7 @@ export function Page() {
   }
   return (
     <templates.Base
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

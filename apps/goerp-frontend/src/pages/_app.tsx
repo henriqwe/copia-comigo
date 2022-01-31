@@ -14,7 +14,8 @@ import NextNprogress from 'nextjs-progressbar'
 import '&erp/utils/amplifyConfig'
 import { useRouter } from 'next/dist/client/router'
 import { useUser, UserProvider } from '&erp/contexts/UserContext'
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+// import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from 'next-themes'
 import { ToastContainer } from 'react-toastify'
 
 export default function WrapperApp({
@@ -45,7 +46,6 @@ function App({ Component, pageProps }: AppProps) {
       document.querySelector('body')?.classList.remove('login')
       document.querySelector('body')?.classList.add('main')
     }
-
     theme === 'dark'
       ? document.querySelector('html')?.classList.add('dark')
       : document.querySelector('html')?.classList.remove('dark')

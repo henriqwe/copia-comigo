@@ -18,7 +18,7 @@ export default function UpdateServiceOrder() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const {
     serviceOrderLoading,
     serviceOrderRefetch,
@@ -33,6 +33,7 @@ export function Page() {
 
   return (
     <templates.Base
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

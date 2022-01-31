@@ -20,7 +20,7 @@ export default function Addresses() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { adresssesRefetch, adresssesLoading } = addresses.useAddressing()
   const { addressingTypesRefetch } = addressingTypes.useAddressingType()
 
@@ -30,6 +30,7 @@ export function Page() {
   }
   return (
     <templates.InternalNavigationAndSlide
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

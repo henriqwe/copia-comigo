@@ -1,4 +1,3 @@
-const { createGlobPatternsForDependencies } = require('@nrwl/next/tailwind');
 const { join } = require('path');
 const colors = require("tailwindcss/colors");
 const {
