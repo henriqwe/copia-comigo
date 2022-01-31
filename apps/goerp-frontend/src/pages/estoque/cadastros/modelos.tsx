@@ -23,7 +23,7 @@ export default function Models() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { modelsRefetch, modelsLoading } = models.useModel()
   const { manufacturersRefetch } = manufacturers.useManufacturer()
   const { productsRefetch } = products.useList()
@@ -35,6 +35,7 @@ export function Page() {
   }
   return (
     <templates.InternalNavigationAndSlide
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

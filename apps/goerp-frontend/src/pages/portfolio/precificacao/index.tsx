@@ -25,7 +25,7 @@ export default function UpdateProvider() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { providerLoading, providerRefetch } = providers.useUpdate()
   const { productsRefetch } = providers.Products.useProduct()
   const { servicesRefetch } = providers.Services.useService()
@@ -40,6 +40,7 @@ export function Page() {
 
   return (
     <templates.FormAndTabs
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

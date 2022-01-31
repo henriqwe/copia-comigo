@@ -22,7 +22,7 @@ export default function Page() {
 // }
 
 // export function Page() {
-//   const { theme } = useTheme()
+//     const { theme, changeTheme } = useTheme()
 //   const FullCalendar = dynamic(
 //     () => import('@comigo/ui-blocks').then(blocks => blocks.Calendar),
 //     {
@@ -32,6 +32,7 @@ export default function Page() {
 //   // ../../../components/blocks/Calendar
 //   return (
 //     <templates.Base
+setTheme = { changeTheme }
 //       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
 //       theme={theme}
 //       title="Calendário 1"

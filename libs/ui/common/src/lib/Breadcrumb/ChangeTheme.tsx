@@ -1,19 +1,23 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/outline'
+import { useTheme } from 'next-themes'
 
-type ChangeThemeProps={
+type ChangeThemeProps = {
   theme: string
   changeTheme: () => void
 }
 
 export default function ChangeTheme({
-  theme,changeTheme}:ChangeThemeProps) {
+  changeTheme }: ChangeThemeProps) {
+  const { setTheme, theme } = useTheme()
   return (
     <div className="relative inline-block pl-2 align-middle transition duration-200 ease-in select-none">
       <button
-        className={`flex justify-center w-8 h-8 items-center ${
-          theme === 'dark' ? 'bg-theme-7' : 'bg-theme-8'
-        } rounded-full`}
-        onClick={changeTheme}
+        className={`flex justify-center w-8 h-8 items-center ${theme === 'dark' ? 'bg-theme-7' : 'bg-theme-8'
+          } rounded-full`}
+        onClick={() => {
+          theme !== 'dark' ? setTheme('dark') : setTheme('light')
+          changeTheme()
+        }}
       >
         {theme === 'dark' ? (
           <SunIcon className="w-6 h-6 text-white" />

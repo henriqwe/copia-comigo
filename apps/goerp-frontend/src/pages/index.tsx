@@ -13,9 +13,10 @@ export default function Home() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   return (
     <templates.Base
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
@@ -28,7 +29,6 @@ export function Page() {
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}
     >
-      <div>Teste</div>
     </templates.Base>
   )
 }

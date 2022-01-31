@@ -24,7 +24,7 @@ export default function PurchaseOrderDetails() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const {
     purchaseOrderLoading,
     purchaseOrderRefetch,
@@ -44,6 +44,7 @@ export function Page() {
   }
   return (
     <templates.FormAndTabs
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

@@ -17,7 +17,7 @@ export default function ProductDetails() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const {
     //logRefetch,
     updateProductLoading,
@@ -30,6 +30,7 @@ export function Page() {
   }
   return (
     <templates.FormAndTabs
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

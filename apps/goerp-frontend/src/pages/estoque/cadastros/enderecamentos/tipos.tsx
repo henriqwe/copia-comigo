@@ -17,12 +17,13 @@ export default function AddressingTypes() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { addressingTypesRefetch, addressingTypesLoading } =
     addressingTypes.useAddressingType()
   //const {usuario} = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

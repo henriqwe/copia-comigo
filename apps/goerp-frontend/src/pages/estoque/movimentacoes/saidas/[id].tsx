@@ -24,7 +24,7 @@ export default function ValidateOutgoingOrder() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { outgoingOrdersRefetch, outgoingOrdersLoading } = exits.useValidate()
   const { itensRefetch } = itens.useList()
   const { purchaseOrderRefetch } = purchaseOrders.useList()
@@ -36,6 +36,7 @@ export function Page() {
   }
   return (
     <templates.Base
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

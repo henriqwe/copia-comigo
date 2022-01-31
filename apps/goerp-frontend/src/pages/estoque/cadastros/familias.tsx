@@ -17,7 +17,7 @@ export default function Families() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { familiesRefetch, familiesLoading, parentsFamiliesRefetch } =
     families.useFamily()
   const refetch = () => {
@@ -27,6 +27,7 @@ export function Page() {
   //const {usuario} = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}

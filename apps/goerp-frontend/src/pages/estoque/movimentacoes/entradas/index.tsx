@@ -18,10 +18,11 @@ export default function Entries() {
 }
 
 export function Page() {
-  const { theme } = useTheme()
+  const { theme, changeTheme } = useTheme()
   const { purchaseOrdersRefetch, purchaseOrdersLoading } = entries.useList()
   return (
     <templates.InternalNavigationAndSlide
+      setTheme={changeTheme}
       imageUrl='/imagens/logoRastreamento.png'
       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
       theme={theme}
