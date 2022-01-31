@@ -9,19 +9,19 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Leads() {
   return (
     <leads.LeadProvider>
       <clients.ListProvider>
-        <Page />
+        <ThemeProvider>       <Page />     </ThemeProvider>
       </clients.ListProvider>
     </leads.LeadProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { leadsRefetch, leadsLoading } = leads.useLead()
   const { clientsRefetch } = clients.useList()
   const refetch = () => {
@@ -30,7 +30,7 @@ export function Page() {
   }
   //const { usuario } = useUsuario()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<leads.InternalNavigation />}
       title="Leads"

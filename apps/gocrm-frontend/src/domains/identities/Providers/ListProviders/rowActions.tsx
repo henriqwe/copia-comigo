@@ -1,7 +1,8 @@
 import { GraphQLTypes } from '&crm/graphql/generated/zeus'
 import rotas from '&crm/domains/routes'
 
-
+import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
 import * as providers from '&crm/domains/identities/Providers'
 
  import * as utils from '@comigo/utils'

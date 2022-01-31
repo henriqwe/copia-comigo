@@ -12,7 +12,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Tickets() {
   return (
@@ -21,7 +21,9 @@ export default function Tickets() {
         <users.UserProvider>
           <leads.LeadProvider>
             <clients.ListProvider>
-              <Page />
+              <ThemeProvider>
+               <Page />
+             </ThemeProvider>
             </clients.ListProvider>
           </leads.LeadProvider>
         </users.UserProvider>
@@ -31,7 +33,7 @@ export default function Tickets() {
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { ticketsRefetch, ticketsLoading } = tickets.useTicket()
   const { flowsRefetch } = flows.useFlow()
   const { usersRefetch } = users.useUser()
@@ -46,7 +48,7 @@ export function Page() {
   }
   //const { usuario } = useUsuario()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<tickets.InternalNavigation />}
       title="Tickets"

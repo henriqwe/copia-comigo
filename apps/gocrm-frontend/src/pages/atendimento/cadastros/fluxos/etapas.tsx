@@ -5,12 +5,12 @@ import * as templates from '@comigo/ui-templates'
 import rotas from '&crm/domains/routes'
 import mainMenuItens from '&crm/domains/MainMenuItens'
 import companies from '&crm/domains/companies'
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function FlowStages() {
   return (
     <flowStages.StageProvider>
       <flows.FlowProvider>
-        <Page />
+        <ThemeProvider>       <Page />     </ThemeProvider>
       </flows.FlowProvider>
     </flowStages.StageProvider>
   )
@@ -23,10 +23,10 @@ export function Page() {
     flowsRefetch()
     stagesRefetch()
   }
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   //const { usuario } = useUsuario()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
       theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<flowStages.InternalNavigation />}
       title="Etapas de Fluxo"

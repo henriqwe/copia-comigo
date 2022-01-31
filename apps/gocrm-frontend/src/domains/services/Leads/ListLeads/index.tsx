@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as leads from '&crm/domains/services/Leads'
-import { phoneFormat } from 'utils/formaters'
 
+import * as utils from '@comigo/utils'
 export default function List() {
   const { leadsData } = leads.useLead()
   return leadsData ? (

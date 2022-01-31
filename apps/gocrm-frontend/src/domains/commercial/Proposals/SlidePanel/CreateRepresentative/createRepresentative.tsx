@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
  import * as utils from '@comigo/utils'
  
-import { PhysicalPerson } from '../CreateClient/physicalPerson'
-import { LegalPerson } from '../CreateClient/legalPerson'
+// import { PhysicalPerson } from '../CreateClient/physicalPerson'
+// import { LegalPerson } from '../CreateClient/legalPerson'
 import { GraphQLTypes } from '&crm/graphql/generated/zeus'
 
 
@@ -69,7 +69,7 @@ export default function CreateRepresentative() {
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-center p-4">
           <section className="w-9/12 gap-2 text-center">
-            <common.ListRadioGroup
+            {/* <common.ListRadioGroup
               options={[
                 {
                   value: 'pf',
@@ -81,7 +81,7 @@ export default function CreateRepresentative() {
                 }
               ]}
               setSelectedOption={setKindOfPerson}
-            />
+            /> */}
           </section>
         </div>
         <div className="flex items-center justify-center flex-1 w-full">

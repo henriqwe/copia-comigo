@@ -11,7 +11,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function CreateCombo() {
   return (
@@ -19,7 +19,7 @@ export default function CreateCombo() {
       <plans.ListProvider>
         <services.ServiceProvider>
           <products.ProductProvider>
-            <Page />
+            <ThemeProvider>       <Page />     </ThemeProvider>
           </products.ProductProvider>
         </services.ServiceProvider>
       </plans.ListProvider>
@@ -28,7 +28,7 @@ export default function CreateCombo() {
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { productsRefetch, productsLoading } = products.useProduct()
   const { plansRefetch } = plans.useList()
   const { serviceRefetch } = services.useUpdate()
@@ -39,7 +39,7 @@ export function Page() {
     serviceRefetch()
   }
   return (
-    <templates.Base
+    <templates.Base setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       title="Cadastro de Combo"
       reload={{ action: refetch, state: productsLoading }}

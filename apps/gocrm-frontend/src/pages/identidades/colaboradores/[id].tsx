@@ -6,7 +6,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 import * as collaborator from '&crm/domains/identities/Collaborators'
 
@@ -14,14 +14,14 @@ export default function UpdateClient() {
   return (
     <collaborator.UpdateProvider>
       <collaborator.users.UserProvider>
-        <Page />
+        <ThemeProvider>       <Page />     </ThemeProvider>
       </collaborator.users.UserProvider>
     </collaborator.UpdateProvider>
   )
 }
 
 function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { collaboratorRefetch, collaboratorLoading, collaboratorData } =
     collaborator.useUpdate()
   const refetch = () => {
@@ -31,7 +31,7 @@ function Page() {
   const titulo = collaboratorData?.Pessoa.Nome || ''
 
   return (
-    <templates.FormAndTabs
+    <templates.FormAndTabs setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       Form={<collaborator.Update />}
       title={`${titulo}`}

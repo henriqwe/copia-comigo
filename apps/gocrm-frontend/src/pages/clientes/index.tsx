@@ -8,24 +8,24 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Providers() {
   return (
     <clients.ClientProvider>
-      <Page />
+      <ThemeProvider>       <Page />     </ThemeProvider>
     </clients.ClientProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { clientsRefetch, clientsLoading } = clients.useClient()
   const refetch = () => {
     clientsRefetch()
   }
   return (
-    <templates.Base
+    <templates.Base setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       title="Clientes"
       reload={{ action: refetch, state: clientsLoading }}

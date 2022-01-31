@@ -9,19 +9,19 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Users() {
   return (
     <users.UserProvider>
       <clients.ListProvider>
-        <Page />
+        <ThemeProvider>       <Page />     </ThemeProvider>
       </clients.ListProvider>
     </users.UserProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { usersRefetch, usersLoading, collaboratorsRefetch } = users.useUser()
   const { clientsRefetch } = clients.useList()
   const refetch = () => {
@@ -31,7 +31,7 @@ export function Page() {
   }
   //const { usuario } = useUsuario()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<users.InternalNavigation />}
       title="Usuários"

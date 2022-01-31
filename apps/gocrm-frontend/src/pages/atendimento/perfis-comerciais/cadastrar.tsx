@@ -10,7 +10,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 import { GetServerSideProps } from 'next'
 
@@ -35,7 +35,7 @@ export default function CreateBusinessProfile({
 }
 
 export function Page({ Lead_Id, Lead_Nome }: CreateBusinessProfileProps) {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { leadsRefetch, leadsLoading } = leads.useLead()
   const { questionsGroupsRefetch } = questionsGroups.useList()
   const refetch = () => {
@@ -44,7 +44,7 @@ export function Page({ Lead_Id, Lead_Nome }: CreateBusinessProfileProps) {
   }
   //const { usuario } = useUsuario()
   return (
-    <templates.Base
+    <templates.Base setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       title="Cadastro de Perfis Comerciais"
       reload={{ action: refetch, state: leadsLoading }}

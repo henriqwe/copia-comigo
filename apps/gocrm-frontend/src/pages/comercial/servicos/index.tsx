@@ -8,24 +8,24 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Products() {
   return (
     <services.ServiceProvider>
-      <Page />
+      <ThemeProvider>       <Page />     </ThemeProvider>
     </services.ServiceProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { servicesRefetch, servicesLoading } = services.useService()
   const refetch = () => {
     servicesRefetch()
   }
   //const { usuario } = useUsuario()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<services.InternalNavigation />}
       title="Serviços"

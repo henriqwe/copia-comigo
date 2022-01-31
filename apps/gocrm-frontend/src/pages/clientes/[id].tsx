@@ -11,7 +11,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function UpdateProvider() {
   return (
@@ -19,7 +19,7 @@ export default function UpdateProvider() {
       <tickets.TicketProvider>
         <proposals.CreateProvider>
           <clients.ListProvider>
-            <Page />
+            <ThemeProvider>       <Page />     </ThemeProvider>
           </clients.ListProvider>
         </proposals.CreateProvider>
       </tickets.TicketProvider>
@@ -28,7 +28,7 @@ export default function UpdateProvider() {
 }
 
 function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { clientLoading, clientRefetch } = activeVehicles.useUpdate()
   const { clientsRefetch } = clients.useList()
 
@@ -38,7 +38,7 @@ function Page() {
   }
 
   return (
-    <templates.Base
+    <templates.Base setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       title="Visualização de cliente"
       reload={{

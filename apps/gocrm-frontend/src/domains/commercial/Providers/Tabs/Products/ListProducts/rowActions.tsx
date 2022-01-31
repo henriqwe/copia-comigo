@@ -1,7 +1,8 @@
 import { GraphQLTypes } from '&crm/graphql/generated/zeus'
 
  
-
+import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
 import * as products from '&crm/domains/commercial/Providers/Tabs/Products'
 import { useRouter } from 'next/router'
 import { useState } from 'react'

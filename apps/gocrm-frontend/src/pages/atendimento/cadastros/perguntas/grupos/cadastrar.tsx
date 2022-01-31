@@ -9,23 +9,23 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function CreateQuestionsGroup() {
   return (
     <questionsGroups.CreateProvider>
       <questions.QuestionProvider>
-        <Page />
+        <ThemeProvider>       <Page />     </ThemeProvider>
       </questions.QuestionProvider>
     </questionsGroups.CreateProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { questionsRefetch, questionsLoading } = questions.useQuestion()
   return (
-    <templates.Base
+    <templates.Base setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       title="Cadastro de Grupo de Perguntas"
       reload={{ action: questionsRefetch, state: questionsLoading }}

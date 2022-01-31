@@ -10,7 +10,7 @@ import * as common from '@comigo/ui-common'
  
 
 import * as sellers from '&crm/domains/identities/Providers/Tabs/Sellers'
-import { phoneFormat } from 'utils/formaters'
+
  import * as utils from '@comigo/utils'
 
 export default function UpdateSeller() {

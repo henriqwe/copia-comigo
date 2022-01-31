@@ -8,24 +8,24 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Tariffs() {
   return (
     <tariffs.TariffsProvider>
-      <Page />
+      <ThemeProvider>       <Page />     </ThemeProvider>
     </tariffs.TariffsProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { tariffsRefetch, tariffsLoading } = tariffs.useTariffs()
   const refetch = () => {
     tariffsRefetch()
   }
   //const { usuario } = useUsuario()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<tariffs.InternalNavigation />}
       title="Tarifas"

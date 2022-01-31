@@ -8,22 +8,22 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function BusinessProfiles() {
   return (
     <businessProfiles.BusinessProfileProvider>
-      <Page />
+      <ThemeProvider>       <Page />     </ThemeProvider>
     </businessProfiles.BusinessProfileProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { businessProfilesRefetch, businessProfilesLoading } =
     businessProfiles.useBusinessProfile()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<businessProfiles.InternalNavigation />}
       title="Perfis Comerciais"

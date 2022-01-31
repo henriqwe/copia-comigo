@@ -6,7 +6,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 import * as products from '&crm/domains/commercial/Products'
 import * as services from '&crm/domains/commercial/Services'
@@ -24,7 +24,7 @@ export default function UpdateProduct() {
                 <combos.ListProvider>
                   <attributes.AttributeProvider>
                     <services.ServiceProvider>
-                      <Page />
+                      <ThemeProvider>       <Page />     </ThemeProvider>
                     </services.ServiceProvider>
                   </attributes.AttributeProvider>
                 </combos.ListProvider>
@@ -38,7 +38,7 @@ export default function UpdateProduct() {
 }
 
 function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { productLoading, productRefetch } = products.useUpdate()
   const { productsRefetch } = products.products.useProduct()
   const { servicesRefetch } = products.services.useService()
@@ -58,7 +58,7 @@ function Page() {
   }
 
   return (
-    <templates.FormAndTabs
+    <templates.FormAndTabs setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       Form={<products.Update />}
       title="Produtos"

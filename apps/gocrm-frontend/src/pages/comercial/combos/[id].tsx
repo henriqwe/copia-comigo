@@ -11,7 +11,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function ProposalDetails() {
   return (
@@ -20,7 +20,7 @@ export default function ProposalDetails() {
         <products.ProductProvider>
           <services.ServiceProvider>
             <combos.combos.DependenceComboProvider>
-              <Page />
+              <ThemeProvider>       <Page />     </ThemeProvider>
             </combos.combos.DependenceComboProvider>
           </services.ServiceProvider>
         </products.ProductProvider>
@@ -30,7 +30,7 @@ export default function ProposalDetails() {
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { comboRefetch, comboLoading, comboData } = combos.useView()
   const { combosRefetch, dependenciesCombosRefetch } =
     combos.combos.useDependenceCombo()
@@ -49,7 +49,7 @@ export function Page() {
 
   if ((comboData?.ComboPai.length || 0) > 0) {
     return (
-      <templates.Base
+      <templates.Base setTheme={changeTheme}
       theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
         title="Detalhe de Combo"
         reload={{ action: refetch, state: comboLoading }}
@@ -67,7 +67,7 @@ export function Page() {
     )
   }
   return (
-    <templates.FormAndTabs
+    <templates.FormAndTabs setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       Form={<combos.View />}
       title="Detalhe de Combo"

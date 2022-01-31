@@ -9,20 +9,20 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Actions() {
   return (
     <action.ActionProvider>
       <flowStages.StageProvider>
-        <Page />
+        <ThemeProvider>       <Page />     </ThemeProvider>
       </flowStages.StageProvider>
     </action.ActionProvider>
   )
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { stagesRefetch } = flowStages.useStage()
   const { actionsRefetch, actionsLoading } = action.useAction()
 
@@ -31,7 +31,7 @@ export function Page() {
     actionsRefetch()
   }
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<action.InternalNavigation />}
       title="Ações"

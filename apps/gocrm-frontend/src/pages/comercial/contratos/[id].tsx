@@ -6,7 +6,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 import * as contracts from '&crm/domains/commercial/Contracts'
 import * as partners from '&crm/domains/commercial/Providers'
@@ -16,7 +16,7 @@ export default function UpdateProduct() {
     <contracts.UpdateProvider>
       <partners.ProviderProvider>
         <contracts.versions.ContractVersionsProvider>
-          <Page />
+          <ThemeProvider>       <Page />     </ThemeProvider>
         </contracts.versions.ContractVersionsProvider>
       </partners.ProviderProvider>
     </contracts.UpdateProvider>
@@ -24,7 +24,7 @@ export default function UpdateProduct() {
 }
 
 function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { baseContractsRefetch, baseContractsLoading } = contracts.useContract()
   const { contractVersionsRefetch } = contracts.versions.useContractVersions()
   const { providersRefetch } = partners.useProvider()
@@ -36,7 +36,7 @@ function Page() {
   }
 
   return (
-    <templates.FormAndTabs
+    <templates.FormAndTabs setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       Form={<contracts.Update />}
       title="Contratos"

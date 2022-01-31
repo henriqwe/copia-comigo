@@ -1,8 +1,8 @@
 type TitleWithSubTitleAtTheTopProps = {
   title: string
   subtitle: string
-  classSubtitle: string
-  classTitle: string
+  classSubtitle?: string
+  classTitle?: string
 }
 
 export function TitleWithSubTitleAtTheTop({

@@ -119,7 +119,9 @@ const CreateProposal = ({ Ticket }: CreateProposalProps) => {
 
   return (
     <main className="col-span-12">
-      <form>        <common.Card>
+      
+      <form>        
+        <common.Card>
           <common.GenericTitle
             title="Dados da Proposta"
             subtitle="Ticket, cliente ou lead"

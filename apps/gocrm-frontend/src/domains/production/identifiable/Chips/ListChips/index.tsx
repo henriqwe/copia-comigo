@@ -1,6 +1,7 @@
 import * as chips from '&crm/domains/production/identifiable/Chips'
 import * as blocks from '@comigo/ui-blocks'
-import { phoneFormat } from 'utils/formaters'
+
+import * as utils from '@comigo/utils'
 
 export default function List() {
   const { chipsData } = chips.useChips()

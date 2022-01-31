@@ -15,7 +15,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { capitalizeAllWord } from '&crm/utils/formaters'
 import { useRouter } from 'next/router'
 import { showError } from '&crm/utils/showError'
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 type Flow =
   | {
@@ -54,7 +54,7 @@ export default function Combos() {
     <flowStages.StageProvider>
       <flows.FlowProvider>
         <tickets.TicketProvider>
-          <Page />
+          <ThemeProvider>       <Page />     </ThemeProvider>
         </tickets.TicketProvider>
       </flows.FlowProvider>
     </flowStages.StageProvider>
@@ -67,7 +67,7 @@ export function Page() {
   const [ticketId, setTicketId] = useState('')
   const [ticketName, setTicketName] = useState('')
   const [openModal, setOpenModal] = useState(false)
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
 
   //const { usuario } = useUsuario()
   const {
@@ -133,7 +133,7 @@ export function Page() {
   }, [watch('Fluxo_Id'), flowsData])
 
   return (
-    <templates.Base theme={theme} mainMenuItens={mainMenuItens['erp']} rotas={rotas['erp']} companies={companies}
+    <templates.Base setTheme={changeTheme} theme={theme} mainMenuItens={mainMenuItens['erp']} rotas={rotas['erp']} companies={companies}
       title="Kanban"
       imageUrl={'/imagens/logoAssistencia.png'}
       currentLocation={[

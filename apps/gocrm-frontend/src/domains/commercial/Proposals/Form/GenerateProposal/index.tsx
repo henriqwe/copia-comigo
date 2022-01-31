@@ -1,7 +1,7 @@
 import * as common from '@comigo/ui-common'
 
 import * as proposals from '&crm/domains/commercial/Proposals'
- 
+import * as utils from '@comigo/utils'
 import { useRef, useState, useEffect } from 'react'
 import ReactToPrint from 'react-to-print'
 

@@ -6,7 +6,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 import * as clients from '&crm/domains/identities/Clients'
 
@@ -19,7 +19,7 @@ export default function UpdateClient() {
             <clients.Representative.RepresentativeProvider>
               <clients.Doucments.DocumentProvider>
                 <clients.users.UserProvider>
-                  <Page />
+                  <ThemeProvider>       <Page />     </ThemeProvider>
                 </clients.users.UserProvider>
               </clients.Doucments.DocumentProvider>
             </clients.Representative.RepresentativeProvider>
@@ -31,7 +31,7 @@ export default function UpdateClient() {
 }
 
 function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { clientData, clientLoading, clientRefetch } = clients.useUpdate()
   const { addressesRefetch } = clients.Addresses.useAddress()
   const { emailsRefetch } = clients.Emails.useEmail()
@@ -51,7 +51,7 @@ function Page() {
     titulo = clientData?.Pessoa.DadosDaApi.alias
 
   return (
-    <templates.FormAndTabs
+    <templates.FormAndTabs setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       Form={<clients.Update />}
       title={`${titulo}`}

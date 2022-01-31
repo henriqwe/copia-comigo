@@ -2,7 +2,8 @@ import * as common from '@comigo/ui-common'
  
 import * as blocks from '@comigo/ui-blocks'
 import * as phones from '&crm/domains/identities/Clients/Tabs/Phones'
-import { phoneFormat } from 'utils/formaters'
+
+import * as utils from '@comigo/utils'
 
 export default function List() {
   const { setSlidePanelState, phonesData } = phones.usePhone()

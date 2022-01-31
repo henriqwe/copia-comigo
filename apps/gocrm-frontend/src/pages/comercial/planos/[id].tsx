@@ -10,14 +10,14 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function UpdatePlan() {
   return (
     <plans.UpdateProvider>
       <services.ServiceProvider>
         <conditionals.ConditionalProvider>
-          <Page />
+          <ThemeProvider>       <Page />     </ThemeProvider>
         </conditionals.ConditionalProvider>
       </services.ServiceProvider>
     </plans.UpdateProvider>
@@ -25,7 +25,7 @@ export default function UpdatePlan() {
 }
 
 export function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { plansRefetch, plansLoading } = plans.useUpdate()
   const { servicesRefetch } = services.useService()
   const { conditionalRefetch } = conditionals.useConditional()
@@ -36,7 +36,7 @@ export function Page() {
     plansRefetch()
   }
   return (
-    <templates.Base
+    <templates.Base setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       title="Edição de Plano"
       reload={{ state: plansLoading, action: refetch }}

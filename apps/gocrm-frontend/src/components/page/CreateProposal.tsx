@@ -5,7 +5,7 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import {useTheme, ThemeProvider} from '&crm/contexts/ThemeContext'
 
 // TODO: Analisar separação de páginas em componentes no nível de domínio
 import * as proposals from '&crm/domains/commercial/Proposals'
@@ -24,20 +24,35 @@ type CreateProposalProps = {
   } | null
 }
 
+
 export function CreateProposalPage({ Ticket }: CreateProposalProps) {
-  const {theme} = useTheme()
+    return(
+      <ThemeProvider>       
+        <Page Ticket={Ticket}/>     
+      </ThemeProvider>
+    )
+}
+export function Page({Ticket}: CreateProposalProps){
+  const {theme, changeTheme} = useTheme()
 
   Ticket ? (Ticket = JSON.parse(Ticket as unknown as string)) : null
   const { servicesLoading, refetch } = refetchActions()
 
   return (
     <templates.Base
-    theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
+      setTheme={changeTheme}
+      theme={theme} 
+      mainMenuItens={mainMenuItens} 
+      rotas={rotas} 
+      companies={companies} 
+      imageUrl={'/imagens/logoAssistencia.png'}
       title="Cadastro de Proposta"
       reload={{ action: refetch, state: servicesLoading }}
       currentLocation={breadCrumbData()}
     >
-      <proposals.Create Ticket={Ticket} />
+      {/* <proposals.Create Ticket={Ticket} /> */}
+      <div>teste1</div>
+
     </templates.Base>
   )
 }
@@ -65,15 +80,15 @@ function refetchActions() {
 
 function breadCrumbData() {
   return [
-    { title: 'Rastreamento', url: rotas.erp.home },
-    { title: 'Comercial', url: rotas.erp.comercial.index },
+    { title: 'Rastreamento', url: rotas.home },
+    { title: 'Comercial', url: rotas.comercial.index },
     {
       title: 'Proposta',
-      url: rotas.erp.comercial.propostas.index
+      url: rotas.comercial.propostas.index
     },
     {
       title: 'Cadastro',
-      url: rotas.erp.comercial.propostas.cadastrar
+      url: rotas.comercial.propostas.cadastrar
     }
   ]
 }

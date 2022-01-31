@@ -6,22 +6,22 @@ import mainMenuItens from '&crm/domains/MainMenuItens'
 
 import companies from '&crm/domains/companies'
 
-import {useTheme} from '&crm/contexts/ThemeContext'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 import * as clients from '&crm/domains/identities/Clients'
 
 export default function Clients() {
   return (
     <clients.ListProvider>
-      <Page />
+      <ThemeProvider>       <Page />     </ThemeProvider>
     </clients.ListProvider>
   )
 }
 
 function Page() {
-  const {theme} = useTheme()
+  const {theme, changeTheme} = useTheme()
   const { clientsRefetch, clientsLoading } = clients.useList()
   return (
-    <templates.InternalNavigationAndSlide
+    <templates.InternalNavigationAndSlide setTheme={changeTheme}
     theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}
       SubMenu={<clients.InternalNavigation />}
       title="Clientes cadastrados"
