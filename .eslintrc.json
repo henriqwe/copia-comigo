@@ -12,7 +12,10 @@
             "enforceBuildableLibDependency": true,
             "allow": [
               "&erp/**",
-              "&crm/**"
+              "&crm/**",
+              "@comigo/ui-blocks",
+              "@comigo/ui-common",
+              "@comigo/ui-templates"
             ],
             "depConstraints": [
               {

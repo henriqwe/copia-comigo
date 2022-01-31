@@ -1,3 +1,7 @@
+export default function Page() {
+  return <div />
+}
+
 // import rotas from '&erp/domains/routes'
 
 // import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
@@ -28,7 +32,6 @@
 //   // ../../../components/blocks/Calendar
 //   return (
 //     <templates.Base
-imageUrl = '/imagens/logoRastreamento.png'
 //       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
 //       theme={theme}
 //       title="Calendário 1"

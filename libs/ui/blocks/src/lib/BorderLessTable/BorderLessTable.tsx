@@ -27,7 +27,7 @@ type TableListType = {
   actions?: (item: any) => any
 }
 
-export const Table = ({
+export const BorderLessTable = ({
   colection = [],
   columnTitles = [],
   search,

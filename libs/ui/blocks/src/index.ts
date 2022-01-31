@@ -1,5 +1,5 @@
 export { MenuActions } from './lib/MenuActions/'
-export { BorderLessTable } from './lib/BorderLessTable/'
+export { BorderLessTable } from './lib/BorderLessTable/itens'
 export { Tabs } from './lib/Tabs/'
 export { DataList } from './lib/DataList/'
 export { SideBar } from './lib/SideBar/'

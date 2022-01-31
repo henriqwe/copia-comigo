@@ -1,1 +1,0 @@
-export {BorderLessTable} from './BorderLessTable'

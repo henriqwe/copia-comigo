@@ -11,7 +11,7 @@ type RowsType = {
   actions?: (item: { item: { title: string; fieldName: string } }) => string
 }
 
-export default function Rows({ lines, columns, actions }: RowsType) {
+export function Rows({ lines, columns, actions }: RowsType) {
   return (
     <>
       {lines.map((item, index) => (

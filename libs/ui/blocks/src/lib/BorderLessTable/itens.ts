@@ -1,27 +1,12 @@
-import {Table} from './BorderLessTable'
-import {EmptyLine} from './EmptyLine'
-import {Rows} from './Rows'
-import {Row} from './Row'
-import {ActionsRow} from './ActionsRow'
-import {TableSkeleton} from './Skeleton'
-import {ColumnTitle} from './ColumnTitle'
-import {Search} from './Search'
-import {Field} from './Columns/Field'
-import {FieldWithTitleAndSubtitle} from './Columns/FieldWithTitleAndSubtitle'
-import {StatusField} from './Columns/StatusField'
-import {Pagination} from './Pagination'
-
-export {
-  Table,
-  FieldWithTitleAndSubtitle,
-  StatusField,
-  ActionsRow,
-  Field,
-  ColumnTitle,
-  Row,
-  EmptyLine,
-  Rows,
-  Search,
-  Pagination,
-  TableSkeleton
-}
+export { BorderLessTable } from './BorderLessTable'
+export { EmptyLine } from './EmptyLine'
+export { Rows } from './Rows'
+export { Row } from './Row'
+export { ActionsRow } from './ActionsRow'
+export { TableSkeleton } from './Skeleton'
+export { ColumnTitle } from './ColumnTitle'
+export { Search } from './Search'
+export { Field } from './Columns/Field'
+export { FieldWithTitleAndSubtitle } from './Columns/FieldWithTitleAndSubtitle'
+export { StatusField } from './Columns/StatusField'
+export { Pagination } from './Pagination'

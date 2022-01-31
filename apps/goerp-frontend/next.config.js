@@ -10,6 +10,9 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  typescript:{
+    ignoreBuildErrors: true
+  }
 };
 
 module.exports = withNx(nextConfig);

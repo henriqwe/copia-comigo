@@ -1,1 +1,1 @@
-export {Rows} from './Rows'
+export { Rows } from './Rows'

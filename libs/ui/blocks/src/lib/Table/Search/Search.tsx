@@ -33,7 +33,7 @@ export function Search({ search, pagination, sideBar }: SearchProps) {
       </div>
       <div className="flex justify-between gap-4">
         {showRemoveButton && (
-          <common.Buttons.CancelButton
+          <common.buttons.CancelButton
             icon={<common.icons.CloseIcon />}
             title=""
             onClick={() => {
@@ -51,7 +51,7 @@ export function Search({ search, pagination, sideBar }: SearchProps) {
             className={`h-10 my-0`}
           />
         )}
-        <common.Buttons.SecondaryButton
+        <common.buttons.SecondaryButton
           handler={() => {
             pagination?.setFilters((old) => {
               return {

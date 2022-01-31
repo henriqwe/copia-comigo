@@ -10,7 +10,7 @@ export function List() {
         columnTitles={[{ title: 'Nome', fieldName: 'Nome' }]}
         actions={services.RowActions}
       />
-      <services.SlidePane />
+      <services.SlidePanel />
     </>
   ) : (
     <blocks.TableSkeleton />

@@ -20,7 +20,7 @@ type FormData = {
   NCM: number
 }
 
-const Formulario = () => {
+export const Update = () => {
   const [buttonName, setButtonName] = useState('Editar')
   const router = useRouter()
   const {
@@ -171,5 +171,3 @@ const Formulario = () => {
     </common.Card>
   )
 }
-
-export default Formulario

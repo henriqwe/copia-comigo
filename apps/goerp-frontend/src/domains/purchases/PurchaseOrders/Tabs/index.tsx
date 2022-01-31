@@ -1,10 +1,10 @@
 import * as blocks from '@comigo/ui-blocks'
 import * as orcamentos from './Budgets'
-import ListarLogs from './LogsList'
+import { LogsList } from './LogsList'
 
 const sections = {
   Orçamentos: <orcamentos.List />,
-  Logs: <ListarLogs />
+  Logs: <LogsList />
 }
 
 export function Tabs() {

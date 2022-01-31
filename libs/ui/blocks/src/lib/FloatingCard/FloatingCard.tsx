@@ -202,7 +202,7 @@ export function FloatingCard({allUserVehicle,schemaYup,consultVehicleHistoric,ve
         <LocationMarkerIcon className="w-5 h-5 text-gray-100 " />
         <div>
           <span className="text-sm ">Veículos</span>
-          <span className="text-sm ml-2 bg-gray-800 px-2 rounded-full">{allUserVehicle ? allUserVehicle.length : 0 }</span>
+          <span className="px-2 ml-2 text-sm bg-gray-800 rounded-full">{allUserVehicle ? allUserVehicle.length : 0 }</span>
         </div>
         <button onClick={()=>{setOpen(!open)}}>
           {open ?
@@ -235,7 +235,7 @@ function pagAllVehicles({inputSearchValue,setInputSearchValue,titleFilter,setTit
     <>
           <div className=''>
             <div className="px-3 py-3 bg-gray-100">
-              <div className='ring-1 ring-gray-300 rounded-sm'>
+              <div className='rounded-sm ring-1 ring-gray-300'>
                 <common.form.Input
                   fieldName='Veículos'
                   title="Pesquise o veiculo aqui"
@@ -345,7 +345,7 @@ function pagAllVehicles({inputSearchValue,setInputSearchValue,titleFilter,setTit
                 })} */}
              </ul>
               {vehiclesOff.length === 0 && vehiclesStopped.length === 0 && vehiclesInTransit.length === 0 &&
-                  <div className="w-full flex justify-center mt-4">
+                  <div className="flex justify-center w-full mt-4">
                    <common.EmptyContent />
                   </div>
               }
@@ -400,7 +400,7 @@ function pagVehiclesDetails({setInputSearchValue,setPageCard,selectedVehicle,con
   return(
     <>
           <div className=''>
-            <div className="px-3 py-2 bg-gray-100 flex justify-between">
+            <div className="flex justify-between px-3 py-2 bg-gray-100">
               <div className='flex justify-center'>
               <common.TitleWithSubTitleAtTheTop
                 title={selectedVehicle?.placa!}
@@ -434,7 +434,7 @@ function pagVehiclesDetails({setInputSearchValue,setPageCard,selectedVehicle,con
             </div>
             <div className="flex items-center justify-between px-3 py-1 bg-gray-100">
               <div className="w-full">
-                <div className="grid grid-flow-col w-full gap-2 ">
+                <div className="grid w-full grid-flow-col gap-2 ">
                 <form
                     onSubmit={(e)=>{
                       onSubmit(e)
@@ -444,11 +444,11 @@ function pagVehiclesDetails({setInputSearchValue,setPageCard,selectedVehicle,con
                   >
               
                   <div className="flex col-span-12 ">
-                    <p className=" flex items-center mr-2 text-sm">De:</p>
+                    <p className="flex items-center mr-2 text-sm ">De:</p>
                     <input
                       type="datetime-local"
                       name='dateStart'
-                      className="bg-gray-200 col-span-10 text-sm dark:bg-gray-700 p-2 rounded-md w-full"
+                      className="w-full col-span-10 p-2 text-sm bg-gray-200 rounded-md dark:bg-gray-700"
                       value={dateStart}
                       max={dateEnd}
                       onChange={(e)=>setDateStart(e.target.value)}
@@ -460,7 +460,7 @@ function pagVehiclesDetails({setInputSearchValue,setPageCard,selectedVehicle,con
                     <input
                       type="datetime-local"
                       name='dateEnd'
-                      className="col-span-10 text-sm bg-gray-200 dark:bg-gray-700 p-2 rounded-md w-full"
+                      className="w-full col-span-10 p-2 text-sm bg-gray-200 rounded-md dark:bg-gray-700"
                       value={dateEnd}
                       max={dateEnd}
                       onChange={(e)=>setDateEnd(e.target.value)}
@@ -473,17 +473,17 @@ function pagVehiclesDetails({setInputSearchValue,setPageCard,selectedVehicle,con
                           setPageCard('pagAllVehicles')
                           showAllVehiclesInMap()
                         }}
-                        className=" justify-center items-center flex"
+                        className="flex items-center justify-center "
                       >
                         <ChevronLeftIcon
-                          className="w-5 h-5  text-violet-200 hover:text-violet-100"
+                          className="w-5 h-5 text-violet-200 hover:text-violet-100"
                           aria-hidden="true"
                         />{' '}
                         Voltar
                       </button>
                       <button
                       type='submit'
-                      className="col-span-3 justify-center items-center flex bg-gray-700 rounded-sm text-gray-200 px-2 py-1"
+                      className="flex items-center justify-center col-span-3 px-2 py-1 text-gray-200 bg-gray-700 rounded-sm"
                       // disabled={pathsLoading}
                       // loading={pathsLoading}
                     > <SearchIcon className="w-5 h-5 text-gray-200"/></button>
@@ -533,10 +533,10 @@ function pagVehiclesDetails({setInputSearchValue,setPageCard,selectedVehicle,con
                         onClick={() => {
                           setMoreDetails(false)
                         }}
-                        className=" justify-center flex bg-gray-700 rounded-sm text-gray-200 px-2 items-center"
+                        className="flex items-center justify-center px-2 text-gray-200 bg-gray-700 rounded-sm "
                       >
                         <MinusIcon
-                          className="w-3 h-3 text-violet-200 hover:text-violet-100 mr-2"
+                          className="w-3 h-3 mr-2 text-violet-200 hover:text-violet-100"
                           aria-hidden="true"
                         />{'  '}
                         <span className='text-xs'> Exibir menos</span>
@@ -586,7 +586,7 @@ function pagVehiclesDetails({setInputSearchValue,setPageCard,selectedVehicle,con
                   </ul>
                 </div>
               ) : (
-                <div className="w-full flex justify-center mt-4">
+                <div className="flex justify-center w-full mt-4">
                   <common.EmptyContent />
                 </div>
               )}

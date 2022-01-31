@@ -1,4 +1,4 @@
-import { common } from '@comigo/ui-shared-components'
+import * as common from '@comigo/ui-common'
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react'
 
 type coordsToCenterMap = {
@@ -67,18 +67,18 @@ export function VehicleCard({
   }
   return (
     <div className="relative flex items-center mb-3 intro-x">
-      <div className="report-timeline__image flex align-center flex-col">
+      <div className="flex flex-col report-timeline__image align-center">
         <div
           className={` flex justify-center items-center w-10 h-10 overflow-hidden rounded-full image-fit border-4 bg-white text-dark-7 font-black ${borderColor}`}
         >
           {Math.floor(Number(vehicle.speed))}
         </div>
-        <div className="w-full flex justify-center">
+        <div className="flex justify-center w-full">
           <span>Km/h</span>
         </div>
       </div>
       <div
-        className="flex-1 px-2 py-3 ml-4 box bg-gray-300 dark:bg-dark-2 zoom-in rounded-sm hover:cursor-pointer dark:hover:bg-dark-4 hover:bg-gray-400"
+        className="flex-1 px-2 py-3 ml-4 bg-gray-300 rounded-sm box dark:bg-dark-2 zoom-in hover:cursor-pointer dark:hover:bg-dark-4 hover:bg-gray-400"
         onClick={() =>
           {
             setCoordsToCenterPointInMap({
@@ -97,7 +97,7 @@ export function VehicleCard({
                 subtitle="Status"
               />
           </div>
-          <div className='col-span-2 flex justify-end'>
+          <div className='flex justify-end col-span-2'>
           <common.TitleWithSubTitleAtTheTop
                 title={`${new Date(vehicle.data).toLocaleDateString('pt-br', {
                   dateStyle: 'short'

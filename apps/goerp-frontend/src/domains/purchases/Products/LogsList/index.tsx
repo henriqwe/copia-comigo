@@ -1,7 +1,7 @@
 import * as produtos from '&erp/domains/purchases/Products'
 import * as blocks from '@comigo/ui-blocks'
 
-export function ListagemLogs() {
+export function LogsList() {
   const { logs } = produtos.useUpdate()
   return logs ? (
     <blocks.Table

@@ -18,11 +18,12 @@ export function Level1({
   const router = useRouter()
   const [open, setOpen] = useState(router.asPath.includes(url))
   let active = false
-  if (router.asPath.split('/').length === 2 && title === 'Início') {
+
+  if (router.asPath === '/' && title === 'Início') {
     active = true
   }
 
-  if (router.asPath.split('/').length !== 2 && title !== 'Início') {
+  if (router.asPath !== '/' && title !== 'Início') {
     active = router.asPath.includes(url)
   }
 

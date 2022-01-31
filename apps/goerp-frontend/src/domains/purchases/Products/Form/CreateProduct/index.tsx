@@ -18,7 +18,7 @@ type FormData = {
   NCM: number
 }
 
-const Cadastrar = () => {
+export const Create = () => {
   const router = useRouter()
   const {
     productSchema,
@@ -143,5 +143,3 @@ const Cadastrar = () => {
     </common.Card>
   )
 }
-
-export default Cadastrar
