@@ -31,7 +31,7 @@ export default function Home() {
             title="Voltar para o início"
             onClick={() => {
               document.querySelector('body')?.classList.remove('p-0')
-              router.push(rotas.erp.index)
+              router.push(rotas.index)
             }}
           />
         </div>

@@ -1,26 +1,15 @@
-import { useRouter } from 'next/router'
+import * as templates from '@comigo/ui-templates'
 import rotas from '&crm/domains/routes'
-import { useEffect } from 'react'
+import mainMenuItens from '&crm/domains/MainMenuItens'
+import companies from '&crm/domains/companies'
+import {useTheme} from '&crm/contexts/ThemeContext'
+
 export default function Home() {
-  const router = useRouter()
-
-  useEffect(() => {
-    router.push(rotas.erp.index)
-  }, [router])
-
-  return (
-    <div className="flex flex-col items-center justify-center min-w-full min-h-full gap-10">
-      <img
-        src="/imagens/logoRastreamento.png"
-        alt="comigo rastreamento"
-        className="w-1/3"
-      />
-      <img
-        src="/imagens/logoAssistencia.png"
-        alt="comigo assistencia"
-        className="w-1/3"
-      />
-      <img src="/imagens/logoMaxline.png" alt="maxline" className="w-1/3" />
-    </div>
+  const {theme} = useTheme()
+  return (  
+        
+        <templates.Base theme={theme} mainMenuItens={mainMenuItens} rotas={rotas} companies={companies} imageUrl={'/imagens/logoAssistencia.png'}>
+      <div>Teste</div>
+    </templates.Base>
   )
 }

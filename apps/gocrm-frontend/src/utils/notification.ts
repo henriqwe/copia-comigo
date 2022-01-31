@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
 
-function notification(
+function   utils.notification(
   message: string,
   type: 'success' | 'error' | 'warning' | 'info'
 ) {

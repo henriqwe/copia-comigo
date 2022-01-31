@@ -1,96 +1,87 @@
 export default {
-  erp: {
-    home: '/erp',
+  
+    home: '/',
     atendimento: {
       cadastros: {
         fluxos: {
-          index: '/erp/atendimento/cadastros/fluxos',
-          etapas: '/erp/atendimento/cadastros/fluxos/etapas'
+          index: '/atendimento/cadastros/fluxos',
+          etapas: '/atendimento/cadastros/fluxos/etapas'
         },
         perguntas: {
-          index: '/erp/atendimento/cadastros/perguntas',
+          index: '/atendimento/cadastros/perguntas',
           grupos: {
-            index: '/erp/atendimento/cadastros/perguntas/grupos',
-            cadastrar: '/erp/atendimento/cadastros/perguntas/grupos/cadastrar'
+            index: '/atendimento/cadastros/perguntas/grupos',
+            cadastrar: '/atendimento/cadastros/perguntas/grupos/cadastrar'
           }
         },
-        acoes: '/erp/atendimento/cadastros/acoes',
-        index: '/erp/atendimento/cadastros'
+        acoes: '/atendimento/cadastros/acoes',
+        index: '/atendimento/cadastros'
       },
-      leads: '/erp/atendimento/leads',
-      tickets: '/erp/atendimento/tickets',
+      leads: '/atendimento/leads',
+      tickets: '/atendimento/tickets',
       perfisComerciais: {
-        cadastrar: '/erp/atendimento/perfis-comerciais/cadastrar',
-        index: '/erp/atendimento/perfis-comerciais'
+        cadastrar: '/atendimento/perfis-comerciais/cadastrar',
+        index: '/atendimento/perfis-comerciais'
       },
-      vehicles: '/erp/atendimento/veiculos',
-      index: '/erp/atendimento'
+      vehicles: '/atendimento/veiculos',
+      index: '/atendimento'
     },
     identidades: {
       clientes: {
-        index: '/erp/identidades/clientes',
-        cadastrar: '/erp/identidades/clientes/cadastrar'
+        index: '/identidades/clientes',
+        cadastrar: '/identidades/clientes/cadastrar'
       },
       fornecedores: {
-        index: '/erp/identidades/fornecedores',
-        cadastrar: '/erp/identidades/fornecedores/cadastrar'
+        index: '/identidades/fornecedores',
+        cadastrar: '/identidades/fornecedores/cadastrar'
       },
-      usuarios: '/erp/identidades/usuarios',
-      colaboradores: '/erp/identidades/colaboradores',
-      index: '/erp/identidades'
+      usuarios: '/identidades/usuarios',
+      colaboradores: '/identidades/colaboradores',
+      index: '/identidades'
     },
     comercial: {
       cadastros: {
-        condicionais: '/erp/comercial/cadastros/condicionais',
-        coberturas: '/erp/comercial/cadastros/coberturas',
-        atributos: '/erp/comercial/cadastros/atributos',
-        tarifas: '/erp/comercial/cadastros/tarifas',
-        index: '/erp/comercial/cadastros'
+        condicionais: '/comercial/cadastros/condicionais',
+        coberturas: '/comercial/cadastros/coberturas',
+        atributos: '/comercial/cadastros/atributos',
+        tarifas: '/comercial/cadastros/tarifas',
+        index: '/comercial/cadastros'
       },
       planos: {
-        cadastrar: '/erp/comercial/planos/cadastrar',
-        index: '/erp/comercial/planos'
+        cadastrar: '/comercial/planos/cadastrar',
+        index: '/comercial/planos'
       },
       combos: {
-        cadastrar: '/erp/comercial/combos/cadastrar',
-        index: '/erp/comercial/combos'
+        cadastrar: '/comercial/combos/cadastrar',
+        index: '/comercial/combos'
       },
       propostas: {
-        cadastrar: '/erp/comercial/propostas/cadastrar',
-        index: '/erp/comercial/propostas'
+        cadastrar: '/comercial/propostas/cadastrar',
+        index: '/comercial/propostas'
       },
-      contratos: '/erp/comercial/contratos',
-      fornecedores: '/erp/comercial/fornecedores',
-      produtos: '/erp/comercial/produtos',
-      servicos: '/erp/comercial/servicos',
-      index: '/erp/comercial'
+      contratos: '/comercial/contratos',
+      fornecedores: '/comercial/fornecedores',
+      produtos: '/comercial/produtos',
+      servicos: '/comercial/servicos',
+      index: '/comercial'
     },
-    clientes: '/erp/clientes',
+    clientes: '/clientes',
     operacional: {
-      calendario: '/erp/operacional/calendario',
-      ordensDeServico: '/erp/operacional/ordens-de-servico',
-      index: '/erp/operacional'
+      calendario: '/operacional/calendario',
+      ordensDeServico: '/operacional/ordens-de-servico',
+      index: '/operacional'
     },
     compras: {
       produtos: {
-        index: '/erp/compras/produtos',
-        cadastrar: '/erp/compras/produtos/cadastrar'
+        index: '/compras/produtos',
+        cadastrar: '/compras/produtos/cadastrar'
       },
-      index: '/erp/compras'
+      index: '/compras'
     },
     configuracoes: {
-      index: '/erp/configuracoes'
+      index: '/configuracoes'
     },
-    kanban: '/erp/kanban',
-    index: '/erp'
-  },
-  assistencia: {
-    home: '/assistencia/',
-    index: '/assistencia/'
-  },
-  rastreamento: {
-    home: '/rastreamento/',
-    index: '/rastreamento/'
-  },
-  login: '/login/'
+    kanban: '/kanban',
+    index: '/',  
+    login: '/login/'
 } as const

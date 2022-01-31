@@ -2,7 +2,7 @@ import {
   useTypedClientMutation,
   $,
   useTypedClientQuery
-} from 'graphql/generated/zeus/apollo'
+} from '&crm/graphql/generated/zeus/apollo'
 
 export async function insereFornecedorEPessoa(
   identificador: string,

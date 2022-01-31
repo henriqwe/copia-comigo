@@ -1,4 +1,4 @@
-export function CPFValidation(cpf: string) {
+export function utils.CPFValidation(cpf: string) {
   cpf = cpf.replace(/[^\d]+/g, '')
   if (cpf == '') return false
   // Elimina CPFs invalidos conhecidos
@@ -31,7 +31,7 @@ export function CPFValidation(cpf: string) {
   return true
 }
 
-export function CNPJValidation(cnpj: string) {
+export function utils.CNPJValidation(cnpj: string) {
   cnpj = cnpj.replace(/[^\d]+/g, '')
 
   if (cnpj == '') return false

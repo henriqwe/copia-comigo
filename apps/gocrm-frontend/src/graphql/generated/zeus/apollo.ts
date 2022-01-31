@@ -3,7 +3,7 @@
 import { Zeus, GraphQLTypes, InputType, ValueTypes, $ } from './index';
 import { gql, useMutation, useQuery, useLazyQuery, useSubscription, QueryOptions, MutationOptions } from '@apollo/client';
 import type { MutationHookOptions, QueryHookOptions, LazyQueryHookOptions, SubscriptionHookOptions } from '@apollo/client';
-import { initializeApollo } from 'utils/apollo';
+import { initializeApollo } from '../../../utils/apollo';
 
 export { $ as $ }
 

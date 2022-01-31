@@ -1,7 +1,7 @@
 import { Auth } from 'aws-amplify'
 import * as common from '@comigo/ui-common'
 import rotas from '&crm/domains/routes'
-import * as template from '@comigo/ui-templates'
+import * as templates from '@comigo/ui-templates'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 
@@ -21,7 +21,7 @@ export default function Login() {
     })
       .then(() => {
         setLoading(false)
-        router.push(rotas.erp.home)
+        router.push(rotas.home)
       })
       .catch((error) => {
         setLoading(false)
@@ -30,7 +30,7 @@ export default function Login() {
   }
 
   return (
-    <template.Authentication
+    <templates.Authentication
       leftContent={
         <>
           <img
