@@ -1,0 +1,43 @@
+###
+GET https://api.rd.services/auth/dialog?client_id={b62e6189-4d30-4c79-a83d-ca75ef3c9754}&redirect_uri={http://localhost:5000/login}
+
+###
+POST https://api.rd.services/auth/token
+Content-Type: application/json
+
+{
+  "client_id": "b62e6189-4d30-4c79-a83d-ca75ef3c9754",
+  "client_secret": "672dd2914c7145d6acc39438ff5f5a9d",
+  "code": "e4d103b035d7248ed2bc65fd451f1cba"
+}
+
+###
+POST https://api.rd.services/auth/token
+Content-Type: application/json
+
+{
+  "client_id": "b62e6189-4d30-4c79-a83d-ca75ef3c9754",
+  "client_secret": "672dd2914c7145d6acc39438ff5f5a9d",
+  "refresh_token": "vpIMI5xfVtceYJebXg8ta1idinkKtXal69YwW2Rt7Ho"
+}
+
+###
+GET https://api.rd.services/platform/contacts/06c82288-fb60-49b4-b578-b3b886849f58
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5yZC5zZXJ2aWNlcyIsInN1YiI6IlphSXF6cEgwUE0yam9WRkp5S0NORFl5cF9BaFNfd3ZrZWVWTVFLclk3OFVAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vYXBwLnJkc3RhdGlvbi5jb20uYnIvYXBpL3YyLyIsImFwcF9uYW1lIjoiZ29lcnAiLCJleHAiOjE2MzY3MTcxNzgsImlhdCI6MTYzNjYzMDc3OCwic2NvcGUiOiIifQ.3s5_gJgiMq4UMm-lLT2AYi8SCmJryj13irJUGYM15QNV-YbgTEgLdKyBGWXhH1wzvqF5sjXWh6xkHlMyTiz7OdEXQvWf_gMT2G__Ut0rQLsMUKHeM5PmS9FOuXksZCFPSUzar12aTg9_uKNS3eq1oYtP_-G3hdYrIoyCbCCLQCNxb-ypNp4AhRdpV4aJLqNFzJh7Nj28XwcBdjKaiDyxOwX0aciYi6U2nGb6cwYkRPUGRTZ1QPgAAS0GuW2v2DcAvS6fqRab09ysGpAcyTWw9tR7BN-j1ARkup2AfwDKC0-6ETtqW2rrIJhdnBtBIFkZPnJqwSxz3fSPns-9lNf1gg
+
+###
+PATCH https://api.rd.services/platform/contacts/06c82288-fb60-49b4-b578-b3b886849f58
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5yZC5zZXJ2aWNlcyIsInN1YiI6IlphSXF6cEgwUE0yam9WRkp5S0NORFl5cF9BaFNfd3ZrZWVWTVFLclk3OFVAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vYXBwLnJkc3RhdGlvbi5jb20uYnIvYXBpL3YyLyIsImFwcF9uYW1lIjoiZ29lcnAiLCJleHAiOjE2MzY3MTcxNzgsImlhdCI6MTYzNjYzMDc3OCwic2NvcGUiOiIifQ.3s5_gJgiMq4UMm-lLT2AYi8SCmJryj13irJUGYM15QNV-YbgTEgLdKyBGWXhH1wzvqF5sjXWh6xkHlMyTiz7OdEXQvWf_gMT2G__Ut0rQLsMUKHeM5PmS9FOuXksZCFPSUzar12aTg9_uKNS3eq1oYtP_-G3hdYrIoyCbCCLQCNxb-ypNp4AhRdpV4aJLqNFzJh7Nj28XwcBdjKaiDyxOwX0aciYi6U2nGb6cwYkRPUGRTZ1QPgAAS0GuW2v2DcAvS6fqRab09ysGpAcyTWw9tR7BN-j1ARkup2AfwDKC0-6ETtqW2rrIJhdnBtBIFkZPnJqwSxz3fSPns-9lNf1gg
+
+{
+  "name": "Cicero welison gonçalvis santos 1"
+}
+
+###
+#{
+#  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FwaS5yZC5zZXJ2aWNlcyIsInN1YiI6IlphSXF6cEgwUE0yam9WRkp5S0NORFl5cF9BaFNfd3ZrZWVWTVFLclk3OFVAY2xpZW50cyIsImF1ZCI6Imh0dHBzOi8vYXBwLnJkc3RhdGlvbi5jb20uYnIvYXBpL3YyLyIsImFwcF9uYW1lIjoiZ29lcnAiLCJleHAiOjE2MzY1NzIzNzIsImlhdCI6MTYzNjQ4NTk3Miwic2NvcGUiOiIifQ.SrbP10veWOGhYh9Wz1kB9XKPLsFU3j4hgR5GvyWxfkqczDUK7XiHBatN3NKjK4UJ7lbGDlnL2Gb-5SqbuEHA5l2LsN3GMqmn8ODR5jO0FGe_LQJoB4L-CNbGQVYDaQYJ0BK_9gezZtYT3x30NTKcUl4NkAIJFZleFcEfEJTKAS2xaf6u4VQMDSIL9yEt1RMeyd04PntrJES8N0lRrucDc_jo5PaJfFlHlpLDG5WHQLyjO7pkKmlCFgJTSTfBzBy-zM_mF54fXib0bRZYh8vkcKk1Idko9__guhkBrFrfxIJkGu8-PkjE6QA4SQeU1MopZkQTeP9Ux74H5cGvAheAXg",
+#  "expires_in": 86400,
+#  "refresh_token": "vpIMI5xfVtceYJebXg8ta1idinkKtXal69YwW2Rt7Ho"
+#}
+
