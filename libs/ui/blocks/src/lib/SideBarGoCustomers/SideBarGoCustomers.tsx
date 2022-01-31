@@ -1,8 +1,8 @@
 import { ChevronDoubleLeftIcon,ChevronDownIcon,ChevronDoubleRightIcon, SearchIcon, ChartSquareBarIcon } from "@heroicons/react/outline";
 import { ReactChild, useState } from "react";
-import {Level1} from '../MenuItens/Level1'
-import {Level2} from '../MenuItens/Level2'
-import {Level3} from '../MenuItens/Level3'
+import {Level1} from './MenuItens/Level1'
+import {Level2} from './MenuItens/Level2'
+import {Level3} from './MenuItens/Level3'
 
 /* eslint-disable-next-line */
 export interface MainNavigationProps {
@@ -66,17 +66,21 @@ export function SideBarGoCustomers({ mainMenuItens }: MainNavigationProps) {
           <ul className='flex flex-col space-y-2'>
               {mainMenuItens.map((item, index) => {
           return item.children?.length === 0 ? (
-            <Level1 item={item} key={`item-menu-${index}`} openMenu={openMenu}setOpenMenu={setOpenMenu} />
+            <div className=" relative text-gray-500  focus-within:text-white">
+              <Level1 item={item} key={`item-menu-${index}`} openMenu={openMenu}setOpenMenu={setOpenMenu} />
+            </div>
           ) : (
-            <Level1 item={item} key={`item-menu-${index}`} openMenu={openMenu}setOpenMenu={setOpenMenu}>
-              {item.children?.map((subitem, contagem) => (
-                <Level2 subitem={subitem} key={`subitem-menu-${contagem}`} openMenu={openMenu} setOpenMenu={setOpenMenu}>
-                  {subitem.children?.map((item3, contagem3) => (
-                    <Level3 key={`item3-menu-${contagem3}`} item3={item3} />
-                  ))}
-                </Level2>
-              ))}
-            </Level1>
+            <div className=" relative text-gray-500  focus-within:text-white">
+              <Level1 item={item} key={`item-menu-${index}`} openMenu={openMenu}setOpenMenu={setOpenMenu}>
+                {item.children?.map((subitem, contagem) => (
+                  <Level2 subitem={subitem} key={`subitem-menu-${contagem}`} openMenu={openMenu} setOpenMenu={setOpenMenu}>
+                    {subitem.children?.map((item3, contagem3) => (
+                      <Level3 key={`item3-menu-${contagem3}`} item3={item3} />
+                    ))}
+                  </Level2>
+                ))}
+              </Level1>
+            </div>
           )
               })}
           </ul>
