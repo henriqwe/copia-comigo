@@ -1,11 +1,11 @@
 import { Controller, useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import * as common from '@comigo/ui-common';
+import * as utils from '@comigo/utils'
 import * as localizations from '../../index';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-// import { showError } from 'utils/showError'
-// import { getStreetNameByLatLng } from '../../../api'
+import { getStreetNameByLatLng } from '&customers/components/domains/monitoring/Localization/api'
 import {
   ClockIcon,
   ExclamationIcon,
@@ -76,7 +76,7 @@ export default function CreateLocalization() {
 
       centerVehicleInMap(Number(formData.Veiculos.key));
     } catch (err: any) {
-      showError(err);
+      utils.showError(err);
     }
   };
 
@@ -114,25 +114,25 @@ export default function CreateLocalization() {
 
   return (
     <>
-      <div className="grid grid-flow-col w-full gap-2 mb-2">
+      <div className="grid w-full grid-flow-col gap-2 mb-2">
         <Controller
           control={control}
           name="Veiculos"
           render={({ field: { onChange, value } }) => (
             <div>
-              <common.Form.Select
+              <common.form.Select
                 itens={
                   allUserVehicle
                     ? allUserVehicle
-                        .filter((item) => {
-                          if (item.placa != null) return item;
-                        })
-                        .map((item) => {
-                          return {
-                            key: item.carro_id,
-                            title: item.placa as string,
-                          };
-                        })
+                      .filter((item) => {
+                        if (item.placa != null) return item;
+                      })
+                      .map((item) => {
+                        return {
+                          key: item.carro_id,
+                          title: item.placa as string,
+                        };
+                      })
                     : []
                 }
                 value={value}
@@ -154,14 +154,15 @@ export default function CreateLocalization() {
       <common.Separator />
       {vehicleConsultData && (
         <div className="w-full mt-4">
-          <div className="flex justify-between items-center">
-            <p className="font-black text-lg">Informações sobre o veículo</p>
+          <div className="flex items-center justify-between">
+            <p className="text-lg font-black">Informações sobre o veículo</p>
             <Link
               href={`/erp/monitoramento/trajetos/${vehicleConsultData.carro_id}?placa=${vehicleConsultData.placa}`}
+              passHref
             >
-              <Buttons.PrimaryButton
+              <common.buttons.PrimaryButton
                 title="Ver trajeto"
-                className="col-span-3 justify-center flex"
+                className="flex justify-center col-span-3"
               />
             </Link>
           </div>
@@ -169,16 +170,11 @@ export default function CreateLocalization() {
           <p>
             <b>Última atualização:</b>{' '}
             {new Date(vehicleConsultData.date_rastreador).toLocaleDateString(
-              'pt-br',
-              {
-                dateStyle: 'short',
-              }
+              'pt-br'
+
             )}{' '}
             {new Date(vehicleConsultData.date_rastreador).toLocaleTimeString(
-              'pt-br',
-              {
-                timeStyle: 'medium',
-              }
+              'pt-br'
             )}
           </p>
           <div className="relative mt-5 report-timeline">

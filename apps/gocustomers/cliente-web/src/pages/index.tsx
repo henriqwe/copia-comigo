@@ -6,7 +6,6 @@ import * as localizations from '../components/domains/monitoring/Localization';
 import { getStreetNameByLatLng } from '../components/domains/monitoring/Localization/api';
 import { MarkerClusterer } from '@googlemaps/markerclusterer';
 import React from 'react';
-import rotas from '../components/domains/routes';
 
 type vehicle = {
   crs: string;
@@ -307,7 +306,7 @@ export function Page() {
 
   return (
     <div className="flex max-h-screen">
-      <div className="h-screen sticky top-0 z-50">
+      <div className="sticky top-0 z-50 h-screen">
         <blocks.SideBarGoCustomers mainMenuItens={MainMenuItens} />
       </div>
 
@@ -533,16 +532,16 @@ function createNewVehiclePathMarker(
   pathCoords: vehicle[],
   markersAndLine:
     | {
-        markers: google.maps.Marker[];
-        line: google.maps.Polyline;
-      }
+      markers: google.maps.Marker[];
+      line: google.maps.Polyline;
+    }
     | undefined,
   setMarkersAndLine: Dispatch<
     SetStateAction<
       | {
-          markers: google.maps.Marker[];
-          line: google.maps.Polyline;
-        }
+        markers: google.maps.Marker[];
+        line: google.maps.Polyline;
+      }
       | undefined
     >
   >,
@@ -586,50 +585,41 @@ function createNewVehiclePathMarker(
     const infowindow = new google.maps.InfoWindow({
       content: `<div class='text-dark-7 w-80 m-0'>
       <img
-        src="https://maps.googleapis.com/maps/api/streetview?size=320x100&location=${
-          selectedVehicle.latitude
-        },${
-        selectedVehicle.longitude
-      }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I">
+        src="https://maps.googleapis.com/maps/api/streetview?size=320x100&location=${selectedVehicle.latitude
+        },${selectedVehicle.longitude
+        }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I">
       </img>
       <div class='grid grid-cols-3'>
-      <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${
-        selectedVehicle.placa
-      }</div>
+      <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${selectedVehicle.placa
+        }</div>
       <div class='grid-span-1  flex bg-theme-22  justify-center items-center font-semibold border-2  py-2 !border-white' >
-      <div class='mr-1 ${
-        pathCoords[pathCoords.length - 1].ligado
+      <div class='mr-1 ${pathCoords[pathCoords.length - 1].ligado
           ? Number(pathCoords[pathCoords.length - 1].speed).toFixed() === '0'
             ? 'text-theme-10'
             : 'text-theme-9'
           : 'text-theme-13'
-      }'>
+        }'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-3 h-3"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-      </div><span>${
-        pathCoords[pathCoords.length - 1].ligado
+      </div><span>${pathCoords[pathCoords.length - 1].ligado
           ? Number(pathCoords[pathCoords.length - 1].speed).toFixed() === '0'
             ? ' Parado'
             : ' Ligado'
           : ' Desligado'
-      }</span>
+        }</span>
       </div>
       <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
-        Number(pathCoords[pathCoords.length - 1].speed)
-      )} km/h</div> 
+          Number(pathCoords[pathCoords.length - 1].speed)
+        )} km/h</div> 
       </div>
       
       <div class="my-2">
       <p><b>Última atualização: ${new Date(
-        pathCoords[pathCoords.length - 1].data
-      ).toLocaleDateString('pt-br', {
-        dateStyle: 'short',
-      })}
+          pathCoords[pathCoords.length - 1].data
+        ).toLocaleDateString('pt-br')}
       ${new Date(pathCoords[pathCoords.length - 1].data).toLocaleTimeString(
-        'pt-br',
-        {
-          timeStyle: 'medium',
-        }
-      )}</b> </p>
+          'pt-br'
+
+        )}</b> </p>
       <p><b>${selectedVehicle.veiculo}</b> </p>
       <p><b>${'NOME DO MOTORISTA'}</b> </p>
       <p><b>${addres}</b> </p>
@@ -694,7 +684,7 @@ function createNewVehiclePathMarker(
 
     pathCoords.forEach((vehicle, index) => {
       let stop = false;
-      let durationMs = 0;
+      let durationMs: string | number = 0;
       if (statusVehicle !== vehicle.ligado) {
         statusVehicle = vehicle.ligado;
         if (statusVehicle === 0) {
@@ -704,9 +694,9 @@ function createNewVehiclePathMarker(
         timeLastStop = new Date(vehicle.data);
       }
       if (durationMs > 0) {
-        let seconds = Math.floor((durationMs / 1000) % 60);
-        let minutes = Math.floor((durationMs / (1000 * 60)) % 60);
-        let hours = Math.floor((durationMs / (1000 * 60 * 60)) % 24);
+        let seconds: string | number = Math.floor((durationMs / 1000) % 60);
+        let minutes: string | number = Math.floor((durationMs / (1000 * 60)) % 60);
+        let hours: string | number = Math.floor((durationMs / (1000 * 60 * 60)) % 24);
 
         if (hours < 10) hours = '0' + hours;
         if (minutes < 10) minutes = '0' + minutes;
@@ -718,7 +708,7 @@ function createNewVehiclePathMarker(
         vehicle,
         pathCoords[index - 1],
         stop,
-        durationMs,
+        Number(durationMs),
         selectedVehicle,
         infoWindowToRemovePath,
         index
@@ -772,12 +762,12 @@ function createNewVehiclePathMarker(
           previousPosition === undefined
             ? '#000'
             : stop && Number(vehicle.speed) < 1
-            ? '#00ffdd'
-            : stop
-            ? '#2600ff'
-            : Number(vehicle.speed) > 80
-            ? '#ff8800'
-            : '#000',
+              ? '#00ffdd'
+              : stop
+                ? '#2600ff'
+                : Number(vehicle.speed) > 80
+                  ? '#ff8800'
+                  : '#000',
         fillOpacity: 1,
         rotation: Number(vehicle.crs) - 180,
       },
@@ -796,48 +786,38 @@ function createNewVehiclePathMarker(
       const infowindow = new google.maps.InfoWindow({
         content: `<div class='text-dark-7 w-80 m-0'>
         <img
-          src="https://maps.googleapis.com/maps/api/streetview?size=320x100&location=${
-            vehicle.latitude
-          },${
-          vehicle.longitude
-        }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I">
+          src="https://maps.googleapis.com/maps/api/streetview?size=320x100&location=${vehicle.latitude
+          },${vehicle.longitude
+          }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I">
         </img>
         <div class='grid grid-cols-3'>
-        <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${
-          selectedVehicle.placa
-        }</div>
+        <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${selectedVehicle.placa
+          }</div>
         <div class='grid-span-1  flex bg-theme-22  justify-center items-center font-semibold border-2  py-2 !border-white' >
-        <div class='mr-1 ${
-          vehicle.ligado
+        <div class='mr-1 ${vehicle.ligado
             ? Number(vehicle.speed).toFixed() === '0'
               ? 'text-theme-10'
               : 'text-theme-9'
             : 'text-theme-13'
-        }'>
+          }'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-3 h-3"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-        </div><span>${
-          vehicle.ligado
+        </div><span>${vehicle.ligado
             ? Number(vehicle.speed).toFixed() === '0'
               ? ' Parado'
               : ' Ligado'
             : ' Desligado'
-        }</span>
+          }</span>
         </div>
         <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
-          Number(vehicle.speed)
-        )} km/h</div> 
+            Number(vehicle.speed)
+          )} km/h</div> 
         </div>
         
         <div class="my-2">
         <p><b>Última atualização: ${new Date(vehicle.data).toLocaleDateString(
-          'pt-br',
-          {
-            dateStyle: 'short',
-          }
-        )}
-        ${new Date(vehicle.data).toLocaleTimeString('pt-br', {
-          timeStyle: 'medium',
-        })}</b> </p>
+            'pt-br'
+          )}
+        ${new Date(vehicle.data).toLocaleTimeString('pt-br')}</b> </p>
         <p><b>${selectedVehicle.veiculo}</b> </p>
         <p><b>${'NOME DO MOTORISTA'}</b> </p>
         <p><b>${addres}</b> </p>
@@ -888,47 +868,38 @@ function createNewVehiclePathMarker(
 function createContentInfoWindow(vehicle: vehicle) {
   const content = `<div class='text-dark-7 w-80 m-0'>
   <img id='infoWindowImgStreetView${vehicle.carro_id}' class='cursor-pointer'
-    src="https://maps.googleapis.com/maps/api/streetview?size=320x100&location=${
-      vehicle.latitude
-    },${
-    vehicle.longitude
-  }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I" >
+    src="https://maps.googleapis.com/maps/api/streetview?size=320x100&location=${vehicle.latitude
+    },${vehicle.longitude
+    }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I" >
   </img>
   <div class='grid grid-cols-3'>
-  <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${
-    vehicle.placa
-  }</div>
+  <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${vehicle.placa
+    }</div>
   <div class='grid-span-1  flex bg-theme-22  justify-center items-center font-semibold border-2  py-2 !border-white' >
-  <div class='mr-1 ${
-    vehicle.ligado
+  <div class='mr-1 ${vehicle.ligado
       ? Number(vehicle.speed).toFixed() === '0'
         ? 'text-theme-10'
         : 'text-theme-9'
       : 'text-theme-13'
-  }'>
+    }'>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-3 h-3"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-  </div><span>${
-    vehicle.ligado
+  </div><span>${vehicle.ligado
       ? Number(vehicle.speed).toFixed() === '0'
         ? ' Parado'
         : ' Ligado'
       : ' Desligado'
-  }</span>
+    }</span>
   </div>
   <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
-    Number(vehicle.speed)
-  )} km/h</div> 
+      Number(vehicle.speed)
+    )} km/h</div> 
   </div>
   
   <div class="my-2">
   <p><b>Última atualização: ${new Date(
-    vehicle.date_rastreador
-  ).toLocaleDateString('pt-br', {
-    dateStyle: 'short',
-  })}
-  ${new Date(vehicle.date_rastreador).toLocaleTimeString('pt-br', {
-    timeStyle: 'medium',
-  })}</b> </p>
+      vehicle.date_rastreador
+    ).toLocaleDateString('pt-br')}
+  ${new Date(vehicle.date_rastreador).toLocaleTimeString('pt-br')}</b> </p>
   <p><b>${vehicle.veiculo}</b> </p>
   <p><b>${'NOME DO MOTORISTA'}</b> </p>
   </div>

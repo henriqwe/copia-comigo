@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as utils from '@comigo/utils'
 // import { showError } from 'utils/showError'
 
 export async function getVehicleLocationRealTime(carro_id: string) {
@@ -11,7 +12,7 @@ export async function getVehicleLocationRealTime(carro_id: string) {
     );
     return data;
   } catch (err: any) {
-    showError(err);
+    utils.showError(err);
   }
 }
 
@@ -46,7 +47,7 @@ export async function getVehicleHistoric(
     );
     return data;
   } catch (err: any) {
-    showError(err);
+    utils.showError(err);
   }
 }
 
@@ -61,6 +62,6 @@ export async function getStreetNameByLatLng(
 
     return data;
   } catch (err: any) {
-    showError(err);
+    utils.showError(err);
   }
 }

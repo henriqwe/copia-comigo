@@ -1,8 +1,9 @@
-import { FloatingCard, MainNavigation } from '@comigo/ui-shared-components';
+import * as blocks from '@comigo/ui-blocks'
 import { Loader } from '@googlemaps/js-api-loader';
 import { useEffect } from 'react';
 import MainMenuItens from '../../components/domains/MainMenuItens';
 import * as localizations from '../../components/domains/monitoring/Localization';
+import rotas from '&customers/components/domains/routes'
 
 export default function Localizacao() {
   return (
@@ -21,8 +22,6 @@ export function Page() {
     vehicleConsultData,
     setVehicleConsultData,
     setSlidePanelState,
-    vehicleOnFocusId,
-    setVehicleOnFocusId,
     localizationSchema,
     consultVehicleHistoric,
     coordsToCenterPointInMap,
@@ -74,8 +73,8 @@ export function Page() {
 
   return (
     <div className="flex">
-      <div className="h-screen sticky top-0 z-50">
-        <MainNavigation mainMenuItens={MainMenuItens} />
+      <div className="sticky top-0 z-50 h-screen">
+        <blocks.MainNavigation mainMenuItens={MainMenuItens} rotas={rotas} imageUrl={'/imagens/logoRastreamento.png'}  />
       </div>
     </div>
   );

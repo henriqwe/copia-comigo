@@ -13,6 +13,7 @@
             "allow": [
               "&erp/**",
               "&crm/**",
+              "&customers/**",
               "@comigo/ui-blocks",
               "@comigo/ui-common",
               "@comigo/ui-templates"
