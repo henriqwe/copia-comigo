@@ -24,8 +24,9 @@ export { ListRadioGroup } from './lib/ListRadioGroup'
 export { UploadFile } from './lib/UploadFile'
 export { UploadFilePDF } from './lib/UploadFilePDF'
 export { CardVehicle } from './lib/CardVehicle'
-
-
+export { VehicleCard } from './lib/VehicleCard'
+export { ListCard } from './lib/ListCard'
+export { Dropdown } from './lib/Dropdown'
 
 export * as buttons from './lib/Buttons'
 export * as icons from './lib/Icons'
