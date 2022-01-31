@@ -1,5 +1,5 @@
 import { ApolloError } from '@apollo/client'
-import { GraphQLError } from 'graphql'
+import { GraphQLError } from '&crm/graphql'
 import { notification } from './notification'
 
 function handleGraphqlError(errors: readonly GraphQLError[]) {
@@ -8,15 +8,15 @@ function handleGraphqlError(errors: readonly GraphQLError[]) {
     if (erroGraphQl.message.search('duplicate key') != -1) {
       message = 'Ops! Registro já existente no banco de dados'
     }
-    notification(message, 'error')
+      utils.notification(message, 'error')
   })
 }
 
-export function showError(erro: ApolloError) {
+export function utils.showError(erro: ApolloError) {
   if (erro.graphQLErrors?.length) {
     handleGraphqlError(erro.graphQLErrors)
     return
   }
 
-  notification(erro.message, 'error')
+    utils.notification(erro.message, 'error')
 }

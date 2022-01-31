@@ -2,36 +2,35 @@ import { ChipIcon, DeviceMobileIcon, HomeIcon } from '@heroicons/react/outline'
 import React from 'react'
 import rotas from './routes'
 
-export default {
-  erp: [
+export default [
     {
       title: 'Início',
       icon: <HomeIcon className="w-4 h-4 mx-4" />,
-      url: rotas.erp.home,
+      url: rotas.home,
       children: []
     },
     {
       title: 'Atendimento',
-      url: rotas.erp.atendimento.index,
+      url: rotas.atendimento.index,
       icon: <DeviceMobileIcon className="w-4 h-4 mx-4" />,
       children: [
         {
           title: 'Cadastros',
-          url: rotas.erp.atendimento.cadastros.index,
+          url: rotas.atendimento.cadastros.index,
           children: [
             {
               title: 'Fluxos',
-              url: rotas.erp.atendimento.cadastros.fluxos.index,
+              url: rotas.atendimento.cadastros.fluxos.index,
               icon: <ChipIcon className="w-4 h-4 mx-4" />
             },
             {
               title: 'Perguntas',
-              url: rotas.erp.atendimento.cadastros.perguntas.index,
+              url: rotas.atendimento.cadastros.perguntas.index,
               icon: <ChipIcon className="w-4 h-4 mx-4" />
             },
             {
               title: 'Ações',
-              url: rotas.erp.atendimento.cadastros.acoes,
+              url: rotas.atendimento.cadastros.acoes,
               icon: <ChipIcon className="w-4 h-4 mx-4" />
             }
           ],
@@ -39,48 +38,48 @@ export default {
         },
         {
           title: 'Leads',
-          url: rotas.erp.atendimento.leads,
+          url: rotas.atendimento.leads,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Tickets',
-          url: rotas.erp.atendimento.tickets,
+          url: rotas.atendimento.tickets,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Perfis Comerciais',
-          url: rotas.erp.atendimento.perfisComerciais.index,
+          url: rotas.atendimento.perfisComerciais.index,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Veículos',
-          url: rotas.erp.atendimento.vehicles,
+          url: rotas.atendimento.vehicles,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         }
       ]
     },
     {
       title: 'Identidades',
-      url: rotas.erp.identidades.index,
+      url: rotas.identidades.index,
       children: [
         {
           title: 'Clientes',
-          url: rotas.erp.identidades.clientes.index,
+          url: rotas.identidades.clientes.index,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Colaboradores',
-          url: rotas.erp.identidades.colaboradores,
+          url: rotas.identidades.colaboradores,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Fornecedores',
-          url: rotas.erp.identidades.fornecedores.index,
+          url: rotas.identidades.fornecedores.index,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Usuários',
-          url: rotas.erp.identidades.usuarios,
+          url: rotas.identidades.usuarios,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         }
       ],
@@ -88,30 +87,30 @@ export default {
     },
     {
       title: 'Comercial',
-      url: rotas.erp.comercial.index,
+      url: rotas.comercial.index,
       children: [
         {
           title: 'Cadastros',
-          url: rotas.erp.comercial.cadastros.index,
+          url: rotas.comercial.cadastros.index,
           children: [
             {
               title: 'Condicionais',
-              url: rotas.erp.comercial.cadastros.condicionais,
+              url: rotas.comercial.cadastros.condicionais,
               icon: <ChipIcon className="w-4 h-4 mx-4" />
             },
             {
               title: 'Coberturas',
-              url: rotas.erp.comercial.cadastros.coberturas,
+              url: rotas.comercial.cadastros.coberturas,
               icon: <ChipIcon className="w-4 h-4 mx-4" />
             },
             {
               title: 'Atributos',
-              url: rotas.erp.comercial.cadastros.atributos,
+              url: rotas.comercial.cadastros.atributos,
               icon: <ChipIcon className="w-4 h-4 mx-4" />
             },
             {
               title: 'Tarifas',
-              url: rotas.erp.comercial.cadastros.tarifas,
+              url: rotas.comercial.cadastros.tarifas,
               icon: <ChipIcon className="w-4 h-4 mx-4" />
             }
           ],
@@ -119,37 +118,37 @@ export default {
         },
         {
           title: 'Parceiros',
-          url: rotas.erp.comercial.fornecedores,
+          url: rotas.comercial.fornecedores,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Produtos',
-          url: rotas.erp.comercial.produtos,
+          url: rotas.comercial.produtos,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Serviços',
-          url: rotas.erp.comercial.servicos,
+          url: rotas.comercial.servicos,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Planos',
-          url: rotas.erp.comercial.planos.index,
+          url: rotas.comercial.planos.index,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Combos',
-          url: rotas.erp.comercial.combos.index,
+          url: rotas.comercial.combos.index,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Propostas',
-          url: rotas.erp.comercial.propostas.index,
+          url: rotas.comercial.propostas.index,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         },
         {
           title: 'Contratos',
-          url: rotas.erp.comercial.contratos,
+          url: rotas.comercial.contratos,
           icon: <ChipIcon className="w-4 h-4 mx-4" />
         }
       ],
@@ -157,29 +156,13 @@ export default {
     },
     {
       title: 'Clientes',
-      url: rotas.erp.clientes,
+      url: rotas.clientes,
       icon: <ChipIcon className="w-4 h-4 mx-4" />
     },
     {
       title: 'Kanban',
-      url: rotas.erp.kanban,
+      url: rotas.kanban,
       icon: <ChipIcon className="w-4 h-4 mx-4" />
     }
-  ],
-  rastreamento: [
-    {
-      title: 'Início',
-      icon: <HomeIcon className="w-4 h-4 mx-4" />,
-      url: rotas.erp.home,
-      children: []
-    }
-  ],
-  assistencia: [
-    {
-      title: 'Início',
-      icon: <HomeIcon className="w-4 h-4 mx-4" />,
-      url: rotas.assistencia.home,
-      children: []
-    }
   ]
-}
+

@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import {
   useTypedClientMutation,
   useTypedClientQuery
-} from 'graphql/generated/zeus/apollo'
+} from '&crm/graphql/generated/zeus/apollo'
 
 type NextApiRequestWithFormData = NextApiRequest &
   Request & {

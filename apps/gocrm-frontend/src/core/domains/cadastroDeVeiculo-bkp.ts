@@ -5,7 +5,7 @@ const parser = new xml2js.Parser({ attrkey: 'ATTR' })
 
 export async function handlerCriaVeiculo(placa: string) {
   const dadosDaPessoa = await buscaDadosDePessoaFisicaNaApi(placa)
-  const dadosConvertidos = converteXmlParaJs(await dadosDaPessoa.text())
+  // const dadosConvertidos = converteXmlParaJs(await dadosDaPessoa.text())
   return dadosConvertidos
 }
 

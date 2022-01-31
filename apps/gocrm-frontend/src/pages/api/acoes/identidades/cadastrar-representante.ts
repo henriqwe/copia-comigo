@@ -1,11 +1,11 @@
 import nc from 'next-connect'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { handlerCriaPessoa } from 'core/domains/pessoas/cadastroDePessoa'
+import { handlerCriaPessoa } from '&crm/core/domains/pessoas/cadastroDePessoa'
 import {
   BuscarPessoaExistente,
   insereRepresentante,
   insereRepresentanteEPessoa
-} from 'core/domains/identidades/cadastrosDeRepresentante'
+} from '&crm/core/domains/identidades/cadastrosDeRepresentante'
 
 const handler = nc<NextApiRequest, NextApiResponse>()
 

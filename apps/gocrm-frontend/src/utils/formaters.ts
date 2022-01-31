@@ -17,7 +17,7 @@ export const capitalizeWord = (text: string) => {
 export const capitalizeAllWord = (text: string) => {
   return text
     .split(' ')
-    .map((word) => capitalizeWord(word))
+    .map((word) => utils.capitalizeWord(word))
     .join(' ')
 }
 

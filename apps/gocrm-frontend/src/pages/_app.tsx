@@ -6,12 +6,12 @@ import { useEffect } from 'react'
 import '@lourenci/react-kanban/dist/styles.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-import 'styles/app.css'
+import '../styles/app.css'
 
 import { useApollo } from '../utils/apollo'
 import NextNprogress from 'nextjs-progressbar'
 
-import 'utils/amplifyConfig'
+import '../utils/amplifyConfig'
 import { useRouter } from 'next/dist/client/router'
 import { useUser, UserProvider } from '../contexts/UserContext'
 import { ThemeProvider, useTheme } from '../contexts/ThemeContext'
