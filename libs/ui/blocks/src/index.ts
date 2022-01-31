@@ -9,7 +9,7 @@ export { MenuItemLevel2 } from './lib/SideBar/MenuItemLevel2'
 export { MenuItemLevel3 } from './lib/SideBar/MenuItemLevel3'
 export { UserMenu } from './lib/UserMenu'
 export { Modal } from './lib/Modal'
-export { Table } from './lib/Table'
+export { Table } from './lib/Table/'
 export { TableSkeleton } from './lib/Table/TableSkeleton'
 // export { Calendar } from './lib/Calendar'
 export { ChangeCompany } from './lib/ChangeCompany'
@@ -18,7 +18,7 @@ export { MainNavigation } from './lib/MainNavigation'
 export { FloatingCard } from './lib/FloatingCard';
 export { SideBarGoCustomers } from './lib/SideBarGoCustomers'
 
-export * as table from './lib/Table/itens'
+export * as table from './lib/Table/'
 export * as borderLessTable from './lib/BorderLessTable/itens'
 export * as MenuItens from './lib/MenuItens'
 

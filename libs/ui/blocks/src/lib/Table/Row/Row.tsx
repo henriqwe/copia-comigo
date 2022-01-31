@@ -19,7 +19,7 @@ export function Row({ columns, item, actions }: RowProps) {
       {columns.map((coluna, index) => {
         if (coluna.type === 'date') {
           return (
-            <blocks.Table.Field
+            <blocks.table.Field
               key={`table-cell-${index}`}
               value={ptBRtimeStamp(item[coluna.fieldName])}
             />
@@ -27,7 +27,7 @@ export function Row({ columns, item, actions }: RowProps) {
         }
         if (coluna.type === 'relationship') {
           return (
-            <blocks.Table.Field
+            <blocks.table.Field
               key={`table-cell-${index}`}
               value={item[coluna.relationshipName as string][coluna.fieldName]}
             />
@@ -35,7 +35,7 @@ export function Row({ columns, item, actions }: RowProps) {
         }
         if (coluna.type === 'handler' && coluna.handler) {
           return (
-            <blocks.Table.Field
+            <blocks.table.Field
               key={`table-cell-${index}`}
               value={coluna.handler(item[coluna.fieldName as string])}
             />
@@ -43,7 +43,7 @@ export function Row({ columns, item, actions }: RowProps) {
         }
         if (coluna.type === undefined) {
           return (
-            <blocks.Table.Field
+            <blocks.table.Field
               key={`table-cell-${index}`}
               value={item[coluna.fieldName]}
             />

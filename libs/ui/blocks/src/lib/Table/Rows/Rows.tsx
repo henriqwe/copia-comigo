@@ -15,7 +15,7 @@ export function Rows({ lines, columns, actions }: RowsType) {
   return (
     <>
       {lines.map((item, index) => (
-        <blocks.Table.Row
+        <blocks.table.Row
           columns={columns}
           item={item}
           actions={actions}

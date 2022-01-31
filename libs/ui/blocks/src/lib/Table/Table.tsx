@@ -1,4 +1,4 @@
-import * as table from './itens'
+import * as table from '.'
 import { Dispatch, SetStateAction } from 'react'
 
 type TableListType = {
