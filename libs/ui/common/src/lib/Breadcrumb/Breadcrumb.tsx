@@ -15,6 +15,7 @@ type Props = {
   setOpen: Dispatch<SetStateAction<boolean>>
   setShowModal: Dispatch<SetStateAction<boolean>>
   theme: string
+  setTheme: () => void
 }
 
 export const Breadcrumb = ({
@@ -23,7 +24,8 @@ export const Breadcrumb = ({
   currentLocation,
   setOpen,
   setShowModal,
-  theme
+  theme,
+  setTheme
 }: Props) => {
   return (
     <div className="flex items-center justify-between flex-1">
@@ -44,11 +46,11 @@ export const Breadcrumb = ({
         </div>
         <div className="text-xl">{title}</div>
       </div>
-      <div className="flex items-center justify-center gap-4 divide-x divide-green-500">
+      <div className="flex items-center justify-center gap-4 divide-x">
         <ChangeCompany setOpen={setOpen} theme={theme}/>
         <ReloadPage reload={reload} />
         <div className="flex items-center">
-          <ChangeTheme />
+          <ChangeTheme theme={theme} changeTheme={setTheme}/>
           <blocks.UserMenu setShowModal={setShowModal} />
         </div>
       </div>

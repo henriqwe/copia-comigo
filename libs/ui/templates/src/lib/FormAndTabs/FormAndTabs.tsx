@@ -14,6 +14,7 @@ type TemplateProps = {
   }
   currentLocation: { title: string; url: string }[]
   theme: string
+  setTheme: () => void
   mainMenuItens: any
   rotas: any
   companies: {
@@ -36,7 +37,8 @@ export function FormAndTabs({
   mainMenuItens,
   rotas,
   companies,
-  imageUrl
+  imageUrl,
+  setTheme
 }: TemplateProps) {
   const [desativado, setDesativado] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -61,6 +63,7 @@ export function FormAndTabs({
               setOpen={setOpen}
               setShowModal={setShowModal}
               theme={theme}
+              setTheme={setTheme}
             />
           </div>
           <div className="grid grid-cols-12 gap-6 lg:divide-x">

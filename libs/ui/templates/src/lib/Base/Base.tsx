@@ -13,6 +13,7 @@ type BaseTemplateProps = {
   noGrid?: boolean
   currentLocation?: { title: string; url: string }[]
   theme: string
+  setTheme: () => void
   mainMenuItens: any
   rotas: any
   companies: {
@@ -35,7 +36,8 @@ export function Base({
   mainMenuItens,
   rotas,
   companies,
-  imageUrl
+  imageUrl,
+  setTheme
 }: BaseTemplateProps) {
   const [disabled, setDisabled] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -53,6 +55,7 @@ export function Base({
             setOpen={setOpen}
             setShowModal={setShowModal}
             theme={theme}
+            setTheme={setTheme}
           />
         </div>
         {noGrid ? (
