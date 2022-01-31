@@ -296,7 +296,7 @@ export function Page() {
   return (
     <div className="flex max-h-screen">
       <div className="h-screen sticky top-0 z-50">
-       <blocks.MainNavigation mainMenuItens={MainMenuItens} rotas={rotas}/>
+       <blocks.SideBarGoCustomers mainMenuItens={MainMenuItens}/>
       </div>
    
       <div className="absolute z-50 right-0 flex mr-16 mt-2.5" style={{ height: "95%"}}>
