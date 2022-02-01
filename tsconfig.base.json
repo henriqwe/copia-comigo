@@ -16,8 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "&crm/*": ["apps/gocrm-frontend/src/*"],
-      "&erp/*": ["apps/goerp-frontend/src/*"],
       "&customers/*": ["apps/gocustomers/cliente-web/src/*"],
+      "&erp/*": ["apps/goerp-frontend/src/*"],
+      "&test/*": ["apps/gocrm-frontend2/src/*"],
       "@comigo/ui-blocks": ["libs/ui/blocks/src/index.ts"],
       "@comigo/ui-common": ["libs/ui/common/src/index.ts"],
       "@comigo/ui-templates": ["libs/ui/templates/src/index.ts"],

@@ -3,6 +3,7 @@
   "projects": {
     "gocrm-api-hasura": "apps/gocrm-api-hasura",
     "gocrm-frontend": "apps/gocrm-frontend",
+    "gocrm-frontend2": "apps/gocrm-frontend2",
     "gocustomers-cliente-web": "apps/gocustomers/cliente-web",
     "goerp-api-hasura": "apps/goerp-api-hasura",
     "goerp-frontend": "apps/goerp-frontend",
