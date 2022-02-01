@@ -20,7 +20,7 @@ export const PrimaryButton = ({
 }: PrimaryButtonProps) => (
   <button
     disabled={disabled}
-    className={`px-3 py-2 my-2 text-white rounded-md bg-theme-1 bg-opacity-70 hover:bg-theme-1 hover:opacity-100 disabled:cursor-not-allowed disabled:bg-theme-15 transition flex items-center ${className}`}
+    className={`px-3 py-2 my-2 text-white rounded-md bg-opacity-70 hover:opacity-100 disabled:cursor-not-allowed disabled:bg-gray-400 transition flex items-center btn btn-primary ${className}`}
     type={type}
     onClick={onClick}
   >

@@ -4,7 +4,7 @@ import * as vehicles from '&crm/domains/services/Vehicles'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = vehicles.useVehicle()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Veículo'

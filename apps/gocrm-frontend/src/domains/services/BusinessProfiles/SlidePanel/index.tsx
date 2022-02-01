@@ -5,7 +5,7 @@ export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } =
     businessProfiles.useBusinessProfile()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Editar Perfil comercial'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

@@ -4,7 +4,7 @@ import * as services from '&erp/domains/portfolio/Pricing/Tabs/Services'
 export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = services.useService()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'tariff'
           ? 'Vincular tarifa para o serviço'

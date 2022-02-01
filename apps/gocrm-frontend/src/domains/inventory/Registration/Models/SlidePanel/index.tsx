@@ -8,7 +8,7 @@ type ModeloSlide = {
 export default function SlidePanel({ extra }: ModeloSlide) {
   const { slidePanelState, setSlidePanelState } = models.useModel()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create' ? 'Cadastrar Modelo' : 'Editar Modelo'
       }

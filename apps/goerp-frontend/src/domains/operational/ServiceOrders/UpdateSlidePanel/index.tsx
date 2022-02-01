@@ -4,7 +4,7 @@ import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 export function UpdateSlidePanel() {
   const { slidePanelState, setSlidePanelState } = serviceOrders.useUpdate()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'schedule' ? 'Agendar OS' : 'Atividades da OS'
       }

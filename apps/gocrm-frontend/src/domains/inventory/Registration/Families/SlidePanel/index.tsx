@@ -4,7 +4,7 @@ import * as families from '&crm/domains/inventory/Registration/Families'
 export default function SlidePanel() {
   const { setSlidePanelState, slidePanelState } = families.useFamily()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Família'

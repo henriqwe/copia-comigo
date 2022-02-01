@@ -106,7 +106,7 @@ export function SelectWithGroup({
                 className={`${
                   disabled
                     ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
-                    : 'bg-gray-200 dark:bg-gray-700 border-gray-400'
+                    : 'bg-gray-200 dark:bg-darkmode-800 border-gray-400'
                 } dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 w-full h-10 flex justify-between items-center relative ${className}`}
                 ref={selectRef}
                 disabled={disabled}

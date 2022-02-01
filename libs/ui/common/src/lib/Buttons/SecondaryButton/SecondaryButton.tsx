@@ -29,7 +29,7 @@ export function SecondaryButton({
       {/* <p className="text-sm font-light">Clique para</p> */}
       <button
         disabled={disabled}
-        className={`flex items-center text-white px-3 py-2 transition rounded-md bg-theme-9 bg-opacity-70 hover:bg-theme-9 hover:opacity-100 disabled:cursor-not-allowed disabled:bg-theme-15 ${buttonClassName}`}
+        className={`flex items-center text-white px-3 py-2 transition rounded-md bg-opacity-70 hover:opacity-100 disabled:cursor-not-allowed disabled:bg-gray-400 btn btn-success w-full ${buttonClassName}`}
         onClick={handler}
         type={type}
       >

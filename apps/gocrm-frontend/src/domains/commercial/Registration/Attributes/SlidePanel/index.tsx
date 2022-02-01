@@ -4,7 +4,7 @@ import * as attributes from '&crm/domains/commercial/Registration/Attributes'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = attributes.useAttribute()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Atributo'

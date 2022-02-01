@@ -5,7 +5,7 @@ export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } =
     manufacturers.useManufacturer()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Fabricante'

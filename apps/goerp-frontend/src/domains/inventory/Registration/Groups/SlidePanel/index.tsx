@@ -5,7 +5,7 @@ import * as blocks from '@comigo/ui-blocks'
 export function SlidePanel() {
   const { setSlidePanelState, slidePanelState } = useGroup()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create' ? 'Cadastrar Grupo' : 'Editar Grupo'
       }

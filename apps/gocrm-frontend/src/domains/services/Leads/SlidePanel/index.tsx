@@ -4,7 +4,7 @@ import * as leads from '&crm/domains/services/Leads'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = leads.useLead()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create' ? 'Cadastrar Lead' : 'Editar Lead'
       }

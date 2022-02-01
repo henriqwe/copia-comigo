@@ -4,7 +4,7 @@ import * as contracts from '&crm/domains/commercial/Contracts'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = contracts.useContract()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Cadastrar Contrato'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

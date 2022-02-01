@@ -35,14 +35,14 @@ export function DeleteButton({
     <div>
       <button
         onClick={onClick}
-        className={`mb-1 rounded-md px-1 bg-primary-3 transition text-white flex items-center justify-center disabled:cursor-not-allowed disabled:bg-theme-15 ${height} ${width} ${className}`}
+        className={`mb-1 rounded-md px-1 bg-primary-3 transition text-white flex items-center justify-center disabled:cursor-not-allowed disabled:bg-gray-400 btn btn-danger ${height} ${width} ${className}`}
         type="button"
         disabled={disabled}
       >
         {loading ? (
           <common.AnimatedSpin />
         ) : (
-          <common.icons.DeleteIcon className={`text-theme-2 ${height} ${width}`} />
+          <common.icons.DeleteIcon className={`dark:text-white ${height} ${width}`} />
         )}
       </button>
     </div>

@@ -41,7 +41,7 @@ export function Input({
         className={`flex items-center rounded-md ${
           disabled
             ? 'cursor-not-allowed bg-gray-500 dark:bg-gray-800'
-            : 'bg-gray-200 border-gray-300 dark:bg-gray-700'
+            : 'bg-gray-200 border-gray-300 dark:bg-darkmode-800'
         }`}
       >
         {icon && iconPosition === 'left' && <p className="ml-2">{icon}</p>}

@@ -4,7 +4,7 @@ import * as sellers from '&crm/domains/identities/Providers/Tabs/Sellers'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = sellers.useSeller()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar vendedor'

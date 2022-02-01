@@ -15,7 +15,7 @@ export const GoBackButton = ({
 }: GoBackButtonProps) => (
   <button
     disabled={disabled}
-    className={`px-3 py-2 my-2 text-white rounded-md bg-gray-500 bg-opacity-70 hover:bg-gray-500 hover:opacity-100 disabled:cursor-not-allowed disabled:bg-theme-15 transition ${className}`}
+    className={`px-3 py-2 my-2 text-white rounded-md bg-gray-500 bg-opacity-70 hover:bg-gray-500 hover:opacity-100 disabled:cursor-not-allowed disabled:bg-gray-400 transition ${className}`}
     type="button"
     onClick={onClick}
   >

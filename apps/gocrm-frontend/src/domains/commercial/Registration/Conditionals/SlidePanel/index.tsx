@@ -4,7 +4,7 @@ import * as conditionals from '&crm/domains/commercial/Registration/Conditionals
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = conditionals.useConditional()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Condicional'

@@ -4,7 +4,7 @@ import * as addresses from '&crm/domains/inventory/Registration/Addresses'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = addresses.useAddressing()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Endereçamento'

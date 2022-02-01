@@ -4,7 +4,7 @@ import * as providers from '&crm/domains/commercial/Providers'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = providers.useProvider()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Cadastrar Parceiro'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

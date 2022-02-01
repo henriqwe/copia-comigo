@@ -3,19 +3,19 @@ import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import * as common from '@comigo/ui-common'
 
-type ModalProps = {
+type SlidePanelProps = {
   open: boolean
   handler: any
   formContent?: ReactNode
   title: string
 }
 
-export function Modal({
+export function SlidePanel({
   open,
   handler,
   formContent,
   title
-}: ModalProps) {
+}: SlidePanelProps) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -40,7 +40,7 @@ export function Modal({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="absolute inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
+            <Dialog.Overlay className="absolute inset-0 transition-opacity bg-gray-500 opacity-80 dark:bg-darkmode-900" />
           </Transition.Child>
           <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
             <Transition.Child
@@ -81,9 +81,9 @@ export function Modal({
                     </button>
                   </div>
                 </Transition.Child>
-                <div className="flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl dark:bg-dark-3">
+                <div className="flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl dark:bg-darkmode-600">
                   <div className="px-4 sm:px-6">
-                    <Dialog.Title className="text-lg font-medium text-gray-900 dark:text-theme-8">
+                    <Dialog.Title className="text-lg font-medium text-gray-900 dark:text-slate-300">
                       {title}
                     </Dialog.Title>
                   </div>

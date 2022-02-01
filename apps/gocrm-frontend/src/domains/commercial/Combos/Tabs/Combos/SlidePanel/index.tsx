@@ -4,7 +4,7 @@ import * as combos from '&crm/domains/commercial/Combos/Tabs/Combos'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = combos.useDependenceCombo()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Condicional'

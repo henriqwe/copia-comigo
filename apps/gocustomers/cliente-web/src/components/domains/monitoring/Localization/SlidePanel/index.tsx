@@ -5,7 +5,7 @@ export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } =
     localizations.useLocalization();
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Histórico'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

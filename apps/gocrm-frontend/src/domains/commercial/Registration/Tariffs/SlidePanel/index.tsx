@@ -4,7 +4,7 @@ import * as tariffs from '&crm/domains/commercial/Registration/Tariffs'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = tariffs.useTariffs()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create' ? 'Cadastrar Tarifa' : 'Editar Tarifa'
       }

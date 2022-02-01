@@ -4,7 +4,7 @@ import * as identifiers from '&crm/domains/production/identifiable/Identifiers'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = identifiers.useIdentifier()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Editar Identificador'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

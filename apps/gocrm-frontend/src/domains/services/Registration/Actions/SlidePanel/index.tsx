@@ -4,7 +4,7 @@ import * as actions from '&crm/domains/services/Registration/Actions'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = actions.useAction()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create' ? 'Cadastrar Ação' : 'Editar Ação'
       }

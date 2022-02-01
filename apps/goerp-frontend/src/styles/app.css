@@ -165,3 +165,7 @@ estou colocando uma cor azul clara nela*/
 ::-webkit-scrollbar-thumb {
   background: #cacaca;
 }
+
+* > .intro-y:nth-child(1){
+  z-index: 1;
+}

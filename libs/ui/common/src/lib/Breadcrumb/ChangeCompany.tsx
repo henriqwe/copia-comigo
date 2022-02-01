@@ -13,7 +13,7 @@ export default function ChangeCompany({ setOpen }: ChangeCompanyProps) {
     <div className="relative inline-block pl-2 align-middle transition duration-200 ease-in select-none">
       <button
         className={`flex justify-center w-8 h-8 items-center ${
-          theme === 'dark' ? 'bg-theme-7' : 'bg-theme-8'
+          theme === 'dark' ? 'bg-darkmode-300' : 'bg-zinc-300'
         } rounded-full`}
         onClick={() => setOpen(true)}
       >

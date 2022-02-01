@@ -5,7 +5,7 @@ export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } =
     representatives.useRepresentative()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastro de representante'

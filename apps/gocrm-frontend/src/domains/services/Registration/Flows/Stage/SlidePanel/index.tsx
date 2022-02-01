@@ -4,7 +4,7 @@ import * as flowStages from '&crm/domains/services/Registration/Flows/Stage'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = flowStages.useStage()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Etapa de fluxo'

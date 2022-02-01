@@ -4,7 +4,7 @@ import * as flows from '&crm/domains/services/Registration/Flows'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = flows.useFlow()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create' ? 'Cadastrar Fluxo' : 'Editar Fluxo'
       }

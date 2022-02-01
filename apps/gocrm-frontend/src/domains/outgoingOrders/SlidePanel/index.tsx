@@ -12,7 +12,7 @@ export default function SlidePanel() {
   }
 
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={title}
       open={slidePanelState.open}
       handler={setSlidePanelState}

@@ -4,7 +4,7 @@ import * as users from '&crm/domains/identities/Clients/Tabs/Users'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = users.useUser()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Usuário'

@@ -4,7 +4,7 @@ import * as chips from '&erp/domains/production/identifiable/Chips'
 export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = chips.useChips()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Editar Chip'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

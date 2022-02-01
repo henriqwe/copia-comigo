@@ -5,7 +5,7 @@ export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } =
     collaborators.useCollaborator()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Colaborador'

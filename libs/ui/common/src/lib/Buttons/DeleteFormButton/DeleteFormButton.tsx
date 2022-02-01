@@ -22,7 +22,7 @@ export function DeleteFormButton({
         }}
         className={`mb-1 ${
           loading ? 'bg-gray-400 cursor-not-allowed' : ''
-        } py-2 px-4 rounded-md bg-primary-3 transition text-white flex items-center`}
+        } py-2 px-4 rounded-md bg-primary-3 transition text-white flex items-center btn btn-danger`}
         type="button"
       >
         <common.icons.DeleteIcon width={28} height={28} className={'text-theme-2'} />

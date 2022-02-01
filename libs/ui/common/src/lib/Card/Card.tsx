@@ -8,7 +8,7 @@ export const Card = ({
   className?: string
 }) => (
   <main
-    className={`col-span-12 py-4 bg-white rounded-md dark:bg-dark-3 ${className}`}
+    className={`col-span-12 py-4 bg-white rounded-md dark:bg-darkmode-400 ${className}`}
   >
     {children}
   </main>

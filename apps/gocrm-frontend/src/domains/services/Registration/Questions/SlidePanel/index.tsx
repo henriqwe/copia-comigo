@@ -4,7 +4,7 @@ import * as questions from '&crm/domains/services/Registration/Questions'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = questions.useQuestion()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Pergunta'

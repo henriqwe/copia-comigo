@@ -4,7 +4,7 @@ import * as operators from '&erp/domains/production/identifiable/Chips/Operators
 export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = operators.useOperator()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Operadora'

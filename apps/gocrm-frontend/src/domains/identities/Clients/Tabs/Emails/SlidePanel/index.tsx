@@ -4,7 +4,7 @@ import * as emails from '&crm/domains/identities/Clients/Tabs/Emails'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = emails.useEmail()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create' ? 'Cadastrar email' : 'Editar email'
       }

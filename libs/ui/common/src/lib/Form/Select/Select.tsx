@@ -86,7 +86,7 @@ export function Select({
                 className={`${
                   disabled
                     ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
-                    : 'bg-gray-200 dark:bg-gray-700 border-gray-400'
+                    : 'bg-gray-200 dark:bg-darkmode-800 border-gray-400'
                 } dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 w-full h-10 flex justify-between items-center relative ${className}`}
                 placeholder={value.title as string}
                 ref={selectRef}
@@ -143,7 +143,7 @@ export function Select({
                 leaveTo="opacity-0"
               >
                 <Listbox.Options
-                  className={`absolute pb-3 mt-1 overflow-auto text-base bg-white dark:bg-dark-5 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50 ${optionClassName}`}
+                  className={`absolute pb-3 mt-1 overflow-auto text-base bg-white dark:bg-darkmode-700 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50 ${optionClassName}`}
                   style={{
                     width: optionWidth
                   }}

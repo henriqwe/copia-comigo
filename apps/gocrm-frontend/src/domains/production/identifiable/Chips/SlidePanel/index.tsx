@@ -4,7 +4,7 @@ import * as chips from '&crm/domains/production/identifiable/Chips'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = chips.useChips()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Editar Chip'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

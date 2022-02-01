@@ -4,7 +4,7 @@ import * as phones from '&crm/domains/identities/Clients/Tabs/Phones'
 export default function SlideLateral() {
   const { slidePanelState, setSlidePanelState } = phones.usePhone()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar telefone'

@@ -5,7 +5,7 @@ export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } =
     serivceOrders.useServiceOrder()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={'Cadastrar Ordem de Serviço'}
       open={slidePanelState.open}
       handler={setSlidePanelState}

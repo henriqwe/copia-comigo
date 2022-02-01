@@ -36,8 +36,7 @@ export const Breadcrumb = ({
             return (
               // <div key={`link-breadcrumb-${index}`}>
               <Fragment key={`link-breadcrumb-${index}`}>
-                {index !== 0 && <ChevronRightIcon className="w-3 h-3 mx-0.5" />}
-                <common.Link to={item.url} className="breadcrumb--active text-tiny">
+                <common.Link to={item.url} className="breadcrumb-item active text-tiny">
                   {item.title}
                 </common.Link>
               </Fragment>

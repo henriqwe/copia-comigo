@@ -4,7 +4,7 @@ import * as upSelling from '&crm/domains/commercial/Services/Tabs/UpSelling'
 export default function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = upSelling.useUpSelling()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'create'
           ? 'Cadastrar Oportunidade'

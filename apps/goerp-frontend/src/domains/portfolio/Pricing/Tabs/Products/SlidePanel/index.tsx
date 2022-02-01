@@ -4,7 +4,7 @@ import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products'
 export function SlidePanel() {
   const { slidePanelState, setSlidePanelState } = products.useProduct()
   return (
-    <blocks.Modal
+    <blocks.SlidePanel
       title={
         slidePanelState.type === 'pricing'
           ? 'Precificar produto'
