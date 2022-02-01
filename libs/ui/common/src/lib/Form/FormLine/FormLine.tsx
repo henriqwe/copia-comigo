@@ -23,9 +23,9 @@ export const FormLine = ({ children, position, grid = 12 }: FormLineProps) => {
   ]
   return (
     <div
-      className={`px-6 py-5 bg-gray-50 sm:grid ${
+      className={`px-6 py-5 sm:grid ${
         colunasDoGrid[grid - 1]
-      } sm:gap-6 ${position % 2 !== 0 ? 'dark:bg-darkmode-600 bg-gray-100' : ''}`}
+      } sm:gap-6 ${position % 2 !== 0 ? 'dark:bg-darkmode-700 bg-gray-100' : 'dark:bg-darkmode-500 '}`}
     >
       {children}
     </div>

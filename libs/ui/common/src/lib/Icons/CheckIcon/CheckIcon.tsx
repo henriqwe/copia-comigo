@@ -4,7 +4,7 @@ export function CheckIcon({ ...props }: React.ComponentProps<'svg'>) {
   return (
     <>
       <CheckCircleIcon
-        className={`w-6 h-6 text-primary-11 dark:text-white ${props.className}`}
+        className={`w-6 h-6 text-sky-600 dark:text-white ${props.className}`}
         {...props}
       />
       {/* <svg viewBox="0 0 24 24" fill="none" {...props}>

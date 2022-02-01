@@ -4,7 +4,7 @@ export function ConfigIcon({ ...props }: React.ComponentProps<'svg'>) {
   return (
     <>
       <CogIcon
-        className={`w-6 h-6 text-primary-11 dark:text-white ${props.className}`}
+        className={`w-6 h-6 text-sky-600 dark:text-white ${props.className}`}
         {...props}
       />
       {/* <svg viewBox="0 0 24 24" fill="none" {...props}>

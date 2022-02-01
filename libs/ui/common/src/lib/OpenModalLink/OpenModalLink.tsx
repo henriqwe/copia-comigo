@@ -8,7 +8,7 @@ type OpenModalLinkProps = {
 export function OpenModalLink({ children, onClick }: OpenModalLinkProps) {
   return (
     <span
-      className="pt-0 cursor-pointer form-help text-tiny text-theme-25"
+      className="pt-0 cursor-pointer text-tiny form-help text-sky-400 dark:text-indigo-300"
       onClick={onClick}
     >
       {children}

@@ -1,0 +1,33 @@
+@layer components {
+  .pagination {
+    @apply flex mr-auto;
+    @include media-breakpoint-down(sm) {
+      @apply w-full mr-0;
+    }
+    li {
+      @include media-breakpoint-down(sm) {
+        @apply flex-1;
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(9) {
+          .pagination__link {
+            @apply px-1;
+          }
+        }
+      }
+      .pagination__link {
+        min-width: 40px;
+        @apply flex items-center justify-center mr-2 font-normal text-gray-800 border-transparent shadow-none btn dark:text-gray-300;
+        @include media-breakpoint-down(sm) {
+          @apply min-w-0 mr-0;
+        }
+        &.pagination__link--active {
+          @apply font-medium box dark:bg-darkmode-400;
+        }
+      }
+    }
+  }
+}

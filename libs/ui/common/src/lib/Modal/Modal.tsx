@@ -46,7 +46,7 @@ export function Modal({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
+            <Dialog.Overlay className="fixed inset-0 transition-opacity bg-black bg-opacity-60" />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -65,8 +65,8 @@ export function Modal({
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl dark:bg-dark-6 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <div className="px-4 pt-5 pb-4 bg-white dark:bg-dark-6 sm:p-6 sm:pb-4">
+            <div className="inline-block overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl dark:bg-darkmode-600 sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+              <div className="px-4 pt-5 pb-4 bg-white dark:bg-darkmode-600 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
                   <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
                     <ExclamationIcon
@@ -89,11 +89,11 @@ export function Modal({
                 {children}
               </div>
 
-              <div className="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
+              <div className="px-4 py-3 bg-gray-50 dark:bg-darkmode-600 sm:px-6 sm:flex sm:flex-row-reverse">
                 <button
                   type="button"
-                  className={`inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm ${color === 'green' ? 'bg-primary-4' : 'bg-primary-3'
-                    }  hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm disabled:bg-gray-600`}
+                  className={`inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm ${color === 'green' ? 'bg-success hover:bg-green-400' : 'bg-danger'
+                    } hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm disabled:bg-gray-600 transition`}
                   onClick={handleSubmit}
                   disabled={disabled}
                 >

@@ -134,7 +134,7 @@ export function Pagination({
             )}
           </ul>
 
-          <div className="hidden mx-auto text-gray-600 md:block">
+          <div className="hidden mx-auto text-gray-600 dark:text-zinc-400 md:block">
             Exibindo {pagination.filters.offset + 1} de{' '}
             {totalPage >
             collection[(tableName + '_aggregate') as unknown as number].nodes

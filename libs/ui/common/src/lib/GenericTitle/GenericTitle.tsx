@@ -26,7 +26,7 @@ export const GenericTitle = ({
     )}
     <div className="w-full ml-4 mr-auto">
       <div className="text-sm font-medium">{title}</div>
-      <div className="text-xs text-gray-600">{subtitle}</div>
+      <div className="text-xs text-gray-600 dark:text-zinc-400">{subtitle}</div>
     </div>
   </div>
 )

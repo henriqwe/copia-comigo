@@ -11,11 +11,11 @@ type InputType = {
   title?: string
   fieldName: Path<FieldValues>
   register?: UseFormRegister<FieldValues>
-  error?: DeepMap<FieldValues, FieldError>
-  className?: string
-  icon?: ReactNode
-  iconPosition?: 'left' | 'right'
-} & React.InputHTMLAttributes<HTMLInputElement>
+  error?: DeepMap<FieldValues, FieldError> & { message?: string }
+className ?: string
+icon ?: ReactNode
+iconPosition ?: 'left' | 'right'
+} & React.InputHTMLAttributes < HTMLInputElement >
 
 export function Input({
   title,
@@ -38,19 +38,17 @@ export function Input({
   return (
     <div className="relative">
       <div
-        className={`flex items-center rounded-md ${
-          disabled
-            ? 'cursor-not-allowed bg-gray-500 dark:bg-gray-800'
-            : 'bg-gray-200 border-gray-300 dark:bg-darkmode-800'
-        }`}
+        className={`flex items-center rounded-md ${disabled
+          ? 'cursor-not-allowed bg-gray-500 dark:bg-gray-800'
+          : 'bg-gray-200 dark:bg-darkmode-800'
+          } h-10`}
       >
         {icon && iconPosition === 'left' && <p className="ml-2">{icon}</p>}
         <input
           id="fieldId"
           type="text"
-          className={`w-full h-10 pl-1 placeholder-transparent peer focus:outline-none focus:border-b-2 focus:border-blue-600 bg-transparent disabled:cursor-not-allowed ml-2 ${
-            icon ? (iconPosition === 'left' ? '' : '') : ''
-          } ${title ? 'placeholder-shown:pt-0 pt-4 ' : ''} ${className}`}
+          className={`w-full h-full pl-1 pb-0 placeholder-transparent peer focus:outline-none focus:border-b-2 focus:border-blue-600 bg-transparent disabled:cursor-not-allowed ml-2 border-0 ${icon ? (iconPosition === 'left' ? '' : '') : ''
+            } ${title ? 'placeholder-shown:pt-0 pt-4 ' : ''} ${className}`}
           disabled={disabled}
           placeholder="john@doe.com"
           {...register(fieldName)}
@@ -58,9 +56,8 @@ export function Input({
         />
         <label
           htmlFor="fieldId"
-          className={`absolute text-xs text-gray-600 dark:text-gray-500 transition-all top-1 left-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-700 dark:peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2.5 ${
-            disabled ? 'cursor-not-allowed' : ''
-          } ${icon ? (iconPosition === 'left' ? 'ml-7' : '') : 'left-3'}`}
+          className={`absolute text-xs text-gray-600 dark:text-gray-500 transition-all top-1 left-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-700 dark:peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2.5 ${disabled ? 'cursor-not-allowed' : ''
+            } ${icon ? (iconPosition === 'left' ? 'ml-7' : '') : 'left-3'}`}
         >
           {title}
         </label>

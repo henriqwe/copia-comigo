@@ -6,11 +6,11 @@ import { DeepMap, FieldError, FieldValues } from 'react-hook-form'
 type itensProps = (
   | undefined
   | {
-      key: string | number | any
-      title: string
-      length?: number
-      type?: string
-    }
+    key: string | number | any
+    title: string
+    length?: number
+    type?: string
+  }
 )[]
 
 type SelectProps = {
@@ -32,7 +32,7 @@ type SelectProps = {
   disabled?: boolean
   icon?: ReactNode
   iconPosition?: 'left' | 'right'
-  error?: DeepMap<FieldValues, FieldError>
+  error?: DeepMap<FieldValues, FieldError> & {message?: string}
 }
 
 export function Select({
@@ -78,16 +78,15 @@ export function Select({
   }
   return (
     <>
-      <div className="bg-gray-200 border-b-2 rounded-md dark:bg-gray-700">
+      <div className="bg-gray-200 rounded-md dark:bg-gray-700">
         <Listbox value={value} onChange={onChange}>
           <div>
             <div onClick={resetFilterInput}>
               <Listbox.Button
-                className={`${
-                  disabled
-                    ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
-                    : 'bg-gray-200 dark:bg-darkmode-800 border-gray-400'
-                } dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 w-full h-10 flex justify-between items-center relative ${className}`}
+                className={`${disabled
+                    ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed'
+                    : 'bg-gray-200 dark:bg-darkmode-800'
+                  } dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 w-full h-10 flex justify-between items-center relative ${className}`}
                 placeholder={value.title as string}
                 ref={selectRef}
                 disabled={disabled}
@@ -96,26 +95,23 @@ export function Select({
                   <p className="absolute ">{icon}</p>
                 )}
                 <span
-                  className={`absolute text-gray-600 dark:text-gray-500 transition-all ${
-                    value.title !== ''
+                  className={`absolute text-gray-600 dark:text-gray-500 transition-all ${value.title !== ''
                       ? 'text-xs top-1 left-3'
                       : 'text-sm text-gray-700 dark:text-gray-500 top-2.5'
-                  } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
+                    } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
                 >
                   {label}
                 </span>
                 <span
-                  className={`block text-gray-700 truncate dark:text-gray-100 ${
-                    value.title !== '' ? 'mt-4' : ''
-                  } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
+                  className={`block text-gray-700 truncate dark:text-gray-100 ${value.title !== '' ? 'mt-4' : ''
+                    } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
                 >
                   {value.title}
                 </span>
                 {!disabled && (
                   <span
-                    className={`flex items-center pr-2 pointer-events-none ${
-                      icon && iconPosition === 'right' ? 'mr-4' : ''
-                    }`}
+                    className={`flex items-center pr-2 pointer-events-none ${icon && iconPosition === 'right' ? 'mr-4' : ''
+                      }`}
                   >
                     <SelectorIcon
                       className="w-5 h-5 text-gray-400"
@@ -129,11 +125,10 @@ export function Select({
               </Listbox.Button>
             </div>
             <span
-              className={`absolute text-gray-600 dark:text-gray-500 transition-all ${
-                value.title !== ''
-                  ? 'text-xs top-1 left-3'
+              className={`absolute text-gray-600 dark:text-gray-500 transition-all ${value.title !== ''
+                  ? 'text-xs top-2 left-3'
                   : 'text-sm text-gray-700 dark:text-gray-500 top-2.5'
-              } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
+                } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
             ></span>
             {!disabled && (
               <Transition
@@ -143,7 +138,7 @@ export function Select({
                 leaveTo="opacity-0"
               >
                 <Listbox.Options
-                  className={`absolute pb-3 mt-1 overflow-auto text-base bg-white dark:bg-darkmode-700 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50 ${optionClassName}`}
+                  className={`absolute pb-3 overflow-auto text-base bg-white dark:bg-darkmode-700 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50 ${optionClassName}`}
                   style={{
                     width: optionWidth
                   }}
@@ -151,11 +146,10 @@ export function Select({
                   <div className="m-3">
                     {!noSearch && (
                       <input
-                        className={`${
-                          disabled
+                        className={`${disabled
                             ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
-                            : 'bg-gray-200 dark:bg-gray-800 border-gray-400'
-                        } dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 h-10 w-full flex justify-between items-center relative ${className}`}
+                            : 'bg-gray-200 dark:bg-darkmode-600 border-darkmode-800'
+                          } border-2 dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 h-10 w-full flex justify-between items-center relative ${className}`}
                         placeholder="Digite aqui para filtrar..."
                         onChange={(e) => filterInput(e.target.value)}
                       />
@@ -166,57 +160,20 @@ export function Select({
                       <Listbox.Option
                         key={personIdx}
                         className={({ active }) =>
-                          `${
-                            active
-                              ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
-                              : 'text-gray-900'
+                          `${active
+                            ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
+                            : 'text-gray-900'
                           }
                     cursor-pointer select-none relative py-2 pl-4 pr-4 items-center dark:text-white`
                         }
                         value={item}
                       >
                         {({ selected }) => (
-                          <>
-                            <span
-                              className={`${
-                                selected ? 'font-medium' : 'font-normal'
+                          <span
+                            className={`${selected ? 'font-medium' : 'font-normal'
                               } flex truncate`}
-                            >
-                              {item?.title}{' '}
-                              {selected ? (
-                                <span className="pl-3">
-                                  <CheckIcon
-                                    className="w-5 h-5 text-primary-4"
-                                    aria-hidden="true"
-                                  />
-                                </span>
-                              ) : null}
-                            </span>
-                          </>
-                        )}
-                      </Listbox.Option>
-                    ))
-                  ) : (
-                    <Listbox.Option
-                      key={0}
-                      disabled
-                      className={({ active }) =>
-                        `${
-                          active
-                            ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
-                            : 'text-gray-900'
-                        }
-                cursor-pointer select-none relative py-2 pl-4 pr-4 items-center dark:text-white`
-                      }
-                      value={''}
-                    >
-                      {({ selected }) => (
-                        <span
-                            className={`${
-                              selected ? 'font-medium' : 'font-normal'
-                            } flex truncate`}
                           >
-                            {'Nem um resultado encontrado.'}{' '}
+                            {item?.title}{' '}
                             {selected ? (
                               <span className="pl-3">
                                 <CheckIcon
@@ -226,6 +183,37 @@ export function Select({
                               </span>
                             ) : null}
                           </span>
+                        )}
+                      </Listbox.Option>
+                    ))
+                  ) : (
+                    <Listbox.Option
+                      key={0}
+                      disabled
+                      className={({ active }) =>
+                        `${active
+                          ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
+                          : 'text-gray-900'
+                        }
+                cursor-pointer select-none relative py-2 pl-4 pr-4 items-center dark:text-white`
+                      }
+                      value={''}
+                    >
+                      {({ selected }) => (
+                        <span
+                          className={`${selected ? 'font-medium' : 'font-normal'
+                            } flex truncate`}
+                        >
+                          {'Nem um resultado encontrado.'}{' '}
+                          {selected ? (
+                            <span className="pl-3">
+                              <CheckIcon
+                                className="w-5 h-5 text-primary-4"
+                                aria-hidden="true"
+                              />
+                            </span>
+                          ) : null}
+                        </span>
                       )}
                     </Listbox.Option>
                   )}

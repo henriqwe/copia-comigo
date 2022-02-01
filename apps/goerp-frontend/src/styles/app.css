@@ -134,6 +134,7 @@
 @import "./components/_search-result.css";
 @import "./components/_notification-content.css";
 @import "./components/_report-maps.css";
+@import "./components/_pagination.css";
 @import "./components/_pos-dropdown.css";
 @import "./components/_post.css";
 @import "./components/_litepicker.css";

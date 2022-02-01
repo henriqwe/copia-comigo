@@ -35,7 +35,7 @@ export function ActionsRow({ actions }: ActionsRowProps) {
         {actions.map((item, index) => (
           <p
             key={`actions-row-${index}`}
-            className="flex items-center cursor-pointer text-theme-6"
+            className="flex items-center cursor-pointer text-danger"
             onClick={() => {
               if (item.url) {
                 router.push(item.url)
