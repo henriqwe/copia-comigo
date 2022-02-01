@@ -32,7 +32,7 @@ export default function Page() {
 //   // ../../../components/blocks/Calendar
 //   return (
 //     <templates.Base
-setTheme = { changeTheme }
+// setTheme = { changeTheme }
 //       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
 //       theme={theme}
 //       title="Calendário 1"
