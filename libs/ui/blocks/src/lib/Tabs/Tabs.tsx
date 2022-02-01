@@ -21,7 +21,7 @@ export function Tabs({ categories }: TabsProps) {
                   'w-full py-2.5 text-sm leading-5 font-medium text-blue-700 rounded-lg',
                   'focus:outline-none focus:ring ring-gray-400 dark:ring-gray-500',
                   selected
-                    ? 'dark:bg-gray-700 bg-gray-300'
+                    ? 'dark:bg-gray-700 bg-gray-300 dark:text-zinc-200'
                     : 'text-gray-600 dark:text-white font-light hover:bg-gray-300 hover:text-gray-900 dark:hover:bg-gray-700 hover:font-semibold'
                 )
               }

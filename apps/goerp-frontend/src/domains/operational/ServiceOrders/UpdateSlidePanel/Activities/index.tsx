@@ -24,7 +24,7 @@ export function Activities() {
   }, [serviceOrderActivitiesData])
 
   return serviceOrderActivitiesData ? (
-    <div className="relative mt-5 report-timeline">
+    <div className="relative mt-5 before:block before:absolute before:w-px before:h-[85%] before:bg-slate-200 before:dark:bg-darkmode-400 before:ml-5 before:mt-5">
       {serviceOrderActivitiesData.map((activity) => {
         return (
           <common.ActivityCard

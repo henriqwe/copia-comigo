@@ -10,7 +10,7 @@ type DataListProps = {
 
 export function DataList({ data }: DataListProps) {
   return (
-    <div className="overflow-hidden bg-white shadow">
+    <div className="overflow-hidden bg-white shadow dark:bg-darkmode-400">
       <div className="border-t">
         <dl>
           {data.map((item, index) => (

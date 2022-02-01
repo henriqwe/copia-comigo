@@ -494,7 +494,7 @@ export function Update() {
     <div className="flex flex-col col-span-12 gap-4">
       <header className="flex justify-between">
         <div>
-          <h3 className="text-xl text-gray-600">Dados gerais</h3>
+          <h3 className="text-xl text-gray-600 dark:text-zinc-400">Dados gerais</h3>
           <p>
             {address?.Logradouro} - {address?.Numero} - {address?.Bairro} -{' '}
             {address?.Cidade} - {address?.Estado}
@@ -529,9 +529,9 @@ export function Update() {
           </p>
         </div>
         <div className="flex flex-col items-end">
-          <h3 className="text-xl text-gray-600">Detalhes do cliente</h3>
+          <h3 className="text-xl text-gray-600 dark:text-zinc-400">Detalhes do cliente</h3>
           <p className="text-lg font-bold">{client?.Pessoa.Nome}</p>
-          <p className="text-sm dark:text-gray-300">
+          <p className="text-sm">
             {client?.Pessoa.PessoaJuridica ? 'CNPJ: ' : 'CPF: '}{' '}
             {client?.Pessoa.PessoaJuridica
               ? CNPJFormat(client?.Pessoa.Identificador)
@@ -542,7 +542,7 @@ export function Update() {
 
       <form>
         <common.Separator className="mb-4" />
-        <common.Card className="px-6 dark:bg-dark-2">
+        <common.Card className="px-6">
           <h3 className="text-xl font-bold">Serviços</h3>
 
           {services ? (
@@ -566,7 +566,7 @@ export function Update() {
           )}
         </common.Card>
         <common.Separator className="mt-4 mb-4" />
-        <common.Card className="px-6 dark:bg-dark-2">
+        <common.Card className="px-6">
           <h3 className="text-xl font-bold">Produtos</h3>
 
           {products ? (
@@ -590,7 +590,7 @@ export function Update() {
           )}
         </common.Card>
         <common.Separator className="mt-4" />
-        <h3 className="text-xl text-gray-600">Beneficios contratados</h3>
+        <h3 className="text-xl">Beneficios contratados</h3>
         {benefits ? (
           <blocks.Table
             colection={benefits}
@@ -615,7 +615,7 @@ export function Update() {
 
       <div className="flex justify-between">
         <div>
-          <h3 className="text-xl text-gray-600">Dados gerais</h3>
+          <h3 className="text-xl text-gray-600 dark:text-zinc-400">Dados gerais</h3>
 
           <p>Recorrência: Mensal</p>
           <p>Valor: {benefitsValue}</p>
@@ -623,7 +623,7 @@ export function Update() {
           <p>Pagamento de adesão: Recibo</p>
         </div>
         <div className="flex flex-col items-end">
-          <p className="text-lg text-gray-600">Adesão</p>
+          <p className="text-lg text-gray-600 dark:text-zinc-400">Adesão</p>
           <p className="text-2xl font-bold">
             Total: <span className="text-primary-4">{accessionValue}</span>
           </p>

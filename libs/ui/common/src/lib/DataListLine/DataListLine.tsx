@@ -9,10 +9,10 @@ type DataListLineProps = {
 export function DataListLine({ title, value, position }: DataListLineProps) {
   return (
     <div
-      className={`px-4 py-5 bg-gray-50 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6 ${
+      className={`px-4 py-5 sm:grid sm:grid-cols-5 sm:gap-4 sm:px-6 ${
         position % 2 === 0
-          ? 'dark:bg-dark-6 bg-gray-100'
-          : 'dark:bg-dark-3 bg-gray-200'
+          ? 'dark:bg-darkmode-600 bg-gray-100'
+          : 'dark:bg-darkmode-400 bg-gray-200'
       }`}
     >
       <dt className="text-sm font-medium text-gray-500">{title}</dt>

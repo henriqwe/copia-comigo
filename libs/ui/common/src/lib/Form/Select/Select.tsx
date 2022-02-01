@@ -149,7 +149,7 @@ export function Select({
                         className={`${disabled
                             ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
                             : 'bg-gray-200 dark:bg-darkmode-600 border-darkmode-800'
-                          } border-2 dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 h-10 w-full flex justify-between items-center relative ${className}`}
+                          } border-2 rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 h-10 w-full flex justify-between items-center relative ${className}`}
                         placeholder="Digite aqui para filtrar..."
                         onChange={(e) => filterInput(e.target.value)}
                       />
@@ -161,7 +161,7 @@ export function Select({
                         key={personIdx}
                         className={({ active }) =>
                           `${active
-                            ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
+                            ? 'text-amber-900 dark:text-blue-600 bg-gray-200'
                             : 'text-gray-900'
                           }
                     cursor-pointer select-none relative py-2 pl-4 pr-4 items-center dark:text-white`
@@ -177,7 +177,7 @@ export function Select({
                             {selected ? (
                               <span className="pl-3">
                                 <CheckIcon
-                                  className="w-5 h-5 text-primary-4"
+                                  className="w-5 h-5 text-success"
                                   aria-hidden="true"
                                 />
                               </span>
@@ -192,7 +192,7 @@ export function Select({
                       disabled
                       className={({ active }) =>
                         `${active
-                          ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
+                          ? 'text-amber-900 dark:text-blue-600 bg-gray-200'
                           : 'text-gray-900'
                         }
                 cursor-pointer select-none relative py-2 pl-4 pr-4 items-center dark:text-white`
@@ -208,7 +208,7 @@ export function Select({
                           {selected ? (
                             <span className="pl-3">
                               <CheckIcon
-                                className="w-5 h-5 text-primary-4"
+                                className="w-5 h-5 text-success"
                                 aria-hidden="true"
                               />
                             </span>
@@ -224,7 +224,7 @@ export function Select({
         </Listbox>
       </div>
       {error && (
-        <p className="block mt-1 text-xs text-theme-6">{error.message}</p>
+        <p className="block mt-1 text-xs text-danger">{error.message}</p>
       )}
     </>
   )

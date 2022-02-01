@@ -45,8 +45,8 @@ export function Switch({
     <SwitchHeadLess
       checked={value}
       onChange={onChange}
-      className={`${value ? 'bg-theme-9' : 'bg-gray-400'}
-relative inline-flex flex-shrink-0 ${switchListHeight} ${switchListWidth} border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75 items-center`}
+      className={`${value ? 'bg-success' : 'bg-gray-400'}
+relative inline-flex flex-shrink-0 ${switchListHeight} ${switchListWidth} border-0 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75 items-center`}
     >
       <span className="sr-only">{alt}</span>
       <span

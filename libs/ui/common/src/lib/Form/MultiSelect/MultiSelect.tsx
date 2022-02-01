@@ -24,7 +24,7 @@ type MultiSelectProps = {
   className?: string
   disabled?: boolean
   edit?: boolean
-  error?: DeepMap<FieldValues, FieldError>
+  error?: DeepMap<FieldValues, FieldError> & { message?: string }
   icon?: ReactNode
   iconPosition?: 'left' | 'right'
 }
@@ -143,11 +143,10 @@ export function MultiSelect({
                   <span className="inline-block w-full rounded-md shadow-sm">
                     <div onClick={resetFilterInput}>
                       <Listbox.Button
-                        className={`${
-                          disabled
-                            ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
-                            : 'bg-gray-200 dark:bg-darkmode-800 border-gray-400'
-                        } dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 w-full h-10 flex justify-between items-center relative ${className}`}
+                        className={`${disabled
+                          ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed'
+                          : 'bg-gray-200 dark:bg-darkmode-800'
+                          } rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 w-full h-10 flex justify-between items-center relative ${className}`}
                         ref={selectRef}
                         disabled={disabled}
                       >
@@ -155,26 +154,23 @@ export function MultiSelect({
                           <p className="absolute ">{icon}</p>
                         )}
                         <span
-                          className={`absolute text-gray-600 dark:text-gray-500 transition-all ${
-                            selectedItens.length > 0
+                          className={`absolute text-gray-600 dark:text-gray-500 transition-all ${selectedItens.length > 0
                               ? 'text-xs top-0.5 left-3'
                               : 'text-sm text-gray-700 dark:text-gray-500 top-2.5'
-                          } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
+                            } ${icon && iconPosition === 'left' ? 'ml-7' : ''}`}
                         >
                           {label}
                         </span>
 
                         <div
-                          className={` ${
-                            icon && iconPosition === 'left' ? 'ml-7' : ''
-                          }`}
+                          className={` ${icon && iconPosition === 'left' ? 'ml-7' : ''
+                            }`}
                         >
                           {selectedItens.map((person) => (
                             <div
                               key={person.key}
-                              className={`inline-flex items-center px-1 mt-4 mr-1 text-white bg-gray-400 rounded ${
-                                disabled ? 'dark:bg-dark-5' : 'dark:bg-dark-3'
-                              }`}
+                              className={`inline-flex items-center px-1 mt-4 mr-1 text-white bg-gray-400 rounded ${disabled ? 'dark:bg-dark-5' : 'dark:bg-dark-3'
+                                }`}
                             >
                               <p className="text-tiny">{person.title}</p>
                               {!disabled && (
@@ -190,9 +186,8 @@ export function MultiSelect({
                         </div>
                         {!disabled && (
                           <span
-                            className={`absolute inset-y-0 right-3 flex items-center pr-2 pointer-events-none ${
-                              icon && iconPosition === 'right' ? 'mr-4' : ''
-                            }`}
+                            className={`absolute inset-y-0 right-3 flex items-center pr-2 pointer-events-none ${icon && iconPosition === 'right' ? 'mr-4' : ''
+                              }`}
                           >
                             <SelectorIcon
                               className="w-5 h-5 text-gray-400"
@@ -225,11 +220,10 @@ export function MultiSelect({
                         <div className="m-3">
                           {!noSearch && (
                             <input
-                              className={`${
-                                disabled
-                                  ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
-                                  : 'bg-gray-200 dark:bg-gray-800 border-gray-400'
-                              } dark:bg-dark-secondary rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 h-10 w-full flex justify-between items-center relative ${className}`}
+                              className={`${disabled
+                                ? 'bg-gray-500 dark:bg-gray-800 cursor-not-allowed border-gray-500'
+                                : 'bg-gray-200 dark:bg-darkmode-600 border-darkmode-800'
+                                } rounded-md focus:outline-none focus:border-b-blue-500 focus:shadow-sm px-3 h-10 w-full flex justify-between items-center relative ${className}`}
                               placeholder="Digite aqui para filtrar..."
                               onChange={(e) => filterInput(e.target.value)}
                             />
@@ -251,18 +245,16 @@ export function MultiSelect({
                               >
                                 {({ active }) => (
                                   <div
-                                    className={`${
-                                      active
+                                    className={`${active
                                         ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
                                         : 'text-gray-900'
-                                    } select-none relative py-2 pl-8 pr-4 dark:text-white`}
+                                      } select-none relative py-2 pl-8 pr-4 dark:text-white`}
                                   >
                                     <span
-                                      className={`${
-                                        selected
+                                      className={`${selected
                                           ? 'font-semibold'
                                           : 'font-normal'
-                                      } block truncate`}
+                                        } block truncate`}
                                     >
                                       {item?.title}
                                     </span>
@@ -286,10 +278,9 @@ export function MultiSelect({
                             key={0}
                             disabled
                             className={({ active }) =>
-                              `${
-                                active
-                                  ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
-                                  : 'text-gray-900'
+                              `${active
+                                ? 'text-amber-900 dark:text-primary-2 bg-gray-200'
+                                : 'text-gray-900'
                               }
                       cursor-pointer select-none relative py-2 pl-4 pr-4 items-center dark:text-white`
                             }
@@ -298,9 +289,8 @@ export function MultiSelect({
                             {({ selected }) => (
                               <>
                                 <span
-                                  className={`${
-                                    selected ? 'font-medium' : 'font-normal'
-                                  } flex truncate`}
+                                  className={`${selected ? 'font-medium' : 'font-normal'
+                                    } flex truncate`}
                                 >
                                   {'Nem um resultado encontrado.'}{' '}
                                   {selected ? (
