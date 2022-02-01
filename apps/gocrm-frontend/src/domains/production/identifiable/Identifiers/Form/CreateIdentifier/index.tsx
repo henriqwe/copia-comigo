@@ -131,7 +131,7 @@ const CreateIdentifiers = () => {
       <common.Separator />
       <form>        <common.form.FormLine position={1} grid={!configData?.Valor[0] ? 1 : 2}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas}>
               Selecione a família de itens para identificadores em configurações
               primeiro
             </common.ConfigMessage>

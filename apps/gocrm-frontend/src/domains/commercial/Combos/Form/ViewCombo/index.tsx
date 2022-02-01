@@ -7,11 +7,7 @@ import * as products from '&crm/domains/commercial/Products'
 import * as services from '&crm/domains/commercial/Services'
 import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
-import {
-  BRLMoneyFormat,
-  BRLMoneyInputDefaultFormat,
-  BRLMoneyUnformat
-} from 'utils/formaters'
+
  import * as utils from '@comigo/utils'
 
 type SelectItem = {

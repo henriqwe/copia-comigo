@@ -2,7 +2,7 @@ import * as common from '@comigo/ui-common'
 import * as blocks from '@comigo/ui-blocks'
  
 import * as combos from '&crm/domains/commercial/Combos/Tabs/Combos'
- 
+import * as utils from '@comigo/utils'
 
 export default function List() {
   const { dependenciesCombosData, setSlidePanelState } =

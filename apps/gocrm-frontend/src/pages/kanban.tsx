@@ -14,7 +14,8 @@ import { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { capitalizeAllWord } from '&crm/utils/formaters'
 import { useRouter } from 'next/router'
-import { showError } from '&crm/utils/showError'
+
+import * as utils from '@comigo/utils'
 import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 type Flow =

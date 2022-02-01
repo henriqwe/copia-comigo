@@ -1,6 +1,6 @@
 import * as common from '@comigo/ui-common'
 import * as activities from '&crm/domains/operational/ServiceOrders/Tabs/Activities'
-import { ptBRtimeStamp } from 'utils/formaters'
+import * as utils from '@comigo/utils'
 export default function List() {
   const { serviceOrderActivitiesData } = activities.useActivities()
   return serviceOrderActivitiesData ? (

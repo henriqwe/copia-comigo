@@ -4,7 +4,7 @@ import { useForm, Controller } from 'react-hook-form'
 import rotas from '&crm/domains/routes'
 
 import * as common from '@comigo/ui-common'
- 
+import * as blocks from '@comigo/ui-blocks'
  
 import * as operators from '&crm/domains/production/identifiable/Chips/Operators'
 import * as chips from '&crm/domains/production/identifiable/Chips'
@@ -141,7 +141,7 @@ const CreateChip = () => {
       <common.Separator />
       <form>        <common.form.FormLine position={1} grid={!configData?.Valor[0] ? 1 : 3}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas}>
               Selecione a família de itens para chips em configurações primeiro
             </common.ConfigMessage>
           ) : (

@@ -4,7 +4,8 @@ import { GraphQLTypes } from '&crm/graphql/generated/zeus'
 import * as models from '&crm/domains/inventory/Registration/Models'
  import * as utils from '@comigo/utils'
   
-
+ import * as common from '@comigo/ui-common'
+ import * as blocks from '@comigo/ui-blocks'
 export default function RowActions({
   item
 }: {

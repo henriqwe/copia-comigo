@@ -2,7 +2,7 @@ import * as common from '@comigo/ui-common'
 import * as blocks from '@comigo/ui-blocks'
  
 import * as upSelling from '&crm/domains/commercial/Products/Tabs/UpSelling'
- 
+import * as utils from '@comigo/utils'
 
 export default function List() {
   const { upSellingData, setSlidePanelState } = upSelling.useUpSelling()

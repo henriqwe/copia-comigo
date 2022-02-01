@@ -2,6 +2,8 @@ import { GraphQLTypes } from '&crm/graphql/generated/zeus'
 
  import * as utils from '@comigo/utils'
  
+import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
 
 
 

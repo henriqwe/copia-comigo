@@ -2,7 +2,8 @@ import { useForm } from 'react-hook-form'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import { GraphQLTypes } from '&crm/graphql/generated/zeus'
-
+import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
  
  
 import * as sellers from '&crm/domains/identities/Providers/Tabs/Sellers'

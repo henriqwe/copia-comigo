@@ -181,7 +181,7 @@ const CreateInputKit = () => {
         <common.Separator />
         <common.form.FormLine grid={initialGrid()} position={1}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas}>
               Selecione a família de itens para kits de insumo em configurações
               primeiro
             </common.ConfigMessage>

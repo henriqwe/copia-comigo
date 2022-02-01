@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
  
- 
+import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
 import * as sellers from '&crm/domains/identities/Providers/Tabs/Sellers'
 
  import * as utils from '@comigo/utils'

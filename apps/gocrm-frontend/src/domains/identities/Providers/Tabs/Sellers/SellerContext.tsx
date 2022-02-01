@@ -24,7 +24,7 @@ import {
 } from 'react'
 
 import * as yup from 'yup'
-
+import * as utils from '@comigo/utils'
 type SellerContextProps = {
   slidePanelState: SlidePanelStateType
   setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
