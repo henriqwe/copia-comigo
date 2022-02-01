@@ -50,8 +50,7 @@ export function Page({Ticket}: CreateProposalProps){
       reload={{ action: refetch, state: servicesLoading }}
       currentLocation={breadCrumbData()}
     >
-      {/* <proposals.Create Ticket={Ticket} /> */}
-      <div>teste1</div>
+      <proposals.Create Ticket={Ticket} />
 
     </templates.Base>
   )
