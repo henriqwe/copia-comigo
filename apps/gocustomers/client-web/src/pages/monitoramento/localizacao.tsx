@@ -641,7 +641,6 @@ function createNewVehiclePathMarker(
 
         )}</b> </p>
       <p><b>${selectedVehicle.veiculo}</b> </p>
-      <p><b>${'NOME DO MOTORISTA'}</b> </p>
       <p><b>${addres}</b> </p>
       </div>
     </div>`,
@@ -839,7 +838,6 @@ function createNewVehiclePathMarker(
           )}
         ${new Date(vehicle.data).toLocaleTimeString('pt-br')}</b> </p>
         <p><b>${selectedVehicle.veiculo}</b> </p>
-        <p><b>${'NOME DO MOTORISTA'}</b> </p>
         <p><b>${addres}</b> </p>
         </div>
         
@@ -921,7 +919,6 @@ function createContentInfoWindow(vehicle: vehicle) {
     ).toLocaleDateString('pt-br')}
   ${new Date(vehicle.date_rastreador).toLocaleTimeString('pt-br')}</b> </p>
   <p><b>${vehicle.veiculo}</b> </p>
-  <p><b>${'NOME DO MOTORISTA'}</b> </p>
   </div>
     <div class='flex justify-end'>
       <button id='buttonVerTrajeto${vehicle.carro_id}'

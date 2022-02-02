@@ -74,8 +74,8 @@ export function CardVehicle({travelTime, addressName,driverName,className,addres
               <span className="font-medium text-gray-900">{vehicle.placa}</span>
             </div>
             <div className=" flex flex-col text-right">
-              <span className="text-xs">Em trânsito há</span>
-              <span className="font-medium text-xs text-gray-900 ">{travelTime}</span>
+              {/* <span className="text-xs">Em trânsito há</span>
+              <span className="font-medium text-xs text-gray-900 ">{travelTime}</span> */}
             </div>
           </div>
         </div>
