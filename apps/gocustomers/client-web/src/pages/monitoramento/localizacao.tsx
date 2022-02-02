@@ -521,7 +521,6 @@ function centerPointInMap(coords, map, google, pointMarker, setPointMarker) {
     lat: Number(coords.latitude),
     lng: Number(coords.longitude),
   });
-  map.setZoom(13);
   const markerPoint = new google.maps.Marker({
     map,
     animation: google.maps.Animation.BOUNCE,
