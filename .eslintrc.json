@@ -16,7 +16,8 @@
               "&customers/**",
               "@comigo/ui-blocks",
               "@comigo/ui-common",
-              "@comigo/ui-templates"
+              "@comigo/ui-templates",
+              "&test/**"
             ],
             "depConstraints": [
               {
