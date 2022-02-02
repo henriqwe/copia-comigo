@@ -1,0 +1,28 @@
+table:
+  name: Identificadores
+  schema: producao
+object_relationships:
+  - name: Item
+    using:
+      foreign_key_constraint_on: Item_Id
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - created_at
+          - Item_Id
+          - CodigoIdentificador
+          - deleted_at
+          - updated_at
+          - Id
+    name: Logs_producao_Identificadores
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

@@ -1,0 +1,44 @@
+{
+  "root": "apps/gocrm/api-core",
+  "sourceRoot": "apps/gocrm/api-core",
+  "projectType": "application",
+  "targets": {
+    "hasura": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/gocrm/api-core && hasura console --api-port 9601 --console-port 9701"
+          }
+        ]
+      }
+    },
+    "hasura-update": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/gocrm/api-core && hasura metadata apply && hasura migrate apply --all-databases && hasura metadata reload"
+          }
+        ]
+      }
+    },
+    "dcompose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "docker-compose -f apps/gocrm/api-core/docker-compose.yaml up -d"
+          }
+        ]
+      }
+    },
+    "echo": {
+      "executor": "./tools/executors/echo:echo",
+      "options": {
+        "textToEcho": "Hello World"
+      }
+    }
+  },
+  "tags": []
+}

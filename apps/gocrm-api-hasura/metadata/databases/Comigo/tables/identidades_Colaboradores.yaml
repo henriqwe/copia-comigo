@@ -1,7 +1,0 @@
-table:
-  name: Colaboradores
-  schema: identidades
-object_relationships:
-- name: Pessoa
-  using:
-    foreign_key_constraint_on: Pessoa_Id

@@ -1,0 +1,7 @@
+table:
+  name: OrdemDeServico_Beneficios
+  schema: operacional
+object_relationships:
+  - name: OrdemDeServico
+    using:
+      foreign_key_constraint_on: OrdemDeServico_Id

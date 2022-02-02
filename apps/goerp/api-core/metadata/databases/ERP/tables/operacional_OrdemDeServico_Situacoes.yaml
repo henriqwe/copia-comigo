@@ -1,0 +1,19 @@
+table:
+  name: OrdemDeServico_Situacoes
+  schema: operacional
+is_enum: true
+array_relationships:
+  - name: OrdemDeServico_Atividades
+    using:
+      foreign_key_constraint_on:
+        column: Situacao_Id
+        table:
+          name: OrdemDeServico_Atividades
+          schema: operacional
+  - name: OrdemDeServicos
+    using:
+      foreign_key_constraint_on:
+        column: Situacao_Id
+        table:
+          name: OrdemDeServico
+          schema: operacional

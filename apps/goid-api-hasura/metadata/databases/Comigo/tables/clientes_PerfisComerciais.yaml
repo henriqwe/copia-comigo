@@ -1,7 +1,0 @@
-table:
-  name: PerfisComerciais
-  schema: clientes
-object_relationships:
-- name: Lead
-  using:
-    foreign_key_constraint_on: Lead_Id

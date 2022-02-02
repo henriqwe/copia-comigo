@@ -1,7 +1,0 @@
-table:
-  name: usuarios
-  schema: autenticacao
-object_relationships:
-- name: Cliente
-  using:
-    foreign_key_constraint_on: Cliente_Id

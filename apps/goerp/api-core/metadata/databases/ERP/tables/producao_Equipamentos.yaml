@@ -1,0 +1,36 @@
+table:
+  name: Equipamentos
+  schema: producao
+object_relationships:
+  - name: Item
+    using:
+      foreign_key_constraint_on: Item_Id
+  - name: Rastreador
+    using:
+      foreign_key_constraint_on:
+        column: Equipamento_Id
+        table:
+          name: Rastreadores
+          schema: producao
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - Identificador
+          - Imei
+          - created_at
+          - deleted_at
+          - updated_at
+          - Id
+          - Item_Id
+    name: Logs_producao_Equipamentos
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

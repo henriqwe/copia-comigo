@@ -1,0 +1,30 @@
+table:
+  name: Vendedores
+  schema: identidades
+object_relationships:
+  - name: Fornecedor
+    using:
+      foreign_key_constraint_on: Fornecedor_Id
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - created_at
+          - Nome
+          - Fornecedor_Id
+          - Telefones
+          - deleted_at
+          - Id
+          - updated_at
+          - Emails
+    name: Logs_identidades_Vendedores
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

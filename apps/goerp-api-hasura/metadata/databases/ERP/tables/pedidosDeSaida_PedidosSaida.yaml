@@ -1,7 +1,0 @@
-table:
-  name: PedidosSaida
-  schema: pedidosDeSaida
-object_relationships:
-- name: Situacao
-  using:
-    foreign_key_constraint_on: Situacao_Id

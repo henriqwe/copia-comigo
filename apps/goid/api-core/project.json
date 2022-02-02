@@ -1,0 +1,44 @@
+{
+  "root": "apps/goid/api-core",
+  "sourceRoot": "apps/goid/api-core",
+  "projectType": "application",
+  "targets": {
+    "hasura": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/goid/api-core && hasura console --api-port 9603 --console-port 9703"
+          }
+        ]
+      }
+    },
+    "hasura-update": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/goid/api-core && hasura metadata apply && hasura migrate apply --all-databases && hasura metadata reload"
+          }
+        ]
+      }
+    },
+    "dcompose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "docker-compose -f apps/goid/api-core/docker-compose.yaml up -d"
+          }
+        ]
+      }
+    },
+    "echo": {
+      "executor": "./tools/executors/echo:echo",
+      "options": {
+        "textToEcho": "Hello World"
+      }
+    }
+  },
+  "tags": []
+}

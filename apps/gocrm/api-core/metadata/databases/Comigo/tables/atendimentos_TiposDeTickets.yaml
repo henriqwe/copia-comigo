@@ -1,0 +1,12 @@
+table:
+  name: TiposDeTickets
+  schema: atendimentos
+is_enum: true
+array_relationships:
+  - name: Tickets
+    using:
+      foreign_key_constraint_on:
+        column: Tipo_Id
+        table:
+          name: Tickets
+          schema: atendimentos

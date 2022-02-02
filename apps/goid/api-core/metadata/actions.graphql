@@ -1,0 +1,44 @@
+type Mutation {
+  CadastrarCliente(
+    Identificador: bigint
+    PessoaJuridica: Boolean
+  ): CadastrarClienteOutput
+}
+
+type Mutation {
+  CadastrarColaborador(
+    Identificador: bigint
+    PessoaJuridica: Boolean
+  ): CadastrarColaboradorOutput
+}
+
+type Mutation {
+  CadastrarFornecedor(
+    Identificador: bigint
+    PessoaJuridica: Boolean
+  ): CadastrarFornecedorOutput
+}
+
+type Mutation {
+  CadastrarRepresentante(
+    Identificador: bigint
+    PessoaJuridica: Boolean
+    PessoaRepresentada: uuid
+  ): CadastrarRepresentanteOutput
+}
+
+type CadastrarFornecedorOutput {
+  Id: uuid!
+}
+
+type CadastrarClienteOutput {
+  Id: uuid!
+}
+
+type CadastrarRepresentanteOutput {
+  Id: uuid!
+}
+
+type CadastrarColaboradorOutput {
+  Id: uuid!
+}

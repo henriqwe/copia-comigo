@@ -1,0 +1,15 @@
+table:
+  name: EstadosEMunicipios
+  schema: public
+object_relationships:
+  - name: Estado
+    using:
+      foreign_key_constraint_on: Pai_Id
+array_relationships:
+  - name: Cidades
+    using:
+      foreign_key_constraint_on:
+        column: Pai_Id
+        table:
+          name: EstadosEMunicipios
+          schema: public

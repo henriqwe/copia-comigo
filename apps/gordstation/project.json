@@ -1,0 +1,7 @@
+{
+  "root": "apps/gordstation",
+  "sourceRoot": "apps/gordstation",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}

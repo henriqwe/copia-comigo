@@ -1,0 +1,32 @@
+table:
+  name: PedidosDeCompra
+  schema: compras
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - updated_at
+          - MotivoRecusado
+          - DataCompra
+          - DataOrcamento
+          - deleted_at
+          - Id
+          - DataAbertura
+          - DataAutorizacao
+          - Solicitante_Id
+          - TipoPagamento
+          - Situacao_Id
+          - DataEntrada
+          - DataEntregue
+          - created_at
+    name: Logs_compras_PedidosDeCompra
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

@@ -1,0 +1,12 @@
+table:
+  name: Clientes_Documentos_Situacoes
+  schema: identidades
+is_enum: true
+array_relationships:
+  - name: Clientes_Documentos
+    using:
+      foreign_key_constraint_on:
+        column: Situacao_Id
+        table:
+          name: Clientes_Documentos
+          schema: identidades

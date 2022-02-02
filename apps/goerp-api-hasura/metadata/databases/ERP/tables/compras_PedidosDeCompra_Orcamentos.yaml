@@ -1,7 +1,0 @@
-table:
-  name: PedidosDeCompra_Orcamentos
-  schema: compras
-object_relationships:
-- name: PedidosDeCompra
-  using:
-    foreign_key_constraint_on: Pedido_Id

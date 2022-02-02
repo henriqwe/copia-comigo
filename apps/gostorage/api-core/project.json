@@ -1,0 +1,18 @@
+{
+  "root": "apps/gostorage/api-core",
+  "sourceRoot": "apps/gostorage/api-core",
+  "projectType": "application",
+  "targets": {
+    "dcompose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "docker-compose -f apps/gostorage/api-core/docker-compose.yaml up -d"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

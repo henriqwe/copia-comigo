@@ -1,0 +1,51 @@
+table:
+  name: Pedidos
+  schema: pedidosDeCompra
+object_relationships:
+  - name: Situacao
+    using:
+      foreign_key_constraint_on: Situacao_Id
+array_relationships:
+  - name: Orcamentos
+    using:
+      foreign_key_constraint_on:
+        column: Pedido_Id
+        table:
+          name: Orcamentos
+          schema: pedidosDeCompra
+  - name: Produtos
+    using:
+      foreign_key_constraint_on:
+        column: PedidoDeCompra_Id
+        table:
+          name: Produtos
+          schema: pedidosDeCompra
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - DataAbertura
+          - DataOrcamento
+          - DataAutorizacao
+          - DataEntregue
+          - DataCompra
+          - DataEntrada
+          - Solicitante_Id
+          - TipoPagamento
+          - MotivoRecusado
+          - Situacao_Id
+          - Id
+          - created_at
+          - updated_at
+          - deleted_at
+    name: Logs_pedidosDeCompra_Pedidos
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

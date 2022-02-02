@@ -1,0 +1,15 @@
+table:
+  name: ModelosDeEquipamento
+  schema: estoque
+object_relationships:
+  - name: Fabricante
+    using:
+      foreign_key_constraint_on: Fabricante_Id
+array_relationships:
+  - name: Equipamentos
+    using:
+      foreign_key_constraint_on:
+        column: Modelo_Id
+        table:
+          name: Equipamentos
+          schema: estoque

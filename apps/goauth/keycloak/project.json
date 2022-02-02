@@ -1,0 +1,18 @@
+{
+  "root": "apps/goauth/keycloak",
+  "sourceRoot": "apps/goauth/keycloak",
+  "projectType": "application",
+  "targets": {
+    "dcompose": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "docker-compose -f apps/goauth/keycloak/docker-compose.yaml up -d"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

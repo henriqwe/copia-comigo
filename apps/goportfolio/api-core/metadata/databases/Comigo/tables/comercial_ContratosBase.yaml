@@ -1,0 +1,15 @@
+table:
+  name: ContratosBase
+  schema: comercial
+object_relationships:
+  - name: PrestadorDeServico
+    using:
+      foreign_key_constraint_on: Parceiro_Id
+array_relationships:
+  - name: Versoes
+    using:
+      foreign_key_constraint_on:
+        column: ContratoBase_Id
+        table:
+          name: ContratosBase_Versoes
+          schema: comercial

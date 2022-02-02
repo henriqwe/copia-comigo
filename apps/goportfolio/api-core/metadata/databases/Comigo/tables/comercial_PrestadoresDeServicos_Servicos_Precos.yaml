@@ -1,0 +1,32 @@
+table:
+  name: PrestadoresDeServicos_Servicos_Precos
+  schema: comercial
+object_relationships:
+  - name: PrestadorDeServico_Servico
+    using:
+      foreign_key_constraint_on: Fornecedor_Servico_Id
+  - name: TipoDePreco
+    using:
+      foreign_key_constraint_on: TipoDePreco_Id
+array_relationships:
+  - name: CombosServicos
+    using:
+      foreign_key_constraint_on:
+        column: ServicoPreco_Id
+        table:
+          name: Combos_Servicos
+          schema: comercial
+  - name: PlanosPrecos
+    using:
+      foreign_key_constraint_on:
+        column: ServicoPreco_Id
+        table:
+          name: Planos_Precos
+          schema: comercial
+  - name: PropostasServicos
+    using:
+      foreign_key_constraint_on:
+        column: ServicosPreco_Id
+        table:
+          name: Propostas_Servicos
+          schema: propostas

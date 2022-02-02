@@ -1,0 +1,25 @@
+table:
+  name: Fornecedores_Produtos_Precos
+  schema: comercial
+object_relationships:
+  - name: Fornecedores_Produto
+    using:
+      foreign_key_constraint_on: Fornecedor_Produto_Id
+  - name: TipoDeRecorrencia
+    using:
+      foreign_key_constraint_on: TipoDeRecorrencia_Id
+array_relationships:
+  - name: CombosProdutos
+    using:
+      foreign_key_constraint_on:
+        column: ProdutoPreco_Id
+        table:
+          name: Combos_Produtos
+          schema: comercial
+  - name: PropostasProdutos
+    using:
+      foreign_key_constraint_on:
+        column: ProdutoPreco_Id
+        table:
+          name: Propostas_Produtos
+          schema: comercial

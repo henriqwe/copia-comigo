@@ -1,7 +1,0 @@
-table:
-  name: VeiculosAtivos_Servicos
-  schema: clientes
-object_relationships:
-- name: VeiculosAtivo
-  using:
-    foreign_key_constraint_on: VeiculoAtivo_Id

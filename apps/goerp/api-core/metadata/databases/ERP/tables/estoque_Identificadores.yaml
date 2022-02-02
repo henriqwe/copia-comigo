@@ -1,0 +1,23 @@
+table:
+  name: Identificadores
+  schema: estoque
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - CodigoIdentificador
+          - Id
+          - deleted_at
+          - created_at
+          - updated_at
+    name: Logs_estoque_Identificadores
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

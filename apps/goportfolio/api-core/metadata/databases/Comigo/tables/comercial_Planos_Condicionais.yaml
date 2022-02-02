@@ -1,0 +1,10 @@
+table:
+  name: Planos_Condicionais
+  schema: comercial
+object_relationships:
+  - name: Condicional
+    using:
+      foreign_key_constraint_on: Condicional_Id
+  - name: Plano
+    using:
+      foreign_key_constraint_on: Plano_Id

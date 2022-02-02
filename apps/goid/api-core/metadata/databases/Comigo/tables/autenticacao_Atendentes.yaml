@@ -1,0 +1,7 @@
+table:
+  name: Atendentes
+  schema: autenticacao
+object_relationships:
+  - name: Usuario
+    using:
+      foreign_key_constraint_on: Usuario_Id

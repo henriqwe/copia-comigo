@@ -1,0 +1,15 @@
+table:
+  name: Condicionais
+  schema: comercial
+object_relationships:
+  - name: Situacao
+    using:
+      foreign_key_constraint_on: Situacao_Id
+array_relationships:
+  - name: Planos
+    using:
+      foreign_key_constraint_on:
+        column: Condicional_Id
+        table:
+          name: Planos_Condicionais
+          schema: comercial

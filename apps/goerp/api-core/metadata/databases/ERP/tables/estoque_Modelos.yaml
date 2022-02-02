@@ -1,0 +1,41 @@
+table:
+  name: Modelos
+  schema: estoque
+object_relationships:
+  - name: Fabricante
+    using:
+      foreign_key_constraint_on: Fabricante_Id
+  - name: Produto
+    using:
+      foreign_key_constraint_on: Produto_Id
+array_relationships:
+  - name: Itens
+    using:
+      foreign_key_constraint_on:
+        column: Modelo_Id
+        table:
+          name: Itens
+          schema: estoque
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - updated_at
+          - Nome
+          - Id
+          - Fabricante_Id
+          - deleted_at
+          - Produto_Id
+          - Descricao
+          - created_at
+    name: Logs_estoque_Modelos
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

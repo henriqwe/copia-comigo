@@ -1,0 +1,28 @@
+table:
+  name: ModelosDeEquipamentos
+  schema: estoque
+object_relationships:
+  - name: Fabricante
+    using:
+      foreign_key_constraint_on: Fabricante_Id
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - deleted_at
+          - created_at
+          - Fabricante_Id
+          - Nome
+          - updated_at
+          - Id
+    name: Logs_estoque_ModelosDeEquipamentos
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

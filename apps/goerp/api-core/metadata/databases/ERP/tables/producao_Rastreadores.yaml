@@ -1,0 +1,44 @@
+table:
+  name: Rastreadores
+  schema: producao
+object_relationships:
+  - name: Chip
+    using:
+      foreign_key_constraint_on: Chip_Id
+  - name: Equipamento
+    using:
+      foreign_key_constraint_on: Equipamento_Id
+  - name: Item
+    using:
+      foreign_key_constraint_on: Item_Id
+array_relationships:
+  - name: KitsDeInstalacao
+    using:
+      foreign_key_constraint_on:
+        column: Rastreador_Id
+        table:
+          name: KitsDeInstalacao
+          schema: producao
+event_triggers:
+  - definition:
+      delete:
+        columns: '*'
+      enable_manual: true
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - created_at
+          - Item_Id
+          - Equipamento_Id
+          - Chip_Id
+          - CodigoReferencia
+          - deleted_at
+          - updated_at
+          - Id
+    name: Logs_producao_Rastreadores
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{LOGS_EVENT_BASE_URL}}'

@@ -1,0 +1,10 @@
+table:
+  name: GruposDePerguntas_Perguntas
+  schema: vendas
+object_relationships:
+  - name: Grupo
+    using:
+      foreign_key_constraint_on: Grupo_Id
+  - name: Pergunta
+    using:
+      foreign_key_constraint_on: Pergunta_Id

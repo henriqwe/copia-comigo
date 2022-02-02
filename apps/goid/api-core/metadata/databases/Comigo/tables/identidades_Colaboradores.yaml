@@ -1,0 +1,15 @@
+table:
+  name: Colaboradores
+  schema: identidades
+object_relationships:
+  - name: Pessoa
+    using:
+      foreign_key_constraint_on: Pessoa_Id
+array_relationships:
+  - name: Usuarios
+    using:
+      foreign_key_constraint_on:
+        column: Colaborador_Id
+        table:
+          name: Usuarios
+          schema: autenticacao

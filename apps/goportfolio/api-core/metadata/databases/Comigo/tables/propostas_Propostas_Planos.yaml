@@ -1,0 +1,13 @@
+table:
+  name: Propostas_Planos
+  schema: propostas
+object_relationships:
+  - name: Plano
+    using:
+      foreign_key_constraint_on: Plano_Id
+  - name: PlanoPreco
+    using:
+      foreign_key_constraint_on: PlanoPreco_Id
+  - name: Proposta
+    using:
+      foreign_key_constraint_on: Proposta_Id
