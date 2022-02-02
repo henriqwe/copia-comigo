@@ -6,6 +6,8 @@ import * as localizations from '../components/domains/monitoring/Localization';
 import { getStreetNameByLatLng } from '../components/domains/monitoring/Localization/api';
 import { MarkerClusterer } from '@googlemaps/markerclusterer';
 import React from 'react';
+import { MapIcon } from '@heroicons/react/outline';
+import * as common from '@comigo/ui-common'
 
 type vehicle = {
   crs: string;
@@ -73,7 +75,8 @@ export function Page() {
   const [pageCard, setPageCard] = useState('pagAllVehicles');
   const refsCardVehicle = useRef([]);
   const refsPathVehicle = useRef([]);
-
+  const [trafficLayer,setTrafficLayer] = useState<google.maps.TrafficLayer>()
+  
   function initMap() {
     const loader = new Loader({
       apiKey: 'AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I',
@@ -104,8 +107,10 @@ export function Page() {
             },
             zoom: 5,
             mapTypeId: response.maps.MapTypeId.ROADMAP,
+            
           }
         );
+        
         map.setOptions({ styles });
         const pano = map.getStreetView();
         pano.setPov({
@@ -114,6 +119,11 @@ export function Page() {
         });
         setPanorama(pano);
         setMapa(map);
+
+        const tL = new response.maps.TrafficLayer();
+        tL.setMap(null)
+        setTrafficLayer(tL)
+        
       })
       .catch((e) => {
         console.log('error: ', e);
@@ -144,6 +154,14 @@ export function Page() {
     } else {
       panorama.setVisible(false);
     }
+  }
+
+  function toogleTrafficLayer(){
+    if(trafficLayer.getMap()===null){
+      trafficLayer.setMap(mapa)
+      return
+    }
+    trafficLayer.setMap(null)
   }
 
   function showAllVehiclesInMap() {
@@ -310,6 +328,9 @@ export function Page() {
         <blocks.SideBarGoCustomers mainMenuItens={MainMenuItens} />
       </div>
 
+      <div className="absolute z-50 right-0 bottom-0 flex mr-2.5 mb-52">
+        <common.buttons.ToggleTrafficButton trafficLayer={trafficLayer} mapa={mapa}/>
+      </div>
       <div
         className="absolute z-50 right-0 flex mr-16 mt-2.5"
         style={{ height: '95%' }}

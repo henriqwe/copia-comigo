@@ -33,7 +33,6 @@ export default function CreateProposal({ Ticket }: CreateProposalProps) {
                 <tickets.TicketProvider> 
                   <leads.LeadProvider> 
                     <users.UserProvider> 
-                    <div>teste</div>
                       <CreateProposalPage Ticket={Ticket} /> 
                     </users.UserProvider> 
                    </leads.LeadProvider> 
