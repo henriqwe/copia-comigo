@@ -609,15 +609,15 @@ function createNewVehiclePathMarker(
         },${selectedVehicle.longitude
         }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I">
       </img>
-      <div class='grid grid-cols-3'>
-      <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${selectedVehicle.placa
+      <div class='grid grid-cols-3 mt-1'>
+      <div class='grid-span-1 flex bg-gray-100  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${selectedVehicle.placa
         }</div>
-      <div class='grid-span-1  flex bg-theme-22  justify-center items-center font-semibold border-2  py-2 !border-white' >
+      <div class='grid-span-1  flex bg-gray-100  justify-center items-center font-semibold border-2  py-2 !border-white' >
       <div class='mr-1 ${pathCoords[pathCoords.length - 1].ligado
           ? Number(pathCoords[pathCoords.length - 1].speed).toFixed() === '0'
-            ? 'text-theme-10'
-            : 'text-theme-9'
-          : 'text-theme-13'
+            ? 'text-blue-600'
+            : 'text-green-600'
+          : 'text-gray-600'
         }'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-3 h-3"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
       </div><span>${pathCoords[pathCoords.length - 1].ligado
@@ -627,7 +627,7 @@ function createNewVehiclePathMarker(
           : ' Desligado'
         }</span>
       </div>
-      <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
+      <div class='grid-span-1 flex bg-gray-100  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
           Number(pathCoords[pathCoords.length - 1].speed)
         )} km/h</div> 
       </div>
@@ -809,15 +809,15 @@ function createNewVehiclePathMarker(
           },${vehicle.longitude
           }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I">
         </img>
-        <div class='grid grid-cols-3'>
-        <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${selectedVehicle.placa
+        <div class='grid grid-cols-3 mt-1'>
+        <div class='grid-span-1 flex bg-gray-100  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${selectedVehicle.placa
           }</div>
-        <div class='grid-span-1  flex bg-theme-22  justify-center items-center font-semibold border-2  py-2 !border-white' >
+        <div class='grid-span-1  flex bg-gray-100  justify-center items-center font-semibold border-2  py-2 !border-white' >
         <div class='mr-1 ${vehicle.ligado
             ? Number(vehicle.speed).toFixed() === '0'
-              ? 'text-theme-10'
-              : 'text-theme-9'
-            : 'text-theme-13'
+              ? 'text-blue-600'
+              : 'text-green-600'
+            : 'text-gray-600'
           }'>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-3 h-3"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
         </div><span>${vehicle.ligado
@@ -827,7 +827,7 @@ function createNewVehiclePathMarker(
             : ' Desligado'
           }</span>
         </div>
-        <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
+        <div class='grid-span-1 flex bg-gray-100  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
             Number(vehicle.speed)
           )} km/h</div> 
         </div>
@@ -890,15 +890,15 @@ function createContentInfoWindow(vehicle: vehicle) {
     },${vehicle.longitude
     }&fov=80&heading=70&pitch=0&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I" >
   </img>
-  <div class='grid grid-cols-3'>
-  <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${vehicle.placa
+  <div class='grid grid-cols-3 mt-1'>
+  <div class='grid-span-1 flex bg-gray-100  justify-center font-semibold rounded-l-md py-2 border-2 !border-white '> ${vehicle.placa
     }</div>
-  <div class='grid-span-1  flex bg-theme-22  justify-center items-center font-semibold border-2  py-2 !border-white' >
+  <div class='grid-span-1  flex bg-gray-100  justify-center items-center font-semibold border-2  py-2 !border-white' >
   <div class='mr-1 ${vehicle.ligado
       ? Number(vehicle.speed).toFixed() === '0'
-        ? 'text-theme-10'
-        : 'text-theme-9'
-      : 'text-theme-13'
+        ? 'text-blue-600'
+        : 'text-green-600'
+      : 'text-gray-600'
     }'>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="w-3 h-3"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
   </div><span>${vehicle.ligado
@@ -908,7 +908,7 @@ function createContentInfoWindow(vehicle: vehicle) {
       : ' Desligado'
     }</span>
   </div>
-  <div class='grid-span-1 flex bg-theme-22  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
+  <div class='grid-span-1 flex bg-gray-100  justify-center font-semibold border-2 !border-white rounded-r-md py-2'>${Math.floor(
       Number(vehicle.speed)
     )} km/h</div> 
   </div>

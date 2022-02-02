@@ -1,6 +1,6 @@
 import * as common from '@comigo/ui-common'
 import { LocationMarkerIcon, MapIcon, TruckIcon, UserIcon } from '@heroicons/react/outline';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
 type vehicle={
   crs: string
@@ -28,21 +28,25 @@ type vehicle={
 }
 /* eslint-disable-next-line */
 export interface CardVehicleProps {
-  travelTime: string
-  addressName: string;
-  driverName: string;
   className?: string
-  addressInfo:string;
   setPageCard: Dispatch<SetStateAction<string>>
   vehicle: vehicle
   open: boolean
   setSelectedVehicle: Dispatch<SetStateAction<vehicle | undefined>>
+  getStreetNameToCard(vehicle: vehicle): Promise<{
+    addressName: any;
+    addressInfo: any;
+}>
 }
 
-export function CardVehicle({travelTime, addressName,driverName,className,addressInfo,setPageCard,vehicle,open = false,setSelectedVehicle}: CardVehicleProps) {
+export function CardVehicle({className,setPageCard,vehicle,open = false,setSelectedVehicle,getStreetNameToCard}: CardVehicleProps) {
   
   let statsColor:string
   let velocityColor:string
+  const [addressName, setAddressName] = useState('Carregando...')
+  const [addressInfo, setAddressInfo] = useState('')
+
+
 
   if(vehicle.ligado ===1 && Math.floor(Number(vehicle.speed)) >=1){
     statsColor = 'bg-green-500'
@@ -59,9 +63,20 @@ export function CardVehicle({travelTime, addressName,driverName,className,addres
   }else{
     velocityColor = 'blue'
   }
- 
+  useEffect(() => {
+    if(open){
+       getStreetNameToCard(vehicle).then((reponse)=>{
+         console.log(reponse.addressName)
+         console.log(reponse.addressInfo)
+
+        setAddressInfo(reponse.addressInfo)
+        setAddressName(reponse.addressName)
+      })
+     
+    }
+  },[open])
   return (
-    <common.Card  className={`hover:bg-gray-200  bg-gray-100 my-2 p-2 pr-4 text-gray-600 cursor-pointer ${className}`}>
+    <common.Card  className={`hover:bg-gray-200 !bg-gray-100 my-2 p-2 pr-4 text-gray-600 cursor-pointer ${className}`}>
       <div>
         <div className="flex" >
           <div className=" flex items-center justify-center mr-1 relative">
@@ -73,26 +88,25 @@ export function CardVehicle({travelTime, addressName,driverName,className,addres
               <span className="text-xs">Placa</span>
               <span className="font-medium text-gray-900">{vehicle.placa}</span>
             </div>
-            <div className=" flex flex-col text-right">
-              {/* <span className="text-xs">Em trânsito há</span>
-              <span className="font-medium text-xs text-gray-900 ">{travelTime}</span> */}
-            </div>
           </div>
         </div>
         {open && <div className="">
         <common.Separator className=""/>
 
-          <div className="flex justify-self-center items-center">
-            <LocationMarkerIcon className="w-4 h-4 mx-2" />
-            <span className="text-xs" >{addressName}<br />{addressInfo}</span>
-          </div>
-          <div className='flex justify-between mt-2'>
-            <div className="flex items-center justify-center">
-              <UserIcon className="w-4 h-4 mx-2" />
-              <span className="text-xs">{driverName}</span>
+          <div className="flex justify-between">
+            <div className="flex justify-self-center items-center">
+              <LocationMarkerIcon className="w-4 h-4 mx-2" />
+              <span className="text-xs" >{addressName}<br />{addressInfo}</span>
             </div>
-            <div className="flex items-center justify-center">
-              <span className={`text-xs ring-1 text-${velocityColor}-500 ring-${velocityColor}-500 px-2 py-1 rounded-sm bg-${velocityColor}-100 font-semibold`}> {Math.floor(Number(vehicle.speed))} km/h</span>
+            <div className="flex !items-center !justify-center">
+              <div className={`flex justify-center w-20 text-xs border-solid border-2 text-${velocityColor}-500 border-${velocityColor}-200 px-2 py-1 rounded-md bg-${velocityColor}-100 font-semibold`}> 
+              <span>
+                {Math.floor(Number(vehicle.speed))} 
+                </span> {' '}
+                <span>
+                km/h
+                </span>
+                </div>
             </div>
           </div>
           <div className='flex justify-end mt-4'>

@@ -46,6 +46,10 @@ type pagAllVehiclesProps = {
   shearchVehicle: vehicle[]
   openCardKey: number | undefined
   setOpenCardKey: Dispatch<SetStateAction<number | undefined>>
+  getStreetNameToCard(vehicle: vehicle): Promise<{
+    addressName: any;
+    addressInfo: any;
+}>
 
 }
 type pagVehiclesDetailsProps = {
@@ -122,6 +126,19 @@ export function FloatingCard({ allUserVehicle, schemaYup, consultVehicleHistoric
     )
 
     setDadosEnd(response.results[0].formatted_address)
+  }
+  async function getStreetNameToCard(vehicle: vehicle) {
+    const response = await getStreetNameByLatLng(
+      vehicle.latitude,
+      vehicle.longitude
+    )
+          let splitend =response.results[0].formatted_address.split(',')
+         console.log(splitend)
+
+          let addressName = splitend.splice(0,2).toString()
+          let addressInfo = splitend.splice(0,splitend.length).toString()
+        return{addressName,addressInfo}
+
   }
 
   function sortByPlaca(allUserVehicle: vehicle[]) {
@@ -217,7 +234,7 @@ export function FloatingCard({ allUserVehicle, schemaYup, consultVehicleHistoric
 
         pageCard === 'pagAllVehicles' ?
           (
-            pagAllVehicles({ inputSearchValue, setInputSearchValue, titleFilter, setTitleFilter, vehiclesInTransit, vehiclesStopped, vehiclesOff, setPageCard, setSelectedVehicle, refsCardVehicle, shearchVehicle, openCardKey, setOpenCardKey })
+            pagAllVehicles({ inputSearchValue, setInputSearchValue, titleFilter, setTitleFilter, vehiclesInTransit, vehiclesStopped, vehiclesOff, setPageCard, setSelectedVehicle, refsCardVehicle, shearchVehicle, openCardKey, setOpenCardKey,getStreetNameToCard })
 
           ) :
           pageCard === 'pagVehiclesDetails' ?
@@ -231,7 +248,7 @@ export function FloatingCard({ allUserVehicle, schemaYup, consultVehicleHistoric
   );
 }
 
-function pagAllVehicles({ inputSearchValue, setInputSearchValue, titleFilter, setTitleFilter, vehiclesInTransit, vehiclesStopped, vehiclesOff, setPageCard, setSelectedVehicle, refsCardVehicle, shearchVehicle, openCardKey, setOpenCardKey }: pagAllVehiclesProps) {
+function pagAllVehicles({ inputSearchValue, setInputSearchValue, titleFilter, setTitleFilter, vehiclesInTransit, vehiclesStopped, vehiclesOff, setPageCard, setSelectedVehicle, refsCardVehicle, shearchVehicle, openCardKey, setOpenCardKey,getStreetNameToCard }: pagAllVehiclesProps) {
 
   return (
     <>
@@ -265,6 +282,8 @@ function pagAllVehicles({ inputSearchValue, setInputSearchValue, titleFilter, se
         <ul>
           {shearchVehicle.length > 0 &&
             shearchVehicle.map((vehicle) => {
+
+              (vehicle)
               return (
                 <li key={vehicle.carro_id} ref={(elem) => {
                   const ref_index = refsCardVehicle?.current.findIndex((ref) => {
@@ -285,65 +304,15 @@ function pagAllVehicles({ inputSearchValue, setInputSearchValue, titleFilter, se
                   setOpenCardKey(undefined)
                 }}>
                   <common.CardVehicle
-                    addressName="Nome Completo da rua nº"
-                    addressInfo='Bairro, Cidade - ES'
-                    driverName='Claudio H. A. A.'
-                    travelTime="1h 13min"
                     setPageCard={setPageCard}
                     setSelectedVehicle={setSelectedVehicle}
                     vehicle={vehicle}
                     open={vehicle.carro_id === openCardKey}
+                    getStreetNameToCard={getStreetNameToCard}
                   />
                 </li>
               )
             })}
-          {/* {vehiclesInTransit.length > 0 &&
-                vehiclesInTransit.map((vehicle) => {
-                  return(
-                    <li key={vehicle.carro_id} ref={(elem)=> refsCardVehicle.current.push({elem:elem,carro_id: vehicle.carro_id})}>
-                      <CardVehicle 
-                          addressName="Nome Completo da rua nº"
-                          addressInfo={'Bairro, Cidade - ES'}
-                          driverName='Claudio H. A. A.' 
-                          travelTime="1h 13min"
-                          className='cursor-pointer'
-                          setPageCard={setPageCard}
-                          vehicle={vehicle}
-                          />
-                    </li>
-                  )
-                })}
-              {vehiclesStopped.length > 0 &&
-                vehiclesStopped.map(vehicle => {
-                  return(
-                    <li key={vehicle.carro_id} ref={(elem)=> refsCardVehicle.current.push({elem:elem,carro_id: vehicle.carro_id})}>
-                      <CardVehicle 
-                          addressName="Nome Completo da rua nº"
-                          addressInfo={'Bairro, Cidade - ES'}
-                          driverName='Claudio H. A. A.' 
-                          travelTime="1h 13min"
-                          className='cursor-pointer'
-                          setPageCard={setPageCard}
-                          vehicle={vehicle}/>
-                    </li>
-                  )
-                })}
-              {vehiclesOff.length > 0 &&
-                vehiclesOff.map(vehicle => {
-                  return(
-                    <li key={vehicle.carro_id} ref={(elem)=> refsCardVehicle.current.push({elem:elem,carro_id: vehicle.carro_id})}>
-                      <CardVehicle 
-                          addressName="Nome Completo da rua nº"
-                          addressInfo={'Bairro, Cidade - ES'} 
-                          driverName='Claudio H. A. A.'  
-                          travelTime="1h 13min"
-                          className='cursor-pointer'
-                          setPageCard={setPageCard}
-                          vehicle={vehicle}
-                          />
-                    </li>
-                  )
-                })} */}
         </ul>
         {vehiclesOff.length === 0 && vehiclesStopped.length === 0 && vehiclesInTransit.length === 0 &&
           <div className="flex justify-center w-full mt-4">
@@ -473,7 +442,7 @@ function pagVehiclesDetails({ setInputSearchValue, setPageCard, selectedVehicle,
                     className="flex items-center justify-center "
                   >
                     <ChevronLeftIcon
-                      className="w-5 h-5 text-violet-200 hover:text-violet-100"
+                      className="w-5 h-5 text-black hover:text-gray-900"
                       aria-hidden="true"
                     />{' '}
                     Voltar
