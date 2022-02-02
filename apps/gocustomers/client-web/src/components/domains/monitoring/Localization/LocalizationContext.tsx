@@ -44,11 +44,11 @@ type coordsToCenterMap = {
 type LocalizationContextProps = {
   setVehicleConsultData?: Dispatch<SetStateAction<vehicle | undefined>>;
   vehicleConsultData?: vehicle;
-  setAllUserVehicle: Dispatch<React.SetStateAction<vehicle[]>>;
+  setAllUserVehicle: Dispatch<React.SetStateAction<vehicle[]>>
   allUserVehicle?: vehicle[];
   coordsToCenterMap?: coordsToCenterMap;
   vehicleLocationInfo?: vehicle;
-  setVehicleLocationInfo: Dispatch<(prevState: undefined) => undefined>;
+  setVehicleLocationInfo: Dispatch<(prevState: undefined) => undefined>
   slidePanelState: SlidePanelStateType;
   setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>;
   localizationsLoading: boolean;
@@ -64,8 +64,8 @@ type LocalizationContextProps = {
   setCoordsToCenterPointInMap: Dispatch<SetStateAction<coordsToCenterMap>>;
   refs: unknown;
   setRefs: Dispatch<SetStateAction<unknown>>;
-  setVehicleOnFocusId: Dispatch<SetStateAction<number>>;
-  vehicleOnFocusId: number;
+  setVehicleOnFocusId: Dispatch<SetStateAction<number>>,
+  vehicleOnFocusId: number
 };
 
 type ProviderProps = {
@@ -87,7 +87,7 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
     type: 'create',
     open: false,
   });
-  const [vehicleOnFocusId, setVehicleOnFocusId] = useState();
+  const [vehicleOnFocusId, setVehicleOnFocusId] = useState()
   const [vehicleLocationInfo, setVehicleLocationInfo] = useState();
   const [vehicleConsultData, setVehicleConsultData] = useState<vehicle>();
   const [allUserVehicle, setAllUserVehicle] = useState<vehicle[]>([]);
@@ -179,7 +179,7 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
         refs,
         setRefs,
         setVehicleOnFocusId,
-        vehicleOnFocusId,
+        vehicleOnFocusId
       }}
     >
       {children}

@@ -1,11 +1,11 @@
 import { Controller, useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import * as common from '@comigo/ui-common';
-import * as utils from '@comigo/utils';
+import * as utils from '@comigo/utils'
 import * as localizations from '../../index';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { getStreetNameByLatLng } from '&customers/components/domains/monitoring/Localization/api';
+import { getStreetNameByLatLng } from '&customers/components/domains/monitoring/Localization/api'
 import {
   ClockIcon,
   ExclamationIcon,
@@ -124,15 +124,15 @@ export default function CreateLocalization() {
                 itens={
                   allUserVehicle
                     ? allUserVehicle
-                        .filter((item) => {
-                          if (item.placa != null) return item;
-                        })
-                        .map((item) => {
-                          return {
-                            key: item.carro_id,
-                            title: item.placa as string,
-                          };
-                        })
+                      .filter((item) => {
+                        if (item.placa != null) return item;
+                      })
+                      .map((item) => {
+                        return {
+                          key: item.carro_id,
+                          title: item.placa as string,
+                        };
+                      })
                     : []
                 }
                 value={value}
@@ -171,6 +171,7 @@ export default function CreateLocalization() {
             <b>Última atualização:</b>{' '}
             {new Date(vehicleConsultData.date_rastreador).toLocaleDateString(
               'pt-br'
+
             )}{' '}
             {new Date(vehicleConsultData.date_rastreador).toLocaleTimeString(
               'pt-br'

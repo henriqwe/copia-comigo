@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as utils from '@comigo/utils';
+import * as utils from '@comigo/utils'
 // import { showError } from 'utils/showError'
 
 export async function getVehicleLocationRealTime(carro_id: string) {

@@ -18,18 +18,8 @@ export default [
       {
         title: 'Localização',
         url: rotas.monitoramento.localizacao,
-        icon: <ChipIcon className="w-4 h-4 mx-2" />,
-      },
-      {
-        title: 'Trajetos',
-        url: rotas.monitoramento.trajetos,
-        icon: <ChipIcon className="w-4 h-4 mx-2" />,
-      },
-      {
-        title: 'Comandos',
-        url: rotas.monitoramento.comandos,
-        icon: <ChipIcon className="w-4 h-4 mx-2" />,
-      },
+        icon: <ChipIcon className="w-4 h-4 mx-2" />
+      }
     ],
   },
 ];
