@@ -15,7 +15,7 @@ export function ToggleTrafficButton({trafficLayer,mapa}:{trafficLayer: google.ma
         trafficLayer.setMap(null)
       }
     return(
-      <button onClick={()=>toogleTrafficLayer()}  className={`${active ? 'bg-gray-700' : 'bg-white' } rounded-sm p-2`} >
+      <button onClick={()=>toogleTrafficLayer()}  className={`${active ? 'bg-gray-700' : 'bg-white' } rounded-sm p-2 drop-shadow-2xl`} >
             <MapIcon className={`${active ? 'text-white' : 'text-gray-700' } w-6 h-6 `}/>
       </button>
     )
