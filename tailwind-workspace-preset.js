@@ -1,14 +1,14 @@
-const {join} = require("path");
-const {createGlobPatternsForDependencies} = require("@nrwl/react/tailwind");
+const { join } = require('path')
+const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind')
 module.exports = {
   // content: [
-  //   join(__dirname, 'libs/components/**/*.{js,ts,jsx,tsx}'),
+  //   join(__dirname, 'libs/domains/**/*.{js,ts,jsx,tsx}'),
   // ],
   theme: {
-    extend: {},
+    extend: {}
   },
   variants: {
-    extend: {},
-  },
+    extend: {}
+  }
   // plugins: [require('@tailwindcss/typography')],
-};
+}

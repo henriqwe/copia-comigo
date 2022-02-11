@@ -17,6 +17,7 @@
     "paths": {
       "&crm/*": ["apps/gocrm/client-web/src/*"],
       "&customers/*": ["apps/gocustomers/client-web/src/*"],
+      "&track/*": ["apps/gotrack/client-web/src/*"],
       "&erp/*": ["apps/goerp/client-web/src/*"],
       "&test/*": ["apps/gocrm/client-web2/src/*"],
       "@comigo/ui-blocks": ["libs/ui/blocks/src/index.ts"],

@@ -13,6 +13,7 @@
             "allow": [
               "&erp/**",
               "&crm/**",
+              "&track/**",
               "&customers/**",
               "@comigo/ui-blocks",
               "@comigo/ui-common",
@@ -26,18 +27,23 @@
               }
             ]
           }
-        ]
+        ],
+        "react-hooks/rules-of-hooks": "off"
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "rules": {
+        "no-trailing-spaces": "warn"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
+      "rules": {
+        "no-trailing-spaces": "warn"
+      }
     }
   ]
 }

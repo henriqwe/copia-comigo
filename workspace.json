@@ -11,6 +11,7 @@
     "goportfolio-api-core": "apps/goportfolio/api-core",
     "gordstation": "apps/gordstation",
     "gostorage-api-core": "apps/gostorage/api-core",
+    "gotrack-client-web": "apps/gotrack/client-web",
     "midone-theme-icewall": "apps/midone-theme/icewall",
     "midone-theme-rubick": "apps/midone-theme/rubick",
     "midone-theme-thinker": "apps/midone-theme/thinker",
