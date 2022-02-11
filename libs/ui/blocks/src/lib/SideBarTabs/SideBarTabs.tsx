@@ -11,6 +11,7 @@ type SideBarTabsProps = {
   allowAdding?: boolean
   addFunction?: () => void
   loading?: boolean
+  horizontal?: boolean
 }
 
 type ItemType = {
@@ -26,7 +27,8 @@ export function SideBarTabs({
   allowAdding = false,
   loading = false,
   addFunction,
-  selectedItem
+  selectedItem,
+  horizontal = false
 }: SideBarTabsProps) {
   const [newArray, setNewArray] = useState(array)
   const [selected, setSelected] = useState(
@@ -50,8 +52,8 @@ export function SideBarTabs({
   }, [selectedItem])
 
   return (
-    <div className="w-full p-5 pl-6 bg-gray-500 dark:bg-dark-4 rounded-l-md">
-      <div className="w-full max-w-md mx-auto">
+    <div className={`w-full bg-gray-500 dark:bg-dark-4 rounded-l-md ${!horizontal ? 'p-5 pl-6 ' : ''}`}>
+      <div className={`w-full max-w-md mx-auto`}>
         <RadioGroup
           value={selected}
           onChange={(e) => {
@@ -60,76 +62,75 @@ export function SideBarTabs({
           }}
         >
           <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-          <div className="space-y-2">
+          <div className={`space-y-2 ${horizontal ? 'flex' : ''}`}>
             {loading
               ? ['', ''].map((_, index) => (
-                  <div key={index} className="mb-px">
-                    <Skeleton
-                      baseColor="rgb(41, 49, 69)"
-                      highlightColor="rgb(63, 72, 101)"
-                      height={56}
-                    />
-                  </div>
-                ))
+                <div key={index} className="mb-px">
+                  <Skeleton
+                    baseColor="rgb(41, 49, 69)"
+                    highlightColor="rgb(63, 72, 101)"
+                    height={56}
+                  />
+                </div>
+              ))
               : array.map((plan, index) => (
-                  <RadioGroup.Option
-                    key={index}
-                    value={plan}
-                    className={({ active, checked }) =>
-                      `${
-                        active ||
-                        selectedItem?.content.subtitle === plan.content.subtitle
-                          ? 'ring-2 ring-offset-2 ring-offset-sky-300 ring-white ring-opacity-60'
-                          : ''
-                      }
-                  ${
-                    checked ||
-                    selectedItem?.content.subtitle === plan.content.subtitle
+                <RadioGroup.Option
+                  key={index}
+                  value={plan}
+                  className={({ active, checked }) =>
+                    `${active ||
+                      selectedItem?.content.subtitle === plan.content.subtitle
+                      ? 'ring-2 ring-offset-2 ring-offset-sky-300 ring-white ring-opacity-60'
+                      : ''
+                    }
+                  ${checked ||
+                      selectedItem?.content.subtitle === plan.content.subtitle
                       ? 'dark:bg-dark-5 bg-primary-1 text-white bg-opacity-75'
                       : 'dark:bg-dark-1 bg-gray-400'
-                  }
-                    relative rounded-lg shadow-md px-5 py-4 cursor-pointer flex focus:outline-none dark:text-white`
                     }
-                  >
-                    {({ checked }) => (
-                      <>
-                        <div className="flex items-center justify-between w-full">
-                          <div className="flex items-center">
-                            <div className="text-sm">
-                              <RadioGroup.Label
-                                as="p"
-                                className={`font-medium  ${
-                                  checked ||
-                                  selectedItem?.content.subtitle ===
-                                    plan.content.subtitle
-                                    ? 'dark:text-white '
-                                    : 'text-gray-900 dark:text-white'
+
+                    ${horizontal ? 'mx-2' : ''}
+                    relative rounded-lg shadow-md px-5 py-4 cursor-pointer flex focus:outline-none dark:text-white mt-2`
+                  }
+                >
+                  {({ checked }) => (
+                    <>
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center">
+                          <div className="text-sm">
+                            <RadioGroup.Label
+                              as="p"
+                              className={`font-medium  ${checked ||
+                                selectedItem?.content.subtitle ===
+                                plan.content.subtitle
+                                ? 'dark:text-white '
+                                : 'text-gray-900 dark:text-white'
                                 }`}
-                              >
-                                {plan.content.subtitle !== 'Sem vínculo'
-                                  ? plan.content.subtitle
-                                      .split(' -')
-                                      .map((item, index) => (
-                                        <span className="block" key={index}>
-                                          {item}
-                                        </span>
-                                      ))
-                                  : plan.content.title + plan.position}
-                              </RadioGroup.Label>
-                            </div>
+                            >
+                              {plan.content.subtitle !== 'Sem vínculo'
+                                ? plan.content.subtitle
+                                  .split(' -')
+                                  .map((item, index) => (
+                                    <span className="block" key={index}>
+                                      {item}
+                                    </span>
+                                  ))
+                                : plan.content.title + plan.position}
+                            </RadioGroup.Label>
                           </div>
-                          {(checked ||
-                            selectedItem?.content.subtitle ===
-                              plan.content.subtitle) && (
+                        </div>
+                        {(checked ||
+                          selectedItem?.content.subtitle ===
+                          plan.content.subtitle) && (
                             <div className="flex-shrink-0 text-white">
                               <common.icons.CheckIcon className="w-6 h-6" />
                             </div>
                           )}
-                        </div>
-                      </>
-                    )}
-                  </RadioGroup.Option>
-                ))}
+                      </div>
+                    </>
+                  )}
+                </RadioGroup.Option>
+              ))}
           </div>
         </RadioGroup>
       </div>
@@ -149,15 +150,15 @@ export function SideBarTabs({
               addFunction
                 ? addFunction()
                 : setArray((lastArray) => {
-                    return [
-                      ...lastArray,
-                      {
-                        Id: null,
-                        content: { title: 'Veículo ', subtitle: 'Sem vínculo' },
-                        position: lastArray[lastArray.length - 1].position + 1
-                      }
-                    ]
-                  })
+                  return [
+                    ...lastArray,
+                    {
+                      Id: null,
+                      content: { title: 'Veículo ', subtitle: 'Sem vínculo' },
+                      position: lastArray[lastArray.length - 1].position + 1
+                    }
+                  ]
+                })
             }
             type="button"
             divClassName="w-full"

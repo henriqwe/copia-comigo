@@ -15,10 +15,10 @@ export { TableSkeleton } from './lib/Table/TableSkeleton'
 export { ChangeCompany } from './lib/ChangeCompany'
 export { Logout } from './lib/Logout'
 export { MainNavigation } from './lib/MainNavigation'
-export { FloatingCard } from './lib/FloatingCard';
+export { FloatingCard } from './lib/FloatingCard'
+// TODO: renomear para algo mais genérico
 export { SideBarGoCustomers } from './lib/SideBarGoCustomers'
 
 export * as table from './lib/Table/'
 export * as borderLessTable from './lib/BorderLessTable/itens'
 export * as MenuItens from './lib/MenuItens'
-

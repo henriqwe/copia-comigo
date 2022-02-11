@@ -1,6 +1,6 @@
 import * as table from '.'
 import { Dispatch, SetStateAction } from 'react'
-
+import * as Styles from './_styles'
 type TableListType = {
   colection: any
   columnTitles: {
@@ -39,7 +39,7 @@ export const Table = ({
     <>
       <div className="z-10 col-span-12 overflow-auto intro-y">
         {search && <table.Search pagination={pagination} search={search} />}
-        <table className="table table-report">
+        <table className={`${Styles.table['table']} ${Styles.tableReport['table-report']}`}>
           <thead>
             <table.ColumnTitle
               disableActions={!actions}
@@ -80,4 +80,3 @@ export const Table = ({
     </>
   )
 }
-

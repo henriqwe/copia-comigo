@@ -3,7 +3,6 @@ import { ReactNode, useState } from 'react'
 import * as common from '@comigo/ui-common'
 import * as blocks from '@comigo/ui-blocks'
 
-
 type TemplateProps = {
   children: ReactNode
   Form: ReactNode
@@ -15,13 +14,13 @@ type TemplateProps = {
   currentLocation: { title: string; url: string }[]
   theme: string
   setTheme: () => void
-  mainMenuItens: any
+  MainMenuItems: any
   rotas: any
   companies: {
-    name: string,
-    ram: string,
-    cpus: string,
-    disk: string,
+    name: string
+    ram: string
+    cpus: string
+    disk: string
     active?: boolean
   }[]
   imageUrl: string
@@ -34,7 +33,7 @@ export function FormAndTabs({
   reload,
   currentLocation,
   theme,
-  mainMenuItens,
+  MainMenuItems,
   rotas,
   companies,
   imageUrl,
@@ -53,7 +52,11 @@ export function FormAndTabs({
       </div>
 
       <div className="flex">
-        <blocks.MainNavigation mainMenuItens={mainMenuItens} rotas={rotas} imageUrl={imageUrl} />
+        <blocks.MainNavigation
+          MainMenuItems={MainMenuItems}
+          rotas={rotas}
+          imageUrl={imageUrl}
+        />
         <div className="content">
           <div className="z-40 top-bar">
             <common.Breadcrumb

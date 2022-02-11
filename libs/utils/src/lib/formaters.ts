@@ -109,3 +109,13 @@ export const BRLMoneyFormat = (value: string | number) => {
 export const BRLMoneyUnformat = (identifier: string | number) => {
   return identifier.toString().split('.').join('').replace(',', '.')
 }
+
+export const BRLMoneySymbolUnformat = (identifier: string | number) => {
+  return Number(BRLMoneyUnformat(identifier).split('R$')[1]).toString()
+}
+
+export const licensePlateFormat = (identifier: string | number) => {
+  let string = String(identifier)
+  string = string.replace(/^(\d{4})(\d{3})$/, '$1-$2')
+  return string
+}

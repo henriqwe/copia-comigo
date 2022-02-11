@@ -61,7 +61,7 @@ export function MenuItemLevel2({
         <li className='pl-2 relative text-gray-500 hover:text-white hover:bg-gray-800 py-2 rounded  focus-within:text-white'>
           <common.Link
             to={url}
-            className={`side-menu ${active && 'side-menu--active'} flex`}
+            className={`side-menu ${active && 'side-menu--active'} flex items-center`}
           >
             <div className="side-menu__icon">{icon}</div>
             <div className="side-menu__title inset-y-0 pl-2 pointer-events-none"> {title} </div>

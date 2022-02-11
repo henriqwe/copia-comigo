@@ -1,4 +1,4 @@
-// // components/FullCalendar.jsx
+// // domains/FullCalendar.jsx
 
 // import Calendar from '@fullcalendar/react'
 // import dayGridPlugin from '@fullcalendar/daygrid'

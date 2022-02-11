@@ -23,7 +23,7 @@ export function Search({ search, pagination, sideBar }: SearchProps) {
   const [showRemoveButton, setShowRemoveButton] = useState(false)
 
   return (
-    <div className={'flex items-start justify-end gap-4 pt-4'}>
+    <div className={'flex items-start justify-end gap-4'}>
       <div className={`flex-1 mb-2 ${sideBar ? '' : 'max-w-1/2'}`}>
         <common.form.Input
           fieldName="searchValue"

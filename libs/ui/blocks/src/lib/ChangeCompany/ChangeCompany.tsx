@@ -8,10 +8,10 @@ type ChangeCompanyProps = {
   empresa: string
   setEmpresa: Dispatch<SetStateAction<string>>
   companies: {
-    name: string,
-    ram: string,
-    cpus: string,
-    disk: string,
+    name: string
+    ram: string
+    cpus: string
+    disk: string
     active?: boolean
   }[]
 }
@@ -28,15 +28,19 @@ export const ChangeCompany = ({
     <div className="flex items-center justify-end pl-4 mt-2">
       <button
         onClick={() => {
-          if (empresa === 'GoCRM') {
-            router.push(
-              'http://ec2-54-207-246-124.sa-east-1.compute.amazonaws.com:3001/erp'
-            )
-          }
-          if (empresa === 'GoERP') {
-            router.push(
-              'http://ec2-54-207-246-124.sa-east-1.compute.amazonaws.com:3002/erp'
-            )
+          if (typeof window !== 'undefined') {
+            const hostname = window.location.hostname
+
+            if (empresa === 'GoCRM') {
+              router.push(
+                `http://${hostname}:3001/`
+              )
+            }
+            if (empresa === 'GoERP') {
+              router.push(
+                `http://${hostname}:3002/`
+              )
+            }
           }
         }}
         className="px-4 py-3 mt-2 text-white rounded-md bg-theme-10"
@@ -46,4 +50,3 @@ export const ChangeCompany = ({
     </div>
   </common.DialogueModal>
 )
-

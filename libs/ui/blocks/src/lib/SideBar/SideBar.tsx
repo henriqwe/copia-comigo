@@ -2,12 +2,12 @@ import React, { ReactChild } from 'react'
 
 import * as common from '@comigo/ui-common'
 
-import {Level1} from '../MenuItens/Level1'
-import {Level2} from '../MenuItens/Level2'
-import {Level3} from '../MenuItens/Level3'
+import { Level1 } from '../MenuItens/Level1'
+import { Level2 } from '../MenuItens/Level2'
+import { Level3 } from '../MenuItens/Level3'
 
 type SideBarProps = {
-  mainMenuItens: [
+  MainMenuItems: [
     {
       title: string
       icon: ReactChild
@@ -25,18 +25,18 @@ type SideBarProps = {
     }
   ]
   imageUrl: string
-  rotas:{
-      home: string
+  rotas: {
+    home: string
   }
 }
 
-export function SideBar({ mainMenuItens, imageUrl,rotas }: SideBarProps) {
+export function SideBar({ MainMenuItems, imageUrl, rotas }: SideBarProps) {
   return (
     <nav className="side-nav">
       <common.LogoWithLink url={rotas.home} imageUrl={imageUrl} />
       <common.Divider />
       <ul>
-        {mainMenuItens.map((item, index) => {
+        {MainMenuItems.map((item, index) => {
           return item.children?.length === 0 ? (
             <Level1 item={item} key={`item-menu-${index}`} />
           ) : (

@@ -3,6 +3,7 @@ import * as common from '@comigo/ui-common'
 
 type PrimaryButtonProps = {
   disabled?: boolean
+  // TODO remover opção para repassar classes do tailwind
   className?: string
   title: string | ReactNode
   onClick?: () => void
@@ -20,7 +21,8 @@ export const PrimaryButton = ({
 }: PrimaryButtonProps) => (
   <button
     disabled={disabled}
-    className={`px-3 py-2 my-2 text-white rounded-md bg-opacity-70 hover:opacity-100 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:border-gray-400  transition flex items-center btn btn-primary ${className}`}
+    // TODO refatorar cor do botão
+    className={`bg-primary border-primary text-white dark:border-primary transition duration-200 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md font-medium cursor-pointer focus:ring-4 focus:ring-primary focus:ring-opacity-20 dark:focus:ring-slate-700 dark:focus:ring-opacity-50 dark:transition-none hover:bg-opacity-90 hover:border-opacity-90 disabled:opacity-70 disabled:cursor-not-allowed ${className}`}
     type={type}
     onClick={onClick}
   >

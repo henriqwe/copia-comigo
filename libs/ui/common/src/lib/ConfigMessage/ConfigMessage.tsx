@@ -4,10 +4,8 @@ import { useRouter } from 'next/router'
 type ConfigMessageProps = {
   children: React.ReactNode
   rotas: {
-    erp: {
-      configuracoes: {
-        index: string
-      }
+    configuracoes: {
+      index: string
     }
   }
 }
@@ -18,7 +16,7 @@ export function ConfigMessage({ children, rotas }: ConfigMessageProps) {
     <div className="flex flex-col items-center justify-center my-8">
       <p className="pb-4 text-xl">{children}</p>
       <common.buttons.SecondaryButton
-        handler={() => router.push(rotas.erp.configuracoes.index)}
+        handler={() => router.push(rotas.configuracoes.index)}
         title="Configurar"
         type="button"
       />
