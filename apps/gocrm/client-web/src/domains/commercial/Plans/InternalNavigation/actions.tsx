@@ -1,10 +1,14 @@
-import rotas from '&crm/domains/routes';
+import * as plans from '&crm/domains/commercial/Plans'
 
 export function Actions() {
+  const { setSlidePanelState } = plans.useList()
   const actions = [
     {
       title: 'Plano',
-      url: rotas.comercial.planos.cadastrar,
+      handler: () => {
+        event?.preventDefault();
+        setSlidePanelState({ open: true });
+      }
     },
   ];
   return actions;

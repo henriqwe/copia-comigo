@@ -1,14 +1,14 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as collaborator from '&crm/domains/identities/Collaborators';
+import * as collaborator from '&crm/domains/identities/Collaborators'
 
 export default function UpdateClient() {
   return (
@@ -20,24 +20,24 @@ export default function UpdateClient() {
         </ThemeProvider>
       </collaborator.users.UserProvider>
     </collaborator.UpdateProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   const { collaboratorRefetch, collaboratorLoading, collaboratorData } =
-    collaborator.useUpdate();
+    collaborator.useUpdate()
   const refetch = () => {
-    collaboratorRefetch();
-  };
+    collaboratorRefetch()
+  }
 
-  const titulo = collaboratorData?.Pessoa.Nome || '';
+  const titulo = collaboratorData?.Pessoa.Nome || ''
 
   return (
     <templates.FormAndTabs
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -45,15 +45,15 @@ function Page() {
       title={`${titulo}`}
       reload={{
         action: refetch,
-        state: collaboratorLoading,
+        state: collaboratorLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Identidades', url: rotas.identidades.index },
-        { title: 'Colaboradores', url: rotas.identidades.colaboradores },
+        { title: 'Colaboradores', url: rotas.identidades.colaboradores }
       ]}
     >
       <collaborator.Tabs />
     </templates.FormAndTabs>
-  );
+  )
 }

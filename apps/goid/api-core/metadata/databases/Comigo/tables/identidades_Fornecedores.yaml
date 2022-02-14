@@ -2,34 +2,34 @@ table:
   name: Fornecedores
   schema: identidades
 object_relationships:
-  - name: Pessoa
-    using:
-      foreign_key_constraint_on: Pessoa_Id
+- name: Pessoa
+  using:
+    foreign_key_constraint_on: Pessoa_Id
 array_relationships:
-  - name: Vendedores
-    using:
-      foreign_key_constraint_on:
-        column: Fornecedor_Id
-        table:
-          name: Vendedores
-          schema: identidades
+- name: Vendedores
+  using:
+    foreign_key_constraint_on:
+      column: Fornecedor_Id
+      table:
+        name: Vendedores
+        schema: identidades
 event_triggers:
-  - definition:
-      delete:
-        columns: '*'
-      enable_manual: true
-      insert:
-        columns: '*'
-      update:
-        columns:
-          - updated_at
-          - Id
-          - deleted_at
-          - created_at
-          - Pessoa_Id
-    name: Logs_identidades_Fornecedores
-    retry_conf:
-      interval_sec: 10
-      num_retries: 0
-      timeout_sec: 60
-    webhook: '{{LOGS_EVENT_BASE_URL}}'
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - updated_at
+      - Id
+      - deleted_at
+      - created_at
+      - Pessoa_Id
+  name: Logs_identidades_Fornecedores
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

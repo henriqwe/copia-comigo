@@ -1,11 +1,15 @@
-import rotas from '&crm/domains/routes';
+import * as combos from '&crm/domains/commercial/Combos'
 
 export function Actions() {
+  const { setSlidePanelState } = combos.useList()
   const actions = [
     {
       title: 'Combo',
-      url: rotas.comercial.combos.cadastrar,
-    },
-  ];
-  return actions;
+      handler: () => {
+        event?.preventDefault()
+        setSlidePanelState({ open: true })
+      }
+    }
+  ]
+  return actions
 }

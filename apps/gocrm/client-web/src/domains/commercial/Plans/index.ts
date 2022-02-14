@@ -1,25 +1,11 @@
-import List from './ListPlans';
-import RowActions from './ListPlans/rowActions';
-import Create from './Form/CreatePlan';
-import Update from './Form/UpdatePlan';
-import InternalNavigation from './InternalNavigation';
-import { ListContext, ListProvider, useList } from './ListContext';
-import { CreateContext, CreateProvider, useCreate } from './CreateContext';
-import { UpdateContext, UpdateProvider, useUpdate } from './UpdateContext';
-
-export {
-  List,
-  RowActions,
-  Create,
-  Update,
-  InternalNavigation,
-  CreateContext,
-  CreateProvider,
-  useCreate,
-  ListContext,
-  ListProvider,
-  useList,
-  UpdateContext,
-  UpdateProvider,
-  useUpdate,
-};
+export { List } from './ListPlans'
+export { RowActions } from './ListPlans/rowActions'
+export { SlidePanel } from './SlidePanel'
+export { CreatePlan } from './SlidePanel/CreatePlan'
+export { UpdatePlan } from './Form/UpdatePlan'
+export { UpdateSlidePanel } from './UpdateSlidePanel'
+export { CreatePlanProducts } from './UpdateSlidePanel/CreatePlanProducts'
+export { CreatePlanService } from './UpdateSlidePanel/CreatePlanService'
+export { InternalNavigation } from './InternalNavigation'
+export { ListContext, ListProvider, useList } from './ListContext'
+export { UpdateContext, UpdateProvider, useUpdate } from './UpdateContext'

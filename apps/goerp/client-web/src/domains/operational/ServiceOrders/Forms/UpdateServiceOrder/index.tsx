@@ -1,85 +1,79 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-import * as common from '@comigo/ui-common';
-import * as blocks from '@comigo/ui-blocks';
+import * as common from '@comigo/ui-common'
+import * as blocks from '@comigo/ui-blocks'
 
-import * as serviceOrders from '&erp/domains/operational/ServiceOrders';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 import {
   BRLMoneyFormat,
   CNPJFormat,
   CPFFormat,
-  ptBRtimeStamp,
-} from '@comigo/utils';
+  ptBRtimeStamp
+} from '@comigo/utils'
+
+type ClientType = {
+  Id: string
+  Pessoa: {
+    Nome: string
+    PessoaJuridica: boolean
+    Identificador: string
+    DadosDaApi: {
+      enderecos: {
+        bairro: string
+        cidade: string
+        complemento: string
+        estado: string
+        logradouro: string
+        numero: string
+        pontoDeReferencia: string
+      }[]
+    }
+  }
+}
+
+type CollectionType = {
+  Name: string
+  MembershipPrice: string | number
+  RecurrencePrice: string | number
+  Type: string
+}
+
+type ProductCollectionType = Omit<CollectionType, 'Type'> & {
+  Identifier: string
+  ItemId: string
+  Retirado: string
+}
+
+type VehicleType = {
+  Id: string
+  Placa?: string
+  NumeroDoChassi?: string
+  Apelido?: string
+}
 
 export function Update() {
-  const [activeEdit, setActiveEdit] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [accessionValue, setAccessionValue] = useState('0');
-  const [benefitsValue, setBenefitsValue] = useState('0');
-  const [proposal, setProposal] = useState<{
-    Id: string;
-    Cliente_Id?: string;
-    Instalacoes: {
-      Endereco: {
-        Bairro: string;
-        Cidade: string;
-        Complemento: string;
-        Estado: string;
-        Logradouro: string;
-        Numero: string;
-      };
-    }[];
-    TipoDePagamento_Id: string;
-  }>();
-  const [client, setClient] = useState<{
-    Id: string;
-    Pessoa: {
-      Nome: string;
-      PessoaJuridica: boolean;
-      Identificador: string;
-    };
-  }>();
-  const [benefits, setBenefits] = useState<
-    {
-      Name: string;
-      Price: string;
-      Type: string;
-    }[]
-  >();
-  const [services, setServices] = useState<
-    {
-      Name: string;
-      Price: string;
-      OS: boolean;
-    }[]
-  >();
-  const [products, setProducts] = useState<
-    {
-      Name: string;
-      Price: string;
-    }[]
-  >();
-  const [vehicle, setVehicle] = useState<{
-    Id: string;
-    Placa?: string;
-    NumeroDoChassi?: string;
-    Apelido?: string;
-  }>();
+  const [activeEdit, setActiveEdit] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [accessionValue, setAccessionValue] = useState('0')
+  const [benefitsValue, setBenefitsValue] = useState('0')
+  const [client, setClient] = useState<ClientType>()
+  const [benefits, setBenefits] = useState<CollectionType[]>()
+  const [vehicle, setVehicle] = useState<VehicleType>()
+  const [productCollection, setProductCollection] =
+    useState<ProductCollectionType[]>()
   const {
     serviceOrderData,
     serviceOrderRefetch,
     rejectServiceOrder,
     rejectServiceOrderLoading,
     rejectSchema,
-    getServiceOrderProposal,
     getProposalClient,
     setSlidePanelState,
     serviceOrderActivitiesRefetch,
     getServiceOrderVehicle,
-    getProductById,
     getPlanById,
     getComboById,
     getServiceById,
@@ -101,14 +95,67 @@ export function Update() {
     concludeServiceOrderLoading,
     finishServiceOrder,
     finishServiceOrderLoading,
-  } = serviceOrders.useUpdate();
-  const address = proposal?.Instalacoes[0].Endereco;
+    getItemIdByProductId,
+    getChipIdentifierByItemId,
+    getEquipmentIdentifierByItemId,
+    getIdentifierByItemId,
+    getTrackerIdentifierByItemId,
+    getInputKitsIdentifierByItemId,
+    getInstallationKitsIdentifierByItemId,
+    registerItemMovimentation,
+    registerItemMovimentationLoading,
+    updateServiceOrdersSchedule,
+    updateServiceOrdersScheduleLoading,
+    updateServiceOrderScheduleItem
+  } = serviceOrders.useUpdate()
+  const address = client?.Pessoa.DadosDaApi.enderecos[0]
 
   const {
     register: rejectRegister,
     formState: { errors: rejectErros },
-    handleSubmit: rejectSubmit,
-  } = useForm({ resolver: yupResolver(rejectSchema) });
+    handleSubmit: rejectSubmit
+  } = useForm({ resolver: yupResolver(rejectSchema) })
+
+  const tableColumns = [
+    {
+      title: 'Nome',
+      fieldName: 'Name'
+    },
+    {
+      title: 'Adesão',
+      fieldName: 'MembershipPrice',
+      type: 'handler' as 'handler' | 'date' | 'relationship',
+      handler: (price: string) => BRLMoneyFormat(price)
+    },
+    {
+      title: 'Recorrência',
+      fieldName: 'RecurrencePrice',
+      type: 'handler' as 'handler' | 'date' | 'relationship',
+      handler: (price: string) => BRLMoneyFormat(price)
+    }
+  ]
+
+  const productTableColumns = [
+    ...tableColumns,
+    {
+      title: 'Identificador',
+      fieldName: 'Identifier',
+      type: 'handler' as 'handler' | 'date' | 'relationship',
+      handler: (value: string) => (value ? value : '')
+    },
+    {
+      title: 'Item de Estoque',
+      fieldName: 'ItemId',
+      type: 'handler' as 'handler' | 'date' | 'relationship',
+      handler: (value: string) => (value ? value : '')
+    },
+    {
+      title: 'Retirado',
+      fieldName: 'Retirado',
+      type: 'handler' as 'handler' | 'date' | 'relationship',
+      handler: (value: string) => (value ? value : '')
+    }
+  ]
 
   async function finishServiceOrderSubmit() {
     // Pega os veiculos ativos desse cliente
@@ -122,29 +169,29 @@ export function Update() {
               if (serviceOrderData?.Tipo.Valor === 'desinstalacao') {
                 await disableActiveVehicle({
                   variables: {
-                    Id: activeVehicles[0].Id,
-                  },
-                });
+                    Id: activeVehicles[0].Id
+                  }
+                })
                 serviceOrderData?.Servicos.map(async (service) => {
                   await insertActiveVehicleService({
                     variables: {
-                      ServicoPreco_Id: service.ServicoPreco_Id,
-                      Servico_Id: service.Servico_Id,
-                      VeiculoAtivo_Id: activeVehicles[0].Id,
-                    },
-                  });
-                });
-                return;
+                      ServicoPreco_Id: service.ServicoPreco.Id,
+                      Servico_Id: service.Servico.Id,
+                      VeiculoAtivo_Id: activeVehicles[0].Id
+                    }
+                  })
+                })
+                return
               }
               // Atualiza o veiculo
               await updateActiveVehicle({
                 variables: {
-                  Id: activeVehicles[0].Id,
-                },
+                  Id: activeVehicles[0].Id
+                }
               })
                 .then((response) => {
                   serviceOrderData?.Beneficios.map(async (benefit) => {
-                    let duplatedItemId = '';
+                    let duplatedItemId = ''
                     // verifica se o beneficio existe no veiculo ativo, caso sim atualiza
                     if (
                       activeVehicles[0].Beneficios.findIndex(
@@ -153,12 +200,12 @@ export function Update() {
                             activeBenefit.Portfolio_Id ===
                               benefit.Portfolio_Id &&
                             activeBenefit.TipoPortfolio ===
-                              benefit.TipoPortfolio;
+                              benefit.TipoPortfolio
                           if (validation) {
-                            duplatedItemId = activeBenefit.Id;
+                            duplatedItemId = activeBenefit.Id
                           }
 
-                          return validation;
+                          return validation
                         }
                       ) > -1
                     ) {
@@ -166,10 +213,10 @@ export function Update() {
                       await updateActiveVehicleBenefit({
                         variables: {
                           Id: duplatedItemId,
-                          PortfolioPreco_Id: benefit.PortfolioPreco_Id,
-                        },
-                      });
-                      return;
+                          PortfolioPreco_Id: benefit.PortfolioPreco_Id
+                        }
+                      })
+                      return
                     }
 
                     // inseri um beneficio para o veiculo ativo
@@ -181,38 +228,36 @@ export function Update() {
                         VeiculoAtivo_Id:
                           response!.data.update_clientes_VeiculosAtivos_by_pk
                             .Id,
-                        Ativo: true,
-                      },
-                    });
-                  });
+                        Ativo: true
+                      }
+                    })
+                  })
                   serviceOrderData?.Produtos.map(async (product) => {
                     await insertActiveVehicleProducts({
                       variables: {
-                        ProdutoPreco_Id: product.ProdutoPreco_Id,
-                        Produto_Id: product.Produto_Id,
+                        ProdutoPreco_Id: product.ProdutoPreco.Id,
+                        Produto_Id: product.Produto.Id,
                         VeiculoAtivo_Id:
-                          response!.data.update_clientes_VeiculosAtivos_by_pk
-                            .Id,
-                      },
-                    });
-                  });
+                          response!.data.update_clientes_VeiculosAtivos_by_pk.Id
+                      }
+                    })
+                  })
 
                   serviceOrderData?.Servicos.map(async (service) => {
                     await insertActiveVehicleService({
                       variables: {
-                        ServicoPreco_Id: service.ServicoPreco_Id,
-                        Servico_Id: service.Servico_Id,
+                        ServicoPreco_Id: service.ServicoPreco.Id,
+                        Servico_Id: service.Servico.Id,
                         VeiculoAtivo_Id:
-                          response!.data.update_clientes_VeiculosAtivos_by_pk
-                            .Id,
-                      },
-                    });
-                  });
+                          response!.data.update_clientes_VeiculosAtivos_by_pk.Id
+                      }
+                    })
+                  })
                 })
                 .catch((err) => {
-                  utils.showError(err);
-                });
-              return;
+                  utils.showError(err)
+                })
+              return
             }
             // caso o cliente não tenha o veiculo ativo ele cria um
             await insertActiveVehicle({
@@ -226,97 +271,155 @@ export function Update() {
                     Portfolio_Id: benefit.Portfolio_Id,
                     TipoPortfolio: benefit.TipoPortfolio,
                     PortfolioPreco_Id: benefit.PortfolioPreco_Id,
-                    Ativo: true,
-                  };
+                    Ativo: true
+                  }
                 }),
                 Produtos: serviceOrderData?.Produtos.map((product) => {
                   return {
-                    Produto_Id: product.Produto_Id,
-                    ProdutoPreco_Id: product.ProdutoPreco_Id,
-                    Ativo: true,
-                  };
+                    Produto_Id: product.Produto.Id,
+                    ProdutoPreco_Id: product.ProdutoPreco.Id,
+                    Ativo: true
+                  }
                 }),
                 Servicos: serviceOrderData?.Servicos.map((service) => {
                   return {
-                    Servico_Id: service.Servico_Id,
-                    ServicoPreco_Id: service.ServicoPreco_Id,
-                    Ativo: true,
-                  };
-                }),
-              },
+                    Servico_Id: service.Servico.Id,
+                    ServicoPreco_Id: service.ServicoPreco.Id,
+                    Ativo: true
+                  }
+                })
+              }
             }).catch((err) => {
-              utils.showError(err);
-            });
+              utils.showError(err)
+            })
           })
           .then(() => {
-            serviceOrderRefetch();
-            serviceOrderActivitiesRefetch();
-            setActiveEdit(false);
+            serviceOrderRefetch()
+            serviceOrderActivitiesRefetch()
+            setActiveEdit(false)
             utils.notification(
               'Ordem de serviço finalizada com sucesso',
               'success'
-            );
+            )
           })
           .catch((err) => {
-            utils.showError(err);
-          });
+            utils.showError(err)
+          })
       })
       .catch((err) => {
-        utils.showError(err);
-      });
+        utils.showError(err)
+      })
+  }
+
+  async function movimentationSubmit() {
+    serviceOrderData.Agendamentos[0].Itens.map((item) => {
+      registerItemMovimentation({
+        variables: {
+          Quantidade: 1,
+          Tipo: 'saida',
+          Item_Id: item.Item_Id,
+          Motivo_Id: 'agendamentoDeOS'
+        }
+      }).catch((err) => {
+        utils.showError(err)
+      })
+      updateServiceOrderScheduleItem({
+        variables: {
+          Id: item.Id,
+          RetiradoDoEstoque: true
+        }
+      }).catch((err) => {
+        utils.showError(err)
+      })
+    })
+    await updateServiceOrdersSchedule({
+      variables: {
+        Id: serviceOrderData?.Agendamentos[0].Id
+      }
+    })
+      .then(() => {
+        serviceOrderRefetch()
+        setActiveEdit(false)
+        utils.notification('Itens retirados com sucesso', 'success')
+      })
+      .catch((err) => {
+        utils.showError(err)
+      })
   }
 
   async function initializeServiceOrdersSubmit() {
     await initializeServiceOrders({
       variables: {
-        Id: serviceOrderData?.Agendamentos[0].Id,
-      },
+        Id: serviceOrderData?.Agendamentos[0].Id
+      }
     })
       .then(() => {
-        serviceOrderRefetch();
-        setActiveEdit(false);
-        utils.notification('Serviços iniciados com sucesso', 'success');
+        serviceOrderRefetch()
+        setActiveEdit(false)
+        utils.notification('Serviços iniciados com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
+        utils.showError(err)
+      })
   }
 
   async function concludeServiceOrdersSubmit() {
     await concludeServiceOrder({
       variables: {
-        Id: serviceOrderData?.Agendamentos[0].Id,
-      },
+        Id: serviceOrderData?.Agendamentos[0].Id
+      }
     })
       .then(() => {
-        serviceOrderRefetch();
-        setActiveEdit(false);
-        utils.notification('Serviços concluidos com sucesso', 'success');
+        serviceOrderRefetch()
+        setActiveEdit(false)
+        utils.notification('Serviços concluidos com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
+        utils.showError(err)
+      })
   }
 
   async function rejectServiceOrderSubmit(formData: {
-    MotivoRecusado: string;
+    MotivoRecusado: string
   }) {
     await rejectServiceOrder({
       variables: {
         Id: serviceOrderData?.Agendamentos[0].Id,
-        MotivoRecusado: formData.MotivoRecusado,
-      },
+        MotivoRecusado: formData.MotivoRecusado
+      }
     })
       .then(() => {
-        serviceOrderRefetch();
-        serviceOrderActivitiesRefetch();
-        setActiveEdit(false);
-        setShowModal(false);
-        utils.notification('Ordem de serviço frustrada com sucesso', 'success');
+        serviceOrderData.Agendamentos[0].Itens.map((item) => {
+          if (item.RetiradoDoEstoque) {
+            registerItemMovimentation({
+              variables: {
+                Quantidade: 1,
+                Tipo: 'entrada',
+                Item_Id: item.Item_Id,
+                Motivo_Id: 'frustracaoDeOS'
+              }
+            }).catch((err) => {
+              utils.showError(err)
+            })
+            updateServiceOrderScheduleItem({
+              variables: {
+                Id: item.Id,
+                RetiradoDoEstoque: true
+              }
+            }).catch((err) => {
+              utils.showError(err)
+            })
+          }
+        })
+        serviceOrderRefetch()
+        serviceOrderActivitiesRefetch()
+        setActiveEdit(false)
+        setShowModal(false)
+        utils.notification('Ordem de serviço frustrada com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
+        utils.showError(err)
+      })
   }
 
   async function getBenefits() {
@@ -329,21 +432,17 @@ export function Update() {
           ).then((response) => {
             return {
               Name: response?.service?.Nome as string,
-              Price: response?.price?.Valor as string,
-              Type: 'serviço',
-            };
-          });
-        case 'produto':
-          return await getProductById(
-            benefit.Portfolio_Id,
-            benefit.PortfolioPreco_Id
-          ).then((response) => {
-            return {
-              Name: response?.product?.Nome as string,
-              Price: response?.price?.Valor as string,
-              Type: 'produto',
-            };
-          });
+              MembershipPrice:
+                response?.price.TipoDePreco.Valor === 'adesao'
+                  ? response?.price.Valor
+                  : 0,
+              RecurrencePrice:
+                response?.price.TipoDePreco.Valor === 'recorrencia'
+                  ? response?.price.Valor
+                  : 0,
+              Type: 'serviço'
+            }
+          })
         case 'plano':
           return await getPlanById(
             benefit.Portfolio_Id,
@@ -351,148 +450,209 @@ export function Update() {
           ).then((response) => {
             return {
               Name: response?.plan?.Nome as string,
-              Price: response?.price?.ValorPraticado
-                ? response?.price?.ValorPraticado + response.price.ValorBase
-                : response?.price?.ValorBase +
-                  (response.price?.ServicoPreco.Valor as string),
-              Type: 'plano',
-            };
-          });
+              MembershipPrice: response?.price.ValorDeAdesao,
+              RecurrencePrice: response?.price.ValorDeRecorrencia,
+              Type: 'plano'
+            }
+          })
         case 'combo':
           return await getComboById(
             benefit.Portfolio_Id,
             benefit.PortfolioPreco_Id
           ).then((response) => {
-            let comboPrice = response?.price?.ValorBase;
-            response?.combo?.Planos.map((plan) => {
-              comboPrice += plan.ValorPraticado;
-            });
-            response?.combo?.Produtos.map((product) => {
-              comboPrice += product.ValorPraticado;
-            });
-            response?.combo?.Servicos.map((services) => {
-              comboPrice += services.ValorPraticado;
-            });
-
             return {
               Name: response?.combo?.Nome as string,
-              Price: comboPrice as string,
-              Type: 'combo',
-            };
-          });
+              MembershipPrice: response?.price.ValorDeAdesao,
+              RecurrencePrice: response?.price.ValorDeRecorrencia,
+              Type: 'combo'
+            }
+          })
       }
-    });
-    (async () => {
-      const benefitsArray = await Promise.all(benefits as any);
-      setBenefits(benefitsArray);
-    })();
-  }
-
-  async function getServices() {
-    const services = serviceOrderData?.Servicos.map(async (service) => {
-      const asyncService = await getServiceById(
-        service.Servico_Id,
-        service.ServicoPreco_Id
-      );
-
-      return {
-        Name: asyncService?.service?.Nome,
-        Price: asyncService?.price?.Valor,
-        OS: asyncService?.service?.GeraOS,
-      };
-    });
-    (async () => {
-      const servicesArray = await Promise.all(services as any);
-      setServices(servicesArray);
-    })();
-  }
-
-  async function getProducts() {
-    const products = serviceOrderData?.Produtos.map(async (product) => {
-      const asyncProduct = await getProductById(
-        product.Produto_Id,
-        product.ProdutoPreco_Id
-      );
-
-      return {
-        Name: asyncProduct?.product?.Nome,
-        Price: asyncProduct?.price?.Valor,
-      };
-    });
-    (async () => {
-      const productsArray = await Promise.all(products as any);
-      setProducts(productsArray);
-    })();
+    })
+    ;(async () => {
+      const benefitsArray = await Promise.all(benefits as any)
+      setBenefits(benefitsArray)
+    })()
   }
 
   function getAccessionTotalValue() {
-    let totalPrice = 0;
-    services?.map((service) => {
-      totalPrice += Number(service.Price);
-    });
-    setAccessionValue(BRLMoneyFormat(totalPrice));
+    let totalPrice = 0
+    benefits?.map((benefit) => {
+      totalPrice += Number(benefit.MembershipPrice)
+    })
+    serviceOrderData.Produtos?.map((product) => {
+      if (product.ProdutoPreco.TipoDePreco.Valor === 'adesao') {
+        totalPrice += Number(product.ProdutoPreco.Valor)
+      }
+    })
+    serviceOrderData.Servicos?.map((service) => {
+      if (service.ServicoPreco.TipoDePreco.Valor === 'adesao') {
+        totalPrice += Number(service.ServicoPreco.Valor)
+      }
+    })
+    setAccessionValue(BRLMoneyFormat(totalPrice))
   }
 
   function getBenefitsTotalValue() {
-    let totalPrice = 0;
+    let totalPrice = 0
 
-    benefits?.map((portfolioItem) => {
-      totalPrice += Number(portfolioItem.Price);
-    });
-    setBenefitsValue(BRLMoneyFormat(totalPrice));
+    benefits?.map((benefit) => {
+      totalPrice += Number(benefit.RecurrencePrice)
+    })
+
+    serviceOrderData.Produtos?.map((product) => {
+      if (product.ProdutoPreco.TipoDePreco.Valor === 'adesao') {
+        totalPrice += Number(product.ProdutoPreco.Valor)
+      }
+    })
+    serviceOrderData.Servicos?.map((service) => {
+      if (service.ServicoPreco.TipoDePreco.Valor === 'recorrencia') {
+        totalPrice += Number(service.ServicoPreco.Valor)
+      }
+    })
+    setBenefitsValue(BRLMoneyFormat(totalPrice))
   }
 
   function getVehicle() {
     getServiceOrderVehicle(serviceOrderData?.Veiculo_Id as string).then(
       (vehicle) => {
-        setVehicle(vehicle);
+        setVehicle(vehicle)
       }
-    );
+    )
   }
 
   function getOSSituation() {
     if (serviceOrderData?.Situacao.Comentario === 'agendada') {
       switch (serviceOrderData.Agendamentos[0].Situacao.Valor) {
         case 'criada':
-          return 'Agendamento criado';
+          return 'Agendamento criado'
         case 'iniciada':
-          return 'Serviços iniciados';
+          return 'Serviços iniciados'
         case 'concluida':
-          return 'Serviços concluidos';
+          return 'Serviços concluidos'
         case 'frustada':
-          return 'Agendamento frustrado';
+          return 'Agendamento frustrado'
         default:
-          break;
+          break
       }
     }
-    return serviceOrderData?.Situacao.Comentario;
+    return serviceOrderData?.Situacao.Comentario
   }
 
   useEffect(() => {
     if (serviceOrderData) {
-      getServiceOrderProposal(serviceOrderData.Proposta_Id).then(
-        async (proposalResponse) => {
-          setProposal(proposalResponse);
-          await getProposalClient(proposalResponse?.Cliente_Id as string).then(
-            (client) => {
-              setClient(client);
-            }
-          );
+      getProposalClient(serviceOrderData.Proposta?.Cliente_Id as string).then(
+        (client) => {
+          setClient(client)
         }
-      );
-      getBenefits();
-      getServices();
-      getProducts();
-      getVehicle();
+      )
+
+      getBenefits()
+      getVehicle()
+
+      const products = serviceOrderData.Produtos.map(async (product) => {
+        const scheduleItem = await getItemIdByProductId(product.Produto.Id)
+        let identifier = ''
+        let itemName = ''
+        if (
+          serviceOrderData.Situacao.Valor !== 'aberta' &&
+          serviceOrderData.Situacao.Valor !== 'cancelada'
+        ) {
+          switch (scheduleItem[0].TipoDeItem_Id) {
+            case 'chips':
+              await getChipIdentifierByItemId(scheduleItem[0].Item_Id).then(
+                (chip) => {
+                  identifier = utils.phoneFormat(chip[0].NumeroDaLinha)
+                  itemName = chip[0].Item.Produto.Nome
+                }
+              )
+              break
+            case 'equipamentos':
+              await getEquipmentIdentifierByItemId(
+                scheduleItem[0].Item_Id
+              ).then((equipment) => {
+                identifier = equipment[0].Imei
+                itemName = equipment[0].Item.Produto.Nome
+              })
+              break
+            case 'identificadores':
+              await getIdentifierByItemId(scheduleItem[0].Item_Id).then(
+                (identifierResponse) => {
+                  identifier =
+                    identifierResponse[0].CodigoIdentificador.toString()
+                  itemName = identifierResponse[0].Item.Produto.Nome
+                }
+              )
+              break
+            case 'rastreadores':
+              await getTrackerIdentifierByItemId(scheduleItem[0].Item_Id).then(
+                (tracker) => {
+                  identifier =
+                    utils.phoneFormat(tracker[0].Chip.NumeroDaLinha) +
+                    ' - ' +
+                    tracker[0].Equipamento.Imei
+                  itemName = tracker[0].Item.Produto.Nome
+                }
+              )
+              break
+            case 'kitsDeInsumo':
+              await getInputKitsIdentifierByItemId(
+                scheduleItem[0].Item_Id
+              ).then((inputKit) => {
+                identifier = inputKit[0].CodigoReferencia.toString()
+                itemName = inputKit[0].Item.Produto.Nome
+              })
+              break
+            case 'kitsDeInstalacao':
+              await getInstallationKitsIdentifierByItemId(
+                scheduleItem[0].Item_Id
+              ).then((installationKit) => {
+                identifier =
+                  installationKit[0].Rastreador.Chip.NumeroDaLinha +
+                  ' - ' +
+                  installationKit[0].Rastreador.Equipamento.Imei +
+                  ' - ' +
+                  installationKit[0].CodigoReferencia.toString()
+                itemName = installationKit[0].Item.Produto.Nome
+              })
+              break
+          }
+        }
+
+        return {
+          Name: product.Produto.Nome,
+          MembershipPrice:
+            product.ProdutoPreco.TipoDePreco?.Valor === 'adesao'
+              ? product.ProdutoPreco.Valor
+              : 0,
+          RecurrencePrice:
+            product.ProdutoPreco.TipoDePreco?.Valor === 'recorrencia'
+              ? product.ProdutoPreco.Valor
+              : 0,
+          Identifier: identifier,
+          ItemId: itemName,
+          Retirado:
+            (serviceOrderData.Agendamentos.length > 0
+              ? serviceOrderData.Agendamentos[0].Situacao.Valor
+              : false) !== 'criada' &&
+            serviceOrderData.Situacao.Valor !== 'aberta'
+              ? 'Sim'
+              : 'Não'
+        }
+      })
+
+      ;(async () => {
+        setProductCollection(await Promise.all(products))
+      })()
     }
-  }, [serviceOrderData]);
+  }, [serviceOrderData])
 
   useEffect(() => {
-    if (services) {
-      getBenefitsTotalValue();
-      getAccessionTotalValue();
+    if (benefits) {
+      getBenefitsTotalValue()
+      getAccessionTotalValue()
     }
-  }, [services]);
+  }, [benefits])
 
   return (
     <div className="flex flex-col col-span-12 gap-4">
@@ -502,8 +662,8 @@ export function Update() {
             Dados gerais
           </h3>
           <p>
-            {address?.Logradouro} - {address?.Numero} - {address?.Bairro} -{' '}
-            {address?.Cidade} - {address?.Estado}
+            {address?.logradouro} - {address?.numero} - {address?.bairro} -{' '}
+            {address?.cidade} - {address?.estado}
           </p>
           <div className="flex gap-4">
             <p>Tipo da OS: {serviceOrderData?.Tipo.Comentario}</p>
@@ -551,71 +711,49 @@ export function Update() {
 
       <form>
         <common.Separator className="mb-4" />
-        <common.Card className="px-6">
+        <div>
           <h3 className="text-xl font-bold">Serviços</h3>
 
-          {services ? (
+          {serviceOrderData?.Servicos ? (
             <blocks.Table
-              colection={services.filter((service) => service.OS)}
-              columnTitles={[
-                {
-                  title: 'Nome',
-                  fieldName: 'Name',
-                },
-                {
-                  title: 'Preco',
-                  fieldName: 'Price',
-                  type: 'handler',
-                  handler: (price: string) => BRLMoneyFormat(price),
-                },
-              ]}
+              colection={serviceOrderData.Servicos.filter(
+                (service) => service.Servico.GeraOS
+              ).map((service) => {
+                return {
+                  Name: service.Servico.Nome,
+                  MembershipPrice:
+                    service.ServicoPreco.TipoDePreco?.Valor === 'adesao'
+                      ? service.ServicoPreco.Valor
+                      : 0,
+                  RecurrencePrice:
+                    service.ServicoPreco.TipoDePreco?.Valor === 'recorrencia'
+                      ? service.ServicoPreco.Valor
+                      : 0
+                }
+              })}
+              columnTitles={tableColumns}
             />
           ) : (
             <blocks.TableSkeleton />
           )}
-        </common.Card>
+        </div>
         <common.Separator className="mt-4 mb-4" />
-        <common.Card className="px-6">
+        <div>
           <h3 className="text-xl font-bold">Produtos</h3>
 
-          {products ? (
+          {serviceOrderData?.Produtos ? (
             <blocks.Table
-              colection={products}
-              columnTitles={[
-                {
-                  title: 'Nome',
-                  fieldName: 'Name',
-                },
-                {
-                  title: 'Preco',
-                  fieldName: 'Price',
-                  type: 'handler',
-                  handler: (price: string) => BRLMoneyFormat(price),
-                },
-              ]}
+              colection={productCollection}
+              columnTitles={productTableColumns}
             />
           ) : (
             <blocks.TableSkeleton />
           )}
-        </common.Card>
+        </div>
         <common.Separator className="mt-4" />
         <h3 className="text-xl">Beneficios contratados</h3>
         {benefits ? (
-          <blocks.Table
-            colection={benefits}
-            columnTitles={[
-              {
-                title: 'Nome',
-                fieldName: 'Name',
-              },
-              {
-                title: 'Preco',
-                fieldName: 'Price',
-                type: 'handler',
-                handler: (price: string) => BRLMoneyFormat(price),
-              },
-            ]}
-          />
+          <blocks.Table colection={benefits} columnTitles={tableColumns} />
         ) : (
           <blocks.TableSkeleton />
         )}
@@ -649,13 +787,13 @@ export function Update() {
           <common.buttons.PrimaryButton
             title={'Ver atividades'}
             onClick={() => {
-              event?.preventDefault();
+              event?.preventDefault()
               if (!activeEdit) {
                 setSlidePanelState({
                   open: true,
-                  type: 'activities',
-                });
-                return;
+                  type: 'activities'
+                })
+                return
               }
             }}
           />
@@ -672,28 +810,38 @@ export function Update() {
           />
         </div>
         <div className="flex items-center justify-end w-4/6 gap-4">
-          <common.buttons.PrimaryButton
-            title={'Agendar'}
-            onClick={() => {
-              event?.preventDefault();
-              if (!activeEdit) {
-                setSlidePanelState({
-                  open: true,
-                  type: 'schedule',
-                });
-                return;
-              }
-            }}
-            disabled={
-              serviceOrderData?.Situacao.Valor === 'concluida' ||
-              serviceOrderData?.Situacao.Valor === 'finalizada'
-            }
-          />
+          {serviceOrderData?.Situacao.Valor === 'aberta' && (
+            <common.buttons.PrimaryButton
+              title={'Agendar'}
+              onClick={() => {
+                event?.preventDefault()
+                if (!activeEdit) {
+                  setSlidePanelState({
+                    open: true,
+                    type: 'schedule'
+                  })
+                  return
+                }
+              }}
+            />
+          )}
 
           {(serviceOrderData?.Agendamentos.length || 0) > 0 ? (
             <>
               {serviceOrderData?.Agendamentos[0].Situacao.Valor ===
                 'criada' && (
+                <common.buttons.SecondaryButton
+                  handler={movimentationSubmit}
+                  title="Retirar itens"
+                  disabled={
+                    updateServiceOrdersScheduleLoading ||
+                    serviceOrderData?.Situacao.Valor !== 'agendada'
+                  }
+                  loading={updateServiceOrdersScheduleLoading}
+                />
+              )}
+              {serviceOrderData?.Agendamentos[0].Situacao.Valor ===
+                'itensRetirados' && (
                 <common.buttons.SecondaryButton
                   handler={initializeServiceOrdersSubmit}
                   title="Iniciar serviço"
@@ -725,13 +873,7 @@ export function Update() {
                     finishServiceOrderLoading ||
                     serviceOrderData?.Situacao.Valor !== 'agendada'
                   }
-                  loading={
-                    finishServiceOrderLoading ||
-                    insertActiveVehicleLoading ||
-                    insertActiveVehicleBenefitLoading ||
-                    updateActiveVehicleLoading ||
-                    updateActiveVehicleBenefitLoading
-                  }
+                  loading={finishServiceOrderLoading}
                 />
               )}
             </>
@@ -760,5 +902,5 @@ export function Update() {
 
       <serviceOrders.UpdateSlidePanel />
     </div>
-  );
+  )
 }

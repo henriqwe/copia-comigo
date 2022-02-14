@@ -1,10 +1,10 @@
-import * as serviceOrders from '&erp/domains/operational/ServiceOrders';
+import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 
-import rotas from '&erp/domains/routes';
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function ServiceOrders() {
   return (
@@ -13,21 +13,21 @@ export default function ServiceOrders() {
         <Page />
       </ThemeProvider>
     </serviceOrders.ServiceOrderProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   const { serviceOrdersRefetch, serviceOrdersLoading } =
-    serviceOrders.useServiceOrder();
+    serviceOrders.useServiceOrder()
   const refetch = () => {
-    serviceOrdersRefetch();
-  };
+    serviceOrdersRefetch()
+  }
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -39,12 +39,12 @@ export function Page() {
         { title: 'Operacional', url: rotas.operacional.index },
         {
           title: 'Ordens de serviço',
-          url: rotas.operacional.ordensDeServico,
-        },
+          url: rotas.operacional.ordensDeServico
+        }
       ]}
     >
       <serviceOrders.List />
       <serviceOrders.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

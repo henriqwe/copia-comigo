@@ -3,10 +3,10 @@ table:
   schema: comercial
 is_enum: true
 array_relationships:
-  - name: Servicos
-    using:
-      foreign_key_constraint_on:
-        column: Tipo_Id
-        table:
-          name: Servicos
-          schema: comercial
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Tipo_Id
+      table:
+        name: Servicos
+        schema: comercial

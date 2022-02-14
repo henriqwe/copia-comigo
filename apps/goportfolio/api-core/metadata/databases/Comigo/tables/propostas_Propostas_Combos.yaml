@@ -2,12 +2,15 @@ table:
   name: Propostas_Combos
   schema: propostas
 object_relationships:
-  - name: Combo
-    using:
-      foreign_key_constraint_on: Combo_Id
-  - name: ComboPreco
-    using:
-      foreign_key_constraint_on: ComboPreco_Id
-  - name: Proposta
-    using:
-      foreign_key_constraint_on: Proposta_Id
+- name: Combo
+  using:
+    foreign_key_constraint_on: Combo_Id
+- name: ComboPreco
+  using:
+    foreign_key_constraint_on: ComboPreco_Id
+- name: Proposta
+  using:
+    foreign_key_constraint_on: Proposta_Id
+- name: PropostasVeiculo
+  using:
+    foreign_key_constraint_on: PropostaVeiculo_Id

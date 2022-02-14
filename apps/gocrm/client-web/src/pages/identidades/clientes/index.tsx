@@ -1,13 +1,13 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
-import * as clients from '&crm/domains/identities/Clients';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
+import * as clients from '&crm/domains/identities/Clients'
 
 export default function Clients() {
   return (
@@ -17,17 +17,17 @@ export default function Clients() {
         <Page />{' '}
       </ThemeProvider>
     </clients.ListProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { clientsRefetch, clientsLoading } = clients.useList();
+  const { theme, changeTheme } = useTheme()
+  const { clientsRefetch, clientsLoading } = clients.useList()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -35,21 +35,21 @@ function Page() {
       title="Clientes cadastrados"
       reload={{
         action: clientsRefetch,
-        state: clientsLoading,
+        state: clientsLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         {
           title: 'Identidades',
-          url: '',
+          url: ''
         },
         {
           title: 'Clientes',
-          url: rotas.identidades.clientes.index,
-        },
+          url: rotas.identidades.clientes.index
+        }
       ]}
     >
       <clients.List />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

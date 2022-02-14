@@ -1,14 +1,14 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as clients from '&crm/domains/identities/Clients';
+import * as clients from '&crm/domains/identities/Clients'
 
 export default function CreateClient() {
   return (
@@ -18,16 +18,16 @@ export default function CreateClient() {
         <Page />{' '}
       </ThemeProvider>
     </clients.CreateProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   return (
     <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -36,19 +36,19 @@ function Page() {
         { title: 'Rastreamento', url: rotas.home },
         {
           title: 'Identidades',
-          url: '',
+          url: ''
         },
         {
           title: 'Clientes',
-          url: rotas.identidades.clientes.index,
+          url: rotas.identidades.clientes.index
         },
         {
           title: 'Cadastro',
-          url: rotas.identidades.clientes.cadastrar,
-        },
+          url: rotas.identidades.clientes.cadastrar
+        }
       ]}
     >
       <clients.Create />
     </templates.Base>
-  );
+  )
 }

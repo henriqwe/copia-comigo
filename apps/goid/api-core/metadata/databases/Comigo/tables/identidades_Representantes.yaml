@@ -2,15 +2,15 @@ table:
   name: Representantes
   schema: identidades
 object_relationships:
-  - name: Pessoa
-    using:
-      foreign_key_constraint_on: Pessoa_Id
-  - name: PessoaRepresentada
-    using:
-      manual_configuration:
-        column_mapping:
-          PessoaRepresentada_Id: Id
-        insertion_order: null
-        remote_table:
-          name: Pessoas
-          schema: identidades
+- name: Pessoa
+  using:
+    foreign_key_constraint_on: Pessoa_Id
+- name: PessoaRepresentada
+  using:
+    manual_configuration:
+      column_mapping:
+        PessoaRepresentada_Id: Id
+      insertion_order: null
+      remote_table:
+        name: Pessoas
+        schema: identidades

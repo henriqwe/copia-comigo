@@ -1,14 +1,14 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as providers from '&crm/domains/identities/Providers';
+import * as providers from '&crm/domains/identities/Providers'
 
 export default function CreateProvider() {
   return (
@@ -18,16 +18,16 @@ export default function CreateProvider() {
         <Page />{' '}
       </ThemeProvider>
     </providers.CreateProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   return (
     <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -37,15 +37,15 @@ function Page() {
         { title: 'Identidades', url: rotas.identidades.index },
         {
           title: 'Fornecedores',
-          url: rotas.identidades.fornecedores.index,
+          url: rotas.identidades.fornecedores.index
         },
         {
           title: 'Cadastro',
-          url: rotas.identidades.fornecedores.cadastrar,
-        },
+          url: rotas.identidades.fornecedores.cadastrar
+        }
       ]}
     >
       <providers.Create />
     </templates.Base>
-  );
+  )
 }

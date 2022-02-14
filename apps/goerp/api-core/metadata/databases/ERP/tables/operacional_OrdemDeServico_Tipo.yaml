@@ -3,10 +3,10 @@ table:
   schema: operacional
 is_enum: true
 array_relationships:
-  - name: OrdemDeServicos
-    using:
-      foreign_key_constraint_on:
-        column: Tipo_Id
-        table:
-          name: OrdemDeServico
-          schema: operacional
+- name: OrdemDeServicos
+  using:
+    foreign_key_constraint_on:
+      column: Tipo_Id
+      table:
+        name: OrdemDeServico
+        schema: operacional

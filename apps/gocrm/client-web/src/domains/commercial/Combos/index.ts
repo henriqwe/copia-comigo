@@ -1,30 +1,12 @@
-import List from './ListCombos';
-import RowActions from './ListCombos/rowActions';
-import InternalNavigation from './InternalNavigation';
-import Create from './Form/CreateCombo';
-import View from './Form/ViewCombo';
-import Tabs from './Tabs';
-import { CreateContext, CreateProvider, useCreate } from './CreateContext';
-import { ListContext, ListProvider, useList } from './ListContext';
-import { ViewContext, ViewProvider, useView } from './ViewContext';
-
-import * as combos from './Tabs/Combos';
-
-export {
-  List,
-  RowActions,
-  InternalNavigation,
-  Tabs,
-  Create,
-  CreateContext,
-  CreateProvider,
-  useCreate,
-  ListContext,
-  ListProvider,
-  useList,
-  View,
-  ViewContext,
-  ViewProvider,
-  useView,
-  combos,
-};
+export { List } from './ListCombos'
+export { RowActions } from './ListCombos/rowActions'
+export { InternalNavigation } from './InternalNavigation'
+export { ViewCombo } from './Form/ViewCombo'
+export { SlidePanel } from './SlidePanel'
+export { CreateCombo } from './SlidePanel/CreateCombo'
+export { UpdateSlidePanel } from './UpdateSlidePanel'
+export { CreateComboProduct } from './UpdateSlidePanel/CreateComboProduct'
+export { CreateComboPlan } from './UpdateSlidePanel/CreateComboPlan'
+export { CreateComboService } from './UpdateSlidePanel/CreateComboService'
+export { ListContext, ListProvider, useList } from './ListContext'
+export { ViewContext, ViewProvider, useView } from './ViewContext'

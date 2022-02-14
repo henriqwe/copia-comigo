@@ -6,7 +6,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to primeiro-app!</title>
+        <title>GoCustomers</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />

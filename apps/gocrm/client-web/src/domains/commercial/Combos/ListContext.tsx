@@ -3,134 +3,149 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
+  OperationVariables
+} from '@apollo/client'
 import {
   $,
   useTypedMutation,
-  useTypedQuery,
-} from '&crm/graphql/generated/zeus/apollo';
-import { createContext, ReactNode, useContext } from 'react';
+  useTypedQuery
+} from '&crm/graphql/generated/zeus/apollo'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useState
+} from 'react'
+import { order_by } from '&crm/graphql/generated/zeus'
+import * as yup from 'yup'
 
 type ListContextProps = {
+  slidePanelState: SlidePanelStateType
+  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
   combosData?: {
     Produtos: {
-      Id: string;
+      Id: string
       Produto: {
-        Id: string;
-        Nome: string;
-      };
-      ValorPraticado: string;
-    }[];
-    Id: string;
-    Nome: string;
+        Id: string
+        Nome: string
+      }
+    }[]
+    Id: string
+    Nome: string
     Planos: {
-      Id: string;
+      Id: string
       Plano: {
-        Nome: string;
-      };
-      ValorPraticado: string;
-    }[];
+        Nome: string
+      }
+    }[]
     Servicos: {
-      Id: string;
+      Id: string
       Servico: {
-        Id: string;
-        Nome: string;
-      };
-      ValorPraticado: string;
-    }[];
+        Id: string
+        Nome: string
+      }
+    }[]
     OportunidadesDeProdutos: {
-      Id: string;
-      Nome: string;
-      Valor: string;
+      Id: string
+      Nome: string
+      Valor: string
       Combo: {
-        Id: string;
-        Nome: string;
-      };
-    }[];
+        Id: string
+        Nome: string
+      }
+    }[]
     OportunidadesDeServicos: {
-      Id: string;
-      Nome: string;
-      Valor: string;
+      Id: string
+      Nome: string
+      Valor: string
       Combo: {
-        Id: string;
-        Nome: string;
-      };
-    }[];
-    Precos: { Id: string; ValorBase: string }[];
-    Combos: {
-      Id: string;
-      Valor: string;
-      Combo: {
-        Planos: {
-          Id: string;
-          Plano: {
-            Nome: string;
-          };
-        }[];
-        Produtos: {
-          Id: string;
-          Produto: {
-            Id: string;
-            Nome: string;
-          };
-        }[];
-        Servicos: {
-          Id: string;
-          Servico: {
-            Id: string;
-            Nome: string;
-          };
-        }[];
-      };
-    }[];
-  }[];
+        Id: string
+        Nome: string
+      }
+    }[]
+    Precos: { Id: string; ValorDeAdesao: string; ValorDeRecorrencia: string }[]
+  }[]
 
-  combosRefetch: () => void;
-  combosLoading: boolean;
-  softDeleteComboLoading: boolean;
+  combosRefetch: () => void
+  combosLoading: boolean
+  softDeleteComboLoading: boolean
   softDeleteCombo: (
     options?: MutationFunctionOptions<
       {
         update_comercial_Combos_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-};
+  ) => Promise<FetchResult['data']>
+  createCombo: (
+    options?: MutationFunctionOptions<
+      {
+        insert_comercial_Combos_one?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  createComboLoading: boolean
+  comboSchema: yup.AnyObjectSchema
+}
+
+type SlidePanelStateType = {
+  open: boolean
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const ListContext = createContext<ListContextProps>(
   {} as ListContextProps
-);
+)
 
 export const ListProvider = ({ children }: ProviderProps) => {
+  const [slidePanelState, setSlidePanelState] = useState<SlidePanelStateType>({
+    open: false
+  })
+
+  const [createCombo, { loading: createComboLoading }] = useTypedMutation({
+    insert_comercial_Combos_one: [
+      {
+        object: {
+          Nome: $`Nome`
+        }
+      },
+      { Id: true }
+    ]
+  })
+
   const [softDeleteCombo, { loading: softDeleteComboLoading }] =
     useTypedMutation({
       update_comercial_Combos_by_pk: [
         {
           pk_columns: { Id: $`Id` },
           _set: {
-            deleted_at: new Date(),
-          },
+            deleted_at: new Date()
+          }
         },
         {
-          Id: true,
-        },
-      ],
-    });
+          Id: true
+        }
+      ]
+    })
 
   const {
     data: combosData,
     refetch: combosRefetch,
-    loading: combosLoading,
+    loading: combosLoading
   } = useTypedQuery(
     {
       comercial_Combos: [
@@ -143,10 +158,9 @@ export const ListProvider = ({ children }: ProviderProps) => {
             {
               Id: true,
               Plano: {
-                Nome: true,
-              },
-              ValorPraticado: true,
-            },
+                Nome: true
+              }
+            }
           ],
           Produtos: [
             { where: { deleted_at: { _is_null: true } } },
@@ -154,10 +168,9 @@ export const ListProvider = ({ children }: ProviderProps) => {
               Id: true,
               Produto: {
                 Id: true,
-                Nome: true,
-              },
-              ValorPraticado: true,
-            },
+                Nome: true
+              }
+            }
           ],
           Servicos: [
             { where: { deleted_at: { _is_null: true } } },
@@ -165,10 +178,9 @@ export const ListProvider = ({ children }: ProviderProps) => {
               Id: true,
               Servico: {
                 Id: true,
-                Nome: true,
-              },
-              ValorPraticado: true,
-            },
+                Nome: true
+              }
+            }
           ],
           OportunidadesDeProdutos: [
             { where: { deleted_at: { _is_null: true } } },
@@ -178,9 +190,9 @@ export const ListProvider = ({ children }: ProviderProps) => {
               Valor: true,
               Combo: {
                 Id: true,
-                Nome: true,
-              },
-            },
+                Nome: true
+              }
+            }
           ],
           OportunidadesDeServicos: [
             { where: { deleted_at: { _is_null: true } } },
@@ -190,57 +202,23 @@ export const ListProvider = ({ children }: ProviderProps) => {
               Valor: true,
               Combo: {
                 Id: true,
-                Nome: true,
-              },
-            },
+                Nome: true
+              }
+            }
           ],
           Precos: [
-            { order_by: [{ created_at: 'desc' }] },
-            { Id: true, ValorBase: true },
-          ],
-          Combos: [
-            { where: { deleted_at: { _is_null: true } } },
-            {
-              Id: true,
-              Valor: true,
-              Combo: {
-                Planos: [
-                  { where: { deleted_at: { _is_null: true } } },
-                  {
-                    Id: true,
-                    Plano: {
-                      Nome: true,
-                    },
-                  },
-                ],
-                Produtos: [
-                  { where: { deleted_at: { _is_null: true } } },
-                  {
-                    Id: true,
-                    Produto: {
-                      Id: true,
-                      Nome: true,
-                    },
-                  },
-                ],
-                Servicos: [
-                  { where: { deleted_at: { _is_null: true } } },
-                  {
-                    Id: true,
-                    Servico: {
-                      Id: true,
-                      Nome: true,
-                    },
-                  },
-                ],
-              },
-            },
-          ],
-        },
-      ],
+            { order_by: [{ created_at: order_by.desc }] },
+            { Id: true, ValorDeAdesao: true, ValorDeRecorrencia: true }
+          ]
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
+
+  const comboSchema = yup.object().shape({
+    Nome: yup.string().required('Preencha o campo para continuar')
+  })
 
   return (
     <ListContext.Provider
@@ -250,13 +228,18 @@ export const ListProvider = ({ children }: ProviderProps) => {
         combosLoading,
         softDeleteComboLoading,
         softDeleteCombo,
+        setSlidePanelState,
+        slidePanelState,
+        createCombo,
+        createComboLoading,
+        comboSchema
       }}
     >
       {children}
     </ListContext.Provider>
-  );
-};
+  )
+}
 
 export const useList = () => {
-  return useContext(ListContext);
-};
+  return useContext(ListContext)
+}

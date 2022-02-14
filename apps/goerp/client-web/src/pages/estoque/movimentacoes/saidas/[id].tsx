@@ -1,12 +1,12 @@
-import * as itens from '&erp/domains/inventory/Itens';
-import * as exits from '&erp/domains/inventory/Moves/Exits';
-import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders';
+import * as itens from '&erp/domains/inventory/Itens'
+import * as exits from '&erp/domains/inventory/Moves/Exits'
+import * as purchaseOrders from '&erp/domains/purchases/PurchaseOrders'
 
-import rotas from '&erp/domains/routes';
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function ValidateOutgoingOrder() {
   return (
@@ -19,31 +19,31 @@ export default function ValidateOutgoingOrder() {
         </purchaseOrders.CreateProvider>
       </itens.ListProvider>
     </exits.ValidateProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { outgoingOrdersRefetch, outgoingOrdersLoading } = exits.useValidate();
-  const { itensRefetch } = itens.useList();
-  const { purchaseOrderRefetch } = purchaseOrders.useList();
+  const { theme, changeTheme } = useTheme()
+  const { outgoingOrdersRefetch, outgoingOrdersLoading } = exits.useValidate()
+  const { itensRefetch } = itens.useList()
+  const { purchaseOrderRefetch } = purchaseOrders.useList()
 
   const refetch = () => {
-    itensRefetch();
-    purchaseOrderRefetch();
-    outgoingOrdersRefetch();
-  };
+    itensRefetch()
+    purchaseOrderRefetch()
+    outgoingOrdersRefetch()
+  }
   return (
     <templates.Base
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
       reload={{
         action: refetch,
-        state: outgoingOrdersLoading,
+        state: outgoingOrdersLoading
       }}
       title="Saida de pedidos de saida"
       currentLocation={[
@@ -51,12 +51,12 @@ export function Page() {
         { title: 'Compras', url: rotas.compras.index },
         {
           title: 'Movimentações',
-          url: rotas.estoque.movimentacoes.index,
+          url: rotas.estoque.movimentacoes.index
         },
-        { title: 'Saídas', url: rotas.estoque.movimentacoes.saidas.index },
+        { title: 'Saídas', url: rotas.estoque.movimentacoes.saidas.index }
       ]}
     >
       <exits.Validate />
     </templates.Base>
-  );
+  )
 }

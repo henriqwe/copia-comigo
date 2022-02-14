@@ -1,14 +1,14 @@
-import * as businessProfiles from '&crm/domains/services/BusinessProfiles';
+import * as businessProfiles from '&crm/domains/services/BusinessProfiles'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function BusinessProfiles() {
   return (
@@ -18,18 +18,18 @@ export default function BusinessProfiles() {
         <Page />{' '}
       </ThemeProvider>
     </businessProfiles.BusinessProfileProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   const { businessProfilesRefetch, businessProfilesLoading } =
-    businessProfiles.useBusinessProfile();
+    businessProfiles.useBusinessProfile()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -37,19 +37,19 @@ export function Page() {
       title="Perfis Comerciais"
       reload={{
         action: businessProfilesRefetch,
-        state: businessProfilesLoading,
+        state: businessProfilesLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Atendimento', url: rotas.atendimento.index },
         {
           title: 'Perfis Comerciais',
-          url: rotas.atendimento.perfisComerciais.index,
-        },
+          url: rotas.atendimento.perfisComerciais.index
+        }
       ]}
     >
       <businessProfiles.List />
       <businessProfiles.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

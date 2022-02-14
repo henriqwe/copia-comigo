@@ -1,16 +1,16 @@
-import * as conditionals from '&crm/domains/commercial/Registration/Conditionals';
-import * as services from '&crm/domains/commercial/Services';
-import * as plans from '&crm/domains/commercial/Plans';
+import * as conditionals from '&crm/domains/commercial/Registration/Conditionals'
+import * as services from '&crm/domains/commercial/Services'
+import * as plans from '&crm/domains/commercial/Plans'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function UpdatePlan() {
   return (
@@ -24,25 +24,25 @@ export default function UpdatePlan() {
         </conditionals.ConditionalProvider>
       </services.ServiceProvider>
     </plans.UpdateProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { plansRefetch, plansLoading } = plans.useUpdate();
-  const { servicesRefetch } = services.useService();
-  const { conditionalRefetch } = conditionals.useConditional();
+  const { theme, changeTheme } = useTheme()
+  const { plansRefetch, plansLoading } = plans.useUpdate()
+  const { servicesRefetch } = services.useService()
+  const { conditionalRefetch } = conditionals.useConditional()
 
   const refetch = () => {
-    servicesRefetch();
-    conditionalRefetch();
-    plansRefetch();
-  };
+    servicesRefetch()
+    conditionalRefetch()
+    plansRefetch()
+  }
   return (
     <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -53,11 +53,11 @@ export function Page() {
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Planos',
-          url: rotas.comercial.planos.index,
-        },
+          url: rotas.comercial.planos
+        }
       ]}
     >
-      <plans.Update />
+      <plans.UpdatePlan />
     </templates.Base>
-  );
+  )
 }

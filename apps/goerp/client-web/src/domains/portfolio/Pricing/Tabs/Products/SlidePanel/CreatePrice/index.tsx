@@ -1,42 +1,42 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products';
+import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products'
 
-import * as utils from '@comigo/utils';
+import * as utils from '@comigo/utils'
 import {
   BRLMoneyFormat,
   BRLMoneyInputDefaultFormat,
   BRLMoneyInputFormat,
   BRLMoneyUnformat,
-  ptBRtimeStamp,
-} from '@comigo/utils';
-import { useEffect, useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+  ptBRtimeStamp
+} from '@comigo/utils'
+import { useEffect, useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 type ProductProvider = {
-  Id: string;
-  Precos: { Id: string; Valor: string }[];
-};
+  Id: string
+  Precos: { Id: string; Valor: string }[]
+}
+
+type PricesType = {
+  Id: string
+  Valor: string
+  created_at: Date
+  TipoDePreco?: {
+    Comentario: string
+  }
+  TipoDeRecorrencia?: {
+    Comentario: string
+    Valor: string
+  }
+}
 
 export function Price() {
-  const [productProvider, setProductProvider] = useState<ProductProvider>();
-  const [prices, setPrices] = useState<
-    {
-      Id: string;
-      Valor: string;
-      created_at: Date;
-      TipoDePreco?: {
-        Comentario: string;
-      };
-      TipoDeRecorrencia?: {
-        Comentario: string;
-        Valor: string;
-      };
-    }[]
-  >([]);
-  const [allowRecurrenceType, setAllowRecurrenceType] = useState(false);
+  const [productProvider, setProductProvider] = useState<ProductProvider>()
+  const [prices, setPrices] = useState<PricesType[]>([])
+  const [allowRecurrenceType, setAllowRecurrenceType] = useState(false)
   const {
     createProductPriceLoading,
     createProductPrice,
@@ -46,29 +46,29 @@ export function Price() {
     getProductProviderByProductId,
     pricingSchema,
     recurrenceTypeData,
-    pricesTypeData,
-    getProductProviderRecurrencyType,
-  } = products.useProduct();
+    pricesTypeData
+  } = products.useProduct()
+
   const {
     handleSubmit,
     control,
     setValue,
-    formState: { errors },
-    watch,
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(pricingSchema),
-  });
+    resolver: yupResolver(pricingSchema)
+  })
+
   const onSubmit = (formData: {
-    Valor: string;
-    TipoDeRecorrencia_Id?: { key: string };
-    TipoDePreco_Id: { key: string };
+    Valor: string
+    TipoDeRecorrencia_Id?: { key: string }
+    TipoDePreco_Id: { key: string }
   }) => {
     try {
       if (allowRecurrenceType && formData.TipoDeRecorrencia_Id === undefined) {
         return utils.notification(
           'Selecione o tipo de recorrência para continuar',
           'error'
-        );
+        )
       }
       createProductPrice({
         variables: {
@@ -77,53 +77,32 @@ export function Price() {
             ? formData.TipoDeRecorrencia_Id.key
             : null,
           Valor: Number(BRLMoneyUnformat(formData.Valor)).toFixed(2),
-          TipoDePreco_Id: formData.TipoDePreco_Id.key,
-        },
+          TipoDePreco_Id: formData.TipoDePreco_Id.key
+        }
       }).then(() => {
-        productsRefetch();
+        productsRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification('Produto precificado com sucesso', 'success');
-      });
+          return { ...oldState, open: false }
+        })
+        utils.notification('Produto precificado com sucesso', 'success')
+      })
     } catch (error: any) {
-      utils.showError(error);
+      utils.showError(error)
     }
-  };
+  }
 
   useEffect(() => {
     getProductProviderByProductId(slidePanelState.data?.Id).then((data) => {
-      setProductProvider(data[0]);
+      setProductProvider(data[0])
       if (data[0].Precos.length > 0) {
         setValue(
           'Valor',
           BRLMoneyInputDefaultFormat(data[0].Precos[0].Valor.toString())
-        );
-        const prices = data[0].Precos.map(async (prices) => {
-          const recurrencyType = prices.TipoDeRecorrencia_Id
-            ? await getProductProviderRecurrencyType(
-                prices.TipoDeRecorrencia_Id as string
-              )
-            : undefined;
-          return {
-            Id: prices.Id,
-            Valor: prices.Valor,
-            created_at: prices.created_at,
-            TipoDePreco: prices.TipoDePreco,
-            TipoDeRecorrencia: recurrencyType?.Valor
-              ? {
-                  Comentario: recurrencyType?.Comentario as string,
-                  Valor: recurrencyType?.Valor as string,
-                }
-              : undefined,
-          };
-        });
-        (async () => {
-          setPrices(await Promise.all(prices));
-        })();
+        )
+        setPrices(data[0].Precos)
       }
-    });
-  }, [slidePanelState.data]);
+    })
+  }, [slidePanelState.data])
 
   return (
     <form
@@ -142,7 +121,7 @@ export function Price() {
                 title={`Valor`}
                 value={value}
                 onChange={(e) => {
-                  onChange(BRLMoneyInputFormat(e));
+                  onChange(BRLMoneyInputFormat(e))
                 }}
                 error={errors.Valor}
                 icon="R$"
@@ -161,18 +140,18 @@ export function Price() {
                     ? pricesTypeData.map((priceType) => {
                         return {
                           key: priceType.Valor,
-                          title: priceType.Comentario,
-                        };
+                          title: priceType.Comentario
+                        }
                       })
                     : []
                 }
                 value={value}
                 onChange={(e) => {
-                  setAllowRecurrenceType(false);
+                  setAllowRecurrenceType(false)
                   if (e.key === 'recorrencia') {
-                    setAllowRecurrenceType(true);
+                    setAllowRecurrenceType(true)
                   }
-                  onChange(e);
+                  onChange(e)
                 }}
                 label="Tipo de preço"
               />
@@ -190,8 +169,8 @@ export function Price() {
                     ? recurrenceTypeData.map((recurrenceType) => {
                         return {
                           key: recurrenceType.Valor,
-                          title: recurrenceType.Comentario,
-                        };
+                          title: recurrenceType.Comentario
+                        }
                       })
                     : []
                 }
@@ -223,9 +202,11 @@ export function Price() {
                     {BRLMoneyFormat(price.Valor)} -{' '}
                     {ptBRtimeStamp(price.created_at)}{' '}
                     {price.TipoDeRecorrencia
-                      ? `- ${price.TipoDeRecorrencia?.Comentario} -`
-                      : ' - '}{' '}
-                    {price.TipoDePreco?.Comentario}
+                      ? `- ${price.TipoDeRecorrencia?.Comentario}`
+                      : ''}{' '}
+                    {price.TipoDePreco
+                      ? ' - ' + price.TipoDePreco.Comentario
+                      : ''}
                   </li>
                 </div>
               ))}
@@ -234,5 +215,5 @@ export function Price() {
         ) : null}
       </div>
     </form>
-  );
+  )
 }

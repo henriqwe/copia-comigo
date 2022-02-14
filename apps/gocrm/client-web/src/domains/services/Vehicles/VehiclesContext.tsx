@@ -3,15 +3,15 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
-import { GraphQLTypes } from '&crm/graphql/generated/zeus';
+  OperationVariables
+} from '@apollo/client'
+import { GraphQLTypes, order_by } from '&crm/graphql/generated/zeus'
 import {
   $,
   useTypedClientQuery,
   useTypedMutation,
-  useTypedQuery,
-} from '&crm/graphql/generated/zeus/apollo';
+  useTypedQuery
+} from '&crm/graphql/generated/zeus/apollo'
 import {
   createContext,
   Dispatch,
@@ -19,114 +19,114 @@ import {
   SetStateAction,
   useContext,
   useEffect,
-  useState,
-} from 'react';
-import * as yup from 'yup';
+  useState
+} from 'react'
+import * as yup from 'yup'
 
 type VehicleContextProps = {
-  slidePanelState: SlidePanelStateType;
-  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>;
-  setVehicleCategory: Dispatch<SetStateAction<string>>;
-  vehicleCategory: string;
+  slidePanelState: SlidePanelStateType
+  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
+  setVehicleCategory: Dispatch<SetStateAction<string>>
+  vehicleCategory: string
   vehiclesData?: {
-    Id: string;
-    Placa?: string;
-    NumeroDoChassi?: string;
-    Apelido?: string;
-    DadosDaApi?: any;
+    Id: string
+    Placa?: string
+    NumeroDoChassi?: string
+    Apelido?: string
+    DadosDaApi?: any
     Categoria: {
-      Id: string;
-      Nome: string;
-    };
-    Categoria_Id: string;
+      Id: string
+      Nome: string
+    }
+    Categoria_Id: string
     Cliente?: {
-      Id: string;
+      Id: string
       Pessoa: {
-        Nome: string;
-      };
-    };
-    VeiculosAtivos: { Id: string }[];
-  }[];
+        Nome: string
+      }
+    }
+    VeiculosAtivos: { Id: string }[]
+  }[]
   vehiclesTypeData?: {
-    Id: string;
-    Nome: string;
-  }[];
-  vehiclesLoading: boolean;
-  vehiclesRefetch: () => void;
+    Id: string
+    Nome: string
+  }[]
+  vehiclesLoading: boolean
+  vehiclesRefetch: () => void
   createVehicle: (
     options?: MutationFunctionOptions<
       {
         insert_clientes_Veiculos_one?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  createVehicleLoading: boolean;
-  softDeleteTicketLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  createVehicleLoading: boolean
+  softDeleteTicketLoading: boolean
   softDeleteTicket: (
     options?: MutationFunctionOptions<
       {
         update_clientes_Veiculos_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  updateVehicleLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  updateVehicleLoading: boolean
   updateVehicle: (
     options?: MutationFunctionOptions<
       {
         update_clientes_Veiculos_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  vehicleSchema: yup.AnyObjectSchema;
+  ) => Promise<FetchResult['data']>
+  vehicleSchema: yup.AnyObjectSchema
   getVehicleCategoryByName: (Name: string) => Promise<
     {
-      Id: string;
+      Id: string
     }[]
-  >;
+  >
   getVehicleCategoryById: (Id: string) => Promise<
     | {
-        Id: string;
-        Nome: string;
+        Id: string
+        Nome: string
       }
     | undefined
-  >;
-};
+  >
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 type SlidePanelStateType = {
-  type: 'create' | 'update';
-  data?: GraphQLTypes['clientes_Veiculos'] | null;
-  open: boolean;
-};
+  type: 'create' | 'update'
+  data?: GraphQLTypes['clientes_Veiculos'] | null
+  open: boolean
+}
 
 export const VehicleContext = createContext<VehicleContextProps>(
   {} as VehicleContextProps
-);
+)
 
 export const VehicleProvider = ({ children }: ProviderProps) => {
   const [slidePanelState, setSlidePanelState] = useState<SlidePanelStateType>({
     type: 'create',
-    open: false,
-  });
-  const [vehicleCategory, setVehicleCategory] = useState('placa');
+    open: false
+  })
+  const [vehicleCategory, setVehicleCategory] = useState('placa')
 
   const [createVehicle, { loading: createVehicleLoading }] = useTypedMutation({
     insert_clientes_Veiculos_one: [
@@ -137,12 +137,12 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
           Cliente_Id: $`Cliente_Id`,
           DadosDaApi: $`DadosDaApi`,
           Apelido: $`Apelido`,
-          NumeroDoChassi: $`NumeroDoChassi`,
-        },
+          NumeroDoChassi: $`NumeroDoChassi`
+        }
       },
-      { Id: true },
-    ],
-  });
+      { Id: true }
+    ]
+  })
 
   const [updateVehicle, { loading: updateVehicleLoading }] = useTypedMutation({
     update_clientes_Veiculos_by_pk: [
@@ -153,12 +153,12 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
           Categoria_Id: $`Categoria_Id`,
           Cliente_Id: $`Cliente_Id`,
           DadosDaApi: $`DadosDaApi`,
-          updated_at: new Date(),
-        },
+          updated_at: new Date()
+        }
       },
-      { Id: true },
-    ],
-  });
+      { Id: true }
+    ]
+  })
 
   const [softDeleteTicket, { loading: softDeleteTicketLoading }] =
     useTypedMutation({
@@ -166,31 +166,31 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
         {
           pk_columns: { Id: $`Id` },
           _set: {
-            deleted_at: new Date(),
-          },
+            deleted_at: new Date()
+          }
         },
         {
-          Id: true,
-        },
-      ],
-    });
+          Id: true
+        }
+      ]
+    })
 
   const {
     data: vehiclesData,
     refetch: vehiclesRefetch,
-    loading: vehiclesLoading,
+    loading: vehiclesLoading
   } = useTypedQuery(
     {
       clientes_Veiculos: [
         {
-          order_by: [{ created_at: 'desc' }],
-          where: { deleted_at: { _is_null: true } },
+          order_by: [{ created_at: order_by.desc }],
+          where: { deleted_at: { _is_null: true } }
         },
         {
           Id: true,
           Placa: true,
           Categoria_Id: true,
-          DadosDaApi: true,
+          DadosDaApi: [{}, true],
           NumeroDoChassi: true,
           Apelido: true,
           // Categoria: {
@@ -200,15 +200,15 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
           Cliente: {
             Id: true,
             Pessoa: {
-              Nome: true,
-            },
+              Nome: true
+            }
           },
-          VeiculosAtivos: [{}, { Id: true }],
-        },
-      ],
+          VeiculosAtivos: [{}, { Id: true }]
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const { data: vehiclesTypeData } = useTypedQuery(
     {
@@ -216,29 +216,29 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
         {},
         {
           Id: true,
-          Nome: true,
-        },
-      ],
+          Nome: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   async function getVehicleCategoryById(Id: string) {
     const { data } = await useTypedClientQuery(
       {
         CategoriasDeVeiculos_by_pk: [
           {
-            Id,
+            Id
           },
           {
             Id: true,
-            Nome: true,
-          },
-        ],
+            Nome: true
+          }
+        ]
       },
       { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-    );
-    return data?.CategoriasDeVeiculos_by_pk;
+    )
+    return data?.CategoriasDeVeiculos_by_pk
   }
 
   const vehicleSchema = yup.object().shape({
@@ -250,21 +250,20 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
     Chassi:
       vehicleCategory === 'chassi'
         ? yup.string().required('Preencha o campo para continuar')
-        : yup.string(),
-    Apelido: yup.string().required('Preencha o campo para continuar'),
-  });
+        : yup.string()
+  })
 
   async function getVehicleCategoryByName(Name: string) {
     const { data } = await useTypedClientQuery({
-      CategoriasDeVeiculos: [{ where: { Nome: { _eq: Name } } }, { Id: true }],
-    });
+      CategoriasDeVeiculos: [{ where: { Nome: { _eq: Name } } }, { Id: true }]
+    })
 
-    return data.CategoriasDeVeiculos;
+    return data.CategoriasDeVeiculos
   }
 
   useEffect(() => {
-    setVehicleCategory('placa');
-  }, [slidePanelState.open]);
+    setVehicleCategory('placa')
+  }, [slidePanelState.open])
 
   return (
     <VehicleContext.Provider
@@ -285,14 +284,14 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
         updateVehicle,
         vehicleSchema,
         getVehicleCategoryByName,
-        getVehicleCategoryById,
+        getVehicleCategoryById
       }}
     >
       {children}
     </VehicleContext.Provider>
-  );
-};
+  )
+}
 
 export const useVehicle = () => {
-  return useContext(VehicleContext);
-};
+  return useContext(VehicleContext)
+}

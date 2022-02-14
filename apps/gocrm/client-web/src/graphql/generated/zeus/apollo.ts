@@ -22,55 +22,89 @@ export { $ as $ };
 
 const client = initializeApollo(undefined, undefined);
 
-export function useTypedMutation<Z>(
-  mutation: Z | ValueTypes['mutation_root'],
-  options?: MutationHookOptions<InputType<GraphQLTypes['mutation_root'], Z>>
+// export function useTypedMutation<Z>(
+//   mutation: Z | ValueTypes['mutation_root'],
+//   options?: MutationHookOptions<InputType<GraphQLTypes['mutation_root'], Z>>
+// ) {
+//   return useMutation<InputType<GraphQLTypes['mutation_root'], Z>>(
+//     gql(Zeus.mutation(mutation)),
+//     options
+//   );
+// }
+export function useTypedMutation<Z extends ValueTypes[O], O extends "mutation_root">(
+  mutation: Z | ValueTypes[O],
+  options?: MutationHookOptions<InputType<GraphQLTypes[O], Z>>,
+  operationName?: string,
 ) {
-  return useMutation<InputType<GraphQLTypes['mutation_root'], Z>>(
-    gql(Zeus.mutation(mutation)),
-    options
-  );
-}
-export function useTypedQuery<Z>(
-  query: Z | ValueTypes['query_root'],
-  options?: QueryHookOptions<InputType<GraphQLTypes['query_root'], Z>>
-) {
-  return useQuery<InputType<GraphQLTypes['query_root'], Z>>(
-    gql(Zeus.query(query)),
-    options
-  );
-}
-export function useTypedLazyQuery<Z>(
-  LazyQuery: Z | ValueTypes['query_root'],
-  options?: LazyQueryHookOptions<InputType<GraphQLTypes['query_root'], Z>>
-) {
-  return useLazyQuery<InputType<GraphQLTypes['query_root'], Z>>(
-    gql(Zeus.query(LazyQuery)),
-    options
-  );
-}
-export function useTypedSubscription<Z>(
-  subscription: Z | ValueTypes['subscription_root'],
-  options?: SubscriptionHookOptions<
-    InputType<GraphQLTypes['subscription_root'], Z>
-  >
-) {
-  return useSubscription<InputType<GraphQLTypes['subscription_root'], Z>>(
-    gql(Zeus.subscription(subscription)),
-    options
-  );
+  return useMutation<InputType<GraphQLTypes[O], Z>>(gql(Zeus("mutation",mutation, operationName)), options);
 }
 
-export function useTypedClientMutation<Q extends ValueTypes['mutation_root']>(
-  mutation: Q,
+// export function useTypedQuery<Z>(
+//   query: Z | ValueTypes['query_root'],
+//   options?: QueryHookOptions<InputType<GraphQLTypes['query_root'], Z>>
+// ) {
+//   return useQuery<InputType<GraphQLTypes['query_root'], Z>>(
+//     gql(Zeus.query(query)),
+//     options
+//   );
+// }
+
+export function useTypedQuery<Z extends ValueTypes[O], O extends "query_root">(
+  query: Z | ValueTypes[O],
+  options?: QueryHookOptions<InputType<GraphQLTypes[O], Z>>,
+  operationName?: string,
+) {
+  return useQuery<InputType<GraphQLTypes[O], Z>>(gql(Zeus("query",query, operationName)), options);
+}
+
+// export function useTypedLazyQuery<Z>(
+//   LazyQuery: Z | ValueTypes['query_root'],
+//   options?: LazyQueryHookOptions<InputType<GraphQLTypes['query_root'], Z>>
+// ) {
+//   return useLazyQuery<InputType<GraphQLTypes['query_root'], Z>>(
+//     gql(Zeus.query(LazyQuery)),
+//     options
+//   );
+// }
+
+export function useTypedLazyQuery<Z extends ValueTypes[O], O extends "query_root">(
+  LazyQuery: Z | ValueTypes[O],
+  options?: LazyQueryHookOptions<InputType<GraphQLTypes[O], Z>>,
+  operationName?: string,
+) {
+  return useLazyQuery<InputType<GraphQLTypes[O], Z>>(gql(Zeus("query",LazyQuery, operationName)), options);
+}
+
+// export function useTypedSubscription<Z>(
+//   subscription: Z | ValueTypes['subscription_root'],
+//   options?: SubscriptionHookOptions<
+//     InputType<GraphQLTypes['subscription_root'], Z>
+//   >
+// ) {
+//   return useSubscription<InputType<GraphQLTypes['subscription_root'], Z>>(
+//     gql(Zeus.subscription(subscription)),
+//     options
+//   );
+// }
+
+export function useTypedSubscription<Z extends ValueTypes[O], O extends "subscription_root">(
+  subscription: Z | ValueTypes[O],
+  options?: SubscriptionHookOptions<InputType<GraphQLTypes[O], Z>>,
+  operationName?: string,
+) {
+  return useSubscription<InputType<GraphQLTypes[O], Z>>(gql(Zeus("subscription",subscription, operationName)), options);
+}
+
+export function useTypedClientMutation<Z extends ValueTypes[O], O extends "mutation_root">(
+  mutation: Z | ValueTypes[O],
   variables?: any,
   options?: MutationOptions<
-    InputType<GraphQLTypes['mutation_root'], Q>,
+    InputType<GraphQLTypes[O], Z>,
     Record<string, any>
   >
 ) {
-  return client.mutate<InputType<GraphQLTypes['mutation_root'], Q>>({
-    mutation: gql(Zeus.mutation(mutation)),
+  return client.mutate<InputType<GraphQLTypes[O], Z>>({
+    mutation: gql(Zeus("mutation",mutation)),
     variables: {
       ...variables,
     },
@@ -78,16 +112,16 @@ export function useTypedClientMutation<Q extends ValueTypes['mutation_root']>(
   });
 }
 
-export function useTypedClientQuery<Q extends ValueTypes['query_root']>(
-  query: Q,
+export function useTypedClientQuery<Z extends ValueTypes[O], O extends "query_root">(
+  query: Z | ValueTypes[O],
   variables?: any,
   options?: QueryOptions<
-    InputType<GraphQLTypes['query_root'], Q>,
+    InputType<GraphQLTypes[O], Z>,
     Record<string, any>
   >
 ) {
-  return client.query<InputType<GraphQLTypes['query_root'], Q>>({
-    query: gql(Zeus.query(query)),
+  return client.query<InputType<GraphQLTypes[O], Z>>({
+    query: gql(Zeus("query",query)),
     variables: {
       ...variables,
     },

@@ -8,7 +8,7 @@ import * as plans from '&crm/domains/commercial/Plans';
 
 import rotas from '&crm/domains/routes';
 
-export default function rowActions({
+export function RowActions({
   item,
 }: {
   item: GraphQLTypes['comercial_Planos'];
@@ -17,7 +17,7 @@ export default function rowActions({
   const actions = [
     {
       title: 'Editar',
-      url: rotas.comercial.planos.index + '/' + item.Id,
+      url: rotas.comercial.planos + '/' + item.Id,
       icon: <common.icons.EditIcon />,
     },
     {

@@ -2,76 +2,83 @@ table:
   name: Produtos
   schema: comercial
 object_relationships:
-  - name: ServicoDeDesinstalacao
-    using:
-      foreign_key_constraint_on: ServicoDeDesinstalacao_Id
-  - name: ServicoDeInstalacao
-    using:
-      foreign_key_constraint_on: ServicoDeInstalacao_Id
-  - name: Tipo
-    using:
-      foreign_key_constraint_on: Tipo_Id
+- name: ServicoDeDesinstalacao
+  using:
+    foreign_key_constraint_on: ServicoDeDesinstalacao_Id
+- name: ServicoDeInstalacao
+  using:
+    foreign_key_constraint_on: ServicoDeInstalacao_Id
+- name: Tipo
+  using:
+    foreign_key_constraint_on: Tipo_Id
 array_relationships:
-  - name: Atributos
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: Produtos_Atributos
-          schema: comercial
-  - name: Combos
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: Combos_Produtos
-          schema: comercial
-  - name: Fornecedores
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: PrestadoresDeServicos_Produtos
-          schema: comercial
-  - name: Oportunidades
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: Produtos_Oportunidades
-          schema: comercial
-  - name: ProdutosDependentes
-    using:
-      foreign_key_constraint_on:
-        column: ProdutoDependente_Id
-        table:
-          name: Produtos_Produtos
-          schema: comercial
-  - name: ProdutosQueDependo
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: Produtos_Produtos
-          schema: comercial
-  - name: Propostas
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: Propostas_Produtos
-          schema: propostas
-  - name: Servicos
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: Produtos_Servicos
-          schema: comercial
-  - name: Servicos_Produtos
-    using:
-      foreign_key_constraint_on:
-        column: Produto_Id
-        table:
-          name: Servicos_Produtos
-          schema: comercial
+- name: Atributos
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Produtos_Atributos
+        schema: comercial
+- name: Combos
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Combos_Produtos
+        schema: comercial
+- name: Fornecedores
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: PrestadoresDeServicos_Produtos
+        schema: comercial
+- name: Oportunidades
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Produtos_Oportunidades
+        schema: comercial
+- name: Planos
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Planos_Produtos
+        schema: comercial
+- name: ProdutosDependentes
+  using:
+    foreign_key_constraint_on:
+      column: ProdutoDependente_Id
+      table:
+        name: Produtos_Produtos
+        schema: comercial
+- name: ProdutosQueDependo
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Produtos_Produtos
+        schema: comercial
+- name: Propostas
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Propostas_Produtos
+        schema: propostas
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Produtos_Servicos
+        schema: comercial
+- name: Servicos_Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Servicos_Produtos
+        schema: comercial

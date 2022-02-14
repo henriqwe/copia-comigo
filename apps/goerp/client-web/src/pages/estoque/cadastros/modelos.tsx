@@ -1,12 +1,12 @@
-import * as models from '&erp/domains/inventory/Registration/Models';
-import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers';
-import * as products from '&erp/domains/purchases/Products';
+import * as models from '&erp/domains/inventory/Registration/Models'
+import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers'
+import * as products from '&erp/domains/purchases/Products'
 
-import rotas from '&erp/domains/routes';
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function Models() {
   return (
@@ -19,25 +19,25 @@ export default function Models() {
         </products.ListProvider>
       </manufacturers.ManufacturerProvider>
     </models.ModelProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { modelsRefetch, modelsLoading } = models.useModel();
-  const { manufacturersRefetch } = manufacturers.useManufacturer();
-  const { productsRefetch } = products.useList();
+  const { theme, changeTheme } = useTheme()
+  const { modelsRefetch, modelsLoading } = models.useModel()
+  const { manufacturersRefetch } = manufacturers.useManufacturer()
+  const { productsRefetch } = products.useList()
 
   const refetch = () => {
-    manufacturersRefetch();
-    productsRefetch();
-    modelsRefetch();
-  };
+    manufacturersRefetch()
+    productsRefetch()
+    modelsRefetch()
+  }
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -49,12 +49,12 @@ export function Page() {
         { title: 'Estoque', url: rotas.estoque.index },
         {
           title: 'Modelos',
-          url: rotas.estoque.cadastros.fabricantes,
-        },
+          url: rotas.estoque.cadastros.fabricantes
+        }
       ]}
     >
       <models.List />
       <models.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

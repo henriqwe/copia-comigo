@@ -1,23 +1,27 @@
-import * as blocks from '@comigo/ui-blocks';
-import * as clients from '&crm/domains/clients';
+import * as blocks from '@comigo/ui-blocks'
+import * as clients from '&crm/domains/clients'
 
-export default function SlidePanel() {
-  const { slidePanelState, setSlidePanelState } = clients.useUpdate();
-  let title = '';
-  let component = <div />;
+export function SlidePanel() {
+  const { slidePanelState, setSlidePanelState } = clients.useUpdate()
+  let title = ''
+  let component = <div />
   switch (slidePanelState.type) {
     case 'ownership':
-      title = 'Mudar titularidade dos veículos';
-      component = <clients.ChangeOwnership />;
-      break;
+      title = 'Mudar titularidade dos veículos'
+      component = <clients.ChangeOwnership />
+      break
     case 'vehicle':
-      title = 'Trocar veículos';
-      component = <clients.ChangeVehicle />;
-      break;
+      title = 'Trocar veículos'
+      component = <clients.ChangeVehicle />
+      break
     case 'proposal':
-      title = 'Criar novo veículo';
-      component = <clients.CreateProposal />;
-      break;
+      title = 'Criar proposta para o novo veículo'
+      component = <clients.CreateProposal />
+      break
+    case 'createVehicle':
+      title = 'Criar novo veículo'
+      component = <clients.CreateVehicle />
+      break
   }
   return (
     <blocks.SlidePanel
@@ -26,5 +30,5 @@ export default function SlidePanel() {
       handler={setSlidePanelState}
       formContent={component}
     />
-  );
+  )
 }

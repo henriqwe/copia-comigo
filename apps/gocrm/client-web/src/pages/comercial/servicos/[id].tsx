@@ -1,18 +1,18 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as products from '&crm/domains/commercial/Products';
-import * as services from '&crm/domains/commercial/Services';
-import * as combos from '&crm/domains/commercial/Combos';
-import * as attributes from '&crm/domains/commercial/Registration/Attributes';
-import * as tariffs from '&crm/domains/commercial/Registration/Tariffs';
+import * as products from '&crm/domains/commercial/Products'
+import * as services from '&crm/domains/commercial/Services'
+import * as combos from '&crm/domains/commercial/Combos'
+import * as attributes from '&crm/domains/commercial/Registration/Attributes'
+import * as tariffs from '&crm/domains/commercial/Registration/Tariffs'
 
 export default function UpdateService() {
   return (
@@ -40,42 +40,42 @@ export default function UpdateService() {
         </services.upSelling.UpSellingProvider>
       </products.ProductProvider>
     </services.UpdateProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { serviceLoading, serviceRefetch } = services.useUpdate();
+  const { theme, changeTheme } = useTheme()
+  const { serviceLoading, serviceRefetch } = services.useUpdate()
   const { productsRefetch, mainProductsRefetch, dependentsProductsRefetch } =
-    services.products.useProduct();
-  const { upSellingRefetch } = services.upSelling.useUpSelling();
+    services.products.useProduct()
+  const { upSellingRefetch } = services.upSelling.useUpSelling()
   const { servicesRefetch, mainServicesRefetch, dependentsServicesRefetch } =
-    services.services.useService();
-  const { attributesRefetch } = services.attributes.useAttribute();
-  const { attributeRefetch } = attributes.useAttribute();
-  const { tariffsRefetch } = services.tariffs.useTariff();
-  const { tariffsRefetch: mainTariffsRefetch } = services.tariffs.useTariff();
+    services.services.useService()
+  const { attributesRefetch } = services.attributes.useAttribute()
+  const { attributeRefetch } = attributes.useAttribute()
+  const { tariffsRefetch } = services.tariffs.useTariff()
+  const { tariffsRefetch: mainTariffsRefetch } = services.tariffs.useTariff()
 
   function refetch() {
-    productsRefetch();
-    mainProductsRefetch();
-    dependentsProductsRefetch();
-    upSellingRefetch();
-    servicesRefetch();
-    mainServicesRefetch();
-    dependentsServicesRefetch();
-    attributesRefetch();
-    attributeRefetch();
-    tariffsRefetch();
-    mainTariffsRefetch();
-    serviceRefetch();
+    productsRefetch()
+    mainProductsRefetch()
+    dependentsProductsRefetch()
+    upSellingRefetch()
+    servicesRefetch()
+    mainServicesRefetch()
+    dependentsServicesRefetch()
+    attributesRefetch()
+    attributeRefetch()
+    tariffsRefetch()
+    mainTariffsRefetch()
+    serviceRefetch()
   }
 
   return (
     <templates.FormAndTabs
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -83,18 +83,18 @@ function Page() {
       title="Serviços"
       reload={{
         action: refetch,
-        state: serviceLoading,
+        state: serviceLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Serviços',
-          url: rotas.comercial.servicos,
-        },
+          url: rotas.comercial.servicos
+        }
       ]}
     >
       <services.Tabs />
     </templates.FormAndTabs>
-  );
+  )
 }

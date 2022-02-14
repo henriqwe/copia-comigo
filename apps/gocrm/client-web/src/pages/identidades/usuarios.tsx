@@ -1,15 +1,15 @@
-import * as users from '&crm/domains/identities/Users';
-import * as clients from '&crm/domains/identities/Clients';
+import * as users from '&crm/domains/identities/Users'
+import * as clients from '&crm/domains/identities/Clients'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Users() {
   return (
     <users.UserProvider>
@@ -20,24 +20,24 @@ export default function Users() {
         </ThemeProvider>
       </clients.ListProvider>
     </users.UserProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { usersRefetch, usersLoading, collaboratorsRefetch } = users.useUser();
-  const { clientsRefetch } = clients.useList();
+  const { theme, changeTheme } = useTheme()
+  const { usersRefetch, usersLoading, collaboratorsRefetch } = users.useUser()
+  const { clientsRefetch } = clients.useList()
   const refetch = () => {
-    usersRefetch();
-    collaboratorsRefetch();
-    clientsRefetch();
-  };
+    usersRefetch()
+    collaboratorsRefetch()
+    clientsRefetch()
+  }
   //const { usuario } = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -47,11 +47,11 @@ export function Page() {
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Identidades', url: rotas.identidades.index },
-        { title: 'Usuários', url: rotas.identidades.usuarios },
+        { title: 'Usuários', url: rotas.identidades.usuarios }
       ]}
     >
       <users.List />
       <users.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

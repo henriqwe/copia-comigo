@@ -2,18 +2,16 @@
 import {
   ChevronLeftIcon,
   ClockIcon,
-  ExclamationIcon,
   LocationMarkerIcon,
   MapIcon,
   MinusIcon,
   PlusIcon,
-  SearchIcon,
-  TruckIcon,
-  UserIcon
+  SearchIcon
 } from '@heroicons/react/outline'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import * as common from '@comigo/ui-common'
 import { Transition } from '@headlessui/react'
+import { showError } from '@comigo/utils'
 
 type coordsToCenterMap = {
   lat?: number
@@ -171,11 +169,11 @@ export function FloatingCard({
       vehicle.latitude,
       vehicle.longitude
     )
-    let splitend = response.results[0].formatted_address.split(',')
-
+    const addressComplete = response.results[0].formatted_address
+    let splitend = addressComplete.split(',')
     let addressName = splitend.splice(0, 2).toString()
     let addressInfo = splitend.splice(0, splitend.length).toString()
-    return { addressName, addressInfo }
+    return { addressInfo, addressName, addressComplete }
   }
 
   function sortByPlaca(allUserVehicle: vehicle[]) {
@@ -245,8 +243,6 @@ export function FloatingCard({
   useEffect(() => {
     if (selectedVehicle) {
       getStreetName(selectedVehicle)
-      // setPageCard('pagVehiclesDetails')
-      // setMoreDetails(false)
     }
   }, [selectedVehicle])
 
@@ -366,20 +362,6 @@ function pagAllVehicles({
             />
           </div>
         </div>
-        {/* <div className="flex items-center justify-between px-3 py-1 bg-gray-100">
-              <span className="text-sm text-gray-600" >Ordenar por</span>
-              <common.Dropdown
-                title={titleFilter}
-                titleClassName="text-sm"
-                handler={(e)=>{setTitleFilter(e)}}
-                items={[
-                  'Em trânsito',
-                  'Parado',
-                  'Desligado'
-                ]}
-              />
-              
-            </div> */}
       </div>
       <div className="flex-1 px-3 py-2 overflow-y-scroll">
         <ul>
@@ -469,7 +451,7 @@ function pagVehiclesDetails({
         formData.target.dateEnd.value
       )
     } catch (err: any) {
-      // showError(err)
+      showError(err)
       console.log(err)
     }
   }

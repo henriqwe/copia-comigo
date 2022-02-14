@@ -3,86 +3,89 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
-import { GraphQLTypes } from '&crm/graphql/generated/zeus';
+  OperationVariables
+} from '@apollo/client'
+import { GraphQLTypes, order_by } from '&crm/graphql/generated/zeus'
 import {
   $,
   useTypedMutation,
-  useTypedQuery,
-} from '&crm/graphql/generated/zeus/apollo';
+  useTypedQuery
+} from '&crm/graphql/generated/zeus/apollo'
 import {
   createContext,
   Dispatch,
   ReactNode,
   SetStateAction,
   useContext,
-  useState,
-} from 'react';
+  useState
+} from 'react'
+import * as yup from 'yup'
 
 type ListContextProps = {
-  slidePanelState: SlidePanelStateType;
-  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>;
+  slidePanelState: SlidePanelStateType
+  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
   plansData?: {
-    Id: string;
-    Nome: string;
-    Servico: {
-      Id: string;
-      Nome: string;
-    };
-    Condicionais: {
-      Id: string;
-      Valor: number;
-      Condicional: {
-        Id: string;
-        Nome: string;
-      };
-    }[];
-    Precos: {
-      Id: string;
-      ValorPraticado?: string;
-      ServicoPreco: {
-        Id: string;
-        Valor: string;
-      };
-      ValorBase: string;
-    }[];
-  }[];
-
-  plansRefetch: () => void;
-  plansLoading: boolean;
-  softDeletePlanLoading: boolean;
+    Id: string
+    Nome: string
+  }[]
+  plansRefetch: () => void
+  plansLoading: boolean
+  softDeletePlanLoading: boolean
   softDeletePlan: (
     options?: MutationFunctionOptions<
       {
         update_comercial_Planos_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-};
+  ) => Promise<FetchResult['data']>
+  createPlan: (
+    options?: MutationFunctionOptions<
+      {
+        insert_comercial_Planos_one?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  createPlanLoading: boolean
+  planSchema: yup.AnyObjectSchema
+}
 
 type SlidePanelStateType = {
-  data?: GraphQLTypes['comercial_Planos'] | null;
-  open: boolean;
-};
+  open: boolean
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const ListContext = createContext<ListContextProps>(
   {} as ListContextProps
-);
+)
 
 export const ListProvider = ({ children }: ProviderProps) => {
   const [slidePanelState, setSlidePanelState] = useState<SlidePanelStateType>({
-    open: false,
-  });
+    open: false
+  })
+
+  const [createPlan, { loading: createPlanLoading }] = useTypedMutation({
+    insert_comercial_Planos_one: [
+      {
+        object: {
+          Nome: $`Nome`
+        }
+      },
+      { Id: true }
+    ]
+  })
 
   const [softDeletePlan, { loading: softDeletePlanLoading }] = useTypedMutation(
     {
@@ -90,55 +93,39 @@ export const ListProvider = ({ children }: ProviderProps) => {
         {
           pk_columns: { Id: $`Id` },
           _set: {
-            deleted_at: new Date(),
-          },
+            deleted_at: new Date()
+          }
         },
         {
-          Id: true,
-        },
-      ],
+          Id: true
+        }
+      ]
     }
-  );
+  )
 
   const {
     data: plansData,
     refetch: plansRefetch,
-    loading: plansLoading,
+    loading: plansLoading
   } = useTypedQuery(
     {
       comercial_Planos: [
         {
-          order_by: [{ created_at: 'desc' }],
-          where: { deleted_at: { _is_null: true } },
+          order_by: [{ created_at: order_by.desc }],
+          where: { deleted_at: { _is_null: true } }
         },
         {
           Id: true,
-          Nome: true,
-          Servico: {
-            Id: true,
-            Nome: true,
-          },
-          Condicionais: [
-            { where: { deleted_at: { _is_null: true } } },
-            { Id: true, Valor: true, Condicional: { Id: true, Nome: true } },
-          ],
-          Precos: [
-            { order_by: [{ created_at: 'desc' }] },
-            {
-              Id: true,
-              ServicoPreco: {
-                Id: true,
-                Valor: true,
-              },
-              ValorBase: true,
-              ValorPraticado: true,
-            },
-          ],
-        },
-      ],
+          Nome: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
+
+  const planSchema = yup.object().shape({
+    Nome: yup.string().required('Preencha o campo para continuar')
+  })
 
   return (
     <ListContext.Provider
@@ -150,13 +137,16 @@ export const ListProvider = ({ children }: ProviderProps) => {
         plansLoading,
         softDeletePlanLoading,
         softDeletePlan,
+        createPlan,
+        createPlanLoading,
+        planSchema
       }}
     >
       {children}
     </ListContext.Provider>
-  );
-};
+  )
+}
 
 export const useList = () => {
-  return useContext(ListContext);
-};
+  return useContext(ListContext)
+}

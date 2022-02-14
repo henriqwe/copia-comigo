@@ -101,7 +101,7 @@
  | Components
  |--------------------------------------------------------------------------
  |
- | Import CSS components.
+ | Import CSS domains.
  |
  */
 @import './components/_global.css';

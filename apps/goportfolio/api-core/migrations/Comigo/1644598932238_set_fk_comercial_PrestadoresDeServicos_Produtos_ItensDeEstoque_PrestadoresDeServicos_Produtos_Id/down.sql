@@ -1,0 +1,1 @@
+alter table "comercial"."PrestadoresDeServicos_Produtos_ItensDeEstoque" drop constraint "PrestadoresDeServicos_Produtos_ItensDeEstoque_PrestadoresDeS";

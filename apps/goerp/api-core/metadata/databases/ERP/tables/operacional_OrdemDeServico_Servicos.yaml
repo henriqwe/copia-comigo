@@ -2,6 +2,25 @@ table:
   name: OrdemDeServico_Servicos
   schema: operacional
 object_relationships:
-  - name: OrdemDeServico
-    using:
-      foreign_key_constraint_on: OrdemDeServico_Id
+- name: OrdemDeServico
+  using:
+    foreign_key_constraint_on: OrdemDeServico_Id
+remote_relationships:
+- definition:
+    hasura_fields:
+    - Servico_Id
+    remote_field:
+      comercial_Servicos_by_pk:
+        arguments:
+          Id: $Servico_Id
+    remote_schema: GoPortfolio
+  name: Servico
+- definition:
+    hasura_fields:
+    - ServicoPreco_Id
+    remote_field:
+      comercial_PrestadoresDeServicos_Servicos_Precos_by_pk:
+        arguments:
+          Id: $ServicoPreco_Id
+    remote_schema: GoPortfolio
+  name: ServicoPreco

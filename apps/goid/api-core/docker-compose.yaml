@@ -1,6 +1,10 @@
 version: '3.6'
+networks:
+  default:
+    name: goid-api-core
 services:
   postgres:
+    container_name: goid-postgres
     image: postgres:13
     command: -p 5422
     expose:
@@ -16,27 +20,41 @@ services:
       TZ: 'America/Recife'
       PGTZ: 'America/Recife'
   graphql-engine:
-    image: hasura/graphql-engine:v2.1.1
+    container_name: goid-graphql-engine
+    image: hasura/graphql-engine:v2.2.0
     ports:
       - '9003:8080'
     depends_on:
       - 'postgres'
     restart: always
     environment:
-      ## postgres database to store Hasura metadata
-      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/hasura
       ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
       PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/comigo
-      ## enable the console served by server
+      ## configuração geral do hasura engine
       HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
-      ## enable debugging mode. It is recommended to disable this in production
       HASURA_GRAPHQL_DEV_MODE: 'true'
+      HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
+      ## postgres database to store Hasura metadata
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/hasura
       # variáveis de ambiente para ações e eventos
-      ACTION_BASE_URL: ${ACTION_BASE_URL}
-      LOGS_EVENT_BASE_URL: ${LOGS_EVENT_BASE_URL}
-      ## uncomment next line to set type logs
-      # HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
-      ## uncomment next line to set an admin secret
-      HASURA_GRAPHQL_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT
+      ACTION_BASE_URL: http://${HOST_IP}:${APP_LAMBDA_PORT}/api/acoes
+      LOGS_EVENT_BASE_URL: http://${HOST_IP}:${APP_LAMBDA_PORT}/api/eventos/registro-de-logs
 volumes:
   db_data: null
+
+
+#  ## postgres database to store Hasura metadata
+#  HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/hasura
+#  ## this env var can be used to add the above postgres database to Hasura as a data source. this can be removed/updated based on your needs
+#  PG_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5422/comigo
+#  ## enable the console served by server
+#  HASURA_GRAPHQL_ENABLE_CONSOLE: 'false'
+#  ## enable debugging mode. It is recommended to disable this in production
+#  HASURA_GRAPHQL_DEV_MODE: 'true'
+#  # variáveis de ambiente para ações e eventos
+#  ACTION_BASE_URL: ${ACTION_BASE_URL}
+#  LOGS_EVENT_BASE_URL: ${LOGS_EVENT_BASE_URL}
+#  ## uncomment next line to set type logs
+#  # HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+#  ## uncomment next line to set an admin secret
+#  HASURA_GRAPHQL_ADMIN_SECRET: RKIDGB1eNe7aZqYS9vPz15Y39wjXYaU3fJeseklpw1owIEQaB6TzzKJ2rD9yjrAT

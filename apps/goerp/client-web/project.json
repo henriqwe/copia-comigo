@@ -19,7 +19,8 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "goerp-client-web:build",
-        "dev": true
+        "dev": true,
+        "port": 3002
       },
       "configurations": {
         "production": {

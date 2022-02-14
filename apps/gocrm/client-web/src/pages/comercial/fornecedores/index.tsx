@@ -1,14 +1,14 @@
-import * as providers from '&crm/domains/commercial/Providers';
+import * as providers from '&crm/domains/commercial/Providers'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Providers() {
   return (
     <providers.ProviderProvider>
@@ -17,21 +17,21 @@ export default function Providers() {
         <Page />{' '}
       </ThemeProvider>
     </providers.ProviderProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { providersRefetch, providersLoading } = providers.useProvider();
+  const { theme, changeTheme } = useTheme()
+  const { providersRefetch, providersLoading } = providers.useProvider()
   const refetch = () => {
-    providersRefetch();
-  };
+    providersRefetch()
+  }
   //const { usuario } = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -43,12 +43,12 @@ export function Page() {
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Parceiros',
-          url: rotas.comercial.fornecedores,
-        },
+          url: rotas.comercial.fornecedores
+        }
       ]}
     >
       <providers.List />
       <providers.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

@@ -1,88 +1,41 @@
-import * as combos from '&crm/domains/commercial/Combos';
-import * as plans from '&crm/domains/commercial/Plans';
-import * as products from '&crm/domains/commercial/Products';
-import * as services from '&crm/domains/commercial/Services';
+import * as combos from '&crm/domains/commercial/Combos'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function ProposalDetails() {
   return (
     <combos.ViewProvider>
-      <plans.ListProvider>
-        <products.ProductProvider>
-          <services.ServiceProvider>
-            <combos.combos.DependenceComboProvider>
-              <ThemeProvider>
-                {' '}
-                <Page />{' '}
-              </ThemeProvider>
-            </combos.combos.DependenceComboProvider>
-          </services.ServiceProvider>
-        </products.ProductProvider>
-      </plans.ListProvider>
+      <ThemeProvider>
+        <Page />
+      </ThemeProvider>
     </combos.ViewProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { comboRefetch, comboLoading, comboData } = combos.useView();
-  const { combosRefetch, dependenciesCombosRefetch } =
-    combos.combos.useDependenceCombo();
-  const { productsRefetch } = products.useProduct();
-  const { plansRefetch } = plans.useList();
-  const { servicesRefetch } = services.useService();
+  const { theme, changeTheme } = useTheme()
+  const { comboRefetch, comboLoading } = combos.useView()
 
   const refetch = () => {
-    productsRefetch();
-    plansRefetch();
-    servicesRefetch();
-    combosRefetch();
-    dependenciesCombosRefetch();
-    comboRefetch();
-  };
-
-  if ((comboData?.ComboPai.length || 0) > 0) {
-    return (
-      <templates.Base
-        setTheme={changeTheme}
-        theme={theme}
-        mainMenuItens={mainMenuItens}
-        rotas={rotas}
-        companies={companies}
-        imageUrl={'/imagens/logoAssistencia.png'}
-        title="Detalhe de Combo"
-        reload={{ action: refetch, state: comboLoading }}
-        currentLocation={[
-          { title: 'Rastreamento', url: rotas.home },
-          { title: 'Comercial', url: rotas.comercial.index },
-          {
-            title: 'Combos',
-            url: rotas.comercial.combos.index,
-          },
-        ]}
-      >
-        <combos.View />
-      </templates.Base>
-    );
+    comboRefetch()
   }
+
   return (
-    <templates.FormAndTabs
+    <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
-      Form={<combos.View />}
       title="Detalhe de Combo"
       reload={{ action: refetch, state: comboLoading }}
       currentLocation={[
@@ -90,11 +43,11 @@ export function Page() {
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Combos',
-          url: rotas.comercial.combos.index,
-        },
+          url: rotas.comercial.combos
+        }
       ]}
     >
-      <combos.Tabs />
-    </templates.FormAndTabs>
-  );
+      <combos.ViewCombo />
+    </templates.Base>
+  )
 }

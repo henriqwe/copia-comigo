@@ -1,6 +1,13 @@
 import { Loader } from '@googlemaps/js-api-loader'
 import { MarkerClusterer } from '@googlemaps/markerclusterer'
-import { createContext, ReactNode, useContext, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useState
+} from 'react'
 import { createBounceMarker } from './api/bounceMarker'
 
 type coordsToCenterMapProp = {
@@ -43,6 +50,8 @@ type MapContextProps = {
     }
     zoom?: number
   }) => void
+  showInfoWindowsInMap: boolean
+  setShowInfoWindowsInMap: Dispatch<SetStateAction<boolean>>
 }
 
 type ProviderProps = {
@@ -53,6 +62,7 @@ export const MapContext = createContext<MapContextProps>({} as MapContextProps)
 export const MapProvider = ({ children }: ProviderProps) => {
   const [google, setGoogle] = useState<google>()
   const [mapa, setMapa] = useState<google.maps.Map>()
+  const [showInfoWindowsInMap, setShowInfoWindowsInMap] = useState(true)
   const [markerCluster, setMarkerCluster] = useState<MarkerClusterer>()
   const [pointMarker, setPointMarker] = useState<
     google.maps.Marker | undefined
@@ -140,7 +150,9 @@ export const MapProvider = ({ children }: ProviderProps) => {
         showBounceMarker,
         markersAndLine,
         initMap,
-        setMarkersAndLine
+        setMarkersAndLine,
+        showInfoWindowsInMap,
+        setShowInfoWindowsInMap
       }}
     >
       {children}

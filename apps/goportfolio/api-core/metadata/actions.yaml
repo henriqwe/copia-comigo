@@ -3,8 +3,8 @@ custom_types:
   enums: []
   input_objects: []
   objects:
-    - name: CadastrarFornecedorOutput
-    - name: CadastrarClienteOutput
-    - name: CadastrarRepresentanteOutput
-    - name: CadastrarColaboradorOutput
+  - name: CadastrarFornecedorOutput
+  - name: CadastrarClienteOutput
+  - name: CadastrarRepresentanteOutput
+  - name: CadastrarColaboradorOutput
   scalars: []

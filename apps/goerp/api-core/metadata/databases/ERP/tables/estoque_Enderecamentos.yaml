@@ -2,47 +2,47 @@ table:
   name: Enderecamentos
   schema: estoque
 object_relationships:
-  - name: Pai
-    using:
-      foreign_key_constraint_on: Pai_Id
-  - name: Tipo
-    using:
-      foreign_key_constraint_on: Tipo_Id
+- name: Pai
+  using:
+    foreign_key_constraint_on: Pai_Id
+- name: Tipo
+  using:
+    foreign_key_constraint_on: Tipo_Id
 array_relationships:
-  - name: Filhos
-    using:
-      foreign_key_constraint_on:
-        column: Pai_Id
-        table:
-          name: Enderecamentos
-          schema: estoque
-  - name: Itens
-    using:
-      foreign_key_constraint_on:
-        column: Enderecamento_Id
-        table:
-          name: Itens
-          schema: estoque
+- name: Filhos
+  using:
+    foreign_key_constraint_on:
+      column: Pai_Id
+      table:
+        name: Enderecamentos
+        schema: estoque
+- name: Itens
+  using:
+    foreign_key_constraint_on:
+      column: Enderecamento_Id
+      table:
+        name: Itens
+        schema: estoque
 event_triggers:
-  - definition:
-      delete:
-        columns: '*'
-      enable_manual: true
-      insert:
-        columns: '*'
-      update:
-        columns:
-          - Descricao
-          - Tipo_Id
-          - updated_at
-          - Pai_Id
-          - deleted_at
-          - Id
-          - created_at
-          - Nome
-    name: Logs_estoque_Enderecamentos
-    retry_conf:
-      interval_sec: 10
-      num_retries: 0
-      timeout_sec: 60
-    webhook: '{{LOGS_EVENT_BASE_URL}}'
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Descricao
+      - Tipo_Id
+      - updated_at
+      - Pai_Id
+      - deleted_at
+      - Id
+      - created_at
+      - Nome
+  name: Logs_estoque_Enderecamentos
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

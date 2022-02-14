@@ -1,12 +1,12 @@
-import rotas from '&erp/domains/routes';
+import rotas from '&erp/domains/routes'
 
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
-import * as providers from '&erp/domains/portfolio/Pricing';
-import * as itens from '&erp/domains/inventory/Itens';
+import * as providers from '&erp/domains/portfolio/Pricing'
+import * as itens from '&erp/domains/inventory/Itens'
 
 export default function UpdateProvider() {
   return (
@@ -21,28 +21,28 @@ export default function UpdateProvider() {
         </providers.Services.ServiceProvider>
       </providers.Products.ProductProvider>
     </providers.UpdateProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { providerLoading, providerRefetch } = providers.useUpdate();
-  const { productsRefetch } = providers.Products.useProduct();
-  const { servicesRefetch } = providers.Services.useService();
-  const { itensRefetch } = itens.useList();
+  const { theme, changeTheme } = useTheme()
+  const { providerLoading, providerRefetch } = providers.useUpdate()
+  const { productsRefetch } = providers.Products.useProduct()
+  const { servicesRefetch } = providers.Services.useService()
+  const { itensRefetch } = itens.useList()
 
   const refetch = () => {
-    itensRefetch();
-    productsRefetch();
-    servicesRefetch();
-    providerRefetch();
-  };
+    itensRefetch()
+    productsRefetch()
+    servicesRefetch()
+    providerRefetch()
+  }
 
   return (
     <templates.FormAndTabs
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -50,18 +50,18 @@ export function Page() {
       title="Parceiro"
       reload={{
         action: refetch,
-        state: providerLoading,
+        state: providerLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Portfolio', url: rotas.portfolio.index },
         {
           title: 'Precificação',
-          url: rotas.portfolio.precificacao,
-        },
+          url: rotas.portfolio.precificacao
+        }
       ]}
     >
       <providers.Tabs />
     </templates.FormAndTabs>
-  );
+  )
 }

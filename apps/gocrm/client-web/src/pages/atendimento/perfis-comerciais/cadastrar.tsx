@@ -1,27 +1,27 @@
-import * as businessProfiles from '&crm/domains/services/BusinessProfiles';
-import * as leads from '&crm/domains/services/Leads';
-import * as questionsGroups from '&crm/domains/services/Registration/Questions/Groups';
+import * as businessProfiles from '&crm/domains/services/BusinessProfiles'
+import * as leads from '&crm/domains/services/Leads'
+import * as questionsGroups from '&crm/domains/services/Registration/Questions/Groups'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps } from 'next'
 
 type CreateBusinessProfileProps = {
-  Lead_Id: string | null;
-  Lead_Nome: string | null;
-};
+  Lead_Id: string | null
+  Lead_Nome: string | null
+}
 
 export default function CreateBusinessProfile({
   Lead_Id,
-  Lead_Nome,
+  Lead_Nome
 }: CreateBusinessProfileProps) {
   return (
     <businessProfiles.CreateProvider>
@@ -31,23 +31,23 @@ export default function CreateBusinessProfile({
         </questionsGroups.ListProvider>
       </leads.LeadProvider>
     </businessProfiles.CreateProvider>
-  );
+  )
 }
 
 export function Page({ Lead_Id, Lead_Nome }: CreateBusinessProfileProps) {
-  const { theme, changeTheme } = useTheme();
-  const { leadsRefetch, leadsLoading } = leads.useLead();
-  const { questionsGroupsRefetch } = questionsGroups.useList();
+  const { theme, changeTheme } = useTheme()
+  const { leadsRefetch, leadsLoading } = leads.useLead()
+  const { questionsGroupsRefetch } = questionsGroups.useList()
   const refetch = () => {
-    questionsGroupsRefetch();
-    leadsRefetch();
-  };
+    questionsGroupsRefetch()
+    leadsRefetch()
+  }
   //const { usuario } = useUsuario()
   return (
     <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -58,24 +58,24 @@ export function Page({ Lead_Id, Lead_Nome }: CreateBusinessProfileProps) {
         { title: 'Atendimento', url: rotas.atendimento.index },
         {
           title: 'Perfis Comerciais',
-          url: rotas.atendimento.perfisComerciais.index,
+          url: rotas.atendimento.perfisComerciais.index
         },
         {
           title: 'Cadastros',
-          url: rotas.atendimento.cadastros.index,
-        },
+          url: rotas.atendimento.cadastros.index
+        }
       ]}
     >
       <businessProfiles.Create Lead_Id={Lead_Id} Lead_Nome={Lead_Nome} />
     </templates.Base>
-  );
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async (props) => {
   return {
     props: {
       Lead_Id: props.query?.Lead_Id || null,
-      Lead_Nome: props.query?.Lead_Nome || null,
-    },
-  };
-};
+      Lead_Nome: props.query?.Lead_Nome || null
+    }
+  }
+}

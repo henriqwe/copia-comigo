@@ -1,20 +1,20 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Home() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   return (
     <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -23,11 +23,11 @@ export default function Home() {
         { title: 'Estoque', url: rotas.identidades.index },
         {
           title: 'Dashboard',
-          url: rotas.identidades.index,
-        },
+          url: rotas.identidades.index
+        }
       ]}
     >
       <div>Dashboard</div>
     </templates.Base>
-  );
+  )
 }

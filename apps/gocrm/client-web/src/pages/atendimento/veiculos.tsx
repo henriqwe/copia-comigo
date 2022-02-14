@@ -1,11 +1,11 @@
-import * as vehicles from '&crm/domains/services/Vehicles';
-import * as clients from '&crm/domains/identities/Clients';
+import * as vehicles from '&crm/domains/services/Vehicles'
+import * as clients from '&crm/domains/identities/Clients'
 
-import * as templates from '@comigo/ui-templates';
-import rotas from '&crm/domains/routes';
-import mainMenuItens from '&crm/domains/MainMenuItens';
-import companies from '&crm/domains/companies';
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import * as templates from '@comigo/ui-templates'
+import rotas from '&crm/domains/routes'
+import MainMenuItems from '&crm/domains/MainMenuItems'
+import companies from '&crm/domains/companies'
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Vehicles() {
   return (
@@ -17,24 +17,24 @@ export default function Vehicles() {
         </ThemeProvider>
       </clients.ListProvider>
     </vehicles.VehicleProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { vehiclesRefetch, vehiclesLoading } = vehicles.useVehicle();
-  const { clientsRefetch } = clients.useList();
+  const { vehiclesRefetch, vehiclesLoading } = vehicles.useVehicle()
+  const { clientsRefetch } = clients.useList()
   const refetch = () => {
-    clientsRefetch();
-    vehiclesRefetch();
-  };
-  const { theme, changeTheme } = useTheme();
+    clientsRefetch()
+    vehiclesRefetch()
+  }
+  const { theme, changeTheme } = useTheme()
 
   //const { usuario } = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -46,12 +46,12 @@ export function Page() {
         { title: 'Atendimento', url: rotas.atendimento.index },
         {
           title: 'Veículos',
-          url: rotas.atendimento.vehicles,
-        },
+          url: rotas.atendimento.vehicles
+        }
       ]}
     >
       <vehicles.List />
       <vehicles.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

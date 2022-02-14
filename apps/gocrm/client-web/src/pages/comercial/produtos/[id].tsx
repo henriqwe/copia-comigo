@@ -1,17 +1,17 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as products from '&crm/domains/commercial/Products';
-import * as services from '&crm/domains/commercial/Services';
-import * as combos from '&crm/domains/commercial/Combos';
-import * as attributes from '&crm/domains/commercial/Registration/Attributes';
+import * as products from '&crm/domains/commercial/Products'
+import * as services from '&crm/domains/commercial/Services'
+import * as combos from '&crm/domains/commercial/Combos'
+import * as attributes from '&crm/domains/commercial/Registration/Attributes'
 
 export default function UpdateProduct() {
   return (
@@ -37,34 +37,34 @@ export default function UpdateProduct() {
         </products.products.ProductProvider>
       </products.ProductProvider>
     </products.UpdateProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { productLoading, productRefetch } = products.useUpdate();
-  const { productsRefetch } = products.products.useProduct();
-  const { servicesRefetch } = products.services.useService();
-  const { upSellingRefetch } = products.upSelling.useUpSelling();
-  const { attributesRefetch } = products.attributes.useAttribute();
-  const { combosRefetch } = combos.useList();
-  const { attributeRefetch } = attributes.useAttribute();
+  const { theme, changeTheme } = useTheme()
+  const { productLoading, productRefetch } = products.useUpdate()
+  const { productsRefetch } = products.products.useProduct()
+  const { servicesRefetch } = products.services.useService()
+  const { upSellingRefetch } = products.upSelling.useUpSelling()
+  const { attributesRefetch } = products.attributes.useAttribute()
+  const { combosRefetch } = combos.useList()
+  const { attributeRefetch } = attributes.useAttribute()
 
   const refetch = () => {
-    productsRefetch();
-    servicesRefetch();
-    upSellingRefetch();
-    combosRefetch();
-    attributesRefetch();
-    attributeRefetch();
-    productRefetch();
-  };
+    productsRefetch()
+    servicesRefetch()
+    upSellingRefetch()
+    combosRefetch()
+    attributesRefetch()
+    attributeRefetch()
+    productRefetch()
+  }
 
   return (
     <templates.FormAndTabs
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -72,18 +72,18 @@ function Page() {
       title="Produtos"
       reload={{
         action: refetch,
-        state: productLoading,
+        state: productLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Produtos',
-          url: rotas.comercial.produtos,
-        },
+          url: rotas.comercial.produtos
+        }
       ]}
     >
       <products.Tabs />
     </templates.FormAndTabs>
-  );
+  )
 }

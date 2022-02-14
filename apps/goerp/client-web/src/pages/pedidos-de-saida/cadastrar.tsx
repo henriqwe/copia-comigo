@@ -1,14 +1,14 @@
-import * as outgoingOrders from '&erp/domains/outgoingOrders';
-import * as products from '&erp/domains/purchases/Products';
-import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers';
+import * as outgoingOrders from '&erp/domains/outgoingOrders'
+import * as products from '&erp/domains/purchases/Products'
+import * as manufacturers from '&erp/domains/inventory/Registration/Manufacturers'
 
-import rotas from '&erp/domains/routes';
+import rotas from '&erp/domains/routes'
 
-import { UserProvider } from '&erp/contexts/UserContext';
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import { UserProvider } from '&erp/contexts/UserContext'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function CreateOutgoingOrder() {
   return (
@@ -23,23 +23,23 @@ export default function CreateOutgoingOrder() {
         </products.ListProvider>
       </outgoingOrders.CreateProvider>
     </UserProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { productsRefetch, productsLoading } = products.useList();
-  const { manufacturersRefetch } = manufacturers.useManufacturer();
+  const { theme, changeTheme } = useTheme()
+  const { productsRefetch, productsLoading } = products.useList()
+  const { manufacturersRefetch } = manufacturers.useManufacturer()
 
   const refetch = () => {
-    manufacturersRefetch();
-    productsRefetch();
-  };
+    manufacturersRefetch()
+    productsRefetch()
+  }
   return (
     <templates.Base
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -50,11 +50,11 @@ export function Page() {
         { title: 'Compras', url: rotas.compras.index },
         {
           title: 'Pedidos',
-          url: rotas.pedidosDeSaida.index,
-        },
+          url: rotas.pedidosDeSaida.index
+        }
       ]}
     >
       <outgoingOrders.Create />
     </templates.Base>
-  );
+  )
 }

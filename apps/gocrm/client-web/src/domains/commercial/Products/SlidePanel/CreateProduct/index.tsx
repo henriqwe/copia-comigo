@@ -1,30 +1,30 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as products from '&crm/domains/commercial/Products';
-import * as services from '&crm/domains/commercial/Services';
+import * as products from '&crm/domains/commercial/Products'
+import * as services from '&crm/domains/commercial/Services'
 
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 
-import { useState } from 'react';
+import { useState } from 'react'
 
 type FormData = {
-  Nome: string;
-  Categorias: SelectItem[];
-  Tipo: SelectItem;
-  ServicoDeInstalacao_Id: SelectItem;
-  ServicoDeDesinstalacao_Id: SelectItem;
-};
+  Nome: string
+  Categorias: SelectItem[]
+  Tipo: SelectItem
+  ServicoDeInstalacao_Id: SelectItem
+  ServicoDeDesinstalacao_Id: SelectItem
+}
 
 type SelectItem = {
-  key: string;
-  title: string;
-};
+  key: string
+  title: string
+}
 
 export default function CreateProduct() {
-  const [activeToggle, setActiveToggle] = useState(false);
+  const [activeToggle, setActiveToggle] = useState(false)
   const {
     createProductLoading,
     createProduct,
@@ -32,23 +32,23 @@ export default function CreateProduct() {
     productsRefetch,
     productSchema,
     vehicleCategoriesData,
-    productTypesData,
-  } = products.useProduct();
-  const { servicesData } = services.useService();
+    productTypesData
+  } = products.useProduct()
+  const { servicesData } = services.useService()
   const {
     register,
     handleSubmit,
     formState: { errors },
-    control,
+    control
   } = useForm({
-    resolver: yupResolver(productSchema),
-  });
+    resolver: yupResolver(productSchema)
+  })
   const onSubmit = (formData: FormData) => {
     if (activeToggle && formData.ServicoDeInstalacao_Id === undefined) {
       return utils.notification(
         'Selecione o serviço de instalação para continuar',
         'error'
-      );
+      )
     }
     createProduct({
       variables: {
@@ -60,23 +60,20 @@ export default function CreateProduct() {
           : null,
         ServicoDeDesinstalacao_Id: activeToggle
           ? formData.ServicoDeDesinstalacao_Id.key
-          : null,
-      },
+          : null
+      }
     })
       .then(() => {
-        productsRefetch();
+        productsRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification(
-          formData.Nome + ' cadastrado com sucesso',
-          'success'
-        );
+          return { ...oldState, open: false }
+        })
+        utils.notification(formData.Nome + ' cadastrado com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
-  };
+        utils.showError(err)
+      })
+  }
 
   return (
     <form
@@ -104,8 +101,8 @@ export default function CreateProduct() {
                     ? vehicleCategoriesData.map((vehicleCategory) => {
                         return {
                           key: vehicleCategory.Id,
-                          title: vehicleCategory.Nome,
-                        };
+                          title: vehicleCategory.Nome
+                        }
                       })
                     : []
                 }
@@ -129,8 +126,8 @@ export default function CreateProduct() {
                     ? productTypesData.map((productType) => {
                         return {
                           key: productType.Valor,
-                          title: productType.Comentario,
-                        };
+                          title: productType.Comentario
+                        }
                       })
                     : []
                 }
@@ -161,15 +158,19 @@ export default function CreateProduct() {
                   itens={
                     servicesData
                       ? servicesData
-                          .filter(
-                            (service) =>
-                              service.PrestadoresDeServicos.length > 0
-                          )
+                          .filter((service) => {
+                            if (service.PrestadoresDeServicos.length > 0) {
+                              return (
+                                (service.PrestadoresDeServicos[0].Precos
+                                  .length || 0) > 0
+                              )
+                            }
+                          })
                           .map((service) => {
                             return {
                               key: service.Id,
-                              title: service.Nome,
-                            };
+                              title: service.Nome
+                            }
                           })
                       : []
                   }
@@ -190,15 +191,19 @@ export default function CreateProduct() {
                   itens={
                     servicesData
                       ? servicesData
-                          .filter(
-                            (service) =>
-                              service.PrestadoresDeServicos.length > 0
-                          )
+                          .filter((service) => {
+                            if (service.PrestadoresDeServicos.length > 0) {
+                              return (
+                                (service.PrestadoresDeServicos[0].Precos
+                                  .length || 0) > 0
+                              )
+                            }
+                          })
                           .map((service) => {
                             return {
                               key: service.Id,
-                              title: service.Nome,
-                            };
+                              title: service.Nome
+                            }
                           })
                       : []
                   }
@@ -219,5 +224,5 @@ export default function CreateProduct() {
         loading={createProductLoading}
       />
     </form>
-  );
+  )
 }

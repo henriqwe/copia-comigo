@@ -3,10 +3,10 @@ table:
   schema: comercial
 is_enum: true
 array_relationships:
-  - name: Condicionais
-    using:
-      foreign_key_constraint_on:
-        column: Situacao_Id
-        table:
-          name: Condicionais
-          schema: comercial
+- name: Condicionais
+  using:
+    foreign_key_constraint_on:
+      column: Situacao_Id
+      table:
+        name: Condicionais
+        schema: comercial

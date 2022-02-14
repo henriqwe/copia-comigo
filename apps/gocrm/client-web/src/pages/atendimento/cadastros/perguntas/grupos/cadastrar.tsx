@@ -1,15 +1,15 @@
-import * as questionsGroups from '&crm/domains/services/Registration/Questions/Groups';
-import * as questions from '&crm/domains/services/Registration/Questions';
+import * as questionsGroups from '&crm/domains/services/Registration/Questions/Groups'
+import * as questions from '&crm/domains/services/Registration/Questions'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function CreateQuestionsGroup() {
   return (
@@ -21,17 +21,17 @@ export default function CreateQuestionsGroup() {
         </ThemeProvider>
       </questions.QuestionProvider>
     </questionsGroups.CreateProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { questionsRefetch, questionsLoading } = questions.useQuestion();
+  const { theme, changeTheme } = useTheme()
+  const { questionsRefetch, questionsLoading } = questions.useQuestion()
   return (
     <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -42,23 +42,23 @@ export function Page() {
         { title: 'Atendimento', url: rotas.atendimento.index },
         {
           title: 'Cadastros',
-          url: rotas.atendimento.cadastros.index,
+          url: rotas.atendimento.cadastros.index
         },
         {
           title: 'Perguntas',
-          url: rotas.atendimento.cadastros.fluxos.index,
+          url: rotas.atendimento.cadastros.fluxos.index
         },
         {
           title: 'Grupos',
-          url: rotas.atendimento.cadastros.fluxos.etapas,
+          url: rotas.atendimento.cadastros.fluxos.etapas
         },
         {
           title: 'Cadastro',
-          url: rotas.atendimento.cadastros.fluxos.etapas,
-        },
+          url: rotas.atendimento.cadastros.fluxos.etapas
+        }
       ]}
     >
       <questionsGroups.Create />
     </templates.Base>
-  );
+  )
 }

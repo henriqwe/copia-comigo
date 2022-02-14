@@ -38,14 +38,20 @@ export const LocalizationContext = createContext<LocalizationContextProps>(
 )
 
 export const LocalizationProvider = ({ children }: ProviderProps) => {
-  const { google, mapa, markerCluster, setMarkerCluster, panorama } = useMap()
+  const {
+    google,
+    mapa,
+    markerCluster,
+    setMarkerCluster,
+    panorama,
+    showInfoWindowsInMap
+  } = useMap()
 
   const {
     allMarkerVehicles,
     setAllMarkerVehicles,
     allMarkerVehiclesStep,
     allUserVehicle,
-    setAllUserVehicle,
     setSelectedVehicle,
     refsCardVehicle
   } = useVehicle()
@@ -58,13 +64,13 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
   const [pageCard, setPageCard] = useState('pagAllVehicles')
 
   async function localizationsRefetch() {
-    setLocalizationsLoading(true)
-    const response = await getAllUserVehicles('operacional@radarescolta.com')
-    const responseGetUserVehicles = response?.filter((vehicle) => {
-      if (vehicle.latitude && vehicle.longitude) return vehicle
-    })
-    if (responseGetUserVehicles) setAllUserVehicle(responseGetUserVehicles)
-    setLocalizationsLoading(false)
+    // setLocalizationsLoading(true)
+    // const response = await getAllUserVehicles('operacional@radarescolta.com')
+    // const responseGetUserVehicles = response?.filter((vehicle) => {
+    //   if (vehicle.latitude && vehicle.longitude) return vehicle
+    // })
+    // if (responseGetUserVehicles) setAllUserVehicle(responseGetUserVehicles)
+    // setLocalizationsLoading(false)
   }
 
   function createFunctionsForInfoWindow(vehicle: vehicleType) {
@@ -161,7 +167,7 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
             allMarkerVehicles,
             handleClickScrollToCard,
             createFunctionsForInfoWindow,
-            panorama
+            showInfoWindowsInMap
           )
           return
         }
@@ -174,7 +180,7 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
           allMarkerVehicles,
           handleClickScrollToCard,
           createFunctionsForInfoWindow,
-          panorama
+          showInfoWindowsInMap
         )
       })
       const markersToAdd = allMarkerVehiclesStep.filter((markerStep) => {

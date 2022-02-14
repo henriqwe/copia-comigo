@@ -13,7 +13,8 @@
         "@next/next/no-html-link-for-pages": [
           "error",
           "apps/gocrm-frontend/pages"
-        ]
+        ],
+        "react-hooks/rules-of-hooks": "off"
       }
     },
     {

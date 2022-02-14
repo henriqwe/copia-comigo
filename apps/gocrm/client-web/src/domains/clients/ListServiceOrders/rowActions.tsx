@@ -5,7 +5,7 @@ import * as blocks from '@comigo/ui-blocks';
 
 import rotas from '&crm/domains/routes';
 
-export default function RowActions({
+export function RowActions({
   item,
 }: {
   item: GraphQLTypes['identidades_Clientes'];

@@ -1,14 +1,14 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as providers from '&crm/domains/identities/Providers';
+import * as providers from '&crm/domains/identities/Providers'
 
 export default function UpdateProvider() {
   return (
@@ -22,30 +22,30 @@ export default function UpdateProvider() {
         </providers.UpdateProvider>
       </providers.Sellers.SellerProvider>
     </providers.Addresses.AddressProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   const { providerData, providerLoading, providerRefetch } =
-    providers.useUpdate();
-  const { addressesRefetch } = providers.Addresses.useAdress();
-  const { sellersRefetch } = providers.Sellers.useSeller();
-  let titulo = providerData?.Pessoa.Nome || '';
+    providers.useUpdate()
+  const { addressesRefetch } = providers.Addresses.useAdress()
+  const { sellersRefetch } = providers.Sellers.useSeller()
+  let titulo = providerData?.Pessoa.Nome || ''
   if (providerData?.Pessoa.PessoaJuridica) {
-    titulo = providerData?.Pessoa.DadosDaApi.razaoSocial;
+    titulo = providerData?.Pessoa.DadosDaApi.razaoSocial
   }
 
   const refetch = () => {
-    addressesRefetch();
-    sellersRefetch();
-    providerRefetch();
-  };
+    addressesRefetch()
+    sellersRefetch()
+    providerRefetch()
+  }
   return (
     <templates.FormAndTabs
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -53,18 +53,18 @@ function Page() {
       title={`${titulo}`}
       reload={{
         action: refetch,
-        state: providerLoading,
+        state: providerLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Identidades', url: rotas.identidades.index },
         {
           title: 'Fornecedores',
-          url: rotas.identidades.fornecedores.cadastrar,
-        },
+          url: rotas.identidades.fornecedores.cadastrar
+        }
       ]}
     >
       <providers.Tabs />
     </templates.FormAndTabs>
-  );
+  )
 }

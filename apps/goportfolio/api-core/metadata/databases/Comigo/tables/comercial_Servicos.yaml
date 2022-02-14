@@ -2,84 +2,98 @@ table:
   name: Servicos
   schema: comercial
 object_relationships:
-  - name: Tipo
-    using:
-      foreign_key_constraint_on: Tipo_Id
+- name: Tipo
+  using:
+    foreign_key_constraint_on: Tipo_Id
 array_relationships:
-  - name: Atributos
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Servicos_Atributos
-          schema: comercial
-  - name: Combos
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Combos_Servicos
-          schema: comercial
-  - name: Oportunidades
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Servicos_Oportunidades
-          schema: comercial
-  - name: Planos
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Planos
-          schema: comercial
-  - name: PrestadoresDeServicos
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: PrestadoresDeServicos_Servicos
-          schema: comercial
-  - name: Produtos_Servicos
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Produtos_Servicos
-          schema: comercial
-  - name: Propostas
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Propostas_Servicos
-          schema: propostas
-  - name: Servicos_Produtos
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Servicos_Produtos
-          schema: comercial
-  - name: Servicos_ServicosDependente
-    using:
-      foreign_key_constraint_on:
-        column: ServicoDependente_Id
-        table:
-          name: Servicos_Servicos
-          schema: comercial
-  - name: Tarifas
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Servicos_Tarifas
-          schema: comercial
-  - name: servicosServicos
-    using:
-      foreign_key_constraint_on:
-        column: Servico_Id
-        table:
-          name: Servicos_Servicos
-          schema: comercial
+- name: Atributos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Servicos_Atributos
+        schema: comercial
+- name: Combos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Combos_Servicos
+        schema: comercial
+- name: Oportunidades
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Servicos_Oportunidades
+        schema: comercial
+- name: Planos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Planos_Servicos
+        schema: comercial
+- name: PrestadoresDeServicos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: PrestadoresDeServicos_Servicos
+        schema: comercial
+- name: ProdutosDesinstalacao
+  using:
+    foreign_key_constraint_on:
+      column: ServicoDeDesinstalacao_Id
+      table:
+        name: Produtos
+        schema: comercial
+- name: ProdutosInstalacao
+  using:
+    foreign_key_constraint_on:
+      column: ServicoDeInstalacao_Id
+      table:
+        name: Produtos
+        schema: comercial
+- name: Produtos_Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Produtos_Servicos
+        schema: comercial
+- name: Propostas
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Propostas_Servicos
+        schema: propostas
+- name: Servicos_Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Servicos_Produtos
+        schema: comercial
+- name: Servicos_ServicosDependente
+  using:
+    foreign_key_constraint_on:
+      column: ServicoDependente_Id
+      table:
+        name: Servicos_Servicos
+        schema: comercial
+- name: Tarifas
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Servicos_Tarifas
+        schema: comercial
+- name: servicosServicos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_Id
+      table:
+        name: Servicos_Servicos
+        schema: comercial

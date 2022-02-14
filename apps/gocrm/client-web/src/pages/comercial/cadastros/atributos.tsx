@@ -1,14 +1,14 @@
-import * as atributos from '&crm/domains/commercial/Registration/Attributes';
+import * as atributos from '&crm/domains/commercial/Registration/Attributes'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Atributos() {
   return (
@@ -18,21 +18,21 @@ export default function Atributos() {
         <Page />{' '}
       </ThemeProvider>
     </atributos.AttributeProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { attributeRefetch, attributeLoading } = atributos.useAttribute();
+  const { theme, changeTheme } = useTheme()
+  const { attributeRefetch, attributeLoading } = atributos.useAttribute()
   const refetch = () => {
-    attributeRefetch();
-  };
+    attributeRefetch()
+  }
   //const { usuario } = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -44,16 +44,16 @@ export function Page() {
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Cadastros',
-          url: rotas.comercial.cadastros.index,
+          url: rotas.comercial.cadastros.index
         },
         {
           title: 'Atributos',
-          url: rotas.comercial.cadastros.atributos,
-        },
+          url: rotas.comercial.cadastros.atributos
+        }
       ]}
     >
       <atributos.List />
       <atributos.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

@@ -3,116 +3,120 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
+  OperationVariables
+} from '@apollo/client'
 import {
   useTypedMutation,
   useTypedQuery,
   $,
-  useTypedClientQuery,
-} from '&erp/graphql/generated/zeus/apollo';
-import { useRouter } from 'next/router';
-import { createContext, ReactNode, useContext } from 'react';
+  useTypedClientQuery
+} from '&erp/graphql/generated/zeus/apollo'
+import { useRouter } from 'next/router'
+import { createContext, ReactNode, useContext } from 'react'
+import {
+  movimentacoes_Motivos_enum,
+  pedidosDeCompra_Situacoes_enum
+} from '&erp/graphql/generated/zeus'
 
 type ValidateContextProps = {
   authorizedPurchaseOrderProductsData?: {
-    Id: string;
-    QuantidadePedida: number;
-    QuantidadeAutorizada?: number | undefined;
-    QuantidadeEntregue?: number | undefined;
-    QuantidadeComprada?: number | undefined;
+    Id: string
+    QuantidadePedida: number
+    QuantidadeAutorizada?: number | undefined
+    QuantidadeEntregue?: number | undefined
+    QuantidadeComprada?: number | undefined
     Produto: {
-      Id: string;
-      Nome: string;
-      UnidadeDeMedida_Id: string;
-    };
+      Id: string
+      Nome: string
+      UnidadeDeMedida_Id: string
+    }
     Fabricante?: {
-      Id: string;
-      Nome: string;
-    };
-    Descricao?: string;
-  }[];
-  authorizedPurchaseOrderProductsLoading: boolean;
-  authorizedPurchaseOrderProductsRefetch: () => void;
+      Id: string
+      Nome: string
+    }
+    Descricao?: string
+  }[]
+  authorizedPurchaseOrderProductsLoading: boolean
+  authorizedPurchaseOrderProductsRefetch: () => void
 
   purchaseOrderData?: {
-    Id: string;
+    Id: string
     Situacao: {
-      Comentario: string;
-      Valor: string;
-    };
-    DataAbertura: Date;
-    DataAutorizacao?: Date;
-    DataCompra?: Date;
-    DataEntrada?: Date;
-    DataEntregue?: Date;
-    DataOrcamento?: Date;
-    MotivoRecusado?: string | undefined;
-    TipoPagamento?: string | undefined;
-  };
+      Comentario: string
+      Valor: string
+    }
+    DataAbertura: Date
+    DataAutorizacao?: Date
+    DataCompra?: Date
+    DataEntrada?: Date
+    DataEntregue?: Date
+    DataOrcamento?: Date
+    MotivoRecusado?: string | undefined
+    TipoPagamento?: string | undefined
+  }
 
-  purchaseOrderLoading: boolean;
-  purchaseOrderRefetch: () => void;
+  purchaseOrderLoading: boolean
+  purchaseOrderRefetch: () => void
   validatePurchaseOrder: (
     options?: MutationFunctionOptions<
       {
         insert_movimentacoes_Movimentacoes_one?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  validatePurchaseOrderLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  validatePurchaseOrderLoading: boolean
   finalizePurchaseOrder: (
     options?: MutationFunctionOptions<
       {
         update_pedidosDeCompra_Pedidos_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  finalizePurchaseOrderLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  finalizePurchaseOrderLoading: boolean
   getItemById: (Id: string) => Promise<
     {
-      Id: string;
+      Id: string
       Produto: {
-        Id: string;
-        Nome: string;
-      };
+        Id: string
+        Nome: string
+      }
       Fabricante: {
-        Nome: string;
-      };
+        Nome: string
+      }
       Modelo?: {
-        Nome: string;
-      };
-      Grupo: { Nome: string };
-      Familia: { Nome: string };
+        Nome: string
+      }
+      Grupo: { Nome: string }
+      Familia: { Nome: string }
     }[]
-  >;
-};
+  >
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const ValidateContext = createContext<ValidateContextProps>(
   {} as ValidateContextProps
-);
+)
 
 export const ValidateProvider = ({ children }: ProviderProps) => {
-  const { query } = useRouter();
+  const { query } = useRouter()
 
   const {
     data: authorizedPurchaseOrderProductsData,
     loading: authorizedPurchaseOrderProductsLoading,
-    refetch: authorizedPurchaseOrderProductsRefetch,
+    refetch: authorizedPurchaseOrderProductsRefetch
   } = useTypedQuery(
     {
       pedidosDeCompra_Produtos: [
@@ -120,14 +124,14 @@ export const ValidateProvider = ({ children }: ProviderProps) => {
           where: {
             PedidoDeCompra_Id: { _eq: query.id },
             deleted_at: { _is_null: true },
-            Autorizado: { _eq: true },
-          },
+            Autorizado: { _eq: true }
+          }
         },
         {
           Id: true,
           Fabricante: {
             Id: true,
-            Nome: true,
+            Nome: true
           },
           QuantidadePedida: true,
           QuantidadeAutorizada: true,
@@ -136,30 +140,30 @@ export const ValidateProvider = ({ children }: ProviderProps) => {
           Produto: {
             Id: true,
             Nome: true,
-            UnidadeDeMedida_Id: true,
+            UnidadeDeMedida_Id: true
           },
-          Descricao: true,
-        },
-      ],
+          Descricao: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const {
     data: purchaseOrderData,
     loading: purchaseOrderLoading,
-    refetch: purchaseOrderRefetch,
+    refetch: purchaseOrderRefetch
   } = useTypedQuery(
     {
       pedidosDeCompra_Pedidos_by_pk: [
         {
-          Id: query.id,
+          Id: query.id
         },
         {
           Id: true,
           Situacao: {
             Comentario: true,
-            Valor: true,
+            Valor: true
           },
           DataAbertura: true,
           DataAutorizacao: true,
@@ -168,12 +172,12 @@ export const ValidateProvider = ({ children }: ProviderProps) => {
           DataEntregue: true,
           DataOrcamento: true,
           MotivoRecusado: true,
-          TipoPagamento: true,
-        },
-      ],
+          TipoPagamento: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const [validatePurchaseOrder, { loading: validatePurchaseOrderLoading }] =
     useTypedMutation({
@@ -184,15 +188,15 @@ export const ValidateProvider = ({ children }: ProviderProps) => {
             Quantidade: $`Quantidade`,
             Tipo: 'entrada',
             Item_Id: $`Item_Id`,
-            Motivo_Id: 'pedidoDeCompra',
-            Valor: 0,
-          },
+            Motivo_Id: movimentacoes_Motivos_enum.pedidoDeCompra,
+            Valor: 0
+          }
         },
         {
-          Id: true,
-        },
-      ],
-    });
+          Id: true
+        }
+      ]
+    })
 
   async function getItemById(Id: string) {
     const { data } = await useTypedClientQuery({
@@ -204,11 +208,11 @@ export const ValidateProvider = ({ children }: ProviderProps) => {
           Fabricante: { Nome: true },
           Modelo: { Nome: true },
           Grupo: { Nome: true },
-          Familia: { Nome: true },
-        },
-      ],
-    });
-    return data.estoque_Itens;
+          Familia: { Nome: true }
+        }
+      ]
+    })
+    return data.estoque_Itens
   }
 
   const [finalizePurchaseOrder, { loading: finalizePurchaseOrderLoading }] =
@@ -219,14 +223,14 @@ export const ValidateProvider = ({ children }: ProviderProps) => {
           _set: {
             DataEntrada: new Date(),
             updated_at: new Date(),
-            Situacao_Id: 'finalizado',
-          },
+            Situacao_Id: pedidosDeCompra_Situacoes_enum.finalizado
+          }
         },
         {
-          Id: true,
-        },
-      ],
-    });
+          Id: true
+        }
+      ]
+    })
   return (
     <ValidateContext.Provider
       value={{
@@ -241,14 +245,14 @@ export const ValidateProvider = ({ children }: ProviderProps) => {
         validatePurchaseOrderLoading,
         finalizePurchaseOrder,
         finalizePurchaseOrderLoading,
-        getItemById,
+        getItemById
       }}
     >
       {children}
     </ValidateContext.Provider>
-  );
-};
+  )
+}
 
 export const useValidate = () => {
-  return useContext(ValidateContext);
-};
+  return useContext(ValidateContext)
+}

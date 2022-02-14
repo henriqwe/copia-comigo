@@ -101,7 +101,7 @@
  | Components
  |--------------------------------------------------------------------------
  |
- | Import CSS components.
+ | Import CSS domains.
  |
  */
 @import './components/_global.css';
@@ -117,7 +117,7 @@
 @import './components/_report-box-4.css';
 @import './components/_content.css';
 @import './components/_top-nav.css';
-/*@import "./components/_side-nav.css";*/
+/*@import "./domains/_side-nav.css";*/
 @import './components/_breadcrumb.css';
 @import './components/_toastify.css';
 @import './components/_toastify-content.css';

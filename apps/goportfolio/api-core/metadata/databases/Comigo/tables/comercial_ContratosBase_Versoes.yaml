@@ -2,6 +2,6 @@ table:
   name: ContratosBase_Versoes
   schema: comercial
 object_relationships:
-  - name: ContratoBase
-    using:
-      foreign_key_constraint_on: ContratoBase_Id
+- name: ContratoBase
+  using:
+    foreign_key_constraint_on: ContratoBase_Id

@@ -1,11 +1,11 @@
-import * as itens from '&erp/domains/inventory/Itens';
+import * as itens from '&erp/domains/inventory/Itens'
 
-import rotas from '&erp/domains/routes';
+import rotas from '&erp/domains/routes'
 
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function Itens() {
   return (
@@ -14,17 +14,17 @@ export default function Itens() {
         <Page />
       </ThemeProvider>
     </itens.ListProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { itensRefetch, itensLoading } = itens.useList();
+  const { theme, changeTheme } = useTheme()
+  const { itensRefetch, itensLoading } = itens.useList()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -34,10 +34,10 @@ export function Page() {
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Estoque', url: rotas.estoque.index },
-        { title: 'Itens', url: rotas.estoque.itens.index },
+        { title: 'Itens', url: rotas.estoque.itens.index }
       ]}
     >
       <itens.List />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

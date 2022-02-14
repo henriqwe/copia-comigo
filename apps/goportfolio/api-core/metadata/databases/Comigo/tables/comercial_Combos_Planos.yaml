@@ -2,12 +2,12 @@ table:
   name: Combos_Planos
   schema: comercial
 object_relationships:
-  - name: Combo
-    using:
-      foreign_key_constraint_on: Combo_Id
-  - name: Plano
-    using:
-      foreign_key_constraint_on: Plano_Id
-  - name: PlanoPreco
-    using:
-      foreign_key_constraint_on: PlanoPreco_Id
+- name: Combo
+  using:
+    foreign_key_constraint_on: Combo_Id
+- name: Plano
+  using:
+    foreign_key_constraint_on: Plano_Id
+- name: PlanoPreco
+  using:
+    foreign_key_constraint_on: PlanoPreco_Id

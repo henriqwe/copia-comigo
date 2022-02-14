@@ -52,7 +52,7 @@ export function createContentInfoWindow(vehicle: vehicleType) {
         <p>
           <b>
             Última atualização:{' '}
-            {new Date(vehicle.date_rastreador).toLocaleDateString('pt-br')}
+            {new Date(vehicle.date_rastreador).toLocaleDateString('pt-br')}{' '}
             {new Date(vehicle.date_rastreador).toLocaleTimeString('pt-br')}
           </b>{' '}
         </p>
@@ -134,7 +134,7 @@ export function createContentInfoWindowPath(
             Última atualização:{' '}
             {new Date(
               pathCoords[pathCoords.length - 1].data
-            ).toLocaleDateString('pt-br')}
+            ).toLocaleDateString('pt-br')}{' '}
             {new Date(
               pathCoords[pathCoords.length - 1].data
             ).toLocaleTimeString('pt-br')}

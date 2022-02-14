@@ -2,24 +2,34 @@ table:
   name: PrestadoresDeServicos_Produtos_Precos
   schema: comercial
 object_relationships:
-  - name: PrestadorDeServico_Produto
-    using:
-      foreign_key_constraint_on: Fornecedor_Produto_Id
-  - name: TipoDePreco
-    using:
-      foreign_key_constraint_on: TipoDePreco_Id
+- name: PrestadorDeServico_Produto
+  using:
+    foreign_key_constraint_on: Fornecedor_Produto_Id
+- name: TipoDePreco
+  using:
+    foreign_key_constraint_on: TipoDePreco_Id
+- name: TiposDeRecorrencia
+  using:
+    foreign_key_constraint_on: TipoDeRecorrencia_Id
 array_relationships:
-  - name: CombosProdutos
-    using:
-      foreign_key_constraint_on:
-        column: ProdutoPreco_Id
-        table:
-          name: Combos_Produtos
-          schema: comercial
-  - name: PropostasProdutos
-    using:
-      foreign_key_constraint_on:
-        column: ProdutoPreco_Id
-        table:
-          name: Propostas_Produtos
-          schema: propostas
+- name: CombosProdutos
+  using:
+    foreign_key_constraint_on:
+      column: ProdutoPreco_Id
+      table:
+        name: Combos_Produtos
+        schema: comercial
+- name: PlanosProdutos
+  using:
+    foreign_key_constraint_on:
+      column: ProdutoPreco_Id
+      table:
+        name: Planos_Produtos
+        schema: comercial
+- name: PropostasProdutos
+  using:
+    foreign_key_constraint_on:
+      column: ProdutoPreco_Id
+      table:
+        name: Propostas_Produtos
+        schema: propostas

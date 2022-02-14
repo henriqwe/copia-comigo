@@ -2,40 +2,40 @@ table:
   name: Pedidos
   schema: pedidosDeSaida
 object_relationships:
-  - name: Situacao
-    using:
-      foreign_key_constraint_on: Situacao_Id
+- name: Situacao
+  using:
+    foreign_key_constraint_on: Situacao_Id
 array_relationships:
-  - name: Produtos
-    using:
-      foreign_key_constraint_on:
-        column: Pedido_Id
-        table:
-          name: Produtos
-          schema: pedidosDeSaida
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Pedido_Id
+      table:
+        name: Produtos
+        schema: pedidosDeSaida
 event_triggers:
-  - definition:
-      delete:
-        columns: '*'
-      enable_manual: true
-      insert:
-        columns: '*'
-      update:
-        columns:
-          - Id
-          - Solicitante_Id
-          - DataRecebido
-          - MotivoRecusado
-          - created_at
-          - updated_at
-          - deleted_at
-          - DataAbertura
-          - DataAutorizacao
-          - DataEntregue
-          - Situacao_Id
-    name: Logs_pedidosDeSaida_Pedidos
-    retry_conf:
-      interval_sec: 10
-      num_retries: 0
-      timeout_sec: 60
-    webhook: '{{LOGS_EVENT_BASE_URL}}'
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Id
+      - Solicitante_Id
+      - DataRecebido
+      - MotivoRecusado
+      - created_at
+      - updated_at
+      - deleted_at
+      - DataAbertura
+      - DataAutorizacao
+      - DataEntregue
+      - Situacao_Id
+  name: Logs_pedidosDeSaida_Pedidos
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

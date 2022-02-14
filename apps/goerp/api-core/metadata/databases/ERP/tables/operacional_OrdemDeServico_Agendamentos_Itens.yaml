@@ -1,0 +1,20 @@
+table:
+  name: OrdemDeServico_Agendamentos_Itens
+  schema: operacional
+object_relationships:
+- name: Agendamento
+  using:
+    foreign_key_constraint_on: Agendamento_Id
+- name: Item
+  using:
+    foreign_key_constraint_on: Item_Id
+remote_relationships:
+- definition:
+    hasura_fields:
+    - Produto_Id
+    remote_field:
+      comercial_Produtos_by_pk:
+        arguments:
+          Id: $Produto_Id
+    remote_schema: GoPortfolio
+  name: Produto

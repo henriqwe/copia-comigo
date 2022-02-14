@@ -3,17 +3,17 @@ table:
   schema: vendas
 is_enum: true
 array_relationships:
-  - name: PrestadoresDeServicos_Produtos_Precos
-    using:
-      foreign_key_constraint_on:
-        column: TipoDePreco_Id
-        table:
-          name: PrestadoresDeServicos_Produtos_Precos
-          schema: comercial
-  - name: PrestadoresDeServicos_Servicos_Precos
-    using:
-      foreign_key_constraint_on:
-        column: TipoDePreco_Id
-        table:
-          name: PrestadoresDeServicos_Servicos_Precos
-          schema: comercial
+- name: PrestadoresDeServicos_Produtos_Precos
+  using:
+    foreign_key_constraint_on:
+      column: TipoDePreco_Id
+      table:
+        name: PrestadoresDeServicos_Produtos_Precos
+        schema: comercial
+- name: PrestadoresDeServicos_Servicos_Precos
+  using:
+    foreign_key_constraint_on:
+      column: TipoDePreco_Id
+      table:
+        name: PrestadoresDeServicos_Servicos_Precos
+        schema: comercial

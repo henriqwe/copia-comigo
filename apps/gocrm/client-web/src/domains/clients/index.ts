@@ -1,27 +1,15 @@
-import List from './ListServiceOrders';
-import RowActions from './ListServiceOrders/rowActions';
-import ViewClient from './Forms/ViewClient';
-import ClientVehicle from './Forms/ClientVehicle';
-import SlidePanel from './SlidePanel';
-import ChangeOwnership from './SlidePanel/ChangeOwnership';
-import ChangeVehicle from './SlidePanel/ChangeVehicle';
-import CreateProposal from './SlidePanel/CreateProposal';
-import { ClientContext, ClientProvider, useClient } from './ClientContext';
-import { UpdateContext, UpdateProvider, useUpdate } from './UpdateContext';
-
-export {
-  List,
-  RowActions,
-  ViewClient,
-  ClientContext,
-  ClientProvider,
-  useClient,
-  UpdateContext,
-  UpdateProvider,
-  useUpdate,
-  SlidePanel,
-  ChangeOwnership,
-  ChangeVehicle,
-  CreateProposal,
-  ClientVehicle,
-};
+export { List } from './ListServiceOrders'
+export { RowActions } from './ListServiceOrders/rowActions'
+export { ViewClient } from './Forms/ViewClient'
+export { Vehicle } from './Forms/Vehicle'
+export { Resume } from './Forms/Resume'
+export { SlidePanel } from './SlidePanel'
+export { ChangeOwnership } from './SlidePanel/ChangeOwnership'
+export { ChangeVehicle } from './SlidePanel/ChangeVehicle'
+export { CreateProposal } from './SlidePanel/CreateProposal'
+export { CreateVehicle } from './SlidePanel/CreateVehicle'
+export { ClientContext, ClientProvider, useClient } from './ClientContext'
+export { UpdateContext, UpdateProvider, useUpdate } from './UpdateContext'
+export { InfoDetails } from './components/InfoDetails'
+export { RenderTabsList } from './components/RenderTabsList'
+export { RenderPanelsList } from './components/RenderPanelsList'

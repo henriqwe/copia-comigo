@@ -1,36 +1,46 @@
 table:
   name: Planos
   schema: comercial
-object_relationships:
-  - name: Servico
-    using:
-      foreign_key_constraint_on: Servico_Id
 array_relationships:
-  - name: Combos
-    using:
-      foreign_key_constraint_on:
-        column: Plano_Id
-        table:
-          name: Combos_Planos
-          schema: comercial
-  - name: Condicionais
-    using:
-      foreign_key_constraint_on:
-        column: Plano_Id
-        table:
-          name: Planos_Condicionais
-          schema: comercial
-  - name: Precos
-    using:
-      foreign_key_constraint_on:
-        column: Plano_Id
-        table:
-          name: Planos_Precos
-          schema: comercial
-  - name: Propostas
-    using:
-      foreign_key_constraint_on:
-        column: Plano_Id
-        table:
-          name: Propostas_Planos
-          schema: propostas
+- name: Combos
+  using:
+    foreign_key_constraint_on:
+      column: Plano_Id
+      table:
+        name: Combos_Planos
+        schema: comercial
+- name: Condicionais
+  using:
+    foreign_key_constraint_on:
+      column: Plano_Id
+      table:
+        name: Planos_Condicionais
+        schema: comercial
+- name: Precos
+  using:
+    foreign_key_constraint_on:
+      column: Plano_Id
+      table:
+        name: Planos_Precos
+        schema: comercial
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Plano_Id
+      table:
+        name: Planos_Produtos
+        schema: comercial
+- name: Propostas
+  using:
+    foreign_key_constraint_on:
+      column: Plano_Id
+      table:
+        name: Propostas_Planos
+        schema: propostas
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: Plano_Id
+      table:
+        name: Planos_Servicos
+        schema: comercial

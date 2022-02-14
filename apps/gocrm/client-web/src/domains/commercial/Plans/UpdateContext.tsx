@@ -2,244 +2,389 @@ import {
   ApolloCache,
   DefaultContext,
   FetchResult,
+  LazyQueryResult,
   MutationFunctionOptions,
   OperationVariables,
-} from '@apollo/client';
+  QueryLazyOptions
+} from '@apollo/client'
 import {
   $,
+  useTypedLazyQuery,
   useTypedMutation,
-  useTypedQuery,
-} from '&crm/graphql/generated/zeus/apollo';
-import { useRouter } from 'next/router';
-import { createContext, ReactNode, useContext } from 'react';
-import * as yup from 'yup';
+  useTypedQuery
+} from '&crm/graphql/generated/zeus/apollo'
+import { useRouter } from 'next/router'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useState
+} from 'react'
+import * as yup from 'yup'
+import { order_by } from '&crm/graphql/generated/zeus'
 
 type UpdateContextProps = {
+  slidePanelState: SlidePanelStateType
+  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
   plansData?: {
-    Id: string;
-    Nome: string;
-    Servico: {
-      Id: string;
-      Nome: string;
-      PrestadoresDeServicos: {
-        Id: string;
-        Precos: { Id: string; Valor: string }[];
-      }[];
-    };
-    Condicionais: {
-      Id: string;
-      Valor: number;
-      Condicional: {
-        Id: string;
-        Nome: string;
-        Situacao: { Valor: string; Comentario: string };
-      };
-      deleted_at?: Date;
-    }[];
-    Precos: {
-      Id: string;
-      ValorPraticado?: string;
+    Id: string
+    Nome: string
+    Servicos: {
+      Id: string
+      Servico: {
+        Nome: string
+      }
       ServicoPreco: {
-        Id: string;
-        Valor: string;
-      };
-      ValorBase: string;
-    }[];
-  };
+        Valor: string
+        TipoDePreco?: { Valor: string, Comentario: string }
+      }
+    }[]
+    Produtos: {
+      Id: string
+      Produto: {
+        Nome: string
+      }
+      ProdutoPreco: {
+        Valor: string
+        TipoDePreco?: { Valor: string, Comentario: string }
+      }
+    }[]
 
-  plansRefetch: () => void;
-  plansLoading: boolean;
+    Precos: {
+      Id: string
+      ValorDeAdesao: string
+      ValorDeRecorrencia: string
+    }[]
+  }
+
+  plansRefetch: () => void
+  plansLoading: boolean
+  runServiceQuery: (
+    options?: QueryLazyOptions<OperationVariables>
+  ) => Promise<LazyQueryResult<unknown, OperationVariables>>
+  servicesData: {
+    Id: string
+    Nome: string
+    GeraOS: boolean
+    PrestadoresDeServicos: {
+      Precos: {
+        Id: string
+        Valor: string
+      }[]
+    }[]
+    Tipo: {
+      Valor: string
+      Comentario: string
+    }
+  }[]
+  servicesRefetch: () => void
+  servicesLoading: boolean
+  runProductQuery: (
+    options?: QueryLazyOptions<OperationVariables>
+  ) => Promise<LazyQueryResult<unknown, OperationVariables>>
+  productsData: {
+    Id: string
+    Nome: string
+    ServicoDeInstalacao?: {
+      Id: string
+      Nome: string
+      PrestadoresDeServicos: {
+        Precos: {
+          Id: string
+          Valor: string
+        }[]
+      }[]
+    }
+    Fornecedores: {
+      Precos: {
+        Id: string
+        Valor: string
+      }[]
+    }[]
+    Tipo: {
+      Valor: string
+      Comentario: string
+    }
+    Categorias: string[]
+  }[]
+  productsRefetch: () => void
+  productsLoading: boolean
   createPlanPrice: (
     options?: MutationFunctionOptions<
       {
         insert_comercial_Planos_Precos_one?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  createPlanPriceLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  createPlanPriceLoading: boolean
+  createProductPlan: (
+    options?: MutationFunctionOptions<
+      {
+        insert_comercial_Planos_Produtos_one?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  createProductPlanLoading: boolean
+  createServicePlan: (
+    options?: MutationFunctionOptions<
+      {
+        insert_comercial_Planos_Servicos_one?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  createServicePlanLoading: boolean
   updatePlan: (
     options?: MutationFunctionOptions<
       {
         update_comercial_Planos_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  updatePlanLoading: boolean;
-  updateCondicionalPlan: (
-    options?: MutationFunctionOptions<
-      {
-        update_comercial_Planos_Condicionais_by_pk?: {
-          Id: string;
-        };
-      },
-      OperationVariables,
-      DefaultContext,
-      ApolloCache<unknown>
-    >
-  ) => Promise<FetchResult['data']>;
-  updateCondicionalPlanLoading: boolean;
-  deleteCondicionalPlan: (
-    options?: MutationFunctionOptions<
-      {
-        update_comercial_Planos_Condicionais_by_pk?: {
-          Id: string;
-        };
-      },
-      OperationVariables,
-      DefaultContext,
-      ApolloCache<unknown>
-    >
-  ) => Promise<FetchResult['data']>;
-  deleteCondicionalPlanLoading: boolean;
-  planSchema: any;
-};
+  ) => Promise<FetchResult['data']>
+  updatePlanLoading: boolean
+  planSchema: yup.AnyObjectSchema
+}
+
+type SlidePanelStateType = {
+  open: boolean
+  type: 'service' | 'product'
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const UpdateContext = createContext<UpdateContextProps>(
   {} as UpdateContextProps
-);
+)
 
 export const UpdateProvider = ({ children }: ProviderProps) => {
-  const router = useRouter();
+  const [slidePanelState, setSlidePanelState] = useState<SlidePanelStateType>({
+    open: false,
+    type: 'service'
+  })
+  const router = useRouter()
 
   const [createPlanPrice, { loading: createPlanPriceLoading }] =
     useTypedMutation({
       insert_comercial_Planos_Precos_one: [
         {
           object: {
-            ServicoPreco_Id: $`ServicoPreco_Id`,
-            ValorBase: $`ValorBase`,
-            ValorPraticado: $`ValorPraticado`,
-            Plano_Id: router.query.id,
-          },
+            ValorDeAdesao: $`ValorDeAdesao`,
+            ValorDeRecorrencia: $`ValorDeRecorrencia`,
+            Plano_Id: router.query.id
+          }
         },
-        { Id: true },
-      ],
-    });
+        { Id: true }
+      ]
+    })
 
   const [updatePlan, { loading: updatePlanLoading }] = useTypedMutation({
     update_comercial_Planos_by_pk: [
       {
         pk_columns: {
-          Id: router.query.id,
+          Id: router.query.id
         },
         _set: {
           updated_at: new Date(),
-          Nome: $`Nome`,
-        },
+          Nome: $`Nome`
+        }
       },
-      { Id: true },
-    ],
-  });
+      { Id: true }
+    ]
+  })
 
-  const [updateCondicionalPlan, { loading: updateCondicionalPlanLoading }] =
+  const [createProductPlan, { loading: createProductPlanLoading }] =
     useTypedMutation({
-      update_comercial_Planos_Condicionais_by_pk: [
+      insert_comercial_Planos_Produtos_one: [
         {
-          pk_columns: {
-            Id: $`Id`,
-          },
-          _set: {
-            Valor: $`Valor`,
-            updated_at: new Date(),
-          },
+          object: {
+            Plano_Id: router.query.id,
+            Produto_Id: $`Produto_Id`,
+            ProdutoPreco_Id: $`ProdutoPreco_Id`
+          }
         },
-        { Id: true },
-      ],
-    });
+        { Id: true }
+      ]
+    })
 
-  const [deleteCondicionalPlan, { loading: deleteCondicionalPlanLoading }] =
+  const [createServicePlan, { loading: createServicePlanLoading }] =
     useTypedMutation({
-      update_comercial_Planos_Condicionais_by_pk: [
+      insert_comercial_Planos_Servicos_one: [
         {
-          pk_columns: {
-            Id: $`Id`,
-          },
-          _set: {
-            deleted_at: new Date(),
-          },
+          object: {
+            Plano_Id: router.query.id,
+            Servico_Id: $`Servico_Id`,
+            ServicoPreco_Id: $`ServicoPreco_Id`
+          }
         },
-        { Id: true },
-      ],
-    });
+        { Id: true }
+      ]
+    })
 
-  const {
-    data: plansData,
-    refetch: plansRefetch,
-    loading: plansLoading,
-  } = useTypedQuery(
+  const [
+    runServiceQuery,
+    { data: servicesData, refetch: servicesRefetch, loading: servicesLoading }
+  ] = useTypedLazyQuery(
     {
-      comercial_Planos_by_pk: [
+      comercial_Servicos: [
         {
-          Id: router.query.id,
+          where: {
+            deleted_at: { _is_null: true },
+            PrestadoresDeServicos: { Precos: {} }
+          }
         },
         {
           Id: true,
           Nome: true,
-          Servico: {
+          GeraOS: true,
+          PrestadoresDeServicos: [
+            {},
+            {
+              Precos: [
+                { order_by: [{ created_at: order_by.desc }] },
+                { Id: true, Valor: true }
+              ]
+            }
+          ],
+          Tipo: {
+            Valor: true,
+            Comentario: true
+          }
+        }
+      ]
+    },
+    { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
+  )
+
+  const [
+    runProductQuery,
+    { data: productsData, refetch: productsRefetch, loading: productsLoading }
+  ] = useTypedLazyQuery(
+    {
+      comercial_Produtos: [
+        {
+          where: {
+            deleted_at: { _is_null: true },
+            Fornecedores: { Precos: {} }
+          }
+        },
+        {
+          Id: true,
+          Nome: true,
+          Fornecedores: [
+            {},
+            {
+              Precos: [
+                { order_by: [{ created_at: order_by.desc }] },
+                { Id: true, Valor: true }
+              ]
+            }
+          ],
+          ServicoDeInstalacao: {
             Id: true,
             Nome: true,
             PrestadoresDeServicos: [
               {},
               {
-                Id: true,
                 Precos: [
-                  { order_by: [{ created_at: 'desc' }] },
-                  { Id: true, Valor: true },
-                ],
-              },
-            ],
+                  { order_by: [{ created_at: order_by.desc }] },
+                  { Id: true, Valor: true }
+                ]
+              }
+            ]
           },
-          Condicionais: [
+          Tipo: {
+            Valor: true,
+            Comentario: true
+          },
+          Categorias: [{}, true]
+        }
+      ]
+    },
+    { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
+  )
+
+  const {
+    data: plansData,
+    refetch: plansRefetch,
+    loading: plansLoading
+  } = useTypedQuery(
+    {
+      comercial_Planos_by_pk: [
+        {
+          Id: router.query.id
+        },
+        {
+          Id: true,
+          Nome: true,
+          Servicos: [
             { where: { deleted_at: { _is_null: true } } },
             {
               Id: true,
-              Valor: true,
-              Condicional: {
-                Id: true,
-                Nome: true,
-                Situacao: { Valor: true, Comentario: true },
+              Servico: {
+                Nome: true
               },
-              deleted_at: true,
-            },
+              ServicoPreco: {
+                Valor: true,
+                TipoDePreco: { Valor: true, Comentario: true }
+              }
+            }
+          ],
+          Produtos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Id: true,
+              Produto: {
+                Nome: true
+              },
+              ProdutoPreco: {
+                Valor: true,
+                TipoDePreco: { Valor: true, Comentario: true }
+              }
+            }
           ],
           Precos: [
             {
               where: { Plano_Id: { _eq: router.query.id } },
-              order_by: [{ created_at: 'desc' }],
+              order_by: [{ created_at: order_by.desc }]
             },
             {
               Id: true,
-              ValorPraticado: true,
-              ValorBase: true,
-              ServicoPreco: {
-                Id: true,
-                Valor: true,
-              },
-            },
-          ],
-        },
-      ],
+              ValorDeAdesao: true,
+              ValorDeRecorrencia: true
+            }
+          ]
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const planSchema = yup.object().shape({
-    Nome: yup.string().required('Preencha o campo para continuar'),
-  });
+    Nome: yup.string().required('Preencha o campo para continuar')
+  })
 
   return (
     <UpdateContext.Provider
@@ -252,17 +397,27 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         createPlanPriceLoading,
         updatePlan,
         updatePlanLoading,
-        updateCondicionalPlan,
-        updateCondicionalPlanLoading,
-        deleteCondicionalPlan,
-        deleteCondicionalPlanLoading,
+        runServiceQuery,
+        servicesData: servicesData?.comercial_Servicos,
+        servicesRefetch,
+        servicesLoading,
+        runProductQuery,
+        productsData: productsData?.comercial_Produtos,
+        productsRefetch,
+        productsLoading,
+        slidePanelState,
+        setSlidePanelState,
+        createProductPlan,
+        createProductPlanLoading,
+        createServicePlan,
+        createServicePlanLoading
       }}
     >
       {children}
     </UpdateContext.Provider>
-  );
-};
+  )
+}
 
 export const useUpdate = () => {
-  return useContext(UpdateContext);
-};
+  return useContext(UpdateContext)
+}

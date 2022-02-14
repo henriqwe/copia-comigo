@@ -3,10 +3,10 @@ table:
   schema: propostas
 is_enum: true
 array_relationships:
-  - name: Propostas
-    using:
-      foreign_key_constraint_on:
-        column: Situacao_Id
-        table:
-          name: Propostas
-          schema: propostas
+- name: Propostas
+  using:
+    foreign_key_constraint_on:
+      column: Situacao_Id
+      table:
+        name: Propostas
+        schema: propostas

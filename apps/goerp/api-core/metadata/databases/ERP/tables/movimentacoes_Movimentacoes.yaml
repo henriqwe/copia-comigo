@@ -2,9 +2,9 @@ table:
   name: Movimentacoes
   schema: movimentacoes
 object_relationships:
-  - name: Item
-    using:
-      foreign_key_constraint_on: Item_Id
-  - name: Motivo
-    using:
-      foreign_key_constraint_on: Motivo_Id
+- name: Item
+  using:
+    foreign_key_constraint_on: Item_Id
+- name: Motivo
+  using:
+    foreign_key_constraint_on: Motivo_Id

@@ -2,9 +2,9 @@ table:
   name: Combos_Combos
   schema: comercial
 object_relationships:
-  - name: Combo
-    using:
-      foreign_key_constraint_on: Combo_Id
-  - name: ComboPertencente
-    using:
-      foreign_key_constraint_on: ComboPertencente_Id
+- name: Combo
+  using:
+    foreign_key_constraint_on: Combo_Id
+- name: ComboPertencente
+  using:
+    foreign_key_constraint_on: ComboPertencente_Id

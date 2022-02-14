@@ -2,12 +2,15 @@ table:
   name: Propostas_Oportunidades
   schema: propostas
 object_relationships:
-  - name: OportunidadeDeProduto
-    using:
-      foreign_key_constraint_on: OportunidadeProduto_Id
-  - name: OportunidadeDeServico
-    using:
-      foreign_key_constraint_on: OportunidadeServico_Id
-  - name: Proposta
-    using:
-      foreign_key_constraint_on: Proposta_Id
+- name: OportunidadeDeProduto
+  using:
+    foreign_key_constraint_on: OportunidadeProduto_Id
+- name: OportunidadeDeServico
+  using:
+    foreign_key_constraint_on: OportunidadeServico_Id
+- name: Proposta
+  using:
+    foreign_key_constraint_on: Proposta_Id
+- name: PropostasVeiculo
+  using:
+    foreign_key_constraint_on: PropostaVeiculo_Id

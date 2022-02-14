@@ -1,8 +1,9 @@
-import * as blocks from '@comigo/ui-blocks';
-import * as serviceOrders from '&erp/domains/operational/ServiceOrders';
+import * as blocks from '@comigo/ui-blocks'
+import * as utils from '@comigo/utils'
+import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 
 export function List() {
-  const { serviceOrdersData } = serviceOrders.useServiceOrder();
+  const { serviceOrdersData } = serviceOrders.useServiceOrder()
   return serviceOrdersData ? (
     <blocks.Table
       colection={serviceOrdersData}
@@ -12,18 +13,40 @@ export function List() {
           title: 'Tipo',
           fieldName: 'Comentario',
           type: 'relationship',
-          relationshipName: 'Tipo',
+          relationshipName: 'Tipo'
         },
         {
           title: 'Situação',
           fieldName: 'Comentario',
           type: 'relationship',
-          relationshipName: 'Situacao',
+          relationshipName: 'Situacao'
         },
+        {
+          title: 'Data de Agendamento',
+          fieldName: 'Agendamentos',
+          type: 'handler',
+          handler: (schedule) => {
+            if (schedule.length > 0) {
+              return utils.ptBRtimeStamp(schedule[0].Agendamento)
+            }
+            return 'Sem Agendamento'
+          }
+        },
+        {
+          title: 'Colaborador',
+          fieldName: 'Agendamentos',
+          type: 'handler',
+          handler: (schedule) => {
+            if (schedule.length > 0) {
+              return schedule[0].Colaborador.Pessoa.Nome
+            }
+            return 'Sem Colaborador'
+          }
+        }
       ]}
       actions={serviceOrders.RowActions}
     />
   ) : (
     <blocks.TableSkeleton />
-  );
+  )
 }

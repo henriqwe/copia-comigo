@@ -2,9 +2,9 @@ table:
   name: KitDeInsumo_Itens
   schema: producao
 object_relationships:
-  - name: Item
-    using:
-      foreign_key_constraint_on: Item_Id
-  - name: KitDeInsumo
-    using:
-      foreign_key_constraint_on: KitDeInsumo_Id
+- name: Item
+  using:
+    foreign_key_constraint_on: Item_Id
+- name: KitDeInsumo
+  using:
+    foreign_key_constraint_on: KitDeInsumo_Id

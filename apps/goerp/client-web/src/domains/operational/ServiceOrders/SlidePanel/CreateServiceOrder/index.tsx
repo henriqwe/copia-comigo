@@ -1,32 +1,32 @@
-import { Controller, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as serviceOrders from '&erp/domains/operational/ServiceOrders';
+import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 
-import * as utils from '@comigo/utils';
-import { useEffect, useState } from 'react';
-import { ptBRtimeStamp } from '@comigo/utils';
+import * as utils from '@comigo/utils'
+import { useEffect, useState } from 'react'
+import { ptBRtimeStamp } from '@comigo/utils'
 
 type FormData = {
-  DataAgendamento: Date;
+  DataAgendamento: Date
   Tipo: {
-    key: string;
-    title: string;
-  };
+    key: string
+    title: string
+  }
   Proposta: {
-    key: serviceOrders.Proposal;
-    title: string;
-  };
+    key: serviceOrders.Proposal
+    title: string
+  }
   Veiculo: {
-    key: string;
-    title: string;
-  };
-};
+    key: string
+    title: string
+  }
+}
 
 export function Create() {
-  const [vehiclesId, setVehiclesId] = useState<string[]>([]);
+  const [vehiclesId, setVehiclesId] = useState<string[]>([])
   const {
     createServiceOrderLoading,
     createServiceOrder,
@@ -37,371 +37,501 @@ export function Create() {
     proposalsData,
     vehiclesData,
     getActiveVehicleById,
-    configData,
-  } = serviceOrders.useServiceOrder();
+    configData
+  } = serviceOrders.useServiceOrder()
   const {
     handleSubmit,
     formState: { errors },
     control,
     watch,
-    setValue,
+    setValue
   } = useForm({
-    resolver: yupResolver(serviceOrderschema),
-  });
+    resolver: yupResolver(serviceOrderschema)
+  })
   const onSubmit = async (formData: FormData) => {
     if (formData.Tipo.key === 'desinstalacao') {
-      const services = formData.Proposta.key.Produtos.map((product) => {
-        if (product.Produto.ServicoDeDesinstalacao) {
-          return {
-            Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
-            ServicoPreco_Id:
-              product.Produto.ServicoDeDesinstalacao.PrestadoresDeServicos.filter(
-                (provider) => provider.Prestador_Id === configData.Valor[0]
-              )[0].Precos[0].Id,
-          };
-        }
-      });
-
-      formData.Proposta.key.Combos.map((combo) => {
-        combo.Combo.Produtos.map((product) => {
+      formData.Proposta.key.Veiculos.filter(
+        (vehicle) => vehicle.Veiculo_Id === formData.Veiculo.key
+      ).map((vehicle) => {
+        const services = vehicle.PropostasProdutos.map((product) => {
           if (product.Produto.ServicoDeDesinstalacao) {
-            services.push({
+            return {
               Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
               ServicoPreco_Id:
                 product.Produto.ServicoDeDesinstalacao.PrestadoresDeServicos.filter(
                   (provider) => provider.Prestador_Id === configData.Valor[0]
-                )[0].Precos[0].Id,
-            });
+                )[0].Precos[0].Id
+            }
           }
-        });
-      });
+        })
+
+        vehicle.PropostasPlanos.map((plan) => {
+          plan.Plano.Produtos.map((product) => {
+            if (product.Produto.ServicoDeDesinstalacao) {
+              services.push({
+                Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
+                ServicoPreco_Id:
+                  product.Produto.ServicoDeDesinstalacao.PrestadoresDeServicos.filter(
+                    (provider) => provider.Prestador_Id === configData.Valor[0]
+                  )[0].Precos[0].Id
+              })
+            }
+          })
+        })
+
+        vehicle.PropostasCombos.map((combo) => {
+          combo.Combo.Produtos.map((product) => {
+            if (product.Produto.ServicoDeDesinstalacao) {
+              services.push({
+                Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
+                ServicoPreco_Id:
+                  product.Produto.ServicoDeDesinstalacao.PrestadoresDeServicos.filter(
+                    (provider) => provider.Prestador_Id === configData.Valor[0]
+                  )[0].Precos[0].Id
+              })
+            }
+          })
+
+          combo.Combo.Planos.map((plan) => {
+            plan.Plano.Produtos.map((product) => {
+              if (product.Produto.ServicoDeDesinstalacao) {
+                services.push({
+                  Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
+                  ServicoPreco_Id:
+                    product.Produto.ServicoDeDesinstalacao.PrestadoresDeServicos.filter(
+                      (provider) =>
+                        provider.Prestador_Id === configData.Valor[0]
+                    )[0].Precos[0].Id
+                })
+              }
+            })
+          })
+        })
+
+        const filteredServices: {
+          Servico_Id: string
+          ServicoPreco_Id: string
+        }[] = []
+
+        services.map((service) => {
+          const duplicatedPosition = filteredServices.findIndex(
+            (filteredService) =>
+              service?.Servico_Id === filteredService.Servico_Id
+          )
+
+          if (!(duplicatedPosition > -1)) {
+            filteredServices.push({
+              Servico_Id: service?.Servico_Id as string,
+              ServicoPreco_Id: service?.ServicoPreco_Id as string
+            })
+          }
+        })
+
+        createServiceOrder({
+          variables: {
+            Tipo_Id: formData.Tipo.key,
+            Proposta_Id: formData.Proposta.key.Id,
+            Veiculo_Id: formData.Veiculo.key,
+            Beneficios: [],
+            Servicos: filteredServices,
+            Produtos: []
+          }
+        })
+          .then(() => {
+            serviceOrdersRefetch()
+            setSlidePanelState((oldState) => {
+              return { ...oldState, open: false }
+            })
+            utils.notification(
+              'Ordem de serviço cadastrada com sucesso',
+              'success'
+            )
+          })
+          .catch((err) => {
+            utils.showError(err)
+          })
+      })
+      return
+    }
+    const activeVehicle = await getActiveVehicleById(
+      formData.Proposta.key.Cliente_Id,
+      formData.Veiculo.key
+    )
+    const activeVehicleProducts =
+      activeVehicle.length > 0
+        ? activeVehicle[0].Produtos.map((product) => product.Produto_Id)
+        : []
+
+    const activeVehicleServices =
+      activeVehicle.length > 0
+        ? activeVehicle[0].Servicos.map((service) => service.Servico_Id)
+        : []
+
+    const activeVehicleBenefits =
+      activeVehicle.length > 0
+        ? activeVehicle[0].Beneficios.map((benefits) => benefits.Portfolio_Id)
+        : []
+
+    const filteredBenefits: {
+      Portfolio_Id: string
+      TipoPortfolio: string
+      PortfolioPreco_Id: string
+      created_at: Date
+    }[] = []
+
+    formData.Proposta.key.Veiculos.filter(
+      (vehicle) => vehicle.Veiculo_Id === formData.Veiculo.key
+    ).map((vehicle) => {
+      const benefits = vehicle.PropostasServicos.filter(
+        (service) =>
+          !service.Servico.GeraOS &&
+          !activeVehicleBenefits.includes(service.Servico.Id)
+      ).map((service) => {
+        return {
+          Portfolio_Id: service.Servico.Id,
+          TipoPortfolio: 'serviço',
+          PortfolioPreco_Id: service.ServicosPreco.Id,
+          created_at: service.created_at
+        }
+      })
+
+      benefits.push(
+        ...vehicle.PropostasProdutos.filter(
+          (product) =>
+            product.ProdutoPreco.TipoDeRecorrencia_Id !== null &&
+            !activeVehicleBenefits.includes(product.Produto.Id)
+        ).map((product) => {
+          return {
+            Portfolio_Id: product.Produto.Id,
+            TipoPortfolio: 'produto',
+            PortfolioPreco_Id: product.ProdutoPreco.Id,
+            created_at: product.created_at
+          }
+        })
+      )
+
+      benefits.push(
+        ...vehicle.PropostasPlanos.filter(
+          (plan) => !activeVehicleBenefits.includes(plan.Plano.Id)
+        ).map((plan) => {
+          return {
+            Portfolio_Id: plan.Plano.Id,
+            TipoPortfolio: 'plano',
+            PortfolioPreco_Id: plan.PlanoPreco.Id,
+            created_at: plan.created_at
+          }
+        })
+      )
+
+      benefits.push(
+        ...vehicle.PropostasCombos.filter(
+          (combo) => !activeVehicleBenefits.includes(combo.Combo.Id)
+        ).map((combo) => {
+          return {
+            Portfolio_Id: combo.Combo.Id,
+            TipoPortfolio: 'combo',
+            PortfolioPreco_Id: combo.ComboPreco_Id,
+            created_at: combo.created_at
+          }
+        })
+      )
+
+      benefits.map((benefit) => {
+        const duplicatedPosition = filteredBenefits.findIndex(
+          (filteredBenefit) =>
+            benefit.Portfolio_Id === filteredBenefit.Portfolio_Id &&
+            benefit.TipoPortfolio === filteredBenefit.TipoPortfolio
+        )
+
+        if (duplicatedPosition > -1) {
+          filteredBenefits[duplicatedPosition] = {
+            Portfolio_Id: benefit.Portfolio_Id,
+            TipoPortfolio: benefit.TipoPortfolio,
+            created_at: benefit.created_at,
+            PortfolioPreco_Id:
+              benefit.created_at >
+              filteredBenefits[duplicatedPosition].created_at
+                ? benefit.PortfolioPreco_Id
+                : filteredBenefits[duplicatedPosition].PortfolioPreco_Id
+          }
+        }
+
+        if (!(duplicatedPosition > -1)) {
+          filteredBenefits.push({
+            Portfolio_Id: benefit.Portfolio_Id,
+            TipoPortfolio: benefit.TipoPortfolio,
+            PortfolioPreco_Id: benefit.PortfolioPreco_Id,
+            created_at: benefit.created_at
+          })
+        }
+      })
+
+      const installationServices = vehicle.PropostasServicos.filter(
+        (service) =>
+          service.Servico.GeraOS &&
+          !activeVehicleServices.includes(service.Servico.Id)
+      ).map((service) => {
+        return {
+          Servico_Id: service.Servico.Id,
+          ServicoPreco_Id: service.ServicosPreco.Id
+        }
+      })
+
+      vehicle.PropostasPlanos.filter((plan) => {
+        if (
+          plan.Plano.Servicos.filter(
+            (service) =>
+              service.Servico.GeraOS &&
+              !activeVehicleServices.includes(service.Servico.Id)
+          ).length > 0
+        ) {
+          return true
+        }
+      }).map((plan) => {
+        installationServices.push(
+          ...plan.Plano.Servicos.filter(
+            (service) =>
+              service.Servico.GeraOS &&
+              !activeVehicleServices.includes(service.Servico.Id)
+          ).map((service) => {
+            return {
+              Servico_Id: service.Servico.Id,
+              ServicoPreco_Id: service.ServicoPreco.Id
+            }
+          })
+        )
+      })
+
+      vehicle.PropostasCombos.filter((combo) => {
+        if (
+          combo.Combo.Servicos.filter(
+            (service) =>
+              service.Servico.GeraOS &&
+              !activeVehicleServices.includes(service.Servico.Id)
+          ).length > 0 ||
+          combo.Combo.Planos.filter(
+            (plan) =>
+              plan.Plano.Servicos.filter(
+                (service) =>
+                  service.Servico.GeraOS &&
+                  !activeVehicleServices.includes(service.Servico.Id)
+              ).length > 0
+          ).length > 0
+        ) {
+          return true
+        }
+      }).map((combo) => {
+        installationServices.push(
+          ...combo.Combo.Servicos.filter(
+            (service) =>
+              service.Servico.GeraOS &&
+              !activeVehicleServices.includes(service.Servico.Id)
+          ).map((service) => {
+            return {
+              Servico_Id: service.Servico.Id,
+              ServicoPreco_Id: service.ServicosPreco.Id
+            }
+          })
+        )
+
+        combo.Combo.Planos.filter((plan) => {
+          if (
+            plan.Plano.Servicos.filter(
+              (service) =>
+                service.Servico.GeraOS &&
+                !activeVehicleServices.includes(service.Servico.Id)
+            ).length > 0
+          ) {
+            return true
+          }
+        }).map((plan) => {
+          installationServices.push(
+            ...plan.Plano.Servicos.filter(
+              (service) =>
+                service.Servico.GeraOS &&
+                !activeVehicleServices.includes(service.Servico.Id)
+            ).map((service) => {
+              return {
+                Servico_Id: service.Servico.Id,
+                ServicoPreco_Id: service.ServicoPreco.Id
+              }
+            })
+          )
+        })
+      })
 
       const filteredServices: {
-        Servico_Id: string;
-        ServicoPreco_Id: string;
-      }[] = [];
+        Servico_Id: string
+        ServicoPreco_Id: string
+      }[] = []
 
-      services.map((service) => {
+      installationServices.map((service) => {
         const duplicatedPosition = filteredServices.findIndex(
-          (filteredService) =>
-            service?.Servico_Id === filteredService.Servico_Id
-        );
+          (filteredService) => service.Servico_Id === filteredService.Servico_Id
+        )
 
         if (!(duplicatedPosition > -1)) {
           filteredServices.push({
-            Servico_Id: service?.Servico_Id as string,
-            ServicoPreco_Id: service?.ServicoPreco_Id as string,
-          });
+            Servico_Id: service.Servico_Id,
+            ServicoPreco_Id: service.ServicoPreco_Id
+          })
         }
-      });
+      })
+
+      const products = vehicle.PropostasProdutos.filter(
+        (product) =>
+          product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+          !activeVehicleProducts.includes(product.Produto.Id)
+      ).map((product) => {
+        return {
+          Produto_Id: product.Produto.Id,
+          ProdutoPreco_Id: product.ProdutoPreco.Id
+        }
+      })
+
+      vehicle.PropostasPlanos.filter((plan) => {
+        if (
+          plan.Plano.Produtos.filter(
+            (product) =>
+              product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+              !activeVehicleProducts.includes(product.Produto.Id)
+          ).length > 0
+        ) {
+          return true
+        }
+      }).map((plan) => {
+        products.push(
+          ...plan.Plano.Produtos.filter(
+            (product) =>
+              product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+              !activeVehicleProducts.includes(product.Produto.Id)
+          ).map((product) => {
+            return {
+              Produto_Id: product.Produto.Id,
+              ProdutoPreco_Id: product.ProdutoPreco.Id
+            }
+          })
+        )
+      })
+
+      vehicle.PropostasCombos.filter((combo) => {
+        if (
+          combo.Combo.Produtos.filter(
+            (product) =>
+              product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+              !activeVehicleProducts.includes(product.Produto.Id)
+          ).length > 0 ||
+          combo.Combo.Planos.filter(
+            (plan) =>
+              plan.Plano.Produtos.filter(
+                (product) =>
+                  product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+                  !activeVehicleProducts.includes(product.Produto.Id)
+              ).length > 0
+          ).length > 0
+        ) {
+          return true
+        }
+      }).map((combo) => {
+        products.push(
+          ...combo.Combo.Produtos.filter(
+            (product) =>
+              product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+              !activeVehicleProducts.includes(product.Produto.Id)
+          ).map((product) => {
+            return {
+              Produto_Id: product.Produto.Id,
+              ProdutoPreco_Id: product.ProdutoPreco.Id
+            }
+          })
+        )
+
+        combo.Combo.Planos.filter((plan) => {
+          if (
+            plan.Plano.Produtos.filter(
+              (product) =>
+                product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+                !activeVehicleProducts.includes(product.Produto.Id)
+            ).length > 0
+          ) {
+            return true
+          }
+        }).map((plan) => {
+          products.push(
+            ...plan.Plano.Produtos.filter(
+              (product) =>
+                product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
+                !activeVehicleProducts.includes(product.Produto.Id)
+            ).map((product) => {
+              return {
+                Produto_Id: product.Produto.Id,
+                ProdutoPreco_Id: product.ProdutoPreco.Id
+              }
+            })
+          )
+        })
+      })
+
+      const filteredProducts: {
+        Produto_Id: string
+        ProdutoPreco_Id: string
+      }[] = []
+
+      products.map((product) => {
+        const duplicatedPosition = filteredProducts.findIndex(
+          (filteredProduct) => product.Produto_Id === filteredProduct.Produto_Id
+        )
+
+        if (!(duplicatedPosition > -1)) {
+          filteredProducts.push({
+            Produto_Id: product.Produto_Id,
+            ProdutoPreco_Id: product.ProdutoPreco_Id
+          })
+        }
+      })
 
       createServiceOrder({
         variables: {
           Tipo_Id: formData.Tipo.key,
           Proposta_Id: formData.Proposta.key.Id,
           Veiculo_Id: formData.Veiculo.key,
-          Beneficios: [],
+          Beneficios: filteredBenefits.map((benefit) => {
+            return {
+              Portfolio_Id: benefit.Portfolio_Id,
+              TipoPortfolio: benefit.TipoPortfolio,
+              PortfolioPreco_Id: benefit.PortfolioPreco_Id
+            }
+          }),
           Servicos: filteredServices,
-          Produtos: [],
-        },
+          Produtos: filteredProducts
+        }
       })
         .then(() => {
-          serviceOrdersRefetch();
+          serviceOrdersRefetch()
           setSlidePanelState((oldState) => {
-            return { ...oldState, open: false };
-          });
+            return { ...oldState, open: false }
+          })
           utils.notification(
             'Ordem de serviço cadastrada com sucesso',
             'success'
-          );
+          )
         })
         .catch((err) => {
-          utils.showError(err);
-        });
-      return;
-    }
-    const activeVehicle = await getActiveVehicleById(
-      formData.Proposta.key.Cliente_Id,
-      formData.Veiculo.key
-    );
-    const activeVehicleProducts =
-      activeVehicle.length > 0
-        ? activeVehicle[0].Produtos.map((product) => product.Produto_Id)
-        : [];
-
-    const activeVehicleServices =
-      activeVehicle.length > 0
-        ? activeVehicle[0].Servicos.map((service) => service.Servico_Id)
-        : [];
-
-    const activeVehicleBenefits =
-      activeVehicle.length > 0
-        ? activeVehicle[0].Beneficios.map((benefits) => benefits.Portfolio_Id)
-        : [];
-
-    const filteredBenefits: {
-      Portfolio_Id: string;
-      TipoPortfolio: string;
-      PortfolioPreco_Id: string;
-      created_at: Date;
-    }[] = [];
-    const benefits = formData.Proposta.key.Servicos.filter(
-      (service) =>
-        service.Veiculo_Id === formData.Veiculo.key &&
-        !service.Servico.GeraOS &&
-        !activeVehicleBenefits.includes(service.Servico.Id)
-    ).map((service) => {
-      return {
-        Portfolio_Id: service.Servico.Id,
-        TipoPortfolio: 'serviço',
-        PortfolioPreco_Id: service.ServicosPreco.Id,
-        created_at: service.created_at,
-      };
-    });
-
-    benefits.push(
-      ...formData.Proposta.key.Produtos.filter(
-        (product) =>
-          product.Veiculo_Id === formData.Veiculo.key &&
-          product.ProdutoPreco.TipoDeRecorrencia_Id !== null &&
-          !activeVehicleBenefits.includes(product.Produto.Id)
-      ).map((product) => {
-        return {
-          Portfolio_Id: product.Produto.Id,
-          TipoPortfolio: 'produto',
-          PortfolioPreco_Id: product.ProdutoPreco.Id,
-          created_at: product.created_at,
-        };
-      })
-    );
-
-    benefits.push(
-      ...formData.Proposta.key.Planos.filter(
-        (plan) =>
-          plan.Veiculo_Id === formData.Veiculo.key &&
-          !activeVehicleBenefits.includes(plan.Plano.Id)
-      ).map((plan) => {
-        return {
-          Portfolio_Id: plan.Plano.Id,
-          TipoPortfolio: 'plano',
-          PortfolioPreco_Id: plan.PlanoPreco.Id,
-          created_at: plan.created_at,
-        };
-      })
-    );
-
-    benefits.push(
-      ...formData.Proposta.key.Combos.filter(
-        (combo) =>
-          combo.Veiculo_Id === formData.Veiculo.key &&
-          !activeVehicleBenefits.includes(combo.Combo.Id)
-      ).map((combo) => {
-        return {
-          Portfolio_Id: combo.Combo.Id,
-          TipoPortfolio: 'combo',
-          PortfolioPreco_Id: combo.ComboPreco_Id,
-          created_at: combo.created_at,
-        };
-      })
-    );
-
-    benefits.map((benefit) => {
-      const duplicatedPosition = filteredBenefits.findIndex(
-        (filteredBenefit) =>
-          benefit.Portfolio_Id === filteredBenefit.Portfolio_Id &&
-          benefit.TipoPortfolio === filteredBenefit.TipoPortfolio
-      );
-
-      if (duplicatedPosition > -1) {
-        filteredBenefits[duplicatedPosition] = {
-          Portfolio_Id: benefit.Portfolio_Id,
-          TipoPortfolio: benefit.TipoPortfolio,
-          created_at: benefit.created_at,
-          PortfolioPreco_Id:
-            benefit.created_at > filteredBenefits[duplicatedPosition].created_at
-              ? benefit.PortfolioPreco_Id
-              : filteredBenefits[duplicatedPosition].PortfolioPreco_Id,
-        };
-      }
-
-      if (!(duplicatedPosition > -1)) {
-        filteredBenefits.push({
-          Portfolio_Id: benefit.Portfolio_Id,
-          TipoPortfolio: benefit.TipoPortfolio,
-          PortfolioPreco_Id: benefit.PortfolioPreco_Id,
-          created_at: benefit.created_at,
-        });
-      }
-    });
-
-    const installationServices = formData.Proposta.key.Servicos.filter(
-      (service) =>
-        service.Servico.GeraOS &&
-        service.Veiculo_Id === formData.Veiculo.key &&
-        !activeVehicleServices.includes(service.Servico.Id)
-    ).map((service) => {
-      return {
-        Servico_Id: service.Servico.Id,
-        ServicoPreco_Id: service.ServicosPreco.Id,
-      };
-    });
-
-    formData.Proposta.key.Combos.filter((combo) => {
-      if (
-        combo.Combo.Servicos.filter(
-          (service) =>
-            service.Servico.GeraOS &&
-            !activeVehicleServices.includes(service.Servico.Id)
-        ).length > 0 &&
-        combo.Veiculo_Id === formData.Veiculo.key
-      ) {
-        return true;
-      }
-    }).map((combo) => {
-      installationServices.push(
-        ...combo.Combo.Servicos.filter(
-          (service) =>
-            service.Servico.GeraOS &&
-            !activeVehicleServices.includes(service.Servico.Id)
-        ).map((service) => {
-          return {
-            Servico_Id: service.Servico.Id,
-            ServicoPreco_Id: service.ServicosPreco.Id,
-          };
+          utils.showError(err)
         })
-      );
-    });
-
-    const filteredServices: {
-      Servico_Id: string;
-      ServicoPreco_Id: string;
-    }[] = [];
-
-    installationServices.map((service) => {
-      const duplicatedPosition = filteredServices.findIndex(
-        (filteredService) => service.Servico_Id === filteredService.Servico_Id
-      );
-
-      if (!(duplicatedPosition > -1)) {
-        filteredServices.push({
-          Servico_Id: service.Servico_Id,
-          ServicoPreco_Id: service.ServicoPreco_Id,
-        });
-      }
-    });
-
-    const products = formData.Proposta.key.Produtos.filter(
-      (product) =>
-        product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
-        product.Veiculo_Id === formData.Veiculo.key &&
-        !activeVehicleProducts.includes(product.Produto.Id)
-    ).map((product) => {
-      return {
-        Produto_Id: product.Produto.Id,
-        ProdutoPreco_Id: product.ProdutoPreco.Id,
-      };
-    });
-
-    formData.Proposta.key.Combos.filter((combo) => {
-      if (
-        combo.Combo.Produtos.filter(
-          (product) =>
-            product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
-            !activeVehicleProducts.includes(product.Produto.Id)
-        ).length > 0 &&
-        combo.Veiculo_Id === formData.Veiculo.key
-      ) {
-        return true;
-      }
-    }).map((combo) => {
-      products.push(
-        ...combo.Combo.Produtos.filter(
-          (product) =>
-            product.ProdutoPreco.TipoDeRecorrencia_Id === null &&
-            !activeVehicleProducts.includes(product.Produto.Id)
-        ).map((product) => {
-          return {
-            Produto_Id: product.Produto.Id,
-            ProdutoPreco_Id: product.ProdutoPreco.Id,
-          };
-        })
-      );
-    });
-
-    const filteredProducts: {
-      Produto_Id: string;
-      ProdutoPreco_Id: string;
-    }[] = [];
-
-    products.map((product) => {
-      const duplicatedPosition = filteredProducts.findIndex(
-        (filteredProduct) => product.Produto_Id === filteredProduct.Produto_Id
-      );
-
-      if (!(duplicatedPosition > -1)) {
-        filteredProducts.push({
-          Produto_Id: product.Produto_Id,
-          ProdutoPreco_Id: product.ProdutoPreco_Id,
-        });
-      }
-    });
-
-    createServiceOrder({
-      variables: {
-        Tipo_Id: formData.Tipo.key,
-        Proposta_Id: formData.Proposta.key.Id,
-        Veiculo_Id: formData.Veiculo.key,
-        Beneficios: filteredBenefits.map((benefit) => {
-          return {
-            Portfolio_Id: benefit.Portfolio_Id,
-            TipoPortfolio: benefit.TipoPortfolio,
-            PortfolioPreco_Id: benefit.PortfolioPreco_Id,
-          };
-        }),
-        Servicos: filteredServices,
-        Produtos: filteredProducts,
-      },
     })
-      .then(() => {
-        serviceOrdersRefetch();
-        setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification(
-          'Ordem de serviço cadastrada com sucesso',
-          'success'
-        );
-      })
-      .catch((err) => {
-        utils.showError(err);
-      });
-  };
+  }
 
   useEffect(() => {
     if (watch('Proposta')) {
-      const vehiclesIds = watch('Proposta').key.Servicos.map(
-        (service: { Veiculo_Id: string }) => service.Veiculo_Id
-      );
-      vehiclesIds.push(
-        ...watch('Proposta').key.Produtos.map(
-          (product: { Veiculo_Id: string }) => product.Veiculo_Id
-        )
-      );
-      vehiclesIds.push(
-        ...watch('Proposta').key.Planos.map(
-          (plan: { Veiculo_Id: string }) => plan.Veiculo_Id
-        )
-      );
-      vehiclesIds.push(
-        ...watch('Proposta').key.Combos.map(
-          (combo: { Veiculo_Id: string }) => combo.Veiculo_Id
-        )
-      );
+      const vehiclesIds = watch('Proposta').key.Veiculos.map(
+        (vehicle: { Veiculo_Id: string }) => vehicle.Veiculo_Id
+      )
 
-      setVehiclesId(vehiclesIds);
-      setValue('Veiculo', undefined);
+      setVehiclesId(vehiclesIds)
+      setValue('Veiculo', undefined)
     }
-  }, [watch('Proposta')]);
+  }, [watch('Proposta')])
 
   return (
     <form
@@ -421,8 +551,8 @@ export function Create() {
                     ? serviceOrdersTypesData.map((vehicleCategory) => {
                         return {
                           key: vehicleCategory.Valor,
-                          title: vehicleCategory.Comentario,
-                        };
+                          title: vehicleCategory.Comentario
+                        }
                       })
                     : []
                 }
@@ -446,13 +576,8 @@ export function Create() {
                     ? proposalsData.map((proposal) => {
                         return {
                           key: proposal,
-                          title:
-                            proposal.TipoDePagamento_Id +
-                            ' - ' +
-                            proposal.TipoDeRecorrencia_Id +
-                            ' - ' +
-                            ptBRtimeStamp(proposal.created_at),
-                        };
+                          title: ptBRtimeStamp(proposal.created_at)
+                        }
                       })
                     : []
                 }
@@ -478,12 +603,12 @@ export function Create() {
                         .map((vehicle) => {
                           return {
                             key: vehicle.Id,
-                            title: `${vehicle.Apelido} - ${
+                            title: `${
                               vehicle.Placa
                                 ? vehicle.Placa
                                 : vehicle.NumeroDoChassi
-                            }`,
-                          };
+                            } ${vehicle.Apelido ? ' - ' + vehicle.Apelido : ''}`
+                          }
                         })
                     : []
                 }
@@ -504,5 +629,5 @@ export function Create() {
         loading={createServiceOrderLoading}
       />
     </form>
-  );
+  )
 }

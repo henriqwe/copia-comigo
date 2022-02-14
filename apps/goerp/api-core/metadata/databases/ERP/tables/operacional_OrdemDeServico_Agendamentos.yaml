@@ -2,9 +2,27 @@ table:
   name: OrdemDeServico_Agendamentos
   schema: operacional
 object_relationships:
-  - name: OrdemDeServico
-    using:
-      foreign_key_constraint_on: OS_Id
-  - name: Situacao
-    using:
-      foreign_key_constraint_on: Situacao_Id
+- name: OrdemDeServico
+  using:
+    foreign_key_constraint_on: OS_Id
+- name: Situacao
+  using:
+    foreign_key_constraint_on: Situacao_Id
+array_relationships:
+- name: Itens
+  using:
+    foreign_key_constraint_on:
+      column: Agendamento_Id
+      table:
+        name: OrdemDeServico_Agendamentos_Itens
+        schema: operacional
+remote_relationships:
+- definition:
+    hasura_fields:
+    - Colaborador_Id
+    remote_field:
+      identidades_Colaboradores_by_pk:
+        arguments:
+          Id: $Colaborador_Id
+    remote_schema: GoId
+  name: Colaborador

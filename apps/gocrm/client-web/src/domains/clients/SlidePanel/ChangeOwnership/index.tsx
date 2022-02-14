@@ -1,72 +1,72 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as activeVehicles from '&crm/domains/clients';
-import * as clients from '&crm/domains/identities/Clients';
+import * as activeVehicles from '&crm/domains/clients'
+import * as clients from '&crm/domains/identities/Clients'
 
-import * as utils from '@comigo/utils';
+import * as utils from '@comigo/utils'
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import rotas from '&crm/domains/routes';
+import { v4 as uuid } from 'uuid'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import rotas from '&crm/domains/routes'
 
-export default function ChangeOwnership() {
-  const router = useRouter();
-  const [vehiclesGroup, setVehiclesGroup] = useState([1]);
-  const [lastNumber, setlastNumber] = useState(0);
-  const [reload, setReload] = useState(false);
+export function ChangeOwnership() {
+  const router = useRouter()
+  const [vehiclesGroup, setVehiclesGroup] = useState([1])
+  const [lastNumber, setlastNumber] = useState(0)
+  const [reload, setReload] = useState(false)
   const {
     clientData,
     createProposal,
     createProposalLoading,
     userAndTicketData,
     getUserByClientId,
-    getComboById,
-  } = activeVehicles.useUpdate();
-  const { clientsData } = clients.useList();
+    getComboById
+  } = activeVehicles.useUpdate()
+  const { clientsData } = clients.useList()
   const {
     handleSubmit,
     formState: { errors },
-    control,
-  } = useForm();
+    control
+  } = useForm()
   const onSubmit = async (formData: any) => {
-    console.log(formData);
     const plans: {
-      Plano_Id: string;
-      Veiculo_Id: string;
-      Veiculo: number;
-      PlanoPreco_Id: string;
-    }[] = [];
+      Plano_Id: string
+      Proposta_Id: string
+      Veiculo_Id: string
+      PlanoPreco_Id: string
+    }[] = []
     const products: {
-      Veiculo: number;
-      Veiculo_Id: string;
-      Produto_Id: string;
-      ProdutoPreco_Id: string;
-    }[] = [];
+      Proposta_Id: string
+      Produto_Id: string
+      Veiculo_Id: string
+      ProdutoPreco_Id: string
+    }[] = []
     const service: {
-      Servico_Id: string;
-      Veiculo_Id: string;
-      Veiculo: number;
-      ServicosPreco_Id: string;
-    }[] = [];
+      Proposta_Id: string
+      Servico_Id: string
+      Veiculo_Id: string
+      ServicosPreco_Id: string
+    }[] = []
     const combos: {
-      Combo_Id: string;
-      Veiculo_Id: string;
-      Veiculo: number;
-      ComboPreco_Id: string;
-    }[] = [];
+      Proposta_Id: string
+      Combo_Id: string
+      Veiculo_Id: string
+      ComboPreco_Id: string
+    }[] = []
+    const proposalUUID = uuid()
     const validation = vehiclesGroup
       .filter((vehicle) => vehicle !== 0)
-      .map((vehicle, index) => {
-        console.log('passou');
+      .map((vehicle) => {
         if (!formData['Veiculo' + vehicle] || !formData['Cliente']) {
-          return;
+          return
         }
 
-        const comboPlansIds: string[] = [];
-        const comboServicesIds: string[] = [];
-        const comboProductsIds: string[] = [];
+        const comboPlansIds: string[] = []
+        const comboServicesIds: string[] = []
+        const comboProductsIds: string[] = []
 
         formData['Veiculo' + vehicle].key.Beneficios.filter(
           (item: { TipoPortfolio: string }) => item.TipoPortfolio === 'combo'
@@ -75,19 +75,19 @@ export default function ChangeOwnership() {
             (combo) => {
               // ids dos planos dos combos
               combo.combo?.Planos.map((plan) => {
-                comboPlansIds.push(plan.Plano_Id);
-              });
+                comboPlansIds.push(plan.Plano_Id)
+              })
               // ids dos produtos dos combos
               combo.combo?.Produtos.map((products) => {
-                comboProductsIds.push(products.Produto_Id);
-              });
+                comboProductsIds.push(products.Produto_Id)
+              })
               // ids dos serviços dos combos
               combo.combo?.Servicos.map((services) => {
-                comboServicesIds.push(services.Servico_Id);
-              });
+                comboServicesIds.push(services.Servico_Id)
+              })
             }
-          );
-        });
+          )
+        })
 
         // adicionando planos no array
         formData['Veiculo' + vehicle].key.Beneficios.filter(
@@ -96,26 +96,12 @@ export default function ChangeOwnership() {
             !comboPlansIds.includes(item.Portfolio_Id)
         ).map((item: { Portfolio_Id: string; PortfolioPreco_Id: string }) => {
           plans.push({
+            Proposta_Id: proposalUUID,
             PlanoPreco_Id: item.PortfolioPreco_Id,
             Plano_Id: item.Portfolio_Id,
-            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id,
-            Veiculo: index + 1,
-          });
-        });
-
-        // adicionando produtos dos beneficios no array
-        formData['Veiculo' + vehicle].key.Beneficios.filter(
-          (item: { TipoPortfolio: string; Portfolio_Id: string }) =>
-            item.TipoPortfolio === 'produto' &&
-            !comboProductsIds.includes(item.Portfolio_Id)
-        ).map((item: { Portfolio_Id: string; PortfolioPreco_Id: string }) => {
-          products.push({
-            ProdutoPreco_Id: item.PortfolioPreco_Id,
-            Produto_Id: item.Portfolio_Id,
-            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id,
-            Veiculo: index + 1,
-          });
-        });
+            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id
+          })
+        })
 
         // adicionando produtos do veiculo no array
         formData['Veiculo' + vehicle].key.Produtos.filter(
@@ -123,12 +109,12 @@ export default function ChangeOwnership() {
             !comboProductsIds.includes(item.Produto_Id)
         ).map((item: { Produto_Id: string; ProdutoPreco_Id: string }) => {
           products.push({
+            Proposta_Id: proposalUUID,
             ProdutoPreco_Id: item.ProdutoPreco_Id,
             Produto_Id: item.Produto_Id,
-            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id,
-            Veiculo: index + 1,
-          });
-        });
+            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id
+          })
+        })
 
         // adicionando serviços dos beneficios no array
         formData['Veiculo' + vehicle].key.Beneficios.filter(
@@ -137,12 +123,12 @@ export default function ChangeOwnership() {
             !comboServicesIds.includes(item.Portfolio_Id)
         ).map((item: { Portfolio_Id: string; PortfolioPreco_Id: string }) => {
           service.push({
+            Proposta_Id: proposalUUID,
             ServicosPreco_Id: item.PortfolioPreco_Id,
             Servico_Id: item.Portfolio_Id,
-            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id,
-            Veiculo: index + 1,
-          });
-        });
+            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id
+          })
+        })
 
         // adicionando serviços do veiculo no array
         formData['Veiculo' + vehicle].key.Servicos.filter(
@@ -150,12 +136,12 @@ export default function ChangeOwnership() {
             !comboServicesIds.includes(item.Servico_Id)
         ).map((item: { Servico_Id: string; ServicoPreco_Id: string }) => {
           service.push({
+            Proposta_Id: proposalUUID,
             ServicosPreco_Id: item.ServicoPreco_Id,
             Servico_Id: item.Servico_Id,
-            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id,
-            Veiculo: index + 1,
-          });
-        });
+            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id
+          })
+        })
 
         // adicionando combos no array
         formData['Veiculo' + vehicle].key.Beneficios.filter(
@@ -163,60 +149,130 @@ export default function ChangeOwnership() {
             item.TipoPortfolio === 'combo'
         ).map((item: { Portfolio_Id: string; PortfolioPreco_Id: string }) => {
           combos.push({
+            Proposta_Id: proposalUUID,
             ComboPreco_Id: item.PortfolioPreco_Id,
             Combo_Id: item.Portfolio_Id,
-            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id,
-            Veiculo: index + 1,
-          });
-        });
+            Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id
+          })
+        })
 
-        return true;
-      });
+        return true
+      })
 
     if (validation.includes(undefined)) {
       return utils.notification(
         'Preencha todos os campos para continuar',
         'error'
-      );
+      )
     }
 
-    const userId = await getUserByClientId(formData['Cliente'].key);
+    const userId = await getUserByClientId(formData['Cliente'].key)
 
     await createProposal({
       variables: {
+        Id: proposalUUID,
         Lead_Id: null,
-        Ticket_Id: userAndTicketData?.atendimentos_Tickets?.[0].Id,
-        TipoDePagamento_Id: 'boleto',
-        TipoDeRecorrencia_Id: 'mensal',
+        Ticket_Id: null,
         Usuario_Id: userId[0].Id,
         Cliente_Id: formData['Cliente'].key,
         planosData: plans,
         produtosData: products,
         servicosData: service,
         combosData: combos,
+        veiculosData: vehiclesGroup
+          .filter((vehicle) => vehicle !== 0)
+          .map((vehicle) => {
+            if (!formData['Veiculo' + vehicle] || !formData['Cliente']) {
+              return
+            }
+            return {
+              Veiculo_Id: formData['Veiculo' + vehicle].key.Veiculo.Id,
+              PropostasCombos: {
+                data: combos
+                  .filter(
+                    (combo) =>
+                      combo.Veiculo_Id ===
+                      formData['Veiculo' + vehicle].key.Veiculo.Id
+                  )
+                  .map((combo) => {
+                    return {
+                      Proposta_Id: combo.Proposta_Id,
+                      ComboPreco_Id: combo.ComboPreco_Id,
+                      Combo_Id: combo.Combo_Id
+                    }
+                  })
+              },
+              PropostasPlanos: {
+                data: plans
+                  .filter(
+                    (plan) =>
+                      plan.Veiculo_Id ===
+                      formData['Veiculo' + vehicle].key.Veiculo.Id
+                  )
+                  .map((plan) => {
+                    return {
+                      Proposta_Id: plan.Proposta_Id,
+                      PlanoPreco_Id: plan.PlanoPreco_Id,
+                      Plano_Id: plan.Plano_Id
+                    }
+                  })
+              },
+              PropostasProdutos: {
+                data: products
+                  .filter(
+                    (product) =>
+                      product.Veiculo_Id ===
+                      formData['Veiculo' + vehicle].key.Veiculo.Id
+                  )
+                  .map((product) => {
+                    return {
+                      Proposta_Id: product.Proposta_Id,
+                      ProdutoPreco_Id: product.ProdutoPreco_Id,
+                      Produto_Id: product.Produto_Id
+                    }
+                  })
+              },
+              PropostasServicos: {
+                data: service
+                  .filter(
+                    (service) =>
+                      service.Veiculo_Id ===
+                      formData['Veiculo' + vehicle].key.Veiculo.Id
+                  )
+                  .map((service) => {
+                    return {
+                      Proposta_Id: service.Proposta_Id,
+                      ServicosPreco_Id: service.ServicosPreco_Id,
+                      Servico_Id: service.Servico_Id
+                    }
+                  })
+              }
+            }
+          })
+          .filter((content) => content !== undefined)
         // oportunidadesData: []
-      },
+      }
     })
       .then((response) => {
         router.push(
-          rotas.comercial.propostas.index +
+          rotas.propostas +
             '/' +
             response?.data.insert_propostas_Propostas_one.Id +
             '?origin=changeOwnership'
-        );
+        )
         utils.notification(
           'Proposta do novo veiculo criada com sucesso',
           'success'
-        );
+        )
       })
-      .catch((error) => utils.showError(error));
-  };
+      .catch((error) => utils.showError(error))
+  }
 
   useEffect(() => {
     if (vehiclesGroup[vehiclesGroup.length - 1] > lastNumber) {
-      setlastNumber(vehiclesGroup[vehiclesGroup.length - 1]);
+      setlastNumber(vehiclesGroup[vehiclesGroup.length - 1])
     }
-  }, [vehiclesGroup]);
+  }, [vehiclesGroup])
 
   return (
     <form
@@ -238,8 +294,8 @@ export default function ChangeOwnership() {
                         .map((client) => {
                           return {
                             key: client.Id,
-                            title: client.Pessoa?.Nome as string,
-                          };
+                            title: client.Pessoa?.Nome as string
+                          }
                         })
                     : []
                 }
@@ -279,8 +335,8 @@ export default function ChangeOwnership() {
                                       activeVehicle.Veiculo.Placa
                                         ? activeVehicle.Veiculo.Placa
                                         : activeVehicle.Veiculo.NumeroDoChassi
-                                    } - ${activeVehicle.Veiculo.Apelido}`,
-                                  };
+                                    } - ${activeVehicle.Veiculo.Apelido}`
+                                  }
                                 })
                               : []
                           }
@@ -296,8 +352,8 @@ export default function ChangeOwnership() {
                   {vehicleGroupPosition !== 1 && (
                     <common.buttons.DeleteButton
                       onClick={() => {
-                        vehiclesGroup[index] = 0;
-                        setReload(!reload);
+                        vehiclesGroup[index] = 0
+                        setReload(!reload)
                       }}
                     />
                   )}
@@ -322,5 +378,5 @@ export default function ChangeOwnership() {
         loading={createProposalLoading}
       />
     </form>
-  );
+  )
 }

@@ -1,14 +1,14 @@
-import * as collaborator from '&crm/domains/identities/Collaborators';
+import * as collaborator from '&crm/domains/identities/Collaborators'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Collaborator() {
   return (
     <collaborator.CollaboratorProvider>
@@ -17,22 +17,22 @@ export default function Collaborator() {
         <Page />{' '}
       </ThemeProvider>
     </collaborator.CollaboratorProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   const { collaboratorsRefetch, collaboratorsLoading } =
-    collaborator.useCollaborator();
+    collaborator.useCollaborator()
   const refetch = () => {
-    collaboratorsRefetch();
-  };
+    collaboratorsRefetch()
+  }
 
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -42,11 +42,11 @@ export function Page() {
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Identidades', url: rotas.identidades.index },
-        { title: 'Colaboradores', url: rotas.identidades.colaboradores },
+        { title: 'Colaboradores', url: rotas.identidades.colaboradores }
       ]}
     >
       <collaborator.List />
       <collaborator.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

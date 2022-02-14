@@ -2,17 +2,17 @@ table:
   name: TiposDeKitDeInsumo
   schema: producao
 array_relationships:
-  - name: Itens
-    using:
-      foreign_key_constraint_on:
-        column: TiposDeKitDeInsumo_Id
-        table:
-          name: TiposDeKitDeInsumo_estoque_Itens
-          schema: producao
-  - name: KitsDeInsumo
-    using:
-      foreign_key_constraint_on:
-        column: Tipo_Id
-        table:
-          name: KitsDeInsumo
-          schema: producao
+- name: Itens
+  using:
+    foreign_key_constraint_on:
+      column: TiposDeKitDeInsumo_Id
+      table:
+        name: TiposDeKitDeInsumo_estoque_Itens
+        schema: producao
+- name: KitsDeInsumo
+  using:
+    foreign_key_constraint_on:
+      column: Tipo_Id
+      table:
+        name: KitsDeInsumo
+        schema: producao

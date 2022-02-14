@@ -1,10 +1,10 @@
-import * as families from '&erp/domains/inventory/Registration/Families';
+import * as families from '&erp/domains/inventory/Registration/Families'
 
-import rotas from '&erp/domains/routes';
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function Families() {
   return (
@@ -13,23 +13,23 @@ export default function Families() {
         <Page />
       </ThemeProvider>
     </families.FamilyProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   const { familiesRefetch, familiesLoading, parentsFamiliesRefetch } =
-    families.useFamily();
+    families.useFamily()
   const refetch = () => {
-    familiesRefetch();
-    parentsFamiliesRefetch();
-  };
+    familiesRefetch()
+    parentsFamiliesRefetch()
+  }
   //const {usuario} = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -41,12 +41,12 @@ export function Page() {
         { title: 'Estoque', url: rotas.estoque.index },
         {
           title: 'Famílias',
-          url: rotas.estoque.cadastros.familias,
-        },
+          url: rotas.estoque.cadastros.familias
+        }
       ]}
     >
       <families.List />
       <families.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

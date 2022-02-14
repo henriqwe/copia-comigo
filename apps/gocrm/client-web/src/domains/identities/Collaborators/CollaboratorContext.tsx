@@ -157,7 +157,7 @@ export const CollaboratorProvider = ({ children }: ProviderProps) => {
           Pessoa: {
             Nome: true,
             Identificador: true,
-          },
+          }
         },
       ],
     },

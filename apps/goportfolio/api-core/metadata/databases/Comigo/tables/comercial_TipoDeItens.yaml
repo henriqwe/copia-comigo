@@ -1,0 +1,4 @@
+table:
+  name: TipoDeItens
+  schema: comercial
+is_enum: true

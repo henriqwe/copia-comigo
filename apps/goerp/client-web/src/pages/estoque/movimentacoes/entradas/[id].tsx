@@ -1,10 +1,10 @@
-import * as entries from '&erp/domains/inventory/Moves/Entries';
+import * as entries from '&erp/domains/inventory/Moves/Entries'
 
-import rotas from '&erp/domains/routes';
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function ValidateEntries() {
   return (
@@ -13,16 +13,16 @@ export default function ValidateEntries() {
         <Page />
       </ThemeProvider>
     </entries.ValidateProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   return (
     <templates.Base
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -32,15 +32,15 @@ export function Page() {
         { title: 'Compras', url: rotas.compras.index },
         {
           title: 'Movimentações',
-          url: rotas.estoque.movimentacoes.index,
+          url: rotas.estoque.movimentacoes.index
         },
         {
           title: 'Entradas',
-          url: rotas.estoque.movimentacoes.entradas.index,
-        },
+          url: rotas.estoque.movimentacoes.entradas.index
+        }
       ]}
     >
       <entries.Validate />
     </templates.Base>
-  );
+  )
 }

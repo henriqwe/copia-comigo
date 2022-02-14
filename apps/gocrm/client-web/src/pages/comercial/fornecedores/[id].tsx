@@ -1,14 +1,14 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as providers from '&crm/domains/commercial/Providers';
+import * as providers from '&crm/domains/commercial/Providers'
 
 export default function UpdateProvider() {
   return (
@@ -22,26 +22,26 @@ export default function UpdateProvider() {
         </providers.Services.ServiceProvider>
       </providers.Products.ProductProvider>
     </providers.UpdateProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { providerLoading, providerRefetch } = providers.useUpdate();
-  const { productsRefetch } = providers.Products.useProduct();
-  const { servicesRefetch } = providers.Services.useService();
+  const { theme, changeTheme } = useTheme()
+  const { providerLoading, providerRefetch } = providers.useUpdate()
+  const { productsRefetch } = providers.Products.useProduct()
+  const { servicesRefetch } = providers.Services.useService()
 
   const refetch = () => {
-    providerRefetch();
-    productsRefetch();
-    servicesRefetch();
-  };
+    providerRefetch()
+    productsRefetch()
+    servicesRefetch()
+  }
 
   return (
     <templates.FormAndTabs
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -49,18 +49,18 @@ function Page() {
       title="Parceiro"
       reload={{
         action: refetch,
-        state: providerLoading,
+        state: providerLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Parceiros',
-          url: rotas.comercial.fornecedores,
-        },
+          url: rotas.comercial.fornecedores
+        }
       ]}
     >
       <providers.Tabs />
     </templates.FormAndTabs>
-  );
+  )
 }

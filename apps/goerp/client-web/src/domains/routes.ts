@@ -43,6 +43,44 @@ export default {
     },
     index: '/compras',
   },
+  producao: {
+    identificaveis: {
+      chips: {
+        index: '/producao/identificaveis/chips',
+        cadastrar: '/producao/identificaveis/chips/cadastrar',
+        operadoras: '/producao/identificaveis/chips/operadoras'
+      },
+      identificadores: {
+        index: '/producao/identificaveis/identificadores',
+        cadastrar: '/producao/identificaveis/identificadores/cadastrar'
+      },
+      equipamentos: {
+        index: '/producao/identificaveis/equipamentos',
+        cadastrar: '/producao/identificaveis/equipamentos/cadastrar'
+      },
+      index: '/producao/identificaveis'
+    },
+    rastreadores: {
+      index: '/producao/rastreadores',
+      cadastrar: '/producao/rastreadores/cadastrar'
+    },
+    kits: {
+      kitsDeInsumo: {
+        index: '/producao/kits/kits-de-insumo',
+        cadastrar: '/producao/kits/kits-de-insumo/cadastrar',
+        tipos: {
+          index: '/producao/kits/kits-de-insumo/tipos',
+          cadastrar: '/producao/kits/kits-de-insumo/tipos/cadastrar'
+        }
+      },
+      kitsDeInstalacao: {
+        index: '/producao/kits/kits-de-instalacao',
+        cadastrar: '/producao/kits/kits-de-instalacao/cadastrar'
+      },
+      index: '/producao/kits'
+    },
+    index: '/producao'
+  },
   operacional: {
     calendario: '/operacional/calendario',
     ordensDeServico: '/operacional/ordens-de-servico',

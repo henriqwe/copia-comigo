@@ -1,14 +1,14 @@
-import * as flows from '&crm/domains/services/Registration/Flows';
+import * as flows from '&crm/domains/services/Registration/Flows'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Flows() {
   return (
@@ -18,17 +18,17 @@ export default function Flows() {
         <Page />{' '}
       </ThemeProvider>
     </flows.FlowProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { flowsRefetch, flowsLoading } = flows.useFlow();
+  const { theme, changeTheme } = useTheme()
+  const { flowsRefetch, flowsLoading } = flows.useFlow()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -40,16 +40,16 @@ export function Page() {
         { title: 'Atendimento', url: rotas.atendimento.index },
         {
           title: 'Cadastros',
-          url: rotas.atendimento.cadastros.index,
+          url: rotas.atendimento.cadastros.index
         },
         {
           title: 'Fluxos',
-          url: rotas.atendimento.cadastros.fluxos.index,
-        },
+          url: rotas.atendimento.cadastros.fluxos.index
+        }
       ]}
     >
       <flows.List />
       <flows.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

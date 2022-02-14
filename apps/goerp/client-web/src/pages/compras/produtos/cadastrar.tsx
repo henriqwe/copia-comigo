@@ -1,11 +1,11 @@
-import * as products from '&erp/domains/purchases/Products';
+import * as products from '&erp/domains/purchases/Products'
 
-import rotas from '&erp/domains/routes';
+import rotas from '&erp/domains/routes'
 
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function CreateProduct() {
   return (
@@ -14,16 +14,16 @@ export default function CreateProduct() {
         <Page />
       </ThemeProvider>
     </products.CreateProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
+  const { theme, changeTheme } = useTheme()
   return (
     <templates.Base
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -33,15 +33,15 @@ export function Page() {
         { title: 'Pedidos de Compra', url: rotas.compras.index },
         {
           title: 'Produtos',
-          url: rotas.compras.produtos.index,
+          url: rotas.compras.produtos.index
         },
         {
           title: 'Cadastro',
-          url: rotas.compras.produtos.cadastrar,
-        },
+          url: rotas.compras.produtos.cadastrar
+        }
       ]}
     >
       <products.Create />
     </templates.Base>
-  );
+  )
 }

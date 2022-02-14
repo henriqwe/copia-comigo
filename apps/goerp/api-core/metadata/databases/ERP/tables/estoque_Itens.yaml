@@ -2,58 +2,121 @@ table:
   name: Itens
   schema: estoque
 object_relationships:
-  - name: Enderecamento
-    using:
-      foreign_key_constraint_on: Enderecamento_Id
-  - name: Fabricante
-    using:
-      foreign_key_constraint_on: Fabricante_Id
-  - name: Familia
-    using:
-      foreign_key_constraint_on: Familia_Id
-  - name: Grupo
-    using:
-      foreign_key_constraint_on: Grupo_Id
-  - name: Modelo
-    using:
-      foreign_key_constraint_on: Modelo_Id
-  - name: Produto
-    using:
-      foreign_key_constraint_on: Produto_Id
+- name: Enderecamento
+  using:
+    foreign_key_constraint_on: Enderecamento_Id
+- name: Fabricante
+  using:
+    foreign_key_constraint_on: Fabricante_Id
+- name: Familia
+  using:
+    foreign_key_constraint_on: Familia_Id
+- name: Grupo
+  using:
+    foreign_key_constraint_on: Grupo_Id
+- name: Modelo
+  using:
+    foreign_key_constraint_on: Modelo_Id
+- name: Produto
+  using:
+    foreign_key_constraint_on: Produto_Id
 array_relationships:
-  - name: Movimentacoes
-    using:
-      manual_configuration:
-        column_mapping:
-          Id: Item_Id
-        insertion_order: null
-        remote_table:
-          name: Movimentacoes
-          schema: movimentacoes
+- name: Chips
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: Chips
+        schema: producao
+- name: Equipamentos
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: Equipamentos
+        schema: producao
+- name: Identificadores
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: Identificadores
+        schema: producao
+- name: KitDeInsumoItens
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: KitDeInsumo_Itens
+        schema: producao
+- name: KitsDeInstalacao
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: KitsDeInstalacao
+        schema: producao
+- name: KitsDeInsumo
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: KitsDeInsumo
+        schema: producao
+- name: Movimentacoes
+  using:
+    manual_configuration:
+      column_mapping:
+        Id: Item_Id
+      insertion_order: null
+      remote_table:
+        name: Movimentacoes
+        schema: movimentacoes
+- name: OrdemDeServicoAgendamentosItens
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: OrdemDeServico_Agendamentos_Itens
+        schema: operacional
+- name: Rastreadores
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: Rastreadores
+        schema: producao
+- name: TiposDeKitDeInsumo
+  using:
+    foreign_key_constraint_on:
+      column: Item_Id
+      table:
+        name: TiposDeKitDeInsumo_estoque_Itens
+        schema: producao
 event_triggers:
-  - definition:
-      delete:
-        columns: '*'
-      enable_manual: true
-      insert:
-        columns: '*'
-      update:
-        columns:
-          - Criticidade
-          - Familia_Id
-          - Grupo_Id
-          - Fabricante_Id
-          - updated_at
-          - Id
-          - deleted_at
-          - created_at
-          - Produto_Id
-          - Enderecamento_Id
-          - EstoqueMinimo
-          - Classificacao
-    name: Logs_estoque_Itens
-    retry_conf:
-      interval_sec: 10
-      num_retries: 0
-      timeout_sec: 60
-    webhook: '{{LOGS_EVENT_BASE_URL}}'
+- definition:
+    delete:
+      columns: "*"
+    enable_manual: true
+    insert:
+      columns: "*"
+    update:
+      columns:
+      - Criticidade
+      - Familia_Id
+      - Grupo_Id
+      - Fabricante_Id
+      - updated_at
+      - Id
+      - deleted_at
+      - created_at
+      - Produto_Id
+      - Enderecamento_Id
+      - EstoqueMinimo
+      - Classificacao
+  name: Logs_estoque_Itens
+  retry_conf:
+    interval_sec: 10
+    num_retries: 0
+    timeout_sec: 60
+  webhook: "{{LOGS_EVENT_BASE_URL}}"

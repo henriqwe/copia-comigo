@@ -1,11 +1,11 @@
-import * as families from '&erp/domains/inventory/Registration/Families';
-import * as config from '&erp/domains/config';
+import * as families from '&erp/domains/inventory/Registration/Families'
+import * as config from '&erp/domains/config'
 
-import rotas from '&erp/domains/routes';
-import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext';
-import * as templates from '@comigo/ui-templates';
-import mainMenuItens from '&erp/domains/MainMenuItens';
-import companies from '&erp/domains/companies';
+import rotas from '&erp/domains/routes'
+import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
+import * as templates from '@comigo/ui-templates'
+import MainMenuItems from '&erp/domains/MainMenuItems'
+import companies from '&erp/domains/companies'
 
 export default function Config() {
   return (
@@ -16,23 +16,23 @@ export default function Config() {
         </ThemeProvider>
       </families.FamilyProvider>
     </config.ConfigProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { configRefetch, configLoading } = config.useConfig();
-  const { familiesRefetch } = families.useFamily();
+  const { theme, changeTheme } = useTheme()
+  const { configRefetch, configLoading } = config.useConfig()
+  const { familiesRefetch } = families.useFamily()
 
   const refetch = () => {
-    familiesRefetch();
-    configRefetch();
-  };
+    familiesRefetch()
+    configRefetch()
+  }
   return (
     <templates.Base
       setTheme={changeTheme}
       imageUrl="/imagens/logoRastreamento.png"
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       theme={theme}
@@ -40,10 +40,10 @@ export function Page() {
       title="Configurações"
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
-        { title: 'Configurações', url: rotas.compras.index },
+        { title: 'Configurações', url: rotas.compras.index }
       ]}
     >
       <config.Main />
     </templates.Base>
-  );
+  )
 }

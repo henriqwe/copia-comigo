@@ -1,14 +1,14 @@
-import * as tariffs from '&crm/domains/commercial/Registration/Tariffs';
+import * as tariffs from '&crm/domains/commercial/Registration/Tariffs'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Tariffs() {
   return (
     <tariffs.TariffsProvider>
@@ -17,21 +17,21 @@ export default function Tariffs() {
         <Page />{' '}
       </ThemeProvider>
     </tariffs.TariffsProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { tariffsRefetch, tariffsLoading } = tariffs.useTariffs();
+  const { theme, changeTheme } = useTheme()
+  const { tariffsRefetch, tariffsLoading } = tariffs.useTariffs()
   const refetch = () => {
-    tariffsRefetch();
-  };
+    tariffsRefetch()
+  }
   //const { usuario } = useUsuario()
   return (
     <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -43,16 +43,16 @@ export function Page() {
         { title: 'Comercial', url: rotas.comercial.index },
         {
           title: 'Cadastros',
-          url: rotas.comercial.cadastros.index,
+          url: rotas.comercial.cadastros.index
         },
         {
           title: 'Tarifas',
-          url: rotas.comercial.cadastros.tarifas,
-        },
+          url: rotas.comercial.cadastros.tarifas
+        }
       ]}
     >
       <tariffs.List />
       <tariffs.SlidePanel />
     </templates.InternalNavigationAndSlide>
-  );
+  )
 }

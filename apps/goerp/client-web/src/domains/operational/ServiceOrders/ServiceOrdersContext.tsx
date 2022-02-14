@@ -3,266 +3,347 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
-import { GraphQLTypes, order_by } from '&erp/graphql/generated/zeus';
+  OperationVariables
+} from '@apollo/client'
+import {
+  GraphQLTypes,
+  operacional_OrdemDeServico_Situacoes_enum,
+  order_by
+} from '&erp/graphql/generated/zeus'
 import {
   $,
   useTypedClientQuery,
   useTypedMutation,
-  useTypedQuery,
-} from '&erp/graphql/generated/zeus/apollo';
+  useTypedQuery
+} from '&erp/graphql/generated/zeus/apollo'
 import {
   createContext,
   Dispatch,
   ReactNode,
   SetStateAction,
   useContext,
-  useState,
-} from 'react';
-import * as yup from 'yup';
+  useState
+} from 'react'
+import * as yup from 'yup'
 
 type ServiceOrdersContextProps = {
-  slidePanelState: SlidePanelStateType;
-  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>;
+  slidePanelState: SlidePanelStateType
+  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
   serviceOrdersData?: {
-    Id: string;
+    Id: string
     Situacao: {
-      Comentario: string;
-    };
+      Comentario: string
+    }
     Tipo: {
-      Comentario: string;
-    };
-    CodigoIdentificador: number;
-  }[];
+      Comentario: string
+    }
+    Agendamentos: {
+      Agendamento: Date
+      Colaborador: {
+        Pessoa: {
+          Nome: string
+        }
+      }
+    }[]
 
-  serviceOrdersRefetch: () => void;
-  serviceOrdersLoading: boolean;
+    CodigoIdentificador: number
+  }[]
+
+  serviceOrdersRefetch: () => void
+  serviceOrdersLoading: boolean
 
   vehiclesData?: {
-    Id: string;
-    Apelido?: string;
-    NumeroDoChassi?: string;
-    Placa?: string;
-  }[];
-  refetch: () => void;
-  loading: boolean;
+    Id: string
+    Apelido?: string
+    NumeroDoChassi?: string
+    Placa?: string
+  }[]
+  refetch: () => void
+  loading: boolean
 
   serviceOrdersTypesData?: {
-    Comentario: string;
-    Valor: string;
-  }[];
-  serviceOrdersTypesRefetch: () => void;
-  serviceOrdersTypesLoading: boolean;
-  proposalsData?: Proposal[];
-  proposalsLoading: boolean;
-  proposalsRefetch: () => void;
+    Comentario: string
+    Valor: string
+  }[]
+  serviceOrdersTypesRefetch: () => void
+  serviceOrdersTypesLoading: boolean
+  proposalsData?: Proposal[]
+  proposalsLoading: boolean
+  proposalsRefetch: () => void
   createServiceOrder: (
     options?: MutationFunctionOptions<
       {
         insert_operacional_OrdemDeServico_one?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  createServiceOrderLoading: boolean;
-  softDeleteServiceOrderLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  createServiceOrderLoading: boolean
+  softDeleteServiceOrderLoading: boolean
   softDeleteServiceOrder: (
     options?: MutationFunctionOptions<
       {
         update_operacional_OrdemDeServico_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  serviceOrderschema: yup.AnyObjectSchema;
+  ) => Promise<FetchResult['data']>
+  serviceOrderschema: yup.AnyObjectSchema
   getActiveVehicleById: (
     Cliente_Id: string,
     Veiculo_Id: string
   ) => Promise<
     {
       Produtos: {
-        Id: string;
-        ProdutoPreco_Id: string;
-        Produto_Id: string;
-        Ativo: boolean;
-      }[];
-      Id: string;
+        Id: string
+        ProdutoPreco_Id: string
+        Produto_Id: string
+        Ativo: boolean
+      }[]
+      Id: string
       Beneficios: {
-        Id: string;
-        Portfolio_Id: string;
-        PortfolioPreco_Id: string;
-        TipoPortfolio: string;
-      }[];
+        Id: string
+        Portfolio_Id: string
+        PortfolioPreco_Id: string
+        TipoPortfolio: string
+      }[]
       Servicos: {
-        Id: string;
-        Ativo: boolean;
-        Servico_Id: string;
-        ServicoPreco_Id: string;
-      }[];
+        Id: string
+        Ativo: boolean
+        Servico_Id: string
+        ServicoPreco_Id: string
+      }[]
     }[]
-  >;
+  >
   configData: {
-    Valor: string[];
-  };
-};
+    Valor: string[]
+  }
+}
 
 export type Proposal = {
-  Id: string;
-  TipoDePagamento_Id: string;
-  TipoDeRecorrencia_Id: string;
-  Cliente_Id: string;
-  created_at: Date;
-  Servicos: {
-    Id: string;
-    created_at: Date;
-    Veiculo_Id?: string;
-    Servico: {
-      Id: string;
-      Nome: string;
-      GeraOS: boolean;
-    };
-    ServicosPreco: {
-      Id: string;
-      created_at: Date;
-    };
-  }[];
-  Produtos: {
-    Id: string;
-    created_at: Date;
-    ProdutoPreco: {
-      Id: string;
-      TipoDeRecorrencia_Id?: string;
-    };
-    Produto: {
-      Id: string;
-      ServicoDeDesinstalacao: {
-        Id: string;
-        PrestadoresDeServicos: {
-          Prestador_Id: string;
-          Precos: {
-            Id: string;
-          }[];
-        }[];
-      };
-    };
-    Veiculo_Id?: string;
-  }[];
-  Planos: {
-    Id: string;
-    created_at: Date;
-    Veiculo_Id?: string;
-    Plano: {
-      Id: string;
+  Id: string
+  Cliente_Id?: string
+  Veiculos: {
+    Veiculo_Id?: string
+    PropostasCombos: {
+      Id: string
+      PropostaVeiculo_Id?: string
+      created_at: Date
+      Combo: {
+        Id: string
+        Servicos: {
+          Servico: {
+            GeraOS: boolean
+            Id: string
+          }
+          ServicosPreco: {
+            Id: string
+          }
+        }[]
+        Produtos: {
+          Id: string
+          Produto: {
+            Id: string
+            ServicoDeDesinstalacao?: {
+              Id: string
+              PrestadoresDeServicos: {
+                Prestador_Id: string
+                Precos: {
+                  Id: string
+                }[]
+              }[]
+            }
+          }
+          ProdutoPreco: {
+            Id: string
+            TipoDeRecorrencia_Id?: string
+          }
+        }[]
+        Planos: {
+          Id: string
+          created_at: Date
+          Plano: {
+            Id: string
+            Produtos: {
+              Produto: {
+                Id: string
+                ServicoDeDesinstalacao?: {
+                  Id: string
+                  PrestadoresDeServicos: {
+                    Prestador_Id: string
+                    Precos: {
+                      Id: string
+                    }[]
+                  }[]
+                }
+              }
+              ProdutoPreco: {
+                Id: string
+                TipoDeRecorrencia_Id: string
+              }
+            }[]
+
+            Servicos: {
+              Id: string
+              created_at: Date
+              Servico: {
+                Id: string
+                Nome: string
+                GeraOS: boolean
+              }
+              ServicoPreco: {
+                Id: string
+                created_at: Date
+              }
+            }[]
+          }
+          PlanoPreco: {
+            Id: string
+          }
+        }[]
+      }
+      ComboPreco_Id: string
+    }[]
+
+    PropostasPlanos: {
+      Id: string
+      created_at: Date
+      Plano: {
+        Id: string
+        Produtos: {
+          Produto: {
+            Id: string
+            ServicoDeDesinstalacao?: {
+              Id: string
+              PrestadoresDeServicos: {
+                Prestador_Id: string
+                Precos: {
+                  Id: string
+                }[]
+              }[]
+            }
+          }
+          ProdutoPreco: {
+            Id: string
+            TipoDeRecorrencia_Id: string
+          }
+        }[]
+
+        Servicos: {
+          Id: string
+          created_at: Date
+          Servico: {
+            Id: string
+            Nome: string
+            GeraOS: boolean
+          }
+          ServicoPreco: {
+            Id: string
+            created_at: Date
+          }
+        }[]
+      }
+      PlanoPreco: {
+        Id: string
+      }
+    }[]
+
+    PropostasProdutos: {
+      Id: string
+      ProdutoPreco: {
+        Id: string
+        TipoDeRecorrencia_Id?: string
+      }
+      Produto: {
+        Id: string
+        ServicoDeDesinstalacao?: {
+          Id: string
+          PrestadoresDeServicos: {
+            Prestador_Id: string
+            Precos: {
+              Id: string
+            }[]
+          }[]
+        }
+      }
+      PropostaVeiculo_Id?: string
+      created_at: Date
+    }[]
+
+    PropostasServicos: {
+      Id: string
+      created_at: Date
       Servico: {
-        Id: string;
-        GeraOS: boolean;
-      };
-    };
-    PlanoPreco: {
-      Id: string;
-      ServicoPreco: {
-        Id: string;
-        created_at: Date;
-      };
-    };
-  }[];
-  Combos: {
-    Id: string;
-    created_at: Date;
-    Veiculo_Id?: string;
-    Combo: {
-      Id: string;
-      Servicos: {
-        Servico: {
-          GeraOS: boolean;
-          Id: string;
-        };
-        ServicosPreco: {
-          Id: string;
-        };
-      }[];
-      Produtos: {
-        Id: string;
-        Produto: {
-          Id: string;
-          ServicoDeDesinstalacao: {
-            Id: string;
-            PrestadoresDeServicos: {
-              Prestador_Id: string;
-              Precos: {
-                Id: string;
-              }[];
-            }[];
-          };
-        };
-        ProdutoPreco: {
-          Id: string;
-          TipoDeRecorrencia_Id?: string;
-        };
-      }[];
-    };
-    ComboPreco_Id: string;
-  }[];
-};
+        Id: string
+        Nome: string
+        GeraOS: boolean
+      }
+      ServicosPreco: {
+        Id: string
+        created_at: Date
+      }
+    }[]
+  }[]
+  created_at: Date
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 type SlidePanelStateType = {
-  data?: GraphQLTypes['comercial_Produtos'] | null;
-  open: boolean;
-};
+  data?: GraphQLTypes['comercial_Produtos'] | null
+  open: boolean
+}
 
 export const ServiceOrderContext = createContext<ServiceOrdersContextProps>(
   {} as ServiceOrdersContextProps
-);
+)
 
 export const ServiceOrderProvider = ({ children }: ProviderProps) => {
   const [slidePanelState, setSlidePanelState] = useState<SlidePanelStateType>({
-    open: false,
-  });
+    open: false
+  })
 
   const [createServiceOrder, { loading: createServiceOrderLoading }] =
     useTypedMutation({
       insert_operacional_OrdemDeServico_one: [
         {
           object: {
-            Situacao_Id: 'aberta',
+            Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.aberta,
             Proposta_Id: $`Proposta_Id`,
             Veiculo_Id: $`Veiculo_Id`,
             Tipo_Id: $`Tipo_Id`,
             Atividades: {
               data: [
                 {
-                  Situacao_Id: 'aberta',
-                  Usuario_Id: '7fd2e5d7-a4c4-485b-8675-e56052e3ff5f',
-                },
-              ],
+                  Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.aberta,
+                  Usuario_Id: '7fd2e5d7-a4c4-485b-8675-e56052e3ff5f'
+                }
+              ]
             },
             Beneficios: {
-              data: $`Beneficios`,
+              data: $`Beneficios`
             },
             Servicos: {
-              data: $`Servicos`,
+              data: $`Servicos`
             },
             Produtos: {
-              data: $`Produtos`,
-            },
-          },
+              data: $`Produtos`
+            }
+          }
         },
-        { Id: true },
-      ],
-    });
+        { Id: true }
+      ]
+    })
 
   const [softDeleteServiceOrder, { loading: softDeleteServiceOrderLoading }] =
     useTypedMutation({
@@ -270,244 +351,358 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
         {
           pk_columns: { Id: $`Id` },
           _set: {
-            deleted_at: new Date(),
-          },
+            deleted_at: new Date()
+          }
         },
         {
-          Id: true,
-        },
-      ],
-    });
+          Id: true
+        }
+      ]
+    })
 
   const { data: configData } = useTypedQuery(
     {
       Configuracoes_by_pk: [
         {
-          Slug: 'prestadorPrecos',
+          Slug: 'prestadorPrecos'
         },
         {
-          Valor: true,
-        },
-      ],
+          Valor: [{}, true]
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const {
     data: serviceOrdersData,
     refetch: serviceOrdersRefetch,
-    loading: serviceOrdersLoading,
+    loading: serviceOrdersLoading
   } = useTypedQuery(
     {
       operacional_OrdemDeServico: [
         {
-          order_by: [{ created_at: 'desc' }],
-          where: { deleted_at: { _is_null: true } },
+          order_by: [{ created_at: order_by.desc }],
+          where: { deleted_at: { _is_null: true } }
         },
         {
           Id: true,
           Situacao: {
-            Comentario: true,
+            Comentario: true
           },
           Tipo: {
-            Comentario: true,
+            Comentario: true
           },
-          CodigoIdentificador: true,
-        },
-      ],
+          Agendamentos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Agendamento: true,
+              Colaborador: {
+                Pessoa: {
+                  Nome: true
+                }
+              }
+            }
+          ],
+          CodigoIdentificador: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const {
     data: serviceOrdersTypesData,
     refetch: serviceOrdersTypesRefetch,
-    loading: serviceOrdersTypesLoading,
+    loading: serviceOrdersTypesLoading
   } = useTypedQuery(
     {
       operacional_OrdemDeServico_Tipo: [
         {},
         {
           Comentario: true,
-          Valor: true,
-        },
-      ],
+          Valor: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const {
     data: proposalsData,
     refetch: proposalsRefetch,
-    loading: proposalsLoading,
+    loading: proposalsLoading
   } = useTypedQuery(
     {
       propostas_Propostas: [
         {
           where: {
             Situacao: { Valor: { _eq: 'aceito' } },
-            deleted_at: { _is_null: true },
-          },
+            deleted_at: { _is_null: true }
+          }
         },
         {
           Id: true,
-          TipoDePagamento_Id: true,
-          TipoDeRecorrencia_Id: true,
           Cliente_Id: true,
-          Servicos: [
+          Veiculos: [
             { where: { deleted_at: { _is_null: true } } },
             {
-              Id: true,
               Veiculo_Id: true,
-              created_at: true,
-              Servico: {
-                Id: true,
-                Nome: true,
-                GeraOS: true,
-              },
-              ServicosPreco: {
-                Id: true,
-                created_at: true,
-              },
-            },
-          ],
-          Produtos: [
-            { where: { deleted_at: { _is_null: true } } },
-            {
-              Id: true,
-              ProdutoPreco: {
-                Id: true,
-                TipoDeRecorrencia_Id: true,
-              },
-              Produto: {
-                Id: true,
-                ServicoDeDesinstalacao: {
+              PropostasCombos: [
+                {
+                  where: { deleted_at: { _is_null: true } }
+                },
+                {
                   Id: true,
-                  PrestadoresDeServicos: [
-                    { where: { deleted_at: { _is_null: true } } },
-                    {
-                      Prestador_Id: true,
-                      Precos: [
-                        {
-                          where: { deleted_at: { _is_null: true } },
+                  PropostaVeiculo_Id: true,
+                  created_at: true,
+                  Combo: {
+                    Id: true,
+                    Servicos: [
+                      { where: { deleted_at: { _is_null: true } } },
+                      {
+                        Servico: {
+                          GeraOS: true,
+                          Id: true
                         },
-                        {
+                        ServicosPreco: {
+                          Id: true
+                        }
+                      }
+                    ],
+                    Produtos: [
+                      { where: { deleted_at: { _is_null: true } } },
+                      {
+                        Id: true,
+                        Produto: {
                           Id: true,
+                          ServicoDeDesinstalacao: {
+                            Id: true,
+                            PrestadoresDeServicos: [
+                              { where: { deleted_at: { _is_null: true } } },
+                              {
+                                Prestador_Id: true,
+                                Precos: [
+                                  {
+                                    where: { deleted_at: { _is_null: true } },
+                                    order_by: [{ created_at: order_by.desc }]
+                                  },
+                                  {
+                                    Id: true
+                                  }
+                                ]
+                              }
+                            ]
+                          }
                         },
-                      ],
-                    },
-                  ],
-                },
-              },
-              Veiculo_Id: true,
-              created_at: true,
-            },
-          ],
-          Planos: [
-            { where: { deleted_at: { _is_null: true } } },
-            {
-              Id: true,
-              Veiculo_Id: true,
-              created_at: true,
-              Plano: {
-                Id: true,
-                Servico: {
-                  Id: true,
-                  GeraOS: true,
-                },
-              },
-              PlanoPreco: {
-                Id: true,
-                ServicoPreco: {
+                        ProdutoPreco: {
+                          Id: true,
+                          TipoDeRecorrencia_Id: true
+                        }
+                      }
+                    ],
+                    Planos: [
+                      { where: { deleted_at: { _is_null: true } } },
+                      {
+                        Id: true,
+                        created_at: true,
+                        Plano: {
+                          Id: true,
+                          Produtos: [
+                            { where: { deleted_at: { _is_null: true } } },
+                            {
+                              Produto: {
+                                Id: true,
+                                ServicoDeDesinstalacao: {
+                                  Id: true,
+                                  PrestadoresDeServicos: [
+                                    {
+                                      where: { deleted_at: { _is_null: true } }
+                                    },
+                                    {
+                                      Prestador_Id: true,
+                                      Precos: [
+                                        {
+                                          where: {
+                                            deleted_at: { _is_null: true }
+                                          }
+                                        },
+                                        {
+                                          Id: true
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              },
+                              ProdutoPreco: {
+                                Id: true,
+                                TipoDeRecorrencia_Id: true
+                              }
+                            }
+                          ],
+                          Servicos: [
+                            { where: { deleted_at: { _is_null: true } } },
+                            {
+                              Id: true,
+                              created_at: true,
+                              Servico: {
+                                Id: true,
+                                Nome: true,
+                                GeraOS: true
+                              },
+                              ServicoPreco: {
+                                Id: true,
+                                created_at: true
+                              }
+                            }
+                          ]
+                        },
+                        PlanoPreco: {
+                          Id: true
+                        }
+                      }
+                    ]
+                  },
+                  ComboPreco_Id: true
+                }
+              ],
+              PropostasPlanos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
                   Id: true,
                   created_at: true,
-                },
-              },
-            },
-          ],
-          Combos: [
-            { where: { deleted_at: { _is_null: true } } },
-            {
-              Id: true,
-              Veiculo_Id: true,
-              created_at: true,
-              Combo: {
-                Id: true,
-                Servicos: [
-                  { where: { deleted_at: { _is_null: true } } },
-                  {
-                    Servico: {
-                      GeraOS: true,
-                      Id: true,
-                    },
-                    ServicosPreco: {
-                      Id: true,
-                    },
-                  },
-                ],
-                Produtos: [
-                  { where: { deleted_at: { _is_null: true } } },
-                  {
+                  Plano: {
                     Id: true,
-                    Produto: {
-                      Id: true,
-                      ServicoDeDesinstalacao: {
+                    Produtos: [
+                      { where: { deleted_at: { _is_null: true } } },
+                      {
+                        Produto: {
+                          Id: true,
+                          ServicoDeDesinstalacao: {
+                            Id: true,
+                            PrestadoresDeServicos: [
+                              { where: { deleted_at: { _is_null: true } } },
+                              {
+                                Prestador_Id: true,
+                                Precos: [
+                                  {
+                                    where: { deleted_at: { _is_null: true } }
+                                  },
+                                  {
+                                    Id: true
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        ProdutoPreco: {
+                          Id: true,
+                          TipoDeRecorrencia_Id: true
+                        }
+                      }
+                    ],
+                    Servicos: [
+                      { where: { deleted_at: { _is_null: true } } },
+                      {
                         Id: true,
-                        PrestadoresDeServicos: [
-                          { where: { deleted_at: { _is_null: true } } },
-                          {
-                            Prestador_Id: true,
-                            Precos: [
-                              {
-                                where: { deleted_at: { _is_null: true } },
-                                order_by: [{ created_at: order_by.desc }],
-                              },
-                              {
-                                Id: true,
-                              },
-                            ],
-                          },
-                        ],
-                      },
-                    },
-                    ProdutoPreco: {
-                      Id: true,
-                      TipoDeRecorrencia_Id: true,
-                    },
+                        created_at: true,
+                        Servico: {
+                          Id: true,
+                          Nome: true,
+                          GeraOS: true
+                        },
+                        ServicoPreco: {
+                          Id: true,
+                          created_at: true
+                        }
+                      }
+                    ]
                   },
-                ],
-              },
-              ComboPreco_Id: true,
-            },
+                  PlanoPreco: {
+                    Id: true
+                  }
+                }
+              ],
+              PropostasProdutos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
+                  Id: true,
+                  ProdutoPreco: {
+                    Id: true,
+                    TipoDeRecorrencia_Id: true
+                  },
+                  Produto: {
+                    Id: true,
+                    ServicoDeDesinstalacao: {
+                      Id: true,
+                      PrestadoresDeServicos: [
+                        { where: { deleted_at: { _is_null: true } } },
+                        {
+                          Prestador_Id: true,
+                          Precos: [
+                            {
+                              where: { deleted_at: { _is_null: true } }
+                            },
+                            {
+                              Id: true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  PropostaVeiculo_Id: true,
+                  created_at: true
+                }
+              ],
+              PropostasServicos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
+                  Id: true,
+                  created_at: true,
+                  Servico: {
+                    Id: true,
+                    Nome: true,
+                    GeraOS: true
+                  },
+                  ServicosPreco: {
+                    Id: true,
+                    created_at: true
+                  }
+                }
+              ]
+            }
           ],
-          created_at: true,
-        },
-      ],
+          created_at: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const {
     data: vehiclesData,
     refetch: vehiclesRefetch,
-    loading: vehiclesLoading,
+    loading: vehiclesLoading
   } = useTypedQuery(
     {
       clientes_Veiculos: [
         {
-          order_by: [{ created_at: 'desc' }],
-          where: { deleted_at: { _is_null: true } },
+          order_by: [{ created_at: order_by.desc }],
+          where: { deleted_at: { _is_null: true } }
         },
         {
           Id: true,
           Apelido: true,
           Placa: true,
-          NumeroDoChassi: true,
-        },
-      ],
+          NumeroDoChassi: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   async function getActiveVehicleById(Cliente_Id: string, Veiculo_Id: string) {
     const { data } = await useTypedClientQuery({
@@ -516,8 +711,8 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
           where: {
             deleted_at: { _is_null: true },
             Cliente_Id: { _eq: Cliente_Id },
-            Veiculo_Id: { _eq: Veiculo_Id },
-          },
+            Veiculo_Id: { _eq: Veiculo_Id }
+          }
         },
         {
           Id: true,
@@ -527,8 +722,8 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
               Id: true,
               Portfolio_Id: true,
               PortfolioPreco_Id: true,
-              TipoPortfolio: true,
-            },
+              TipoPortfolio: true
+            }
           ],
           Produtos: [
             { where: { deleted_at: { _is_null: true } } },
@@ -536,8 +731,8 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
               Id: true,
               Ativo: true,
               Produto_Id: true,
-              ProdutoPreco_Id: true,
-            },
+              ProdutoPreco_Id: true
+            }
           ],
           Servicos: [
             { where: { deleted_at: { _is_null: true } } },
@@ -545,20 +740,20 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
               Id: true,
               Ativo: true,
               Servico_Id: true,
-              ServicoPreco_Id: true,
-            },
-          ],
-        },
-      ],
-    });
-    return data.clientes_VeiculosAtivos;
+              ServicoPreco_Id: true
+            }
+          ]
+        }
+      ]
+    })
+    return data.clientes_VeiculosAtivos
   }
 
   const serviceOrderschema = yup.object().shape({
     Tipo: yup.object().required('Selecione um tipo para continuar'),
     Proposta: yup.object().required('Selecione uma proposta para continuar'),
-    Veiculo: yup.object().required('Selecione um veiculo para continuar'),
-  });
+    Veiculo: yup.object().required('Selecione um veiculo para continuar')
+  })
 
   return (
     <ServiceOrderContext.Provider
@@ -584,14 +779,14 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
         refetch: vehiclesRefetch,
         loading: vehiclesLoading,
         getActiveVehicleById,
-        configData: configData?.Configuracoes_by_pk,
+        configData: configData?.Configuracoes_by_pk
       }}
     >
       {children}
     </ServiceOrderContext.Provider>
-  );
-};
+  )
+}
 
 export const useServiceOrder = () => {
-  return useContext(ServiceOrderContext);
-};
+  return useContext(ServiceOrderContext)
+}

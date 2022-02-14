@@ -1,35 +1,40 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products';
-import * as itens from '&erp/domains/inventory/Itens';
+import * as products from '&erp/domains/portfolio/Pricing/Tabs/Products'
+import * as itens from '&erp/domains/inventory/Itens'
 
-import * as utils from '@comigo/utils';
-import { useEffect, useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+import * as utils from '@comigo/utils'
+import { useEffect, useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 type ProductProvider = {
-  Id: string;
-  Precos: { Id: string; Valor: string }[];
-};
+  Id: string
+  Precos: { Id: string; Valor: string }[]
+}
+
+type ItensArrayType = {
+  Id?: string
+  Produto?: {
+    Nome: string
+  }
+  Familia?: {
+    Nome: string
+  }
+  Modelo?: {
+    Nome: string
+  }
+}
+
+type FormData = {
+  Item_Id: { key: string }
+  TipoDeItem_Id: { key: string }
+}
 
 export function ItemLink() {
-  const [productProvider, setProductProvider] = useState<ProductProvider>();
-  const [itensArray, setItensArray] = useState<
-    {
-      Id?: string;
-      Produto?: {
-        Nome: string;
-      };
-      Familia?: {
-        Nome: string;
-      };
-      Modelo?: {
-        Nome: string;
-      };
-    }[]
-  >([]);
+  const [productProvider, setProductProvider] = useState<ProductProvider>()
+  const [itensArray, setItensArray] = useState<ItensArrayType[]>([])
   const {
     createProductItem,
     createProductItemLoading,
@@ -39,58 +44,62 @@ export function ItemLink() {
     getProductProviderByProductId,
     getItemById,
     linkItemSchema,
-  } = products.useProduct();
-  const { itensData } = itens.useList();
+    ItensTypeData
+  } = products.useProduct()
+  const { itensData } = itens.useList()
   const {
     handleSubmit,
     control,
     setValue,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(linkItemSchema),
-  });
-  const onSubmit = (formData: { Item_Id: { key: string } }) => {
+    resolver: yupResolver(linkItemSchema)
+  })
+  const onSubmit = (formData: FormData) => {
     try {
       createProductItem({
         variables: {
           PrestadoresDeServicos_Produtos_Id: productProvider?.Id,
           Item_Id: formData.Item_Id.key,
-        },
+          TipoDeItem_Id: formData.TipoDeItem_Id
+            ? formData.TipoDeItem_Id.key
+            : null
+        }
       }).then(() => {
-        productsRefetch();
+        productsRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification('Item vinculado com sucesso', 'success');
-      });
+          return { ...oldState, open: false }
+        })
+        utils.notification('Item vinculado com sucesso', 'success')
+      })
     } catch (error: any) {
-      utils.showError(error);
+      utils.showError(error)
     }
-  };
+  }
 
   useEffect(() => {
     getProductProviderByProductId(slidePanelState.data?.Id).then(
       async (data) => {
-        setProductProvider(data[0]);
+        setProductProvider(data[0])
         if (data[0].Itens.length > 0) {
-          const selectedItem = await getItemById(data[0].Itens[0].Item_Id);
+          const selectedItem = await getItemById(data[0].Itens[0].Item_Id)
           setValue('Item_Id', {
             key: selectedItem?.Id,
-            title: `${selectedItem?.Produto.Nome} - ${selectedItem?.Familia.Nome} - ${selectedItem?.Modelo?.Nome}`,
-          });
+            title: `${selectedItem?.Produto.Nome} - ${selectedItem?.Familia.Nome} - ${selectedItem?.Modelo?.Nome}`
+          })
           const itens = data[0].Itens.map(async (item) => {
-            const itensInside = await getItemById(item.Item_Id);
+            const itensInside = await getItemById(item.Item_Id)
             return {
-              ...itensInside,
-            };
-          });
-          (async () => {
-            setItensArray(await Promise.all(itens));
-          })();
+              ...itensInside
+            }
+          })
+          ;(async () => {
+            setItensArray(await Promise.all(itens))
+          })()
         }
       }
-    );
-  }, [slidePanelState.data]);
+    )
+  }, [slidePanelState.data])
 
   return (
     <form
@@ -110,8 +119,8 @@ export function ItemLink() {
                     ? itensData.map((item) => {
                         return {
                           key: item.Id,
-                          title: `${item.Produto?.Nome} - ${item.Familia?.Nome} - ${item.Modelo?.Nome}`,
-                        };
+                          title: `${item.Produto?.Nome} - ${item.Familia?.Nome} - ${item.Modelo?.Nome}`
+                        }
                       })
                     : []
                 }
@@ -119,6 +128,31 @@ export function ItemLink() {
                 onChange={onChange}
                 label="Item de vínculo"
                 error={errors.Item_Id}
+              />
+            </div>
+          )}
+        />
+
+        <Controller
+          control={control}
+          name={'TipoDeItem_Id'}
+          render={({ field: { onChange, value } }) => (
+            <div>
+              <common.form.Select
+                itens={
+                  ItensTypeData
+                    ? ItensTypeData.map((item) => {
+                        return {
+                          key: item.Valor,
+                          title: item.Comentario
+                        }
+                      })
+                    : []
+                }
+                value={value}
+                onChange={onChange}
+                label="Tipo do item (opcional)"
+                error={errors.TipoDeItem_Id}
               />
             </div>
           )}
@@ -149,5 +183,5 @@ export function ItemLink() {
         ) : null}
       </div>
     </form>
-  );
+  )
 }

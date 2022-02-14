@@ -2,14 +2,14 @@ table:
   name: Combos_Precos
   schema: comercial
 object_relationships:
-  - name: Combo
-    using:
-      foreign_key_constraint_on: Combo_Id
+- name: Combo
+  using:
+    foreign_key_constraint_on: Combo_Id
 array_relationships:
-  - name: PropostasCombos
-    using:
-      foreign_key_constraint_on:
-        column: ComboPreco_Id
-        table:
-          name: Propostas_Combos
-          schema: propostas
+- name: PropostasCombos
+  using:
+    foreign_key_constraint_on:
+      column: ComboPreco_Id
+      table:
+        name: Propostas_Combos
+        schema: propostas

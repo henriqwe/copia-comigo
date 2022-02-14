@@ -2,6 +2,9 @@ table:
   name: PrestadoresDeServicos_Produtos_Itens
   schema: comercial
 object_relationships:
-  - name: PrestadoresDeServicos_Produto
-    using:
-      foreign_key_constraint_on: PrestadoresDeServicos_Produtos_Id
+- name: PrestadoresDeServicos_Produto
+  using:
+    foreign_key_constraint_on: PrestadoresDeServicos_Produtos_Id
+- name: TipoDeItem
+  using:
+    foreign_key_constraint_on: TipoDeItem_Id

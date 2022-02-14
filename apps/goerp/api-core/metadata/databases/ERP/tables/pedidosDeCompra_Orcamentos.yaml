@@ -2,14 +2,14 @@ table:
   name: Orcamentos
   schema: pedidosDeCompra
 object_relationships:
-  - name: Pedido
-    using:
-      foreign_key_constraint_on: Pedido_Id
+- name: Pedido
+  using:
+    foreign_key_constraint_on: Pedido_Id
 array_relationships:
-  - name: Orcamentos_Produtos
-    using:
-      foreign_key_constraint_on:
-        column: Orcamento_Id
-        table:
-          name: Orcamentos_Produtos
-          schema: pedidosDeCompra
+- name: Orcamentos_Produtos
+  using:
+    foreign_key_constraint_on:
+      column: Orcamento_Id
+      table:
+        name: Orcamentos_Produtos
+        schema: pedidosDeCompra

@@ -18,7 +18,6 @@ export function Localization() {
     setOpenCardKey,
     pageCard,
     setPageCard,
-    localizationsRefetch,
     handlerClickOnVehicleMarker
   } = useLocalization()
   const { mapa, trafficLayer, initMap, showBounceMarker } = useMap()
@@ -28,14 +27,15 @@ export function Localization() {
     allUserVehicle,
     selectedVehicle,
     refsCardVehicle,
-    showAllVehiclesInMap
+    showAllVehiclesInMap,
+    vehiclesRefetch
   } = useVehicle()
 
   useEffect(() => {
     initMap()
-    localizationsRefetch()
+    vehiclesRefetch()
     setInterval(async () => {
-      localizationsRefetch()
+      vehiclesRefetch()
     }, 30000)
   }, [])
 
@@ -51,7 +51,7 @@ export function Localization() {
         className="absolute z-50 right-0 flex mr-16 mt-2.5"
         style={{ height: '95%' }}
       >
-        <div className="w-80">
+        <div className="w-[21rem]">
           <blocks.FloatingCard
             allUserVehicle={allUserVehicle}
             schemaYup={localizationSchema}

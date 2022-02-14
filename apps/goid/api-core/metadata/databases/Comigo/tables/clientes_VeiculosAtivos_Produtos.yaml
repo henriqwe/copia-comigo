@@ -2,6 +2,6 @@ table:
   name: VeiculosAtivos_Produtos
   schema: clientes
 object_relationships:
-  - name: VeiculosAtivo
-    using:
-      foreign_key_constraint_on: VeiculoAtivo_Id
+- name: VeiculosAtivo
+  using:
+    foreign_key_constraint_on: VeiculoAtivo_Id

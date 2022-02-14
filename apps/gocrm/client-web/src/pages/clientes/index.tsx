@@ -1,14 +1,14 @@
-import * as clients from '&crm/domains/clients';
+import * as clients from '&crm/domains/clients'
 
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
 export default function Providers() {
   return (
@@ -18,20 +18,20 @@ export default function Providers() {
         <Page />{' '}
       </ThemeProvider>
     </clients.ClientProvider>
-  );
+  )
 }
 
 export function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { clientsRefetch, clientsLoading } = clients.useClient();
+  const { theme, changeTheme } = useTheme()
+  const { clientsRefetch, clientsLoading } = clients.useClient()
   const refetch = () => {
-    clientsRefetch();
-  };
+    clientsRefetch()
+  }
   return (
     <templates.Base
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -39,10 +39,10 @@ export function Page() {
       reload={{ action: refetch, state: clientsLoading }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
-        { title: 'Clientes', url: rotas.clientes },
+        { title: 'Clientes', url: rotas.clientes }
       ]}
     >
       <clients.List />
     </templates.Base>
-  );
+  )
 }

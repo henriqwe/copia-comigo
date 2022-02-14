@@ -1,7 +1,7 @@
 import * as blocks from '@comigo/ui-blocks';
 import * as clients from '&crm/domains/clients';
 
-export default function List() {
+export function List() {
   const { clientsData } = clients.useClient();
   return clientsData ? (
     <blocks.Table

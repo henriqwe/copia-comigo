@@ -1,0 +1,13 @@
+table:
+  name: Planos_Servicos
+  schema: comercial
+object_relationships:
+- name: Plano
+  using:
+    foreign_key_constraint_on: Plano_Id
+- name: Servico
+  using:
+    foreign_key_constraint_on: Servico_Id
+- name: ServicoPreco
+  using:
+    foreign_key_constraint_on: ServicoPreco_Id

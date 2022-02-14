@@ -1,26 +1,26 @@
 actions:
-  - name: CadastrarCliente
-    definition:
-      kind: synchronous
-      handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-cliente'
-  - name: CadastrarColaborador
-    definition:
-      kind: synchronous
-      handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-colaborador'
-  - name: CadastrarFornecedor
-    definition:
-      kind: synchronous
-      handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-fornecedor'
-  - name: CadastrarRepresentante
-    definition:
-      kind: synchronous
-      handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-representante'
+- name: CadastrarCliente
+  definition:
+    kind: synchronous
+    handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-cliente'
+- name: CadastrarColaborador
+  definition:
+    kind: synchronous
+    handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-colaborador'
+- name: CadastrarFornecedor
+  definition:
+    kind: synchronous
+    handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-fornecedor'
+- name: CadastrarRepresentante
+  definition:
+    kind: synchronous
+    handler: '{{ACTION_BASE_URL}}/identidades/cadastrar-representante'
 custom_types:
   enums: []
   input_objects: []
   objects:
-    - name: CadastrarFornecedorOutput
-    - name: CadastrarClienteOutput
-    - name: CadastrarRepresentanteOutput
-    - name: CadastrarColaboradorOutput
+  - name: CadastrarFornecedorOutput
+  - name: CadastrarClienteOutput
+  - name: CadastrarRepresentanteOutput
+  - name: CadastrarColaboradorOutput
   scalars: []

@@ -1,8 +1,8 @@
-import * as combos from '&crm/domains/commercial/Combos';
-import * as blocks from '@comigo/ui-blocks';
+import * as combos from '&crm/domains/commercial/Combos'
+import * as blocks from '@comigo/ui-blocks'
 
-export default function List() {
-  const { combosData } = combos.useList();
+export function List() {
+  const { combosData } = combos.useList()
   return combosData ? (
     <blocks.Table
       colection={combosData}
@@ -11,5 +11,5 @@ export default function List() {
     />
   ) : (
     <blocks.TableSkeleton />
-  );
+  )
 }

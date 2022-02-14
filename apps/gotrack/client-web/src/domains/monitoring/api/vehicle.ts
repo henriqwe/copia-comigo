@@ -35,17 +35,15 @@ export type vehicleType = {
 
 export function setVehicleColor(vehicle: vehicleType) {
   const dataHoraminus1 = new Date()
-  const dataHoraminus6 = new Date()
 
   dataHoraminus1.setHours(dataHoraminus1.getHours() - 1)
-  dataHoraminus6.setHours(dataHoraminus6.getHours() - 1)
 
-  if (new Date(vehicle.date_rastreador) < dataHoraminus6) {
+  if (new Date(vehicle.date_rastreador) < dataHoraminus1) {
     return '#ff0000'
   }
   if (
     new Date(vehicle.date_rastreador) < dataHoraminus1 &&
-    new Date(vehicle.date_rastreador) > dataHoraminus6
+    new Date(vehicle.date_rastreador) > dataHoraminus1
   ) {
     return '#fffb00'
   }
@@ -205,7 +203,7 @@ export function createNewVehicleMarker(
   allMarkerVehicles: google.maps.Marker[],
   handleClickScrollToCard,
   createFunctionsForInfoWindow,
-  panorama
+  showInfoWindowsInMap
 ) {
   const marker = new google.maps.Marker({
     map,
@@ -226,35 +224,37 @@ export function createNewVehicleMarker(
     }
   })
 
-  marker.infowindow = new google.maps.InfoWindow({
-    disableAutoPan: true
-  })
-
-  marker.infowindow.setContent(
-    ReactDOMServer.renderToString(createContentInfoWindow(vehicle))
-  )
-  marker.addListener('click', async () => {
-    if (allMarkerVehicles) {
-      allMarkerVehicles.forEach((marker) => marker.infowindow.close())
-    }
-    // setVehicleConsultData(vehicle)
-    handleClickScrollToCard(vehicle.carro_id)
-    await marker.infowindow.open({
-      anchor: marker,
-      map,
-      shouldFocus: false
+  if (showInfoWindowsInMap) {
+    marker.infowindow = new google.maps.InfoWindow({
+      disableAutoPan: true
     })
-    const interval = setInterval(() => {
-      if (
-        document.getElementById(
-          `infoWindowImgStreetView${vehicle.carro_id}`
-        ) !== null
-      ) {
-        createFunctionsForInfoWindow(vehicle)
-        clearInterval(interval)
+
+    marker.infowindow.setContent(
+      ReactDOMServer.renderToString(createContentInfoWindow(vehicle))
+    )
+    marker.addListener('click', async () => {
+      if (allMarkerVehicles) {
+        allMarkerVehicles.forEach((marker) => marker.infowindow.close())
       }
-    }, 10)
-  })
+      // setVehicleConsultData(vehicle)
+      handleClickScrollToCard(vehicle.carro_id)
+      await marker.infowindow.open({
+        anchor: marker,
+        map,
+        shouldFocus: false
+      })
+      const interval = setInterval(() => {
+        if (
+          document.getElementById(
+            `infoWindowImgStreetView${vehicle.carro_id}`
+          ) !== null
+        ) {
+          createFunctionsForInfoWindow(vehicle)
+          clearInterval(interval)
+        }
+      }, 10)
+    })
+  }
   allMarkerVehicles.push(marker)
   allMarkerVehiclesStep.push(marker)
 }
@@ -266,7 +266,7 @@ export function updateVehicleMarker(
   allMarkerVehicles: google.maps.Marker[],
   handleClickScrollToCard,
   createFunctionsForInfoWindow,
-  panorama
+  showInfoWindowsInMap
 ) {
   const currentMarkerPos = new google.maps.LatLng(
     Number(vehicle.latitude),
@@ -281,33 +281,35 @@ export function updateVehicleMarker(
 
   google.maps.event.clearListeners(marker, 'click')
 
-  marker.infowindow.setContent(
-    ReactDOMServer.renderToString(createContentInfoWindow(vehicle))
-  )
+  if (showInfoWindowsInMap) {
+    marker.infowindow.setContent(
+      ReactDOMServer.renderToString(createContentInfoWindow(vehicle))
+    )
 
-  marker.addListener('click', async () => {
-    if (allMarkerVehicles) {
-      allMarkerVehicles.forEach((marker) => marker.infowindow.close())
-    }
-    handleClickScrollToCard(vehicle.carro_id)
-
-    // setVehicleConsultData(vehicle)
-    await marker.infowindow.open({
-      anchor: marker,
-      map,
-      shouldFocus: false
-    })
-    const interval = setInterval(() => {
-      if (
-        document.getElementById(
-          `infoWindowImgStreetView${vehicle.carro_id}`
-        ) !== null
-      ) {
-        createFunctionsForInfoWindow(vehicle)
-        clearInterval(interval)
+    marker.addListener('click', async () => {
+      if (allMarkerVehicles) {
+        allMarkerVehicles.forEach((marker) => marker.infowindow.close())
       }
-    }, 10)
-  })
+      handleClickScrollToCard(vehicle.carro_id)
+
+      // setVehicleConsultData(vehicle)
+      await marker.infowindow.open({
+        anchor: marker,
+        map,
+        shouldFocus: false
+      })
+      const interval = setInterval(() => {
+        if (
+          document.getElementById(
+            `infoWindowImgStreetView${vehicle.carro_id}`
+          ) !== null
+        ) {
+          createFunctionsForInfoWindow(vehicle)
+          clearInterval(interval)
+        }
+      }, 10)
+    })
+  }
   allMarkerVehicles.push(marker)
 }
 

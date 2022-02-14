@@ -106,7 +106,10 @@ module.exports = {
                 0.5: 0.5,
                 1.5: 1.5,
                 2.5: 2.5,
-            },
+            }, fontSize: {
+                tiny: '.7rem',
+                'super-tiny': '.55rem',
+            }
         },
     },
     plugins: [],

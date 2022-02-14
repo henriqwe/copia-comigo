@@ -1,12 +1,12 @@
 export default function Page() {
-  return <div />;
+  return <div />
 }
 
 // import rotas from '&erp/domains/routes'
 
 // import { ThemeProvider, useTheme } from '&erp/contexts/ThemeContext'
 // import * as templates from '@comigo/ui-templates'
-// import mainMenuItens from '&erp/domains/MainMenuItens'
+// import MainMenuItems from '&erp/domains/MainMenuItems'
 // import companies from '&erp/domains/companies'
 
 // // import FullCalendar from '@fullcalendar/react'
@@ -29,11 +29,11 @@ export default function Page() {
 //       ssr: false
 //     }
 //   )
-//   // ../../../components/blocks/Calendar
+//   // ../../../domains/blocks/Calendar
 //   return (
 //     <templates.Base
 // setTheme = { changeTheme }
-//       mainMenuItens={mainMenuItens} rotas={rotas} companies={companies}
+//       MainMenuItems={MainMenuItems} rotas={rotas} companies={companies}
 //       theme={theme}
 //       title="Calendário 1"
 //       noGrid={true}

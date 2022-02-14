@@ -1,41 +1,42 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as services from '&erp/domains/portfolio/Pricing/Tabs/Services';
+import * as services from '&erp/domains/portfolio/Pricing/Tabs/Services'
 
-import * as utils from '@comigo/utils';
+import * as utils from '@comigo/utils'
 import {
   BRLMoneyFormat,
   BRLMoneyInputDefaultFormat,
   BRLMoneyInputFormat,
   BRLMoneyUnformat,
-  ptBRtimeStamp,
-} from '@comigo/utils';
-import { useEffect, useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+  ptBRtimeStamp
+} from '@comigo/utils'
+import { useEffect, useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 type ServiceProvider = {
-  Id: string;
-  Precos: { Id: string; Valor: string }[];
-};
+  Id: string
+  Precos: { Id: string; Valor: string }[]
+}
+
+type PriceTypes = {
+  Id: string
+  Valor: string
+  created_at: Date
+  TipoDeRecorrencia?: {
+    Valor: string
+    Comentario: string
+  }
+  TipoDePreco?: {
+    Comentario: string
+  }
+}
 
 export function Price() {
-  const [serviceProvider, setServiceProvider] = useState<ServiceProvider>();
-  const [prices, setPrices] = useState<
-    {
-      Id: string;
-      Valor: string;
-      created_at: Date;
-      TipoDeRecorrencia: {
-        Valor: string;
-        Comentario: string;
-      };
-      TipoDePreco?: {
-        Comentario: string;
-      };
-    }[]
-  >([]);
+  const [serviceProvider, setServiceProvider] = useState<ServiceProvider>()
+  const [prices, setPrices] = useState<PriceTypes[]>([])
+  const [allowRecurrenceType, setAllowRecurrenceType] = useState(false)
   const {
     createServicePriceLoading,
     createServicePrice,
@@ -45,73 +46,56 @@ export function Price() {
     getServiceProviderByServiceId,
     pricingSchema,
     pricesTypeData,
-    recurrenceTypeData,
-    getProductProviderRecurrencyType,
-  } = services.useService();
+    recurrenceTypeData
+  } = services.useService()
   const {
     handleSubmit,
     control,
     setValue,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(pricingSchema),
-  });
+    resolver: yupResolver(pricingSchema)
+  })
   const onSubmit = (formData: {
-    Valor: string;
-    TipoDeRecorrencia_Id: { key: string };
-    TipoDePreco_Id: { key: string };
+    Valor: string
+    TipoDeRecorrencia_Id: { key: string }
+    TipoDePreco_Id: { key: string }
   }) => {
     try {
       createServicePrice({
         variables: {
           Fornecedor_Servico_Id: serviceProvider?.Id,
-          TipoDeRecorrencia_Id: formData.TipoDeRecorrencia_Id.key,
+          TipoDeRecorrencia_Id: formData.TipoDeRecorrencia_Id
+            ? formData.TipoDeRecorrencia_Id.key
+            : null,
           Valor: Number(BRLMoneyUnformat(formData.Valor)).toFixed(2),
-          TipoDePreco_Id: formData.TipoDePreco_Id.key,
-        },
+          TipoDePreco_Id: formData.TipoDePreco_Id.key
+        }
       }).then(() => {
-        servicesRefetch();
+        servicesRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification('Serviço precificado com sucesso', 'success');
-      });
+          return { ...oldState, open: false }
+        })
+        utils.notification('Serviço precificado com sucesso', 'success')
+      })
     } catch (error: any) {
-      utils.showError(error);
+      utils.showError(error)
     }
-  };
+  }
 
   useEffect(() => {
     getServiceProviderByServiceId(slidePanelState.data?.Id).then((data) => {
-      setServiceProvider(data[0]);
+      setServiceProvider(data[0])
       if (data[0].Precos.length > 0) {
         setValue(
           'Valor',
           BRLMoneyInputDefaultFormat(data[0].Precos[0].Valor.toString())
-        );
-        const prices = data[0].Precos.map(async (prices) => {
-          const recurrencyType = prices.TipoDeRecorrencia_Id
-            ? await getProductProviderRecurrencyType(
-                prices.TipoDeRecorrencia_Id as string
-              )
-            : undefined;
-          return {
-            Id: prices.Id,
-            Valor: prices.Valor,
-            created_at: prices.created_at,
-            TipoDePreco: prices.TipoDePreco,
-            TipoDeRecorrencia: {
-              Comentario: recurrencyType?.Comentario as string,
-              Valor: recurrencyType?.Valor as string,
-            },
-          };
-        });
-        (async () => {
-          setPrices(await Promise.all(prices));
-        })();
+        )
+
+        setPrices(data[0].Precos)
       }
-    });
-  }, [slidePanelState.data]);
+    })
+  }, [slidePanelState.data])
 
   return (
     <form
@@ -130,7 +114,7 @@ export function Price() {
                 title={`Valor`}
                 value={value}
                 onChange={(e) => {
-                  onChange(BRLMoneyInputFormat(e));
+                  onChange(BRLMoneyInputFormat(e))
                 }}
                 error={errors.Valor}
                 icon="R$"
@@ -149,13 +133,19 @@ export function Price() {
                     ? pricesTypeData.map((priceType) => {
                         return {
                           key: priceType.Valor,
-                          title: priceType.Comentario,
-                        };
+                          title: priceType.Comentario
+                        }
                       })
                     : []
                 }
                 value={value}
-                onChange={onChange}
+                onChange={(e) => {
+                  setAllowRecurrenceType(false)
+                  if (e.key === 'recorrencia') {
+                    setAllowRecurrenceType(true)
+                  }
+                  onChange(e)
+                }}
                 label="Tipo de preço"
               />
             </div>
@@ -172,13 +162,14 @@ export function Price() {
                     ? recurrenceTypeData.map((recurrenceType) => {
                         return {
                           key: recurrenceType.Valor,
-                          title: recurrenceType.Comentario,
-                        };
+                          title: recurrenceType.Comentario
+                        }
                       })
                     : []
                 }
                 value={value}
                 error={errors.TipoDeRecorrencia_Id}
+                disabled={!allowRecurrenceType}
                 onChange={onChange}
                 label="Tipo de recorrência"
               />
@@ -203,9 +194,13 @@ export function Price() {
                 <div key={price.Id}>
                   <li className="list-disc list-item">
                     {BRLMoneyFormat(price.Valor)} -{' '}
-                    {ptBRtimeStamp(price.created_at)} -{' '}
-                    {price.TipoDeRecorrencia.Comentario} -{' '}
-                    {price.TipoDePreco?.Comentario}
+                    {ptBRtimeStamp(price.created_at)}{' '}
+                    {price.TipoDeRecorrencia
+                      ? ' - ' + price.TipoDeRecorrencia?.Comentario
+                      : ''}{' '}
+                    {price.TipoDePreco
+                      ? ' - ' + price.TipoDePreco?.Comentario
+                      : ''}
                   </li>
                 </div>
               ))}
@@ -214,5 +209,5 @@ export function Price() {
         ) : null}
       </div>
     </form>
-  );
+  )
 }

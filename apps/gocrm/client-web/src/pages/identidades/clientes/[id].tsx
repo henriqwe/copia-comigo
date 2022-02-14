@@ -1,14 +1,14 @@
-import * as templates from '@comigo/ui-templates';
+import * as templates from '@comigo/ui-templates'
 
-import rotas from '&crm/domains/routes';
+import rotas from '&crm/domains/routes'
 
-import mainMenuItens from '&crm/domains/MainMenuItens';
+import MainMenuItems from '&crm/domains/MainMenuItems'
 
-import companies from '&crm/domains/companies';
+import companies from '&crm/domains/companies'
 
-import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext';
+import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 
-import * as clients from '&crm/domains/identities/Clients';
+import * as clients from '&crm/domains/identities/Clients'
 
 export default function UpdateClient() {
   return (
@@ -30,34 +30,34 @@ export default function UpdateClient() {
         </clients.Phones.PhoneProvider>
       </clients.Emails.EmailProvider>
     </clients.Addresses.AddressProvider>
-  );
+  )
 }
 
 function Page() {
-  const { theme, changeTheme } = useTheme();
-  const { clientData, clientLoading, clientRefetch } = clients.useUpdate();
-  const { addressesRefetch } = clients.Addresses.useAddress();
-  const { emailsRefetch } = clients.Emails.useEmail();
-  const { phonesRefetch } = clients.Phones.usePhone();
+  const { theme, changeTheme } = useTheme()
+  const { clientData, clientLoading, clientRefetch } = clients.useUpdate()
+  const { addressesRefetch } = clients.Addresses.useAddress()
+  const { emailsRefetch } = clients.Emails.useEmail()
+  const { phonesRefetch } = clients.Phones.usePhone()
   const { representativesDataRefetch } =
-    clients.Representative.useRepresentative();
+    clients.Representative.useRepresentative()
 
   const refetch = () => {
-    representativesDataRefetch();
-    addressesRefetch();
-    emailsRefetch();
-    phonesRefetch();
-    clientRefetch();
-  };
-  let titulo = clientData?.Pessoa.Nome || '';
+    representativesDataRefetch()
+    addressesRefetch()
+    emailsRefetch()
+    phonesRefetch()
+    clientRefetch()
+  }
+  let titulo = clientData?.Pessoa.Nome || ''
   if (clientData?.Pessoa.PessoaJuridica)
-    titulo = clientData?.Pessoa.DadosDaApi.alias;
+    titulo = clientData?.Pessoa.DadosDaApi.alias
 
   return (
     <templates.FormAndTabs
       setTheme={changeTheme}
       theme={theme}
-      mainMenuItens={mainMenuItens}
+      MainMenuItems={MainMenuItems}
       rotas={rotas}
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
@@ -65,21 +65,21 @@ function Page() {
       title={`${titulo}`}
       reload={{
         action: refetch,
-        state: clientLoading,
+        state: clientLoading
       }}
       currentLocation={[
         { title: 'Rastreamento', url: rotas.home },
         {
           title: 'Identidades',
-          url: rotas.identidades.index,
+          url: rotas.identidades.index
         },
         {
           title: 'Clientes',
-          url: rotas.identidades.clientes.index,
-        },
+          url: rotas.identidades.clientes.index
+        }
       ]}
     >
       <clients.Tabs />
     </templates.FormAndTabs>
-  );
+  )
 }

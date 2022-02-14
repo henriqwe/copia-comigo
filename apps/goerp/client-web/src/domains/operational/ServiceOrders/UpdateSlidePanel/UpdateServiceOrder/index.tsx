@@ -1,21 +1,21 @@
-import { Controller, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as serviceOrders from '&erp/domains/operational/ServiceOrders';
+import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 
-import * as utils from '@comigo/utils';
-import { useEffect } from 'react';
-import { datetimeFormat } from '@comigo/utils';
+import * as utils from '@comigo/utils'
+import { useEffect } from 'react'
+import { datetimeFormat } from '@comigo/utils'
 
 type FormData = {
-  Agendamento: Date;
+  Agendamento: Date
   Colaborador_Id: {
-    key: string;
-    title: string;
-  };
-};
+    key: string
+    title: string
+  }
+}
 
 export function Schedule() {
   const {
@@ -27,34 +27,47 @@ export function Schedule() {
     setSlidePanelState,
     serviceOrderActivitiesRefetch,
     collaboratorsData,
-  } = serviceOrders.useUpdate();
+    getItemIdByProductId
+  } = serviceOrders.useUpdate()
 
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
-    control,
-  } = useForm({ resolver: yupResolver(serviceOrdersSchema) });
-  function onSubmit(formData: FormData) {
-    updateServiceOrders({
+    control
+  } = useForm({ resolver: yupResolver(serviceOrdersSchema) })
+  async function onSubmit(formData: FormData) {
+    const Itens = await Promise.all(
+      serviceOrderData.Produtos.map(async (product) => {
+        const item = await getItemIdByProductId(product.Produto.Id)
+        return {
+          Produto_Id: product.Produto.Id,
+          Item_Id: item[0].Item_Id,
+          RetiradoDoEstoque: false
+        }
+      })
+    )
+
+    await updateServiceOrders({
       variables: {
         Agendamento: formData.Agendamento,
         Colaborador_Id: formData.Colaborador_Id.key,
-      },
+        Itens
+      }
     })
       .then(() => {
-        serviceOrderRefetch();
-        serviceOrderActivitiesRefetch();
+        serviceOrderRefetch()
+        serviceOrderActivitiesRefetch()
         setSlidePanelState({
           open: false,
-          type: 'schedule',
-        });
-        utils.notification('Ordem de serviço agendada com sucesso', 'success');
+          type: 'schedule'
+        })
+        utils.notification('Ordem de serviço agendada com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
+        utils.showError(err)
+      })
   }
 
   useEffect(() => {
@@ -63,10 +76,10 @@ export function Schedule() {
         Agendamento:
           serviceOrderData.Agendamentos.length > 0
             ? datetimeFormat(serviceOrderData.Agendamentos[0].Agendamento)
-            : undefined,
-      });
+            : undefined
+      })
     }
-  }, [reset, serviceOrderData]);
+  }, [reset, serviceOrderData])
 
   return (
     <form
@@ -93,8 +106,8 @@ export function Schedule() {
                     ? collaboratorsData.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Pessoa.Nome,
-                        };
+                          title: item.Pessoa.Nome
+                        }
                       })
                     : []
                 }
@@ -114,5 +127,5 @@ export function Schedule() {
         loading={updateServiceOrdersLoading}
       />
     </form>
-  );
+  )
 }

@@ -12,9 +12,8 @@ import { useApollo } from '../utils/apollo';
 import NextNprogress from 'nextjs-progressbar';
 
 import '../utils/amplifyConfig';
-import { useRouter } from 'next/dist/client/router';
 import { useUser, UserProvider } from '../contexts/UserContext';
-import { ThemeProvider, useTheme } from '../contexts/ThemeContext';
+import { ThemeProvider, useTheme } from 'next-themes';
 import { ToastContainer } from 'react-toastify';
 
 export default function WrapperApp({
@@ -35,17 +34,8 @@ function App({ Component, pageProps }: AppProps) {
   const { user } = useUser();
   const { theme } = useTheme();
   const client = useApollo(pageProps.initialApolloState, user);
-  const router = useRouter();
 
   useEffect(() => {
-    if (router.route === '/login') {
-      document.querySelector('body')?.classList.add('login');
-      document.querySelector('body')?.classList.remove('main');
-    } else {
-      document.querySelector('body')?.classList.remove('login');
-      document.querySelector('body')?.classList.add('main');
-    }
-
     theme === 'dark'
       ? document.querySelector('html')?.classList.add('dark')
       : document.querySelector('html')?.classList.remove('dark');
