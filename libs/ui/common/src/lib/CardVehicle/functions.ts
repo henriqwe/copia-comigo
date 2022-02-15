@@ -66,3 +66,19 @@ export function setVelocityColor(vehicle: vehicleType) {
   }
   return 'text-blue-500 border-blue-200 bg-blue-100'
 }
+
+export function convertMToKm(dist: string) {
+  return addCommas((Number(dist) / 1000).toFixed())
+}
+
+export function addCommas(nStr: any) {
+  nStr += ''
+  const x = nStr.split('.')
+  let x1 = x[0]
+  const x2 = x.length > 1 ? ',' + x[1] : ''
+  const rgx = /(\d+)(\d{3})/
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + '.' + '$2')
+  }
+  return x1 + x2
+}

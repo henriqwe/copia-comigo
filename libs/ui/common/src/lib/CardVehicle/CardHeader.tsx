@@ -38,7 +38,7 @@ export function CardHearder({ vehicle }: { vehicle: vehicleType }) {
       </div>
       <div className="flex items-center">
         <div
-          className="flex items-center justify-center bg-blue-100 rounded-full w-7 h-7"
+          className="flex items-center justify-center bg-white rounded-full w-7 h-7"
           title={statusConnection.title}
         >
           <StatusOnlineIcon className={`w-5 h-5 ${statusConnection.color}`} />

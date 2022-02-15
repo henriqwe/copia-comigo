@@ -10,6 +10,7 @@ import {
 import * as common from '@comigo/ui-common'
 import { vehicleType } from './CardVehicle'
 import { Dispatch, SetStateAction } from 'react'
+import { convertMToKm } from './functions'
 
 export function CardBody({
   vehicle,
@@ -65,10 +66,10 @@ function AdicionalInformations({
       title: 'Data GPS',
       icon: <ClockIcon className="w-5 h-5 text-blue-400" />,
       subTitle: (
-        <div className="flex flex-col">
+        <div>
           <span>
             {new Date(vehicle.date_rastreador).toLocaleDateString('pt-br')}
-          </span>
+          </span>{' '}
           <span>
             {new Date(vehicle.date_rastreador).toLocaleTimeString('pt-br')}
           </span>
@@ -79,10 +80,10 @@ function AdicionalInformations({
       title: 'Data Servidor',
       icon: <ClockIcon className="w-5 h-5 text-blue-400" />,
       subTitle: (
-        <div className="flex flex-col">
+        <div>
           <span>
             {new Date(vehicle.date_rastreador).toLocaleDateString('pt-br')}
-          </span>
+          </span>{' '}
           <span>
             {new Date(vehicle.date_rastreador).toLocaleTimeString('pt-br')}
           </span>
@@ -102,7 +103,7 @@ function AdicionalInformations({
     {
       title: 'Hodômetro',
       icon: <LightningBoltIcon className="w-5 h-5 text-blue-400" />,
-      subTitle: vehicle.dist + ' Km'
+      subTitle: convertMToKm(vehicle.dist) + ' Km'
     },
     {
       title: 'Bateria',
@@ -126,12 +127,16 @@ function AdicionalInformations({
       <div className="text-xs h-4 bg-gray-300 px-2 text-gray-700 rounded-md py-3 flex  items-center  mb-3 font-medium">
         Informações adicionais
       </div>
-      <div className="grid grid-cols-6 gap-2">
-        {labels.map((label) => {
+      <div className="grid grid-cols-6 ">
+        {labels.map((label, idx) => {
           return (
             <div
-              className={`flex flex-row  items-center ${
+              key={idx}
+              className={` mb-2 flex flex-row  items-center ${
                 label.title === 'Motorista' || label.title === 'Endereço'
+                  ? 'col-span-full'
+                  : label.title === 'Data GPS' ||
+                    label.title === 'Data Servidor'
                   ? 'col-span-3'
                   : 'col-span-2'
               }`}
