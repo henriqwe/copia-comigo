@@ -2,6 +2,12 @@ table:
   name: Propostas_Servicos
   schema: propostas
 object_relationships:
+- name: PrecoDeAdesao
+  using:
+    foreign_key_constraint_on: PrecoDeAdesao_Id
+- name: PrecoDeRecorrencia
+  using:
+    foreign_key_constraint_on: PrecoDeRecorrencia_Id
 - name: Proposta
   using:
     foreign_key_constraint_on: Proposta_Id
@@ -11,6 +17,3 @@ object_relationships:
 - name: Servico
   using:
     foreign_key_constraint_on: Servico_Id
-- name: ServicosPreco
-  using:
-    foreign_key_constraint_on: ServicosPreco_Id

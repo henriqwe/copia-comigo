@@ -35,10 +35,16 @@ type UpdateContextProps = {
       Id: string
       Servico: {
         Nome: string
+        PrestadoresDeServicos: {
+          Precos: {
+            Valor: string
+            TipoDePreco?: { Valor: string; Comentario: string }
+          }[]
+        }[]
       }
       ServicoPreco: {
         Valor: string
-        TipoDePreco?: { Valor: string, Comentario: string }
+        TipoDePreco?: { Valor: string; Comentario: string }
       }
     }[]
     Produtos: {
@@ -48,7 +54,7 @@ type UpdateContextProps = {
       }
       ProdutoPreco: {
         Valor: string
-        TipoDePreco?: { Valor: string, Comentario: string }
+        TipoDePreco?: { Valor: string; Comentario: string }
       }
     }[]
 
@@ -344,7 +350,28 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             {
               Id: true,
               Servico: {
-                Nome: true
+                Nome: true,
+                PrestadoresDeServicos: [
+                  {
+                    where: {
+                      Prestador_Id: {
+                        _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                      },
+                      deleted_at: { _is_null: true }
+                    }
+                  },
+                  {
+                    Precos: [
+                      {
+                        order_by: [{ created_at: order_by.desc }]
+                      },
+                      {
+                        Valor: true,
+                        TipoDePreco: { Valor: true, Comentario: true }
+                      }
+                    ]
+                  }
+                ]
               },
               ServicoPreco: {
                 Valor: true,

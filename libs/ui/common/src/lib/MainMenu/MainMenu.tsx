@@ -108,7 +108,7 @@ export function MainMenu({
                       }
                     }
                   })
-                  setDisabledAll(true)
+                  setDisabledAll(!disabledAll)
                 }}
                 iconPosition="left"
                 className="w-full"

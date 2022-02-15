@@ -27,8 +27,8 @@ export default {
   },
   identidades: {
     clientes: {
-      index: '/identidades/clientes',
-      cadastrar: '/identidades/clientes/cadastrar'
+      index: '/identidades/clients',
+      cadastrar: '/identidades/clients/cadastrar'
     },
     fornecedores: {
       index: '/identidades/fornecedores',
@@ -60,18 +60,6 @@ export default {
     index: '/comercial'
   },
   clientes: '/clientes',
-  operacional: {
-    calendario: '/operacional/calendario',
-    ordensDeServico: '/operacional/ordens-de-servico',
-    index: '/operacional'
-  },
-  compras: {
-    produtos: {
-      index: '/compras/produtos',
-      cadastrar: '/compras/produtos/cadastrar'
-    },
-    index: '/compras'
-  },
   configuracoes: {
     index: '/configuracoes'
   },

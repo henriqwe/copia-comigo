@@ -1,18 +1,17 @@
-import axios from 'axios';
+import axios from 'axios'
 import * as utils from '@comigo/utils'
-// import { showError } from 'utils/showError'
 
 export async function getVehicleLocationRealTime(carro_id: string) {
   try {
     const { data } = await axios.post(
       'https://integration.chaser.com.br/mobile/api/veiculo/localizacao/temporeal',
       {
-        carro_id,
+        carro_id
       }
-    );
-    return data;
+    )
+    return data
   } catch (err: any) {
-    utils.showError(err);
+    utils.showError(err)
   }
 }
 
@@ -21,13 +20,12 @@ export async function getAllUserVehicles(email: string) {
     const { data } = await axios.post(
       'https://integration.chaser.com.br/mobile/api/veiculo/usuario',
       {
-        email,
+        email
       }
-    );
-    return data;
+    )
+    return data
   } catch (err: any) {
-    console.log(err);
-    // showError(err)
+    utils.showError(err)
   }
 }
 
@@ -42,12 +40,12 @@ export async function getVehicleHistoric(
       {
         carro_id,
         inicio,
-        fim,
+        fim
       }
-    );
-    return data;
+    )
+    return data
   } catch (err: any) {
-    utils.showError(err);
+    utils.showError(err)
   }
 }
 
@@ -58,10 +56,10 @@ export async function getStreetNameByLatLng(
   try {
     const { data } = await axios.get(
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyA13XBWKpv6lktbNrPjhGD_2W7euKEZY1I`
-    );
+    )
 
-    return data;
+    return data
   } catch (err: any) {
-    utils.showError(err);
+    utils.showError(err)
   }
 }

@@ -427,6 +427,7 @@ type UpdateContextProps = {
   >
   getChipIdentifierByItemId: (Id: string) => Promise<
     {
+      Id: string
       NumeroDaLinha: string
       Item: {
         Produto: {
@@ -437,6 +438,7 @@ type UpdateContextProps = {
   >
   getEquipmentIdentifierByItemId: (Id: string) => Promise<
     {
+      Id: string
       Imei: string
       Item: {
         Produto: {
@@ -447,6 +449,7 @@ type UpdateContextProps = {
   >
   getIdentifierByItemId: (Id: string) => Promise<
     {
+      Id: string
       CodigoIdentificador: number
       Item: {
         Produto: {
@@ -457,13 +460,8 @@ type UpdateContextProps = {
   >
   getTrackerIdentifierByItemId: (Id: string) => Promise<
     {
+      Id: string
       CodigoReferencia: number
-      Chip: {
-        NumeroDaLinha: string
-      }
-      Equipamento: {
-        Imei: string
-      }
       Item: {
         Produto: {
           Nome: string
@@ -473,6 +471,7 @@ type UpdateContextProps = {
   >
   getInputKitsIdentifierByItemId: (Id: string) => Promise<
     {
+      Id: string
       CodigoReferencia: number
       Item: {
         Produto: {
@@ -483,22 +482,12 @@ type UpdateContextProps = {
   >
   getInstallationKitsIdentifierByItemId: (Id: string) => Promise<
     {
+      Id: string
       CodigoReferencia: number
       Item: {
         Produto: {
           Nome: string
         }
-      }
-      Rastreador: {
-        Chip: {
-          NumeroDaLinha: string
-        }
-        Equipamento: {
-          Imei: string
-        }
-      }
-      KitDeInsumo: {
-        CodigoReferencia: number
       }
     }[]
   >
@@ -680,7 +669,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           pk_columns: { Id: router.query.id },
           _set: {
-            Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.aberta,
+            Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.frustada,
             updated_at: new Date()
           }
         },
@@ -1254,6 +1243,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           order_by: [{ created_at: order_by.desc }]
         },
         {
+          Id: true,
           NumeroDaLinha: true,
           Item: {
             Produto: {
@@ -1278,6 +1268,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           order_by: [{ created_at: order_by.desc }]
         },
         {
+          Id: true,
           Imei: true,
           Item: {
             Produto: {
@@ -1302,6 +1293,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           order_by: [{ created_at: order_by.desc }]
         },
         {
+          Id: true,
           CodigoIdentificador: true,
           Item: {
             Produto: {
@@ -1326,6 +1318,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           order_by: [{ created_at: order_by.desc }]
         },
         {
+          Id: true,
           CodigoReferencia: true,
           Chip: {
             NumeroDaLinha: true
@@ -1356,6 +1349,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           order_by: [{ created_at: order_by.desc }]
         },
         {
+          Id: true,
           CodigoReferencia: true,
           Item: {
             Produto: {
@@ -1380,18 +1374,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           order_by: [{ created_at: order_by.desc }]
         },
         {
+          Id: true,
           CodigoReferencia: true,
-          Rastreador: {
-            Chip: {
-              NumeroDaLinha: true
-            },
-            Equipamento: {
-              Imei: true
-            }
-          },
-          KitDeInsumo: {
-            CodigoReferencia: true
-          },
           Item: {
             Produto: {
               Nome: true

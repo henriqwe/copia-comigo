@@ -5331,6 +5331,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -5339,6 +5345,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
+			type:"String_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5406,6 +5418,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"uuid",
 			array:false,
@@ -5414,6 +5432,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5456,6 +5480,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
@@ -5463,6 +5493,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5500,6 +5536,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
@@ -5507,6 +5549,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5570,6 +5618,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
@@ -5577,6 +5631,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5635,6 +5695,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"uuid",
 			array:false,
@@ -5643,6 +5709,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -16992,6 +17064,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		TipoDeItem:{
+			type:"comercial_TipoDeItens_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeItem_Id:{
+			type:"comercial_TipoDeItens_enum_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		_and:{
 			type:"comercial_PrestadoresDeServicos_Produtos_Itens_bool_exp",
 			array:true,
@@ -17051,6 +17135,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		PrestadoresDeServicos_Produtos_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeItem:{
+			type:"comercial_TipoDeItens_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeItem_Id:{
+			type:"comercial_TipoDeItens_enum",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -17195,6 +17291,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		TipoDeItem:{
+			type:"comercial_TipoDeItens_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeItem_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		created_at:{
 			type:"order_by",
 			array:false,
@@ -17238,6 +17346,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		PrestadoresDeServicos_Produtos_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeItem_Id:{
+			type:"comercial_TipoDeItens_enum",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -28204,6 +28318,174 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_Tarifas_update_column: "enum",
+	comercial_TipoDeItens_aggregate_fields:{
+		count:{
+			columns:{
+				type:"comercial_TipoDeItens_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			distinct:{
+				type:"Boolean",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	comercial_TipoDeItens_bool_exp:{
+		Comentario:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Valor:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_and:{
+			type:"comercial_TipoDeItens_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"comercial_TipoDeItens_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"comercial_TipoDeItens_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	comercial_TipoDeItens_constraint: "enum",
+	comercial_TipoDeItens_enum: "enum",
+	comercial_TipoDeItens_enum_comparison_exp:{
+		_eq:{
+			type:"comercial_TipoDeItens_enum",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"comercial_TipoDeItens_enum",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"comercial_TipoDeItens_enum",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"comercial_TipoDeItens_enum",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	comercial_TipoDeItens_insert_input:{
+		Comentario:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Valor:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_TipoDeItens_obj_rel_insert_input:{
+		data:{
+			type:"comercial_TipoDeItens_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		on_conflict:{
+			type:"comercial_TipoDeItens_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_TipoDeItens_on_conflict:{
+		constraint:{
+			type:"comercial_TipoDeItens_constraint",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		update_columns:{
+			type:"comercial_TipoDeItens_update_column",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		where:{
+			type:"comercial_TipoDeItens_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_TipoDeItens_order_by:{
+		Comentario:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Valor:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_TipoDeItens_pk_columns_input:{
+		Valor:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	comercial_TipoDeItens_select_column: "enum",
+	comercial_TipoDeItens_set_input:{
+		Comentario:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Valor:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_TipoDeItens_update_column: "enum",
 	contatos_Emails:{
 		Categorias:{
 			path:{
@@ -34939,6 +35221,22 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
+		delete_comercial_TipoDeItens:{
+			where:{
+				type:"comercial_TipoDeItens_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_comercial_TipoDeItens_by_pk:{
+			Valor:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		delete_contatos_Emails:{
 			where:{
 				type:"contatos_Emails_bool_exp",
@@ -36978,6 +37276,34 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			on_conflict:{
 				type:"comercial_Tarifas_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_comercial_TipoDeItens:{
+			objects:{
+				type:"comercial_TipoDeItens_insert_input",
+				array:true,
+				arrayRequired:true,
+				required:true
+			},
+			on_conflict:{
+				type:"comercial_TipoDeItens_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_comercial_TipoDeItens_one:{
+			object:{
+				type:"comercial_TipoDeItens_insert_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			on_conflict:{
+				type:"comercial_TipoDeItens_on_conflict",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -39814,6 +40140,34 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			pk_columns:{
 				type:"comercial_Tarifas_pk_columns_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_comercial_TipoDeItens:{
+			_set:{
+				type:"comercial_TipoDeItens_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			where:{
+				type:"comercial_TipoDeItens_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_comercial_TipoDeItens_by_pk:{
+			_set:{
+				type:"comercial_TipoDeItens_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			pk_columns:{
+				type:"comercial_TipoDeItens_pk_columns_input",
 				array:false,
 				arrayRequired:false,
 				required:true
@@ -49553,6 +49907,78 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
+		comercial_TipoDeItens:{
+			distinct_on:{
+				type:"comercial_TipoDeItens_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_TipoDeItens_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_TipoDeItens_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		comercial_TipoDeItens_aggregate:{
+			distinct_on:{
+				type:"comercial_TipoDeItens_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_TipoDeItens_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_TipoDeItens_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		comercial_TipoDeItens_by_pk:{
+			Valor:{
+				type:"String",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		contatos_Emails:{
 			distinct_on:{
 				type:"contatos_Emails_select_column",
@@ -55152,8 +55578,10 @@ export const ReturnTypes: Record<string,any> = {
 	clientes_VeiculosAtivos_Produtos:{
 		Ativo:"Boolean",
 		Id:"uuid",
+		Identificador:"uuid",
 		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
 		VeiculosAtivo:"clientes_VeiculosAtivos",
 		created_at:"timestamptz",
@@ -55171,8 +55599,10 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	clientes_VeiculosAtivos_Produtos_max_fields:{
 		Id:"uuid",
+		Identificador:"uuid",
 		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -55180,8 +55610,10 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	clientes_VeiculosAtivos_Produtos_min_fields:{
 		Id:"uuid",
+		Identificador:"uuid",
 		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -56315,6 +56747,8 @@ export const ReturnTypes: Record<string,any> = {
 		Item_Id:"uuid",
 		PrestadoresDeServicos_Produto:"comercial_PrestadoresDeServicos_Produtos",
 		PrestadoresDeServicos_Produtos_Id:"uuid",
+		TipoDeItem:"comercial_TipoDeItens",
+		TipoDeItem_Id:"comercial_TipoDeItens_enum",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -57371,6 +57805,31 @@ export const ReturnTypes: Record<string,any> = {
 		affected_rows:"Int",
 		returning:"comercial_Tarifas"
 	},
+	comercial_TipoDeItens:{
+		Comentario:"String",
+		Valor:"String"
+	},
+	comercial_TipoDeItens_aggregate:{
+		aggregate:"comercial_TipoDeItens_aggregate_fields",
+		nodes:"comercial_TipoDeItens"
+	},
+	comercial_TipoDeItens_aggregate_fields:{
+		count:"Int",
+		max:"comercial_TipoDeItens_max_fields",
+		min:"comercial_TipoDeItens_min_fields"
+	},
+	comercial_TipoDeItens_max_fields:{
+		Comentario:"String",
+		Valor:"String"
+	},
+	comercial_TipoDeItens_min_fields:{
+		Comentario:"String",
+		Valor:"String"
+	},
+	comercial_TipoDeItens_mutation_response:{
+		affected_rows:"Int",
+		returning:"comercial_TipoDeItens"
+	},
 	contatos_Emails:{
 		Categorias:"jsonb",
 		Email:"String",
@@ -58102,6 +58561,8 @@ export const ReturnTypes: Record<string,any> = {
 		delete_comercial_Servicos_by_pk:"comercial_Servicos",
 		delete_comercial_Tarifas:"comercial_Tarifas_mutation_response",
 		delete_comercial_Tarifas_by_pk:"comercial_Tarifas",
+		delete_comercial_TipoDeItens:"comercial_TipoDeItens_mutation_response",
+		delete_comercial_TipoDeItens_by_pk:"comercial_TipoDeItens",
 		delete_contatos_Emails:"contatos_Emails_mutation_response",
 		delete_contatos_Emails_by_pk:"contatos_Emails",
 		delete_contatos_Enderecos:"contatos_Enderecos_mutation_response",
@@ -58272,6 +58733,8 @@ export const ReturnTypes: Record<string,any> = {
 		insert_comercial_Servicos_one:"comercial_Servicos",
 		insert_comercial_Tarifas:"comercial_Tarifas_mutation_response",
 		insert_comercial_Tarifas_one:"comercial_Tarifas",
+		insert_comercial_TipoDeItens:"comercial_TipoDeItens_mutation_response",
+		insert_comercial_TipoDeItens_one:"comercial_TipoDeItens",
 		insert_contatos_Emails:"contatos_Emails_mutation_response",
 		insert_contatos_Emails_one:"contatos_Emails",
 		insert_contatos_Enderecos:"contatos_Enderecos_mutation_response",
@@ -58442,6 +58905,8 @@ export const ReturnTypes: Record<string,any> = {
 		update_comercial_Servicos_by_pk:"comercial_Servicos",
 		update_comercial_Tarifas:"comercial_Tarifas_mutation_response",
 		update_comercial_Tarifas_by_pk:"comercial_Tarifas",
+		update_comercial_TipoDeItens:"comercial_TipoDeItens_mutation_response",
+		update_comercial_TipoDeItens_by_pk:"comercial_TipoDeItens",
 		update_contatos_Emails:"contatos_Emails_mutation_response",
 		update_contatos_Emails_by_pk:"contatos_Emails",
 		update_contatos_Enderecos:"contatos_Enderecos_mutation_response",
@@ -59044,6 +59509,9 @@ export const ReturnTypes: Record<string,any> = {
 		comercial_Tarifas:"comercial_Tarifas",
 		comercial_Tarifas_aggregate:"comercial_Tarifas_aggregate",
 		comercial_Tarifas_by_pk:"comercial_Tarifas",
+		comercial_TipoDeItens:"comercial_TipoDeItens",
+		comercial_TipoDeItens_aggregate:"comercial_TipoDeItens_aggregate",
+		comercial_TipoDeItens_by_pk:"comercial_TipoDeItens",
 		contatos_Emails:"contatos_Emails",
 		contatos_Emails_aggregate:"contatos_Emails_aggregate",
 		contatos_Emails_by_pk:"contatos_Emails",

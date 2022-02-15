@@ -15,7 +15,7 @@ export { TableSkeleton } from './lib/Table/TableSkeleton'
 export { ChangeCompany } from './lib/ChangeCompany'
 export { Logout } from './lib/Logout'
 export { MainNavigation } from './lib/MainNavigation'
-export { FloatingCard } from './lib/FloatingCard'
+export { MonitoringPanel } from './lib/MonitoringPanel'
 // TODO: renomear para algo mais genérico
 export { SideBarGoCustomers } from './lib/SideBarGoCustomers'
 

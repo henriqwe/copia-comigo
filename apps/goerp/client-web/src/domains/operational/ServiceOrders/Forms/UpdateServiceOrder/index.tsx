@@ -54,6 +54,12 @@ type VehicleType = {
   Apelido?: string
 }
 
+type ProductItensType = {
+  Id: string
+  TipoItem_Id: string
+  Identificador: string
+}
+
 export function Update() {
   const [activeEdit, setActiveEdit] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -64,6 +70,7 @@ export function Update() {
   const [vehicle, setVehicle] = useState<VehicleType>()
   const [productCollection, setProductCollection] =
     useState<ProductCollectionType[]>()
+  const [productItens, setProductItens] = useState<ProductItensType[]>([])
   const {
     serviceOrderData,
     serviceOrderRefetch,
@@ -78,14 +85,10 @@ export function Update() {
     getComboById,
     getServiceById,
     insertActiveVehicle,
-    insertActiveVehicleLoading,
     insertActiveVehicleBenefit,
-    insertActiveVehicleBenefitLoading,
     updateActiveVehicle,
-    updateActiveVehicleLoading,
     getActiveVehicles,
     updateActiveVehicleBenefit,
-    updateActiveVehicleBenefitLoading,
     insertActiveVehicleService,
     insertActiveVehicleProducts,
     disableActiveVehicle,
@@ -103,7 +106,6 @@ export function Update() {
     getInputKitsIdentifierByItemId,
     getInstallationKitsIdentifierByItemId,
     registerItemMovimentation,
-    registerItemMovimentationLoading,
     updateServiceOrdersSchedule,
     updateServiceOrdersScheduleLoading,
     updateServiceOrderScheduleItem
@@ -233,14 +235,19 @@ export function Update() {
                     })
                   })
                   serviceOrderData?.Produtos.map(async (product) => {
-                    const scheduleItem = await getItemIdByProductId(product.Produto.Id)
+                    const item = productItens.filter(
+                      (productItem) => productItem.Id === product.Produto.Id
+                    )[0]
+                    // scheduleItem[0].
                     await insertActiveVehicleProducts({
                       variables: {
                         ProdutoPreco_Id: product.ProdutoPreco.Id,
                         Produto_Id: product.Produto.Id,
                         VeiculoAtivo_Id:
                           response!.data.update_clientes_VeiculosAtivos_by_pk
-                            .Id
+                            .Id,
+                        TipoItem_Id: item.TipoItem_Id,
+                        Identificador: item.Identificador
                       }
                     })
                   })
@@ -277,9 +284,14 @@ export function Update() {
                   }
                 }),
                 Produtos: serviceOrderData?.Produtos.map((product) => {
+                  const item = productItens.filter(
+                    (productItem) => productItem.Id === product.Produto.Id
+                  )[0]
                   return {
                     Produto_Id: product.Produto.Id,
                     ProdutoPreco_Id: product.ProdutoPreco.Id,
+                    TipoItem_Id: item.TipoItem_Id,
+                    Identificador: item.Identificador,
                     Ativo: true
                   }
                 }),
@@ -552,6 +564,8 @@ export function Update() {
       getBenefits()
       getVehicle()
 
+      const productsItens = []
+
       const products = serviceOrderData.Produtos.map(async (product) => {
         const scheduleItem = await getItemIdByProductId(product.Produto.Id)
         let identifier = ''
@@ -564,7 +578,12 @@ export function Update() {
             case 'chips':
               await getChipIdentifierByItemId(scheduleItem[0].Item_Id).then(
                 (chip) => {
-                  identifier = 'CHP'
+                  productsItens.push({
+                    Id: product.Produto.Id,
+                    TipoItem_Id: 'chips',
+                    Identificador: chip[0].Id
+                  })
+                  identifier = chip[0].NumeroDaLinha
                   itemName = chip[0].Item.Produto.Nome
                 }
               )
@@ -573,14 +592,25 @@ export function Update() {
               await getEquipmentIdentifierByItemId(
                 scheduleItem[0].Item_Id
               ).then((equipment) => {
-                identifier = 'EQP'
+                productsItens.push({
+                  Id: product.Produto.Id,
+                  TipoItem_Id: 'equipamentos',
+                  Identificador: equipment[0].Id
+                })
+                identifier = equipment[0].Imei
                 itemName = equipment[0].Item.Produto.Nome
               })
               break
             case 'identificadores':
               await getIdentifierByItemId(scheduleItem[0].Item_Id).then(
                 (identifierResponse) => {
-                  identifier = 'IDTF'
+                  productsItens.push({
+                    Id: product.Produto.Id,
+                    TipoItem_Id: 'identificadores',
+                    Identificador: identifierResponse[0].Id
+                  })
+                  identifier =
+                    identifierResponse[0].CodigoIdentificador.toString()
                   itemName = identifierResponse[0].Item.Produto.Nome
                 }
               )
@@ -588,7 +618,12 @@ export function Update() {
             case 'rastreadores':
               await getTrackerIdentifierByItemId(scheduleItem[0].Item_Id).then(
                 (tracker) => {
-                  identifier = 'RTDR'
+                  productsItens.push({
+                    Id: product.Produto.Id,
+                    TipoItem_Id: 'rastreadores',
+                    Identificador: tracker[0].Id
+                  })
+                  identifier = 'RTDR - ' + tracker[0].CodigoReferencia
                   itemName = tracker[0].Item.Produto.Nome
                 }
               )
@@ -597,7 +632,12 @@ export function Update() {
               await getInputKitsIdentifierByItemId(
                 scheduleItem[0].Item_Id
               ).then((inputKit) => {
-                identifier = 'KTISM'
+                productsItens.push({
+                  Id: product.Produto.Id,
+                  TipoItem_Id: 'kitsDeInsumo',
+                  Identificador: inputKit[0].Id
+                })
+                identifier = 'KTISM - ' + inputKit[0].CodigoReferencia
                 itemName = inputKit[0].Item.Produto.Nome
               })
               break
@@ -605,7 +645,12 @@ export function Update() {
               await getInstallationKitsIdentifierByItemId(
                 scheduleItem[0].Item_Id
               ).then((installationKit) => {
-                identifier = 'KTIST'
+                productsItens.push({
+                  Id: product.Produto.Id,
+                  TipoItem_Id: 'kitsDeInstalacao',
+                  Identificador: installationKit[0].Id
+                })
+                identifier = 'KTIST - ' + installationKit[0].CodigoReferencia
                 itemName = installationKit[0].Item.Produto.Nome
               })
               break
@@ -636,6 +681,7 @@ export function Update() {
 
       ;(async () => {
         setProductCollection(await Promise.all(products))
+        setProductItens(productsItens)
       })()
     }
   }, [serviceOrderData])
@@ -803,7 +849,7 @@ export function Update() {
           />
         </div>
         <div className="flex items-center justify-end w-4/6 gap-4">
-          {serviceOrderData?.Situacao.Valor === 'aberta' && (
+          {(serviceOrderData?.Situacao.Valor === 'aberta' || serviceOrderData?.Situacao.Valor === 'frustada') && (
             <common.buttons.PrimaryButton
               title={'Agendar'}
               onClick={() => {

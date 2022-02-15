@@ -17,10 +17,10 @@ remote_relationships:
   name: Servico
 - definition:
     hasura_fields:
-    - ServicoPreco_Id
+    - PrecoDeAdesao_Id
     remote_field:
       comercial_PrestadoresDeServicos_Servicos_Precos_by_pk:
         arguments:
-          Id: $ServicoPreco_Id
+          Id: $PrecoDeAdesao_Id
     remote_schema: GoPortfolio
   name: ServicoPreco

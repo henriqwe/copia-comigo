@@ -1487,8 +1487,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 ["clientes_VeiculosAtivos_Produtos"]: AliasType<{
 	Ativo?:boolean,
 	Id?:boolean,
+	Identificador?:boolean,
 	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	/** An object relationship */
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos"],
@@ -1526,8 +1528,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_bool_exp"]: {
 	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Identificador?:ValueTypes["uuid_comparison_exp"] | null,
 	ProdutoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	TipoItem_Id?:ValueTypes["String_comparison_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
 	_and?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"][],
@@ -1543,8 +1547,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_insert_input"]: {
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
+	Identificador?:ValueTypes["uuid"] | null,
 	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	TipoItem_Id?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -1554,8 +1560,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: AliasType<{
 	Id?:boolean,
+	Identificador?:boolean,
 	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -1565,8 +1573,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	Identificador?:ValueTypes["order_by"] | null,
 	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -1575,8 +1585,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: AliasType<{
 	Id?:boolean,
+	Identificador?:boolean,
 	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -1586,8 +1598,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	Identificador?:ValueTypes["order_by"] | null,
 	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -1611,8 +1625,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_order_by"]: {
 	Ativo?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
+	Identificador?:ValueTypes["order_by"] | null,
 	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -1629,8 +1645,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_set_input"]: {
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
+	Identificador?:ValueTypes["uuid"] | null,
 	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	TipoItem_Id?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -26251,8 +26269,10 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Produtos"]: {
 		Ativo:boolean,
 	Id:ModelTypes["uuid"],
+	Identificador?:ModelTypes["uuid"],
 	ProdutoPreco_Id:ModelTypes["uuid"],
 	Produto_Id:ModelTypes["uuid"],
+	TipoItem_Id?:string,
 	VeiculoAtivo_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo:ModelTypes["clientes_VeiculosAtivos"],
@@ -26284,8 +26304,10 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
+	Identificador?:ModelTypes["uuid"],
 	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	TipoItem_Id?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -26296,8 +26318,10 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
+	Identificador?:ModelTypes["uuid"],
 	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	TipoItem_Id?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -40105,8 +40129,10 @@ export type GraphQLTypes = {
 	__typename: "clientes_VeiculosAtivos_Produtos",
 	Ativo: boolean,
 	Id: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id: GraphQLTypes["uuid"],
 	Produto_Id: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
@@ -40143,8 +40169,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_bool_exp"]: {
 		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
+	Identificador?: GraphQLTypes["uuid_comparison_exp"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
+	TipoItem_Id?: GraphQLTypes["String_comparison_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
 	_and?: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"]>,
@@ -40160,8 +40188,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_insert_input"]: {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -40172,8 +40202,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos_max_fields",
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -40182,8 +40214,10 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	Identificador?: GraphQLTypes["order_by"],
 	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -40193,8 +40227,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos_min_fields",
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -40203,8 +40239,10 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	Identificador?: GraphQLTypes["order_by"],
 	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -40228,8 +40266,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_order_by"]: {
 		Ativo?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
+	Identificador?: GraphQLTypes["order_by"],
 	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -40246,8 +40286,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_set_input"]: {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -61709,8 +61751,10 @@ export const enum clientes_VeiculosAtivos_Produtos_constraint {
 export const enum clientes_VeiculosAtivos_Produtos_select_column {
 	Ativo = "Ativo",
 	Id = "Id",
+	Identificador = "Identificador",
 	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
+	TipoItem_Id = "TipoItem_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -61720,8 +61764,10 @@ export const enum clientes_VeiculosAtivos_Produtos_select_column {
 export const enum clientes_VeiculosAtivos_Produtos_update_column {
 	Ativo = "Ativo",
 	Id = "Id",
+	Identificador = "Identificador",
 	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
+	TipoItem_Id = "TipoItem_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -62729,6 +62775,7 @@ export const enum comercial_TipoDeItens_enum {
 	chips = "chips",
 	equipamentos = "equipamentos",
 	identificadores = "identificadores",
+	kitsDeInstalacao = "kitsDeInstalacao",
 	kitsDeInsumo = "kitsDeInsumo",
 	rastreadores = "rastreadores"
 }
@@ -63426,7 +63473,8 @@ export const enum operacional_OrdemDeServico_Situacoes_enum {
 	agendada = "agendada",
 	cancelada = "cancelada",
 	conferida = "conferida",
-	finalizada = "finalizada"
+	finalizada = "finalizada",
+	frustada = "frustada"
 }
 /** select columns of table "operacional.OrdemDeServico_Situacoes" */
 export const enum operacional_OrdemDeServico_Situacoes_select_column {

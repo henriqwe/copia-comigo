@@ -21,7 +21,11 @@ import {
   useState
 } from 'react'
 import * as yup from 'yup'
-import { propostas_Propostas_Situacoes_enum } from '&crm/graphql/generated/zeus'
+import {
+  order_by,
+  propostas_Propostas_Situacoes_enum
+} from '&crm/graphql/generated/zeus'
+import axios from 'axios'
 
 type UpdateContextProps = {
   slidePanelState: SlidePanelStateType
@@ -59,6 +63,8 @@ type UpdateContextProps = {
       Produtos: {
         ProdutoPreco_Id: string
         Produto_Id: string
+        Identificador?: string
+        TipoItem_Id?: string
       }[]
       Servicos: { ServicoPreco_Id: string; Servico_Id: string }[]
       Situacao: {
@@ -190,6 +196,10 @@ type UpdateContextProps = {
   userAndTicketRefetch: () => void
   changeVehicleSchema: yup.AnyObjectSchema
   createVehicleSchema: yup.AnyObjectSchema
+  getItemIdentifier: (
+    IdentifierType: string,
+    Identifier: string
+  ) => Promise<string>
 }
 
 type ProviderProps = {
@@ -296,7 +306,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 },
                 {
                   ProdutoPreco_Id: true,
-                  Produto_Id: true
+                  Produto_Id: true,
+                  Identificador: true,
+                  TipoItem_Id: true
                 }
               ],
               Servicos: [
@@ -548,6 +560,70 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.comercial_PrestadoresDeServicos_by_pk
   }
 
+  async function getItemIdentifier(IdentifierType: string, Identifier: string) {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname
+      let value = ''
+      switch (IdentifierType) {
+        case 'chips':
+          await axios
+            .get(
+              `http://${hostname}:3002/api/identificaveis/chips?Id=${Identifier}`
+            )
+            .then(({ data }) => {
+              value = data.data.NumeroDaLinha
+            })
+          break
+        case 'equipamentos':
+          await axios
+            .get(
+              `http://${hostname}:3002/api/identificaveis/equipment?Id=${Identifier}`
+            )
+            .then(({ data }) => {
+              value = data.data.Imei
+            })
+          break
+        case 'identificadores':
+          await axios
+            .get(
+              `http://${hostname}:3002/api/identificaveis/identifier?Id=${Identifier}`
+            )
+            .then(({ data }) => {
+              value = data.data.CodigoIdentificador
+            })
+          break
+        case 'rastreadores':
+          await axios
+            .get(
+              `http://${hostname}:3002/api/identificaveis/tracker?Id=${Identifier}`
+            )
+            .then(({ data }) => {
+              value = 'RTDR - ' + data.data.CodigoReferencia
+            })
+          break
+        case 'kitsDeInsumo':
+          await axios
+            .get(
+              `http://${hostname}:3002/api/identificaveis/inputKits?Id=${Identifier}`
+            )
+            .then(({ data }) => {
+              value = 'KTISM - ' + data.data.CodigoReferencia
+            })
+          break
+        case 'kitsDeInstalacao':
+          await axios
+            .get(
+              `http://${hostname}:3002/api/identificaveis/installationKits?Id=${Identifier}`
+            )
+            .then(({ data }) => {
+              value = 'KTIST - ' + data.data.CodigoReferencia
+            })
+          break
+      }
+      return value
+    }
+  }
+
   const changeVehicleSchema = yup.object().shape({
     Veiculo1: yup.object().required('Preencha o campo para continuar'),
     Veiculo2: yup.object().required('Preencha o campo para continuar')
@@ -584,7 +660,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         categories,
         setCategories,
         selectedCategory,
-        setSelectedCategory
+        setSelectedCategory,
+        getItemIdentifier
       }}
     >
       {children}

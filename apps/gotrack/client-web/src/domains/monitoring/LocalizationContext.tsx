@@ -111,9 +111,9 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
             clearInterval(interval)
           }
         }, 10)
-      } else {
-        marker.infowindow?.close()
+        return
       }
+      marker.infowindow?.close()
     })
 
     centerMapInVehicle(

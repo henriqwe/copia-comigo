@@ -27,7 +27,6 @@ export default function Filters({ item, disabledAll }: FiltrosProps) {
         className={`w-2 h-2 mr-3 rounded-full ${
           active ? 'bg-green-500' : 'bg-orange-400'
         }`}
-       
       />
       {item.title}
     </div>

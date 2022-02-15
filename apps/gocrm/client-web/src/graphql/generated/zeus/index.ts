@@ -2106,8 +2106,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 ["clientes_VeiculosAtivos_Produtos"]: AliasType<{
 	Ativo?:boolean,
 	Id?:boolean,
+	Identificador?:boolean,
 	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	/** An object relationship */
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos"],
@@ -2145,8 +2147,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_bool_exp"]: {
 	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Identificador?:ValueTypes["uuid_comparison_exp"] | null,
 	ProdutoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	TipoItem_Id?:ValueTypes["String_comparison_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
 	_and?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"][],
@@ -2162,8 +2166,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_insert_input"]: {
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
+	Identificador?:ValueTypes["uuid"] | null,
 	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	TipoItem_Id?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -2173,8 +2179,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: AliasType<{
 	Id?:boolean,
+	Identificador?:boolean,
 	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -2184,8 +2192,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	Identificador?:ValueTypes["order_by"] | null,
 	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -2194,8 +2204,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: AliasType<{
 	Id?:boolean,
+	Identificador?:boolean,
 	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -2205,8 +2217,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	Identificador?:ValueTypes["order_by"] | null,
 	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -2230,8 +2244,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_order_by"]: {
 	Ativo?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
+	Identificador?:ValueTypes["order_by"] | null,
 	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -2248,8 +2264,10 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_set_input"]: {
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
+	Identificador?:ValueTypes["uuid"] | null,
 	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	TipoItem_Id?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -6438,6 +6456,9 @@ Precos_aggregate?: [{	/** distinct select on columns */
 	/** An object relationship */
 	PrestadoresDeServicos_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos"],
 	PrestadoresDeServicos_Produtos_Id?:boolean,
+	/** An object relationship */
+	TipoDeItem?:ValueTypes["comercial_TipoDeItens"],
+	TipoDeItem_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -6585,6 +6606,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_s
 	Item_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrestadoresDeServicos_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_bool_exp"] | null,
 	PrestadoresDeServicos_Produtos_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	TipoDeItem?:ValueTypes["comercial_TipoDeItens_bool_exp"] | null,
+	TipoDeItem_Id?:ValueTypes["comercial_TipoDeItens_enum_comparison_exp"] | null,
 	_and?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_bool_exp"][],
 	_not?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_bool_exp"] | null,
 	_or?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_bool_exp"][],
@@ -6600,6 +6623,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_s
 	Item_Id?:ValueTypes["uuid"] | null,
 	PrestadoresDeServicos_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_obj_rel_insert_input"] | null,
 	PrestadoresDeServicos_Produtos_Id?:ValueTypes["uuid"] | null,
+	TipoDeItem?:ValueTypes["comercial_TipoDeItens_obj_rel_insert_input"] | null,
+	TipoDeItem_Id?:ValueTypes["comercial_TipoDeItens_enum"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -6662,6 +6687,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_s
 	Item_Id?:ValueTypes["order_by"] | null,
 	PrestadoresDeServicos_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_order_by"] | null,
 	PrestadoresDeServicos_Produtos_Id?:ValueTypes["order_by"] | null,
+	TipoDeItem?:ValueTypes["comercial_TipoDeItens_order_by"] | null,
+	TipoDeItem_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -6677,6 +6704,7 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_s
 	Id?:ValueTypes["uuid"] | null,
 	Item_Id?:ValueTypes["uuid"] | null,
 	PrestadoresDeServicos_Produtos_Id?:ValueTypes["uuid"] | null,
+	TipoDeItem_Id?:ValueTypes["comercial_TipoDeItens_enum"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -10612,6 +10640,99 @@ count?: [{	columns?:ValueTypes["comercial_Tarifas_select_column"][],	distinct?:b
 };
 	/** update columns of table "comercial.Tarifas" */
 ["comercial_Tarifas_update_column"]:comercial_Tarifas_update_column;
+	/** columns and relationships of "comercial.TipoDeItens" */
+["comercial_TipoDeItens"]: AliasType<{
+	Comentario?:boolean,
+	Valor?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "comercial.TipoDeItens" */
+["comercial_TipoDeItens_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["comercial_TipoDeItens_aggregate_fields"],
+	nodes?:ValueTypes["comercial_TipoDeItens"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "comercial.TipoDeItens" */
+["comercial_TipoDeItens_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["comercial_TipoDeItens_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["comercial_TipoDeItens_max_fields"],
+	min?:ValueTypes["comercial_TipoDeItens_min_fields"],
+		__typename?: boolean
+}>;
+	/** Boolean expression to filter rows from the table "comercial.TipoDeItens". All fields are combined with a logical 'AND'. */
+["comercial_TipoDeItens_bool_exp"]: {
+	Comentario?:ValueTypes["String_comparison_exp"] | null,
+	Valor?:ValueTypes["String_comparison_exp"] | null,
+	_and?:ValueTypes["comercial_TipoDeItens_bool_exp"][],
+	_not?:ValueTypes["comercial_TipoDeItens_bool_exp"] | null,
+	_or?:ValueTypes["comercial_TipoDeItens_bool_exp"][]
+};
+	/** unique or primary key constraints on table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_constraint"]:comercial_TipoDeItens_constraint;
+	["comercial_TipoDeItens_enum"]:comercial_TipoDeItens_enum;
+	/** Boolean expression to compare columns of type "comercial_TipoDeItens_enum". All fields are combined with logical 'AND'. */
+["comercial_TipoDeItens_enum_comparison_exp"]: {
+	_eq?:ValueTypes["comercial_TipoDeItens_enum"] | null,
+	_in?:ValueTypes["comercial_TipoDeItens_enum"][],
+	_is_null?:boolean | null,
+	_neq?:ValueTypes["comercial_TipoDeItens_enum"] | null,
+	_nin?:ValueTypes["comercial_TipoDeItens_enum"][]
+};
+	/** input type for inserting data into table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_insert_input"]: {
+	Comentario?:string | null,
+	Valor?:string | null
+};
+	/** aggregate max on columns */
+["comercial_TipoDeItens_max_fields"]: AliasType<{
+	Comentario?:boolean,
+	Valor?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregate min on columns */
+["comercial_TipoDeItens_min_fields"]: AliasType<{
+	Comentario?:boolean,
+	Valor?:boolean,
+		__typename?: boolean
+}>;
+	/** response of any mutation on the table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["comercial_TipoDeItens"],
+		__typename?: boolean
+}>;
+	/** input type for inserting object relation for remote table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_obj_rel_insert_input"]: {
+	data:ValueTypes["comercial_TipoDeItens_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_TipoDeItens_on_conflict"] | null
+};
+	/** on_conflict condition type for table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_on_conflict"]: {
+	constraint:ValueTypes["comercial_TipoDeItens_constraint"],
+	update_columns:ValueTypes["comercial_TipoDeItens_update_column"][],
+	where?:ValueTypes["comercial_TipoDeItens_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "comercial.TipoDeItens". */
+["comercial_TipoDeItens_order_by"]: {
+	Comentario?:ValueTypes["order_by"] | null,
+	Valor?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: comercial_TipoDeItens */
+["comercial_TipoDeItens_pk_columns_input"]: {
+	Valor:string
+};
+	/** select columns of table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_select_column"]:comercial_TipoDeItens_select_column;
+	/** input type for updating data in table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_set_input"]: {
+	Comentario?:string | null,
+	Valor?:string | null
+};
+	/** update columns of table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_update_column"]:comercial_TipoDeItens_update_column;
 	/** columns and relationships of "contatos.Emails" */
 ["contatos_Emails"]: AliasType<{
 Categorias?: [{	/** JSON select path */
@@ -12996,6 +13117,9 @@ delete_comercial_Servicos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercia
 delete_comercial_Tarifas?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["comercial_Tarifas_bool_exp"]},ValueTypes["comercial_Tarifas_mutation_response"]],
 delete_comercial_Tarifas_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Tarifas"]],
+delete_comercial_TipoDeItens?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["comercial_TipoDeItens_bool_exp"]},ValueTypes["comercial_TipoDeItens_mutation_response"]],
+delete_comercial_TipoDeItens_by_pk?: [{	Valor:string},ValueTypes["comercial_TipoDeItens"]],
 delete_contatos_Emails?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["contatos_Emails_bool_exp"]},ValueTypes["contatos_Emails_mutation_response"]],
 delete_contatos_Emails_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["contatos_Emails"]],
@@ -13422,6 +13546,12 @@ insert_comercial_Tarifas?: [{	/** the rows to be inserted */
 insert_comercial_Tarifas_one?: [{	/** the row to be inserted */
 	object:ValueTypes["comercial_Tarifas_insert_input"],	/** upsert condition */
 	on_conflict?:ValueTypes["comercial_Tarifas_on_conflict"] | null},ValueTypes["comercial_Tarifas"]],
+insert_comercial_TipoDeItens?: [{	/** the rows to be inserted */
+	objects:ValueTypes["comercial_TipoDeItens_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_TipoDeItens_on_conflict"] | null},ValueTypes["comercial_TipoDeItens_mutation_response"]],
+insert_comercial_TipoDeItens_one?: [{	/** the row to be inserted */
+	object:ValueTypes["comercial_TipoDeItens_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_TipoDeItens_on_conflict"] | null},ValueTypes["comercial_TipoDeItens"]],
 insert_contatos_Emails?: [{	/** the rows to be inserted */
 	objects:ValueTypes["contatos_Emails_insert_input"][],	/** upsert condition */
 	on_conflict?:ValueTypes["contatos_Emails_on_conflict"] | null},ValueTypes["contatos_Emails_mutation_response"]],
@@ -13951,6 +14081,11 @@ update_comercial_Tarifas?: [{	/** sets the columns of the filtered rows to the g
 	where:ValueTypes["comercial_Tarifas_bool_exp"]},ValueTypes["comercial_Tarifas_mutation_response"]],
 update_comercial_Tarifas_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["comercial_Tarifas_set_input"] | null,	pk_columns:ValueTypes["comercial_Tarifas_pk_columns_input"]},ValueTypes["comercial_Tarifas"]],
+update_comercial_TipoDeItens?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["comercial_TipoDeItens_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["comercial_TipoDeItens_bool_exp"]},ValueTypes["comercial_TipoDeItens_mutation_response"]],
+update_comercial_TipoDeItens_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["comercial_TipoDeItens_set_input"] | null,	pk_columns:ValueTypes["comercial_TipoDeItens_pk_columns_input"]},ValueTypes["comercial_TipoDeItens"]],
 update_contatos_Emails?: [{	/** append existing jsonb value of filtered columns with new jsonb value */
 	_append?:ValueTypes["contatos_Emails_append_input"] | null,	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 	_delete_at_path?:ValueTypes["contatos_Emails_delete_at_path_input"] | null,	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
@@ -16389,6 +16524,19 @@ comercial_Tarifas_aggregate?: [{	/** distinct select on columns */
 	order_by?:ValueTypes["comercial_Tarifas_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["comercial_Tarifas_bool_exp"] | null},ValueTypes["comercial_Tarifas_aggregate"]],
 comercial_Tarifas_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Tarifas"]],
+comercial_TipoDeItens?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_TipoDeItens_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_TipoDeItens_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_TipoDeItens_bool_exp"] | null},ValueTypes["comercial_TipoDeItens"]],
+comercial_TipoDeItens_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_TipoDeItens_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_TipoDeItens_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_TipoDeItens_bool_exp"] | null},ValueTypes["comercial_TipoDeItens_aggregate"]],
+comercial_TipoDeItens_by_pk?: [{	Valor:string},ValueTypes["comercial_TipoDeItens"]],
 contatos_Emails?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["contatos_Emails_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -18839,8 +18987,10 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Produtos"]: {
 		Ativo:boolean,
 	Id:ModelTypes["uuid"],
+	Identificador?:ModelTypes["uuid"],
 	ProdutoPreco_Id:ModelTypes["uuid"],
 	Produto_Id:ModelTypes["uuid"],
+	TipoItem_Id?:string,
 	VeiculoAtivo_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo:ModelTypes["clientes_VeiculosAtivos"],
@@ -18872,8 +19022,10 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
+	Identificador?:ModelTypes["uuid"],
 	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	TipoItem_Id?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -18884,8 +19036,10 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
+	Identificador?:ModelTypes["uuid"],
 	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	TipoItem_Id?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -21029,6 +21183,9 @@ export type ModelTypes = {
 	/** An object relationship */
 	PrestadoresDeServicos_Produto:ModelTypes["comercial_PrestadoresDeServicos_Produtos"],
 	PrestadoresDeServicos_Produtos_Id:ModelTypes["uuid"],
+	/** An object relationship */
+	TipoDeItem?:ModelTypes["comercial_TipoDeItens"],
+	TipoDeItem_Id?:ModelTypes["comercial_TipoDeItens_enum"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -23077,6 +23234,62 @@ export type ModelTypes = {
 ["comercial_Tarifas_set_input"]: GraphQLTypes["comercial_Tarifas_set_input"];
 	/** update columns of table "comercial.Tarifas" */
 ["comercial_Tarifas_update_column"]: GraphQLTypes["comercial_Tarifas_update_column"];
+	/** columns and relationships of "comercial.TipoDeItens" */
+["comercial_TipoDeItens"]: {
+		Comentario:string,
+	Valor:string
+};
+	/** aggregated selection of "comercial.TipoDeItens" */
+["comercial_TipoDeItens_aggregate"]: {
+		aggregate?:ModelTypes["comercial_TipoDeItens_aggregate_fields"],
+	nodes:ModelTypes["comercial_TipoDeItens"][]
+};
+	/** aggregate fields of "comercial.TipoDeItens" */
+["comercial_TipoDeItens_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["comercial_TipoDeItens_max_fields"],
+	min?:ModelTypes["comercial_TipoDeItens_min_fields"]
+};
+	/** Boolean expression to filter rows from the table "comercial.TipoDeItens". All fields are combined with a logical 'AND'. */
+["comercial_TipoDeItens_bool_exp"]: GraphQLTypes["comercial_TipoDeItens_bool_exp"];
+	/** unique or primary key constraints on table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_constraint"]: GraphQLTypes["comercial_TipoDeItens_constraint"];
+	["comercial_TipoDeItens_enum"]: GraphQLTypes["comercial_TipoDeItens_enum"];
+	/** Boolean expression to compare columns of type "comercial_TipoDeItens_enum". All fields are combined with logical 'AND'. */
+["comercial_TipoDeItens_enum_comparison_exp"]: GraphQLTypes["comercial_TipoDeItens_enum_comparison_exp"];
+	/** input type for inserting data into table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_insert_input"]: GraphQLTypes["comercial_TipoDeItens_insert_input"];
+	/** aggregate max on columns */
+["comercial_TipoDeItens_max_fields"]: {
+		Comentario?:string,
+	Valor?:string
+};
+	/** aggregate min on columns */
+["comercial_TipoDeItens_min_fields"]: {
+		Comentario?:string,
+	Valor?:string
+};
+	/** response of any mutation on the table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["comercial_TipoDeItens"][]
+};
+	/** input type for inserting object relation for remote table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_obj_rel_insert_input"]: GraphQLTypes["comercial_TipoDeItens_obj_rel_insert_input"];
+	/** on_conflict condition type for table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_on_conflict"]: GraphQLTypes["comercial_TipoDeItens_on_conflict"];
+	/** Ordering options when selecting data from "comercial.TipoDeItens". */
+["comercial_TipoDeItens_order_by"]: GraphQLTypes["comercial_TipoDeItens_order_by"];
+	/** primary key columns input for table: comercial_TipoDeItens */
+["comercial_TipoDeItens_pk_columns_input"]: GraphQLTypes["comercial_TipoDeItens_pk_columns_input"];
+	/** select columns of table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_select_column"]: GraphQLTypes["comercial_TipoDeItens_select_column"];
+	/** input type for updating data in table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_set_input"]: GraphQLTypes["comercial_TipoDeItens_set_input"];
+	/** update columns of table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_update_column"]: GraphQLTypes["comercial_TipoDeItens_update_column"];
 	/** columns and relationships of "contatos.Emails" */
 ["contatos_Emails"]: {
 		Categorias:ModelTypes["jsonb"],
@@ -24434,6 +24647,10 @@ export type ModelTypes = {
 	delete_comercial_Tarifas?:ModelTypes["comercial_Tarifas_mutation_response"],
 	/** delete single row from the table: "comercial.Tarifas" */
 	delete_comercial_Tarifas_by_pk?:ModelTypes["comercial_Tarifas"],
+	/** delete data from the table: "comercial.TipoDeItens" */
+	delete_comercial_TipoDeItens?:ModelTypes["comercial_TipoDeItens_mutation_response"],
+	/** delete single row from the table: "comercial.TipoDeItens" */
+	delete_comercial_TipoDeItens_by_pk?:ModelTypes["comercial_TipoDeItens"],
 	/** delete data from the table: "contatos.Emails" */
 	delete_contatos_Emails?:ModelTypes["contatos_Emails_mutation_response"],
 	/** delete single row from the table: "contatos.Emails" */
@@ -24774,6 +24991,10 @@ export type ModelTypes = {
 	insert_comercial_Tarifas?:ModelTypes["comercial_Tarifas_mutation_response"],
 	/** insert a single row into the table: "comercial.Tarifas" */
 	insert_comercial_Tarifas_one?:ModelTypes["comercial_Tarifas"],
+	/** insert data into the table: "comercial.TipoDeItens" */
+	insert_comercial_TipoDeItens?:ModelTypes["comercial_TipoDeItens_mutation_response"],
+	/** insert a single row into the table: "comercial.TipoDeItens" */
+	insert_comercial_TipoDeItens_one?:ModelTypes["comercial_TipoDeItens"],
 	/** insert data into the table: "contatos.Emails" */
 	insert_contatos_Emails?:ModelTypes["contatos_Emails_mutation_response"],
 	/** insert a single row into the table: "contatos.Emails" */
@@ -25114,6 +25335,10 @@ export type ModelTypes = {
 	update_comercial_Tarifas?:ModelTypes["comercial_Tarifas_mutation_response"],
 	/** update single row of the table: "comercial.Tarifas" */
 	update_comercial_Tarifas_by_pk?:ModelTypes["comercial_Tarifas"],
+	/** update data of the table: "comercial.TipoDeItens" */
+	update_comercial_TipoDeItens?:ModelTypes["comercial_TipoDeItens_mutation_response"],
+	/** update single row of the table: "comercial.TipoDeItens" */
+	update_comercial_TipoDeItens_by_pk?:ModelTypes["comercial_TipoDeItens"],
 	/** update data of the table: "contatos.Emails" */
 	update_contatos_Emails?:ModelTypes["contatos_Emails_mutation_response"],
 	/** update single row of the table: "contatos.Emails" */
@@ -26264,6 +26489,12 @@ export type ModelTypes = {
 	comercial_Tarifas_aggregate:ModelTypes["comercial_Tarifas_aggregate"],
 	/** fetch data from the table: "comercial.Tarifas" using primary key columns */
 	comercial_Tarifas_by_pk?:ModelTypes["comercial_Tarifas"],
+	/** fetch data from the table: "comercial.TipoDeItens" */
+	comercial_TipoDeItens:ModelTypes["comercial_TipoDeItens"][],
+	/** fetch aggregated fields from the table: "comercial.TipoDeItens" */
+	comercial_TipoDeItens_aggregate:ModelTypes["comercial_TipoDeItens_aggregate"],
+	/** fetch data from the table: "comercial.TipoDeItens" using primary key columns */
+	comercial_TipoDeItens_by_pk?:ModelTypes["comercial_TipoDeItens"],
 	/** fetch data from the table: "contatos.Emails" */
 	contatos_Emails:ModelTypes["contatos_Emails"][],
 	/** fetch aggregated fields from the table: "contatos.Emails" */
@@ -28993,8 +29224,10 @@ export type GraphQLTypes = {
 	__typename: "clientes_VeiculosAtivos_Produtos",
 	Ativo: boolean,
 	Id: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id: GraphQLTypes["uuid"],
 	Produto_Id: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
@@ -29031,8 +29264,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_bool_exp"]: {
 		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
+	Identificador?: GraphQLTypes["uuid_comparison_exp"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
+	TipoItem_Id?: GraphQLTypes["String_comparison_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
 	_and?: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"]>,
@@ -29048,8 +29283,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_insert_input"]: {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -29060,8 +29297,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos_max_fields",
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -29070,8 +29309,10 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	Identificador?: GraphQLTypes["order_by"],
 	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -29081,8 +29322,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos_min_fields",
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -29091,8 +29334,10 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	Identificador?: GraphQLTypes["order_by"],
 	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -29116,8 +29361,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_order_by"]: {
 		Ativo?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
+	Identificador?: GraphQLTypes["order_by"],
 	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -29134,8 +29381,10 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_set_input"]: {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
+	Identificador?: GraphQLTypes["uuid"],
 	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -33091,6 +33340,9 @@ export type GraphQLTypes = {
 	/** An object relationship */
 	PrestadoresDeServicos_Produto: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos"],
 	PrestadoresDeServicos_Produtos_Id: GraphQLTypes["uuid"],
+	/** An object relationship */
+	TipoDeItem?: GraphQLTypes["comercial_TipoDeItens"],
+	TipoDeItem_Id?: GraphQLTypes["comercial_TipoDeItens_enum"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -33237,6 +33489,8 @@ export type GraphQLTypes = {
 	Item_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrestadoresDeServicos_Produto?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_bool_exp"],
 	PrestadoresDeServicos_Produtos_Id?: GraphQLTypes["uuid_comparison_exp"],
+	TipoDeItem?: GraphQLTypes["comercial_TipoDeItens_bool_exp"],
+	TipoDeItem_Id?: GraphQLTypes["comercial_TipoDeItens_enum_comparison_exp"],
 	_and?: Array<GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Itens_bool_exp"]>,
 	_not?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Itens_bool_exp"],
 	_or?: Array<GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Itens_bool_exp"]>,
@@ -33252,6 +33506,8 @@ export type GraphQLTypes = {
 	Item_Id?: GraphQLTypes["uuid"],
 	PrestadoresDeServicos_Produto?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_obj_rel_insert_input"],
 	PrestadoresDeServicos_Produtos_Id?: GraphQLTypes["uuid"],
+	TipoDeItem?: GraphQLTypes["comercial_TipoDeItens_obj_rel_insert_input"],
+	TipoDeItem_Id?: GraphQLTypes["comercial_TipoDeItens_enum"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -33314,6 +33570,8 @@ export type GraphQLTypes = {
 	Item_Id?: GraphQLTypes["order_by"],
 	PrestadoresDeServicos_Produto?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_order_by"],
 	PrestadoresDeServicos_Produtos_Id?: GraphQLTypes["order_by"],
+	TipoDeItem?: GraphQLTypes["comercial_TipoDeItens_order_by"],
+	TipoDeItem_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -33329,6 +33587,7 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["uuid"],
 	Item_Id?: GraphQLTypes["uuid"],
 	PrestadoresDeServicos_Produtos_Id?: GraphQLTypes["uuid"],
+	TipoDeItem_Id?: GraphQLTypes["comercial_TipoDeItens_enum"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -36966,6 +37225,99 @@ export type GraphQLTypes = {
 };
 	/** update columns of table "comercial.Tarifas" */
 ["comercial_Tarifas_update_column"]: comercial_Tarifas_update_column;
+	/** columns and relationships of "comercial.TipoDeItens" */
+["comercial_TipoDeItens"]: {
+	__typename: "comercial_TipoDeItens",
+	Comentario: string,
+	Valor: string
+};
+	/** aggregated selection of "comercial.TipoDeItens" */
+["comercial_TipoDeItens_aggregate"]: {
+	__typename: "comercial_TipoDeItens_aggregate",
+	aggregate?: GraphQLTypes["comercial_TipoDeItens_aggregate_fields"],
+	nodes: Array<GraphQLTypes["comercial_TipoDeItens"]>
+};
+	/** aggregate fields of "comercial.TipoDeItens" */
+["comercial_TipoDeItens_aggregate_fields"]: {
+	__typename: "comercial_TipoDeItens_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["comercial_TipoDeItens_max_fields"],
+	min?: GraphQLTypes["comercial_TipoDeItens_min_fields"]
+};
+	/** Boolean expression to filter rows from the table "comercial.TipoDeItens". All fields are combined with a logical 'AND'. */
+["comercial_TipoDeItens_bool_exp"]: {
+		Comentario?: GraphQLTypes["String_comparison_exp"],
+	Valor?: GraphQLTypes["String_comparison_exp"],
+	_and?: Array<GraphQLTypes["comercial_TipoDeItens_bool_exp"]>,
+	_not?: GraphQLTypes["comercial_TipoDeItens_bool_exp"],
+	_or?: Array<GraphQLTypes["comercial_TipoDeItens_bool_exp"]>
+};
+	/** unique or primary key constraints on table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_constraint"]: comercial_TipoDeItens_constraint;
+	["comercial_TipoDeItens_enum"]: comercial_TipoDeItens_enum;
+	/** Boolean expression to compare columns of type "comercial_TipoDeItens_enum". All fields are combined with logical 'AND'. */
+["comercial_TipoDeItens_enum_comparison_exp"]: {
+		_eq?: GraphQLTypes["comercial_TipoDeItens_enum"],
+	_in?: Array<GraphQLTypes["comercial_TipoDeItens_enum"]>,
+	_is_null?: boolean,
+	_neq?: GraphQLTypes["comercial_TipoDeItens_enum"],
+	_nin?: Array<GraphQLTypes["comercial_TipoDeItens_enum"]>
+};
+	/** input type for inserting data into table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_insert_input"]: {
+		Comentario?: string,
+	Valor?: string
+};
+	/** aggregate max on columns */
+["comercial_TipoDeItens_max_fields"]: {
+	__typename: "comercial_TipoDeItens_max_fields",
+	Comentario?: string,
+	Valor?: string
+};
+	/** aggregate min on columns */
+["comercial_TipoDeItens_min_fields"]: {
+	__typename: "comercial_TipoDeItens_min_fields",
+	Comentario?: string,
+	Valor?: string
+};
+	/** response of any mutation on the table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_mutation_response"]: {
+	__typename: "comercial_TipoDeItens_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["comercial_TipoDeItens"]>
+};
+	/** input type for inserting object relation for remote table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_obj_rel_insert_input"]: {
+		data: GraphQLTypes["comercial_TipoDeItens_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["comercial_TipoDeItens_on_conflict"]
+};
+	/** on_conflict condition type for table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_on_conflict"]: {
+		constraint: GraphQLTypes["comercial_TipoDeItens_constraint"],
+	update_columns: Array<GraphQLTypes["comercial_TipoDeItens_update_column"]>,
+	where?: GraphQLTypes["comercial_TipoDeItens_bool_exp"]
+};
+	/** Ordering options when selecting data from "comercial.TipoDeItens". */
+["comercial_TipoDeItens_order_by"]: {
+		Comentario?: GraphQLTypes["order_by"],
+	Valor?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: comercial_TipoDeItens */
+["comercial_TipoDeItens_pk_columns_input"]: {
+		Valor: string
+};
+	/** select columns of table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_select_column"]: comercial_TipoDeItens_select_column;
+	/** input type for updating data in table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_set_input"]: {
+		Comentario?: string,
+	Valor?: string
+};
+	/** update columns of table "comercial.TipoDeItens" */
+["comercial_TipoDeItens_update_column"]: comercial_TipoDeItens_update_column;
 	/** columns and relationships of "contatos.Emails" */
 ["contatos_Emails"]: {
 	__typename: "contatos_Emails",
@@ -39314,6 +39666,10 @@ export type GraphQLTypes = {
 	delete_comercial_Tarifas?: GraphQLTypes["comercial_Tarifas_mutation_response"],
 	/** delete single row from the table: "comercial.Tarifas" */
 	delete_comercial_Tarifas_by_pk?: GraphQLTypes["comercial_Tarifas"],
+	/** delete data from the table: "comercial.TipoDeItens" */
+	delete_comercial_TipoDeItens?: GraphQLTypes["comercial_TipoDeItens_mutation_response"],
+	/** delete single row from the table: "comercial.TipoDeItens" */
+	delete_comercial_TipoDeItens_by_pk?: GraphQLTypes["comercial_TipoDeItens"],
 	/** delete data from the table: "contatos.Emails" */
 	delete_contatos_Emails?: GraphQLTypes["contatos_Emails_mutation_response"],
 	/** delete single row from the table: "contatos.Emails" */
@@ -39654,6 +40010,10 @@ export type GraphQLTypes = {
 	insert_comercial_Tarifas?: GraphQLTypes["comercial_Tarifas_mutation_response"],
 	/** insert a single row into the table: "comercial.Tarifas" */
 	insert_comercial_Tarifas_one?: GraphQLTypes["comercial_Tarifas"],
+	/** insert data into the table: "comercial.TipoDeItens" */
+	insert_comercial_TipoDeItens?: GraphQLTypes["comercial_TipoDeItens_mutation_response"],
+	/** insert a single row into the table: "comercial.TipoDeItens" */
+	insert_comercial_TipoDeItens_one?: GraphQLTypes["comercial_TipoDeItens"],
 	/** insert data into the table: "contatos.Emails" */
 	insert_contatos_Emails?: GraphQLTypes["contatos_Emails_mutation_response"],
 	/** insert a single row into the table: "contatos.Emails" */
@@ -39994,6 +40354,10 @@ export type GraphQLTypes = {
 	update_comercial_Tarifas?: GraphQLTypes["comercial_Tarifas_mutation_response"],
 	/** update single row of the table: "comercial.Tarifas" */
 	update_comercial_Tarifas_by_pk?: GraphQLTypes["comercial_Tarifas"],
+	/** update data of the table: "comercial.TipoDeItens" */
+	update_comercial_TipoDeItens?: GraphQLTypes["comercial_TipoDeItens_mutation_response"],
+	/** update single row of the table: "comercial.TipoDeItens" */
+	update_comercial_TipoDeItens_by_pk?: GraphQLTypes["comercial_TipoDeItens"],
 	/** update data of the table: "contatos.Emails" */
 	update_contatos_Emails?: GraphQLTypes["contatos_Emails_mutation_response"],
 	/** update single row of the table: "contatos.Emails" */
@@ -41835,6 +42199,12 @@ export type GraphQLTypes = {
 	comercial_Tarifas_aggregate: GraphQLTypes["comercial_Tarifas_aggregate"],
 	/** fetch data from the table: "comercial.Tarifas" using primary key columns */
 	comercial_Tarifas_by_pk?: GraphQLTypes["comercial_Tarifas"],
+	/** fetch data from the table: "comercial.TipoDeItens" */
+	comercial_TipoDeItens: Array<GraphQLTypes["comercial_TipoDeItens"]>,
+	/** fetch aggregated fields from the table: "comercial.TipoDeItens" */
+	comercial_TipoDeItens_aggregate: GraphQLTypes["comercial_TipoDeItens_aggregate"],
+	/** fetch data from the table: "comercial.TipoDeItens" using primary key columns */
+	comercial_TipoDeItens_by_pk?: GraphQLTypes["comercial_TipoDeItens"],
 	/** fetch data from the table: "contatos.Emails" */
 	contatos_Emails: Array<GraphQLTypes["contatos_Emails"]>,
 	/** fetch aggregated fields from the table: "contatos.Emails" */
@@ -43136,8 +43506,10 @@ export const enum clientes_VeiculosAtivos_Produtos_constraint {
 export const enum clientes_VeiculosAtivos_Produtos_select_column {
 	Ativo = "Ativo",
 	Id = "Id",
+	Identificador = "Identificador",
 	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
+	TipoItem_Id = "TipoItem_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -43147,8 +43519,10 @@ export const enum clientes_VeiculosAtivos_Produtos_select_column {
 export const enum clientes_VeiculosAtivos_Produtos_update_column {
 	Ativo = "Ativo",
 	Id = "Id",
+	Identificador = "Identificador",
 	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
+	TipoItem_Id = "TipoItem_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -43719,6 +44093,7 @@ export const enum comercial_PrestadoresDeServicos_Produtos_Itens_select_column {
 	Id = "Id",
 	Item_Id = "Item_Id",
 	PrestadoresDeServicos_Produtos_Id = "PrestadoresDeServicos_Produtos_Id",
+	TipoDeItem_Id = "TipoDeItem_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -43728,6 +44103,7 @@ export const enum comercial_PrestadoresDeServicos_Produtos_Itens_update_column {
 	Id = "Id",
 	Item_Id = "Item_Id",
 	PrestadoresDeServicos_Produtos_Id = "PrestadoresDeServicos_Produtos_Id",
+	TipoDeItem_Id = "TipoDeItem_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -44189,6 +44565,28 @@ export const enum comercial_Tarifas_update_column {
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
+}
+/** unique or primary key constraints on table "comercial.TipoDeItens" */
+export const enum comercial_TipoDeItens_constraint {
+	TipoDeItens_pkey = "TipoDeItens_pkey"
+}
+export const enum comercial_TipoDeItens_enum {
+	chips = "chips",
+	equipamentos = "equipamentos",
+	identificadores = "identificadores",
+	kitsDeInstalacao = "kitsDeInstalacao",
+	kitsDeInsumo = "kitsDeInsumo",
+	rastreadores = "rastreadores"
+}
+/** select columns of table "comercial.TipoDeItens" */
+export const enum comercial_TipoDeItens_select_column {
+	Comentario = "Comentario",
+	Valor = "Valor"
+}
+/** update columns of table "comercial.TipoDeItens" */
+export const enum comercial_TipoDeItens_update_column {
+	Comentario = "Comentario",
+	Valor = "Valor"
 }
 /** unique or primary key constraints on table "contatos.Emails" */
 export const enum contatos_Emails_constraint {

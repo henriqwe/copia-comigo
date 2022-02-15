@@ -3,10 +3,11 @@ import * as utils from '@comigo/utils'
 import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 
 export function List() {
-  const { serviceOrdersData } = serviceOrders.useServiceOrder()
-  return serviceOrdersData ? (
+  const { filteredOSs, filters, setFilters } = serviceOrders.useServiceOrder()
+
+  return filteredOSs ? (
     <blocks.Table
-      colection={serviceOrdersData}
+      colection={filteredOSs}
       columnTitles={[
         { title: 'Código Identificador', fieldName: 'CodigoIdentificador' },
         {
@@ -44,6 +45,7 @@ export function List() {
           }
         }
       ]}
+      tableName="operacional_OrdemDeServico"
       actions={serviceOrders.RowActions}
     />
   ) : (

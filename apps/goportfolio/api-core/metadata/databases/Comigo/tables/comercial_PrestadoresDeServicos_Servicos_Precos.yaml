@@ -12,24 +12,10 @@ object_relationships:
   using:
     foreign_key_constraint_on: TipoDeRecorrencia_Id
 array_relationships:
-- name: CombosServicos
-  using:
-    foreign_key_constraint_on:
-      column: ServicoPreco_Id
-      table:
-        name: Combos_Servicos
-        schema: comercial
-- name: PlanosServicos
-  using:
-    foreign_key_constraint_on:
-      column: ServicoPreco_Id
-      table:
-        name: Planos_Servicos
-        schema: comercial
 - name: PropostasServicos
   using:
     foreign_key_constraint_on:
-      column: ServicosPreco_Id
+      column: PrecoDeAdesao_Id
       table:
         name: Propostas_Servicos
         schema: propostas

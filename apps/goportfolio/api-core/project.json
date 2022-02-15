@@ -13,6 +13,16 @@
         ]
       }
     },
+    "hasura-seed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/goportfolio/api-core && hasura seed apply --database-name Comigo"
+          }
+        ]
+      }
+    },
     "hasura-update": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {

@@ -44,7 +44,6 @@ export function Page() {
       ]}
     >
       <serviceOrders.List />
-      <serviceOrders.SlidePanel />
     </templates.InternalNavigationAndSlide>
   )
 }

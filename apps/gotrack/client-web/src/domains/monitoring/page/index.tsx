@@ -52,7 +52,7 @@ export function Localization() {
         style={{ height: '95%' }}
       >
         <div className="w-[21rem]">
-          <blocks.FloatingCard
+          <blocks.MonitoringPanel
             allUserVehicle={allUserVehicle}
             schemaYup={localizationSchema}
             consultVehicleHistoric={consultVehicleHistoric}

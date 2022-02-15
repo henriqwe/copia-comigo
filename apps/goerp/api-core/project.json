@@ -13,6 +13,16 @@
         ]
       }
     },
+    "hasura-seed": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "cd apps/goerp/api-core && hasura seed apply --database-name ERP"
+          }
+        ]
+      }
+    },
     "hasura-update": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {

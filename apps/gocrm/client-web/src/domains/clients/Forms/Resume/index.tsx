@@ -4,6 +4,7 @@ import * as blocks from '@comigo/ui-blocks'
 import * as common from '@comigo/ui-common'
 import * as clients from '&crm/domains/clients'
 import * as utils from '@comigo/utils'
+import axios from 'axios'
 
 type CollectionType = {
   Vehicle?: string
@@ -29,7 +30,8 @@ export function Resume() {
     getServiceById,
     getProductById,
     getPlanById,
-    getComboById
+    getComboById,
+    getItemIdentifier
   } = clients.useUpdate()
 
   async function getRecurrenceTotalValue() {
@@ -133,6 +135,7 @@ export function Resume() {
       })
 
       const products = activeVehicle.Produtos.map(async (product) => {
+        const Identifier = await getItemIdentifier(product.TipoItem_Id, product.Identificador)
         return await getProductById(
           product.Produto_Id,
           product.ProdutoPreco_Id
@@ -149,7 +152,8 @@ export function Resume() {
               response?.price?.TipoDePreco?.Valor === 'recorrencia'
                 ? response?.price?.Valor
                 : '0',
-            Type: 'Produto'
+            Type: 'Produto',
+            Identifier
           }
         })
       })
@@ -181,7 +185,8 @@ export function Resume() {
               Name: product.Name,
               MembershipPrice: product.MembershipPrice,
               RecurrencePrice: product.RecurrencePrice,
-              Type: product.Type
+              Type: product.Type,
+              Identifier: product.Identifier
             }
           })
         )
@@ -251,36 +256,17 @@ export function Resume() {
             type: 'handler',
             handler: (value) =>
               value !== undefined ? utils.BRLMoneyFormat(Number(value)) : ''
+          },
+          {
+            title: 'Identificador',
+            fieldName: 'Identifier',
+            type: 'handler',
+            handler: (value) => (value !== undefined ? value : '')
           }
         ]}
       />
       <common.Divider />
       <common.LineInfoDetailsColumns>
-        {/* <clients.InfoDetails
-          title={
-            <div className="flex">
-              <span className="mr-2">Adesão</span>
-              <common.icons.EditIcon
-                className="w-5 h-5 cursor-pointer text-cyan-900"
-                onClick={() => {
-                  setSlidePanelState({
-                    open: true,
-                    type: 'paymentType'
-                  })
-                  runPaymentTypeQuery()
-                }}
-              />
-            </div>
-          }
-          subtitle={getMembershipTotalValue()}
-          details={[
-            {
-              key: 'Forma de Pagamento',
-              value: paymentType
-            }
-          ]}
-        /> */}
-
         <clients.InfoDetails
           title={`Recorrência`}
           subtitle={utils.BRLMoneyFormat(totalValue)}

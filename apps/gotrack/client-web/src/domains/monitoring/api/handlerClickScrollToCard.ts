@@ -5,13 +5,12 @@ export function handleClickScrollToCardPath(index: string, refsPathVehicle) {
   })
 
   refsPathVehicle.current[index]['elem'].firstChild.children[1].classList.add(
-    'border-2',
-    'border-yellow-500'
+    '!bg-yellow-50'
   )
 
   setTimeout(() => {
     refsPathVehicle.current[index][
       'elem'
-    ].firstChild.children[1].classList.remove('border-2', 'border-yellow-500')
+    ].firstChild.children[1].classList.remove('!bg-yellow-50')
   }, 3000)
 }

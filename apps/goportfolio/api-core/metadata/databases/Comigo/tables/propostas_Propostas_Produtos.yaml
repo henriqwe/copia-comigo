@@ -2,12 +2,15 @@ table:
   name: Propostas_Produtos
   schema: propostas
 object_relationships:
+- name: PrecoAdesao
+  using:
+    foreign_key_constraint_on: PrecoDeAdesao_Id
+- name: PrecoRecorrencia
+  using:
+    foreign_key_constraint_on: PrecoDeRecorrencia_Id
 - name: Produto
   using:
     foreign_key_constraint_on: Produto_Id
-- name: ProdutoPreco
-  using:
-    foreign_key_constraint_on: ProdutoPreco_Id
 - name: Proposta
   using:
     foreign_key_constraint_on: Proposta_Id

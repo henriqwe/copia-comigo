@@ -3684,6 +3684,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -3692,6 +3698,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
+			type:"String_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -3759,6 +3771,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"uuid",
 			array:false,
@@ -3767,6 +3785,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -3809,6 +3833,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
@@ -3816,6 +3846,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -3853,6 +3889,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
@@ -3860,6 +3902,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -3923,6 +3971,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
@@ -3930,6 +3984,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -3988,6 +4048,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificador:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ProdutoPreco_Id:{
 			type:"uuid",
 			array:false,
@@ -3996,6 +4062,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoItem_Id:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -78665,8 +78737,10 @@ export const ReturnTypes: Record<string,any> = {
 	clientes_VeiculosAtivos_Produtos:{
 		Ativo:"Boolean",
 		Id:"uuid",
+		Identificador:"uuid",
 		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
 		VeiculosAtivo:"clientes_VeiculosAtivos",
 		created_at:"timestamptz",
@@ -78684,8 +78758,10 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	clientes_VeiculosAtivos_Produtos_max_fields:{
 		Id:"uuid",
+		Identificador:"uuid",
 		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -78693,8 +78769,10 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	clientes_VeiculosAtivos_Produtos_min_fields:{
 		Id:"uuid",
+		Identificador:"uuid",
 		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",

@@ -17,10 +17,10 @@ remote_relationships:
   name: Produto
 - definition:
     hasura_fields:
-    - ProdutoPreco_Id
+    - PrecoDeAdesao_Id
     remote_field:
       comercial_PrestadoresDeServicos_Produtos_Precos_by_pk:
         arguments:
-          Id: $ProdutoPreco_Id
+          Id: $PrecoDeAdesao_Id
     remote_schema: GoPortfolio
   name: ProdutoPreco

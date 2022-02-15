@@ -1,12 +1,19 @@
-import * as common from '@comigo/ui-common'
+import {
+  ChipIcon,
+  LightningBoltIcon,
+  LocationMarkerIcon,
+  StatusOnlineIcon
+} from '@heroicons/react/outline'
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react'
+import { convertMToKm } from '../CardVehicle/functions'
+import { setColorStatus } from './functions'
 
 type coordsToCenterMap = {
   latitude?: number
   longitude?: number
   carro_id?: number
 }
-type vehicle = {
+export type vehicleType = {
   crs: string
   data: string
   dist: string
@@ -32,7 +39,7 @@ type vehicle = {
 }
 type VehicleCardProps = {
   description?: ReactNode
-  vehicle: vehicle
+  vehicle: vehicleType
   showBounceMarker: Dispatch<SetStateAction<coordsToCenterMap>>
   getStreetNameByLatLng: any
 }
@@ -43,42 +50,31 @@ export function VehicleCard({
   showBounceMarker,
   getStreetNameByLatLng
 }: VehicleCardProps) {
-  // TODO: Refatorar estilo dos before's para não sobrepor a imagem
-  let borderColor = 'border-black'
-  let title = 'Ligado'
-  if (Number(vehicle.speed) > 80) {
-    borderColor = 'border-red-500'
-    title = 'Evento de velocidade'
-  } else if (Number(vehicle.speed).toFixed() === '0' && vehicle.ligado === 0) {
-    borderColor = 'border-gray-500'
-    title = 'Desligado'
-  } else if (Number(vehicle.speed).toFixed() === '0' && vehicle.ligado === 1) {
-    borderColor = 'border-blue-500'
-    title = 'Parado'
-  }
   const [addressData, setAddressData] = useState('')
 
-  async function getStreetName(vehicle: vehicle) {
+  async function getStreetName(vehicle: vehicleType) {
     const response = await getStreetNameByLatLng(
       vehicle.latitude,
       vehicle.longitude
     )
     setAddressData(response.results[0].formatted_address)
   }
+  const colorStatus = setColorStatus(vehicle)
   return (
-    <div className="relative flex items-center mb-3 intro-x">
-      <div className="flex flex-col report-timeline__image align-center">
-        <div
-          className={` flex justify-center items-center w-10 h-10 overflow-hidden rounded-full image-fit border-4 bg-white text-dark-7 font-black ${borderColor}`}
-        >
-          {Math.floor(Number(vehicle.speed))}
-        </div>
-        <div className="flex justify-center w-full">
-          <span>Km/h</span>
+    <div className="relative flex items-center intro-x  mb-4 rounded justify-between">
+      <div className="flex flex-col report-timeline__image align-center mr-1">
+        <div className={`flex justify-center items-center `}>
+          <div
+            className={`w-4 h-4 rounded-full border-2 mr-1 border-gray-200 ${colorStatus.color}`}
+            title={colorStatus.title}
+          ></div>
+          <span className="text-super-tiny !leading-none font-medium">
+            {new Date(vehicle.data).toLocaleTimeString('pt-br')}
+          </span>
         </div>
       </div>
       <div
-        className="flex-1 px-2 py-3 ml-4 bg-gray-300 rounded-sm box dark:bg-dark-2 zoom-in hover:cursor-pointer dark:hover:bg-dark-4 hover:bg-gray-400"
+        className="bg-gray-100 py-2 px-1 hover:cursor-pointer rounded-md"
         onClick={() => {
           showBounceMarker({
             latitude: Number(vehicle.latitude),
@@ -86,42 +82,102 @@ export function VehicleCard({
           })
         }}
       >
-        <div className="grid grid-cols-3">
-          <div className="col-span-1">
-            <common.TitleWithSubTitleAtTheTop
-              title={title}
-              classTitle="!text-sm mt-1"
-              classSubtitle="text-xs"
-              subtitle="Status"
-            />
-          </div>
-          <div className="flex justify-end col-span-2">
-            <common.TitleWithSubTitleAtTheTop
-              title={`${new Date(vehicle.data).toLocaleDateString('pt-br')} 
-                ${new Date(vehicle.data).toLocaleTimeString('pt-br')}`}
-              classSubtitle="text-xs flex justify-end"
-              classTitle="!text-sm mt-1"
-              subtitle="Data e hora"
-            />
-          </div>
-        </div>
-        <div className="mt-1 text-gray-600">
-          {addressData ? (
-            <span className="text-sm">{addressData}</span>
-          ) : (
-            <button
-              className="underline"
-              onClick={() => {
-                getStreetName(vehicle)
-              }}
-            >
-              <span className="justify-end text-xs">
-                Clique aqui para consultar o endereço
-              </span>
-            </button>
-          )}
-        </div>
+        <AdicionalInformations
+          vehicle={vehicle}
+          address={addressData}
+          getStreetName={getStreetName}
+        />
       </div>
+    </div>
+  )
+}
+
+function AdicionalInformations({
+  vehicle,
+  address,
+  getStreetName
+}: {
+  vehicle: vehicleType
+  address: string
+  getStreetName: (vehicle: vehicleType) => Promise<void>
+}) {
+  const labels = [
+    {
+      title: 'Endereço',
+      icon: <LocationMarkerIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: address ? (
+        <span className="text-super-tiny">{address}</span>
+      ) : (
+        <button
+          className="underline"
+          onClick={() => {
+            getStreetName(vehicle)
+          }}
+        >
+          <span className="text-super-tiny">Clique aqui para consultar</span>
+        </button>
+      )
+    },
+    {
+      title: 'Velocidade',
+      icon: <LocationMarkerIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: Math.floor(Number(vehicle.speed)) + ' km/h'
+    },
+    {
+      title: 'Horímetro',
+      icon: <ChipIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: '12:32:52'
+    },
+    {
+      title: 'Hodômetro',
+      icon: <LightningBoltIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: convertMToKm(vehicle.dist) + ' Km'
+    },
+    {
+      title: 'Bateria',
+      icon: <LightningBoltIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: '3.8v'
+    },
+    {
+      title: 'Voltagem',
+      icon: <LightningBoltIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: '13.3v'
+    },
+    {
+      title: 'Satélite',
+      icon: <StatusOnlineIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: '20'
+    }
+  ]
+
+  return (
+    <div className="grid grid-cols-6 ">
+      {labels.map((label, idx) => {
+        return (
+          <div
+            key={idx}
+            className={` my-1 flex flex-row  items-center ${
+              label.title === 'Endereço' ? 'col-span-full' : 'col-span-2'
+            }`}
+          >
+            <div>
+              <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mr-1">
+                {label.icon}
+              </div>
+            </div>
+            <div>
+              <div className="flex flex-col">
+                <span className="text-super-tiny text-gray-500">
+                  {label.title}
+                </span>
+                <span className="text-super-tiny font-medium">
+                  {label.subTitle}
+                </span>
+              </div>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
