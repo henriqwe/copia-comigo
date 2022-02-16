@@ -1,13 +1,11 @@
 import * as common from '@comigo/ui-common'
 import { Dispatch, SetStateAction } from 'react'
 
-import { vehicleType } from './MonitoringPanel'
+import { vehicleType } from '../MonitoringPanel'
 
 type pagAllVehiclesProps = {
   inputSearchValue: string
   setInputSearchValue: Dispatch<SetStateAction<string>>
-  titleFilter: string
-  setTitleFilter: Dispatch<SetStateAction<string>>
   vehiclesInTransit: vehicleType[]
   vehiclesStopped: vehicleType[]
   vehiclesOff: vehicleType[]
@@ -27,8 +25,6 @@ type pagAllVehiclesProps = {
 export function AllVehiclesPanel({
   inputSearchValue,
   setInputSearchValue,
-  titleFilter,
-  setTitleFilter,
   vehiclesInTransit,
   vehiclesStopped,
   vehiclesOff,

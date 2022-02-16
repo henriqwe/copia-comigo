@@ -58,15 +58,22 @@ type UpdateContextProps = {
         Id: string
         Portfolio_Id: string
         TipoPortfolio: string
-        PortfolioPreco_Id: string
+        PortfolioPreco_Id?: string
+        PrecoDeAdesao_Id?: string,
+        PrecoDeRecorrencia_Id?: string
       }[]
       Produtos: {
-        ProdutoPreco_Id: string
+        PrecoDeAdesao_Id?: string
+        PrecoDeRecorrencia_Id?: string
         Produto_Id: string
         Identificador?: string
         TipoItem_Id?: string
       }[]
-      Servicos: { ServicoPreco_Id: string; Servico_Id: string }[]
+      Servicos: {
+        PrecoDeAdesao_Id?: string
+        PrecoDeRecorrencia_Id?: string
+        Servico_Id: string
+      }[]
       Situacao: {
         Comentario: string
         Valor: string
@@ -99,31 +106,51 @@ type UpdateContextProps = {
   >
   getServiceById: (
     serviceId: string,
-    priceId: string
+    priceId: string,
+    secondPriceId?: string
   ) => Promise<{
-    service?: {
+    service: {
       Id: string
       Nome: string
       GeraOS: boolean
     }
-    price?: {
+    price: {
       Id: string
       Valor: string
-      TipoDePreco?: { Valor: string }
+      TipoDePreco?: {
+        Valor: string
+      }
+    }
+    secondPrice: {
+      Id: string
+      Valor: string
+      TipoDePreco?: {
+        Valor: string
+      }
     }
   }>
   getProductById: (
     productId: string,
-    priceId: string
+    priceId: string,
+    secondPriceId?: string
   ) => Promise<{
-    product?: {
-      Id: string
+    product: {
       Nome: string
+      Id: string
     }
-    price?: {
+    price: {
       Id: string
       Valor: string
-      TipoDePreco?: { Valor: string }
+      TipoDePreco?: {
+        Valor: string
+      }
+    }
+    secondPrice: {
+      Id: string
+      Valor: string
+      TipoDePreco?: {
+        Valor: string
+      }
     }
   }>
   getPlanById: (
@@ -149,15 +176,12 @@ type UpdateContextProps = {
       Nome: string
       Planos: {
         Plano_Id: string
-        PlanoPreco: { ValorDeAdesao: string; ValorDeRecorrencia: string }
       }[]
       Produtos: {
         Produto_Id: string
-        ProdutoPreco: { Valor: string; TipoDePreco?: { Valor: string } }
       }[]
       Servicos: {
         Servico_Id: string
-        ServicosPreco: { Valor: string; TipoDePreco?: { Valor: string } }
       }[]
     }
     price?: {
@@ -294,7 +318,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   Id: true,
                   Portfolio_Id: true,
                   TipoPortfolio: true,
-                  PortfolioPreco_Id: true
+                  PortfolioPreco_Id: true,
+                  PrecoDeAdesao_Id: true,
+                  PrecoDeRecorrencia_Id: true
                 }
               ],
               Produtos: [
@@ -305,7 +331,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   }
                 },
                 {
-                  ProdutoPreco_Id: true,
+                  PrecoDeAdesao_Id: true,
+                  PrecoDeRecorrencia_Id: true,
                   Produto_Id: true,
                   Identificador: true,
                   TipoItem_Id: true
@@ -318,7 +345,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                     Ativo: { _eq: true }
                   }
                 },
-                { ServicoPreco_Id: true, Servico_Id: true }
+                {
+                  Servico_Id: true,
+                  PrecoDeAdesao_Id: true,
+                  PrecoDeRecorrencia_Id: true
+                }
               ],
               Situacao: {
                 Comentario: true,
@@ -406,7 +437,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.autenticacao_Usuarios
   }
 
-  async function getProductById(productId: string, priceId: string) {
+  async function getProductById(
+    productId: string,
+    priceId: string,
+    secondPriceId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       comercial_Produtos_by_pk: [
         {
@@ -416,7 +451,20 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           Id: true,
           Nome: true
         }
-      ],
+      ]
+    })
+
+    return {
+      product: data.comercial_Produtos_by_pk,
+      price: await getProductPriceById(priceId),
+      secondPrice: secondPriceId
+        ? await getProductPriceById(secondPriceId)
+        : null
+    }
+  }
+
+  async function getProductPriceById(priceId: string) {
+    const { data } = await useTypedClientQuery({
       comercial_PrestadoresDeServicos_Produtos_Precos_by_pk: [
         {
           Id: priceId
@@ -429,10 +477,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
       ]
     })
 
-    return {
-      product: data.comercial_Produtos_by_pk,
-      price: data.comercial_PrestadoresDeServicos_Produtos_Precos_by_pk
-    }
+    return data.comercial_PrestadoresDeServicos_Produtos_Precos_by_pk
   }
 
   async function getPlanById(planId: string, priceId: string) {
@@ -476,22 +521,19 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           Planos: [
             { where: { deleted_at: { _is_null: true } } },
             {
-              Plano_Id: true,
-              PlanoPreco: { ValorDeAdesao: true, ValorDeRecorrencia: true }
+              Plano_Id: true
             }
           ],
           Produtos: [
             { where: { deleted_at: { _is_null: true } } },
             {
-              Produto_Id: true,
-              ProdutoPreco: { Valor: true, TipoDePreco: { Valor: true } }
+              Produto_Id: true
             }
           ],
           Servicos: [
             { where: { deleted_at: { _is_null: true } } },
             {
-              Servico_Id: true,
-              ServicosPreco: { Valor: true, TipoDePreco: { Valor: true } }
+              Servico_Id: true
             }
           ]
         }
@@ -514,7 +556,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     }
   }
 
-  async function getServiceById(serviceId: string, priceId: string) {
+  async function getServiceById(
+    serviceId: string,
+    priceId: string,
+    secondPriceId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       comercial_Servicos_by_pk: [
         {
@@ -525,7 +571,20 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           Nome: true,
           GeraOS: true
         }
-      ],
+      ]
+    })
+
+    return {
+      service: data.comercial_Servicos_by_pk,
+      price: await getServicePriceById(priceId),
+      secondPrice: secondPriceId
+        ? await getServicePriceById(secondPriceId)
+        : null
+    }
+  }
+
+  async function getServicePriceById(priceId: string) {
+    const { data } = await useTypedClientQuery({
       comercial_PrestadoresDeServicos_Servicos_Precos_by_pk: [
         {
           Id: priceId
@@ -538,10 +597,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
       ]
     })
 
-    return {
-      service: data.comercial_Servicos_by_pk,
-      price: data.comercial_PrestadoresDeServicos_Servicos_Precos_by_pk
-    }
+    return data.comercial_PrestadoresDeServicos_Servicos_Precos_by_pk
   }
 
   async function getFranquiaById(Id: string) {

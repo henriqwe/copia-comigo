@@ -19,7 +19,6 @@ export function ChangeVehicle() {
     createProposal,
     createProposalLoading,
     userAndTicketData,
-    getUserByClientId,
     changeVehicleSchema,
     getComboById,
     vehiclesData
@@ -42,13 +41,15 @@ export function ChangeVehicle() {
       Proposta_Id: string
       Veiculo_Id: string
       Produto_Id: string
-      ProdutoPreco_Id: string
+      PrecoDeAdesao_Id: string
+      PrecoDeRecorrencia_Id: string
     }[] = []
     const service: {
       Proposta_Id: string
       Servico_Id: string
       Veiculo_Id: string
-      ServicosPreco_Id: string
+      PrecoDeAdesao_Id: string
+      PrecoDeRecorrencia_Id: string
     }[] = []
     const combos: {
       Proposta_Id: string
@@ -107,65 +108,89 @@ export function ChangeVehicle() {
     formData['Veiculo1'].key.Produtos.filter(
       (item: { Produto_Id: string }) =>
         !comboProductsIds.includes(item.Produto_Id)
-    ).map((item: { Produto_Id: string; ProdutoPreco_Id: string }) => {
-      products.push(
-        {
-          Proposta_Id: proposalUUID,
-          ProdutoPreco_Id: item.ProdutoPreco_Id,
-          Produto_Id: item.Produto_Id,
-          Veiculo_Id: formData['Veiculo1'].key.Veiculo.Id
-        },
-        {
-          Proposta_Id: proposalUUID,
-          ProdutoPreco_Id: item.ProdutoPreco_Id,
-          Produto_Id: item.Produto_Id,
-          Veiculo_Id: formData['Veiculo2'].key
-        }
-      )
-    })
+    ).map(
+      (item: {
+        Produto_Id: string
+        PrecoDeAdesao_Id: string
+        PrecoDeRecorrencia_Id: string
+      }) => {
+        products.push(
+          {
+            Proposta_Id: proposalUUID,
+            PrecoDeAdesao_Id: item.PrecoDeAdesao_Id,
+            PrecoDeRecorrencia_Id: item.PrecoDeRecorrencia_Id,
+            Produto_Id: item.Produto_Id,
+            Veiculo_Id: formData['Veiculo1'].key.Veiculo.Id
+          },
+          {
+            Proposta_Id: proposalUUID,
+            PrecoDeAdesao_Id: item.PrecoDeAdesao_Id,
+            PrecoDeRecorrencia_Id: item.PrecoDeRecorrencia_Id,
+            Produto_Id: item.Produto_Id,
+            Veiculo_Id: formData['Veiculo2'].key
+          }
+        )
+      }
+    )
 
     // adicionando serviços dos beneficios no array
     formData['Veiculo1'].key.Beneficios.filter(
       (item: { TipoPortfolio: string; Portfolio_Id: string }) =>
         item.TipoPortfolio === 'serviço' &&
         !comboServicesIds.includes(item.Portfolio_Id)
-    ).map((item: { Portfolio_Id: string; PortfolioPreco_Id: string }) => {
-      service.push(
-        {
-          Proposta_Id: proposalUUID,
-          ServicosPreco_Id: item.PortfolioPreco_Id,
-          Servico_Id: item.Portfolio_Id,
-          Veiculo_Id: formData['Veiculo1'].key.Veiculo.Id
-        },
-        {
-          Proposta_Id: proposalUUID,
-          ServicosPreco_Id: item.PortfolioPreco_Id,
-          Servico_Id: item.Portfolio_Id,
-          Veiculo_Id: formData['Veiculo2'].key
-        }
-      )
-    })
+    ).map(
+      (item: {
+        Portfolio_Id: string
+        PrecoDeAdesao_Id: string
+        PrecoDeRecorrencia_Id: string
+      }) => {
+        service.push(
+          {
+            Proposta_Id: proposalUUID,
+            PrecoDeAdesao_Id: item.PrecoDeAdesao_Id,
+            PrecoDeRecorrencia_Id: item.PrecoDeRecorrencia_Id,
+            Servico_Id: item.Portfolio_Id,
+            Veiculo_Id: formData['Veiculo1'].key.Veiculo.Id
+          },
+          {
+            Proposta_Id: proposalUUID,
+            PrecoDeAdesao_Id: item.PrecoDeAdesao_Id,
+            PrecoDeRecorrencia_Id: item.PrecoDeRecorrencia_Id,
+            Servico_Id: item.Portfolio_Id,
+            Veiculo_Id: formData['Veiculo2'].key
+          }
+        )
+      }
+    )
 
     // adicionando serviços do veiculo no array
     formData['Veiculo1'].key.Servicos.filter(
       (item: { Servico_Id: string }) =>
         !comboServicesIds.includes(item.Servico_Id)
-    ).map((item: { Servico_Id: string; ServicoPreco_Id: string }) => {
-      service.push(
-        {
-          Proposta_Id: proposalUUID,
-          ServicosPreco_Id: item.ServicoPreco_Id,
-          Servico_Id: item.Servico_Id,
-          Veiculo_Id: formData['Veiculo1'].key.Veiculo.Id
-        },
-        {
-          Proposta_Id: proposalUUID,
-          ServicosPreco_Id: item.ServicoPreco_Id,
-          Servico_Id: item.Servico_Id,
-          Veiculo_Id: formData['Veiculo2'].key
-        }
-      )
-    })
+    ).map(
+      (item: {
+        Servico_Id: string
+        PrecoDeAdesao_Id: string
+        PrecoDeRecorrencia_Id: string
+      }) => {
+        service.push(
+          {
+            Proposta_Id: proposalUUID,
+            PrecoDeAdesao_Id: item.PrecoDeAdesao_Id,
+            PrecoDeRecorrencia_Id: item.PrecoDeRecorrencia_Id,
+            Servico_Id: item.Servico_Id,
+            Veiculo_Id: formData['Veiculo1'].key.Veiculo.Id
+          },
+          {
+            Proposta_Id: proposalUUID,
+            PrecoDeAdesao_Id: item.PrecoDeAdesao_Id,
+            PrecoDeRecorrencia_Id: item.PrecoDeRecorrencia_Id,
+            Servico_Id: item.Servico_Id,
+            Veiculo_Id: formData['Veiculo2'].key
+          }
+        )
+      }
+    )
 
     // adicionando combos no array
     formData['Veiculo1'].key.Beneficios.filter(
@@ -188,14 +213,12 @@ export function ChangeVehicle() {
       )
     })
 
-    const userId = await getUserByClientId(router.query.id as string)
-
     await createProposal({
       variables: {
         Id: proposalUUID,
         Lead_Id: null,
         Ticket_Id: null,
-        Usuario_Id: userId[0].Id,
+        Usuario_Id: userAndTicketData.autenticacao_Usuarios[0].Id,
         Cliente_Id: router.query.id,
         veiculosData: [
           {
@@ -237,7 +260,8 @@ export function ChangeVehicle() {
                 .map((product) => {
                   return {
                     Proposta_Id: product.Proposta_Id,
-                    ProdutoPreco_Id: product.ProdutoPreco_Id,
+                    PrecoDeAdesao_Id: product.PrecoDeAdesao_Id,
+                    PrecoDeRecorrencia_Id: product.PrecoDeRecorrencia_Id,
                     Produto_Id: product.Produto_Id
                   }
                 })
@@ -251,7 +275,8 @@ export function ChangeVehicle() {
                 .map((service) => {
                   return {
                     Proposta_Id: service.Proposta_Id,
-                    ServicosPreco_Id: service.ServicosPreco_Id,
+                    PrecoDeAdesao_Id: service.PrecoDeAdesao_Id,
+                    PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia_Id,
                     Servico_Id: service.Servico_Id
                   }
                 })
@@ -291,7 +316,8 @@ export function ChangeVehicle() {
                 .map((product) => {
                   return {
                     Proposta_Id: product.Proposta_Id,
-                    ProdutoPreco_Id: product.ProdutoPreco_Id,
+                    PrecoDeAdesao_Id: product.PrecoDeAdesao_Id,
+                    PrecoDeRecorrencia_Id: product.PrecoDeRecorrencia_Id,
                     Produto_Id: product.Produto_Id
                   }
                 })
@@ -304,7 +330,8 @@ export function ChangeVehicle() {
                 .map((service) => {
                   return {
                     Proposta_Id: service.Proposta_Id,
-                    ServicosPreco_Id: service.ServicosPreco_Id,
+                    PrecoDeAdesao_Id: service.PrecoDeAdesao_Id,
+                    PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia_Id,
                     Servico_Id: service.Servico_Id
                   }
                 })
@@ -354,7 +381,11 @@ export function ChangeVehicle() {
                             activeVehicle.Veiculo.Placa
                               ? activeVehicle.Veiculo.Placa
                               : activeVehicle.Veiculo.NumeroDoChassi
-                          } - ${activeVehicle.Veiculo.Apelido}`
+                          }${
+                            activeVehicle.Veiculo.Apelido
+                              ? ' - ' + activeVehicle.Veiculo.Apelido
+                              : ''
+                          }`
                         }
                       })
                     : []
@@ -382,7 +413,11 @@ export function ChangeVehicle() {
                             activeVehicle.Placa
                               ? activeVehicle.Placa
                               : activeVehicle.NumeroDoChassi
-                          } - ${activeVehicle.Apelido}`
+                          }${
+                            activeVehicle.Apelido
+                              ? ' - ' + activeVehicle.Apelido
+                              : ''
+                          }`
                         }
                       })
                     : []

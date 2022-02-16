@@ -94,28 +94,24 @@ export const Resume = () => {
       proposalData.Servicos.map((services) => {
         proposalsItens.push({
           Name: services.Servico.Nome,
-          MembershipPrice:
-            services.ServicosPreco.TipoDePreco.Valor === 'adesao'
-              ? services.ServicosPreco.Valor
-              : '0',
-          RecurrencePrice:
-            services.ServicosPreco.TipoDePreco.Valor === 'recorrencia'
-              ? services.ServicosPreco.Valor
-              : '0',
+          MembershipPrice: services.PrecoDeAdesao
+            ? services.PrecoDeAdesao.Valor
+            : '0',
+          RecurrencePrice: services.PrecoDeRecorrencia
+            ? services.PrecoDeRecorrencia.Valor
+            : '0',
           Type: 'Serviço'
         })
       })
       proposalData.Produtos.map((product) => {
         proposalsItens.push({
           Name: product.Produto.Nome,
-          MembershipPrice:
-            product.ProdutoPreco.TipoDePreco.Valor === 'adesao'
-              ? product.ProdutoPreco.Valor
-              : '0',
-          RecurrencePrice:
-            product.ProdutoPreco.TipoDePreco.Valor === 'recorrencia'
-              ? product.ProdutoPreco.Valor
-              : '0',
+          MembershipPrice: product.PrecoAdesao
+            ? product.PrecoAdesao.Valor
+            : '0',
+          RecurrencePrice: product.PrecoRecorrencia
+            ? product.PrecoRecorrencia.Valor
+            : '0',
           Type: 'Produto'
         })
       })
@@ -150,28 +146,24 @@ export const Resume = () => {
         proposalVehicle.PropostasServicos.map((services) => {
           proposalsItens.push({
             Name: services.Servico.Nome,
-            MembershipPrice:
-              services.ServicosPreco.TipoDePreco.Valor === 'adesao'
-                ? services.ServicosPreco.Valor
-                : '0',
-            RecurrencePrice:
-              services.ServicosPreco.TipoDePreco.Valor === 'recorrencia'
-                ? services.ServicosPreco.Valor
-                : '0',
+            MembershipPrice: services.PrecoDeAdesao
+              ? services.PrecoDeAdesao.Valor
+              : '0',
+            RecurrencePrice: services.PrecoDeRecorrencia
+              ? services.PrecoDeRecorrencia.Valor
+              : '0',
             Type: 'Serviço'
           })
         })
         proposalVehicle.PropostasProdutos.map((product) => {
           proposalsItens.push({
             Name: product.Produto.Nome,
-            MembershipPrice:
-              product.ProdutoPreco.TipoDePreco.Valor === 'adesao'
-                ? product.ProdutoPreco.Valor
-                : '0',
-            RecurrencePrice:
-              product.ProdutoPreco.TipoDePreco.Valor === 'recorrencia'
-                ? product.ProdutoPreco.Valor
-                : '0',
+            MembershipPrice: product.PrecoAdesao
+              ? product.PrecoAdesao.Valor
+              : '0',
+            RecurrencePrice: product.PrecoRecorrencia
+              ? product.PrecoRecorrencia.Valor
+              : '0',
             Type: 'Produto'
           })
         })

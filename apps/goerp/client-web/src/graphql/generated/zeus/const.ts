@@ -3255,6 +3255,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"String_comparison_exp",
 			array:false,
@@ -3336,6 +3348,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"String",
 			array:false,
@@ -3392,6 +3416,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"order_by",
 			array:false,
@@ -3437,6 +3473,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Portfolio_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -3518,6 +3566,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"order_by",
 			array:false,
@@ -3584,6 +3644,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Portfolio_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -3690,7 +3762,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
@@ -3777,7 +3855,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -3839,7 +3923,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -3895,7 +3985,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -3977,7 +4073,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -4054,7 +4156,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -4161,7 +4269,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
@@ -4236,7 +4350,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -4286,7 +4406,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -4330,7 +4456,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -4400,7 +4532,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -4465,7 +4603,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -8755,18 +8899,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco:{
-			type:"comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -8836,18 +8968,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco:{
-			type:"comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"uuid",
 			array:false,
@@ -8886,12 +9006,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"order_by",
 			array:false,
@@ -8925,12 +9039,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -9006,18 +9114,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco:{
-			type:"comercial_PrestadoresDeServicos_Produtos_Precos_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"order_by",
 			array:false,
@@ -9060,12 +9156,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -9172,20 +9262,8 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Servico_Id:{
 			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -9253,20 +9331,8 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Servico_Id:{
 			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -9298,12 +9364,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -9342,12 +9402,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -9423,20 +9477,8 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Servico_Id:{
 			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -9477,12 +9519,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -13225,18 +13261,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco:{
-			type:"comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -13306,18 +13330,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco:{
-			type:"comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"uuid",
 			array:false,
@@ -13356,12 +13368,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"order_by",
 			array:false,
@@ -13395,12 +13401,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Plano_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -13476,18 +13476,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco:{
-			type:"comercial_PrestadoresDeServicos_Produtos_Precos_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Produto_Id:{
 			type:"order_by",
 			array:false,
@@ -13530,12 +13518,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Plano_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -13642,18 +13624,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Servico_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -13723,18 +13693,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Servico_Id:{
 			type:"uuid",
 			array:false,
@@ -13773,12 +13731,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Servico_Id:{
 			type:"order_by",
 			array:false,
@@ -13812,12 +13764,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Plano_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -13893,18 +13839,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Servico_Id:{
 			type:"order_by",
 			array:false,
@@ -13947,12 +13881,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Plano_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicoPreco_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -15246,134 +15174,6 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	comercial_PrestadoresDeServicos_Produtos_Itens_update_column: "enum",
 	comercial_PrestadoresDeServicos_Produtos_Precos:{
-		CombosProdutos:{
-			distinct_on:{
-				type:"comercial_Combos_Produtos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Combos_Produtos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Combos_Produtos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
-		CombosProdutos_aggregate:{
-			distinct_on:{
-				type:"comercial_Combos_Produtos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Combos_Produtos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Combos_Produtos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
-		PlanosProdutos:{
-			distinct_on:{
-				type:"comercial_Planos_Produtos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Planos_Produtos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Planos_Produtos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
-		PlanosProdutos_aggregate:{
-			distinct_on:{
-				type:"comercial_Planos_Produtos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Planos_Produtos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Planos_Produtos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
 		PropostasProdutos:{
 			distinct_on:{
 				type:"propostas_Propostas_Produtos_select_column",
@@ -15546,12 +15346,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp:{
-		CombosProdutos:{
-			type:"comercial_Combos_Produtos_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Fornecedor_Produto_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -15560,12 +15354,6 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Id:{
 			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PlanosProdutos:{
-			type:"comercial_Planos_Produtos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -15659,12 +15447,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_PrestadoresDeServicos_Produtos_Precos_insert_input:{
-		CombosProdutos:{
-			type:"comercial_Combos_Produtos_arr_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Fornecedor_Produto_Id:{
 			type:"uuid",
 			array:false,
@@ -15673,12 +15455,6 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Id:{
 			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PlanosProdutos:{
-			type:"comercial_Planos_Produtos_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -15855,12 +15631,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_PrestadoresDeServicos_Produtos_Precos_order_by:{
-		CombosProdutos_aggregate:{
-			type:"comercial_Combos_Produtos_aggregate_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Fornecedor_Produto_Id:{
 			type:"order_by",
 			array:false,
@@ -15869,12 +15639,6 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Id:{
 			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PlanosProdutos_aggregate:{
-			type:"comercial_Planos_Produtos_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -16600,134 +16364,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_PrestadoresDeServicos_Servicos_Precos:{
-		CombosServicos:{
-			distinct_on:{
-				type:"comercial_Combos_Servicos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Combos_Servicos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Combos_Servicos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
-		CombosServicos_aggregate:{
-			distinct_on:{
-				type:"comercial_Combos_Servicos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Combos_Servicos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Combos_Servicos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
-		PlanosServicos:{
-			distinct_on:{
-				type:"comercial_Planos_Servicos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Planos_Servicos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Planos_Servicos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
-		PlanosServicos_aggregate:{
-			distinct_on:{
-				type:"comercial_Planos_Servicos_select_column",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			limit:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			offset:{
-				type:"Int",
-				array:false,
-				arrayRequired:false,
-				required:false
-			},
-			order_by:{
-				type:"comercial_Planos_Servicos_order_by",
-				array:true,
-				arrayRequired:false,
-				required:true
-			},
-			where:{
-				type:"comercial_Planos_Servicos_bool_exp",
-				array:false,
-				arrayRequired:false,
-				required:false
-			}
-		},
 		PropostasServicos:{
 			distinct_on:{
 				type:"propostas_Propostas_Servicos_select_column",
@@ -16900,12 +16536,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp:{
-		CombosServicos:{
-			type:"comercial_Combos_Servicos_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Fornecedor_Servico_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -16918,8 +16548,94 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		PlanosServicos:{
-			type:"comercial_Planos_Servicos_bool_exp",
+		PrestadorDeServico_Servico:{
+			type:"comercial_PrestadoresDeServicos_Servicos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasServicos:{
+			type:"propostas_Propostas_Servicos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDePreco:{
+			type:"vendas_TiposDePrecos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDePreco_Id:{
+			type:"vendas_TiposDePrecos_enum_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeRecorrencia:{
+			type:"vendas_TiposDeRecorrencia_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeRecorrencia_Id:{
+			type:"vendas_TiposDeRecorrencia_enum_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Valor:{
+			type:"float8_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_and:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		created_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp_remote_rel_operacional_OrdemDeServico_ServicosPrecoDeRecorrencia:{
+		Fornecedor_Servico_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Id:{
+			type:"uuid_comparison_exp_remote_rel_operacional_OrdemDeServico_ServicosPrecoDeRecorrencia",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -17013,12 +16729,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_PrestadoresDeServicos_Servicos_Precos_insert_input:{
-		CombosServicos:{
-			type:"comercial_Combos_Servicos_arr_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Fornecedor_Servico_Id:{
 			type:"uuid",
 			array:false,
@@ -17027,12 +16737,6 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Id:{
 			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PlanosServicos:{
-			type:"comercial_Planos_Servicos_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -17209,12 +16913,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_PrestadoresDeServicos_Servicos_Precos_order_by:{
-		CombosServicos_aggregate:{
-			type:"comercial_Combos_Servicos_aggregate_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Fornecedor_Servico_Id:{
 			type:"order_by",
 			array:false,
@@ -17223,12 +16921,6 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Id:{
 			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PlanosServicos_aggregate:{
-			type:"comercial_Planos_Servicos_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -47668,6 +47360,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"String_comparison_exp",
 			array:false,
@@ -47743,6 +47447,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"String",
 			array:false,
@@ -47793,6 +47509,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"order_by",
 			array:false,
@@ -47838,6 +47566,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Portfolio_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -47919,6 +47659,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoPortfolio:{
 			type:"order_by",
 			array:false,
@@ -47973,6 +47725,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Portfolio_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -48073,7 +47837,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
@@ -48142,7 +47912,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -48186,7 +47962,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48230,7 +48012,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48300,7 +48088,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48353,7 +48147,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -48385,6 +48185,40 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	operacional_OrdemDeServico_Produtos_update_column: "enum",
+	operacional_OrdemDeServico_Servicos:{
+		PrecoDeRecorrencia:{
+			distinct_on:{
+				type:"comercial_PrestadoresDeServicos_Servicos_Precos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_PrestadoresDeServicos_Servicos_Precos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp_remote_rel_operacional_OrdemDeServico_ServicosPrecoDeRecorrencia",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
 	operacional_OrdemDeServico_Servicos_aggregate_fields:{
 		count:{
 			columns:{
@@ -48454,7 +48288,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
@@ -48523,7 +48363,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -48567,7 +48413,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48611,7 +48463,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48681,7 +48539,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48734,7 +48598,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -56189,6 +56059,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Chips_bool_exp:{
+		Ativo:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		DataSuspensao:{
 			type:"timestamptz_comparison_exp",
 			array:false,
@@ -56314,6 +56190,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Chips_insert_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		DataSuspensao:{
 			type:"timestamptz",
 			array:false,
@@ -56570,6 +56452,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Chips_order_by:{
+		Ativo:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		DataSuspensao:{
 			type:"order_by",
 			array:false,
@@ -56677,6 +56565,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	producao_Chips_select_column: "enum",
 	producao_Chips_set_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		DataSuspensao:{
 			type:"timestamptz",
 			array:false,
@@ -56914,6 +56808,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Equipamentos_bool_exp:{
+		Ativo:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -57003,6 +56903,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Equipamentos_insert_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid",
 			array:false,
@@ -57181,6 +57087,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Equipamentos_order_by:{
+		Ativo:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
@@ -57246,6 +57158,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	producao_Equipamentos_select_column: "enum",
 	producao_Equipamentos_set_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid",
 			array:false,
@@ -57495,6 +57413,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Identificadores_bool_exp:{
+		Ativo:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoIdentificador:{
 			type:"Int_comparison_exp",
 			array:false,
@@ -57566,6 +57490,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Identificadores_insert_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoIdentificador:{
 			type:"Int",
 			array:false,
@@ -57706,6 +57636,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Identificadores_order_by:{
+		Ativo:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoIdentificador:{
 			type:"order_by",
 			array:false,
@@ -57759,6 +57695,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	producao_Identificadores_select_column: "enum",
 	producao_Identificadores_set_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoIdentificador:{
 			type:"Int",
 			array:false,
@@ -58515,6 +58457,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_KitsDeInstalacao_bool_exp:{
+		Ativo:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"Int_comparison_exp",
 			array:false,
@@ -58610,6 +58558,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_KitsDeInstalacao_insert_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"Int",
 			array:false,
@@ -58798,6 +58752,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_KitsDeInstalacao_order_by:{
+		Ativo:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"order_by",
 			array:false,
@@ -58875,6 +58835,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	producao_KitsDeInstalacao_select_column: "enum",
 	producao_KitsDeInstalacao_set_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"Int",
 			array:false,
@@ -59218,6 +59184,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_KitsDeInsumo_bool_exp:{
+		Ativo:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"Int_comparison_exp",
 			array:false,
@@ -59313,6 +59285,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_KitsDeInsumo_insert_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"Int",
 			array:false,
@@ -59503,6 +59481,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_KitsDeInsumo_order_by:{
+		Ativo:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"order_by",
 			array:false,
@@ -59580,6 +59564,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	producao_KitsDeInsumo_select_column: "enum",
 	producao_KitsDeInsumo_set_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		CodigoReferencia:{
 			type:"Int",
 			array:false,
@@ -60230,6 +60220,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Rastreadores_bool_exp:{
+		Ativo:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Chip:{
 			type:"producao_Chips_bool_exp",
 			array:false,
@@ -60331,6 +60327,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Rastreadores_insert_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Chip:{
 			type:"producao_Chips_obj_rel_insert_input",
 			array:false,
@@ -60539,6 +60541,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	producao_Rastreadores_order_by:{
+		Ativo:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Chip:{
 			type:"producao_Chips_order_by",
 			array:false,
@@ -60622,6 +60630,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	producao_Rastreadores_select_column: "enum",
 	producao_Rastreadores_set_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Chip_Id:{
 			type:"uuid",
 			array:false,
@@ -63476,20 +63490,32 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		Produto:{
-			type:"comercial_Produtos_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco:{
+		PrecoAdesao:{
 			type:"comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoRecorrencia:{
+			type:"comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto:{
+			type:"comercial_Produtos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -63569,20 +63595,32 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		Produto:{
-			type:"comercial_Produtos_obj_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco:{
+		PrecoAdesao:{
 			type:"comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoRecorrencia:{
+			type:"comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto:{
+			type:"comercial_Produtos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -63643,7 +63681,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -63693,7 +63737,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -63763,20 +63813,32 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		Produto:{
-			type:"comercial_Produtos_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ProdutoPreco:{
+		PrecoAdesao:{
 			type:"comercial_PrestadoresDeServicos_Produtos_Precos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
 			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoRecorrencia:{
+			type:"comercial_PrestadoresDeServicos_Produtos_Precos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto:{
+			type:"comercial_Produtos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -63846,7 +63908,13 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ProdutoPreco_Id:{
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -63947,6 +64015,30 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeAdesao_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Proposta:{
 			type:"propostas_Propostas_bool_exp",
 			array:false,
@@ -63978,18 +64070,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
@@ -64040,6 +64120,30 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Proposta:{
 			type:"propostas_Propostas_obj_rel_insert_input",
 			array:false,
@@ -64076,18 +64180,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		ServicosPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		created_at:{
 			type:"timestamptz",
 			array:false,
@@ -64114,6 +64206,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -64127,12 +64231,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -64164,6 +64262,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -64177,12 +64287,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -64234,6 +64338,30 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeAdesao_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia:{
+			type:"comercial_PrestadoresDeServicos_Servicos_Precos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Proposta:{
 			type:"propostas_Propostas_order_by",
 			array:false,
@@ -64265,18 +64393,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco:{
-			type:"comercial_PrestadoresDeServicos_Servicos_Precos_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -64317,6 +64433,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PrecoDeAdesao_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PrecoDeRecorrencia_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid",
 			array:false,
@@ -64330,12 +64458,6 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		ServicosPreco_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -77657,6 +77779,56 @@ export const AllTypesProps: Record<string,any> = {
 			required:true
 		}
 	},
+	uuid_comparison_exp_remote_rel_operacional_OrdemDeServico_ServicosPrecoDeRecorrencia:{
+		_gt:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"uuid",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"uuid",
+			array:true,
+			arrayRequired:false,
+			required:true
+		}
+	},
 	vendas_DiasDeFaturamento_aggregate_fields:{
 		count:{
 			columns:{
@@ -78694,6 +78866,8 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		PortfolioPreco_Id:"uuid",
 		Portfolio_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		TipoPortfolio:"String",
 		VeiculoAtivo:"clientes_VeiculosAtivos",
 		VeiculoAtivo_Id:"uuid",
@@ -78714,6 +78888,8 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		PortfolioPreco_Id:"uuid",
 		Portfolio_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		TipoPortfolio:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
@@ -78724,6 +78900,8 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		PortfolioPreco_Id:"uuid",
 		Portfolio_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		TipoPortfolio:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
@@ -78738,7 +78916,8 @@ export const ReturnTypes: Record<string,any> = {
 		Ativo:"Boolean",
 		Id:"uuid",
 		Identificador:"uuid",
-		ProdutoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
 		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
@@ -78759,7 +78938,8 @@ export const ReturnTypes: Record<string,any> = {
 	clientes_VeiculosAtivos_Produtos_max_fields:{
 		Id:"uuid",
 		Identificador:"uuid",
-		ProdutoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
 		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
@@ -78770,7 +78950,8 @@ export const ReturnTypes: Record<string,any> = {
 	clientes_VeiculosAtivos_Produtos_min_fields:{
 		Id:"uuid",
 		Identificador:"uuid",
-		ProdutoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
 		TipoItem_Id:"String",
 		VeiculoAtivo_Id:"uuid",
@@ -78785,7 +78966,8 @@ export const ReturnTypes: Record<string,any> = {
 	clientes_VeiculosAtivos_Servicos:{
 		Ativo:"Boolean",
 		Id:"uuid",
-		ServicoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		VeiculosAtivo:"clientes_VeiculosAtivos",
@@ -78804,7 +78986,8 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	clientes_VeiculosAtivos_Servicos_max_fields:{
 		Id:"uuid",
-		ServicoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
@@ -78813,7 +78996,8 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	clientes_VeiculosAtivos_Servicos_min_fields:{
 		Id:"uuid",
-		ServicoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
@@ -79225,8 +79409,6 @@ export const ReturnTypes: Record<string,any> = {
 		Combo_Id:"uuid",
 		Id:"uuid",
 		Produto:"comercial_Produtos",
-		ProdutoPreco:"comercial_PrestadoresDeServicos_Produtos_Precos",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79244,7 +79426,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Combos_Produtos_max_fields:{
 		Combo_Id:"uuid",
 		Id:"uuid",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79253,7 +79434,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Combos_Produtos_min_fields:{
 		Combo_Id:"uuid",
 		Id:"uuid",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79268,9 +79448,7 @@ export const ReturnTypes: Record<string,any> = {
 		Combo_Id:"uuid",
 		Id:"uuid",
 		Servico:"comercial_Servicos",
-		ServicoPreco_Id:"uuid",
 		Servico_Id:"uuid",
-		ServicosPreco:"comercial_PrestadoresDeServicos_Servicos_Precos",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -79287,7 +79465,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Combos_Servicos_max_fields:{
 		Combo_Id:"uuid",
 		Id:"uuid",
-		ServicoPreco_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79296,7 +79473,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Combos_Servicos_min_fields:{
 		Combo_Id:"uuid",
 		Id:"uuid",
-		ServicoPreco_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79694,8 +79870,6 @@ export const ReturnTypes: Record<string,any> = {
 		Plano:"comercial_Planos",
 		Plano_Id:"uuid",
 		Produto:"comercial_Produtos",
-		ProdutoPreco:"comercial_PrestadoresDeServicos_Produtos_Precos",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79713,7 +79887,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Planos_Produtos_max_fields:{
 		Id:"uuid",
 		Plano_Id:"uuid",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79722,7 +79895,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Planos_Produtos_min_fields:{
 		Id:"uuid",
 		Plano_Id:"uuid",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79737,8 +79909,6 @@ export const ReturnTypes: Record<string,any> = {
 		Plano:"comercial_Planos",
 		Plano_Id:"uuid",
 		Servico:"comercial_Servicos",
-		ServicoPreco:"comercial_PrestadoresDeServicos_Servicos_Precos",
-		ServicoPreco_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79756,7 +79926,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Planos_Servicos_max_fields:{
 		Id:"uuid",
 		Plano_Id:"uuid",
-		ServicoPreco_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79765,7 +79934,6 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Planos_Servicos_min_fields:{
 		Id:"uuid",
 		Plano_Id:"uuid",
-		ServicoPreco_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -79908,12 +80076,8 @@ export const ReturnTypes: Record<string,any> = {
 		returning:"comercial_PrestadoresDeServicos_Produtos_Itens"
 	},
 	comercial_PrestadoresDeServicos_Produtos_Precos:{
-		CombosProdutos:"comercial_Combos_Produtos",
-		CombosProdutos_aggregate:"comercial_Combos_Produtos_aggregate",
 		Fornecedor_Produto_Id:"uuid",
 		Id:"uuid",
-		PlanosProdutos:"comercial_Planos_Produtos",
-		PlanosProdutos_aggregate:"comercial_Planos_Produtos_aggregate",
 		PrestadorDeServico_Produto:"comercial_PrestadoresDeServicos_Produtos",
 		PropostasProdutos:"propostas_Propostas_Produtos",
 		PropostasProdutos_aggregate:"propostas_Propostas_Produtos_aggregate",
@@ -80031,12 +80195,8 @@ export const ReturnTypes: Record<string,any> = {
 		updated_at:"timestamptz"
 	},
 	comercial_PrestadoresDeServicos_Servicos_Precos:{
-		CombosServicos:"comercial_Combos_Servicos",
-		CombosServicos_aggregate:"comercial_Combos_Servicos_aggregate",
 		Fornecedor_Servico_Id:"uuid",
 		Id:"uuid",
-		PlanosServicos:"comercial_Planos_Servicos",
-		PlanosServicos_aggregate:"comercial_Planos_Servicos_aggregate",
 		PrestadorDeServico_Servico:"comercial_PrestadoresDeServicos_Servicos",
 		PropostasServicos:"propostas_Propostas_Servicos",
 		PropostasServicos_aggregate:"propostas_Propostas_Servicos_aggregate",
@@ -82784,6 +82944,8 @@ export const ReturnTypes: Record<string,any> = {
 		OrdemDeServico_Id:"uuid",
 		PortfolioPreco_Id:"uuid",
 		Portfolio_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		TipoPortfolio:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82803,6 +82965,8 @@ export const ReturnTypes: Record<string,any> = {
 		OrdemDeServico_Id:"uuid",
 		PortfolioPreco_Id:"uuid",
 		Portfolio_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		TipoPortfolio:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82813,6 +82977,8 @@ export const ReturnTypes: Record<string,any> = {
 		OrdemDeServico_Id:"uuid",
 		PortfolioPreco_Id:"uuid",
 		Portfolio_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		TipoPortfolio:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82826,9 +82992,11 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		OrdemDeServico:"operacional_OrdemDeServico",
 		OrdemDeServico_Id:"uuid",
+		PrecoDeAdesao:"comercial_PrestadoresDeServicos_Produtos_Precos",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia:"comercial_PrestadoresDeServicos_Produtos_Precos",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto:"comercial_Produtos",
-		ProdutoPreco:"comercial_PrestadoresDeServicos_Produtos_Precos",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82846,7 +83014,8 @@ export const ReturnTypes: Record<string,any> = {
 	operacional_OrdemDeServico_Produtos_max_fields:{
 		Id:"uuid",
 		OrdemDeServico_Id:"uuid",
-		ProdutoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82855,7 +83024,8 @@ export const ReturnTypes: Record<string,any> = {
 	operacional_OrdemDeServico_Produtos_min_fields:{
 		Id:"uuid",
 		OrdemDeServico_Id:"uuid",
-		ProdutoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82869,9 +83039,11 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		OrdemDeServico:"operacional_OrdemDeServico",
 		OrdemDeServico_Id:"uuid",
+		PrecoDeAdesao:"comercial_PrestadoresDeServicos_Servicos_Precos",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia:"comercial_PrestadoresDeServicos_Servicos_Precos",
+		PrecoDeRecorrencia_Id:"uuid",
 		Servico:"comercial_Servicos",
-		ServicoPreco:"comercial_PrestadoresDeServicos_Servicos_Precos",
-		ServicoPreco_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82889,7 +83061,8 @@ export const ReturnTypes: Record<string,any> = {
 	operacional_OrdemDeServico_Servicos_max_fields:{
 		Id:"uuid",
 		OrdemDeServico_Id:"uuid",
-		ServicoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -82898,7 +83071,8 @@ export const ReturnTypes: Record<string,any> = {
 	operacional_OrdemDeServico_Servicos_min_fields:{
 		Id:"uuid",
 		OrdemDeServico_Id:"uuid",
-		ServicoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -83648,6 +83822,7 @@ export const ReturnTypes: Record<string,any> = {
 		returning:"pedidosDeSaida_Situacoes"
 	},
 	producao_Chips:{
+		Ativo:"Boolean",
 		DataSuspensao:"timestamptz",
 		Iccid:"String",
 		Id:"uuid",
@@ -83763,6 +83938,7 @@ export const ReturnTypes: Record<string,any> = {
 		NumeroDaLinha:"Float"
 	},
 	producao_Equipamentos:{
+		Ativo:"Boolean",
 		Id:"uuid",
 		Identificador:"bigint",
 		Imei:"bigint",
@@ -83845,6 +84021,7 @@ export const ReturnTypes: Record<string,any> = {
 		Imei:"Float"
 	},
 	producao_Identificadores:{
+		Ativo:"Boolean",
 		CodigoIdentificador:"Int",
 		Id:"uuid",
 		Item:"estoque_Itens",
@@ -83992,6 +84169,7 @@ export const ReturnTypes: Record<string,any> = {
 		Quantidade:"Float"
 	},
 	producao_KitsDeInstalacao:{
+		Ativo:"Boolean",
 		CodigoReferencia:"Int",
 		Id:"uuid",
 		Item:"estoque_Itens",
@@ -84070,6 +84248,7 @@ export const ReturnTypes: Record<string,any> = {
 		CodigoReferencia:"Float"
 	},
 	producao_KitsDeInsumo:{
+		Ativo:"Boolean",
 		CodigoReferencia:"Int",
 		Id:"uuid",
 		Item:"estoque_Itens",
@@ -84190,6 +84369,7 @@ export const ReturnTypes: Record<string,any> = {
 		returning:"producao_Logs"
 	},
 	producao_Rastreadores:{
+		Ativo:"Boolean",
 		Chip:"producao_Chips",
 		Chip_Id:"uuid",
 		CodigoReferencia:"Int",
@@ -84550,9 +84730,11 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas_Produtos:{
 		Id:"uuid",
+		PrecoAdesao:"comercial_PrestadoresDeServicos_Produtos_Precos",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
+		PrecoRecorrencia:"comercial_PrestadoresDeServicos_Produtos_Precos",
 		Produto:"comercial_Produtos",
-		ProdutoPreco:"comercial_PrestadoresDeServicos_Produtos_Precos",
-		ProdutoPreco_Id:"uuid",
 		Produto_Id:"uuid",
 		Proposta:"propostas_Propostas",
 		PropostaVeiculo_Id:"uuid",
@@ -84573,7 +84755,8 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas_Produtos_max_fields:{
 		Id:"uuid",
-		ProdutoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
@@ -84583,7 +84766,8 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas_Produtos_min_fields:{
 		Id:"uuid",
-		ProdutoPreco_Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
@@ -84597,14 +84781,16 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas_Servicos:{
 		Id:"uuid",
+		PrecoDeAdesao:"comercial_PrestadoresDeServicos_Servicos_Precos",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia:"comercial_PrestadoresDeServicos_Servicos_Precos",
+		PrecoDeRecorrencia_Id:"uuid",
 		Proposta:"propostas_Propostas",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
 		PropostasVeiculo:"propostas_Propostas_Veiculos",
 		Servico:"comercial_Servicos",
 		Servico_Id:"uuid",
-		ServicosPreco:"comercial_PrestadoresDeServicos_Servicos_Precos",
-		ServicosPreco_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -84620,20 +84806,22 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas_Servicos_max_fields:{
 		Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
 		Servico_Id:"uuid",
-		ServicosPreco_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
 	propostas_Propostas_Servicos_min_fields:{
 		Id:"uuid",
+		PrecoDeAdesao_Id:"uuid",
+		PrecoDeRecorrencia_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
 		Servico_Id:"uuid",
-		ServicosPreco_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"

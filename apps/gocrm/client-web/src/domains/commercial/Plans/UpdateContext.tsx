@@ -42,19 +42,17 @@ type UpdateContextProps = {
           }[]
         }[]
       }
-      ServicoPreco: {
-        Valor: string
-        TipoDePreco?: { Valor: string; Comentario: string }
-      }
     }[]
     Produtos: {
       Id: string
       Produto: {
         Nome: string
-      }
-      ProdutoPreco: {
-        Valor: string
-        TipoDePreco?: { Valor: string; Comentario: string }
+        Fornecedores: {
+          Precos: {
+            Valor: string
+            TipoDePreco?: { Valor: string; Comentario: string }
+          }[]
+        }[]
       }
     }[]
 
@@ -227,8 +225,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           object: {
             Plano_Id: router.query.id,
-            Produto_Id: $`Produto_Id`,
-            ProdutoPreco_Id: $`ProdutoPreco_Id`
+            Produto_Id: $`Produto_Id`
           }
         },
         { Id: true }
@@ -241,8 +238,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           object: {
             Plano_Id: router.query.id,
-            Servico_Id: $`Servico_Id`,
-            ServicoPreco_Id: $`ServicoPreco_Id`
+            Servico_Id: $`Servico_Id`
           }
         },
         { Id: true }
@@ -372,10 +368,6 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                     ]
                   }
                 ]
-              },
-              ServicoPreco: {
-                Valor: true,
-                TipoDePreco: { Valor: true, Comentario: true }
               }
             }
           ],
@@ -384,11 +376,28 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             {
               Id: true,
               Produto: {
-                Nome: true
-              },
-              ProdutoPreco: {
-                Valor: true,
-                TipoDePreco: { Valor: true, Comentario: true }
+                Nome: true,
+                Fornecedores: [
+                  {
+                    where: {
+                      deleted_at: { _is_null: true },
+                      Fornecedor_Id: {
+                        _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                      }
+                    }
+                  },
+                  {
+                    Precos: [
+                      {
+                        order_by: [{ created_at: order_by.desc }]
+                      },
+                      {
+                        Valor: true,
+                        TipoDePreco: { Valor: true, Comentario: true }
+                      }
+                    ]
+                  }
+                ]
               }
             }
           ],

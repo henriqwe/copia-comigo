@@ -28,7 +28,7 @@ export function CreateProposal() {
     setSlidePanelState,
     createProposal,
     createProposalLoading,
-    getUserByClientId,
+    userAndTicketData,
     clientData
   } = client.useUpdate()
   const {
@@ -42,14 +42,13 @@ export function CreateProposal() {
 
   const onSubmit = async (formData: FormData) => {
     try {
-      const userId = await getUserByClientId(router.query.id as string)
       const proposalUUID = uuid()
       await createProposal({
         variables: {
           Id: proposalUUID,
           Lead_Id: null,
           Ticket_Id: null,
-          Usuario_Id: userId[0].Id,
+          Usuario_Id: userAndTicketData.autenticacao_Usuarios[0].Id,
           Cliente_Id: router.query.id,
           veiculosData: [
             {

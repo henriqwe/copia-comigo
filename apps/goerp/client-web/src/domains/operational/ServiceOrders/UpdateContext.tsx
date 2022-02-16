@@ -10,7 +10,8 @@ import {
   movimentacoes_Motivos_enum,
   operacional_OrdemDeServico_Agendamentos_Situacoes_enum,
   operacional_OrdemDeServico_Situacoes_enum,
-  order_by
+  order_by,
+  producao_ChipsSituacoes_enum
 } from '&erp/graphql/generated/zeus'
 import {
   $,
@@ -57,8 +58,28 @@ type UpdateContextProps = {
         Produto?: {
           Id: string
         }
-        Item_Id: string
         RetiradoDoEstoque: boolean
+        Item: {
+          Id: string
+          Chips: {
+            Id: string
+          }[]
+          Equipamentos: {
+            Id: string
+          }[]
+          Identificadores: {
+            Id: string
+          }[]
+          Rastreadores: {
+            Id: string
+          }[]
+          KitsDeInsumo: {
+            Id: string
+          }[]
+          KitsDeInstalacao: {
+            Id: string
+          }[]
+        }
       }[]
     }[]
 
@@ -72,7 +93,9 @@ type UpdateContextProps = {
       Id: string
       Portfolio_Id: string
       TipoPortfolio: string
-      PortfolioPreco_Id: string
+      PortfolioPreco_Id?: string
+      PrecoDeAdesao_Id?: string
+      PrecoDeRecorrencia_Id?: string
     }[]
     Servicos: {
       Id: string
@@ -81,11 +104,8 @@ type UpdateContextProps = {
         Nome: string
         GeraOS: boolean
       }
-      ServicoPreco?: {
-        Id: string
-        Valor: string
-        TipoDePreco?: { Comentario: string; Valor: string }
-      }
+      PrecoDeAdesao_Id?: string
+      PrecoDeRecorrencia_Id?: string
     }[]
     Produtos: {
       Id: string
@@ -93,11 +113,8 @@ type UpdateContextProps = {
         Id: string
         Nome: string
       }
-      ProdutoPreco?: {
-        Id: string
-        Valor: string
-        TipoDePreco?: { Comentario: string; Valor: string }
-      }
+      PrecoDeAdesao_Id?: string
+      PrecoDeRecorrencia_Id?: string
     }[]
     Veiculo_Id: string
   }
@@ -303,6 +320,84 @@ type UpdateContextProps = {
       ApolloCache<unknown>
     >
   ) => Promise<FetchResult['data']>
+  updateChip: (
+    options?: MutationFunctionOptions<
+      {
+        update_producao_Chips_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateChipLoading: boolean
+  updateEquipment: (
+    options?: MutationFunctionOptions<
+      {
+        update_producao_Equipamentos_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateEquipmentLoading: boolean
+  updateIdentifier: (
+    options?: MutationFunctionOptions<
+      {
+        update_producao_Identificadores_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateIdentifierLoading: boolean
+  updateTracker: (
+    options?: MutationFunctionOptions<
+      {
+        update_producao_Rastreadores_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateTrackerLoading: boolean
+  updateInputKit: (
+    options?: MutationFunctionOptions<
+      {
+        update_producao_KitsDeInsumo_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateInputKitLoading: boolean
+  updateInstallationKit: (
+    options?: MutationFunctionOptions<
+      {
+        update_producao_KitsDeInstalacao_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateInstallationKitLoading: boolean
   updateServiceOrderScheduleItemLoading: boolean
   updateServiceOrdersScheduleLoading: boolean
   initializeServiceOrdersLoading: boolean
@@ -391,17 +486,29 @@ type UpdateContextProps = {
   }>
   getServiceById: (
     serviceId: string,
-    priceId: string
+    priceId: string,
+    secondPriceId?: string
   ) => Promise<{
-    service?: {
-      Id: string
+    service: {
       Nome: string
       GeraOS: boolean
+      Id: string
     }
-    price?: {
+    price: {
       Id: string
       Valor: string
-      TipoDePreco?: { Comentario: string; Valor: string }
+      TipoDePreco?: {
+        Valor: string
+        Comentario: string
+      }
+    }
+    secondPrice: {
+      Id: string
+      Valor: string
+      TipoDePreco?: {
+        Valor: string
+        Comentario: string
+      }
     }
   }>
   getActiveVehicles: (
@@ -413,8 +520,10 @@ type UpdateContextProps = {
       Beneficios: {
         Id: string
         Portfolio_Id: string
-        PortfolioPreco_Id: string
+        PortfolioPreco_Id?: string
         TipoPortfolio: string
+        PrecoDeAdesao_Id?: string
+        PrecoDeRecorrencia_Id?: string
       }[]
     }[]
   >
@@ -462,6 +571,12 @@ type UpdateContextProps = {
     {
       Id: string
       CodigoReferencia: number
+      Chip: {
+        NumeroDaLinha: string
+      }
+      Equipamento: {
+        Imei: string
+      }
       Item: {
         Produto: {
           Nome: string
@@ -489,6 +604,14 @@ type UpdateContextProps = {
           Nome: string
         }
       }
+      Rastreador: {
+        Chip: {
+          NumeroDaLinha: string
+        }
+        Equipamento: {
+          Imei: string
+        }
+      }
     }[]
   >
   registerItemMovimentation: (
@@ -504,6 +627,28 @@ type UpdateContextProps = {
     >
   ) => Promise<FetchResult['data']>
   registerItemMovimentationLoading: boolean
+  getServicePriceById: (priceId: string) => Promise<{
+    Id: string
+    Valor: string
+    TipoDePreco?: {
+      Valor: string
+      Comentario: string
+    }
+  }>
+  getProductPriceById: (priceId: string) => Promise<{
+    Id: string
+    Valor: string
+    TipoDePreco?: {
+      Valor: string
+      Comentario: string
+    }
+  }>
+  getItemById: (Id: string) => Promise<{
+    Movimentacoes: { Tipo: string, Quantidade: number }[]
+    Produto: {
+      Nome: string
+    }
+  }>
 }
 
 type ProviderProps = {
@@ -619,6 +764,83 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
       { Id: true }
     ]
   })
+
+  const [updateChip, { loading: updateChipLoading }] = useTypedMutation({
+    update_producao_Chips_by_pk: [
+      {
+        pk_columns: { Id: $`Id` },
+        _set: {
+          Ativo: $`Ativo`
+        }
+      },
+      { Id: true }
+    ]
+  })
+
+  const [updateEquipment, { loading: updateEquipmentLoading }] =
+    useTypedMutation({
+      update_producao_Equipamentos_by_pk: [
+        {
+          pk_columns: { Id: $`Id` },
+          _set: {
+            Ativo: $`Ativo`
+          }
+        },
+        { Id: true }
+      ]
+    })
+
+  const [updateIdentifier, { loading: updateIdentifierLoading }] =
+    useTypedMutation({
+      update_producao_Identificadores_by_pk: [
+        {
+          pk_columns: { Id: $`Id` },
+          _set: {
+            Ativo: $`Ativo`
+          }
+        },
+        { Id: true }
+      ]
+    })
+
+  const [updateTracker, { loading: updateTrackerLoading }] = useTypedMutation({
+    update_producao_Rastreadores_by_pk: [
+      {
+        pk_columns: { Id: $`Id` },
+        _set: {
+          Ativo: $`Ativo`
+        }
+      },
+      { Id: true }
+    ]
+  })
+
+  const [updateInputKit, { loading: updateInputKitLoading }] = useTypedMutation(
+    {
+      update_producao_KitsDeInsumo_by_pk: [
+        {
+          pk_columns: { Id: $`Id` },
+          _set: {
+            Ativo: $`Ativo`
+          }
+        },
+        { Id: true }
+      ]
+    }
+  )
+
+  const [updateInstallationKit, { loading: updateInstallationKitLoading }] =
+    useTypedMutation({
+      update_producao_KitsDeInstalacao_by_pk: [
+        {
+          pk_columns: { Id: $`Id` },
+          _set: {
+            Ativo: $`Ativo`
+          }
+        },
+        { Id: true }
+      ]
+    })
 
   const [initializeServiceOrders, { loading: initializeServiceOrdersLoading }] =
     useTypedMutation({
@@ -799,7 +1021,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     insert_clientes_VeiculosAtivos_Produtos_one: [
       {
         object: {
-          ProdutoPreco_Id: $`ProdutoPreco_Id`,
+          PrecoDeAdesao_Id: $`PrecoDeAdesao_Id`,
+          PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`,
           Produto_Id: $`Produto_Id`,
           VeiculoAtivo_Id: $`VeiculoAtivo_Id`,
           Ativo: true
@@ -818,7 +1041,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     insert_clientes_VeiculosAtivos_Servicos_one: [
       {
         object: {
-          ServicoPreco_Id: $`ServicoPreco_Id`,
+          PrecoDeAdesao_Id: $`PrecoDeAdesao_Id`,
+          PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`,
           Servico_Id: $`Servico_Id`,
           VeiculoAtivo_Id: $`VeiculoAtivo_Id`,
           Ativo: true
@@ -917,11 +1141,79 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 { where: { deleted_at: { _is_null: true } } },
                 {
                   Id: true,
-                  Item_Id: true,
                   Produto: {
                     Id: true
                   },
-                  RetiradoDoEstoque: true
+                  RetiradoDoEstoque: true,
+                  Item: {
+                    Id: true,
+                    Chips: [
+                      {
+                        where: {
+                          deleted_at: { _is_null: true },
+                          Ativo: { _eq: true }
+                        }
+                      },
+                      {
+                        Id: true
+                      }
+                    ],
+                    Equipamentos: [
+                      {
+                        where: {
+                          deleted_at: { _is_null: true },
+                          Ativo: { _eq: true }
+                        }
+                      },
+                      {
+                        Id: true
+                      }
+                    ],
+                    Identificadores: [
+                      {
+                        where: {
+                          deleted_at: { _is_null: true },
+                          Ativo: { _eq: true }
+                        }
+                      },
+                      {
+                        Id: true
+                      }
+                    ],
+                    Rastreadores: [
+                      {
+                        where: {
+                          deleted_at: { _is_null: true },
+                          Ativo: { _eq: true }
+                        }
+                      },
+                      {
+                        Id: true
+                      }
+                    ],
+                    KitsDeInsumo: [
+                      {
+                        where: {
+                          deleted_at: { _is_null: true },
+                          Ativo: { _eq: true }
+                        }
+                      },
+                      {
+                        Id: true
+                      }
+                    ],
+                    KitsDeInstalacao: [
+                      {
+                        where: {
+                          deleted_at: { _is_null: true },
+                          Ativo: { _eq: true }
+                        }
+                      },
+                      {
+                        Id: true
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -934,7 +1226,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Id: true,
               Portfolio_Id: true,
               TipoPortfolio: true,
-              PortfolioPreco_Id: true
+              PortfolioPreco_Id: true,
+              PrecoDeAdesao_Id: true,
+              PrecoDeRecorrencia_Id: true
             }
           ],
           Servicos: [
@@ -946,11 +1240,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 Nome: true,
                 GeraOS: true
               },
-              ServicoPreco: {
-                Id: true,
-                Valor: true,
-                TipoDePreco: { Comentario: true, Valor: true }
-              }
+              Servico_Id: true,
+              PrecoDeAdesao_Id: true,
+              PrecoDeRecorrencia_Id: true
             }
           ],
           Produtos: [
@@ -961,11 +1253,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 Id: true,
                 Nome: true
               },
-              ProdutoPreco: {
-                Id: true,
-                Valor: true,
-                TipoDePreco: { Comentario: true, Valor: true }
-              }
+              PrecoDeAdesao_Id: true,
+              PrecoDeRecorrencia_Id: true
             }
           ],
           Veiculo_Id: true,
@@ -1135,7 +1424,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     }
   }
 
-  async function getServiceById(serviceId: string, priceId: string) {
+  async function getServiceById(
+    serviceId: string,
+    priceId: string,
+    secondPriceId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       comercial_Servicos_by_pk: [
         {
@@ -1146,7 +1439,20 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           Nome: true,
           GeraOS: true
         }
-      ],
+      ]
+    })
+
+    return {
+      service: data.comercial_Servicos_by_pk,
+      price: await getServicePriceById(priceId),
+      secondPrice: secondPriceId
+        ? await getServicePriceById(secondPriceId)
+        : undefined
+    }
+  }
+
+  async function getServicePriceById(priceId: string) {
+    const { data } = await useTypedClientQuery({
       comercial_PrestadoresDeServicos_Servicos_Precos_by_pk: [
         {
           Id: priceId
@@ -1159,10 +1465,24 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
       ]
     })
 
-    return {
-      service: data.comercial_Servicos_by_pk,
-      price: data.comercial_PrestadoresDeServicos_Servicos_Precos_by_pk
-    }
+    return data.comercial_PrestadoresDeServicos_Servicos_Precos_by_pk
+  }
+
+  async function getProductPriceById(priceId: string) {
+    const { data } = await useTypedClientQuery({
+      comercial_PrestadoresDeServicos_Produtos_Precos_by_pk: [
+        {
+          Id: priceId
+        },
+        {
+          Id: true,
+          Valor: true,
+          TipoDePreco: { Comentario: true, Valor: true }
+        }
+      ]
+    })
+
+    return data.comercial_PrestadoresDeServicos_Produtos_Precos_by_pk
   }
 
   async function getServiceOrderVehicle(Id: string) {
@@ -1201,7 +1521,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Id: true,
               Portfolio_Id: true,
               PortfolioPreco_Id: true,
-              TipoPortfolio: true
+              TipoPortfolio: true,
+              PrecoDeAdesao_Id: true,
+              PrecoDeRecorrencia_Id: true
             }
           ]
         }
@@ -1380,12 +1702,38 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             Produto: {
               Nome: true
             }
+          },
+          Rastreador: {
+            Chip: {
+              NumeroDaLinha: true
+            },
+            Equipamento: {
+              Imei: true
+            }
           }
         }
       ]
     })
 
     return data.producao_KitsDeInstalacao
+  }
+
+  async function getItemById(Id: string) {
+    const { data } = await useTypedClientQuery({
+      estoque_Itens_by_pk: [
+        {
+          Id
+        },
+        {
+          Movimentacoes: [{}, { Tipo: true, Quantidade: true }],
+          Produto: {
+            Nome: true
+          }
+        }
+      ]
+    })
+
+    return data.estoque_Itens_by_pk
   }
 
   const serviceOrdersSchema = yup.object().shape({
@@ -1456,7 +1804,22 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         updateServiceOrdersSchedule,
         updateServiceOrdersScheduleLoading,
         updateServiceOrderScheduleItem,
-        updateServiceOrderScheduleItemLoading
+        updateServiceOrderScheduleItemLoading,
+        getServicePriceById,
+        getProductPriceById,
+        updateChip,
+        updateChipLoading,
+        updateEquipment,
+        updateEquipmentLoading,
+        updateIdentifier,
+        updateIdentifierLoading,
+        updateTracker,
+        updateTrackerLoading,
+        updateInputKit,
+        updateInputKitLoading,
+        updateInstallationKit,
+        updateInstallationKitLoading,
+        getItemById
       }}
     >
       {children}

@@ -8,6 +8,24 @@ object_relationships:
 remote_relationships:
 - definition:
     hasura_fields:
+    - PrecoDeAdesao_Id
+    remote_field:
+      comercial_PrestadoresDeServicos_Produtos_Precos_by_pk:
+        arguments:
+          Id: $PrecoDeAdesao_Id
+    remote_schema: GoPortfolio
+  name: PrecoDeAdesao
+- definition:
+    hasura_fields:
+    - PrecoDeRecorrencia_Id
+    remote_field:
+      comercial_PrestadoresDeServicos_Produtos_Precos_by_pk:
+        arguments:
+          Id: $PrecoDeRecorrencia_Id
+    remote_schema: GoPortfolio
+  name: PrecoDeRecorrencia
+- definition:
+    hasura_fields:
     - Produto_Id
     remote_field:
       comercial_Produtos_by_pk:
@@ -15,12 +33,3 @@ remote_relationships:
           Id: $Produto_Id
     remote_schema: GoPortfolio
   name: Produto
-- definition:
-    hasura_fields:
-    - PrecoDeAdesao_Id
-    remote_field:
-      comercial_PrestadoresDeServicos_Produtos_Precos_by_pk:
-        arguments:
-          Id: $PrecoDeAdesao_Id
-    remote_schema: GoPortfolio
-  name: ProdutoPreco

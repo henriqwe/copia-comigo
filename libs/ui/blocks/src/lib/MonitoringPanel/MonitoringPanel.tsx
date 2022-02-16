@@ -1,17 +1,14 @@
-/* eslint-disable-next-line */
 import {
-  ChevronLeftIcon,
   LocationMarkerIcon,
   MinusIcon,
-  PlusIcon,
-  SearchIcon
+  PlusIcon
 } from '@heroicons/react/outline'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { currentDateAndTime, sortByPlaca } from './functions'
-import { AllVehiclesPanel } from './AllVehiclesPanel'
-import { ConsultPathPanel } from './ConsultPathPanel'
-import { PathPanel } from './PathPanel'
+import { AllVehiclesPanel } from './AllVehiclesPanel/AllVehiclesPanel'
+import { ConsultPathPanel } from './ConsultPathPanel/ConsultPathPanel'
+import { PathPanel } from './PathPanel/PathPanel'
 export type coordsToCenterMap = {
   lat?: number
   lng?: number
@@ -227,8 +224,6 @@ export function MonitoringPanel({
           ? AllVehiclesPanel({
               inputSearchValue,
               setInputSearchValue,
-              titleFilter,
-              setTitleFilter,
               vehiclesInTransit,
               vehiclesStopped,
               vehiclesOff,
@@ -242,15 +237,9 @@ export function MonitoringPanel({
             })
           : pageCard === 'pagVehiclesDetails'
           ? ConsultPathPanel({
-              setInputSearchValue,
               setPageCard,
               selectedVehicle,
               consultVehicleHistoric,
-              vehicleConsultData,
-              getStreetNameByLatLng,
-              dadosEnd,
-              showBounceMarker,
-              moreDetails,
               setMoreDetails,
               showAllVehiclesInMap,
               dateStart,
@@ -261,21 +250,12 @@ export function MonitoringPanel({
             })
           : pageCard === 'pagPathPanel'
           ? PathPanel({
-              setInputSearchValue,
               setPageCard,
               selectedVehicle,
-              consultVehicleHistoric,
               vehicleConsultData,
               getStreetNameByLatLng,
-              dadosEnd,
               showBounceMarker,
-              moreDetails,
-              setMoreDetails,
               showAllVehiclesInMap,
-              dateStart,
-              setDateStart,
-              dateEnd,
-              setDateEnd,
               refsPathVehicle
             })
           : ''}

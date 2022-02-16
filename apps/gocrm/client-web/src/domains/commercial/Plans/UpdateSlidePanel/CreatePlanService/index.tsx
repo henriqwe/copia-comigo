@@ -37,9 +37,7 @@ export function CreatePlanService() {
   const onSubmit = async (formData: FormData) => {
     await createServicePlan({
       variables: {
-        Servico_Id: formData.Servico_Id.key.Id,
-        ServicoPreco_Id:
-          formData.Servico_Id.key.PrestadoresDeServicos[0].Precos[0].Id
+        Servico_Id: formData.Servico_Id.key.Id
       }
     })
       .then(() => {

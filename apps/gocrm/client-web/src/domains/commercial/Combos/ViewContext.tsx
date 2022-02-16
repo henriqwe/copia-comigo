@@ -30,11 +30,6 @@ type ViewContextProps = {
   comboData?: {
     Produtos: {
       Id: string
-      ProdutoPreco: {
-        Id: string
-        Valor: string
-        TipoDePreco?: { Valor: string; Comentario: string }
-      }
       Produto: {
         Id: string
         Nome: string
@@ -77,11 +72,6 @@ type ViewContextProps = {
     }[]
     Servicos: {
       Id: string
-      ServicosPreco: {
-        Id: string
-        Valor: string
-        TipoDePreco?: { Valor: string; Comentario: string }
-      }
       Servico: {
         Id: string
         Nome: string
@@ -306,8 +296,7 @@ export const ViewProvider = ({ children }: ProviderProps) => {
         {
           object: {
             Combo_Id: router.query.id,
-            Servico_Id: $`Servico_Id`,
-            ServicoPreco_Id: $`ServicoPreco_Id`
+            Servico_Id: $`Servico_Id`
           }
         },
         { Id: true }
@@ -334,8 +323,7 @@ export const ViewProvider = ({ children }: ProviderProps) => {
         {
           object: {
             Combo_Id: router.query.id,
-            Produto_Id: $`Produto_Id`,
-            ProdutoPreco_Id: $`ProdutoPreco_Id`
+            Produto_Id: $`Produto_Id`
           }
         },
         { Id: true }
@@ -581,11 +569,6 @@ export const ViewProvider = ({ children }: ProviderProps) => {
             },
             {
               Id: true,
-              ProdutoPreco: {
-                Id: true,
-                Valor: true,
-                TipoDePreco: { Valor: true, Comentario: true }
-              },
               Produto: {
                 Id: true,
                 Nome: true,
@@ -619,7 +602,10 @@ export const ViewProvider = ({ children }: ProviderProps) => {
                     Id: true,
                     Precos: [
                       { order_by: [{ created_at: order_by.desc }] },
-                      { Valor: true }
+                      {
+                        Valor: true,
+                        TipoDePreco: { Valor: true, Comentario: true }
+                      }
                     ]
                   }
                 ]
@@ -632,11 +618,6 @@ export const ViewProvider = ({ children }: ProviderProps) => {
             },
             {
               Id: true,
-              ServicosPreco: {
-                Id: true,
-                Valor: true,
-                TipoDePreco: { Valor: true, Comentario: true }
-              },
               Servico: {
                 Id: true,
                 Nome: true,
@@ -667,7 +648,10 @@ export const ViewProvider = ({ children }: ProviderProps) => {
                     Id: true,
                     Precos: [
                       { order_by: [{ created_at: order_by.desc }] },
-                      { Valor: true }
+                      {
+                        Valor: true,
+                        TipoDePreco: { Valor: true, Comentario: true }
+                      }
                     ]
                   }
                 ]

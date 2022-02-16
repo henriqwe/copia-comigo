@@ -45,7 +45,7 @@ export function CreateVehicle() {
     setSlidePanelState,
     createProposal,
     createProposalLoading,
-    getUserByClientId
+    userAndTicketData
   } = client.useUpdate()
   const {
     handleSubmit,
@@ -58,7 +58,6 @@ export function CreateVehicle() {
     resolver: yupResolver(vehicleSchema)
   })
   const onSubmit = async (formData: FormData) => {
-    const userId = await getUserByClientId(router.query.id as string)
     createVehicle({
       variables: {
         Placa: vehicleCategory === 'placa' ? formData.Placa : null,
@@ -77,7 +76,7 @@ export function CreateVehicle() {
               Id: proposalUUID,
               Lead_Id: null,
               Ticket_Id: null,
-              Usuario_Id: userId[0].Id,
+              Usuario_Id: userAndTicketData.autenticacao_Usuarios[0].Id,
               Cliente_Id: router.query.id,
               veiculosData: [
                 {

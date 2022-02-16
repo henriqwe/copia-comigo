@@ -111,44 +111,55 @@ export const UpdatePlan = () => {
     if (plansData) {
       let totalValue = 0
       const itens = plansData.Servicos.map((service) => {
-        totalValue += Number(service.ServicoPreco.Valor)
-        console.log(
-          service.Servico.PrestadoresDeServicos[0].Precos.filter(
-            (price) => price.TipoDePreco.Valor === 'adesao'
-          )[0]
+        totalValue += Number(
+          service.Servico.PrestadoresDeServicos.length > 0
+            ? service.Servico.PrestadoresDeServicos[0].Precos.filter(
+                (price) => price.TipoDePreco.Valor === 'recorrencia'
+              )[0]?.Valor || '0'
+            : '0'
         )
+
         return {
           name: service.Servico.Nome,
           MembershipPrice:
             service.Servico.PrestadoresDeServicos.length > 0
               ? service.Servico.PrestadoresDeServicos[0].Precos.filter(
                   (price) => price.TipoDePreco.Valor === 'adesao'
-                )[0]?.Valor
+                )[0]?.Valor || '0'
               : '0',
-
           RecurrencePrice:
             service.Servico.PrestadoresDeServicos.length > 0
               ? service.Servico.PrestadoresDeServicos[0].Precos.filter(
                   (price) => price.TipoDePreco.Valor === 'recorrencia'
-                )[0]?.Valor
+                )[0]?.Valor || '0'
               : '0',
-
           type: 'Serviço'
         }
       })
 
       itens.push(
         ...plansData.Produtos.map((product) => {
-          totalValue += Number(product.ProdutoPreco.Valor)
+          totalValue += Number(
+            product.Produto.Fornecedores.length > 0
+              ? product.Produto.Fornecedores[0].Precos.filter(
+                  (price) => price.TipoDePreco.Valor === 'recorrencia'
+                )[0]?.Valor || '0'
+              : '0'
+          )
+
           return {
             name: product.Produto.Nome,
             MembershipPrice:
-              product.ProdutoPreco.TipoDePreco?.Valor === 'adesao'
-                ? product.ProdutoPreco.Valor
+              product.Produto.Fornecedores.length > 0
+                ? product.Produto.Fornecedores[0].Precos.filter(
+                    (price) => price.TipoDePreco.Valor === 'adesao'
+                  )[0]?.Valor || '0'
                 : '0',
             RecurrencePrice:
-              product.ProdutoPreco.TipoDePreco?.Valor === 'recorrencia'
-                ? product.ProdutoPreco.Valor
+              product.Produto.Fornecedores.length > 0
+                ? product.Produto.Fornecedores[0].Precos.filter(
+                    (price) => price.TipoDePreco.Valor === 'recorrencia'
+                  )[0]?.Valor || '0'
                 : '0',
             type: 'Produto'
           }

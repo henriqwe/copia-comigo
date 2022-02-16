@@ -1,4 +1,5 @@
 import nc from 'next-connect'
+import cors from 'cors'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { useTypedClientQuery } from '&erp/graphql/generated/zeus/apollo'
 import {
@@ -9,7 +10,7 @@ import { gerarOs } from '&erp/core/domains/OS/gerarOS'
 
 const handler = nc<NextApiRequest, NextApiResponse>()
 
-handler.get(async (req, res) => {
+handler.use(cors()).get(async (req, res) => {
   try {
     const type = req.query.type as operacional_OrdemDeServico_Tipo_enum
     const proposalId = req.query.proposalId
@@ -25,6 +26,7 @@ handler.get(async (req, res) => {
       response
     })
   } catch (error) {
+    console.log(error)
     return res
       .status(400)
       .json({ message: 'Não foi possivel se comunicar com a api', error })
@@ -62,10 +64,29 @@ async function getProposal(proposalId: string) {
                       {
                         Servico: {
                           GeraOS: true,
-                          Id: true
-                        },
-                        ServicosPreco: {
-                          Id: true
+                          Id: true,
+                          PrestadoresDeServicos: [
+                            {
+                              where: {
+                                deleted_at: { _is_null: true },
+                                Prestador_Id: {
+                                  _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                }
+                              }
+                            },
+                            {
+                              Precos: [
+                                {
+                                  where: { deleted_at: { _is_null: true } },
+                                  order_by: [{ created_at: order_by.desc }]
+                                },
+                                {
+                                  Id: true,
+                                  TipoDePreco: { Valor: true }
+                                }
+                              ]
+                            }
+                          ]
                         }
                       }
                     ],
@@ -78,25 +99,51 @@ async function getProposal(proposalId: string) {
                           ServicoDeDesinstalacao: {
                             Id: true,
                             PrestadoresDeServicos: [
-                              { where: { deleted_at: { _is_null: true } } },
                               {
-                                Prestador_Id: true,
+                                where: {
+                                  deleted_at: { _is_null: true },
+                                  Prestador_Id: {
+                                    _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                  }
+                                }
+                              },
+                              {
                                 Precos: [
                                   {
                                     where: { deleted_at: { _is_null: true } },
                                     order_by: [{ created_at: order_by.desc }]
                                   },
                                   {
-                                    Id: true
+                                    Id: true,
+                                    TipoDePreco: { Valor: true }
                                   }
                                 ]
                               }
                             ]
-                          }
-                        },
-                        ProdutoPreco: {
-                          Id: true,
-                          TipoDeRecorrencia_Id: true
+                          },
+                          Fornecedores: [
+                            {
+                              where: {
+                                deleted_at: { _is_null: true },
+                                Fornecedor_Id: {
+                                  _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                }
+                              }
+                            },
+                            {
+                              Precos: [
+                                {
+                                  where: { deleted_at: { _is_null: true } },
+                                  order_by: [{ created_at: order_by.desc }]
+                                },
+                                {
+                                  Id: true,
+                                  Valor: true,
+                                  TipoDePreco: { Valor: true }
+                                }
+                              ]
+                            }
+                          ]
                         }
                       }
                     ],
@@ -117,7 +164,10 @@ async function getProposal(proposalId: string) {
                                   PrestadoresDeServicos: [
                                     {
                                       where: {
-                                        deleted_at: { _is_null: true }
+                                        deleted_at: { _is_null: true },
+                                        Prestador_Id: {
+                                          _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                        }
                                       }
                                     },
                                     {
@@ -129,16 +179,40 @@ async function getProposal(proposalId: string) {
                                           }
                                         },
                                         {
-                                          Id: true
+                                          Id: true,
+                                          TipoDePreco: { Valor: true }
                                         }
                                       ]
                                     }
                                   ]
-                                }
-                              },
-                              ProdutoPreco: {
-                                Id: true,
-                                TipoDeRecorrencia_Id: true
+                                },
+                                Fornecedores: [
+                                  {
+                                    where: {
+                                      deleted_at: { _is_null: true },
+                                      Fornecedor_Id: {
+                                        _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                      }
+                                    }
+                                  },
+                                  {
+                                    Precos: [
+                                      {
+                                        where: {
+                                          deleted_at: { _is_null: true }
+                                        },
+                                        order_by: [
+                                          { created_at: order_by.desc }
+                                        ]
+                                      },
+                                      {
+                                        Id: true,
+                                        Valor: true,
+                                        TipoDePreco: { Valor: true }
+                                      }
+                                    ]
+                                  }
+                                ]
                               }
                             }
                           ],
@@ -150,11 +224,31 @@ async function getProposal(proposalId: string) {
                               Servico: {
                                 Id: true,
                                 Nome: true,
-                                GeraOS: true
-                              },
-                              ServicoPreco: {
-                                Id: true,
-                                created_at: true
+                                GeraOS: true,
+                                PrestadoresDeServicos: [
+                                  {
+                                    where: {
+                                      deleted_at: { _is_null: true },
+                                      Prestador_Id: {
+                                        _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                      }
+                                    }
+                                  },
+                                  {
+                                    Prestador_Id: true,
+                                    Precos: [
+                                      {
+                                        where: {
+                                          deleted_at: { _is_null: true }
+                                        }
+                                      },
+                                      {
+                                        Id: true,
+                                        TipoDePreco: { Valor: true }
+                                      }
+                                    ]
+                                  }
+                                ]
                               }
                             }
                           ]
@@ -183,7 +277,14 @@ async function getProposal(proposalId: string) {
                           ServicoDeDesinstalacao: {
                             Id: true,
                             PrestadoresDeServicos: [
-                              { where: { deleted_at: { _is_null: true } } },
+                              {
+                                where: {
+                                  deleted_at: { _is_null: true },
+                                  Prestador_Id: {
+                                    _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                  }
+                                }
+                              },
                               {
                                 Prestador_Id: true,
                                 Precos: [
@@ -191,16 +292,36 @@ async function getProposal(proposalId: string) {
                                     where: { deleted_at: { _is_null: true } }
                                   },
                                   {
-                                    Id: true
+                                    Id: true,
+                                    TipoDePreco: { Valor: true }
                                   }
                                 ]
                               }
                             ]
-                          }
-                        },
-                        ProdutoPreco: {
-                          Id: true,
-                          TipoDeRecorrencia_Id: true
+                          },
+                          Fornecedores: [
+                            {
+                              where: {
+                                deleted_at: { _is_null: true },
+                                Fornecedor_Id: {
+                                  _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                }
+                              }
+                            },
+                            {
+                              Precos: [
+                                {
+                                  where: { deleted_at: { _is_null: true } },
+                                  order_by: [{ created_at: order_by.desc }]
+                                },
+                                {
+                                  Id: true,
+                                  Valor: true,
+                                  TipoDePreco: { Valor: true }
+                                }
+                              ]
+                            }
+                          ]
                         }
                       }
                     ],
@@ -212,11 +333,29 @@ async function getProposal(proposalId: string) {
                         Servico: {
                           Id: true,
                           Nome: true,
-                          GeraOS: true
-                        },
-                        ServicoPreco: {
-                          Id: true,
-                          created_at: true
+                          GeraOS: true,
+                          PrestadoresDeServicos: [
+                            {
+                              where: {
+                                deleted_at: { _is_null: true },
+                                Prestador_Id: {
+                                  _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                                }
+                              }
+                            },
+                            {
+                              Prestador_Id: true,
+                              Precos: [
+                                {
+                                  where: { deleted_at: { _is_null: true } }
+                                },
+                                {
+                                  Id: true,
+                                  TipoDePreco: { Valor: true }
+                                }
+                              ]
+                            }
+                          ]
                         }
                       }
                     ]
@@ -230,16 +369,27 @@ async function getProposal(proposalId: string) {
                 { where: { deleted_at: { _is_null: true } } },
                 {
                   Id: true,
-                  ProdutoPreco: {
+                  PrecoAdesao: {
                     Id: true,
-                    TipoDeRecorrencia_Id: true
+                    TipoDePreco: { Valor: true }
+                  },
+                  PrecoRecorrencia: {
+                    Id: true,
+                    TipoDePreco: { Valor: true }
                   },
                   Produto: {
                     Id: true,
                     ServicoDeDesinstalacao: {
                       Id: true,
                       PrestadoresDeServicos: [
-                        { where: { deleted_at: { _is_null: true } } },
+                        {
+                          where: {
+                            deleted_at: { _is_null: true },
+                            Prestador_Id: {
+                              _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                            }
+                          }
+                        },
                         {
                           Prestador_Id: true,
                           Precos: [
@@ -247,7 +397,8 @@ async function getProposal(proposalId: string) {
                               where: { deleted_at: { _is_null: true } }
                             },
                             {
-                              Id: true
+                              Id: true,
+                              TipoDePreco: { Valor: true }
                             }
                           ]
                         }
@@ -268,9 +419,13 @@ async function getProposal(proposalId: string) {
                     Nome: true,
                     GeraOS: true
                   },
-                  ServicosPreco: {
+                  PrecoDeAdesao: {
                     Id: true,
-                    created_at: true
+                    TipoDePreco: { Valor: true }
+                  },
+                  PrecoDeRecorrencia: {
+                    Id: true,
+                    TipoDePreco: { Valor: true }
                   }
                 }
               ]

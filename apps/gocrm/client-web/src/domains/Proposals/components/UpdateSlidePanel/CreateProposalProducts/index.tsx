@@ -18,6 +18,7 @@ type FormData = {
         Precos: {
           Id: string
           Valor: string
+          TipoDePreco?: { Valor: string }
         }[]
       }[]
       ServicoDeInstalacao?: {
@@ -27,6 +28,7 @@ type FormData = {
           Precos: {
             Id: string
             Valor: string
+            TipoDePreco?: { Valor: string }
           }[]
         }[]
       }
@@ -55,21 +57,34 @@ export function CreateProposalProducts() {
 
   const onSubmit = async (formData: FormData) => {
     try {
+      const price = formData.Product_Id.key.Fornecedores[0].Precos
       await insertProposalProduct({
         variables: {
-          ProdutoPreco_Id: formData.Product_Id.key.Fornecedores[0].Precos[0].Id,
           Produto_Id: formData.Product_Id.key.Id,
-          PropostaVeiculo_Id: selectedCategory.id
+          PropostaVeiculo_Id: selectedCategory.id,
+          PrecoDeAdesao_Id: price.filter(
+            (price) => price.TipoDePreco.Valor === 'adesao'
+          )[0].Id,
+          PrecoDeRecorrencia_Id: price.filter(
+            (price) => price.TipoDePreco.Valor === 'recorrencia'
+          )[0].Id
         }
       })
 
       if (addInstalation) {
+        const servicePrice =
+          formData.Product_Id.key.ServicoDeInstalacao.PrestadoresDeServicos[0]
+            .Precos
         await insertProposalService({
           variables: {
             Servico_Id: formData.Product_Id.key.ServicoDeInstalacao.Id,
-            ServicosPreco_Id:
-              formData.Product_Id.key.ServicoDeInstalacao.PrestadoresDeServicos[0].Precos[0].Id,
-            PropostaVeiculo_Id: selectedCategory.id
+            PropostaVeiculo_Id: selectedCategory.id,
+            PrecoDeAdesao_Id: servicePrice.filter(
+              (price) => price.TipoDePreco.Valor === 'adesao'
+            )[0]?.Id,
+            PrecoDeRecorrencia_Id: servicePrice.filter(
+              (price) => price.TipoDePreco.Valor === 'recorrencia'
+            )[0]?.Id
           }
         })
       }
@@ -126,7 +141,7 @@ export function CreateProposalProducts() {
                 (category: { title: string }) => category.title
               )}
             </p>
-            {watch('Product_Id').key.ServicoDeInstalacao !== undefined && (
+            {watch('Product_Id').key.ServicoDeInstalacao !== null && (
               <div>
                 <div className="flex items-center justify-between w-full">
                   <p>Adicionar instalação do produto?</p>

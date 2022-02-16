@@ -1,17 +1,13 @@
 import { Dispatch, SetStateAction } from 'react'
-import { coordsToCenterMap, vehicleType } from './MonitoringPanel'
-import { showError } from '@comigo/utils'
+
 import * as common from '@comigo/ui-common'
-import {
-  ChevronLeftIcon,
-  LocationMarkerIcon,
-  MinusIcon,
-  PlusIcon,
-  SearchIcon
-} from '@heroicons/react/outline'
+
+import { showError } from '@comigo/utils'
+import { ChevronLeftIcon, SearchIcon } from '@heroicons/react/outline'
+import { vehicleType } from '../MonitoringPanel'
+import { CardTrip } from './CardTrip'
 
 type ConsultPathPanelProps = {
-  setInputSearchValue: Dispatch<SetStateAction<string>>
   setPageCard: Dispatch<SetStateAction<string>>
   selectedVehicle: vehicleType | undefined
   consultVehicleHistoric: (
@@ -19,11 +15,6 @@ type ConsultPathPanelProps = {
     inicio: string,
     fim: string
   ) => void
-  vehicleConsultData: vehicleType[]
-  getStreetNameByLatLng: (lat: string, lng: string) => Promise<any>
-  dadosEnd: string
-  showBounceMarker: Dispatch<SetStateAction<coordsToCenterMap>>
-  moreDetails: boolean
   setMoreDetails: Dispatch<SetStateAction<boolean>>
   showAllVehiclesInMap: () => void
   dateStart: string
@@ -34,15 +25,9 @@ type ConsultPathPanelProps = {
 }
 
 export function ConsultPathPanel({
-  setInputSearchValue,
   setPageCard,
   selectedVehicle,
   consultVehicleHistoric,
-  vehicleConsultData,
-  getStreetNameByLatLng,
-  dadosEnd,
-  showBounceMarker,
-  moreDetails,
   setMoreDetails,
   showAllVehiclesInMap,
   dateStart,
@@ -67,35 +52,39 @@ export function ConsultPathPanel({
       showError(err)
     }
   }
-  function filterConsult(item: string) {
-    let result: vehicleType[]
-    switch (item) {
-      case 'Visualizar todos':
-        // setVehicleConsultDataFiltered(vehicleConsultData)
-        break
-      case 'Eventos de velocidade':
-        result = vehicleConsultData?.filter((vehicle) => {
-          if (Number(vehicle.speed) > 80) {
-            return vehicle
-          }
-        })
-        // setVehicleConsultDataFiltered(result)
-        break
-      case 'Ignição ligada e parado':
-        result = vehicleConsultData?.filter((vehicle) => {
-          if (Number(vehicle.speed) < 1 && vehicle.ligado === 1) {
-            return vehicle
-          }
-        })
-        // setVehicleConsultDataFiltered(result)
-
-        break
+  const labels = [
+    {
+      horaInicio: '12:37',
+      endInicio: 'R. São Caetano, 175',
+      endInicioInfo: 'Benedito, Maceió - AL',
+      horaFim: '14:15',
+      endFim: 'Av. Comendador Gustavo Paiva, 5945',
+      endFimInfo: 'Cruz das Almas, Maceió - AL',
+      duracao: '01:38:17',
+      distanciaPercorrida: '33,51 km',
+      qntEventos: '3 eventos',
+      consumo: '3,7 L',
+      velMedia: '57 km/h',
+      maiorVel: '82 km/h'
+    },
+    {
+      horaInicio: '16:02',
+      endInicio: 'Av. Comendador Gustavo Paiva, 5945 ',
+      endInicioInfo: 'Cruz das Almas, Maceió - AL ',
+      horaFim: '17:54',
+      endFim: 'R. São Caetano, 175',
+      endFimInfo: 'Benedito, Maceió - AL',
+      duracao: '01:02:47',
+      distanciaPercorrida: '33,51 km',
+      qntEventos: '1 evento',
+      consumo: '3,7 L',
+      velMedia: '53 km/h',
+      maiorVel: '74 km/h'
     }
-  }
-
+  ]
   return (
     <>
-      <div className="">
+      <div className="h-48 ">
         <div className="flex justify-between px-3 py-2 bg-gray-100">
           <div className="flex justify-center">
             <common.TitleWithSubTitleAtTheTop
@@ -114,7 +103,7 @@ export function ConsultPathPanel({
                       selectedVehicle?.date_rastreador || 0
                     ).toLocaleTimeString('pt-br')}`}
               subtitle="Última atualização"
-              classTitle="!text-sm my-1"
+              classTitle="!text-xs my-1"
               classSubtitle="text-xs flex justify-end"
             />
           </div>
@@ -164,10 +153,10 @@ export function ConsultPathPanel({
                     className="flex items-center justify-center "
                   >
                     <ChevronLeftIcon
-                      className="w-5 h-5 text-black hover:text-gray-900"
+                      className="w-4 h-4 text-black hover:text-gray-900"
                       aria-hidden="true"
                     />{' '}
-                    Voltar
+                    <span className="text-xs hover:underline">Voltar</span>
                   </button>
                   <button
                     type="submit"
@@ -186,32 +175,13 @@ export function ConsultPathPanel({
       </div>
       <div className="flex-1 px-3 py-2 overflow-y-scroll">
         <div className="w-full mt-2">
-          <span>teste</span>
-          {/* <div className="relative mt-1 report-timeline">
-                <common.ListCard
-                  icon={<LocationMarkerIcon className="w-6 h-6" />}
-                  title={'Velocidade'}
-                  description={
-                    <p>{Number(selectedVehicle?.speed).toFixed() + ' Km/H'}</p>
-                  }
-                />
-                <common.ListCard
-                  icon={<ClockIcon className="w-6 h-6" />}
-                  title={'Ignição'}
-                  description={
-                    <div>
-                      <p>{selectedVehicle?.ligado ? 'Ligado' : 'Desligado'}</p>
-                    </div>
-                  }
-                />
-                <common.ListCard
-                  icon={<MapIcon className="w-6 h-6" />}
-                  title={'Endereço'}
-                  description={
-                    dadosEnd ? <span>{dadosEnd}</span> : <span>Buscando...</span>
-                  }
-                />
-              </div> */}
+          {labels.map((label, idx) => {
+            return (
+              <div key={idx}>
+                <CardTrip label={label} />
+              </div>
+            )
+          })}
         </div>
       </div>
     </>

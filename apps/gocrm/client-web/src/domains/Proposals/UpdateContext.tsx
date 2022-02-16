@@ -66,6 +66,7 @@ type UpdateContextProps = {
       Precos: {
         Id: string
         Valor: string
+        TipoDePreco?: { Valor: string }
       }[]
     }[]
   }[]
@@ -86,6 +87,7 @@ type UpdateContextProps = {
       Precos: {
         Id: string
         Valor: string
+        TipoDePreco?: { Valor: string }
       }[]
     }[]
 
@@ -93,7 +95,7 @@ type UpdateContextProps = {
       Id: string
       Nome: string
       PrestadoresDeServicos: {
-        Precos: { Id: string; Valor: string }[]
+        Precos: { Id: string; Valor: string; TipoDePreco?: { Valor: string } }[]
       }[]
     }
   }[]
@@ -147,10 +149,10 @@ type UpdateContextProps = {
   paymentDayRefetch: () => void
   paymentDayLoading: boolean
   proposalData: {
-    FormaDePagamentoDaAdesao_Id?: string
     Situacao: {
       Comentario: string
     }
+    FormaDePagamentoDaAdesao_Id?: string
     Cliente_Id?: string
     Planos: {
       Plano: {
@@ -162,20 +164,34 @@ type UpdateContextProps = {
         ValorDeRecorrencia: string
       }
     }[]
+
     Servicos: {
       Servico: {
         Id: string
         Nome: string
       }
-      ServicosPreco: {
+      PrecoDeAdesao?: {
+        Valor: string
+        TipoDePreco?: { Valor: string }
+      }
+      PrecoDeRecorrencia?: {
         Valor: string
         TipoDePreco?: { Valor: string }
       }
     }[]
+
     Produtos: {
       Produto: { Id: string; Nome: string }
-      ProdutoPreco: { Valor: string; TipoDePreco?: { Valor: string } }
+      PrecoAdesao?: {
+        Valor: string
+        TipoDePreco?: { Valor: string }
+      }
+      PrecoRecorrencia?: {
+        Valor: string
+        TipoDePreco?: { Valor: string }
+      }
     }[]
+
     Combos: {
       Combo: {
         Id: string
@@ -186,6 +202,7 @@ type UpdateContextProps = {
         ValorDeRecorrencia: string
       }
     }[]
+
     Veiculos: {
       Id: string
       Veiculo_Id?: string
@@ -194,26 +211,37 @@ type UpdateContextProps = {
           Id: string
           Nome: string
         }
-        ServicosPreco: {
-          Valor?: string
+        PrecoDeAdesao?: {
+          Valor: string
+          TipoDePreco?: { Valor: string }
+        }
+        PrecoDeRecorrencia?: {
+          Valor: string
           TipoDePreco?: { Valor: string }
         }
       }[]
+
       PropostasProdutos: {
         Produto: { Id: string; Nome: string }
-        ProdutoPreco: { Valor?: string; TipoDePreco?: { Valor: string } }
+        PrecoAdesao?: {
+          Valor: string
+          TipoDePreco?: { Valor: string }
+        }
+        PrecoRecorrencia?: {
+          Valor: string
+          TipoDePreco?: { Valor: string }
+        }
       }[]
+
       PropostasPlanos: {
         Plano: {
           Id: string
           Nome: string
           Produtos: {
             Produto: { Id: string; Nome: string }
-            ProdutoPreco: { Valor?: string; TipoDePreco?: { Valor: string } }
           }[]
           Servicos: {
             Servico: { Id: string; Nome: string }
-            ServicoPreco: { Valor?: string; TipoDePreco?: { Valor: string } }
           }[]
         }
         PlanoPreco: {
@@ -221,6 +249,7 @@ type UpdateContextProps = {
           ValorDeRecorrencia: string
         }
       }[]
+
       PropostasCombos: {
         Combo: {
           Nome: string
@@ -230,27 +259,20 @@ type UpdateContextProps = {
               Nome: string
               Produtos: {
                 Produto: { Id: string; Nome: string }
-                ProdutoPreco: {
-                  Valor?: string
-                  TipoDePreco?: { Valor: string }
-                }
               }[]
+
               Servicos: {
                 Servico: { Id: string; Nome: string }
-                ServicoPreco: {
-                  Valor?: string
-                  TipoDePreco?: { Valor: string }
-                }
               }[]
             }
           }[]
+
           Produtos: {
             Produto: { Id: string; Nome: string }
-            ProdutoPreco: { Valor?: string; TipoDePreco?: { Valor: string } }
           }[]
+
           Servicos: {
             Servico: { Id: string; Nome: string }
-            ServicosPreco: { Valor?: string; TipoDePreco?: { Valor: string } }
           }[]
         }
         ComboPreco: {
@@ -635,9 +657,10 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           object: {
             Servico_Id: $`Servico_Id`,
-            ServicosPreco_Id: $`ServicosPreco_Id`,
             Proposta_Id: router.query.id,
-            PropostaVeiculo_Id: $`PropostaVeiculo_Id`
+            PropostaVeiculo_Id: $`PropostaVeiculo_Id`,
+            PrecoDeAdesao_Id: $`PrecoDeAdesao_Id`,
+            PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`
           }
         },
         {
@@ -651,10 +674,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
       insert_propostas_Propostas_Produtos_one: [
         {
           object: {
-            ProdutoPreco_Id: $`ProdutoPreco_Id`,
             Produto_Id: $`Produto_Id`,
             Proposta_Id: router.query.id,
-            PropostaVeiculo_Id: $`PropostaVeiculo_Id`
+            PropostaVeiculo_Id: $`PropostaVeiculo_Id`,
+            PrecoDeAdesao_Id: $`PrecoDeAdesao_Id`,
+            PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`
           }
         },
         {
@@ -780,7 +804,12 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           },
           PrestadoresDeServicos: [
             {
-              where: { deleted_at: { _is_null: true } }
+              where: {
+                deleted_at: { _is_null: true },
+                Prestador_Id: {
+                  _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                }
+              }
             },
             {
               Precos: [
@@ -790,7 +819,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 },
                 {
                   Id: true,
-                  Valor: true
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
                 }
               ]
             }
@@ -823,7 +853,14 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             Comentario: true
           },
           Fornecedores: [
-            {},
+            {
+              where: {
+                deleted_at: { _is_null: true },
+                Fornecedor_Id: {
+                  _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                }
+              }
+            },
             {
               Precos: [
                 {
@@ -832,7 +869,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 },
                 {
                   Id: true,
-                  Valor: true
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
                 }
               ]
             }
@@ -841,11 +879,18 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             Id: true,
             Nome: true,
             PrestadoresDeServicos: [
-              {},
+              {
+                where: {
+                  deleted_at: { _is_null: true },
+                  Prestador_Id: {
+                    _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                  }
+                }
+              },
               {
                 Precos: [
                   { order_by: [{ created_at: order_by.desc }] },
-                  { Id: true, Valor: true }
+                  { Id: true, Valor: true, TipoDePreco: { Valor: true } }
                 ]
               }
             ]
@@ -976,7 +1021,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Id: true,
               Nome: true
             },
-            ServicosPreco: {
+            PrecoDeAdesao: {
+              Valor: true,
+              TipoDePreco: { Valor: true }
+            },
+            PrecoDeRecorrencia: {
               Valor: true,
               TipoDePreco: { Valor: true }
             }
@@ -991,7 +1040,14 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           },
           {
             Produto: { Id: true, Nome: true },
-            ProdutoPreco: { Valor: true, TipoDePreco: { Valor: true } }
+            PrecoAdesao: {
+              Valor: true,
+              TipoDePreco: { Valor: true }
+            },
+            PrecoRecorrencia: {
+              Valor: true,
+              TipoDePreco: { Valor: true }
+            }
           }
         ],
         Combos: [
@@ -1026,7 +1082,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   Id: true,
                   Nome: true
                 },
-                ServicosPreco: {
+                PrecoDeAdesao: {
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                },
+                PrecoDeRecorrencia: {
                   Valor: true,
                   TipoDePreco: { Valor: true }
                 }
@@ -1036,7 +1096,14 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               { where: { deleted_at: { _is_null: true } } },
               {
                 Produto: { Id: true, Nome: true },
-                ProdutoPreco: { Valor: true, TipoDePreco: { Valor: true } }
+                PrecoAdesao: {
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                },
+                PrecoRecorrencia: {
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                }
               }
             ],
             PropostasPlanos: [
@@ -1048,21 +1115,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   Produtos: [
                     { where: { deleted_at: { _is_null: true } } },
                     {
-                      Produto: { Id: true, Nome: true },
-                      ProdutoPreco: {
-                        Valor: true,
-                        TipoDePreco: { Valor: true }
-                      }
+                      Produto: { Id: true, Nome: true }
                     }
                   ],
                   Servicos: [
                     { where: { deleted_at: { _is_null: true } } },
                     {
-                      Servico: { Id: true, Nome: true },
-                      ServicoPreco: {
-                        Valor: true,
-                        TipoDePreco: { Valor: true }
-                      }
+                      Servico: { Id: true, Nome: true }
                     }
                   ]
                 },
@@ -1086,21 +1145,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                         Produtos: [
                           { where: { deleted_at: { _is_null: true } } },
                           {
-                            Produto: { Id: true, Nome: true },
-                            ProdutoPreco: {
-                              Valor: true,
-                              TipoDePreco: { Valor: true }
-                            }
+                            Produto: { Id: true, Nome: true }
                           }
                         ],
                         Servicos: [
                           { where: { deleted_at: { _is_null: true } } },
                           {
-                            Servico: { Id: true, Nome: true },
-                            ServicoPreco: {
-                              Valor: true,
-                              TipoDePreco: { Valor: true }
-                            }
+                            Servico: { Id: true, Nome: true }
                           }
                         ]
                       }
@@ -1109,21 +1160,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   Produtos: [
                     { where: { deleted_at: { _is_null: true } } },
                     {
-                      Produto: { Id: true, Nome: true },
-                      ProdutoPreco: {
-                        Valor: true,
-                        TipoDePreco: { Valor: true }
-                      }
+                      Produto: { Id: true, Nome: true }
                     }
                   ],
                   Servicos: [
                     { where: { deleted_at: { _is_null: true } } },
                     {
-                      Servico: { Id: true, Nome: true },
-                      ServicosPreco: {
-                        Valor: true,
-                        TipoDePreco: { Valor: true }
-                      }
+                      Servico: { Id: true, Nome: true }
                     }
                   ]
                 },

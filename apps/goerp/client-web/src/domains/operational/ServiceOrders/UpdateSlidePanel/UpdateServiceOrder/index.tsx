@@ -27,7 +27,20 @@ export function Schedule() {
     setSlidePanelState,
     serviceOrderActivitiesRefetch,
     collaboratorsData,
-    getItemIdByProductId
+    getItemIdByProductId,
+    getChipIdentifierByItemId,
+    getEquipmentIdentifierByItemId,
+    getIdentifierByItemId,
+    getTrackerIdentifierByItemId,
+    getInputKitsIdentifierByItemId,
+    getInstallationKitsIdentifierByItemId,
+    updateChip,
+    updateEquipment,
+    updateIdentifier,
+    updateTracker,
+    updateInputKit,
+    updateInstallationKit,
+    getItemById
   } = serviceOrders.useUpdate()
 
   const {
@@ -37,10 +50,95 @@ export function Schedule() {
     reset,
     control
   } = useForm({ resolver: yupResolver(serviceOrdersSchema) })
+
   async function onSubmit(formData: FormData) {
+    let inventoryValidation = false
+    const identifiers: { type: string; id: string }[] = []
+
     const Itens = await Promise.all(
       serviceOrderData.Produtos.map(async (product) => {
         const item = await getItemIdByProductId(product.Produto.Id)
+        let saldo = 0
+        switch (item[0].TipoDeItem_Id) {
+          case 'chips':
+            await getChipIdentifierByItemId(item[0].Item_Id).then((chip) => {
+              if (chip.length === 0) {
+                inventoryValidation = true
+              }
+              identifiers.push({ type: 'chips', id: chip[0].Id })
+            })
+            break
+          case 'equipamentos':
+            await getEquipmentIdentifierByItemId(item[0].Item_Id).then(
+              (equipment) => {
+                if (equipment.length === 0) {
+                  inventoryValidation = true
+                }
+                identifiers.push({ type: 'equipamentos', id: equipment[0].Id })
+              }
+            )
+            break
+          case 'identificadores':
+            await getIdentifierByItemId(item[0].Item_Id).then(
+              (identifierResponse) => {
+                if (identifierResponse.length === 0) {
+                  inventoryValidation = true
+                }
+                identifiers.push({
+                  type: 'identificadores',
+                  id: identifierResponse[0].Id
+                })
+              }
+            )
+            break
+          case 'rastreadores':
+            await getTrackerIdentifierByItemId(item[0].Item_Id).then(
+              (tracker) => {
+                if (tracker.length === 0) {
+                  inventoryValidation = true
+                }
+                identifiers.push({ type: 'rastreadores', id: tracker[0].Id })
+              }
+            )
+            break
+          case 'kitsDeInsumo':
+            await getInputKitsIdentifierByItemId(item[0].Item_Id).then(
+              (inputKit) => {
+                if (inputKit.length === 0) {
+                  inventoryValidation = true
+                }
+                identifiers.push({ type: 'kitsDeInsumo', id: inputKit[0].Id })
+              }
+            )
+            break
+          case 'kitsDeInstalacao':
+            await getInstallationKitsIdentifierByItemId(item[0].Item_Id).then(
+              (installationKit) => {
+                if (installationKit.length === 0) {
+                  inventoryValidation = true
+                }
+                identifiers.push({
+                  type: 'kitsDeInstalacao',
+                  id: installationKit[0].Id
+                })
+              }
+            )
+            break
+          default:
+            ;(await getItemById(item[0].Item_Id)).Movimentacoes.map(
+              (movimentacao) => {
+                if (movimentacao.Tipo === 'saida') {
+                  saldo = saldo - movimentacao.Quantidade
+                  return
+                }
+                saldo = saldo + movimentacao.Quantidade
+              }
+            )
+            if(saldo <= 0){
+              inventoryValidation = true
+            }
+            break
+        }
         return {
           Produto_Id: product.Produto.Id,
           Item_Id: item[0].Item_Id,
@@ -49,6 +147,13 @@ export function Schedule() {
       })
     )
 
+    if (inventoryValidation) {
+      return utils.notification(
+        'Há itens que não estão disponíveis no estoque',
+        'error'
+      )
+    }
+
     await updateServiceOrders({
       variables: {
         Agendamento: formData.Agendamento,
@@ -56,7 +161,62 @@ export function Schedule() {
         Itens
       }
     })
-      .then(() => {
+      .then(async () => {
+        await Promise.all(
+          identifiers.map(async (identifier) => {
+            switch (identifier.type) {
+              case 'chips':
+                await updateChip({
+                  variables: {
+                    Id: identifier.id,
+                    Ativo: true
+                  }
+                })
+                break
+              case 'equipamentos':
+                await updateEquipment({
+                  variables: {
+                    Id: identifier.id,
+                    Ativo: true
+                  }
+                })
+
+                break
+              case 'identificadores':
+                await updateIdentifier({
+                  variables: {
+                    Id: identifier.id,
+                    Ativo: true
+                  }
+                })
+                break
+              case 'rastreadores':
+                await updateTracker({
+                  variables: {
+                    Id: identifier.id,
+                    Ativo: true
+                  }
+                })
+                break
+              case 'kitsDeInsumo':
+                await updateInputKit({
+                  variables: {
+                    Id: identifier.id,
+                    Ativo: true
+                  }
+                })
+                break
+              case 'kitsDeInstalacao':
+                await updateInstallationKit({
+                  variables: {
+                    Id: identifier.id,
+                    Ativo: true
+                  }
+                })
+                break
+            }
+          })
+        )
         serviceOrderRefetch()
         serviceOrderActivitiesRefetch()
         setSlidePanelState({

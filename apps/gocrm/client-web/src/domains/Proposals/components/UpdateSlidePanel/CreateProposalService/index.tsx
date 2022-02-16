@@ -16,6 +16,7 @@ type FormData = {
         Precos: {
           Id: string
           Valor: string
+          TipoDePreco?: { Valor: string }
         }[]
       }[]
     }
@@ -39,12 +40,17 @@ export function CreateProposalService() {
   } = useForm()
 
   const onSubmit = async (formData: FormData) => {
+    const price = formData.Servico_Id.key.PrestadoresDeServicos[0].Precos
     await insertProposalService({
       variables: {
         Servico_Id: formData.Servico_Id.key.Id,
-        ServicosPreco_Id:
-          formData.Servico_Id.key.PrestadoresDeServicos[0].Precos[0].Id,
-        PropostaVeiculo_Id: selectedCategory.id
+        PropostaVeiculo_Id: selectedCategory.id,
+        PrecoDeAdesao_Id: price.filter(
+          (price) => price.TipoDePreco.Valor === 'adesao'
+        )[0]?.Id,
+        PrecoDeRecorrencia_Id: price.filter(
+          (price) => price.TipoDePreco.Valor === 'recorrencia'
+        )[0]?.Id
       }
     })
     proposalRefetch()

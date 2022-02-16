@@ -4,7 +4,13 @@ table:
 object_relationships:
 - name: PrecoDeAdesao
   using:
-    foreign_key_constraint_on: PrecoDeAdesao_Id
+    manual_configuration:
+      column_mapping:
+        PrecoDeAdesao_Id: Id
+      insertion_order: null
+      remote_table:
+        name: PrestadoresDeServicos_Servicos_Precos
+        schema: comercial
 - name: PrecoDeRecorrencia
   using:
     foreign_key_constraint_on: PrecoDeRecorrencia_Id

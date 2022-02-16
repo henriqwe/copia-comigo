@@ -70,6 +70,8 @@ export function Update() {
   const [vehicle, setVehicle] = useState<VehicleType>()
   const [productCollection, setProductCollection] =
     useState<ProductCollectionType[]>()
+  const [servicesCollection, setServicesCollection] =
+    useState<Omit<CollectionType, 'Type'>[]>()
   const [productItens, setProductItens] = useState<ProductItensType[]>([])
   const {
     serviceOrderData,
@@ -108,7 +110,16 @@ export function Update() {
     registerItemMovimentation,
     updateServiceOrdersSchedule,
     updateServiceOrdersScheduleLoading,
-    updateServiceOrderScheduleItem
+    updateServiceOrderScheduleItem,
+    getServicePriceById,
+    getProductPriceById,
+    updateChip,
+    updateEquipment,
+    updateIdentifier,
+    updateTracker,
+    updateInputKit,
+    updateInstallationKit,
+    getItemById
   } = serviceOrders.useUpdate()
   const address = client?.Pessoa.DadosDaApi.enderecos[0]
 
@@ -177,7 +188,8 @@ export function Update() {
                 serviceOrderData?.Servicos.map(async (service) => {
                   await insertActiveVehicleService({
                     variables: {
-                      ServicoPreco_Id: service.ServicoPreco.Id,
+                      PrecoDeAdesao_Id: service.PrecoDeAdesao_Id,
+                      PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia_Id,
                       Servico_Id: service.Servico.Id,
                       VeiculoAtivo_Id: activeVehicles[0].Id
                     }
@@ -215,7 +227,9 @@ export function Update() {
                       await updateActiveVehicleBenefit({
                         variables: {
                           Id: duplatedItemId,
-                          PortfolioPreco_Id: benefit.PortfolioPreco_Id
+                          PortfolioPreco_Id: benefit.PortfolioPreco_Id,
+                          PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
+                          PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id
                         }
                       })
                       return
@@ -227,6 +241,8 @@ export function Update() {
                         Portfolio_Id: benefit.Portfolio_Id,
                         TipoPortfolio: benefit.TipoPortfolio,
                         PortfolioPreco_Id: benefit.PortfolioPreco_Id,
+                        PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
+                        PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id,
                         VeiculoAtivo_Id:
                           response!.data.update_clientes_VeiculosAtivos_by_pk
                             .Id,
@@ -241,7 +257,8 @@ export function Update() {
                     // scheduleItem[0].
                     await insertActiveVehicleProducts({
                       variables: {
-                        ProdutoPreco_Id: product.ProdutoPreco.Id,
+                        PrecoDeAdesao_Id: product.PrecoDeAdesao_Id,
+                        PrecoDeRecorrencia_Id: product.PrecoDeRecorrencia_Id,
                         Produto_Id: product.Produto.Id,
                         VeiculoAtivo_Id:
                           response!.data.update_clientes_VeiculosAtivos_by_pk
@@ -255,7 +272,8 @@ export function Update() {
                   serviceOrderData?.Servicos.map(async (service) => {
                     await insertActiveVehicleService({
                       variables: {
-                        ServicoPreco_Id: service.ServicoPreco.Id,
+                        PrecoDeAdesao_Id: service.PrecoDeAdesao_Id,
+                        PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia_Id,
                         Servico_Id: service.Servico.Id,
                         VeiculoAtivo_Id:
                           response!.data.update_clientes_VeiculosAtivos_by_pk.Id
@@ -280,6 +298,8 @@ export function Update() {
                     Portfolio_Id: benefit.Portfolio_Id,
                     TipoPortfolio: benefit.TipoPortfolio,
                     PortfolioPreco_Id: benefit.PortfolioPreco_Id,
+                    PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
+                    PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id,
                     Ativo: true
                   }
                 }),
@@ -289,7 +309,8 @@ export function Update() {
                   )[0]
                   return {
                     Produto_Id: product.Produto.Id,
-                    ProdutoPreco_Id: product.ProdutoPreco.Id,
+                    PrecoDeAdesao_Id: product.PrecoDeAdesao_Id,
+                    PrecoDeRecorrencia_Id: product.PrecoDeRecorrencia_Id,
                     TipoItem_Id: item.TipoItem_Id,
                     Identificador: item.Identificador,
                     Ativo: true
@@ -298,7 +319,8 @@ export function Update() {
                 Servicos: serviceOrderData?.Servicos.map((service) => {
                   return {
                     Servico_Id: service.Servico.Id,
-                    ServicoPreco_Id: service.ServicoPreco.Id,
+                    PrecoDeAdesao_Id: service.PrecoDeAdesao_Id,
+                    PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia_Id,
                     Ativo: true
                   }
                 })
@@ -331,7 +353,7 @@ export function Update() {
         variables: {
           Quantidade: 1,
           Tipo: 'saida',
-          Item_Id: item.Item_Id,
+          Item_Id: item.Item.Id,
           Motivo_Id: 'agendamentoDeOS'
         }
       }).catch((err) => {
@@ -402,29 +424,97 @@ export function Update() {
         MotivoRecusado: formData.MotivoRecusado
       }
     })
-      .then(() => {
-        serviceOrderData.Agendamentos[0].Itens.map((item) => {
-          if (item.RetiradoDoEstoque) {
-            registerItemMovimentation({
-              variables: {
-                Quantidade: 1,
-                Tipo: 'entrada',
-                Item_Id: item.Item_Id,
-                Motivo_Id: 'frustracaoDeOS'
-              }
-            }).catch((err) => {
-              utils.showError(err)
-            })
-            updateServiceOrderScheduleItem({
-              variables: {
-                Id: item.Id,
-                RetiradoDoEstoque: true
-              }
-            }).catch((err) => {
-              utils.showError(err)
-            })
-          }
-        })
+      .then(async () => {
+        await Promise.all(
+          serviceOrderData.Agendamentos[0].Itens.map(async (item) => {
+            await Promise.all(
+              item.Item.Chips.map(async (chip) => {
+                await updateChip({
+                  variables: {
+                    Id: chip.Id,
+                    Ativo: false
+                  }
+                })
+              })
+            )
+
+            await Promise.all(
+              item.Item.Equipamentos.map(async (equipment) => {
+                await updateEquipment({
+                  variables: {
+                    Id: equipment.Id,
+                    Ativo: false
+                  }
+                })
+              })
+            )
+
+            await Promise.all(
+              item.Item.Identificadores.map(async (identifier) => {
+                await updateIdentifier({
+                  variables: {
+                    Id: identifier.Id,
+                    Ativo: false
+                  }
+                })
+              })
+            )
+
+            await Promise.all(
+              item.Item.Rastreadores.map(async (tracker) => {
+                await updateTracker({
+                  variables: {
+                    Id: tracker.Id,
+                    Ativo: false
+                  }
+                })
+              })
+            )
+
+            await Promise.all(
+              item.Item.KitsDeInsumo.map(async (inputKit) => {
+                await updateInputKit({
+                  variables: {
+                    Id: inputKit.Id,
+                    Ativo: false
+                  }
+                })
+              })
+            )
+
+            await Promise.all(
+              item.Item.KitsDeInstalacao.map(async (installationKit) => {
+                await updateInstallationKit({
+                  variables: {
+                    Id: installationKit.Id,
+                    Ativo: false
+                  }
+                })
+              })
+            )
+            if (item.RetiradoDoEstoque) {
+              registerItemMovimentation({
+                variables: {
+                  Quantidade: 1,
+                  Tipo: 'entrada',
+                  Item_Id: item.Item.Id,
+                  Motivo_Id: 'frustracaoDeOS'
+                }
+              }).catch((err) => {
+                utils.showError(err)
+              })
+
+              updateServiceOrderScheduleItem({
+                variables: {
+                  Id: item.Id,
+                  RetiradoDoEstoque: false
+                }
+              }).catch((err) => {
+                utils.showError(err)
+              })
+            }
+          })
+        )
         serviceOrderRefetch()
         serviceOrderActivitiesRefetch()
         setActiveEdit(false)
@@ -442,18 +532,15 @@ export function Update() {
         case 'serviço':
           return await getServiceById(
             benefit.Portfolio_Id,
-            benefit.PortfolioPreco_Id
+            benefit.PrecoDeAdesao_Id,
+            benefit.PrecoDeRecorrencia_Id
           ).then((response) => {
             return {
               Name: response?.service?.Nome as string,
-              MembershipPrice:
-                response?.price.TipoDePreco.Valor === 'adesao'
-                  ? response?.price.Valor
-                  : 0,
-              RecurrencePrice:
-                response?.price.TipoDePreco.Valor === 'recorrencia'
-                  ? response?.price.Valor
-                  : 0,
+              MembershipPrice: response?.price ? response?.price.Valor : 0,
+              RecurrencePrice: response?.secondPrice
+                ? response?.secondPrice.Valor
+                : 0,
               Type: 'serviço'
             }
           })
@@ -489,41 +576,53 @@ export function Update() {
     })()
   }
 
-  function getAccessionTotalValue() {
+  async function getAccessionTotalValue() {
     let totalPrice = 0
     benefits?.map((benefit) => {
       totalPrice += Number(benefit.MembershipPrice)
     })
-    serviceOrderData.Produtos?.map((product) => {
-      if (product.ProdutoPreco.TipoDePreco.Valor === 'adesao') {
-        totalPrice += Number(product.ProdutoPreco.Valor)
-      }
-    })
-    serviceOrderData.Servicos?.map((service) => {
-      if (service.ServicoPreco.TipoDePreco.Valor === 'adesao') {
-        totalPrice += Number(service.ServicoPreco.Valor)
-      }
-    })
+    await Promise.all(
+      serviceOrderData.Produtos?.map(async (product) => {
+        if (product.PrecoDeAdesao_Id) {
+          const price = await getProductPriceById(product.PrecoDeAdesao_Id)
+          totalPrice += Number(price.Valor)
+        }
+      })
+    )
+    await Promise.all(
+      serviceOrderData.Servicos?.map(async (service) => {
+        if (service.PrecoDeAdesao_Id) {
+          const price = await getServicePriceById(service.PrecoDeAdesao_Id)
+          totalPrice += Number(price.Valor)
+        }
+      })
+    )
     setAccessionValue(BRLMoneyFormat(totalPrice))
   }
 
-  function getBenefitsTotalValue() {
+  async function getBenefitsTotalValue() {
     let totalPrice = 0
 
     benefits?.map((benefit) => {
       totalPrice += Number(benefit.RecurrencePrice)
     })
 
-    serviceOrderData.Produtos?.map((product) => {
-      if (product.ProdutoPreco.TipoDePreco.Valor === 'adesao') {
-        totalPrice += Number(product.ProdutoPreco.Valor)
-      }
-    })
-    serviceOrderData.Servicos?.map((service) => {
-      if (service.ServicoPreco.TipoDePreco.Valor === 'recorrencia') {
-        totalPrice += Number(service.ServicoPreco.Valor)
-      }
-    })
+    await Promise.all(
+      serviceOrderData.Produtos?.map(async (product) => {
+        if (product.PrecoDeRecorrencia_Id) {
+          const price = await getProductPriceById(product.PrecoDeRecorrencia_Id)
+          totalPrice += Number(price.Valor)
+        }
+      })
+    )
+    await Promise.all(
+      serviceOrderData.Servicos?.map(async (service) => {
+        if (service.PrecoDeRecorrencia_Id) {
+          const price = await getServicePriceById(service.PrecoDeRecorrencia_Id)
+          totalPrice += Number(price.Valor)
+        }
+      })
+    )
     setBenefitsValue(BRLMoneyFormat(totalPrice))
   }
 
@@ -572,7 +671,8 @@ export function Update() {
         let itemName = ''
         if (
           serviceOrderData.Situacao.Valor !== 'aberta' &&
-          serviceOrderData.Situacao.Valor !== 'cancelada'
+          serviceOrderData.Situacao.Valor !== 'cancelada' &&
+          serviceOrderData.Situacao.Valor !== 'frustada'
         ) {
           switch (scheduleItem[0].TipoDeItem_Id) {
             case 'chips':
@@ -623,7 +723,13 @@ export function Update() {
                     TipoItem_Id: 'rastreadores',
                     Identificador: tracker[0].Id
                   })
-                  identifier = 'RTDR - ' + tracker[0].CodigoReferencia
+                  identifier =
+                    'RTDR - ' +
+                    tracker[0].CodigoReferencia +
+                    ' - ' +
+                    tracker[0].Chip.NumeroDaLinha +
+                    ' - ' +
+                    tracker[0].Equipamento.Imei
                   itemName = tracker[0].Item.Produto.Nome
                 }
               )
@@ -650,30 +756,40 @@ export function Update() {
                   TipoItem_Id: 'kitsDeInstalacao',
                   Identificador: installationKit[0].Id
                 })
-                identifier = 'KTIST - ' + installationKit[0].CodigoReferencia
+                identifier =
+                  'KTIST - ' +
+                  installationKit[0].CodigoReferencia +
+                  ' - ' +
+                  installationKit[0].Rastreador.Chip.NumeroDaLinha +
+                  ' - ' +
+                  installationKit[0].Rastreador.Equipamento.Imei
                 itemName = installationKit[0].Item.Produto.Nome
               })
+              break
+            default:
+              identifier = '-'
+              itemName = (await getItemById(scheduleItem[0].Item_Id)).Produto
+                .Nome
               break
           }
         }
 
         return {
           Name: product.Produto.Nome,
-          MembershipPrice:
-            product.ProdutoPreco.TipoDePreco?.Valor === 'adesao'
-              ? product.ProdutoPreco.Valor
-              : 0,
-          RecurrencePrice:
-            product.ProdutoPreco.TipoDePreco?.Valor === 'recorrencia'
-              ? product.ProdutoPreco.Valor
-              : 0,
+          MembershipPrice: product.PrecoDeAdesao_Id
+            ? (await getProductPriceById(product.PrecoDeAdesao_Id)).Valor
+            : 0,
+          RecurrencePrice: product.PrecoDeRecorrencia_Id
+            ? (await getProductPriceById(product.PrecoDeRecorrencia_Id)).Valor
+            : 0,
           Identifier: identifier,
           ItemId: itemName,
           Retirado:
             (serviceOrderData.Agendamentos.length > 0
               ? serviceOrderData.Agendamentos[0].Situacao.Valor
               : false) !== 'criada' &&
-            serviceOrderData.Situacao.Valor !== 'aberta'
+            serviceOrderData.Situacao.Valor !== 'aberta' &&
+            serviceOrderData.Situacao.Valor !== 'frustada'
               ? 'Sim'
               : 'Não'
         }
@@ -682,6 +798,30 @@ export function Update() {
       ;(async () => {
         setProductCollection(await Promise.all(products))
         setProductItens(productsItens)
+      })()
+    }
+  }, [serviceOrderData])
+
+  useEffect(() => {
+    if (serviceOrderData) {
+      const collection = serviceOrderData.Servicos.filter(
+        (service) => service.Servico.GeraOS
+      ).map(async (service) => {
+        const membershipPrice = service.PrecoDeAdesao_Id
+          ? await getServicePriceById(service.PrecoDeAdesao_Id)
+          : { Valor: 0 }
+        const recurrencePrice = service.PrecoDeRecorrencia_Id
+          ? await getServicePriceById(service.PrecoDeRecorrencia_Id)
+          : { Valor: 0 }
+        return {
+          Name: service.Servico.Nome,
+          MembershipPrice: membershipPrice.Valor,
+          RecurrencePrice: recurrencePrice.Valor
+        }
+      })
+
+      ;(async () => {
+        setServicesCollection(await Promise.all(collection))
       })()
     }
   }, [serviceOrderData])
@@ -755,21 +895,7 @@ export function Update() {
 
           {serviceOrderData?.Servicos ? (
             <blocks.Table
-              colection={serviceOrderData.Servicos.filter(
-                (service) => service.Servico.GeraOS
-              ).map((service) => {
-                return {
-                  Name: service.Servico.Nome,
-                  MembershipPrice:
-                    service.ServicoPreco.TipoDePreco?.Valor === 'adesao'
-                      ? service.ServicoPreco.Valor
-                      : 0,
-                  RecurrencePrice:
-                    service.ServicoPreco.TipoDePreco?.Valor === 'recorrencia'
-                      ? service.ServicoPreco.Valor
-                      : 0
-                }
-              })}
+              colection={servicesCollection}
               columnTitles={tableColumns}
             />
           ) : (
@@ -849,7 +975,8 @@ export function Update() {
           />
         </div>
         <div className="flex items-center justify-end w-4/6 gap-4">
-          {(serviceOrderData?.Situacao.Valor === 'aberta' || serviceOrderData?.Situacao.Valor === 'frustada') && (
+          {(serviceOrderData?.Situacao.Valor === 'aberta' ||
+            serviceOrderData?.Situacao.Valor === 'frustada') && (
             <common.buttons.PrimaryButton
               title={'Agendar'}
               onClick={() => {

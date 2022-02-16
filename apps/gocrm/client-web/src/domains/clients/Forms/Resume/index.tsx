@@ -64,20 +64,17 @@ export function Resume() {
           case 'serviço':
             return await getServiceById(
               benefit.Portfolio_Id,
-              benefit.PortfolioPreco_Id
+              benefit.PrecoDeAdesao_Id,
+              benefit.PrecoDeRecorrencia_Id
             ).then((response) => {
               return {
                 Id: response.service?.Id,
                 PriceId: response.price?.Id,
                 Name: response?.service?.Nome as string,
-                MembershipPrice:
-                  response.price.TipoDePreco.Valor === 'adesao'
-                    ? response?.price?.Valor
-                    : '0',
-                RecurrencePrice:
-                  response.price.TipoDePreco.Valor === 'recorrencia'
-                    ? response?.price?.Valor
-                    : '0',
+                MembershipPrice: response.price ? response?.price?.Valor : '0',
+                RecurrencePrice: response.secondPrice
+                  ? response?.secondPrice?.Valor
+                  : '0',
                 Type: 'Beneficio - Serviço'
               }
             })
@@ -115,43 +112,40 @@ export function Resume() {
       const services = activeVehicle.Servicos.map(async (service) => {
         return await getServiceById(
           service.Servico_Id,
-          service.ServicoPreco_Id
+          service.PrecoDeAdesao_Id,
+          service.PrecoDeRecorrencia_Id
         ).then((response) => {
           return {
             Id: response.service?.Id,
             PriceId: response.price?.Id,
             Name: response?.service?.Nome as string,
-            MembershipPrice:
-              response?.price?.TipoDePreco?.Valor === 'adesao'
-                ? response?.price?.Valor
-                : '0',
-            RecurrencePrice:
-              response?.price?.TipoDePreco?.Valor === 'recorrencia'
-                ? response?.price?.Valor
-                : '0',
+            MembershipPrice: response?.price ? response?.price?.Valor : '0',
+            RecurrencePrice: response?.secondPrice
+              ? response?.secondPrice.Valor
+              : '0',
             Type: 'Serviço'
           }
         })
       })
 
       const products = activeVehicle.Produtos.map(async (product) => {
-        const Identifier = await getItemIdentifier(product.TipoItem_Id, product.Identificador)
+        const Identifier = await getItemIdentifier(
+          product.TipoItem_Id,
+          product.Identificador
+        )
         return await getProductById(
           product.Produto_Id,
-          product.ProdutoPreco_Id
+          product.PrecoDeAdesao_Id,
+          product.PrecoDeRecorrencia_Id
         ).then((response) => {
           return {
             Id: response?.product?.Id,
             PriceId: response?.price?.Id,
             Name: response?.product?.Nome as string,
-            MembershipPrice:
-              response?.price?.TipoDePreco?.Valor === 'adesao'
-                ? response?.price?.Valor
-                : '0',
-            RecurrencePrice:
-              response?.price?.TipoDePreco?.Valor === 'recorrencia'
-                ? response?.price?.Valor
-                : '0',
+            MembershipPrice: response?.price ? response?.price.Valor : '0',
+            RecurrencePrice: response?.secondPrice
+              ? response?.secondPrice?.Valor
+              : '0',
             Type: 'Produto',
             Identifier
           }

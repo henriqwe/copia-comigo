@@ -1944,6 +1944,8 @@ Servicos_aggregate?: [{	/** distinct select on columns */
 	Id?:boolean,
 	PortfolioPreco_Id?:boolean,
 	Portfolio_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	TipoPortfolio?:boolean,
 	/** An object relationship */
 	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos"],
@@ -1984,6 +1986,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PortfolioPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Portfolio_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	TipoPortfolio?:ValueTypes["String_comparison_exp"] | null,
 	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
@@ -2002,6 +2006,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:ValueTypes["uuid"] | null,
 	PortfolioPreco_Id?:ValueTypes["uuid"] | null,
 	Portfolio_Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	TipoPortfolio?:string | null,
 	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
@@ -2014,6 +2020,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:boolean,
 	PortfolioPreco_Id?:boolean,
 	Portfolio_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	TipoPortfolio?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
@@ -2026,6 +2034,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:ValueTypes["order_by"] | null,
 	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
 	Portfolio_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	TipoPortfolio?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -2037,6 +2047,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:boolean,
 	PortfolioPreco_Id?:boolean,
 	Portfolio_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	TipoPortfolio?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
@@ -2049,6 +2061,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:ValueTypes["order_by"] | null,
 	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
 	Portfolio_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	TipoPortfolio?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -2075,6 +2089,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:ValueTypes["order_by"] | null,
 	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
 	Portfolio_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	TipoPortfolio?:ValueTypes["order_by"] | null,
 	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
@@ -2094,6 +2110,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Id?:ValueTypes["uuid"] | null,
 	PortfolioPreco_Id?:ValueTypes["uuid"] | null,
 	Portfolio_Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	TipoPortfolio?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -2107,7 +2125,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 	Ativo?:boolean,
 	Id?:boolean,
 	Identificador?:boolean,
-	ProdutoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
 	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
@@ -2148,7 +2167,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Identificador?:ValueTypes["uuid_comparison_exp"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	TipoItem_Id?:ValueTypes["String_comparison_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
@@ -2167,7 +2187,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
 	Identificador?:ValueTypes["uuid"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	TipoItem_Id?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
@@ -2180,7 +2201,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: AliasType<{
 	Id?:boolean,
 	Identificador?:boolean,
-	ProdutoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
 	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
@@ -2193,7 +2215,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Identificador?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
@@ -2205,7 +2228,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: AliasType<{
 	Id?:boolean,
 	Identificador?:boolean,
-	ProdutoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
 	TipoItem_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
@@ -2218,7 +2242,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Identificador?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
@@ -2245,7 +2270,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	Ativo?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	Identificador?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	TipoItem_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
@@ -2265,7 +2291,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
 	Identificador?:ValueTypes["uuid"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	TipoItem_Id?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
@@ -2279,7 +2306,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 ["clientes_VeiculosAtivos_Servicos"]: AliasType<{
 	Ativo?:boolean,
 	Id?:boolean,
-	ServicoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Servico_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	/** An object relationship */
@@ -2318,7 +2346,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 ["clientes_VeiculosAtivos_Servicos_bool_exp"]: {
 	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
@@ -2335,7 +2364,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 ["clientes_VeiculosAtivos_Servicos_insert_input"]: {
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
@@ -2346,7 +2376,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Servicos_max_fields"]: AliasType<{
 	Id?:boolean,
-	ServicoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Servico_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
@@ -2357,7 +2388,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -2367,7 +2399,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Servicos_min_fields"]: AliasType<{
 	Id?:boolean,
-	ServicoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Servico_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
@@ -2378,7 +2411,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -2403,7 +2437,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 ["clientes_VeiculosAtivos_Servicos_order_by"]: {
 	Ativo?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
@@ -2421,7 +2456,8 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 ["clientes_VeiculosAtivos_Servicos_set_input"]: {
 	Ativo?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -4204,9 +4240,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Precos_select_column"][],	disti
 	Id?:boolean,
 	/** An object relationship */
 	Produto?:ValueTypes["comercial_Produtos"],
-	/** An object relationship */
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -4244,8 +4277,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 	Combo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto?:ValueTypes["comercial_Produtos_bool_exp"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	_and?:ValueTypes["comercial_Combos_Produtos_bool_exp"][],
 	_not?:ValueTypes["comercial_Combos_Produtos_bool_exp"] | null,
@@ -4262,8 +4293,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 	Combo_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	Produto?:ValueTypes["comercial_Produtos_obj_rel_insert_input"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -4273,7 +4302,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 ["comercial_Combos_Produtos_max_fields"]: AliasType<{
 	Combo_Id?:boolean,
 	Id?:boolean,
-	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -4284,7 +4312,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 ["comercial_Combos_Produtos_max_order_by"]: {
 	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -4294,7 +4321,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 ["comercial_Combos_Produtos_min_fields"]: AliasType<{
 	Combo_Id?:boolean,
 	Id?:boolean,
-	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -4305,7 +4331,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 ["comercial_Combos_Produtos_min_order_by"]: {
 	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -4331,8 +4356,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	Produto?:ValueTypes["comercial_Produtos_order_by"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -4348,7 +4371,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 ["comercial_Combos_Produtos_set_input"]: {
 	Combo_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -4364,10 +4386,7 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Produtos_select_column"][],	dis
 	Id?:boolean,
 	/** An object relationship */
 	Servico?:ValueTypes["comercial_Servicos"],
-	ServicoPreco_Id?:boolean,
 	Servico_Id?:boolean,
-	/** An object relationship */
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -4404,9 +4423,7 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 	Combo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Servico?:ValueTypes["comercial_Servicos_bool_exp"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"] | null,
 	_and?:ValueTypes["comercial_Combos_Servicos_bool_exp"][],
 	_not?:ValueTypes["comercial_Combos_Servicos_bool_exp"] | null,
 	_or?:ValueTypes["comercial_Combos_Servicos_bool_exp"][],
@@ -4422,9 +4439,7 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 	Combo_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	Servico?:ValueTypes["comercial_Servicos_obj_rel_insert_input"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -4433,7 +4448,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 ["comercial_Combos_Servicos_max_fields"]: AliasType<{
 	Combo_Id?:boolean,
 	Id?:boolean,
-	ServicoPreco_Id?:boolean,
 	Servico_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -4444,7 +4458,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 ["comercial_Combos_Servicos_max_order_by"]: {
 	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -4454,7 +4467,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 ["comercial_Combos_Servicos_min_fields"]: AliasType<{
 	Combo_Id?:boolean,
 	Id?:boolean,
-	ServicoPreco_Id?:boolean,
 	Servico_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -4465,7 +4477,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 ["comercial_Combos_Servicos_min_order_by"]: {
 	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -4491,9 +4502,7 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	Servico?:ValueTypes["comercial_Servicos_order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -4508,7 +4517,6 @@ count?: [{	columns?:ValueTypes["comercial_Combos_Servicos_select_column"][],	dis
 ["comercial_Combos_Servicos_set_input"]: {
 	Combo_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -5940,9 +5948,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Precos_select_column"][],	disti
 	Plano_Id?:boolean,
 	/** An object relationship */
 	Produto?:ValueTypes["comercial_Produtos"],
-	/** An object relationship */
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -5980,8 +5985,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 	Plano?:ValueTypes["comercial_Planos_bool_exp"] | null,
 	Plano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto?:ValueTypes["comercial_Produtos_bool_exp"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	_and?:ValueTypes["comercial_Planos_Produtos_bool_exp"][],
 	_not?:ValueTypes["comercial_Planos_Produtos_bool_exp"] | null,
@@ -5998,8 +6001,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 	Plano?:ValueTypes["comercial_Planos_obj_rel_insert_input"] | null,
 	Plano_Id?:ValueTypes["uuid"] | null,
 	Produto?:ValueTypes["comercial_Produtos_obj_rel_insert_input"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -6009,7 +6010,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 ["comercial_Planos_Produtos_max_fields"]: AliasType<{
 	Id?:boolean,
 	Plano_Id?:boolean,
-	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -6020,7 +6020,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 ["comercial_Planos_Produtos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -6030,7 +6029,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 ["comercial_Planos_Produtos_min_fields"]: AliasType<{
 	Id?:boolean,
 	Plano_Id?:boolean,
-	ProdutoPreco_Id?:boolean,
 	Produto_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -6041,7 +6039,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 ["comercial_Planos_Produtos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -6067,8 +6064,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 	Plano?:ValueTypes["comercial_Planos_order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
 	Produto?:ValueTypes["comercial_Produtos_order_by"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -6084,7 +6079,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 ["comercial_Planos_Produtos_set_input"]: {
 	Id?:ValueTypes["uuid"] | null,
 	Plano_Id?:ValueTypes["uuid"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -6100,9 +6094,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Produtos_select_column"][],	dis
 	Plano_Id?:boolean,
 	/** An object relationship */
 	Servico?:ValueTypes["comercial_Servicos"],
-	/** An object relationship */
-	ServicoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
-	ServicoPreco_Id?:boolean,
 	Servico_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -6140,8 +6131,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 	Plano?:ValueTypes["comercial_Planos_bool_exp"] | null,
 	Plano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Servico?:ValueTypes["comercial_Servicos_bool_exp"] | null,
-	ServicoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	_and?:ValueTypes["comercial_Planos_Servicos_bool_exp"][],
 	_not?:ValueTypes["comercial_Planos_Servicos_bool_exp"] | null,
@@ -6158,8 +6147,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 	Plano?:ValueTypes["comercial_Planos_obj_rel_insert_input"] | null,
 	Plano_Id?:ValueTypes["uuid"] | null,
 	Servico?:ValueTypes["comercial_Servicos_obj_rel_insert_input"] | null,
-	ServicoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -6169,7 +6156,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 ["comercial_Planos_Servicos_max_fields"]: AliasType<{
 	Id?:boolean,
 	Plano_Id?:boolean,
-	ServicoPreco_Id?:boolean,
 	Servico_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -6180,7 +6166,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 ["comercial_Planos_Servicos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -6190,7 +6175,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 ["comercial_Planos_Servicos_min_fields"]: AliasType<{
 	Id?:boolean,
 	Plano_Id?:boolean,
-	ServicoPreco_Id?:boolean,
 	Servico_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -6201,7 +6185,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 ["comercial_Planos_Servicos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -6227,8 +6210,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 	Plano?:ValueTypes["comercial_Planos_order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
 	Servico?:ValueTypes["comercial_Servicos_order_by"] | null,
-	ServicoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"] | null,
-	ServicoPreco_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -6244,7 +6225,6 @@ count?: [{	columns?:ValueTypes["comercial_Planos_Servicos_select_column"][],	dis
 ["comercial_Planos_Servicos_set_input"]: {
 	Id?:ValueTypes["uuid"] | null,
 	Plano_Id?:ValueTypes["uuid"] | null,
-	ServicoPreco_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -6713,32 +6693,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Itens_s
 ["comercial_PrestadoresDeServicos_Produtos_Itens_update_column"]:comercial_PrestadoresDeServicos_Produtos_Itens_update_column;
 	/** columns and relationships of "comercial.PrestadoresDeServicos_Produtos_Precos" */
 ["comercial_PrestadoresDeServicos_Produtos_Precos"]: AliasType<{
-CombosProdutos?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Combos_Produtos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Combos_Produtos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Combos_Produtos_bool_exp"] | null},ValueTypes["comercial_Combos_Produtos"]],
-CombosProdutos_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Combos_Produtos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Combos_Produtos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Combos_Produtos_bool_exp"] | null},ValueTypes["comercial_Combos_Produtos_aggregate"]],
 	Fornecedor_Produto_Id?:boolean,
 	Id?:boolean,
-PlanosProdutos?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Planos_Produtos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Planos_Produtos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Planos_Produtos_bool_exp"] | null},ValueTypes["comercial_Planos_Produtos"]],
-PlanosProdutos_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Planos_Produtos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Planos_Produtos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Planos_Produtos_bool_exp"] | null},ValueTypes["comercial_Planos_Produtos_aggregate"]],
 	/** An object relationship */
 	PrestadorDeServico_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos"],
 PropostasProdutos?: [{	/** distinct select on columns */
@@ -6817,10 +6773,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_
 };
 	/** Boolean expression to filter rows from the table "comercial.PrestadoresDeServicos_Produtos_Precos". All fields are combined with a logical 'AND'. */
 ["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"]: {
-	CombosProdutos?:ValueTypes["comercial_Combos_Produtos_bool_exp"] | null,
 	Fornecedor_Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PlanosProdutos?:ValueTypes["comercial_Planos_Produtos_bool_exp"] | null,
 	PrestadorDeServico_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_bool_exp"] | null,
 	PropostasProdutos?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null,
 	TipoDePreco?:ValueTypes["vendas_TiposDePrecos_bool_exp"] | null,
@@ -6843,10 +6797,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_
 };
 	/** input type for inserting data into table "comercial.PrestadoresDeServicos_Produtos_Precos" */
 ["comercial_PrestadoresDeServicos_Produtos_Precos_insert_input"]: {
-	CombosProdutos?:ValueTypes["comercial_Combos_Produtos_arr_rel_insert_input"] | null,
 	Fornecedor_Produto_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
-	PlanosProdutos?:ValueTypes["comercial_Planos_Produtos_arr_rel_insert_input"] | null,
 	PrestadorDeServico_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_obj_rel_insert_input"] | null,
 	PropostasProdutos?:ValueTypes["propostas_Propostas_Produtos_arr_rel_insert_input"] | null,
 	TipoDePreco?:ValueTypes["vendas_TiposDePrecos_obj_rel_insert_input"] | null,
@@ -6918,10 +6870,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_
 };
 	/** Ordering options when selecting data from "comercial.PrestadoresDeServicos_Produtos_Precos". */
 ["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"]: {
-	CombosProdutos_aggregate?:ValueTypes["comercial_Combos_Produtos_aggregate_order_by"] | null,
 	Fornecedor_Produto_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	PlanosProdutos_aggregate?:ValueTypes["comercial_Planos_Produtos_aggregate_order_by"] | null,
 	PrestadorDeServico_Produto?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_order_by"] | null,
 	PropostasProdutos_aggregate?:ValueTypes["propostas_Propostas_Produtos_aggregate_order_by"] | null,
 	TipoDePreco?:ValueTypes["vendas_TiposDePrecos_order_by"] | null,
@@ -7199,32 +7149,8 @@ Tarifas_aggregate?: [{	/** distinct select on columns */
 }>;
 	/** columns and relationships of "comercial.PrestadoresDeServicos_Servicos_Precos" */
 ["comercial_PrestadoresDeServicos_Servicos_Precos"]: AliasType<{
-CombosServicos?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Combos_Servicos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Combos_Servicos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Combos_Servicos_bool_exp"] | null},ValueTypes["comercial_Combos_Servicos"]],
-CombosServicos_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Combos_Servicos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Combos_Servicos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Combos_Servicos_bool_exp"] | null},ValueTypes["comercial_Combos_Servicos_aggregate"]],
 	Fornecedor_Servico_Id?:boolean,
 	Id?:boolean,
-PlanosServicos?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Planos_Servicos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Planos_Servicos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Planos_Servicos_bool_exp"] | null},ValueTypes["comercial_Planos_Servicos"]],
-PlanosServicos_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["comercial_Planos_Servicos_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["comercial_Planos_Servicos_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["comercial_Planos_Servicos_bool_exp"] | null},ValueTypes["comercial_Planos_Servicos_aggregate"]],
 	/** An object relationship */
 	PrestadorDeServico_Servico?:ValueTypes["comercial_PrestadoresDeServicos_Servicos"],
 PropostasServicos?: [{	/** distinct select on columns */
@@ -7303,10 +7229,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_
 };
 	/** Boolean expression to filter rows from the table "comercial.PrestadoresDeServicos_Servicos_Precos". All fields are combined with a logical 'AND'. */
 ["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"]: {
-	CombosServicos?:ValueTypes["comercial_Combos_Servicos_bool_exp"] | null,
 	Fornecedor_Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PlanosServicos?:ValueTypes["comercial_Planos_Servicos_bool_exp"] | null,
 	PrestadorDeServico_Servico?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_bool_exp"] | null,
 	PropostasServicos?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null,
 	TipoDePreco?:ValueTypes["vendas_TiposDePrecos_bool_exp"] | null,
@@ -7329,10 +7253,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_
 };
 	/** input type for inserting data into table "comercial.PrestadoresDeServicos_Servicos_Precos" */
 ["comercial_PrestadoresDeServicos_Servicos_Precos_insert_input"]: {
-	CombosServicos?:ValueTypes["comercial_Combos_Servicos_arr_rel_insert_input"] | null,
 	Fornecedor_Servico_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
-	PlanosServicos?:ValueTypes["comercial_Planos_Servicos_arr_rel_insert_input"] | null,
 	PrestadorDeServico_Servico?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_obj_rel_insert_input"] | null,
 	PropostasServicos?:ValueTypes["propostas_Propostas_Servicos_arr_rel_insert_input"] | null,
 	TipoDePreco?:ValueTypes["vendas_TiposDePrecos_obj_rel_insert_input"] | null,
@@ -7404,10 +7326,8 @@ count?: [{	columns?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_
 };
 	/** Ordering options when selecting data from "comercial.PrestadoresDeServicos_Servicos_Precos". */
 ["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"]: {
-	CombosServicos_aggregate?:ValueTypes["comercial_Combos_Servicos_aggregate_order_by"] | null,
 	Fornecedor_Servico_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	PlanosServicos_aggregate?:ValueTypes["comercial_Planos_Servicos_aggregate_order_by"] | null,
 	PrestadorDeServico_Servico?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_order_by"] | null,
 	PropostasServicos_aggregate?:ValueTypes["propostas_Propostas_Servicos_aggregate_order_by"] | null,
 	TipoDePreco?:ValueTypes["vendas_TiposDePrecos_order_by"] | null,
@@ -14919,10 +14839,13 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 ["propostas_Propostas_Produtos"]: AliasType<{
 	Id?:boolean,
 	/** An object relationship */
-	Produto?:ValueTypes["comercial_Produtos"],
+	PrecoAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	/** An object relationship */
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id?:boolean,
+	PrecoRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
+	/** An object relationship */
+	Produto?:ValueTypes["comercial_Produtos"],
 	Produto_Id?:boolean,
 	/** An object relationship */
 	Proposta?:ValueTypes["propostas_Propostas"],
@@ -14963,9 +14886,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Produtos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Produtos_bool_exp"]: {
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"] | null,
 	Produto?:ValueTypes["comercial_Produtos_bool_exp"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid_comparison_exp"] | null,
@@ -14983,9 +14908,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** input type for inserting data into table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_insert_input"]: {
 	Id?:ValueTypes["uuid"] | null,
+	PrecoAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
+	PrecoRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"] | null,
 	Produto?:ValueTypes["comercial_Produtos_obj_rel_insert_input"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
@@ -14998,7 +14925,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** aggregate max on columns */
 ["propostas_Propostas_Produtos_max_fields"]: AliasType<{
 	Id?:boolean,
-	ProdutoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
@@ -15010,7 +14938,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** order by max() on columns of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
@@ -15021,7 +14950,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** aggregate min on columns */
 ["propostas_Propostas_Produtos_min_fields"]: AliasType<{
 	Id?:boolean,
-	ProdutoPreco_Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
@@ -15033,7 +14963,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** order by min() on columns of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
@@ -15058,9 +14989,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** Ordering options when selecting data from "propostas.Propostas_Produtos". */
 ["propostas_Propostas_Produtos_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	PrecoAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
+	PrecoRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"] | null,
 	Produto?:ValueTypes["comercial_Produtos_order_by"] | null,
-	ProdutoPreco?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"] | null,
-	ProdutoPreco_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
@@ -15079,7 +15012,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** input type for updating data in table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_set_input"]: {
 	Id?:ValueTypes["uuid"] | null,
-	ProdutoPreco_Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
@@ -15093,6 +15027,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 ["propostas_Propostas_Servicos"]: AliasType<{
 	Id?:boolean,
 	/** An object relationship */
+	PrecoDeAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
+	PrecoDeAdesao_Id?:boolean,
+	/** An object relationship */
+	PrecoDeRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
+	PrecoDeRecorrencia_Id?:boolean,
+	/** An object relationship */
 	Proposta?:ValueTypes["propostas_Propostas"],
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
@@ -15101,9 +15041,6 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	/** An object relationship */
 	Servico?:ValueTypes["comercial_Servicos"],
 	Servico_Id?:boolean,
-	/** An object relationship */
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
-	ServicosPreco_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -15137,14 +15074,16 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Servicos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Servicos_bool_exp"]: {
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PrecoDeRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_bool_exp"] | null,
 	Servico?:ValueTypes["comercial_Servicos_bool_exp"] | null,
 	Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"] | null,
-	ServicosPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	_and?:ValueTypes["propostas_Propostas_Servicos_bool_exp"][],
 	_not?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null,
 	_or?:ValueTypes["propostas_Propostas_Servicos_bool_exp"][],
@@ -15157,14 +15096,16 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** input type for inserting data into table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_insert_input"]: {
 	Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"] | null,
 	Servico?:ValueTypes["comercial_Servicos_obj_rel_insert_input"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"] | null,
-	ServicosPreco_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -15172,10 +15113,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** aggregate max on columns */
 ["propostas_Propostas_Servicos_max_fields"]: AliasType<{
 	Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
 	Servico_Id?:boolean,
-	ServicosPreco_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -15184,10 +15126,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** order by max() on columns of table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
-	ServicosPreco_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -15195,10 +15138,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** aggregate min on columns */
 ["propostas_Propostas_Servicos_min_fields"]: AliasType<{
 	Id?:boolean,
+	PrecoDeAdesao_Id?:boolean,
+	PrecoDeRecorrencia_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
 	Servico_Id?:boolean,
-	ServicosPreco_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -15207,10 +15151,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** order by min() on columns of table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
-	ServicosPreco_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -15232,14 +15177,16 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** Ordering options when selecting data from "propostas.Propostas_Servicos". */
 ["propostas_Propostas_Servicos_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	PrecoDeAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
+	PrecoDeRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_order_by"] | null,
 	Servico?:ValueTypes["comercial_Servicos_order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
-	ServicosPreco?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"] | null,
-	ServicosPreco_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -15253,10 +15200,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	/** input type for updating data in table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_set_input"]: {
 	Id?:ValueTypes["uuid"] | null,
+	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
+	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
-	ServicosPreco_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -18907,8 +18855,10 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Beneficios"]: {
 		Ativo:boolean,
 	Id:ModelTypes["uuid"],
-	PortfolioPreco_Id:ModelTypes["uuid"],
+	PortfolioPreco_Id?:ModelTypes["uuid"],
 	Portfolio_Id:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	TipoPortfolio:string,
 	/** An object relationship */
 	VeiculoAtivo:ModelTypes["clientes_VeiculosAtivos"],
@@ -18943,6 +18893,8 @@ export type ModelTypes = {
 		Id?:ModelTypes["uuid"],
 	PortfolioPreco_Id?:ModelTypes["uuid"],
 	Portfolio_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	TipoPortfolio?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
@@ -18956,6 +18908,8 @@ export type ModelTypes = {
 		Id?:ModelTypes["uuid"],
 	PortfolioPreco_Id?:ModelTypes["uuid"],
 	Portfolio_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	TipoPortfolio?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
@@ -18988,7 +18942,8 @@ export type ModelTypes = {
 		Ativo:boolean,
 	Id:ModelTypes["uuid"],
 	Identificador?:ModelTypes["uuid"],
-	ProdutoPreco_Id:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id:ModelTypes["uuid"],
 	TipoItem_Id?:string,
 	VeiculoAtivo_Id:ModelTypes["uuid"],
@@ -19023,7 +18978,8 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Identificador?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	TipoItem_Id?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
@@ -19037,7 +18993,8 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Identificador?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	TipoItem_Id?:string,
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
@@ -19070,7 +19027,8 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Servicos"]: {
 		Ativo:boolean,
 	Id:ModelTypes["uuid"],
-	ServicoPreco_Id:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Servico_Id:ModelTypes["uuid"],
 	VeiculoAtivo_Id:ModelTypes["uuid"],
 	/** An object relationship */
@@ -19103,7 +19061,8 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Servicos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
-	ServicoPreco_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
@@ -19115,7 +19074,8 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Servicos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
-	ServicoPreco_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
@@ -20045,9 +20005,6 @@ export type ModelTypes = {
 	Id:ModelTypes["uuid"],
 	/** An object relationship */
 	Produto:ModelTypes["comercial_Produtos"],
-	/** An object relationship */
-	ProdutoPreco:ModelTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id:ModelTypes["uuid"],
 	Produto_Id:ModelTypes["uuid"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -20078,7 +20035,6 @@ export type ModelTypes = {
 ["comercial_Combos_Produtos_max_fields"]: {
 		Combo_Id?:ModelTypes["uuid"],
 	Id?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -20090,7 +20046,6 @@ export type ModelTypes = {
 ["comercial_Combos_Produtos_min_fields"]: {
 		Combo_Id?:ModelTypes["uuid"],
 	Id?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -20125,10 +20080,7 @@ export type ModelTypes = {
 	Id:ModelTypes["uuid"],
 	/** An object relationship */
 	Servico:ModelTypes["comercial_Servicos"],
-	ServicoPreco_Id:ModelTypes["uuid"],
 	Servico_Id:ModelTypes["uuid"],
-	/** An object relationship */
-	ServicosPreco:ModelTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -20158,7 +20110,6 @@ export type ModelTypes = {
 ["comercial_Combos_Servicos_max_fields"]: {
 		Combo_Id?:ModelTypes["uuid"],
 	Id?:ModelTypes["uuid"],
-	ServicoPreco_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -20170,7 +20121,6 @@ export type ModelTypes = {
 ["comercial_Combos_Servicos_min_fields"]: {
 		Combo_Id?:ModelTypes["uuid"],
 	Id?:ModelTypes["uuid"],
-	ServicoPreco_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -20929,9 +20879,6 @@ export type ModelTypes = {
 	Plano_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	Produto:ModelTypes["comercial_Produtos"],
-	/** An object relationship */
-	ProdutoPreco:ModelTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id:ModelTypes["uuid"],
 	Produto_Id:ModelTypes["uuid"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -20962,7 +20909,6 @@ export type ModelTypes = {
 ["comercial_Planos_Produtos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Plano_Id?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -20974,7 +20920,6 @@ export type ModelTypes = {
 ["comercial_Planos_Produtos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Plano_Id?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -21009,9 +20954,6 @@ export type ModelTypes = {
 	Plano_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	Servico:ModelTypes["comercial_Servicos"],
-	/** An object relationship */
-	ServicoPreco:ModelTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
-	ServicoPreco_Id:ModelTypes["uuid"],
 	Servico_Id:ModelTypes["uuid"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -21042,7 +20984,6 @@ export type ModelTypes = {
 ["comercial_Planos_Servicos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Plano_Id?:ModelTypes["uuid"],
-	ServicoPreco_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -21054,7 +20995,6 @@ export type ModelTypes = {
 ["comercial_Planos_Servicos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Plano_Id?:ModelTypes["uuid"],
-	ServicoPreco_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -21319,16 +21259,8 @@ export type ModelTypes = {
 ["comercial_PrestadoresDeServicos_Produtos_Itens_update_column"]: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Itens_update_column"];
 	/** columns and relationships of "comercial.PrestadoresDeServicos_Produtos_Precos" */
 ["comercial_PrestadoresDeServicos_Produtos_Precos"]: {
-		/** An array relationship */
-	CombosProdutos:ModelTypes["comercial_Combos_Produtos"][],
-	/** An aggregate relationship */
-	CombosProdutos_aggregate:ModelTypes["comercial_Combos_Produtos_aggregate"],
-	Fornecedor_Produto_Id:ModelTypes["uuid"],
+		Fornecedor_Produto_Id:ModelTypes["uuid"],
 	Id:ModelTypes["uuid"],
-	/** An array relationship */
-	PlanosProdutos:ModelTypes["comercial_Planos_Produtos"][],
-	/** An aggregate relationship */
-	PlanosProdutos_aggregate:ModelTypes["comercial_Planos_Produtos_aggregate"],
 	/** An object relationship */
 	PrestadorDeServico_Produto:ModelTypes["comercial_PrestadoresDeServicos_Produtos"],
 	/** An array relationship */
@@ -21555,16 +21487,8 @@ export type ModelTypes = {
 };
 	/** columns and relationships of "comercial.PrestadoresDeServicos_Servicos_Precos" */
 ["comercial_PrestadoresDeServicos_Servicos_Precos"]: {
-		/** An array relationship */
-	CombosServicos:ModelTypes["comercial_Combos_Servicos"][],
-	/** An aggregate relationship */
-	CombosServicos_aggregate:ModelTypes["comercial_Combos_Servicos_aggregate"],
-	Fornecedor_Servico_Id:ModelTypes["uuid"],
+		Fornecedor_Servico_Id:ModelTypes["uuid"],
 	Id:ModelTypes["uuid"],
-	/** An array relationship */
-	PlanosServicos:ModelTypes["comercial_Planos_Servicos"][],
-	/** An aggregate relationship */
-	PlanosServicos_aggregate:ModelTypes["comercial_Planos_Servicos_aggregate"],
 	/** An object relationship */
 	PrestadorDeServico_Servico:ModelTypes["comercial_PrestadoresDeServicos_Servicos"],
 	/** An array relationship */
@@ -25753,10 +25677,13 @@ export type ModelTypes = {
 ["propostas_Propostas_Produtos"]: {
 		Id:ModelTypes["uuid"],
 	/** An object relationship */
-	Produto:ModelTypes["comercial_Produtos"],
+	PrecoAdesao?:ModelTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	/** An object relationship */
-	ProdutoPreco:ModelTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id:ModelTypes["uuid"],
+	PrecoRecorrencia?:ModelTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
+	/** An object relationship */
+	Produto:ModelTypes["comercial_Produtos"],
 	Produto_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	Proposta:ModelTypes["propostas_Propostas"],
@@ -25792,7 +25719,8 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["propostas_Propostas_Produtos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
@@ -25805,7 +25733,8 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["propostas_Propostas_Produtos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
-	ProdutoPreco_Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
@@ -25838,6 +25767,12 @@ export type ModelTypes = {
 ["propostas_Propostas_Servicos"]: {
 		Id:ModelTypes["uuid"],
 	/** An object relationship */
+	PrecoDeAdesao?:ModelTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	/** An object relationship */
+	PrecoDeRecorrencia?:ModelTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
+	/** An object relationship */
 	Proposta:ModelTypes["propostas_Propostas"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id:ModelTypes["uuid"],
@@ -25846,9 +25781,6 @@ export type ModelTypes = {
 	/** An object relationship */
 	Servico:ModelTypes["comercial_Servicos"],
 	Servico_Id:ModelTypes["uuid"],
-	/** An object relationship */
-	ServicosPreco:ModelTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
-	ServicosPreco_Id:ModelTypes["uuid"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -25877,10 +25809,11 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["propostas_Propostas_Servicos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
-	ServicosPreco_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -25890,10 +25823,11 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["propostas_Propostas_Servicos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
+	PrecoDeAdesao_Id?:ModelTypes["uuid"],
+	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
-	ServicosPreco_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -29060,8 +28994,10 @@ export type GraphQLTypes = {
 	__typename: "clientes_VeiculosAtivos_Beneficios",
 	Ativo: boolean,
 	Id: GraphQLTypes["uuid"],
-	PortfolioPreco_Id: GraphQLTypes["uuid"],
+	PortfolioPreco_Id?: GraphQLTypes["uuid"],
 	Portfolio_Id: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	TipoPortfolio: string,
 	/** An object relationship */
 	VeiculoAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
@@ -29101,6 +29037,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	PortfolioPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Portfolio_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	TipoPortfolio?: GraphQLTypes["String_comparison_exp"],
 	VeiculoAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
@@ -29119,6 +29057,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PortfolioPreco_Id?: GraphQLTypes["uuid"],
 	Portfolio_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	TipoPortfolio?: string,
 	VeiculoAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
@@ -29132,6 +29072,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PortfolioPreco_Id?: GraphQLTypes["uuid"],
 	Portfolio_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	TipoPortfolio?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -29143,6 +29085,8 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["order_by"],
 	PortfolioPreco_Id?: GraphQLTypes["order_by"],
 	Portfolio_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	TipoPortfolio?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -29155,6 +29099,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PortfolioPreco_Id?: GraphQLTypes["uuid"],
 	Portfolio_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	TipoPortfolio?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -29166,6 +29112,8 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["order_by"],
 	PortfolioPreco_Id?: GraphQLTypes["order_by"],
 	Portfolio_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	TipoPortfolio?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -29192,6 +29140,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["order_by"],
 	PortfolioPreco_Id?: GraphQLTypes["order_by"],
 	Portfolio_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	TipoPortfolio?: GraphQLTypes["order_by"],
 	VeiculoAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
@@ -29211,6 +29161,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PortfolioPreco_Id?: GraphQLTypes["uuid"],
 	Portfolio_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	TipoPortfolio?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -29225,7 +29177,8 @@ export type GraphQLTypes = {
 	Ativo: boolean,
 	Id: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id: GraphQLTypes["uuid"],
 	TipoItem_Id?: string,
 	VeiculoAtivo_Id: GraphQLTypes["uuid"],
@@ -29265,7 +29218,8 @@ export type GraphQLTypes = {
 		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	Identificador?: GraphQLTypes["uuid_comparison_exp"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
 	TipoItem_Id?: GraphQLTypes["String_comparison_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
@@ -29284,7 +29238,8 @@ export type GraphQLTypes = {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
@@ -29298,7 +29253,8 @@ export type GraphQLTypes = {
 	__typename: "clientes_VeiculosAtivos_Produtos_max_fields",
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
@@ -29310,7 +29266,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Identificador?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
@@ -29323,7 +29280,8 @@ export type GraphQLTypes = {
 	__typename: "clientes_VeiculosAtivos_Produtos_min_fields",
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
@@ -29335,7 +29293,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Identificador?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
@@ -29362,7 +29321,8 @@ export type GraphQLTypes = {
 		Ativo?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	Identificador?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	TipoItem_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
@@ -29382,7 +29342,8 @@ export type GraphQLTypes = {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	TipoItem_Id?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
@@ -29397,7 +29358,8 @@ export type GraphQLTypes = {
 	__typename: "clientes_VeiculosAtivos_Servicos",
 	Ativo: boolean,
 	Id: GraphQLTypes["uuid"],
-	ServicoPreco_Id: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
@@ -29435,7 +29397,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Servicos_bool_exp"]: {
 		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
-	ServicoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
@@ -29452,7 +29415,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Servicos_insert_input"]: {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
@@ -29464,7 +29428,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Servicos_max_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Servicos_max_fields",
 	Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -29474,7 +29439,8 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -29485,7 +29451,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Servicos_min_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Servicos_min_fields",
 	Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -29495,7 +29462,8 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -29520,7 +29488,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Servicos_order_by"]: {
 		Ativo?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
@@ -29538,7 +29507,8 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_Servicos_set_input"]: {
 		Ativo?: boolean,
 	Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -31216,9 +31186,6 @@ export type GraphQLTypes = {
 	Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Produto: GraphQLTypes["comercial_Produtos"],
-	/** An object relationship */
-	ProdutoPreco: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id: GraphQLTypes["uuid"],
 	Produto_Id: GraphQLTypes["uuid"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -31255,8 +31222,6 @@ export type GraphQLTypes = {
 	Combo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto?: GraphQLTypes["comercial_Produtos_bool_exp"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
 	_and?: Array<GraphQLTypes["comercial_Combos_Produtos_bool_exp"]>,
 	_not?: GraphQLTypes["comercial_Combos_Produtos_bool_exp"],
@@ -31273,8 +31238,6 @@ export type GraphQLTypes = {
 	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
 	Produto?: GraphQLTypes["comercial_Produtos_obj_rel_insert_input"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -31285,7 +31248,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Combos_Produtos_max_fields",
 	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -31295,7 +31257,6 @@ export type GraphQLTypes = {
 ["comercial_Combos_Produtos_max_order_by"]: {
 		Combo_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -31306,7 +31267,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Combos_Produtos_min_fields",
 	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -31316,7 +31276,6 @@ export type GraphQLTypes = {
 ["comercial_Combos_Produtos_min_order_by"]: {
 		Combo_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -31342,8 +31301,6 @@ export type GraphQLTypes = {
 	Combo_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	Produto?: GraphQLTypes["comercial_Produtos_order_by"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -31359,7 +31316,6 @@ export type GraphQLTypes = {
 ["comercial_Combos_Produtos_set_input"]: {
 		Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -31376,10 +31332,7 @@ export type GraphQLTypes = {
 	Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Servico: GraphQLTypes["comercial_Servicos"],
-	ServicoPreco_Id: GraphQLTypes["uuid"],
 	Servico_Id: GraphQLTypes["uuid"],
-	/** An object relationship */
-	ServicosPreco: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -31415,9 +31368,7 @@ export type GraphQLTypes = {
 	Combo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	Servico?: GraphQLTypes["comercial_Servicos_bool_exp"],
-	ServicoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
-	ServicosPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"],
 	_and?: Array<GraphQLTypes["comercial_Combos_Servicos_bool_exp"]>,
 	_not?: GraphQLTypes["comercial_Combos_Servicos_bool_exp"],
 	_or?: Array<GraphQLTypes["comercial_Combos_Servicos_bool_exp"]>,
@@ -31433,9 +31384,7 @@ export type GraphQLTypes = {
 	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
 	Servico?: GraphQLTypes["comercial_Servicos_obj_rel_insert_input"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
-	ServicosPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -31445,7 +31394,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Combos_Servicos_max_fields",
 	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -31455,7 +31403,6 @@ export type GraphQLTypes = {
 ["comercial_Combos_Servicos_max_order_by"]: {
 		Combo_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -31466,7 +31413,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Combos_Servicos_min_fields",
 	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -31476,7 +31422,6 @@ export type GraphQLTypes = {
 ["comercial_Combos_Servicos_min_order_by"]: {
 		Combo_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -31502,9 +31447,7 @@ export type GraphQLTypes = {
 	Combo_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	Servico?: GraphQLTypes["comercial_Servicos_order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
-	ServicosPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -31519,7 +31462,6 @@ export type GraphQLTypes = {
 ["comercial_Combos_Servicos_set_input"]: {
 		Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -32864,9 +32806,6 @@ export type GraphQLTypes = {
 	Plano_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Produto: GraphQLTypes["comercial_Produtos"],
-	/** An object relationship */
-	ProdutoPreco: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id: GraphQLTypes["uuid"],
 	Produto_Id: GraphQLTypes["uuid"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -32903,8 +32842,6 @@ export type GraphQLTypes = {
 	Plano?: GraphQLTypes["comercial_Planos_bool_exp"],
 	Plano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto?: GraphQLTypes["comercial_Produtos_bool_exp"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
 	_and?: Array<GraphQLTypes["comercial_Planos_Produtos_bool_exp"]>,
 	_not?: GraphQLTypes["comercial_Planos_Produtos_bool_exp"],
@@ -32921,8 +32858,6 @@ export type GraphQLTypes = {
 	Plano?: GraphQLTypes["comercial_Planos_obj_rel_insert_input"],
 	Plano_Id?: GraphQLTypes["uuid"],
 	Produto?: GraphQLTypes["comercial_Produtos_obj_rel_insert_input"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -32933,7 +32868,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Planos_Produtos_max_fields",
 	Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -32943,7 +32877,6 @@ export type GraphQLTypes = {
 ["comercial_Planos_Produtos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -32954,7 +32887,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Planos_Produtos_min_fields",
 	Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -32964,7 +32896,6 @@ export type GraphQLTypes = {
 ["comercial_Planos_Produtos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -32990,8 +32921,6 @@ export type GraphQLTypes = {
 	Plano?: GraphQLTypes["comercial_Planos_order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
 	Produto?: GraphQLTypes["comercial_Produtos_order_by"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -33007,7 +32936,6 @@ export type GraphQLTypes = {
 ["comercial_Planos_Produtos_set_input"]: {
 		Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -33024,9 +32952,6 @@ export type GraphQLTypes = {
 	Plano_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Servico: GraphQLTypes["comercial_Servicos"],
-	/** An object relationship */
-	ServicoPreco: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
-	ServicoPreco_Id: GraphQLTypes["uuid"],
 	Servico_Id: GraphQLTypes["uuid"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -33063,8 +32988,6 @@ export type GraphQLTypes = {
 	Plano?: GraphQLTypes["comercial_Planos_bool_exp"],
 	Plano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Servico?: GraphQLTypes["comercial_Servicos_bool_exp"],
-	ServicoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"],
-	ServicoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
 	_and?: Array<GraphQLTypes["comercial_Planos_Servicos_bool_exp"]>,
 	_not?: GraphQLTypes["comercial_Planos_Servicos_bool_exp"],
@@ -33081,8 +33004,6 @@ export type GraphQLTypes = {
 	Plano?: GraphQLTypes["comercial_Planos_obj_rel_insert_input"],
 	Plano_Id?: GraphQLTypes["uuid"],
 	Servico?: GraphQLTypes["comercial_Servicos_obj_rel_insert_input"],
-	ServicoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -33093,7 +33014,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Planos_Servicos_max_fields",
 	Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -33103,7 +33023,6 @@ export type GraphQLTypes = {
 ["comercial_Planos_Servicos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -33114,7 +33033,6 @@ export type GraphQLTypes = {
 	__typename: "comercial_Planos_Servicos_min_fields",
 	Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -33124,7 +33042,6 @@ export type GraphQLTypes = {
 ["comercial_Planos_Servicos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -33150,8 +33067,6 @@ export type GraphQLTypes = {
 	Plano?: GraphQLTypes["comercial_Planos_order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
 	Servico?: GraphQLTypes["comercial_Servicos_order_by"],
-	ServicoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"],
-	ServicoPreco_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -33167,7 +33082,6 @@ export type GraphQLTypes = {
 ["comercial_Planos_Servicos_set_input"]: {
 		Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
-	ServicoPreco_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -33597,16 +33511,8 @@ export type GraphQLTypes = {
 	/** columns and relationships of "comercial.PrestadoresDeServicos_Produtos_Precos" */
 ["comercial_PrestadoresDeServicos_Produtos_Precos"]: {
 	__typename: "comercial_PrestadoresDeServicos_Produtos_Precos",
-	/** An array relationship */
-	CombosProdutos: Array<GraphQLTypes["comercial_Combos_Produtos"]>,
-	/** An aggregate relationship */
-	CombosProdutos_aggregate: GraphQLTypes["comercial_Combos_Produtos_aggregate"],
 	Fornecedor_Produto_Id: GraphQLTypes["uuid"],
 	Id: GraphQLTypes["uuid"],
-	/** An array relationship */
-	PlanosProdutos: Array<GraphQLTypes["comercial_Planos_Produtos"]>,
-	/** An aggregate relationship */
-	PlanosProdutos_aggregate: GraphQLTypes["comercial_Planos_Produtos_aggregate"],
 	/** An object relationship */
 	PrestadorDeServico_Produto: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos"],
 	/** An array relationship */
@@ -33676,10 +33582,8 @@ export type GraphQLTypes = {
 };
 	/** Boolean expression to filter rows from the table "comercial.PrestadoresDeServicos_Produtos_Precos". All fields are combined with a logical 'AND'. */
 ["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"]: {
-		CombosProdutos?: GraphQLTypes["comercial_Combos_Produtos_bool_exp"],
-	Fornecedor_Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
+		Fornecedor_Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
-	PlanosProdutos?: GraphQLTypes["comercial_Planos_Produtos_bool_exp"],
 	PrestadorDeServico_Produto?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_bool_exp"],
 	PropostasProdutos?: GraphQLTypes["propostas_Propostas_Produtos_bool_exp"],
 	TipoDePreco?: GraphQLTypes["vendas_TiposDePrecos_bool_exp"],
@@ -33702,10 +33606,8 @@ export type GraphQLTypes = {
 };
 	/** input type for inserting data into table "comercial.PrestadoresDeServicos_Produtos_Precos" */
 ["comercial_PrestadoresDeServicos_Produtos_Precos_insert_input"]: {
-		CombosProdutos?: GraphQLTypes["comercial_Combos_Produtos_arr_rel_insert_input"],
-	Fornecedor_Produto_Id?: GraphQLTypes["uuid"],
+		Fornecedor_Produto_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	PlanosProdutos?: GraphQLTypes["comercial_Planos_Produtos_arr_rel_insert_input"],
 	PrestadorDeServico_Produto?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_obj_rel_insert_input"],
 	PropostasProdutos?: GraphQLTypes["propostas_Propostas_Produtos_arr_rel_insert_input"],
 	TipoDePreco?: GraphQLTypes["vendas_TiposDePrecos_obj_rel_insert_input"],
@@ -33777,10 +33679,8 @@ export type GraphQLTypes = {
 };
 	/** Ordering options when selecting data from "comercial.PrestadoresDeServicos_Produtos_Precos". */
 ["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"]: {
-		CombosProdutos_aggregate?: GraphQLTypes["comercial_Combos_Produtos_aggregate_order_by"],
-	Fornecedor_Produto_Id?: GraphQLTypes["order_by"],
+		Fornecedor_Produto_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	PlanosProdutos_aggregate?: GraphQLTypes["comercial_Planos_Produtos_aggregate_order_by"],
 	PrestadorDeServico_Produto?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_order_by"],
 	PropostasProdutos_aggregate?: GraphQLTypes["propostas_Propostas_Produtos_aggregate_order_by"],
 	TipoDePreco?: GraphQLTypes["vendas_TiposDePrecos_order_by"],
@@ -34043,16 +33943,8 @@ export type GraphQLTypes = {
 	/** columns and relationships of "comercial.PrestadoresDeServicos_Servicos_Precos" */
 ["comercial_PrestadoresDeServicos_Servicos_Precos"]: {
 	__typename: "comercial_PrestadoresDeServicos_Servicos_Precos",
-	/** An array relationship */
-	CombosServicos: Array<GraphQLTypes["comercial_Combos_Servicos"]>,
-	/** An aggregate relationship */
-	CombosServicos_aggregate: GraphQLTypes["comercial_Combos_Servicos_aggregate"],
 	Fornecedor_Servico_Id: GraphQLTypes["uuid"],
 	Id: GraphQLTypes["uuid"],
-	/** An array relationship */
-	PlanosServicos: Array<GraphQLTypes["comercial_Planos_Servicos"]>,
-	/** An aggregate relationship */
-	PlanosServicos_aggregate: GraphQLTypes["comercial_Planos_Servicos_aggregate"],
 	/** An object relationship */
 	PrestadorDeServico_Servico: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos"],
 	/** An array relationship */
@@ -34122,10 +34014,8 @@ export type GraphQLTypes = {
 };
 	/** Boolean expression to filter rows from the table "comercial.PrestadoresDeServicos_Servicos_Precos". All fields are combined with a logical 'AND'. */
 ["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"]: {
-		CombosServicos?: GraphQLTypes["comercial_Combos_Servicos_bool_exp"],
-	Fornecedor_Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
+		Fornecedor_Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
-	PlanosServicos?: GraphQLTypes["comercial_Planos_Servicos_bool_exp"],
 	PrestadorDeServico_Servico?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_bool_exp"],
 	PropostasServicos?: GraphQLTypes["propostas_Propostas_Servicos_bool_exp"],
 	TipoDePreco?: GraphQLTypes["vendas_TiposDePrecos_bool_exp"],
@@ -34148,10 +34038,8 @@ export type GraphQLTypes = {
 };
 	/** input type for inserting data into table "comercial.PrestadoresDeServicos_Servicos_Precos" */
 ["comercial_PrestadoresDeServicos_Servicos_Precos_insert_input"]: {
-		CombosServicos?: GraphQLTypes["comercial_Combos_Servicos_arr_rel_insert_input"],
-	Fornecedor_Servico_Id?: GraphQLTypes["uuid"],
+		Fornecedor_Servico_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
-	PlanosServicos?: GraphQLTypes["comercial_Planos_Servicos_arr_rel_insert_input"],
 	PrestadorDeServico_Servico?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_obj_rel_insert_input"],
 	PropostasServicos?: GraphQLTypes["propostas_Propostas_Servicos_arr_rel_insert_input"],
 	TipoDePreco?: GraphQLTypes["vendas_TiposDePrecos_obj_rel_insert_input"],
@@ -34223,10 +34111,8 @@ export type GraphQLTypes = {
 };
 	/** Ordering options when selecting data from "comercial.PrestadoresDeServicos_Servicos_Precos". */
 ["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"]: {
-		CombosServicos_aggregate?: GraphQLTypes["comercial_Combos_Servicos_aggregate_order_by"],
-	Fornecedor_Servico_Id?: GraphQLTypes["order_by"],
+		Fornecedor_Servico_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	PlanosServicos_aggregate?: GraphQLTypes["comercial_Planos_Servicos_aggregate_order_by"],
 	PrestadorDeServico_Servico?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_order_by"],
 	PropostasServicos_aggregate?: GraphQLTypes["propostas_Propostas_Servicos_aggregate_order_by"],
 	TipoDePreco?: GraphQLTypes["vendas_TiposDePrecos_order_by"],
@@ -41041,10 +40927,13 @@ export type GraphQLTypes = {
 	__typename: "propostas_Propostas_Produtos",
 	Id: GraphQLTypes["uuid"],
 	/** An object relationship */
-	Produto: GraphQLTypes["comercial_Produtos"],
+	PrecoAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	/** An object relationship */
-	ProdutoPreco: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
-	ProdutoPreco_Id: GraphQLTypes["uuid"],
+	PrecoRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
+	/** An object relationship */
+	Produto: GraphQLTypes["comercial_Produtos"],
 	Produto_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Proposta: GraphQLTypes["propostas_Propostas"],
@@ -41084,9 +40973,11 @@ export type GraphQLTypes = {
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Produtos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Produtos_bool_exp"]: {
 		Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"],
 	Produto?: GraphQLTypes["comercial_Produtos_bool_exp"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_bool_exp"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid_comparison_exp"],
@@ -41104,9 +40995,11 @@ export type GraphQLTypes = {
 	/** input type for inserting data into table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_insert_input"]: {
 		Id?: GraphQLTypes["uuid"],
+	PrecoAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
+	PrecoRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"],
 	Produto?: GraphQLTypes["comercial_Produtos_obj_rel_insert_input"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_obj_rel_insert_input"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
@@ -41120,7 +41013,8 @@ export type GraphQLTypes = {
 ["propostas_Propostas_Produtos_max_fields"]: {
 	__typename: "propostas_Propostas_Produtos_max_fields",
 	Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
@@ -41131,7 +41025,8 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
@@ -41143,7 +41038,8 @@ export type GraphQLTypes = {
 ["propostas_Propostas_Produtos_min_fields"]: {
 	__typename: "propostas_Propostas_Produtos_min_fields",
 	Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
@@ -41154,7 +41050,8 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
@@ -41179,9 +41076,11 @@ export type GraphQLTypes = {
 	/** Ordering options when selecting data from "propostas.Propostas_Produtos". */
 ["propostas_Propostas_Produtos_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	PrecoAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
+	PrecoRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"],
 	Produto?: GraphQLTypes["comercial_Produtos_order_by"],
-	ProdutoPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos_order_by"],
-	ProdutoPreco_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
@@ -41200,7 +41099,8 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_set_input"]: {
 		Id?: GraphQLTypes["uuid"],
-	ProdutoPreco_Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
@@ -41215,6 +41115,12 @@ export type GraphQLTypes = {
 	__typename: "propostas_Propostas_Servicos",
 	Id: GraphQLTypes["uuid"],
 	/** An object relationship */
+	PrecoDeAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	/** An object relationship */
+	PrecoDeRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
+	/** An object relationship */
 	Proposta: GraphQLTypes["propostas_Propostas"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id: GraphQLTypes["uuid"],
@@ -41223,9 +41129,6 @@ export type GraphQLTypes = {
 	/** An object relationship */
 	Servico: GraphQLTypes["comercial_Servicos"],
 	Servico_Id: GraphQLTypes["uuid"],
-	/** An object relationship */
-	ServicosPreco: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
-	ServicosPreco_Id: GraphQLTypes["uuid"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -41258,14 +41161,16 @@ export type GraphQLTypes = {
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Servicos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Servicos_bool_exp"]: {
 		Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PrecoDeRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_bool_exp"],
 	Servico?: GraphQLTypes["comercial_Servicos_bool_exp"],
 	Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
-	ServicosPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"],
-	ServicosPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	_and?: Array<GraphQLTypes["propostas_Propostas_Servicos_bool_exp"]>,
 	_not?: GraphQLTypes["propostas_Propostas_Servicos_bool_exp"],
 	_or?: Array<GraphQLTypes["propostas_Propostas_Servicos_bool_exp"]>,
@@ -41278,14 +41183,16 @@ export type GraphQLTypes = {
 	/** input type for inserting data into table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_insert_input"]: {
 		Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"],
 	Servico?: GraphQLTypes["comercial_Servicos_obj_rel_insert_input"],
 	Servico_Id?: GraphQLTypes["uuid"],
-	ServicosPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"],
-	ServicosPreco_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -41294,10 +41201,11 @@ export type GraphQLTypes = {
 ["propostas_Propostas_Servicos_max_fields"]: {
 	__typename: "propostas_Propostas_Servicos_max_fields",
 	Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
-	ServicosPreco_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -41305,10 +41213,11 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
-	ServicosPreco_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -41317,10 +41226,11 @@ export type GraphQLTypes = {
 ["propostas_Propostas_Servicos_min_fields"]: {
 	__typename: "propostas_Propostas_Servicos_min_fields",
 	Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
-	ServicosPreco_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -41328,10 +41238,11 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
-	ServicosPreco_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -41353,14 +41264,16 @@ export type GraphQLTypes = {
 	/** Ordering options when selecting data from "propostas.Propostas_Servicos". */
 ["propostas_Propostas_Servicos_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	PrecoDeAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"],
+	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
+	PrecoDeRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_order_by"],
 	Servico?: GraphQLTypes["comercial_Servicos_order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
-	ServicosPreco?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"],
-	ServicosPreco_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -41374,10 +41287,11 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos_set_input"]: {
 		Id?: GraphQLTypes["uuid"],
+	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
+	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
-	ServicosPreco_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -43480,6 +43394,8 @@ export const enum clientes_VeiculosAtivos_Beneficios_select_column {
 	Id = "Id",
 	PortfolioPreco_Id = "PortfolioPreco_Id",
 	Portfolio_Id = "Portfolio_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	TipoPortfolio = "TipoPortfolio",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
@@ -43492,6 +43408,8 @@ export const enum clientes_VeiculosAtivos_Beneficios_update_column {
 	Id = "Id",
 	PortfolioPreco_Id = "PortfolioPreco_Id",
 	Portfolio_Id = "Portfolio_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	TipoPortfolio = "TipoPortfolio",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
@@ -43507,7 +43425,8 @@ export const enum clientes_VeiculosAtivos_Produtos_select_column {
 	Ativo = "Ativo",
 	Id = "Id",
 	Identificador = "Identificador",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
 	TipoItem_Id = "TipoItem_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
@@ -43520,7 +43439,8 @@ export const enum clientes_VeiculosAtivos_Produtos_update_column {
 	Ativo = "Ativo",
 	Id = "Id",
 	Identificador = "Identificador",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
 	TipoItem_Id = "TipoItem_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
@@ -43536,7 +43456,8 @@ export const enum clientes_VeiculosAtivos_Servicos_constraint {
 export const enum clientes_VeiculosAtivos_Servicos_select_column {
 	Ativo = "Ativo",
 	Id = "Id",
-	ServicoPreco_Id = "ServicoPreco_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Servico_Id = "Servico_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
@@ -43547,7 +43468,8 @@ export const enum clientes_VeiculosAtivos_Servicos_select_column {
 export const enum clientes_VeiculosAtivos_Servicos_update_column {
 	Ativo = "Ativo",
 	Id = "Id",
-	ServicoPreco_Id = "ServicoPreco_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Servico_Id = "Servico_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
@@ -43800,7 +43722,6 @@ export const enum comercial_Combos_Produtos_constraint {
 export const enum comercial_Combos_Produtos_select_column {
 	Combo_Id = "Combo_Id",
 	Id = "Id",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -43810,7 +43731,6 @@ export const enum comercial_Combos_Produtos_select_column {
 export const enum comercial_Combos_Produtos_update_column {
 	Combo_Id = "Combo_Id",
 	Id = "Id",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -43824,7 +43744,6 @@ export const enum comercial_Combos_Servicos_constraint {
 export const enum comercial_Combos_Servicos_select_column {
 	Combo_Id = "Combo_Id",
 	Id = "Id",
-	ServicoPreco_Id = "ServicoPreco_Id",
 	Servico_Id = "Servico_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -43834,7 +43753,6 @@ export const enum comercial_Combos_Servicos_select_column {
 export const enum comercial_Combos_Servicos_update_column {
 	Combo_Id = "Combo_Id",
 	Id = "Id",
-	ServicoPreco_Id = "ServicoPreco_Id",
 	Servico_Id = "Servico_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -44002,7 +43920,6 @@ export const enum comercial_Planos_Produtos_constraint {
 export const enum comercial_Planos_Produtos_select_column {
 	Id = "Id",
 	Plano_Id = "Plano_Id",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -44012,7 +43929,6 @@ export const enum comercial_Planos_Produtos_select_column {
 export const enum comercial_Planos_Produtos_update_column {
 	Id = "Id",
 	Plano_Id = "Plano_Id",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
 	Produto_Id = "Produto_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -44026,7 +43942,6 @@ export const enum comercial_Planos_Servicos_constraint {
 export const enum comercial_Planos_Servicos_select_column {
 	Id = "Id",
 	Plano_Id = "Plano_Id",
-	ServicoPreco_Id = "ServicoPreco_Id",
 	Servico_Id = "Servico_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -44036,7 +43951,6 @@ export const enum comercial_Planos_Servicos_select_column {
 export const enum comercial_Planos_Servicos_update_column {
 	Id = "Id",
 	Plano_Id = "Plano_Id",
-	ServicoPreco_Id = "ServicoPreco_Id",
 	Servico_Id = "Servico_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -45026,7 +44940,8 @@ export const enum propostas_Propostas_Produtos_constraint {
 /** select columns of table "propostas.Propostas_Produtos" */
 export const enum propostas_Propostas_Produtos_select_column {
 	Id = "Id",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
@@ -45037,7 +44952,8 @@ export const enum propostas_Propostas_Produtos_select_column {
 /** update columns of table "propostas.Propostas_Produtos" */
 export const enum propostas_Propostas_Produtos_update_column {
 	Id = "Id",
-	ProdutoPreco_Id = "ProdutoPreco_Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
@@ -45052,10 +44968,11 @@ export const enum propostas_Propostas_Servicos_constraint {
 /** select columns of table "propostas.Propostas_Servicos" */
 export const enum propostas_Propostas_Servicos_select_column {
 	Id = "Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
 	Servico_Id = "Servico_Id",
-	ServicosPreco_Id = "ServicosPreco_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -45063,10 +44980,11 @@ export const enum propostas_Propostas_Servicos_select_column {
 /** update columns of table "propostas.Propostas_Servicos" */
 export const enum propostas_Propostas_Servicos_update_column {
 	Id = "Id",
+	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
+	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
 	Servico_Id = "Servico_Id",
-	ServicosPreco_Id = "ServicosPreco_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"

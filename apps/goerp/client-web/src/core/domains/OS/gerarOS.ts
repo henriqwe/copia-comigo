@@ -1,4 +1,3 @@
-import * as OS from '&erp/domains/operational/ServiceOrders'
 import {
   operacional_OrdemDeServico_Situacoes_enum,
   operacional_OrdemDeServico_Tipo_enum
@@ -6,7 +5,203 @@ import {
 import { useTypedClientMutation } from '&erp/graphql/generated/zeus/apollo'
 
 type GerarOSProps = {
-  proposal: OS.Proposal
+  proposal: {
+    Id: string
+    Cliente_Id?: string
+    Veiculos: {
+      Veiculo_Id?: string
+      PropostasCombos: {
+        Id: string
+        PropostaVeiculo_Id?: string
+        created_at: Date
+        Combo: {
+          Id: string
+          Servicos: {
+            Servico: {
+              GeraOS: boolean
+              Id: string
+              PrestadoresDeServicos: {
+                Precos: {
+                  Id: string
+                  TipoDePreco?: { Valor: string }
+                }[]
+              }[]
+            }
+          }[]
+
+          Produtos: {
+            Id: string
+            Produto: {
+              Id: string
+              ServicoDeDesinstalacao?: {
+                Id: string
+                PrestadoresDeServicos: {
+                  Prestador_Id: string
+                  Precos: {
+                    Id: string
+                  }[]
+                }[]
+              }
+              Fornecedores: {
+                Precos: {
+                  Id: string
+                  Valor: string
+                  TipoDePreco?: { Valor: string }
+                }[]
+              }[]
+            }
+          }[]
+
+          Planos: {
+            Id: string
+            created_at: Date
+            Plano: {
+              Id: string
+              Produtos: {
+                Produto: {
+                  Id: string
+                  ServicoDeDesinstalacao?: {
+                    Id: string
+                    PrestadoresDeServicos: {
+                      Prestador_Id: string
+                      Precos: {
+                        Id: string
+                        TipoDePreco?: { Valor: string }
+                      }[]
+                    }[]
+                  }
+                  Fornecedores: {
+                    Precos: {
+                      Id: string
+                      Valor: string
+                      TipoDePreco?: { Valor: string }
+                    }[]
+                  }[]
+                }
+              }[]
+
+              Servicos: {
+                Id: string
+                created_at: Date
+                Servico: {
+                  Id: string
+                  Nome: string
+                  GeraOS: boolean
+                  PrestadoresDeServicos: {
+                    Prestador_Id: string
+                    Precos: {
+                      Id: string
+                      TipoDePreco?: { Valor: string }
+                    }[]
+                  }[]
+                }
+              }[]
+            }
+            PlanoPreco: {
+              Id: string
+            }
+          }[]
+        }
+        ComboPreco_Id: string
+      }[]
+
+      PropostasPlanos: {
+        Id: string
+        created_at: Date
+        Plano: {
+          Id: string
+          Produtos: {
+            Produto: {
+              Id: string
+              ServicoDeDesinstalacao?: {
+                Id: string
+                PrestadoresDeServicos: {
+                  Prestador_Id: string
+                  Precos: {
+                    Id: string
+                    TipoDePreco?: { Valor: string }
+                  }[]
+                }[]
+              }
+              Fornecedores: {
+                Precos: {
+                  Id: string
+                  Valor: string
+                  TipoDePreco?: { Valor: string }
+                }[]
+              }[]
+            }
+          }[]
+
+          Servicos: {
+            Id: string
+            created_at: Date
+            Servico: {
+              Id: string
+              Nome: string
+              GeraOS: boolean
+              PrestadoresDeServicos: {
+                Prestador_Id: string
+                Precos: {
+                  Id: string
+                  TipoDePreco?: { Valor: string }
+                }[]
+              }[]
+            }
+          }[]
+        }
+        PlanoPreco: {
+          Id: string
+        }
+      }[]
+
+      PropostasProdutos: {
+        Id: string
+        PrecoAdesao?: {
+          Id: string
+          TipoDePreco?: { Valor: string }
+        }
+        PrecoRecorrencia?: {
+          Id: string
+          TipoDePreco?: { Valor: string }
+        }
+        Produto: {
+          Id: string
+          ServicoDeDesinstalacao?: {
+            Id: string
+            PrestadoresDeServicos: {
+              Prestador_Id: string
+              Precos: {
+                Id: string
+              }[]
+            }[]
+          }
+        }
+        PropostaVeiculo_Id?: string
+        created_at: Date
+      }[]
+
+      PropostasServicos: {
+        Id: string
+        created_at: Date
+        Servico: {
+          Id: string
+          Nome: string
+          GeraOS: boolean
+        }
+        PrecoDeAdesao?: {
+          Id: string
+          TipoDePreco?: { Valor: string }
+        }
+        PrecoDeRecorrencia?: {
+          Id: string
+          TipoDePreco?: { Valor: string }
+        }
+      }[]
+    }[]
+
+    created_at: Date
+  }
   type: operacional_OrdemDeServico_Tipo_enum
 }
 
@@ -16,6 +211,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
       Portfolio_Id: string
       TipoPortfolio: string
       PortfolioPreco_Id: string
+      PrecoDeAdesao_Id: string
+      PrecoDeRecorrencia_Id: string
       created_at: Date
     }[] = []
 
@@ -25,7 +222,9 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
       return {
         Portfolio_Id: service.Servico.Id,
         TipoPortfolio: 'serviço',
-        PortfolioPreco_Id: service.ServicosPreco.Id,
+        PortfolioPreco_Id: null,
+        PrecoDeAdesao_Id: service.PrecoDeAdesao.Id,
+        PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia.Id,
         created_at: service.created_at
       }
     })
@@ -36,6 +235,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
           Portfolio_Id: plan.Plano.Id,
           TipoPortfolio: 'plano',
           PortfolioPreco_Id: plan.PlanoPreco.Id,
+          PrecoDeAdesao_Id: null,
+          PrecoDeRecorrencia_Id: null,
           created_at: plan.created_at
         }
       })
@@ -47,7 +248,9 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
           Portfolio_Id: combo.Combo.Id,
           TipoPortfolio: 'combo',
           PortfolioPreco_Id: combo.ComboPreco_Id,
-          created_at: combo.created_at
+          created_at: combo.created_at,
+          PrecoDeAdesao_Id: null,
+          PrecoDeRecorrencia_Id: null
         }
       })
     )
@@ -67,7 +270,9 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
           PortfolioPreco_Id:
             benefit.created_at > filteredBenefits[duplicatedPosition].created_at
               ? benefit.PortfolioPreco_Id
-              : filteredBenefits[duplicatedPosition].PortfolioPreco_Id
+              : filteredBenefits[duplicatedPosition].PortfolioPreco_Id,
+          PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
+          PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id
         }
       }
 
@@ -76,6 +281,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
           Portfolio_Id: benefit.Portfolio_Id,
           TipoPortfolio: benefit.TipoPortfolio,
           PortfolioPreco_Id: benefit.PortfolioPreco_Id,
+          PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
+          PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id,
           created_at: benefit.created_at
         })
       }
@@ -86,7 +293,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
     ).map((service) => {
       return {
         Servico_Id: service.Servico.Id,
-        ServicoPreco_Id: service.ServicosPreco.Id
+        PrecoDeAdesao_Id: service.PrecoDeAdesao?.Id,
+        PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia?.Id
       }
     })
 
@@ -101,9 +309,15 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
       installationServices.push(
         ...plan.Plano.Servicos.filter((service) => service.Servico.GeraOS).map(
           (service) => {
+            const price = service.Servico.PrestadoresDeServicos[0].Precos
             return {
               Servico_Id: service.Servico.Id,
-              ServicoPreco_Id: service.ServicoPreco.Id
+              PrecoDeAdesao_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'adesao'
+              )[0]?.Id,
+              PrecoDeRecorrencia_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'recorrencia'
+              )[0]?.Id
             }
           }
         )
@@ -126,9 +340,15 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
       installationServices.push(
         ...combo.Combo.Servicos.filter((service) => service.Servico.GeraOS).map(
           (service) => {
+            const price = service.Servico.PrestadoresDeServicos[0].Precos
             return {
               Servico_Id: service.Servico.Id,
-              ServicoPreco_Id: service.ServicosPreco.Id
+              PrecoDeAdesao_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'adesao'
+              )[0]?.Id,
+              PrecoDeRecorrencia_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'recorrencia'
+              )[0]?.Id
             }
           }
         )
@@ -146,9 +366,15 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
           ...plan.Plano.Servicos.filter(
             (service) => service.Servico.GeraOS
           ).map((service) => {
+            const price = service.Servico.PrestadoresDeServicos[0].Precos
             return {
               Servico_Id: service.Servico.Id,
-              ServicoPreco_Id: service.ServicoPreco.Id
+              PrecoDeAdesao_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'adesao'
+              )[0]?.Id,
+              PrecoDeRecorrencia_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'recorrencia'
+              )[0]?.Id
             }
           })
         )
@@ -157,7 +383,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
 
     const filteredServices: {
       Servico_Id: string
-      ServicoPreco_Id: string
+      PrecoDeAdesao_Id: string
+      PrecoDeRecorrencia_Id: string
     }[] = []
 
     installationServices.map((service) => {
@@ -168,7 +395,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
       if (!(duplicatedPosition > -1)) {
         filteredServices.push({
           Servico_Id: service.Servico_Id,
-          ServicoPreco_Id: service.ServicoPreco_Id
+          PrecoDeAdesao_Id: service.PrecoDeAdesao_Id,
+          PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia_Id
         })
       }
     })
@@ -176,16 +404,23 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
     const products = vehicle.PropostasProdutos.map((product) => {
       return {
         Produto_Id: product.Produto.Id,
-        ProdutoPreco_Id: product.ProdutoPreco.Id
+        PrecoDeAdesao_Id: product.PrecoAdesao.Id,
+        PrecoDeRecorrencia_Id: product.PrecoRecorrencia.Id
       }
     })
 
     vehicle.PropostasPlanos.map((plan) => {
       products.push(
         ...plan.Plano.Produtos.map((product) => {
+          const price = product.Produto.Fornecedores[0].Precos
           return {
             Produto_Id: product.Produto.Id,
-            ProdutoPreco_Id: product.ProdutoPreco.Id
+            PrecoDeAdesao_Id: price.filter(
+              (price) => price.TipoDePreco.Valor === 'adesao'
+            )[0]?.Id,
+            PrecoDeRecorrencia_Id: price.filter(
+              (price) => price.TipoDePreco.Valor === 'recorrencia'
+            )[0]?.Id
           }
         })
       )
@@ -194,9 +429,15 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
     vehicle.PropostasCombos.map((combo) => {
       products.push(
         ...combo.Combo.Produtos.map((product) => {
+          const price = product.Produto.Fornecedores[0].Precos
           return {
             Produto_Id: product.Produto.Id,
-            ProdutoPreco_Id: product.ProdutoPreco.Id
+            PrecoDeAdesao_Id: price.filter(
+              (price) => price.TipoDePreco.Valor === 'adesao'
+            )[0]?.Id,
+            PrecoDeRecorrencia_Id: price.filter(
+              (price) => price.TipoDePreco.Valor === 'recorrencia'
+            )[0]?.Id
           }
         })
       )
@@ -204,9 +445,15 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
       combo.Combo.Planos.map((plan) => {
         products.push(
           ...plan.Plano.Produtos.map((product) => {
+            const price = product.Produto.Fornecedores[0].Precos
             return {
               Produto_Id: product.Produto.Id,
-              ProdutoPreco_Id: product.ProdutoPreco.Id
+              PrecoDeAdesao_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'adesao'
+              )[0]?.Id,
+              PrecoDeRecorrencia_Id: price.filter(
+                (price) => price.TipoDePreco.Valor === 'recorrencia'
+              )[0]?.Id
             }
           })
         )
@@ -215,7 +462,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
 
     const filteredProducts: {
       Produto_Id: string
-      ProdutoPreco_Id: string
+      PrecoDeAdesao_Id: string
+      PrecoDeRecorrencia_Id: string
     }[] = []
 
     products.map((product) => {
@@ -226,7 +474,8 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
       if (!(duplicatedPosition > -1)) {
         filteredProducts.push({
           Produto_Id: product.Produto_Id,
-          ProdutoPreco_Id: product.ProdutoPreco_Id
+          PrecoDeAdesao_Id: product.PrecoDeAdesao_Id,
+          PrecoDeRecorrencia_Id: product.PrecoDeRecorrencia_Id
         })
       }
     })
@@ -252,7 +501,9 @@ export async function gerarOs({ proposal, type }: GerarOSProps) {
                 return {
                   Portfolio_Id: benefit.Portfolio_Id,
                   TipoPortfolio: benefit.TipoPortfolio,
-                  PortfolioPreco_Id: benefit.PortfolioPreco_Id
+                  PortfolioPreco_Id: benefit.PortfolioPreco_Id,
+                  PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
+                  PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id
                 }
               })
             },

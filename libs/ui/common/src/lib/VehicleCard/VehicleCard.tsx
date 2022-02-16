@@ -2,7 +2,8 @@ import {
   ChipIcon,
   LightningBoltIcon,
   LocationMarkerIcon,
-  StatusOnlineIcon
+  StatusOnlineIcon,
+  UserIcon
 } from '@heroicons/react/outline'
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react'
 import { convertMToKm } from '../CardVehicle/functions'
@@ -64,13 +65,13 @@ export function VehicleCard({
     <div className="relative flex items-center intro-x  mb-4 rounded justify-between">
       <div className="flex flex-col report-timeline__image align-center mr-1">
         <div className={`flex justify-center items-center `}>
-          <div
-            className={`w-4 h-4 rounded-full border-2 mr-1 border-gray-200 ${colorStatus.color}`}
-            title={colorStatus.title}
-          ></div>
           <span className="text-super-tiny !leading-none font-medium">
             {new Date(vehicle.data).toLocaleTimeString('pt-br')}
           </span>
+          <div
+            className={`w-4 h-4 rounded-full border-2 ml-1 border-gray-200 ${colorStatus.color}`}
+            title={colorStatus.title}
+          ></div>
         </div>
       </div>
       <div
@@ -119,6 +120,11 @@ function AdicionalInformations({
       )
     },
     {
+      title: 'Motorista',
+      icon: <UserIcon className="w-5 h-5 text-blue-400" />,
+      subTitle: 'Claudio Henrique Araújo Aleluia'
+    },
+    {
       title: 'Velocidade',
       icon: <LocationMarkerIcon className="w-5 h-5 text-blue-400" />,
       subTitle: Math.floor(Number(vehicle.speed)) + ' km/h'
@@ -157,7 +163,9 @@ function AdicionalInformations({
           <div
             key={idx}
             className={` my-1 flex flex-row  items-center ${
-              label.title === 'Endereço' ? 'col-span-full' : 'col-span-2'
+              label.title === 'Motorista' || label.title === 'Endereço'
+                ? 'col-span-full'
+                : 'col-span-2'
             }`}
           >
             <div>

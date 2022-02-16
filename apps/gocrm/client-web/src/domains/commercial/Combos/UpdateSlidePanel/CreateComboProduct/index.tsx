@@ -50,18 +50,14 @@ export function CreateComboProduct() {
     try {
       await createComboProduct({
         variables: {
-          Produto_Id: formData.Product_Id.key.Id,
-          ProdutoPreco_Id: formData.Product_Id.key.Fornecedores[0].Precos[0].Id
+          Produto_Id: formData.Product_Id.key.Id
         }
       })
 
       if (addInstalation) {
         await createComboService({
           variables: {
-            Servico_Id: formData.Product_Id.key.ServicoDeInstalacao.Id,
-            ServicoPreco_Id:
-              formData.Product_Id.key.ServicoDeInstalacao
-                .PrestadoresDeServicos[0].Precos[0].Id
+            Servico_Id: formData.Product_Id.key.ServicoDeInstalacao.Id
           }
         })
       }
