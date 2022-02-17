@@ -229,6 +229,7 @@ export function createNewVehicleMarker(
     marker.addListener('click', async () => {
       if (allMarkerVehicles) {
         allMarkerVehicles.forEach((marker) => marker.infowindow.close())
+        allMarkerVehiclesStep.forEach((marker) => marker.infowindow.close())
       }
 
       marker.infowindow.setContent(
