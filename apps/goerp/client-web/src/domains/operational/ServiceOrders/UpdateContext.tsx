@@ -115,6 +115,8 @@ type UpdateContextProps = {
       }
       PrecoDeAdesao_Id?: string
       PrecoDeRecorrencia_Id?: string
+      Identificavel_Id?: string
+      TipoDeIdentificavel_Id?: string
     }[]
     Veiculo_Id: string
   }
@@ -397,6 +399,19 @@ type UpdateContextProps = {
       ApolloCache<unknown>
     >
   ) => Promise<FetchResult['data']>
+  updateServiceOrdersProduct: (
+    options?: MutationFunctionOptions<
+      {
+        update_operacional_OrdemDeServico_Produtos_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateServiceOrdersProductLoading: boolean
   updateInstallationKitLoading: boolean
   updateServiceOrderScheduleItemLoading: boolean
   updateServiceOrdersScheduleLoading: boolean
@@ -534,7 +549,11 @@ type UpdateContextProps = {
       Id: string
     }[]
   >
-  getChipIdentifierByItemId: (Id: string) => Promise<
+  getChipIdentifierByItemId: (
+    Id: string,
+    Ativo?: boolean,
+    ChipId?: string
+  ) => Promise<
     {
       Id: string
       NumeroDaLinha: string
@@ -545,7 +564,11 @@ type UpdateContextProps = {
       }
     }[]
   >
-  getEquipmentIdentifierByItemId: (Id: string) => Promise<
+  getEquipmentIdentifierByItemId: (
+    Id: string,
+    Ativo?: boolean,
+    EquipmentId?: string
+  ) => Promise<
     {
       Id: string
       Imei: string
@@ -556,7 +579,11 @@ type UpdateContextProps = {
       }
     }[]
   >
-  getIdentifierByItemId: (Id: string) => Promise<
+  getIdentifierByItemId: (
+    Id: string,
+    Ativo?: boolean,
+    IdentifierId?: string
+  ) => Promise<
     {
       Id: string
       CodigoIdentificador: number
@@ -567,7 +594,11 @@ type UpdateContextProps = {
       }
     }[]
   >
-  getTrackerIdentifierByItemId: (Id: string) => Promise<
+  getTrackerIdentifierByItemId: (
+    Id: string,
+    Ativo?: boolean,
+    TrackerId?: string
+  ) => Promise<
     {
       Id: string
       CodigoReferencia: number
@@ -584,7 +615,11 @@ type UpdateContextProps = {
       }
     }[]
   >
-  getInputKitsIdentifierByItemId: (Id: string) => Promise<
+  getInputKitsIdentifierByItemId: (
+    Id: string,
+    Ativo?: boolean,
+    InputKitId?: string
+  ) => Promise<
     {
       Id: string
       CodigoReferencia: number
@@ -595,7 +630,11 @@ type UpdateContextProps = {
       }
     }[]
   >
-  getInstallationKitsIdentifierByItemId: (Id: string) => Promise<
+  getInstallationKitsIdentifierByItemId: (
+    Id: string,
+    Ativo?: boolean,
+    InstallationKitId?: string
+  ) => Promise<
     {
       Id: string
       CodigoReferencia: number
@@ -644,7 +683,7 @@ type UpdateContextProps = {
     }
   }>
   getItemById: (Id: string) => Promise<{
-    Movimentacoes: { Tipo: string, Quantidade: number }[]
+    Movimentacoes: { Tipo: string; Quantidade: number }[]
     Produto: {
       Nome: string
     }
@@ -727,6 +766,22 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         }
       ]
     })
+
+  const [
+    updateServiceOrdersProduct,
+    { loading: updateServiceOrdersProductLoading }
+  ] = useTypedMutation({
+    update_operacional_OrdemDeServico_Produtos_by_pk: [
+      {
+        pk_columns: { Id: $`Id` },
+        _set: {
+          Identificavel_Id: $`Identificavel_Id`,
+          TipoDeIdentificavel_Id: $`TipoDeIdentificavel_Id`
+        }
+      },
+      { Id: true }
+    ]
+  })
 
   const [
     updateServiceOrderScheduleItem,
@@ -1254,7 +1309,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 Nome: true
               },
               PrecoDeAdesao_Id: true,
-              PrecoDeRecorrencia_Id: true
+              PrecoDeRecorrencia_Id: true,
+              Identificavel_Id: true,
+              TipoDeIdentificavel_Id: true
             }
           ],
           Veiculo_Id: true,
@@ -1554,13 +1611,19 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.comercial_PrestadoresDeServicos_Produtos_Itens
   }
 
-  async function getChipIdentifierByItemId(Id: string) {
+  async function getChipIdentifierByItemId(
+    Id: string,
+    Ativo = false,
+    ChipId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       producao_Chips: [
         {
           where: {
             deleted_at: { _is_null: true },
-            Item_Id: { _eq: Id }
+            Item_Id: { _eq: Id },
+            Ativo: { _eq: Ativo },
+            Id: ChipId ? { _eq: ChipId } : { _is_null: false }
           },
           order_by: [{ created_at: order_by.desc }]
         },
@@ -1579,13 +1642,19 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.producao_Chips
   }
 
-  async function getEquipmentIdentifierByItemId(Id: string) {
+  async function getEquipmentIdentifierByItemId(
+    Id: string,
+    Ativo = false,
+    EquipmentId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       producao_Equipamentos: [
         {
           where: {
             deleted_at: { _is_null: true },
-            Item_Id: { _eq: Id }
+            Item_Id: { _eq: Id },
+            Ativo: { _eq: Ativo },
+            Id: EquipmentId ? { _eq: EquipmentId } : { _is_null: false }
           },
           order_by: [{ created_at: order_by.desc }]
         },
@@ -1604,13 +1673,19 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.producao_Equipamentos
   }
 
-  async function getIdentifierByItemId(Id: string) {
+  async function getIdentifierByItemId(
+    Id: string,
+    Ativo = false,
+    IdentifierId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       producao_Identificadores: [
         {
           where: {
             deleted_at: { _is_null: true },
-            Item_Id: { _eq: Id }
+            Item_Id: { _eq: Id },
+            Ativo: { _eq: Ativo },
+            Id: IdentifierId ? { _eq: IdentifierId } : { _is_null: false }
           },
           order_by: [{ created_at: order_by.desc }]
         },
@@ -1629,13 +1704,19 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.producao_Identificadores
   }
 
-  async function getTrackerIdentifierByItemId(Id: string) {
+  async function getTrackerIdentifierByItemId(
+    Id: string,
+    Ativo = false,
+    TrackerId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       producao_Rastreadores: [
         {
           where: {
             deleted_at: { _is_null: true },
-            Item_Id: { _eq: Id }
+            Item_Id: { _eq: Id },
+            Ativo: { _eq: Ativo },
+            Id: TrackerId ? { _eq: TrackerId } : { _is_null: false }
           },
           order_by: [{ created_at: order_by.desc }]
         },
@@ -1660,13 +1741,19 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.producao_Rastreadores
   }
 
-  async function getInputKitsIdentifierByItemId(Id: string) {
+  async function getInputKitsIdentifierByItemId(
+    Id: string,
+    Ativo = false,
+    InputKitId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       producao_KitsDeInsumo: [
         {
           where: {
             deleted_at: { _is_null: true },
-            Item_Id: { _eq: Id }
+            Item_Id: { _eq: Id },
+            Ativo: { _eq: Ativo },
+            Id: InputKitId ? { _eq: InputKitId } : { _is_null: false }
           },
           order_by: [{ created_at: order_by.desc }]
         },
@@ -1685,13 +1772,21 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.producao_KitsDeInsumo
   }
 
-  async function getInstallationKitsIdentifierByItemId(Id: string) {
+  async function getInstallationKitsIdentifierByItemId(
+    Id: string,
+    Ativo = false,
+    InstallationKitId?: string
+  ) {
     const { data } = await useTypedClientQuery({
       producao_KitsDeInstalacao: [
         {
           where: {
             deleted_at: { _is_null: true },
-            Item_Id: { _eq: Id }
+            Item_Id: { _eq: Id },
+            Ativo: { _eq: Ativo },
+            Id: InstallationKitId
+              ? { _eq: InstallationKitId }
+              : { _is_null: false }
           },
           order_by: [{ created_at: order_by.desc }]
         },
@@ -1819,7 +1914,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         updateInputKitLoading,
         updateInstallationKit,
         updateInstallationKitLoading,
-        getItemById
+        getItemById,
+        updateServiceOrdersProduct,
+        updateServiceOrdersProductLoading
       }}
     >
       {children}

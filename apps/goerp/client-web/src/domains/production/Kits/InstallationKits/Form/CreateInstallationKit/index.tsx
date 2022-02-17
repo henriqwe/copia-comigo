@@ -209,7 +209,7 @@ export const Create = () => {
       <form>
         <common.form.FormLine position={1} grid={initialGrid()}>
           {!configData?.Valor[0] ? (
-            <common.ConfigMessage>
+            <common.ConfigMessage rotas={rotas}>
               Selecione a família de itens para kits de instalação em
               configurações primeiro
             </common.ConfigMessage>

@@ -46,7 +46,7 @@ export const PathProvider = ({ children }: ProviderProps) => {
     setMarkersAndLine
   } = useMap()
 
-  const { allMarkerVehicles } = useVehicle()
+  const { allMarkerVehicles, selectedVehicle } = useVehicle()
 
   const [pathLoading, setPathLoading] = useState(false)
   const [vehicleConsultData, setVehicleConsultData] = useState<vehicleType[]>()
@@ -73,7 +73,8 @@ export const PathProvider = ({ children }: ProviderProps) => {
       google,
       markersAndLine,
       setMarkersAndLine,
-      refsPathVehicle
+      refsPathVehicle,
+      selectedVehicle
     )
     setPathLoading(false)
   }

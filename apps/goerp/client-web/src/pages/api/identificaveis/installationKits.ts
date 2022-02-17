@@ -15,6 +15,14 @@ handler.use(cors()).get(async (req, res) => {
         {
           Id: true,
           CodigoReferencia: true,
+          Rastreador: {
+            Chip: {
+              NumeroDaLinha: true
+            },
+            Equipamento: {
+              Imei: true
+            }
+          },
           Item: {
             Produto: {
               Nome: true

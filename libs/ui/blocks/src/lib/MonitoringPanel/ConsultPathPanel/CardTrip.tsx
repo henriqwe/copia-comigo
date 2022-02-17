@@ -99,9 +99,13 @@ function Grid({ label }: { label: labelType }) {
   ]
   return (
     <div className="grid grid-cols-3 mt-2 gap-2">
-      {icons.map(({ icon, title, description }) => {
+      {icons.map(({ icon, title, description }, idx) => {
         return (
-          <div className="col-span-1 flex items-center" title={description}>
+          <div
+            className="col-span-1 flex items-center"
+            title={description}
+            key={idx}
+          >
             <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center mr-1">
               {icon}
             </div>

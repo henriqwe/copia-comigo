@@ -59,7 +59,7 @@ type UpdateContextProps = {
         Portfolio_Id: string
         TipoPortfolio: string
         PortfolioPreco_Id?: string
-        PrecoDeAdesao_Id?: string,
+        PrecoDeAdesao_Id?: string
         PrecoDeRecorrencia_Id?: string
       }[]
       Produtos: {
@@ -654,7 +654,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               `http://${hostname}:3002/api/identificaveis/tracker?Id=${Identifier}`
             )
             .then(({ data }) => {
-              value = 'RTDR - ' + data.data.CodigoReferencia
+              value =
+                'RTDR - ' +
+                data.data.CodigoReferencia +
+                ' - ' +
+                data.data.Chip.NumeroDaLinha +
+                ' - ' +
+                data.data.Equipamento.Imei
             })
           break
         case 'kitsDeInsumo':
@@ -672,7 +678,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               `http://${hostname}:3002/api/identificaveis/installationKits?Id=${Identifier}`
             )
             .then(({ data }) => {
-              value = 'KTIST - ' + data.data.CodigoReferencia
+              value =
+                'KTIST - ' +
+                data.data.CodigoReferencia +
+                ' - ' +
+                data.data.Rastreador.Chip.NumeroDaLinha +
+                ' - ' +
+                data.data.Rastreador.Equipamento.Imei
             })
           break
       }

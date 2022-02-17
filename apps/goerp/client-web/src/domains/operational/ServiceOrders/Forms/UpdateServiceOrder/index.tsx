@@ -119,7 +119,8 @@ export function Update() {
     updateTracker,
     updateInputKit,
     updateInstallationKit,
-    getItemById
+    getItemById,
+    updateServiceOrdersProduct
   } = serviceOrders.useUpdate()
   const address = client?.Pessoa.DadosDaApi.enderecos[0]
 
@@ -425,73 +426,100 @@ export function Update() {
       }
     })
       .then(async () => {
+        const productsItensIds = productItens.map(
+          (product) => product.Identificador
+        )
         await Promise.all(
           serviceOrderData.Agendamentos[0].Itens.map(async (item) => {
             await Promise.all(
               item.Item.Chips.map(async (chip) => {
-                await updateChip({
-                  variables: {
-                    Id: chip.Id,
-                    Ativo: false
-                  }
-                })
+                if (productsItensIds.includes(chip.Id)) {
+                  await updateChip({
+                    variables: {
+                      Id: chip.Id,
+                      Ativo: false
+                    }
+                  })
+                }
               })
             )
 
             await Promise.all(
               item.Item.Equipamentos.map(async (equipment) => {
-                await updateEquipment({
-                  variables: {
-                    Id: equipment.Id,
-                    Ativo: false
-                  }
-                })
+                if (productsItensIds.includes(equipment.Id)) {
+                  await updateEquipment({
+                    variables: {
+                      Id: equipment.Id,
+                      Ativo: false
+                    }
+                  })
+                }
               })
             )
 
             await Promise.all(
               item.Item.Identificadores.map(async (identifier) => {
-                await updateIdentifier({
-                  variables: {
-                    Id: identifier.Id,
-                    Ativo: false
-                  }
-                })
+                if (productsItensIds.includes(identifier.Id)) {
+                  await updateIdentifier({
+                    variables: {
+                      Id: identifier.Id,
+                      Ativo: false
+                    }
+                  })
+                }
               })
             )
 
             await Promise.all(
               item.Item.Rastreadores.map(async (tracker) => {
-                await updateTracker({
-                  variables: {
-                    Id: tracker.Id,
-                    Ativo: false
-                  }
-                })
+                if (productsItensIds.includes(tracker.Id)) {
+                  await updateTracker({
+                    variables: {
+                      Id: tracker.Id,
+                      Ativo: false
+                    }
+                  })
+                }
               })
             )
 
             await Promise.all(
               item.Item.KitsDeInsumo.map(async (inputKit) => {
-                await updateInputKit({
-                  variables: {
-                    Id: inputKit.Id,
-                    Ativo: false
-                  }
-                })
+                if (productsItensIds.includes(inputKit.Id)) {
+                  await updateInputKit({
+                    variables: {
+                      Id: inputKit.Id,
+                      Ativo: false
+                    }
+                  })
+                }
               })
             )
 
             await Promise.all(
               item.Item.KitsDeInstalacao.map(async (installationKit) => {
-                await updateInstallationKit({
+                if (productsItensIds.includes(installationKit.Id)) {
+                  await updateInstallationKit({
+                    variables: {
+                      Id: installationKit.Id,
+                      Ativo: false
+                    }
+                  })
+                }
+              })
+            )
+            await Promise.all(
+              serviceOrderData.Produtos.map(async (product) => {
+                await updateServiceOrdersProduct({
                   variables: {
-                    Id: installationKit.Id,
-                    Ativo: false
+                    Id: product.Id,
+                    Identificavel_Id: null,
+                    TipoDeIdentificavel_Id: null
                   }
                 })
               })
             )
+
             if (item.RetiradoDoEstoque) {
               registerItemMovimentation({
                 variables: {
@@ -674,36 +702,48 @@ export function Update() {
           serviceOrderData.Situacao.Valor !== 'cancelada' &&
           serviceOrderData.Situacao.Valor !== 'frustada'
         ) {
-          switch (scheduleItem[0].TipoDeItem_Id) {
+          switch (product.TipoDeIdentificavel_Id) {
             case 'chips':
-              await getChipIdentifierByItemId(scheduleItem[0].Item_Id).then(
-                (chip) => {
+              await getChipIdentifierByItemId(
+                scheduleItem[0].Item_Id,
+                true,
+                product.Identificavel_Id
+              ).then((chip) => {
+                if (chip.length > 0) {
                   productsItens.push({
                     Id: product.Produto.Id,
                     TipoItem_Id: 'chips',
                     Identificador: chip[0].Id
                   })
-                  identifier = chip[0].NumeroDaLinha
+                  identifier = utils.phoneFormat(chip[0].NumeroDaLinha)
                   itemName = chip[0].Item.Produto.Nome
                 }
-              )
+              })
               break
             case 'equipamentos':
               await getEquipmentIdentifierByItemId(
-                scheduleItem[0].Item_Id
+                scheduleItem[0].Item_Id,
+                true,
+                product.Identificavel_Id
               ).then((equipment) => {
-                productsItens.push({
-                  Id: product.Produto.Id,
-                  TipoItem_Id: 'equipamentos',
-                  Identificador: equipment[0].Id
-                })
-                identifier = equipment[0].Imei
-                itemName = equipment[0].Item.Produto.Nome
+                if (equipment.length > 0) {
+                  productsItens.push({
+                    Id: product.Produto.Id,
+                    TipoItem_Id: 'equipamentos',
+                    Identificador: equipment[0].Id
+                  })
+                  identifier = equipment[0].Imei
+                  itemName = equipment[0].Item.Produto.Nome
+                }
               })
               break
             case 'identificadores':
-              await getIdentifierByItemId(scheduleItem[0].Item_Id).then(
-                (identifierResponse) => {
+              await getIdentifierByItemId(
+                scheduleItem[0].Item_Id,
+                true,
+                product.Identificavel_Id
+              ).then((identifierResponse) => {
+                if (identifierResponse.length > 0) {
                   productsItens.push({
                     Id: product.Produto.Id,
                     TipoItem_Id: 'identificadores',
@@ -713,11 +753,15 @@ export function Update() {
                     identifierResponse[0].CodigoIdentificador.toString()
                   itemName = identifierResponse[0].Item.Produto.Nome
                 }
-              )
+              })
               break
             case 'rastreadores':
-              await getTrackerIdentifierByItemId(scheduleItem[0].Item_Id).then(
-                (tracker) => {
+              await getTrackerIdentifierByItemId(
+                scheduleItem[0].Item_Id,
+                true,
+                product.Identificavel_Id
+              ).then((tracker) => {
+                if (tracker.length > 0) {
                   productsItens.push({
                     Id: product.Produto.Id,
                     TipoItem_Id: 'rastreadores',
@@ -727,49 +771,64 @@ export function Update() {
                     'RTDR - ' +
                     tracker[0].CodigoReferencia +
                     ' - ' +
-                    tracker[0].Chip.NumeroDaLinha +
+                    utils.phoneFormat(tracker[0].Chip.NumeroDaLinha) +
                     ' - ' +
                     tracker[0].Equipamento.Imei
                   itemName = tracker[0].Item.Produto.Nome
                 }
-              )
+              })
               break
             case 'kitsDeInsumo':
               await getInputKitsIdentifierByItemId(
-                scheduleItem[0].Item_Id
+                scheduleItem[0].Item_Id,
+                true,
+                product.Identificavel_Id
               ).then((inputKit) => {
-                productsItens.push({
-                  Id: product.Produto.Id,
-                  TipoItem_Id: 'kitsDeInsumo',
-                  Identificador: inputKit[0].Id
-                })
-                identifier = 'KTISM - ' + inputKit[0].CodigoReferencia
-                itemName = inputKit[0].Item.Produto.Nome
+                if (inputKit.length > 0) {
+                  productsItens.push({
+                    Id: product.Produto.Id,
+                    TipoItem_Id: 'kitsDeInsumo',
+                    Identificador: inputKit[0].Id
+                  })
+                  identifier = 'KTISM - ' + inputKit[0].CodigoReferencia
+                  itemName = inputKit[0].Item.Produto.Nome
+                }
               })
               break
             case 'kitsDeInstalacao':
               await getInstallationKitsIdentifierByItemId(
-                scheduleItem[0].Item_Id
+                scheduleItem[0].Item_Id,
+                true,
+                product.Identificavel_Id
               ).then((installationKit) => {
-                productsItens.push({
-                  Id: product.Produto.Id,
-                  TipoItem_Id: 'kitsDeInstalacao',
-                  Identificador: installationKit[0].Id
-                })
-                identifier =
-                  'KTIST - ' +
-                  installationKit[0].CodigoReferencia +
-                  ' - ' +
-                  installationKit[0].Rastreador.Chip.NumeroDaLinha +
-                  ' - ' +
-                  installationKit[0].Rastreador.Equipamento.Imei
-                itemName = installationKit[0].Item.Produto.Nome
+                if (installationKit.length > 0) {
+                  productsItens.push({
+                    Id: product.Produto.Id,
+                    TipoItem_Id: 'kitsDeInstalacao',
+                    Identificador: installationKit[0].Id
+                  })
+                  identifier =
+                    'KTIST - ' +
+                    installationKit[0].CodigoReferencia +
+                    ' - ' +
+                    utils.phoneFormat(
+                      installationKit[0].Rastreador.Chip.NumeroDaLinha
+                    ) +
+                    ' - ' +
+                    installationKit[0].Rastreador.Equipamento.Imei
+                  itemName = installationKit[0].Item.Produto.Nome
+                }
               })
               break
             default:
               identifier = '-'
               itemName = (await getItemById(scheduleItem[0].Item_Id)).Produto
                 .Nome
+              productsItens.push({
+                Id: product.Produto.Id,
+                TipoItem_Id: null,
+                Identificador: null
+              })
               break
           }
         }

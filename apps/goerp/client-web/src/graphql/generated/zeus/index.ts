@@ -16075,6 +16075,7 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_col
 	/** columns and relationships of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos"]: AliasType<{
 	Id?:boolean,
+	Identificavel_Id?:boolean,
 	/** An object relationship */
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico"],
 	OrdemDeServico_Id?:boolean,
@@ -16084,6 +16085,7 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_col
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto?:ValueTypes["comercial_Produtos"],
 	Produto_Id?:boolean,
+	TipoDeIdentificavel_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -16117,11 +16119,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Produtos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Produtos_bool_exp"]: {
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Identificavel_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_bool_exp"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	TipoDeIdentificavel_Id?:ValueTypes["String_comparison_exp"] | null,
 	_and?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"][],
 	_not?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null,
 	_or?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"][],
@@ -16134,11 +16138,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** input type for inserting data into table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_insert_input"]: {
 	Id?:ValueTypes["uuid"] | null,
+	Identificavel_Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_obj_rel_insert_input"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	TipoDeIdentificavel_Id?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -16146,10 +16152,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** aggregate max on columns */
 ["operacional_OrdemDeServico_Produtos_max_fields"]: AliasType<{
 	Id?:boolean,
+	Identificavel_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoDeIdentificavel_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -16158,10 +16166,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** order by max() on columns of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	Identificavel_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoDeIdentificavel_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -16169,10 +16179,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** aggregate min on columns */
 ["operacional_OrdemDeServico_Produtos_min_fields"]: AliasType<{
 	Id?:boolean,
+	Identificavel_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	TipoDeIdentificavel_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -16181,10 +16193,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** order by min() on columns of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	Identificavel_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoDeIdentificavel_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -16206,11 +16220,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** Ordering options when selecting data from "operacional.OrdemDeServico_Produtos". */
 ["operacional_OrdemDeServico_Produtos_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	Identificavel_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	TipoDeIdentificavel_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -16224,10 +16240,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** input type for updating data in table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_set_input"]: {
 	Id?:ValueTypes["uuid"] | null,
+	Identificavel_Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	TipoDeIdentificavel_Id?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -34063,6 +34081,7 @@ export type ModelTypes = {
 	/** columns and relationships of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos"]: {
 		Id:ModelTypes["uuid"],
+	Identificavel_Id?:ModelTypes["uuid"],
 	/** An object relationship */
 	OrdemDeServico:ModelTypes["operacional_OrdemDeServico"],
 	OrdemDeServico_Id:ModelTypes["uuid"],
@@ -34072,6 +34091,7 @@ export type ModelTypes = {
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto?:ModelTypes["comercial_Produtos"],
 	Produto_Id:ModelTypes["uuid"],
+	TipoDeIdentificavel_Id?:string,
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -34100,10 +34120,12 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["operacional_OrdemDeServico_Produtos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
+	Identificavel_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	TipoDeIdentificavel_Id?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -34113,10 +34135,12 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["operacional_OrdemDeServico_Produtos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
+	Identificavel_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	TipoDeIdentificavel_Id?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -53571,6 +53595,7 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Produtos"]: {
 	__typename: "operacional_OrdemDeServico_Produtos",
 	Id: GraphQLTypes["uuid"],
+	Identificavel_Id?: GraphQLTypes["uuid"],
 	/** An object relationship */
 	OrdemDeServico: GraphQLTypes["operacional_OrdemDeServico"],
 	OrdemDeServico_Id: GraphQLTypes["uuid"],
@@ -53580,6 +53605,7 @@ export type GraphQLTypes = {
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto?: GraphQLTypes["comercial_Produtos"],
 	Produto_Id: GraphQLTypes["uuid"],
+	TipoDeIdentificavel_Id?: string,
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -53612,11 +53638,13 @@ export type GraphQLTypes = {
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Produtos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Produtos_bool_exp"]: {
 		Id?: GraphQLTypes["uuid_comparison_exp"],
+	Identificavel_Id?: GraphQLTypes["uuid_comparison_exp"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_bool_exp"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
+	TipoDeIdentificavel_Id?: GraphQLTypes["String_comparison_exp"],
 	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"]>,
 	_not?: GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"],
 	_or?: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"]>,
@@ -53629,11 +53657,13 @@ export type GraphQLTypes = {
 	/** input type for inserting data into table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_insert_input"]: {
 		Id?: GraphQLTypes["uuid"],
+	Identificavel_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_obj_rel_insert_input"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -53642,10 +53672,12 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Produtos_max_fields"]: {
 	__typename: "operacional_OrdemDeServico_Produtos_max_fields",
 	Id?: GraphQLTypes["uuid"],
+	Identificavel_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -53653,10 +53685,12 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	Identificavel_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoDeIdentificavel_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -53665,10 +53699,12 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Produtos_min_fields"]: {
 	__typename: "operacional_OrdemDeServico_Produtos_min_fields",
 	Id?: GraphQLTypes["uuid"],
+	Identificavel_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -53676,10 +53712,12 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	Identificavel_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoDeIdentificavel_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -53701,11 +53739,13 @@ export type GraphQLTypes = {
 	/** Ordering options when selecting data from "operacional.OrdemDeServico_Produtos". */
 ["operacional_OrdemDeServico_Produtos_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	Identificavel_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	TipoDeIdentificavel_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -53719,10 +53759,12 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_set_input"]: {
 		Id?: GraphQLTypes["uuid"],
+	Identificavel_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -63564,10 +63606,12 @@ export const enum operacional_OrdemDeServico_Produtos_constraint {
 /** select columns of table "operacional.OrdemDeServico_Produtos" */
 export const enum operacional_OrdemDeServico_Produtos_select_column {
 	Id = "Id",
+	Identificavel_Id = "Identificavel_Id",
 	OrdemDeServico_Id = "OrdemDeServico_Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	TipoDeIdentificavel_Id = "TipoDeIdentificavel_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -63575,10 +63619,12 @@ export const enum operacional_OrdemDeServico_Produtos_select_column {
 /** update columns of table "operacional.OrdemDeServico_Produtos" */
 export const enum operacional_OrdemDeServico_Produtos_update_column {
 	Id = "Id",
+	Identificavel_Id = "Identificavel_Id",
 	OrdemDeServico_Id = "OrdemDeServico_Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	TipoDeIdentificavel_Id = "TipoDeIdentificavel_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"

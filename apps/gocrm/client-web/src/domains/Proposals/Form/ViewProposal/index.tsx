@@ -32,7 +32,8 @@ export function ViewProposal() {
     setPaymentType,
     setClientPaymentType,
     getClientProposalsByClientId,
-    setDisabledUpdateClientPaymentType
+    setDisabledUpdateClientPaymentType,
+    proposalRefetch
   } = proposals.useUpdate()
 
   const dropDownActions = [
@@ -76,7 +77,9 @@ export function ViewProposal() {
 
             axios.get(
               `http://${hostname}:3002/api/acoes/gerar-os?proposalId=${router.query.id}&type=instalacao`
-            )
+            ).then(() => {
+              proposalRefetch()
+            })
           }
 
           utils.notification('Proposta concluida com sucesso', 'success')

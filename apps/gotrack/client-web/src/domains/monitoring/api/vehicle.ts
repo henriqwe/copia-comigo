@@ -45,7 +45,7 @@ export function setVehicleColor(vehicle: vehicleType) {
     new Date(vehicle.date_rastreador) < dataHoraminus1 &&
     new Date(vehicle.date_rastreador) > dataHoraminus1
   ) {
-    return '#fffb00'
+    return '#ff7f00'
   }
 
   if (vehicle.ligado) {
@@ -116,10 +116,7 @@ export function createNewVehiclePathMarker(
       infoWindowToRemovePath.length = 0
     }
     handleClickScrollToCardPath('0', refsPathVehicle)
-    const addres = await getVehicleAddress(
-      pathCoords[pathCoords.length - 1].latitude,
-      pathCoords[pathCoords.length - 1].longitude
-    )
+
     const infowindow = new google.maps.InfoWindow({
       content: ''
     })
@@ -130,7 +127,7 @@ export function createNewVehiclePathMarker(
     })
     infowindow.setContent(
       ReactDOMServer.renderToString(
-        createContentInfoWindowPath(selectedVehicle, pathCoords, addres)
+        await createContentInfoWindowPath(selectedVehicle, pathCoords)
       )
     )
     infoWindowToRemovePath.push(infowindow)
@@ -229,14 +226,14 @@ export function createNewVehicleMarker(
       disableAutoPan: true
     })
 
-    marker.infowindow.setContent(
-      ReactDOMServer.renderToString(createContentInfoWindow(vehicle))
-    )
     marker.addListener('click', async () => {
       if (allMarkerVehicles) {
         allMarkerVehicles.forEach((marker) => marker.infowindow.close())
       }
-      // setVehicleConsultData(vehicle)
+
+      marker.infowindow.setContent(
+        ReactDOMServer.renderToString(await createContentInfoWindow(vehicle))
+      )
       handleClickScrollToCard(vehicle.carro_id)
       await marker.infowindow.open({
         anchor: marker,
@@ -255,7 +252,6 @@ export function createNewVehicleMarker(
       }, 10)
     })
   }
-  allMarkerVehicles.push(marker)
   allMarkerVehiclesStep.push(marker)
 }
 export function updateVehicleMarker(
@@ -282,17 +278,15 @@ export function updateVehicleMarker(
   google.maps.event.clearListeners(marker, 'click')
 
   if (showInfoWindowsInMap) {
-    marker.infowindow.setContent(
-      ReactDOMServer.renderToString(createContentInfoWindow(vehicle))
-    )
-
     marker.addListener('click', async () => {
       if (allMarkerVehicles) {
         allMarkerVehicles.forEach((marker) => marker.infowindow.close())
       }
       handleClickScrollToCard(vehicle.carro_id)
 
-      // setVehicleConsultData(vehicle)
+      marker.infowindow.setContent(
+        ReactDOMServer.renderToString(await createContentInfoWindow(vehicle))
+      )
       await marker.infowindow.open({
         anchor: marker,
         map,
@@ -310,7 +304,6 @@ export function updateVehicleMarker(
       }, 10)
     })
   }
-  allMarkerVehicles.push(marker)
 }
 
 export function centerMapInVehicle(
@@ -361,7 +354,8 @@ export function showPathVehicle(
   google,
   markersAndLine,
   setMarkersAndLine,
-  refsPathVehicle
+  refsPathVehicle,
+  selectedVehicle
 ) {
   setVehicleConsultData(response)
   markerCluster.setMap(null)
@@ -369,7 +363,7 @@ export function showPathVehicle(
   allMarkerVehicles.forEach((vehicle) => vehicle.setMap(null))
   createNewVehiclePathMarker(
     infoWindowToRemovePath,
-    response[0],
+    selectedVehicle,
     mapa,
     google,
     response,

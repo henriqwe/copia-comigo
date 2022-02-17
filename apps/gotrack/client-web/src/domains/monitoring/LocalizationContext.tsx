@@ -6,7 +6,6 @@ import {
   useState
 } from 'react'
 import * as yup from 'yup'
-import { getAllUserVehicles } from './serviceHttp/index'
 import { MarkerClusterer } from '@googlemaps/markerclusterer'
 import {
   vehicleType,
@@ -16,6 +15,8 @@ import {
 } from './api/vehicle'
 import { toggleStreetView } from './api/streetView'
 import { useMap, useVehicle } from './'
+import ReactDOMServer from 'react-dom/server'
+import { createContentInfoWindow } from './api/infoWindow'
 
 type LocalizationContextProps = {
   localizationsLoading: boolean
@@ -64,13 +65,7 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
   const [pageCard, setPageCard] = useState('pagAllVehicles')
 
   async function localizationsRefetch() {
-    // setLocalizationsLoading(true)
-    // const response = await getAllUserVehicles('operacional@radarescolta.com')
-    // const responseGetUserVehicles = response?.filter((vehicle) => {
-    //   if (vehicle.latitude && vehicle.longitude) return vehicle
-    // })
-    // if (responseGetUserVehicles) setAllUserVehicle(responseGetUserVehicles)
-    // setLocalizationsLoading(false)
+    return
   }
 
   function createFunctionsForInfoWindow(vehicle: vehicleType) {
@@ -94,8 +89,11 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
   function handlerClickOnVehicleMarker(vehicle: vehicleType) {
     setSelectedVehicle(vehicle)
     panorama.setVisible(false)
-    allMarkerVehicles.map((marker) => {
+    allMarkerVehicles.map(async (marker) => {
       if (marker.id === vehicle.carro_id) {
+        marker.infowindow.setContent(
+          ReactDOMServer.renderToString(await createContentInfoWindow(vehicle))
+        )
         marker.infowindow?.open({
           anchor: marker,
           mapa,
@@ -192,8 +190,11 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
         if (validationMarker) return
         return markerStep
       })
-
       setAllMarkerVehicles([...allMarkerVehicles, ...markersToAdd])
+      if (markerCluster) {
+        markerCluster.clearMarkers()
+        markerCluster.addMarkers(allMarkerVehicles)
+      }
       if (!markerCluster) {
         setMarkerCluster(
           new MarkerClusterer({ map: mapa, markers: allMarkerVehiclesStep })

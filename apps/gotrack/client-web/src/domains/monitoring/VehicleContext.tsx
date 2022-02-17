@@ -1,4 +1,3 @@
-import { MarkerClusterer } from '@googlemaps/markerclusterer'
 import {
   createContext,
   Dispatch,
@@ -35,7 +34,7 @@ export const VehicleContext = createContext<VehicleContextProps>(
 )
 
 export const VehicleProvider = ({ children }: ProviderProps) => {
-  const { mapa, setMarkerCluster, markersAndLine } = useMap()
+  const { mapa, markerCluster, markersAndLine } = useMap()
 
   const [allMarkerVehicles, setAllMarkerVehicles] = useState<
     google.maps.Marker[]
@@ -56,10 +55,7 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
     })
 
     if (markersAndLine) {
-      setMarkerCluster(
-        new MarkerClusterer({ map: mapa, markers: allMarkerVehicles })
-      )
-
+      markerCluster.setMap(mapa)
       markersAndLine.markers.forEach((marker) => marker.setMap(null))
       markersAndLine.line.getPath().clear()
     }

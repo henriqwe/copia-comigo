@@ -47825,6 +47825,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificavel_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		OrdemDeServico:{
 			type:"operacional_OrdemDeServico_bool_exp",
 			array:false,
@@ -47851,6 +47857,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeIdentificavel_Id:{
+			type:"String_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -47900,6 +47912,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificavel_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		OrdemDeServico:{
 			type:"operacional_OrdemDeServico_obj_rel_insert_input",
 			array:false,
@@ -47930,6 +47948,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		TipoDeIdentificavel_Id:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		created_at:{
 			type:"timestamptz",
 			array:false,
@@ -47956,6 +47980,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificavel_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		OrdemDeServico_Id:{
 			type:"order_by",
 			array:false,
@@ -47975,6 +48005,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeIdentificavel_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48006,6 +48042,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificavel_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		OrdemDeServico_Id:{
 			type:"order_by",
 			array:false,
@@ -48025,6 +48067,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeIdentificavel_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48076,6 +48124,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificavel_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		OrdemDeServico:{
 			type:"operacional_OrdemDeServico_order_by",
 			array:false,
@@ -48101,6 +48155,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeIdentificavel_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -48141,6 +48201,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Identificavel_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		OrdemDeServico_Id:{
 			type:"uuid",
 			array:false,
@@ -48161,6 +48227,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produto_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		TipoDeIdentificavel_Id:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -82990,6 +83062,7 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	operacional_OrdemDeServico_Produtos:{
 		Id:"uuid",
+		Identificavel_Id:"uuid",
 		OrdemDeServico:"operacional_OrdemDeServico",
 		OrdemDeServico_Id:"uuid",
 		PrecoDeAdesao:"comercial_PrestadoresDeServicos_Produtos_Precos",
@@ -82998,6 +83071,7 @@ export const ReturnTypes: Record<string,any> = {
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto:"comercial_Produtos",
 		Produto_Id:"uuid",
+		TipoDeIdentificavel_Id:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -83013,20 +83087,24 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	operacional_OrdemDeServico_Produtos_max_fields:{
 		Id:"uuid",
+		Identificavel_Id:"uuid",
 		OrdemDeServico_Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoDeIdentificavel_Id:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
 	operacional_OrdemDeServico_Produtos_min_fields:{
 		Id:"uuid",
+		Identificavel_Id:"uuid",
 		OrdemDeServico_Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
+		TipoDeIdentificavel_Id:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"

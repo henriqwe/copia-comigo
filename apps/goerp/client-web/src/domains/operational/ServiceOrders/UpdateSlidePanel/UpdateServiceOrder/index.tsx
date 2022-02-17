@@ -40,7 +40,8 @@ export function Schedule() {
     updateTracker,
     updateInputKit,
     updateInstallationKit,
-    getItemById
+    getItemById,
+    updateServiceOrdersProduct
   } = serviceOrders.useUpdate()
 
   const {
@@ -53,7 +54,7 @@ export function Schedule() {
 
   async function onSubmit(formData: FormData) {
     let inventoryValidation = false
-    const identifiers: { type: string; id: string }[] = []
+    const identifiers: { type: string; id: string; productId: string }[] = []
 
     const Itens = await Promise.all(
       serviceOrderData.Produtos.map(async (product) => {
@@ -64,8 +65,13 @@ export function Schedule() {
             await getChipIdentifierByItemId(item[0].Item_Id).then((chip) => {
               if (chip.length === 0) {
                 inventoryValidation = true
+                return
               }
-              identifiers.push({ type: 'chips', id: chip[0].Id })
+              identifiers.push({
+                type: 'chips',
+                id: chip[0].Id,
+                productId: product.Id
+              })
             })
             break
           case 'equipamentos':
@@ -73,8 +79,13 @@ export function Schedule() {
               (equipment) => {
                 if (equipment.length === 0) {
                   inventoryValidation = true
+                  return
                 }
-                identifiers.push({ type: 'equipamentos', id: equipment[0].Id })
+                identifiers.push({
+                  type: 'equipamentos',
+                  id: equipment[0].Id,
+                  productId: product.Id
+                })
               }
             )
             break
@@ -83,10 +94,12 @@ export function Schedule() {
               (identifierResponse) => {
                 if (identifierResponse.length === 0) {
                   inventoryValidation = true
+                  return
                 }
                 identifiers.push({
                   type: 'identificadores',
-                  id: identifierResponse[0].Id
+                  id: identifierResponse[0].Id,
+                  productId: product.Id
                 })
               }
             )
@@ -96,8 +109,13 @@ export function Schedule() {
               (tracker) => {
                 if (tracker.length === 0) {
                   inventoryValidation = true
+                  return
                 }
-                identifiers.push({ type: 'rastreadores', id: tracker[0].Id })
+                identifiers.push({
+                  type: 'rastreadores',
+                  id: tracker[0].Id,
+                  productId: product.Id
+                })
               }
             )
             break
@@ -106,8 +124,13 @@ export function Schedule() {
               (inputKit) => {
                 if (inputKit.length === 0) {
                   inventoryValidation = true
+                  return
                 }
-                identifiers.push({ type: 'kitsDeInsumo', id: inputKit[0].Id })
+                identifiers.push({
+                  type: 'kitsDeInsumo',
+                  id: inputKit[0].Id,
+                  productId: product.Id
+                })
               }
             )
             break
@@ -116,10 +139,12 @@ export function Schedule() {
               (installationKit) => {
                 if (installationKit.length === 0) {
                   inventoryValidation = true
+                  return
                 }
                 identifiers.push({
                   type: 'kitsDeInstalacao',
-                  id: installationKit[0].Id
+                  id: installationKit[0].Id,
+                  productId: product.Id
                 })
               }
             )
@@ -134,7 +159,7 @@ export function Schedule() {
                 saldo = saldo + movimentacao.Quantidade
               }
             )
-            if(saldo <= 0){
+            if (saldo <= 0) {
               inventoryValidation = true
             }
             break
@@ -215,6 +240,13 @@ export function Schedule() {
                 })
                 break
             }
+            await updateServiceOrdersProduct({
+              variables: {
+                Id: identifier.productId,
+                Identificavel_Id: identifier.id,
+                TipoDeIdentificavel_Id: identifier.type
+              }
+            })
           })
         )
         serviceOrderRefetch()

@@ -47,18 +47,6 @@ export function Resume() {
   async function getCollection() {
     const proposalsItens: CollectionType[] = []
     clientData.VeiculosAtivos.map((activeVehicle) => {
-      proposalsItens.push({
-        Vehicle: `${
-          activeVehicle.Veiculo.Placa
-            ? activeVehicle.Veiculo.Placa
-            : activeVehicle.Veiculo.NumeroDoChassi
-        } ${
-          activeVehicle.Veiculo.Apelido
-            ? ' - ' + activeVehicle.Veiculo.Apelido
-            : ''
-        }`
-      })
-
       const benefits = activeVehicle.Beneficios.map(async (benefit) => {
         switch (benefit.TipoPortfolio) {
           case 'serviço':
@@ -158,6 +146,17 @@ export function Resume() {
         const finalProducts = await Promise.all(products)
         setBenefits(await Promise.all(benefits))
         proposalsItens.push(
+          {
+            Vehicle: `${
+              activeVehicle.Veiculo.Placa
+                ? activeVehicle.Veiculo.Placa
+                : activeVehicle.Veiculo.NumeroDoChassi
+            } ${
+              activeVehicle.Veiculo.Apelido
+                ? ' - ' + activeVehicle.Veiculo.Apelido
+                : ''
+            }`
+          },
           ...finalBenefits.map((benefit) => {
             return {
               Name: benefit.Name,

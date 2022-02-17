@@ -94,7 +94,7 @@ export function ConsultPathPanel({
               classTitle="!text-xl"
             />
           </div>
-          <div className="flex items-center">
+          <div className="flex">
             <common.TitleWithSubTitleAtTheTop
               title={`${new Date(
                 selectedVehicle?.date_rastreador || 0
@@ -148,7 +148,6 @@ export function ConsultPathPanel({
                   <button
                     onClick={() => {
                       setPageCard('pagAllVehicles')
-                      showAllVehiclesInMap()
                     }}
                     className="flex items-center justify-center "
                   >
