@@ -59,6 +59,13 @@ export interface FloatingCardProps {
   refsPathVehicle: React.MutableRefObject<any[]>
   pageCard: string
   setPageCard: Dispatch<SetStateAction<string>>
+  setPositionStreetView: (
+    lat: number,
+    lng: number,
+    rotation: number,
+    panorama: any
+  ) => void
+  panorama: google.maps.StreetViewPanorama
 }
 
 export function MonitoringPanel({
@@ -76,10 +83,11 @@ export function MonitoringPanel({
   setOpenCardKey,
   refsPathVehicle,
   pageCard,
-  setPageCard
+  setPageCard,
+  setPositionStreetView,
+  panorama
 }: FloatingCardProps) {
   const [open, setOpen] = useState(true)
-  const [titleFilter, setTitleFilter] = useState('Em trânsito')
   const [vehiclesInTransit, setVehiclesInTransit] = useState<vehicleType[]>([])
   const [vehiclesStopped, setVehiclesStopped] = useState<vehicleType[]>([])
   const [vehiclesOff, setVehiclesOff] = useState<vehicleType[]>([])
@@ -89,19 +97,8 @@ export function MonitoringPanel({
   const [inputSearchValue, setInputSearchValue] = useState<string | undefined>(
     undefined
   )
-  const [dadosEnd, setDadosEnd] = useState('')
-  const [moreDetails, setMoreDetails] = useState(false)
   const [dateStart, setDateStart] = useState(currentDateAndTime('onlyDate'))
   const [dateEnd, setDateEnd] = useState(currentDateAndTime(''))
-
-  async function getStreetName(vehicle: vehicleType) {
-    const response = await getStreetNameByLatLng(
-      vehicle.latitude,
-      vehicle.longitude
-    )
-
-    setDadosEnd(response.results[0].formatted_address)
-  }
 
   async function getStreetNameToCard(vehicle: vehicleType) {
     const response = await getStreetNameByLatLng(
@@ -162,16 +159,6 @@ export function MonitoringPanel({
   useEffect(() => {
     filterVehicles()
   }, [inputSearchValue])
-
-  useEffect(() => {
-    setMoreDetails(false)
-  }, [pageCard])
-
-  useEffect(() => {
-    if (selectedVehicle) {
-      getStreetName(selectedVehicle)
-    }
-  }, [selectedVehicle])
 
   return (
     <aside
@@ -240,8 +227,6 @@ export function MonitoringPanel({
               setPageCard,
               selectedVehicle,
               consultVehicleHistoric,
-              setMoreDetails,
-              showAllVehiclesInMap,
               dateStart,
               setDateStart,
               dateEnd,
@@ -256,7 +241,9 @@ export function MonitoringPanel({
               getStreetNameByLatLng,
               showBounceMarker,
               showAllVehiclesInMap,
-              refsPathVehicle
+              refsPathVehicle,
+              setPositionStreetView,
+              panorama
             })
           : ''}
       </Transition>

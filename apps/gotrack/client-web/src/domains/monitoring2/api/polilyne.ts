@@ -10,8 +10,7 @@ export function renderPolyline(
   infoWindowToRemovePath,
   bounds,
   markers,
-  refsPathVehicle,
-  panorama
+  refsPathVehicle
 ) {
   line.getPath().clear()
   lineForeground.getPath().clear()
@@ -54,8 +53,7 @@ export function renderPolyline(
       index,
       bounds,
       markers,
-      refsPathVehicle,
-      panorama
+      refsPathVehicle
     )
 
     const arrival = new google.maps.LatLng(

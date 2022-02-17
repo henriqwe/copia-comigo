@@ -1,7 +1,6 @@
 import ReactDOMServer from 'react-dom/server'
 import { handleClickScrollToCardPath } from './handlerClickScrollToCard'
 import { createContentInfoWindowPathMarker } from './infoWindow'
-import { toggleStreetView } from './streetView'
 import { getVehicleAddress, vehicleType } from './vehicle'
 
 export function createMarkerWhitInfo(
@@ -16,8 +15,7 @@ export function createMarkerWhitInfo(
   index: number,
   bounds,
   markers,
-  refsPathVehicle,
-  panorama
+  refsPathVehicle
 ) {
   let events = ''
 
@@ -64,14 +62,9 @@ export function createMarkerWhitInfo(
     const infowindow = new google.maps.InfoWindow({
       content: ''
     })
-    await infowindow.setContent(
+    infowindow.setContent(
       ReactDOMServer.renderToString(
-        await createContentInfoWindowPathMarker(
-          selectedVehicle,
-          vehicle,
-          addres,
-          events
-        )
+        createContentInfoWindowPathMarker(selectedVehicle, addres, events)
       )
     )
     infowindow.open({
@@ -79,16 +72,6 @@ export function createMarkerWhitInfo(
       map,
       shouldFocus: false
     })
-    const interval = setInterval(() => {
-      if (
-        document.getElementById(
-          `infoWindowImgStreetView${selectedVehicle.carro_id}${vehicle.latitude}${vehicle.longitude}`
-        ) !== null
-      ) {
-        createFunctionsForInfoWindowPath(selectedVehicle, vehicle, panorama)
-        clearInterval(interval)
-      }
-    }, 10)
     infoWindowToRemovePath.push(infowindow)
   })
 
@@ -134,23 +117,4 @@ function generateIcon(previousPosition, vehicle, stop) {
     fillColor: '#fff',
     rotation: Number(vehicle.crs)
   }
-}
-
-function createFunctionsForInfoWindowPath(
-  selectedVehicle: vehicleType,
-  vehicle: vehicleType,
-  panorama
-) {
-  document
-    .getElementById(
-      `infoWindowImgStreetView${selectedVehicle.carro_id}${vehicle.latitude}${vehicle.longitude}`
-    )
-    ?.addEventListener('click', () => {
-      toggleStreetView(
-        Number(vehicle.latitude),
-        Number(vehicle.longitude),
-        Number(vehicle.crs),
-        panorama
-      )
-    })
 }

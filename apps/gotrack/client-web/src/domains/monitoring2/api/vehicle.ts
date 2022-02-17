@@ -83,8 +83,7 @@ export function createNewVehiclePathMarker(
       | undefined
     >
   >,
-  refsPathVehicle: React.MutableRefObject<any[]>,
-  panorama
+  refsPathVehicle: React.MutableRefObject<any[]>
 ) {
   if (markersAndLine) {
     markersAndLine.markers.forEach((marker) => marker.setMap(null))
@@ -184,8 +183,7 @@ export function createNewVehiclePathMarker(
     infoWindowToRemovePath,
     bounds,
     markers,
-    refsPathVehicle,
-    panorama
+    refsPathVehicle
   )
 
   map.fitBounds(bounds)
@@ -372,7 +370,6 @@ export function showPathVehicle(
     response,
     markersAndLine,
     setMarkersAndLine,
-    refsPathVehicle,
-    panorama
+    refsPathVehicle
   )
 }

@@ -15,8 +15,6 @@ type ConsultPathPanelProps = {
     inicio: string,
     fim: string
   ) => void
-  setMoreDetails: Dispatch<SetStateAction<boolean>>
-  showAllVehiclesInMap: () => void
   dateStart: string
   setDateStart: Dispatch<SetStateAction<string>>
   dateEnd: string
@@ -28,8 +26,6 @@ export function ConsultPathPanel({
   setPageCard,
   selectedVehicle,
   consultVehicleHistoric,
-  setMoreDetails,
-  showAllVehiclesInMap,
   dateStart,
   setDateStart,
   dateEnd,
@@ -114,7 +110,6 @@ export function ConsultPathPanel({
               <form
                 onSubmit={(e) => {
                   onSubmit(e)
-                  setMoreDetails(true)
                 }}
                 className="grid grid-cols-12"
               >

@@ -14,7 +14,7 @@ import {
   centerMapInVehicle
 } from './api/vehicle'
 import { toggleStreetView } from './api/streetView'
-import { useMap, useVehicle } from './'
+import { useMap, useVehicle } from '.'
 import ReactDOMServer from 'react-dom/server'
 import { createContentInfoWindow } from './api/infoWindow'
 
@@ -75,7 +75,6 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
         toggleStreetView(
           Number(vehicle.latitude),
           Number(vehicle.longitude),
-          Number(vehicle.crs),
           panorama
         )
       })

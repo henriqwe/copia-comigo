@@ -43,13 +43,22 @@ type VehicleCardProps = {
   vehicle: vehicleType
   showBounceMarker: Dispatch<SetStateAction<coordsToCenterMap>>
   getStreetNameByLatLng: any
+  setPositionStreetView: (
+    lat: number,
+    lng: number,
+    rotation: number,
+    panorama: any
+  ) => void
+  panorama: google.maps.StreetViewPanorama
 }
 
 export function VehicleCard({
   description,
   vehicle,
   showBounceMarker,
-  getStreetNameByLatLng
+  getStreetNameByLatLng,
+  setPositionStreetView,
+  panorama
 }: VehicleCardProps) {
   const [addressData, setAddressData] = useState('')
 
@@ -77,6 +86,15 @@ export function VehicleCard({
       <div
         className="bg-gray-100 py-2 px-1 hover:cursor-pointer rounded-md"
         onClick={() => {
+          if (panorama.getVisible()) {
+            setPositionStreetView(
+              Number(vehicle.latitude),
+              Number(vehicle.longitude),
+              Number(vehicle.crs),
+              panorama
+            )
+            return
+          }
           showBounceMarker({
             latitude: Number(vehicle.latitude),
             longitude: Number(vehicle.longitude)

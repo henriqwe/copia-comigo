@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 
-import * as blocks from '@comigo/ui-blocks'
-import * as common from '@comigo/ui-common'
 import {
   useLocalization,
   useMap,
   usePath,
   useVehicle
 } from '&track/domains/monitoring'
+import * as blocks from '@comigo/ui-blocks'
+import * as common from '@comigo/ui-common'
 
+import { Map } from './Map'
 import { getStreetNameByLatLng } from '&track/domains/monitoring/serviceHttp'
-import { setPositionStreetView } from '../api/streetView'
 
 export function Localization() {
   const {
@@ -21,7 +21,7 @@ export function Localization() {
     setPageCard,
     handlerClickOnVehicleMarker
   } = useLocalization()
-  const { mapa, trafficLayer, initMap, showBounceMarker, panorama } = useMap()
+  const { mapa, trafficLayer, showBounceMarker } = useMap()
   const { refsPathVehicle, consultVehicleHistoric, vehicleConsultData } =
     usePath()
   const {
@@ -33,7 +33,6 @@ export function Localization() {
   } = useVehicle()
 
   useEffect(() => {
-    initMap()
     vehiclesRefetch()
     setInterval(async () => {
       vehiclesRefetch()
@@ -69,12 +68,12 @@ export function Localization() {
             setOpenCardKey={setOpenCardKey}
             pageCard={pageCard}
             setPageCard={setPageCard}
-            setPositionStreetView={setPositionStreetView}
-            panorama={panorama}
           />
         </div>
       </div>
-      <div className="w-full h-screen" id="googleMaps" />
+      <div className="w-full h-screen">
+        <Map localizations={allUserVehicle} />
+      </div>
     </>
   )
 }

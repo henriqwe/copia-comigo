@@ -183,7 +183,6 @@ export async function createContentInfoWindowPath(
 }
 
 export function createContentInfoWindowPathMarker(
-  selectedVehicle: vehicleType,
   vehicle: vehicleType,
   addres: string,
   events: string
@@ -191,15 +190,12 @@ export function createContentInfoWindowPathMarker(
   return (
     <div className="text-dark-7 w-80 m-0">
       <img
-        alt="Imagem do Google Maps Street View"
-        id={`infoWindowImgStreetView${selectedVehicle.carro_id}${vehicle.latitude}${vehicle.longitude}`}
-        className="cursor-pointer"
         src={`https://maps.googleapis.com/maps/api/streetview?size=320x100&location=${vehicle.latitude},${vehicle.longitude}&fov=80&heading=70&pitch=0&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
       ></img>
       <div className="grid grid-cols-3 mt-1">
         <div className="grid-span-1 flex bg-gray-100  justify-center font-semibold rounded-l-md py-2 border-2 !border-white ">
           {' '}
-          {selectedVehicle.placa}
+          {vehicle.placa}
         </div>
         <div className="grid-span-1  flex bg-gray-100  justify-center items-center font-semibold border-2  py-2 !border-white">
           <div
@@ -249,12 +245,8 @@ export function createContentInfoWindowPathMarker(
           </div>
           <div>
             <span className="text-gray-700 font-medium">
-              {new Date(selectedVehicle.date_rastreador).toLocaleDateString(
-                'pt-br'
-              )}{' '}
-              {new Date(selectedVehicle.date_rastreador).toLocaleTimeString(
-                'pt-br'
-              )}
+              {new Date(vehicle.date_rastreador).toLocaleDateString('pt-br')}{' '}
+              {new Date(vehicle.date_rastreador).toLocaleTimeString('pt-br')}
             </span>
           </div>
         </div>

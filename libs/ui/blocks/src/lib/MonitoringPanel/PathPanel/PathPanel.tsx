@@ -15,6 +15,13 @@ type PathPanelProps = {
   showBounceMarker: Dispatch<SetStateAction<coordsToCenterMap>>
   showAllVehiclesInMap: () => void
   refsPathVehicle: React.MutableRefObject<any[]>
+  setPositionStreetView: (
+    lat: number,
+    lng: number,
+    rotation: number,
+    panorama: any
+  ) => void
+  panorama: google.maps.StreetViewPanorama
 }
 
 export function PathPanel({
@@ -24,7 +31,9 @@ export function PathPanel({
   getStreetNameByLatLng,
   showBounceMarker,
   showAllVehiclesInMap,
-  refsPathVehicle
+  refsPathVehicle,
+  setPositionStreetView,
+  panorama
 }: PathPanelProps) {
   const labels = [
     {
@@ -152,6 +161,8 @@ export function PathPanel({
                       }
                       showBounceMarker={showBounceMarker}
                       getStreetNameByLatLng={getStreetNameByLatLng}
+                      setPositionStreetView={setPositionStreetView}
+                      panorama={panorama}
                     />
                   </div>
                 )
