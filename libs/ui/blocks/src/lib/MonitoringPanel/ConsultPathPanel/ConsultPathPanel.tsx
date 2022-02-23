@@ -159,7 +159,6 @@ export function ConsultPathPanel({
                     // disabled={pathsLoading}
                     // loading={pathsLoading}
                   >
-                    {' '}
                     <SearchIcon className="w-5 h-5 text-gray-200" />
                   </button>
                 </div>

@@ -15,7 +15,10 @@ export function CardHearder({ vehicle }: { vehicle: vehicleType }) {
             className={`w-3 h-3 ${statusEngine.color} rounded-full absolute -ml-11`}
             title={statusEngine.title}
           />
-          <Icon icon="clarity:car-line" className="w-7 h-7 " />
+          <Icon
+            icon="fluent:vehicle-car-profile-ltr-20-regular"
+            className="w-7 h-7 "
+          />
         </div>
         <div className="flex justify-between w-full">
           <div className=" flex flex-col ">

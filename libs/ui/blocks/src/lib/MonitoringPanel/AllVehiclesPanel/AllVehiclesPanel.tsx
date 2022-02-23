@@ -24,7 +24,7 @@ type pagAllVehiclesProps = {
     SetStateAction<{
       vehicle: vehicleType
       panorama: google.maps.StreetViewPanorama
-    }>
+    } | null>
   >
   panorama: google.maps.StreetViewPanorama
 }

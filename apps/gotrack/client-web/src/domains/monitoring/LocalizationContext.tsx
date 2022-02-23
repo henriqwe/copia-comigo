@@ -24,7 +24,7 @@ export const LocalizationContext = createContext<LocalizationContextProps>(
 )
 
 export const LocalizationProvider = ({ children }: ProviderProps) => {
-  const { google, mapa, panorama } = useMap()
+  const { mapa, panorama } = useMap()
 
   const { setSelectedVehicle, refsCardVehicle } = useVehicle()
 
@@ -43,7 +43,6 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
     setSelectedVehicle(vehicle)
     panorama.setVisible(false)
     centerMapInVehicle(
-      google,
       {
         lat: Number(vehicle.latitude),
         lng: Number(vehicle.longitude),
