@@ -6,6 +6,7 @@ import { showError } from '@comigo/utils'
 import { vehicleType } from '../MonitoringPanel'
 import { CardTrip } from './CardTrip'
 import { Icon } from '@iconify/react'
+import { SearchIcon } from '@heroicons/react/outline'
 
 type ConsultPathPanelProps = {
   setPageCard: Dispatch<SetStateAction<string>>
