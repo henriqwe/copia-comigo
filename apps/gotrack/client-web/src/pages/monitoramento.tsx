@@ -9,7 +9,7 @@ import {
 } from '&track/domains/monitoring'
 
 import MainMenuItems from '&track/domains/MainMenuItens'
-import { Localization } from '&track/domains/monitoring/page'
+import { Localization } from '&track/domains/monitoring/page/'
 
 export default function Monitoring() {
   return (

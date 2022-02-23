@@ -6,6 +6,7 @@ import * as utils from '@comigo/utils'
 import * as proposals from '&crm/domains/Proposals'
 
 import { Card } from '@comigo/ui-common'
+import { useRouter } from 'next/router'
 
 type Collection = {
   Name?: string
@@ -20,6 +21,7 @@ type PaymentDayType = {
 }
 
 export function Vehicle() {
+  const router = useRouter()
   const [collection, setCollection] = useState<Collection[]>([])
   const [paymentDay, setPaymentDay] = useState<PaymentDayType>()
 
@@ -135,6 +137,21 @@ export function Vehicle() {
             }
           ]}
         />
+        {router.query.origin === 'changeVehicle' && (
+          <proposals.InfoDetails
+            title={`Status do veículo`}
+            subtitle={`Este veículo será ${
+              proposalData.Veiculos[0].Id === selectedCategory.id.toString()
+                ? 'desativado'
+                : 'ativado'
+            }`}
+            dangerTitle={
+              proposalData.Veiculos[0].Id === selectedCategory.id.toString()
+            }
+            textAlignRight
+            contentAlignRight
+          />
+        )}
       </common.LineInfoDetailsColumns>
       <common.Divider />
       <blocks.BorderLessTable

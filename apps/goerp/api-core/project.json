@@ -38,7 +38,7 @@
       "options": {
         "commands": [
           {
-            "command": "docker-compose -f apps/goerp/api-core/docker-compose.yaml up -d"
+            "command": "COMPOSE_PROJECT_NAME=goerp docker-compose -f apps/goerp/api-core/docker-compose.yaml up -d"
           }
         ]
       }

@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 
-import * as blocks from '@comigo/ui-blocks'
-import * as common from '@comigo/ui-common'
 import {
   useLocalization,
   useMap,
   usePath,
   useVehicle
 } from '&track/domains/monitoring'
+import * as blocks from '@comigo/ui-blocks'
+import * as common from '@comigo/ui-common'
 
+import Map from './Map/Map'
 import { getStreetNameByLatLng } from '&track/domains/monitoring/serviceHttp'
-import { setPositionStreetView } from '../api/streetView'
+import { setPositionStreetView } from '&track/domains/monitoring/api/streetView'
 
 export function Localization() {
   const {
@@ -21,22 +22,29 @@ export function Localization() {
     setPageCard,
     handlerClickOnVehicleMarker
   } = useLocalization()
-  const { mapa, trafficLayer, initMap, showBounceMarker, panorama } = useMap()
-  const { refsPathVehicle, consultVehicleHistoric, vehicleConsultData } =
-    usePath()
   const {
-    allUserVehicle,
-    selectedVehicle,
-    refsCardVehicle,
-    showAllVehiclesInMap,
-    vehiclesRefetch
-  } = useVehicle()
+    mapa,
+    trafficLayer,
+    showBounceMarker,
+    panorama,
+    setShowInfoWindowsInMapData,
+    setShowMarkerClusterer
+  } = useMap()
+  const {
+    refsPathVehicle,
+    consultVehicleHistoric,
+    vehicleConsultData,
+    setVehicleConsultData
+  } = usePath()
+  const { allUserVehicle, selectedVehicle, refsCardVehicle, vehiclesRefetch } =
+    useVehicle()
 
   useEffect(() => {
-    initMap()
     vehiclesRefetch()
     setInterval(async () => {
-      vehiclesRefetch()
+      if (vehicleConsultData?.length === 0) {
+        vehiclesRefetch()
+      }
     }, 30000)
   }, [])
 
@@ -50,7 +58,7 @@ export function Localization() {
       </div>
       <div
         className="absolute z-50 right-0 flex mr-16 mt-2.5"
-        style={{ height: '95%' }}
+        style={{ maxHeight: '95%', minHeight: '2.5rem' }}
       >
         <div className="w-[21rem]">
           <blocks.MonitoringPanel
@@ -59,7 +67,6 @@ export function Localization() {
             consultVehicleHistoric={consultVehicleHistoric}
             vehicleConsultData={vehicleConsultData}
             getStreetNameByLatLng={getStreetNameByLatLng}
-            showAllVehiclesInMap={showAllVehiclesInMap}
             selectedVehicle={selectedVehicle}
             handlerClickOnVehicleMarker={handlerClickOnVehicleMarker}
             showBounceMarker={showBounceMarker}
@@ -71,10 +78,15 @@ export function Localization() {
             setPageCard={setPageCard}
             setPositionStreetView={setPositionStreetView}
             panorama={panorama}
+            setShowInfoWindowsInMapData={setShowInfoWindowsInMapData}
+            setShowMarkerClusterer={setShowMarkerClusterer}
+            setVehicleConsultData={setVehicleConsultData}
           />
         </div>
       </div>
-      <div className="w-full h-screen" id="googleMaps" />
+      <div className="w-full h-screen">
+        <Map />
+      </div>
     </>
   )
 }

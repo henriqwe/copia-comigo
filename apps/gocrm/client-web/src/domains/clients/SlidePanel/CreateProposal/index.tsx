@@ -84,7 +84,16 @@ export function CreateProposal() {
                         .map((vehicle) => {
                           return {
                             key: vehicle,
-                            title: vehicle.Apelido + ' - ' + vehicle.Placa
+                            title:
+                              (vehicle.Placa !== null ||
+                              vehicle.Placa !== undefined
+                                ? vehicle.Placa
+                                : vehicle.NumeroDoChassi) +
+                              (vehicle.Apelido !== '' ||
+                              vehicle.Apelido !== undefined ||
+                              vehicle.Apelido !== null
+                                ? ' - ' + vehicle.Apelido
+                                : '')
                           }
                         })
                     : []

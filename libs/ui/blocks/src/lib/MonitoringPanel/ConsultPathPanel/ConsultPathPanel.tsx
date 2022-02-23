@@ -3,9 +3,9 @@ import { Dispatch, SetStateAction } from 'react'
 import * as common from '@comigo/ui-common'
 
 import { showError } from '@comigo/utils'
-import { ChevronLeftIcon, SearchIcon } from '@heroicons/react/outline'
 import { vehicleType } from '../MonitoringPanel'
 import { CardTrip } from './CardTrip'
+import { Icon } from '@iconify/react'
 
 type ConsultPathPanelProps = {
   setPageCard: Dispatch<SetStateAction<string>>
@@ -146,10 +146,10 @@ export function ConsultPathPanel({
                     }}
                     className="flex items-center justify-center "
                   >
-                    <ChevronLeftIcon
+                    <Icon
+                      icon="akar-icons:chevron-left"
                       className="w-4 h-4 text-black hover:text-gray-900"
-                      aria-hidden="true"
-                    />{' '}
+                    />
                     <span className="text-xs hover:underline">Voltar</span>
                   </button>
                   <button

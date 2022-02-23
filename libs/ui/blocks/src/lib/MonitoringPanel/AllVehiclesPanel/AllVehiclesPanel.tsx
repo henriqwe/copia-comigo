@@ -20,6 +20,13 @@ type pagAllVehiclesProps = {
     addressName: any
     addressComplete: any
   }>
+  setShowInfoWindowsInMapData: Dispatch<
+    SetStateAction<{
+      vehicle: vehicleType
+      panorama: google.maps.StreetViewPanorama
+    }>
+  >
+  panorama: google.maps.StreetViewPanorama
 }
 
 export function AllVehiclesPanel({
@@ -34,7 +41,9 @@ export function AllVehiclesPanel({
   shearchVehicle,
   openCardKey,
   setOpenCardKey,
-  getStreetNameToCard
+  getStreetNameToCard,
+  setShowInfoWindowsInMapData,
+  panorama
 }: pagAllVehiclesProps) {
   return (
     <>
@@ -79,6 +88,8 @@ export function AllVehiclesPanel({
                   }}
                   onClick={() => {
                     handlerClickOnVehicleMarker(vehicle)
+                    setShowInfoWindowsInMapData(null)
+                    setShowInfoWindowsInMapData({ vehicle, panorama })
                     if (vehicle.carro_id !== openCardKey) {
                       setOpenCardKey(vehicle.carro_id)
                       return

@@ -68,7 +68,11 @@ export function CreateProposalVehicle() {
                 itens={
                   vehiclesData
                     ? vehiclesData
-                        .filter((vehicle) => !vehiclesIds.includes(vehicle.Id))
+                        .filter(
+                          (vehicle) =>
+                            !vehiclesIds.includes(vehicle.Id) &&
+                            vehicle.VeiculosAtivos.length === 0
+                        )
                         .map((vehicle) => {
                           return {
                             key: vehicle,

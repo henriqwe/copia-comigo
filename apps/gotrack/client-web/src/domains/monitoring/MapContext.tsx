@@ -1,4 +1,3 @@
-import { Loader } from '@googlemaps/js-api-loader'
 import { MarkerClusterer } from '@googlemaps/markerclusterer'
 import {
   createContext,
@@ -8,7 +7,8 @@ import {
   useContext,
   useState
 } from 'react'
-import { createBounceMarker } from './api/bounceMarker'
+import { handleBounceMarker } from './api/bounceMarker'
+import { vehicleType } from './api/vehicle'
 
 type coordsToCenterMapProp = {
   lat?: number
@@ -17,18 +17,24 @@ type coordsToCenterMapProp = {
 }
 
 type MapContextProps = {
-  google: google
-  setGoogle: React.Dispatch<any>
   mapa: google.maps.Map
-  setMapa: React.Dispatch<any>
+  setMapa: Dispatch<SetStateAction<google.maps.Map>>
   markerCluster: MarkerClusterer
   setMarkerCluster: React.Dispatch<React.SetStateAction<MarkerClusterer>>
-  pointMarker: any
-  setPointMarker: React.Dispatch<any>
+  bounceMarker: {
+    lat: number
+    lng: number
+  }
+  setBounceMarker: Dispatch<
+    SetStateAction<{
+      lat: number
+      lng: number
+    }>
+  >
   panorama: google.maps.StreetViewPanorama
-  setPanorama: React.Dispatch<any>
+  setPanorama: Dispatch<SetStateAction<google.maps.StreetViewPanorama>>
   trafficLayer: google.maps.TrafficLayer
-  setTrafficLayer: React.Dispatch<any>
+  setTrafficLayer: Dispatch<SetStateAction<google.maps.TrafficLayer>>
   markersAndLine: {
     markers: google.maps.Marker[]
     line: google.maps.Polyline
@@ -40,18 +46,44 @@ type MapContextProps = {
     }>
   >
   showBounceMarker: (location: coordsToCenterMapProp) => void
-  initMap: ({
-    center,
-    zoom
-  }?: {
-    center?: {
+  showInfoWindowsInMapData: {
+    vehicle: vehicleType
+    panorama: google.maps.StreetViewPanorama
+  }
+  setShowInfoWindowsInMapData: Dispatch<
+    SetStateAction<{
+      vehicle: vehicleType
+      panorama: google.maps.StreetViewPanorama
+    }>
+  >
+  showInfoWindowsInMapPathData: {
+    vehicle: vehicleType
+    panorama: google.maps.StreetViewPanorama
+  }
+  setShowInfoWindowsInMapPathData: Dispatch<
+    SetStateAction<{
+      vehicle: vehicleType
+      panorama: google.maps.StreetViewPanorama
+    }>
+  >
+  panoramaData: {
+    position: {
       lat: number
       lng: number
     }
-    zoom?: number
-  }) => void
-  showInfoWindowsInMap: boolean
-  setShowInfoWindowsInMap: Dispatch<SetStateAction<boolean>>
+    visible: boolean
+  }
+  setPanoramaData: Dispatch<
+    SetStateAction<{
+      position: {
+        lat: number
+        lng: number
+      }
+      visible: boolean
+    }>
+  >
+  showMarkerClusterer: boolean
+  setShowMarkerClusterer: Dispatch<SetStateAction<boolean>>
 }
 
 type ProviderProps = {
@@ -60,99 +92,64 @@ type ProviderProps = {
 export const MapContext = createContext<MapContextProps>({} as MapContextProps)
 
 export const MapProvider = ({ children }: ProviderProps) => {
-  const [google, setGoogle] = useState<google>()
   const [mapa, setMapa] = useState<google.maps.Map>()
-  const [showInfoWindowsInMap, setShowInfoWindowsInMap] = useState(true)
+  const [showInfoWindowsInMapData, setShowInfoWindowsInMapData] = useState<{
+    vehicle: vehicleType
+    panorama: google.maps.StreetViewPanorama
+  } | null>(null)
+  const [showInfoWindowsInMapPathData, setShowInfoWindowsInMapPathData] =
+    useState<{
+      vehicle: vehicleType
+      panorama: google.maps.StreetViewPanorama
+    } | null>(null)
   const [markerCluster, setMarkerCluster] = useState<MarkerClusterer>()
-  const [pointMarker, setPointMarker] = useState<
-    google.maps.Marker | undefined
-  >()
+  const [showMarkerClusterer, setShowMarkerClusterer] = useState(true)
+  const [bounceMarker, setBounceMarker] = useState<{
+    lat: number
+    lng: number
+  } | null>(null)
   const [panorama, setPanorama] = useState<google.maps.StreetViewPanorama>()
   const [trafficLayer, setTrafficLayer] = useState<google.maps.TrafficLayer>()
+  const [panoramaData, setPanoramaData] = useState({
+    position: {
+      lat: 0,
+      lng: 0
+    },
+    visible: false
+  })
   const [markersAndLine, setMarkersAndLine] = useState<{
     markers: google.maps.Marker[]
     line: google.maps.Polyline
   }>()
 
   function showBounceMarker(location: coordsToCenterMapProp) {
-    createBounceMarker(location, mapa, google, pointMarker, setPointMarker)
-  }
-
-  function initMap(props) {
-    const center = props?.center ?? {
-      lat: -12.100100128939063,
-      lng: -49.24919742233473
-    }
-    const zoom = props?.zoom ?? 5
-
-    const loader = new Loader({
-      apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-      version: 'weekly',
-      libraries: ['geometry']
-    })
-    const styles = [
-      {
-        featureType: 'poi',
-        stylers: [{ visibility: 'off' }]
-      },
-      {
-        featureType: 'transit',
-        elementType: 'labels.icon',
-        stylers: [{ visibility: 'off' }]
-      }
-    ]
-    loader
-      .load()
-      .then((response) => {
-        setGoogle(response)
-        const map = new response.maps.Map(
-          document.getElementById('googleMaps') as HTMLElement,
-          {
-            center,
-            zoom,
-            mapTypeId: response.maps.MapTypeId.ROADMAP
-          }
-        )
-
-        map.setOptions({ styles })
-        const pano = map.getStreetView()
-        pano.setPov({
-          heading: 90,
-          pitch: 0
-        })
-        setPanorama(pano)
-        setMapa(map)
-
-        const tL = new response.maps.TrafficLayer()
-        tL.setMap(null)
-        setTrafficLayer(tL)
-      })
-      .catch((e) => {
-        console.log('error: ', e)
-      })
+    handleBounceMarker(location, mapa, setBounceMarker)
   }
 
   return (
     <MapContext.Provider
       value={{
-        google,
-        setGoogle,
         mapa,
         setMapa,
         markerCluster,
         setMarkerCluster,
-        pointMarker,
-        setPointMarker,
+        bounceMarker,
+        setBounceMarker,
         panorama,
         setPanorama,
         trafficLayer,
         setTrafficLayer,
         showBounceMarker,
         markersAndLine,
-        initMap,
         setMarkersAndLine,
-        showInfoWindowsInMap,
-        setShowInfoWindowsInMap
+        showInfoWindowsInMapData,
+        setShowInfoWindowsInMapData,
+        showInfoWindowsInMapPathData,
+        setShowInfoWindowsInMapPathData,
+        panoramaData,
+        setPanoramaData,
+        showMarkerClusterer,
+        setShowMarkerClusterer
       }}
     >
       {children}

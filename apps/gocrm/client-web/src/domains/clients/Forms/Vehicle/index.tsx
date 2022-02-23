@@ -197,6 +197,12 @@ export function Vehicle() {
             }
           ]}
         />
+        <clients.InfoDetails
+          title={`Situação do veículo`}
+          subtitle={selectedVehicle.Situacao.Comentario}
+          details={[]}
+          textAlignRight
+        />
       </div>
       <common.Divider />
       <blocks.BorderLessTable

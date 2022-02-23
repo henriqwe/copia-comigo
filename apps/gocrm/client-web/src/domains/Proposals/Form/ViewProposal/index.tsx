@@ -1,11 +1,16 @@
 import * as common from '@comigo/ui-common'
 import * as proposals from '&crm/domains/Proposals'
 import * as utils from '@comigo/utils'
-import axios from 'axios'
 
 import { Tab } from '@headlessui/react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import {
+  acceptNewProposal,
+  acceptProposalForChangeOwner,
+  acceptProposalForChangeVehicle,
+  acceptProposalForExistentVehicle
+} from '&crm/domains/Proposals/api/acceptProposal'
 
 export function ViewProposal() {
   const router = useRouter()
@@ -25,7 +30,6 @@ export function ViewProposal() {
     getClientById,
     client,
     setClient,
-    acceptProposal,
     refuseProposal,
     refuseProposalLoading,
     getPaymentTypeById,
@@ -70,21 +74,7 @@ export function ViewProposal() {
   const dropDownConcludesActions = [
     {
       title: 'Concluir Proposta',
-      action: async () => {
-        await acceptProposal().then(() => {
-          if (typeof window !== 'undefined') {
-            const hostname = window.location.hostname
-
-            axios.get(
-              `http://${hostname}:3002/api/acoes/gerar-os?proposalId=${router.query.id}&type=instalacao`
-            ).then(() => {
-              proposalRefetch()
-            })
-          }
-
-          utils.notification('Proposta concluida com sucesso', 'success')
-        })
-      }
+      action: proposalValidation
     },
     {
       title: 'Recusar Proposta',
@@ -92,9 +82,62 @@ export function ViewProposal() {
     }
   ]
 
+  async function proposalValidation() {
+    const isVehicleEmpty = proposalData?.Veiculos.filter((vehicle) => {
+      if (
+        vehicle.PropostasCombos.length === 0 &&
+        vehicle.PropostasPlanos.length === 0 &&
+        vehicle.PropostasProdutos.length === 0 &&
+        vehicle.PropostasServicos.length === 0
+      ) {
+        return true
+      }
+    })
+    if (
+      proposalData.Combos.length === 0 &&
+      proposalData.Planos.length === 0 &&
+      proposalData.Produtos.length === 0 &&
+      proposalData.Servicos.length === 0 &&
+      (proposalData.Veiculos.length === 0 || isVehicleEmpty.length > 0)
+    ) {
+      return utils.notification(
+        'Preencha os veículos para concluir a proposta',
+        'error'
+      )
+    }
+
+    switch (router.query.origin) {
+      case 'changeOwnership':
+        await acceptProposalForChangeOwner(
+          proposalData,
+          router.query,
+          proposalRefetch
+        )
+        break
+      case 'changeVehicle':
+        await acceptProposalForChangeVehicle(
+          proposalData,
+          router.query,
+          proposalRefetch
+        )
+        break
+      case 'activeVehicleProposal':
+        await acceptProposalForExistentVehicle(
+          proposalData,
+          router.query,
+          proposalRefetch
+        )
+        break
+      default:
+        await acceptNewProposal(proposalData, router.query, proposalRefetch)
+        break
+    }
+  }
+
   async function refuseProposalSubmit() {
     await refuseProposal().then(() => {
       setOpenModal(false)
+      proposalRefetch()
       utils.notification('Proposta recusada com sucesso', 'success')
     })
   }
@@ -180,7 +223,8 @@ export function ViewProposal() {
               />
             </Tab.List>
             {proposalData?.Situacao.Comentario === 'Criado' &&
-              proposalData !== undefined && (
+              proposalData !== undefined &&
+              router.query.origin !== 'changeVehicle' && (
                 <common.buttons.SecondaryButton
                   handler={() => {
                     setSlidePanelState({ open: true, type: 'proposalVehicle' })
@@ -191,17 +235,18 @@ export function ViewProposal() {
           {proposalData?.Situacao.Comentario === 'Criado' &&
           proposalData !== undefined ? (
             <div className="flex items-center">
-              {selectedCategory.title !== 'Resumo' && (
-                <common.Dropdown
-                  title={
-                    <common.icons.AddIcon className="w-6 h-6 text-black" />
-                  }
-                  handler={() => null}
-                  titleClassName={`bg-white px-3 py-1.5 rounded-lg`}
-                  noChevronDownIcon
-                  items={dropDownActions}
-                />
-              )}
+              {selectedCategory.title !== 'Resumo' &&
+                router.query.origin !== 'changeVehicle' && (
+                  <common.Dropdown
+                    title={
+                      <common.icons.AddIcon className="w-6 h-6 text-black" />
+                    }
+                    handler={() => null}
+                    titleClassName={`bg-white px-3 py-1.5 rounded-lg`}
+                    noChevronDownIcon
+                    items={dropDownActions}
+                  />
+                )}
               {/* FIXME: normalizar tamanhos e paddings dos botões */}
               <common.Dropdown
                 title={

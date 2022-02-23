@@ -7,6 +7,7 @@ import { Tab } from '@headlessui/react'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import routes from '&crm/domains/routes'
+import axios from 'axios'
 
 export function ViewClient() {
   const router = useRouter()
@@ -18,7 +19,8 @@ export function ViewClient() {
     setCategories,
     selectedCategory,
     setSelectedCategory,
-    userAndTicketData
+    userAndTicketData,
+    clientRefetch
   } = clients.useUpdate()
 
   const dropDownActions = [
@@ -45,6 +47,29 @@ export function ViewClient() {
       }
     }
   ]
+
+  if (selectedCategory.id) {
+    dropDownActions.push({
+      title: 'Desinstalar veículo',
+      action: async () => {
+        if (typeof window !== 'undefined') {
+          const hostname = window.location.hostname
+
+          axios
+            .get(
+              `http://${hostname}:3002/api/acoes/gerar-os-desinstalacao?vehicleId=${selectedCategory.id}`
+            )
+            .then(() => {
+              utils.notification(
+                'OS de desinstalação criada com sucesso',
+                'success'
+              )
+              clientRefetch()
+            })
+        }
+      }
+    })
+  }
 
   async function createVehicleProposal() {
     try {
@@ -103,7 +128,7 @@ export function ViewClient() {
         router.push(
           routes.propostas +
             '/' +
-            response?.data.insert_propostas_Propostas_one.Id
+            response?.data.insert_propostas_Propostas_one.Id + '?origin=activeVehicleProposal'
         )
         utils.notification('Proposta criada com sucesso', 'success')
       })

@@ -52,7 +52,6 @@ export interface FloatingCardProps {
   selectedVehicle: vehicleType | undefined
   handlerClickOnVehicleMarker: Dispatch<SetStateAction<vehicleType | undefined>>
   showBounceMarker: Dispatch<SetStateAction<coordsToCenterMap>>
-  showAllVehiclesInMap: () => void
   refsCardVehicle: React.MutableRefObject<any[]>
   openCardKey: number | undefined
   setOpenCardKey: Dispatch<SetStateAction<number | undefined>>
@@ -66,6 +65,14 @@ export interface FloatingCardProps {
     panorama: any
   ) => void
   panorama: google.maps.StreetViewPanorama
+  setShowInfoWindowsInMapData: Dispatch<
+    SetStateAction<{
+      vehicle: vehicleType
+      panorama: google.maps.StreetViewPanorama
+    }>
+  >
+  setShowMarkerClusterer: React.Dispatch<React.SetStateAction<boolean>>
+  setVehicleConsultData: Dispatch<SetStateAction<vehicleType[] | undefined>>
 }
 
 export function MonitoringPanel({
@@ -77,7 +84,6 @@ export function MonitoringPanel({
   selectedVehicle,
   handlerClickOnVehicleMarker,
   showBounceMarker,
-  showAllVehiclesInMap,
   refsCardVehicle,
   openCardKey,
   setOpenCardKey,
@@ -85,7 +91,10 @@ export function MonitoringPanel({
   pageCard,
   setPageCard,
   setPositionStreetView,
-  panorama
+  panorama,
+  setShowInfoWindowsInMapData,
+  setShowMarkerClusterer,
+  setVehicleConsultData
 }: FloatingCardProps) {
   const [open, setOpen] = useState(true)
   const [vehiclesInTransit, setVehiclesInTransit] = useState<vehicleType[]>([])
@@ -220,7 +229,9 @@ export function MonitoringPanel({
               shearchVehicle,
               openCardKey,
               setOpenCardKey,
-              getStreetNameToCard
+              getStreetNameToCard,
+              setShowInfoWindowsInMapData,
+              panorama
             })
           : pageCard === 'pagVehiclesDetails'
           ? ConsultPathPanel({
@@ -231,7 +242,8 @@ export function MonitoringPanel({
               setDateStart,
               dateEnd,
               setDateEnd,
-              refsPathVehicle
+              refsPathVehicle,
+              setShowMarkerClusterer
             })
           : pageCard === 'pagPathPanel'
           ? PathPanel({
@@ -240,10 +252,10 @@ export function MonitoringPanel({
               vehicleConsultData,
               getStreetNameByLatLng,
               showBounceMarker,
-              showAllVehiclesInMap,
               refsPathVehicle,
               setPositionStreetView,
-              panorama
+              panorama,
+              setVehicleConsultData
             })
           : ''}
       </Transition>

@@ -39,6 +39,7 @@ type GerarOSProps = {
                   Prestador_Id: string
                   Precos: {
                     Id: string
+                    TipoDePreco?: { Valor: string }
                   }[]
                 }[]
               }
@@ -173,6 +174,7 @@ type GerarOSProps = {
               Prestador_Id: string
               Precos: {
                 Id: string
+                TipoDePreco?: { Valor: string }
               }[]
             }[]
           }

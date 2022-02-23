@@ -166,10 +166,5 @@ export default [
     title: 'Clientes',
     url: rotas.clientes,
     icon: <ChipIcon className="w-4 h-4 mx-4" />
-  },
-  {
-    title: 'Kanban',
-    url: rotas.kanban,
-    icon: <ChipIcon className="w-4 h-4 mx-4" />
   }
 ]

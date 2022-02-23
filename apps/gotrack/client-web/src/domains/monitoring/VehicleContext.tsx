@@ -6,7 +6,6 @@ import {
   useRef,
   useState
 } from 'react'
-import { useMap } from '.'
 import { vehicleType } from './api/vehicle'
 import { getAllUserVehicles } from './serviceHttp'
 
@@ -21,7 +20,6 @@ type VehicleContextProps = {
   selectedVehicle: vehicleType
   setSelectedVehicle: React.Dispatch<React.SetStateAction<vehicleType>>
   refsCardVehicle: React.MutableRefObject<any[]>
-  showAllVehiclesInMap: () => void
   vehiclesLoading: boolean
   vehiclesRefetch: () => void
 }
@@ -34,8 +32,6 @@ export const VehicleContext = createContext<VehicleContextProps>(
 )
 
 export const VehicleProvider = ({ children }: ProviderProps) => {
-  const { mapa, markerCluster, markersAndLine } = useMap()
-
   const [allMarkerVehicles, setAllMarkerVehicles] = useState<
     google.maps.Marker[]
   >([])
@@ -47,19 +43,6 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
 
   const refsCardVehicle = useRef([])
   const allMarkerVehiclesStep: google.maps.Marker[] = []
-
-  function showAllVehiclesInMap() {
-    allMarkerVehicles.forEach((vehicle) => {
-      vehicle.setMap(mapa)
-      vehicle.infowindow.close()
-    })
-
-    if (markersAndLine) {
-      markerCluster.setMap(mapa)
-      markersAndLine.markers.forEach((marker) => marker.setMap(null))
-      markersAndLine.line.getPath().clear()
-    }
-  }
 
   async function vehiclesRefetch() {
     setVehiclesLoading(true)
@@ -80,7 +63,6 @@ export const VehicleProvider = ({ children }: ProviderProps) => {
         allUserVehicle,
         setAllUserVehicle,
         selectedVehicle,
-        showAllVehiclesInMap,
         setSelectedVehicle,
         refsCardVehicle,
         vehiclesLoading,

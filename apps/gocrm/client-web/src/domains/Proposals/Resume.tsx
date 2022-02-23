@@ -6,6 +6,7 @@ import * as utils from '@comigo/utils'
 import * as proposals from '&crm/domains/Proposals'
 
 import { Card } from '@comigo/ui-common'
+import { useRouter } from 'next/router'
 
 type CollectionType = {
   Group?: string
@@ -21,6 +22,7 @@ type PaymentDayType = {
 }
 
 export const Resume = () => {
+  const router = useRouter()
   const [collection, setCollection] = useState<CollectionType[]>([])
   const [paymentDay, setPaymentDay] = useState<PaymentDayType>()
 
@@ -41,6 +43,29 @@ export const Resume = () => {
 
   function getMembershipTotalValue() {
     let totalPrice = 0
+    if (router.query.origin === 'changeVehicle') {
+      proposalData?.Veiculos[1].PropostasCombos.map((combo) => {
+        if (combo.ComboPreco.ValorDeAdesao) {
+          totalPrice += Number(combo.ComboPreco.ValorDeAdesao)
+        }
+      })
+      proposalData?.Veiculos[1].PropostasPlanos.map((plans) => {
+        if (plans.PlanoPreco.ValorDeAdesao) {
+          totalPrice += Number(plans.PlanoPreco.ValorDeAdesao)
+        }
+      })
+      proposalData?.Veiculos[1].PropostasProdutos.map((product) => {
+        if (product.PrecoAdesao) {
+          totalPrice += Number(product.PrecoAdesao.Valor)
+        }
+      })
+      proposalData?.Veiculos[1].PropostasServicos.map((service) => {
+        if (service.PrecoDeAdesao) {
+          totalPrice += Number(service.PrecoDeAdesao.Valor)
+        }
+      })
+      return utils.BRLMoneyFormat(totalPrice)
+    }
     collection.map((item) => {
       if (item.MembershipPrice) {
         totalPrice += Number(item.MembershipPrice)
@@ -52,6 +77,29 @@ export const Resume = () => {
 
   function getRecurrenceTotalValue() {
     let totalPrice = 0
+    if (router.query.origin === 'changeVehicle') {
+      proposalData?.Veiculos[1].PropostasCombos.map((combo) => {
+        if (combo.ComboPreco.ValorDeRecorrencia) {
+          totalPrice += Number(combo.ComboPreco.ValorDeRecorrencia)
+        }
+      })
+      proposalData?.Veiculos[1].PropostasPlanos.map((plans) => {
+        if (plans.PlanoPreco.ValorDeRecorrencia) {
+          totalPrice += Number(plans.PlanoPreco.ValorDeRecorrencia)
+        }
+      })
+      proposalData?.Veiculos[1].PropostasProdutos.map((product) => {
+        if (product.PrecoRecorrencia) {
+          totalPrice += Number(product.PrecoRecorrencia.Valor)
+        }
+      })
+      proposalData?.Veiculos[1].PropostasServicos.map((service) => {
+        if (service.PrecoDeRecorrencia) {
+          totalPrice += Number(service.PrecoDeRecorrencia.Valor)
+        }
+      })
+      return utils.BRLMoneyFormat(totalPrice)
+    }
     collection.map((item) => {
       if (item.RecurrencePrice) {
         totalPrice += Number(item.RecurrencePrice)
@@ -122,9 +170,16 @@ export const Resume = () => {
         const vehicle = await getVehicleById(proposalVehicle.Veiculo_Id)
 
         proposalsItens.push({
-          Group:
-            (vehicle.Placa ? vehicle.Placa : vehicle.NumeroDoChassi) +
-            (vehicle.Apelido ? ' - ' + vehicle.Apelido : '')
+          Group: `
+          ${vehicle.Placa ? vehicle.Placa : vehicle.NumeroDoChassi} 
+          ${vehicle.Apelido ? ' - ' + vehicle.Apelido : ''} 
+          ${
+            router.query.origin === 'changeVehicle'
+              ? proposalData.Veiculos[0].Id === proposalVehicle.Id
+                ? '(Vai ser desativado)'
+                : '(Vai ser ativado)'
+              : ''
+          }`
         })
 
         proposalVehicle.PropostasCombos.map((combo) => {

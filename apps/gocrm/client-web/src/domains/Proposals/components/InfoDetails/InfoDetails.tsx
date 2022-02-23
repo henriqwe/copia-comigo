@@ -9,13 +9,15 @@ type InfoDetailsProps = {
   textAlignRight?: boolean
   contentAlignRight?: boolean
   children?: ReactNode
+  dangerTitle?: boolean
 }
 export const InfoDetails = ({
   title,
   subtitle,
   details = [],
   textAlignRight = false,
-  contentAlignRight = false
+  contentAlignRight = false,
+  dangerTitle = false
 }: InfoDetailsProps) => {
   return (
     <div
@@ -23,8 +25,14 @@ export const InfoDetails = ({
         contentAlignRight && `lg:ml-auto`
       } mt-10 lg:mt-0`}
     >
-      <div className={`text-base text-slate-500`}>{title}</div>
-      <div className={`text-lg font-medium text-primary mt-2`}>{subtitle}</div>
+      <div className={`text-base text-slate-500 `}>{title}</div>
+      <div
+        className={`text-lg font-medium  mt-2 ${
+          dangerTitle ? 'text-danger' : 'text-primary'
+        }`}
+      >
+        {subtitle}
+      </div>
 
       {details.length > 0 &&
         details.map((details) => (

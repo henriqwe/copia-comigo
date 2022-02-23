@@ -33666,7 +33666,7 @@ export type ModelTypes = {
 	/** An aggregate relationship */
 	Produtos_aggregate:ModelTypes["operacional_OrdemDeServico_Produtos_aggregate"],
 	Proposta?:ModelTypes["propostas_Propostas"],
-	Proposta_Id:ModelTypes["uuid"],
+	Proposta_Id?:ModelTypes["uuid"],
 	/** An array relationship */
 	Servicos:ModelTypes["operacional_OrdemDeServico_Servicos"][],
 	/** An aggregate relationship */
@@ -52785,7 +52785,7 @@ export type GraphQLTypes = {
 	/** An aggregate relationship */
 	Produtos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Produtos_aggregate"],
 	Proposta?: GraphQLTypes["propostas_Propostas"],
-	Proposta_Id: GraphQLTypes["uuid"],
+	Proposta_Id?: GraphQLTypes["uuid"],
 	/** An array relationship */
 	Servicos: Array<GraphQLTypes["operacional_OrdemDeServico_Servicos"]>,
 	/** An aggregate relationship */
@@ -63415,6 +63415,7 @@ export const enum movimentacoes_Motivos_enum {
 	criacaoDeKitDeInstalacao = "criacaoDeKitDeInstalacao",
 	criacaoDeKitDeInsumo = "criacaoDeKitDeInsumo",
 	criacaoDeRastreador = "criacaoDeRastreador",
+	desinstalacaoDeVeiculo = "desinstalacaoDeVeiculo",
 	devolucaoDeKitDeInsumo = "devolucaoDeKitDeInsumo",
 	exclusaoDeChip = "exclusaoDeChip",
 	exclusaoDeEquipamento = "exclusaoDeEquipamento",

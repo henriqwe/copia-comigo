@@ -1,10 +1,4 @@
-import {
-  ChipIcon,
-  LightningBoltIcon,
-  LocationMarkerIcon,
-  StatusOnlineIcon,
-  UserIcon
-} from '@heroicons/react/outline'
+import { Icon } from '@iconify/react'
 import { Dispatch, ReactNode, SetStateAction, useState } from 'react'
 import { convertMToKm } from '../CardVehicle/functions'
 import { setColorStatus } from './functions'
@@ -123,7 +117,12 @@ function AdicionalInformations({
   const labels = [
     {
       title: 'Endereço',
-      icon: <LocationMarkerIcon className="w-5 h-5 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="clarity:map-marker-line"
+          className="w-5 h-5 text-blue-400"
+        />
+      ),
       subTitle: address ? (
         <span className="text-super-tiny">{address}</span>
       ) : (
@@ -139,37 +138,59 @@ function AdicionalInformations({
     },
     {
       title: 'Motorista',
-      icon: <UserIcon className="w-5 h-5 text-blue-400" />,
+      icon: (
+        <Icon icon="fa:drivers-license-o" className="w-5 h-5 text-blue-400" />
+      ),
       subTitle: 'Claudio Henrique Araújo Aleluia'
     },
     {
       title: 'Velocidade',
-      icon: <LocationMarkerIcon className="w-5 h-5 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="fluent:top-speed-20-filled"
+          className="w-5 h-5 text-blue-400"
+        />
+      ),
       subTitle: Math.floor(Number(vehicle.speed)) + ' km/h'
     },
     {
       title: 'Horímetro',
-      icon: <ChipIcon className="w-5 h-5 text-blue-400" />,
+      icon: <Icon icon="bi:clock-history" className="w-5 h-5 text-blue-400" />,
       subTitle: '12:32:52'
     },
     {
       title: 'Hodômetro',
-      icon: <LightningBoltIcon className="w-5 h-5 text-blue-400" />,
+      icon: <Icon icon="ep:odometer" className="w-5 h-5 text-blue-400" />,
       subTitle: convertMToKm(vehicle.dist) + ' Km'
     },
     {
       title: 'Bateria',
-      icon: <LightningBoltIcon className="w-5 h-5 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="iconoir:web-window-energy-consumption"
+          className="w-5 h-5 text-blue-400"
+        />
+      ),
       subTitle: '3.8v'
     },
     {
       title: 'Voltagem',
-      icon: <LightningBoltIcon className="w-5 h-5 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="simple-line-icons:energy"
+          className="w-5 h-5 text-blue-400"
+        />
+      ),
       subTitle: '13.3v'
     },
     {
       title: 'Satélite',
-      icon: <StatusOnlineIcon className="w-5 h-5 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="ic:outline-satellite-alt"
+          className="w-5 h-5 text-blue-400"
+        />
+      ),
       subTitle: '20'
     }
   ]

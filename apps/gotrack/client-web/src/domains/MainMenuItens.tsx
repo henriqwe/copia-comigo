@@ -14,9 +14,4 @@ export default [
     url: rotas.monitoramento,
     icon: <MapIcon className="w-4 h-4 mx-2" />
   }
-  // {
-  //   title: 'Monitoramento 2',
-  //   url: rotas.monitoramento2,
-  //   icon: <MapIcon className="w-4 h-4 mx-2" />
-  // }
 ]

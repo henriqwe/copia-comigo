@@ -1,4 +1,5 @@
 import {
+  clientes_VeiculosAtivos_Situacao_enum,
   order_by,
   propostas_Propostas_Situacoes_enum
 } from '&crm/graphql/generated/zeus'
@@ -27,7 +28,7 @@ import {
   useContext,
   useState
 } from 'react'
-import { BooleanLiteral } from 'typescript'
+import { ProposalsDataType } from './types/proposal'
 
 type UpdateContextProps = {
   client: Client
@@ -37,6 +38,9 @@ type UpdateContextProps = {
     Apelido?: string
     Placa?: string
     NumeroDoChassi?: string
+    VeiculosAtivos: {
+      Id: string
+    }[]
   }[]
 
   vehiclesRefetch: () => void
@@ -148,140 +152,7 @@ type UpdateContextProps = {
   }[]
   paymentDayRefetch: () => void
   paymentDayLoading: boolean
-  proposalData: {
-    Situacao: {
-      Comentario: string
-    }
-    FormaDePagamentoDaAdesao_Id?: string
-    Cliente_Id?: string
-    Planos: {
-      Plano: {
-        Id: string
-        Nome: string
-      }
-      PlanoPreco: {
-        ValorDeAdesao: string
-        ValorDeRecorrencia: string
-      }
-    }[]
-
-    Servicos: {
-      Servico: {
-        Id: string
-        Nome: string
-      }
-      PrecoDeAdesao?: {
-        Valor: string
-        TipoDePreco?: { Valor: string }
-      }
-      PrecoDeRecorrencia?: {
-        Valor: string
-        TipoDePreco?: { Valor: string }
-      }
-    }[]
-
-    Produtos: {
-      Produto: { Id: string; Nome: string }
-      PrecoAdesao?: {
-        Valor: string
-        TipoDePreco?: { Valor: string }
-      }
-      PrecoRecorrencia?: {
-        Valor: string
-        TipoDePreco?: { Valor: string }
-      }
-    }[]
-
-    Combos: {
-      Combo: {
-        Id: string
-        Nome: string
-      }
-      ComboPreco: {
-        ValorDeAdesao: string
-        ValorDeRecorrencia: string
-      }
-    }[]
-
-    Veiculos: {
-      Id: string
-      Veiculo_Id?: string
-      PropostasServicos: {
-        Servico: {
-          Id: string
-          Nome: string
-        }
-        PrecoDeAdesao?: {
-          Valor: string
-          TipoDePreco?: { Valor: string }
-        }
-        PrecoDeRecorrencia?: {
-          Valor: string
-          TipoDePreco?: { Valor: string }
-        }
-      }[]
-
-      PropostasProdutos: {
-        Produto: { Id: string; Nome: string }
-        PrecoAdesao?: {
-          Valor: string
-          TipoDePreco?: { Valor: string }
-        }
-        PrecoRecorrencia?: {
-          Valor: string
-          TipoDePreco?: { Valor: string }
-        }
-      }[]
-
-      PropostasPlanos: {
-        Plano: {
-          Id: string
-          Nome: string
-          Produtos: {
-            Produto: { Id: string; Nome: string }
-          }[]
-          Servicos: {
-            Servico: { Id: string; Nome: string }
-          }[]
-        }
-        PlanoPreco: {
-          ValorDeAdesao: string
-          ValorDeRecorrencia: string
-        }
-      }[]
-
-      PropostasCombos: {
-        Combo: {
-          Nome: string
-          Planos: {
-            Plano: {
-              Id: string
-              Nome: string
-              Produtos: {
-                Produto: { Id: string; Nome: string }
-              }[]
-
-              Servicos: {
-                Servico: { Id: string; Nome: string }
-              }[]
-            }
-          }[]
-
-          Produtos: {
-            Produto: { Id: string; Nome: string }
-          }[]
-
-          Servicos: {
-            Servico: { Id: string; Nome: string }
-          }[]
-        }
-        ComboPreco: {
-          ValorDeAdesao: string
-          ValorDeRecorrencia: string
-        }
-      }[]
-    }[]
-  }
+  proposalData: ProposalsDataType
   proposalLoading: boolean
   proposalRefetch: () => void
   insertProposalService: (
@@ -401,19 +272,6 @@ type UpdateContextProps = {
     >
   ) => Promise<FetchResult['data']>
   createVehicleLoading: boolean
-  acceptProposal: (
-    options?: MutationFunctionOptions<
-      {
-        update_propostas_Propostas_by_pk?: {
-          Id: string
-        }
-      },
-      OperationVariables,
-      DefaultContext,
-      ApolloCache<unknown>
-    >
-  ) => Promise<FetchResult['data']>
-  acceptProposalLoading: boolean
   refuseProposal: (
     options?: MutationFunctionOptions<
       {
@@ -600,24 +458,6 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
       ]
     })
 
-  const [acceptProposal, { loading: acceptProposalLoading }] = useTypedMutation(
-    {
-      update_propostas_Propostas_by_pk: [
-        {
-          pk_columns: { Id: router.query.id },
-          _set: {
-            Situacao_Id: propostas_Propostas_Situacoes_enum.aceito,
-            DataAceito: new Date(),
-            updated_at: new Date()
-          }
-        },
-        {
-          Id: true
-        }
-      ]
-    }
-  )
-
   const [refuseProposal, { loading: refuseProposalLoading }] = useTypedMutation(
     {
       update_propostas_Propostas_by_pk: [
@@ -755,7 +595,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           Id: true,
           Apelido: true,
           Placa: true,
-          NumeroDoChassi: true
+          NumeroDoChassi: true,
+          VeiculosAtivos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Id: true
+            }
+          ]
         }
       ]
     },
@@ -1004,6 +850,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Nome: true
             },
             PlanoPreco: {
+              Id: true,
               ValorDeAdesao: true,
               ValorDeRecorrencia: true
             }
@@ -1019,13 +866,16 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           {
             Servico: {
               Id: true,
-              Nome: true
+              Nome: true,
+              GeraOS: true
             },
             PrecoDeAdesao: {
+              Id: true,
               Valor: true,
               TipoDePreco: { Valor: true }
             },
             PrecoDeRecorrencia: {
+              Id: true,
               Valor: true,
               TipoDePreco: { Valor: true }
             }
@@ -1041,10 +891,12 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           {
             Produto: { Id: true, Nome: true },
             PrecoAdesao: {
+              Id: true,
               Valor: true,
               TipoDePreco: { Valor: true }
             },
             PrecoRecorrencia: {
+              Id: true,
               Valor: true,
               TipoDePreco: { Valor: true }
             }
@@ -1063,6 +915,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Nome: true
             },
             ComboPreco: {
+              Id: true,
               ValorDeAdesao: true,
               ValorDeRecorrencia: true
             }
@@ -1080,13 +933,16 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               {
                 Servico: {
                   Id: true,
-                  Nome: true
+                  Nome: true,
+                  GeraOS: true
                 },
                 PrecoDeAdesao: {
+                  Id: true,
                   Valor: true,
                   TipoDePreco: { Valor: true }
                 },
                 PrecoDeRecorrencia: {
+                  Id: true,
                   Valor: true,
                   TipoDePreco: { Valor: true }
                 }
@@ -1097,10 +953,12 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               {
                 Produto: { Id: true, Nome: true },
                 PrecoAdesao: {
+                  Id: true,
                   Valor: true,
                   TipoDePreco: { Valor: true }
                 },
                 PrecoRecorrencia: {
+                  Id: true,
                   Valor: true,
                   TipoDePreco: { Valor: true }
                 }
@@ -1121,11 +979,12 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   Servicos: [
                     { where: { deleted_at: { _is_null: true } } },
                     {
-                      Servico: { Id: true, Nome: true }
+                      Servico: { Id: true, Nome: true, GeraOS: true }
                     }
                   ]
                 },
                 PlanoPreco: {
+                  Id: true,
                   ValorDeAdesao: true,
                   ValorDeRecorrencia: true
                 }
@@ -1135,6 +994,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               { where: { deleted_at: { _is_null: true } } },
               {
                 Combo: {
+                  Id: true,
                   Nome: true,
                   Planos: [
                     { where: { deleted_at: { _is_null: true } } },
@@ -1151,7 +1011,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                         Servicos: [
                           { where: { deleted_at: { _is_null: true } } },
                           {
-                            Servico: { Id: true, Nome: true }
+                            Servico: { Id: true, Nome: true, GeraOS: true }
                           }
                         ]
                       }
@@ -1160,17 +1020,66 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   Produtos: [
                     { where: { deleted_at: { _is_null: true } } },
                     {
-                      Produto: { Id: true, Nome: true }
+                      Produto: {
+                        Id: true,
+                        Nome: true,
+                        Fornecedores: [
+                          {
+                            where: {
+                              deleted_at: { _is_null: true },
+                              Fornecedor_Id: {
+                                _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                              }
+                            }
+                          },
+                          {
+                            Precos: [
+                              {
+                                where: { deleted_at: { _is_null: true } },
+                                order_by: [{ created_at: order_by.desc }]
+                              },
+                              {
+                                Id: true,
+                                TipoDePreco: { Valor: true }
+                              }
+                            ]
+                          }
+                        ]
+                      }
                     }
                   ],
                   Servicos: [
                     { where: { deleted_at: { _is_null: true } } },
                     {
-                      Servico: { Id: true, Nome: true }
+                      Servico: {
+                        Id: true,
+                        Nome: true,
+                        GeraOS: true,
+                        PrestadoresDeServicos: [
+                          {
+                            where: {
+                              deleted_at: { _is_null: true },
+                              Prestador_Id: {
+                                _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
+                              }
+                            }
+                          },
+                          {
+                            Precos: [
+                              { order_by: [{ created_at: order_by.desc }] },
+                              {
+                                Id: true,
+                                TipoDePreco: { Valor: true }
+                              }
+                            ]
+                          }
+                        ]
+                      }
                     }
                   ]
                 },
                 ComboPreco: {
+                  Id: true,
                   ValorDeAdesao: true,
                   ValorDeRecorrencia: true
                 }
@@ -1319,8 +1228,6 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         getClientById,
         client,
         setClient,
-        acceptProposal,
-        acceptProposalLoading,
         refuseProposal,
         refuseProposalLoading,
         runPaymentTypeQuery,

@@ -29,7 +29,7 @@ type SideBarProps = {
     home: string
   }
 }
-
+// FIXME: Alinhar setinhas a direita
 export function SideBar({ MainMenuItems, imageUrl, rotas }: SideBarProps) {
   return (
     <nav className="side-nav">

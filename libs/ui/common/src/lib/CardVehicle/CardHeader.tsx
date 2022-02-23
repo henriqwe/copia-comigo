@@ -1,5 +1,6 @@
-import { StatusOnlineIcon, TruckIcon } from '@heroicons/react/outline'
 import { vehicleType } from './CardVehicle'
+import { Icon } from '@iconify/react'
+
 import { setStatusConnectionTitleAndColor, setStatusEngine } from './functions'
 
 export function CardHearder({ vehicle }: { vehicle: vehicleType }) {
@@ -14,7 +15,7 @@ export function CardHearder({ vehicle }: { vehicle: vehicleType }) {
             className={`w-3 h-3 ${statusEngine.color} rounded-full absolute -ml-11`}
             title={statusEngine.title}
           />
-          <TruckIcon className="w-7 h-7 " />
+          <Icon icon="clarity:car-line" className="w-7 h-7 " />
         </div>
         <div className="flex justify-between w-full">
           <div className=" flex flex-col ">
@@ -41,7 +42,10 @@ export function CardHearder({ vehicle }: { vehicle: vehicleType }) {
           className="flex items-center justify-center bg-white rounded-full w-7 h-7"
           title={statusConnection.title}
         >
-          <StatusOnlineIcon className={`w-5 h-5 ${statusConnection.color}`} />
+          <Icon
+            icon="heroicons-solid:status-online"
+            className={`w-5 h-5 ${statusConnection.color}`}
+          />
         </div>
       </div>
     </div>

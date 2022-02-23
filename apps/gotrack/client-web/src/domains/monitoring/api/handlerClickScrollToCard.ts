@@ -1,4 +1,7 @@
-export function handleClickScrollToCardPath(index: string, refsPathVehicle) {
+export function handleClickScrollToCardPath(
+  index: string | number,
+  refsPathVehicle
+) {
   refsPathVehicle.current[index]['elem']?.scrollIntoView({
     behavior: 'smooth',
     block: 'start'

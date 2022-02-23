@@ -7,19 +7,23 @@ export function Dropdown({
   items,
   handler,
   titleClassName = '',
-  noChevronDownIcon = false
+  noChevronDownIcon = false,
+  disabled = false
 }: {
   title: ReactNode
   items: { title: string; action?: () => void }[]
   handler: (value: string) => void
   titleClassName?: string
   noChevronDownIcon?: boolean
+  disabled?: boolean
 }) {
   return (
     <div className="pt-1 pl-4">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex items-center justify-center w-full lg:flex-row dark:border-dark-5">
+          <Menu.Button
+            className="inline-flex items-center justify-center w-full lg:flex-row dark:border-dark-5 disabled:cursor-not-allowed"
+          >
             <div className={`${titleClassName}`}>{title}</div>
             {!noChevronDownIcon && (
               <ChevronDownIcon

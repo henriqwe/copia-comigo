@@ -2,12 +2,15 @@ import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import * as common from '@comigo/ui-common'
+import * as mutations from '../../operations/mutations'
+import * as queries from '../../operations/queries'
 
 import * as serviceOrders from '&erp/domains/operational/ServiceOrders'
 
 import * as utils from '@comigo/utils'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { datetimeFormat } from '@comigo/utils'
+import { useRouter } from 'next/router'
 
 type FormData = {
   Agendamento: Date
@@ -18,30 +21,15 @@ type FormData = {
 }
 
 export function Schedule() {
+  const [loading, setLoading] = useState(false)
+  const router = useRouter()
   const {
-    updateServiceOrdersLoading,
-    updateServiceOrders,
     serviceOrderData,
     serviceOrderRefetch,
     serviceOrdersSchema,
     setSlidePanelState,
     serviceOrderActivitiesRefetch,
-    collaboratorsData,
-    getItemIdByProductId,
-    getChipIdentifierByItemId,
-    getEquipmentIdentifierByItemId,
-    getIdentifierByItemId,
-    getTrackerIdentifierByItemId,
-    getInputKitsIdentifierByItemId,
-    getInstallationKitsIdentifierByItemId,
-    updateChip,
-    updateEquipment,
-    updateIdentifier,
-    updateTracker,
-    updateInputKit,
-    updateInstallationKit,
-    getItemById,
-    updateServiceOrdersProduct
+    collaboratorsData
   } = serviceOrders.useUpdate()
 
   const {
@@ -53,30 +41,34 @@ export function Schedule() {
   } = useForm({ resolver: yupResolver(serviceOrdersSchema) })
 
   async function onSubmit(formData: FormData) {
+    setLoading(true)
     let inventoryValidation = false
     const identifiers: { type: string; id: string; productId: string }[] = []
 
     const Itens = await Promise.all(
       serviceOrderData.Produtos.map(async (product) => {
-        const item = await getItemIdByProductId(product.Produto.Id)
+        const item = await queries.getItemIdByProductId(product.Produto.Id)
         let saldo = 0
         switch (item[0].TipoDeItem_Id) {
           case 'chips':
-            await getChipIdentifierByItemId(item[0].Item_Id).then((chip) => {
-              if (chip.length === 0) {
-                inventoryValidation = true
-                return
-              }
-              identifiers.push({
-                type: 'chips',
-                id: chip[0].Id,
-                productId: product.Id
+            await queries
+              .getChipIdentifierByItemId(undefined, item[0].Item_Id)
+              .then((chip) => {
+                if (chip.length === 0) {
+                  inventoryValidation = true
+                  return
+                }
+                identifiers.push({
+                  type: 'chips',
+                  id: chip[0].Id,
+                  productId: product.Id
+                })
               })
-            })
             break
           case 'equipamentos':
-            await getEquipmentIdentifierByItemId(item[0].Item_Id).then(
-              (equipment) => {
+            await queries
+              .getEquipmentIdentifierByItemId(undefined, item[0].Item_Id)
+              .then((equipment) => {
                 if (equipment.length === 0) {
                   inventoryValidation = true
                   return
@@ -86,12 +78,12 @@ export function Schedule() {
                   id: equipment[0].Id,
                   productId: product.Id
                 })
-              }
-            )
+              })
             break
           case 'identificadores':
-            await getIdentifierByItemId(item[0].Item_Id).then(
-              (identifierResponse) => {
+            await queries
+              .getIdentifierByItemId(undefined, item[0].Item_Id)
+              .then((identifierResponse) => {
                 if (identifierResponse.length === 0) {
                   inventoryValidation = true
                   return
@@ -101,12 +93,12 @@ export function Schedule() {
                   id: identifierResponse[0].Id,
                   productId: product.Id
                 })
-              }
-            )
+              })
             break
           case 'rastreadores':
-            await getTrackerIdentifierByItemId(item[0].Item_Id).then(
-              (tracker) => {
+            await queries
+              .getTrackerIdentifierByItemId(undefined, item[0].Item_Id)
+              .then((tracker) => {
                 if (tracker.length === 0) {
                   inventoryValidation = true
                   return
@@ -116,12 +108,12 @@ export function Schedule() {
                   id: tracker[0].Id,
                   productId: product.Id
                 })
-              }
-            )
+              })
             break
           case 'kitsDeInsumo':
-            await getInputKitsIdentifierByItemId(item[0].Item_Id).then(
-              (inputKit) => {
+            await queries
+              .getInputKitsIdentifierByItemId(undefined, item[0].Item_Id)
+              .then((inputKit) => {
                 if (inputKit.length === 0) {
                   inventoryValidation = true
                   return
@@ -131,12 +123,12 @@ export function Schedule() {
                   id: inputKit[0].Id,
                   productId: product.Id
                 })
-              }
-            )
+              })
             break
           case 'kitsDeInstalacao':
-            await getInstallationKitsIdentifierByItemId(item[0].Item_Id).then(
-              (installationKit) => {
+            await queries
+              .getInstallationKitsIdentifierByItemId(undefined, item[0].Item_Id)
+              .then((installationKit) => {
                 if (installationKit.length === 0) {
                   inventoryValidation = true
                   return
@@ -146,19 +138,19 @@ export function Schedule() {
                   id: installationKit[0].Id,
                   productId: product.Id
                 })
-              }
-            )
+              })
             break
           default:
-            ;(await getItemById(item[0].Item_Id)).Movimentacoes.map(
-              (movimentacao) => {
+            await queries.getItemById(item[0].Item_Id).then((response) => {
+              response.Movimentacoes.map((movimentacao) => {
                 if (movimentacao.Tipo === 'saida') {
                   saldo = saldo - movimentacao.Quantidade
                   return
                 }
                 saldo = saldo + movimentacao.Quantidade
-              }
-            )
+              })
+            })
+
             if (saldo <= 0) {
               inventoryValidation = true
             }
@@ -173,82 +165,70 @@ export function Schedule() {
     )
 
     if (inventoryValidation) {
+      setLoading(false)
       return utils.notification(
         'Há itens que não estão disponíveis no estoque',
         'error'
       )
     }
 
-    await updateServiceOrders({
-      variables: {
+    await mutations
+      .updateServiceOrders({
         Agendamento: formData.Agendamento,
         Colaborador_Id: formData.Colaborador_Id.key,
-        Itens
-      }
-    })
+        Itens,
+        OS_Id: router.query.id as string
+      })
       .then(async () => {
         await Promise.all(
           identifiers.map(async (identifier) => {
             switch (identifier.type) {
               case 'chips':
-                await updateChip({
-                  variables: {
-                    Id: identifier.id,
-                    Ativo: true
-                  }
+                await mutations.updateChip({
+                  Id: identifier.id,
+                  Ativo: true
                 })
                 break
               case 'equipamentos':
-                await updateEquipment({
-                  variables: {
-                    Id: identifier.id,
-                    Ativo: true
-                  }
+                await mutations.updateEquipment({
+                  Id: identifier.id,
+                  Ativo: true
                 })
 
                 break
               case 'identificadores':
-                await updateIdentifier({
-                  variables: {
-                    Id: identifier.id,
-                    Ativo: true
-                  }
+                await mutations.updateIdentifier({
+                  Id: identifier.id,
+                  Ativo: true
                 })
                 break
               case 'rastreadores':
-                await updateTracker({
-                  variables: {
-                    Id: identifier.id,
-                    Ativo: true
-                  }
+                await mutations.updateTracker({
+                  Id: identifier.id,
+                  Ativo: true
                 })
                 break
               case 'kitsDeInsumo':
-                await updateInputKit({
-                  variables: {
-                    Id: identifier.id,
-                    Ativo: true
-                  }
+                await mutations.updateInputKit({
+                  Id: identifier.id,
+                  Ativo: true
                 })
                 break
               case 'kitsDeInstalacao':
-                await updateInstallationKit({
-                  variables: {
-                    Id: identifier.id,
-                    Ativo: true
-                  }
+                await mutations.updateInstallationKit({
+                  Id: identifier.id,
+                  Ativo: true
                 })
                 break
             }
-            await updateServiceOrdersProduct({
-              variables: {
-                Id: identifier.productId,
-                Identificavel_Id: identifier.id,
-                TipoDeIdentificavel_Id: identifier.type
-              }
+            await mutations.updateServiceOrdersProduct({
+              Id: identifier.productId,
+              Identificavel_Id: identifier.id,
+              TipoDeIdentificavel_Id: identifier.type
             })
           })
         )
+        setLoading(false)
         serviceOrderRefetch()
         serviceOrderActivitiesRefetch()
         setSlidePanelState({
@@ -258,6 +238,7 @@ export function Schedule() {
         utils.notification('Ordem de serviço agendada com sucesso', 'success')
       })
       .catch((err) => {
+        setLoading(false)
         utils.showError(err)
       })
   }
@@ -315,8 +296,8 @@ export function Schedule() {
       <common.Separator />
       <common.buttons.PrimaryButton
         title="Enviar"
-        disabled={updateServiceOrdersLoading}
-        loading={updateServiceOrdersLoading}
+        disabled={loading}
+        loading={loading}
       />
     </form>
   )

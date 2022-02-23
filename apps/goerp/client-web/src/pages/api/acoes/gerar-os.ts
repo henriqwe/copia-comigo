@@ -26,7 +26,6 @@ handler.use(cors()).get(async (req, res) => {
       response
     })
   } catch (error) {
-    console.log(error)
     return res
       .status(400)
       .json({ message: 'Não foi possivel se comunicar com a api', error })
@@ -108,6 +107,7 @@ async function getProposal(proposalId: string) {
                                 }
                               },
                               {
+                                Prestador_Id: true,
                                 Precos: [
                                   {
                                     where: { deleted_at: { _is_null: true } },

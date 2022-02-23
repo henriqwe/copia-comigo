@@ -1,22 +1,7 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState
-} from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
 import * as yup from 'yup'
-import { MarkerClusterer } from '@googlemaps/markerclusterer'
-import {
-  vehicleType,
-  createNewVehicleMarker,
-  updateVehicleMarker,
-  centerMapInVehicle
-} from './api/vehicle'
-import { toggleStreetView } from './api/streetView'
-import { useMap, useVehicle } from './'
-import ReactDOMServer from 'react-dom/server'
-import { createContentInfoWindow } from './api/infoWindow'
+import { vehicleType, centerMapInVehicle } from './api/vehicle'
+import { useMap, useVehicle } from '.'
 
 type LocalizationContextProps = {
   localizationsLoading: boolean
@@ -26,8 +11,8 @@ type LocalizationContextProps = {
   setOpenCardKey: React.Dispatch<React.SetStateAction<number>>
   pageCard: string
   setPageCard: React.Dispatch<React.SetStateAction<string>>
-  createFunctionsForInfoWindow: (vehicle: vehicleType) => void
   handlerClickOnVehicleMarker: (vehicle: vehicleType) => void
+  handleClickScrollToCard: (carro_id: string) => void
 }
 
 type ProviderProps = {
@@ -39,23 +24,9 @@ export const LocalizationContext = createContext<LocalizationContextProps>(
 )
 
 export const LocalizationProvider = ({ children }: ProviderProps) => {
-  const {
-    google,
-    mapa,
-    markerCluster,
-    setMarkerCluster,
-    panorama,
-    showInfoWindowsInMap
-  } = useMap()
+  const { google, mapa, panorama } = useMap()
 
-  const {
-    allMarkerVehicles,
-    setAllMarkerVehicles,
-    allMarkerVehiclesStep,
-    allUserVehicle,
-    setSelectedVehicle,
-    refsCardVehicle
-  } = useVehicle()
+  const { setSelectedVehicle, refsCardVehicle } = useVehicle()
 
   const [localizationsLoading, setLocalizationsLoading] = useState(false)
   const localizationSchema = yup.object().shape({
@@ -68,53 +39,9 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
     return
   }
 
-  function createFunctionsForInfoWindow(vehicle: vehicleType) {
-    document
-      .getElementById(`infoWindowImgStreetView${vehicle.carro_id}`)
-      ?.addEventListener('click', () => {
-        toggleStreetView(
-          Number(vehicle.latitude),
-          Number(vehicle.longitude),
-          Number(vehicle.crs),
-          panorama
-        )
-      })
-    document
-      .getElementById(`buttonVerTrajeto${vehicle.carro_id}`)
-      ?.addEventListener('click', () => {
-        handlerClickOnVehicleMarker(vehicle)
-        setPageCard('pagVehiclesDetails')
-      })
-  }
-
   function handlerClickOnVehicleMarker(vehicle: vehicleType) {
     setSelectedVehicle(vehicle)
     panorama.setVisible(false)
-    allMarkerVehicles.map(async (marker) => {
-      if (marker.id === vehicle.carro_id) {
-        marker.infowindow.setContent(
-          ReactDOMServer.renderToString(await createContentInfoWindow(vehicle))
-        )
-        marker.infowindow?.open({
-          anchor: marker,
-          mapa,
-          shouldFocus: false
-        })
-        const interval = setInterval(() => {
-          if (
-            document.getElementById(
-              `infoWindowImgStreetView${vehicle.carro_id}`
-            ) !== null
-          ) {
-            createFunctionsForInfoWindow(vehicle)
-            clearInterval(interval)
-          }
-        }, 10)
-        return
-      }
-      marker.infowindow?.close()
-    })
-
     centerMapInVehicle(
       google,
       {
@@ -151,59 +78,6 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
     }
   }
 
-  useEffect(() => {
-    if (allUserVehicle && google && mapa) {
-      allUserVehicle.forEach((vehicle) => {
-        const marker = allMarkerVehicles.find((elem) => {
-          if (elem.id === vehicle.carro_id) return elem
-        })
-        if (marker) {
-          updateVehicleMarker(
-            google,
-            marker,
-            vehicle,
-            mapa,
-            allMarkerVehicles,
-            handleClickScrollToCard,
-            createFunctionsForInfoWindow,
-            showInfoWindowsInMap
-          )
-          return
-        }
-
-        createNewVehicleMarker(
-          google,
-          mapa,
-          vehicle,
-          allMarkerVehiclesStep,
-          allMarkerVehicles,
-          handleClickScrollToCard,
-          createFunctionsForInfoWindow,
-          showInfoWindowsInMap
-        )
-      })
-      const markersToAdd = allMarkerVehiclesStep.filter((markerStep) => {
-        const validationMarker = allMarkerVehicles.find((elem) => {
-          if (elem.id === markerStep.id) {
-            return elem
-          }
-        })
-        if (validationMarker) return
-        return markerStep
-      })
-      setAllMarkerVehicles([...allMarkerVehicles, ...markersToAdd])
-      if (markerCluster) {
-        markerCluster.clearMarkers()
-        markerCluster.addMarkers(allMarkerVehicles)
-      }
-      if (!markerCluster) {
-        setMarkerCluster(
-          new MarkerClusterer({ map: mapa, markers: allMarkerVehiclesStep })
-        )
-      }
-    }
-  }, [allUserVehicle])
-
   return (
     <LocalizationContext.Provider
       value={{
@@ -214,8 +88,8 @@ export const LocalizationProvider = ({ children }: ProviderProps) => {
         setOpenCardKey,
         pageCard,
         setPageCard,
-        createFunctionsForInfoWindow,
-        handlerClickOnVehicleMarker
+        handlerClickOnVehicleMarker,
+        handleClickScrollToCard
       }}
     >
       {children}

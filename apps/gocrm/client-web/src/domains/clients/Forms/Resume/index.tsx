@@ -46,105 +46,126 @@ export function Resume() {
 
   async function getCollection() {
     const proposalsItens: CollectionType[] = []
-    clientData.VeiculosAtivos.map((activeVehicle) => {
-      const benefits = activeVehicle.Beneficios.map(async (benefit) => {
-        switch (benefit.TipoPortfolio) {
-          case 'serviço':
+    await Promise.all(
+      clientData.VeiculosAtivos.map(async (activeVehicle) => {
+        const benefits = await Promise.all(
+          activeVehicle.Beneficios.map(async (benefit) => {
+            switch (benefit.TipoPortfolio) {
+              case 'serviço':
+                return await getServiceById(
+                  benefit.Portfolio_Id,
+                  benefit.PrecoDeAdesao_Id,
+                  benefit.PrecoDeRecorrencia_Id
+                ).then((response) => {
+                  return {
+                    Id: response.service?.Id,
+                    PriceId: response.price?.Id,
+                    Name: response?.service?.Nome as string,
+                    MembershipPrice: response.price
+                      ? response?.price?.Valor
+                      : '0',
+                    RecurrencePrice: response.secondPrice
+                      ? response?.secondPrice?.Valor
+                      : '0',
+                    Type: 'Beneficio - Serviço'
+                  }
+                })
+              case 'plano':
+                return await getPlanById(
+                  benefit.Portfolio_Id,
+                  benefit.PortfolioPreco_Id
+                ).then((response) => {
+                  return {
+                    Id: response.plan?.Id,
+                    PriceId: response.price?.Id,
+                    Name: response?.plan?.Nome as string,
+                    MembershipPrice: response?.price?.ValorDeAdesao,
+                    RecurrencePrice: response?.price?.ValorDeRecorrencia,
+                    Type: 'Beneficio - Plano'
+                  }
+                })
+              case 'combo':
+                return await getComboById(
+                  benefit.Portfolio_Id,
+                  benefit.PortfolioPreco_Id
+                ).then((response) => {
+                  return {
+                    Id: response.combo?.Id,
+                    PriceId: response.price?.Id,
+                    Name: response?.combo?.Nome as string,
+                    MembershipPrice: response?.price?.ValorDeAdesao,
+                    RecurrencePrice: response?.price?.ValorDeRecorrencia,
+                    Type: 'Beneficio - Combo'
+                  }
+                })
+            }
+          })
+        )
+
+        const services = await Promise.all(
+          activeVehicle.Servicos.map(async (service) => {
             return await getServiceById(
-              benefit.Portfolio_Id,
-              benefit.PrecoDeAdesao_Id,
-              benefit.PrecoDeRecorrencia_Id
+              service.Servico_Id,
+              service.PrecoDeAdesao_Id,
+              service.PrecoDeRecorrencia_Id
             ).then((response) => {
               return {
                 Id: response.service?.Id,
                 PriceId: response.price?.Id,
                 Name: response?.service?.Nome as string,
-                MembershipPrice: response.price ? response?.price?.Valor : '0',
-                RecurrencePrice: response.secondPrice
+                MembershipPrice: response?.price ? response?.price?.Valor : '0',
+                RecurrencePrice: response?.secondPrice
+                  ? response?.secondPrice.Valor
+                  : '0',
+                Type: 'Serviço'
+              }
+            })
+          })
+        )
+
+        const products = await Promise.all(
+          activeVehicle.Produtos.map(async (product) => {
+            const Identifier = await getItemIdentifier(
+              product.TipoItem_Id,
+              product.Identificador
+            )
+            return await getProductById(
+              product.Produto_Id,
+              product.PrecoDeAdesao_Id,
+              product.PrecoDeRecorrencia_Id
+            ).then((response) => {
+              return {
+                Id: response?.product?.Id,
+                PriceId: response?.price?.Id,
+                Name: response?.product?.Nome as string,
+                MembershipPrice: response?.price ? response?.price.Valor : '0',
+                RecurrencePrice: response?.secondPrice
                   ? response?.secondPrice?.Valor
                   : '0',
-                Type: 'Beneficio - Serviço'
+                Type: 'Produto',
+                Identifier
               }
             })
-          case 'plano':
-            return await getPlanById(
-              benefit.Portfolio_Id,
-              benefit.PortfolioPreco_Id
-            ).then((response) => {
-              return {
-                Id: response.plan?.Id,
-                PriceId: response.price?.Id,
-                Name: response?.plan?.Nome as string,
-                MembershipPrice: response?.price?.ValorDeAdesao,
-                RecurrencePrice: response?.price?.ValorDeRecorrencia,
-                Type: 'Beneficio - Plano'
-              }
-            })
-          case 'combo':
-            return await getComboById(
-              benefit.Portfolio_Id,
-              benefit.PortfolioPreco_Id
-            ).then((response) => {
-              return {
-                Id: response.combo?.Id,
-                PriceId: response.price?.Id,
-                Name: response?.combo?.Nome as string,
-                MembershipPrice: response?.price?.ValorDeAdesao,
-                RecurrencePrice: response?.price?.ValorDeRecorrencia,
-                Type: 'Beneficio - Combo'
-              }
-            })
-        }
-      })
-
-      const services = activeVehicle.Servicos.map(async (service) => {
-        return await getServiceById(
-          service.Servico_Id,
-          service.PrecoDeAdesao_Id,
-          service.PrecoDeRecorrencia_Id
-        ).then((response) => {
-          return {
-            Id: response.service?.Id,
-            PriceId: response.price?.Id,
-            Name: response?.service?.Nome as string,
-            MembershipPrice: response?.price ? response?.price?.Valor : '0',
-            RecurrencePrice: response?.secondPrice
-              ? response?.secondPrice.Valor
-              : '0',
-            Type: 'Serviço'
-          }
-        })
-      })
-
-      const products = activeVehicle.Produtos.map(async (product) => {
-        const Identifier = await getItemIdentifier(
-          product.TipoItem_Id,
-          product.Identificador
+          })
         )
-        return await getProductById(
-          product.Produto_Id,
-          product.PrecoDeAdesao_Id,
-          product.PrecoDeRecorrencia_Id
-        ).then((response) => {
-          return {
-            Id: response?.product?.Id,
-            PriceId: response?.price?.Id,
-            Name: response?.product?.Nome as string,
-            MembershipPrice: response?.price ? response?.price.Valor : '0',
-            RecurrencePrice: response?.secondPrice
-              ? response?.secondPrice?.Valor
-              : '0',
-            Type: 'Produto',
-            Identifier
-          }
-        })
-      })
 
-      ;(async () => {
-        const finalBenefits = await Promise.all(benefits)
-        const finalServices = await Promise.all(services)
-        const finalProducts = await Promise.all(products)
-        setBenefits(await Promise.all(benefits))
+        setBenefits(benefits)
+        if(activeVehicle.Situacao_Id === 'inativo'){
+          proposalsItens.push(
+            {
+              Vehicle: `${
+                activeVehicle.Veiculo.Placa
+                  ? activeVehicle.Veiculo.Placa
+                  : activeVehicle.Veiculo.NumeroDoChassi
+              } ${
+                activeVehicle.Veiculo.Apelido
+                  ? ' - ' + activeVehicle.Veiculo.Apelido
+                  : ''
+              } (inativo)`
+            }
+          )
+          return
+        }
         proposalsItens.push(
           {
             Vehicle: `${
@@ -157,7 +178,7 @@ export function Resume() {
                 : ''
             }`
           },
-          ...finalBenefits.map((benefit) => {
+          ...benefits.map((benefit) => {
             return {
               Name: benefit.Name,
               MembershipPrice: benefit.MembershipPrice,
@@ -165,7 +186,7 @@ export function Resume() {
               Type: benefit.Type
             }
           }),
-          ...finalServices.map((service) => {
+          ...services.map((service) => {
             return {
               Name: service.Name,
               MembershipPrice: service.MembershipPrice,
@@ -173,7 +194,7 @@ export function Resume() {
               Type: service.Type
             }
           }),
-          ...finalProducts.map((product) => {
+          ...products.map((product) => {
             return {
               Name: product.Name,
               MembershipPrice: product.MembershipPrice,
@@ -183,9 +204,9 @@ export function Resume() {
             }
           })
         )
-        setCollection(proposalsItens)
-      })()
-    })
+      })
+    )
+    setCollection(proposalsItens)
   }
 
   useEffect(() => {

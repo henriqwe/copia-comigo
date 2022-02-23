@@ -54,6 +54,7 @@ type UpdateContextProps = {
     VeiculosAtivos: {
       Id: string
       OS_Id?: string
+      Situacao_Id: string
       Beneficios: {
         Id: string
         Portfolio_Id: string
@@ -307,11 +308,11 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             {
               Id: true,
               OS_Id: true,
+              Situacao_Id: true,
               Beneficios: [
                 {
                   where: {
-                    deleted_at: { _is_null: true },
-                    Ativo: { _eq: true }
+                    deleted_at: { _is_null: true }
                   }
                 },
                 {
@@ -326,8 +327,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Produtos: [
                 {
                   where: {
-                    deleted_at: { _is_null: true },
-                    Ativo: { _eq: true }
+                    deleted_at: { _is_null: true }
                   }
                 },
                 {
@@ -341,8 +341,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Servicos: [
                 {
                   where: {
-                    deleted_at: { _is_null: true },
-                    Ativo: { _eq: true }
+                    deleted_at: { _is_null: true }
                   }
                 },
                 {
@@ -456,7 +455,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
 
     return {
       product: data.comercial_Produtos_by_pk,
-      price: await getProductPriceById(priceId),
+      price: priceId ? await getProductPriceById(priceId) : null,
       secondPrice: secondPriceId
         ? await getProductPriceById(secondPriceId)
         : null
@@ -576,7 +575,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
 
     return {
       service: data.comercial_Servicos_by_pk,
-      price: await getServicePriceById(priceId),
+      price: priceId ? await getServicePriceById(priceId) : null,
       secondPrice: secondPriceId
         ? await getServicePriceById(secondPriceId)
         : null

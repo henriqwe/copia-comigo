@@ -1,11 +1,4 @@
-import {
-  BellIcon,
-  ClockIcon,
-  ExclamationIcon,
-  InformationCircleIcon,
-  LocationMarkerIcon,
-  MapIcon
-} from '@heroicons/react/outline'
+import { Icon } from '@iconify/react'
 
 type labelType = {
   horaInicio: string
@@ -69,32 +62,47 @@ function Grid({ label }: { label: labelType }) {
     {
       title: 'duracao',
       description: 'Duração da viagem',
-      icon: <ClockIcon className="w-5 h-5 text-blue-400" />
+      icon: <Icon icon="akar-icons:clock" className="w-5 h-5 text-blue-400" />
     },
     {
       title: 'qntEventos',
       description: 'Quantidade de eventos',
-      icon: <BellIcon className="w-5 h-5 text-blue-400" />
+      icon: <Icon icon="akar-icons:bell" className="w-5 h-5 text-blue-400" />
     },
     {
       title: 'velMedia',
       description: 'Velocidade Média',
-      icon: <LocationMarkerIcon className="w-5 h-5 text-blue-400" />
+      icon: (
+        <Icon
+          icon="fluent:top-speed-20-filled"
+          className="w-5 h-5 text-blue-400"
+        />
+      )
     },
     {
       title: 'distanciaPercorrida',
       description: 'Distância percorrida',
-      icon: <MapIcon className="w-5 h-5 text-blue-400" />
+      icon: (
+        <Icon
+          icon="icon-park-outline:connection-point-two"
+          className="w-5 h-5 text-blue-400"
+        />
+      )
     },
     {
       title: 'consumo',
       description: 'Consumo de combustivel',
-      icon: <InformationCircleIcon className="w-5 h-5 text-blue-400" />
+      icon: <Icon icon="bx:gas-pump" className="w-5 h-5 text-blue-400" />
     },
     {
       title: 'maiorVel',
       description: 'Maior velocidade',
-      icon: <ExclamationIcon className="w-5 h-5 text-blue-400" />
+      icon: (
+        <Icon
+          icon="fluent:top-speed-20-filled"
+          className="w-5 h-5 text-blue-400"
+        />
+      )
     }
   ]
   return (

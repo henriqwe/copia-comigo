@@ -7,12 +7,8 @@ import {
   useRef,
   useState
 } from 'react'
-import { useMap, useVehicle } from './'
-import {
-  createNewVehiclePathMarker,
-  showPathVehicle,
-  vehicleType
-} from './api/vehicle'
+import { useMap } from '.'
+import { vehicleType } from './api/vehicle'
 import { getVehicleHistoric } from './serviceHttp'
 
 type PathContextProps = {
@@ -25,7 +21,7 @@ type PathContextProps = {
     inicio: string,
     fim: string
   ) => void
-  setVehicleConsultData?: Dispatch<SetStateAction<vehicleType[] | undefined>>
+  setVehicleConsultData: Dispatch<SetStateAction<vehicleType[] | undefined>>
   vehicleConsultData?: vehicleType[]
 }
 
@@ -37,19 +33,11 @@ export const PathContext = createContext<PathContextProps>(
 )
 
 export const PathProvider = ({ children }: ProviderProps) => {
-  const {
-    markerCluster,
-    panorama,
-    mapa,
-    google,
-    markersAndLine,
-    setMarkersAndLine
-  } = useMap()
-
-  const { allMarkerVehicles, selectedVehicle } = useVehicle()
-
+  const { mapa } = useMap()
   const [pathLoading, setPathLoading] = useState(false)
-  const [vehicleConsultData, setVehicleConsultData] = useState<vehicleType[]>()
+  const [vehicleConsultData, setVehicleConsultData] = useState<vehicleType[]>(
+    []
+  )
 
   const infoWindowToRemovePath: google.maps.InfoWindow[] = []
   const refsPathVehicle = useRef([])
@@ -61,21 +49,16 @@ export const PathProvider = ({ children }: ProviderProps) => {
   ) {
     setPathLoading(true)
     const response = await getVehicleHistoric(carro_id, inicio, fim)
-    showPathVehicle(
-      response,
-      setVehicleConsultData,
-      markerCluster,
-      panorama,
-      allMarkerVehicles,
-      createNewVehiclePathMarker,
-      infoWindowToRemovePath,
-      mapa,
-      google,
-      markersAndLine,
-      setMarkersAndLine,
-      refsPathVehicle,
-      selectedVehicle
-    )
+
+    setVehicleConsultData(response)
+    const bounds = new google.maps.LatLngBounds()
+    response.forEach((vehicle) => {
+      bounds.extend({
+        lat: Number(vehicle.latitude),
+        lng: Number(vehicle.longitude)
+      })
+    })
+    mapa.fitBounds(bounds)
     setPathLoading(false)
   }
 

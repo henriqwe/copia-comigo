@@ -1,11 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
+import { Icon } from '@iconify/react'
 import { coordsToCenterMap, vehicleType } from '../MonitoringPanel'
 import * as common from '@comigo/ui-common'
-import {
-  ChevronLeftIcon,
-  ClockIcon,
-  LocationMarkerIcon
-} from '@heroicons/react/outline'
 
 type PathPanelProps = {
   setPageCard: Dispatch<SetStateAction<string>>
@@ -13,7 +9,6 @@ type PathPanelProps = {
   vehicleConsultData: vehicleType[]
   getStreetNameByLatLng: (lat: string, lng: string) => Promise<any>
   showBounceMarker: Dispatch<SetStateAction<coordsToCenterMap>>
-  showAllVehiclesInMap: () => void
   refsPathVehicle: React.MutableRefObject<any[]>
   setPositionStreetView: (
     lat: number,
@@ -22,6 +17,7 @@ type PathPanelProps = {
     panorama: any
   ) => void
   panorama: google.maps.StreetViewPanorama
+  setVehicleConsultData: Dispatch<SetStateAction<vehicleType[] | undefined>>
 }
 
 export function PathPanel({
@@ -30,30 +26,45 @@ export function PathPanel({
   vehicleConsultData,
   getStreetNameByLatLng,
   showBounceMarker,
-  showAllVehiclesInMap,
   refsPathVehicle,
   setPositionStreetView,
-  panorama
+  panorama,
+  setVehicleConsultData
 }: PathPanelProps) {
   const labels = [
     {
       title: 'Dist. total',
-      icon: <LocationMarkerIcon className="w-8 h-8 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="icon-park-outline:connection-point-two"
+          className="w-8 h-8 text-blue-400"
+        />
+      ),
       subTitle: '82 Km'
     },
     {
       title: 'Duração',
-      icon: <ClockIcon className="w-8 h-8 text-blue-400" />,
+      icon: <Icon icon="akar-icons:clock" className="w-8 h-8 text-blue-400" />,
       subTitle: '02h37m'
     },
     {
       title: 'Vel. média',
-      icon: <ClockIcon className="w-8 h-8 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="fluent:top-speed-20-filled"
+          className="w-8 h-8 text-blue-400"
+        />
+      ),
       subTitle: '57km/h'
     },
     {
       title: 'Maior vel.',
-      icon: <ClockIcon className="w-8 h-8 text-blue-400" />,
+      icon: (
+        <Icon
+          icon="fluent:top-speed-20-filled"
+          className="w-8 h-8 text-blue-400"
+        />
+      ),
       subTitle: '81km/h'
     }
   ]
@@ -111,14 +122,14 @@ export function PathPanel({
           <button
             onClick={() => {
               setPageCard('pagVehiclesDetails')
-              showAllVehiclesInMap()
+              setVehicleConsultData([])
             }}
             className="flex items-center justify-center"
           >
-            <ChevronLeftIcon
+            <Icon
+              icon="akar-icons:chevron-left"
               className="w-4 h-4 text-black hover:text-gray-900"
-              aria-hidden="true"
-            />{' '}
+            />
             <span className="text-xs hover:underline">Voltar</span>
           </button>
         </div>
