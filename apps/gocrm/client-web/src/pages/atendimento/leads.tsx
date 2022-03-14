@@ -1,5 +1,5 @@
 import * as leads from '&crm/domains/services/Leads'
-import * as clients from '&crm/domains/identities/Clients'
+import * as clients from '&crm/domains/clients'
 
 import * as templates from '@comigo/ui-templates'
 
@@ -13,12 +13,11 @@ import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Leads() {
   return (
     <leads.LeadProvider>
-      <clients.ListProvider>
+      <clients.ClientProvider>
         <ThemeProvider>
-          {' '}
-          <Page />{' '}
+          <Page />
         </ThemeProvider>
-      </clients.ListProvider>
+      </clients.ClientProvider>
     </leads.LeadProvider>
   )
 }
@@ -26,7 +25,7 @@ export default function Leads() {
 export function Page() {
   const { theme, changeTheme } = useTheme()
   const { leadsRefetch, leadsLoading } = leads.useLead()
-  const { clientsRefetch } = clients.useList()
+  const { clientsRefetch } = clients.useClient()
   const refetch = () => {
     clientsRefetch()
     leadsRefetch()

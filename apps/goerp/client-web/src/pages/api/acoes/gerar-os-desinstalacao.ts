@@ -37,26 +37,11 @@ async function getVehicleById(activeVehicleId: string) {
         },
         {
           Id: true,
+          PossuiGNV: true,
           Cliente_Id: true,
           OS_Id: true,
           Situacao_Id: true,
           Veiculo_Id: true,
-          Beneficios: [
-            {
-              where: {
-                deleted_at: { _is_null: true },
-                Ativo: { _eq: true }
-              }
-            },
-            {
-              Id: true,
-              Portfolio_Id: true,
-              TipoPortfolio: true,
-              PortfolioPreco_Id: true,
-              PrecoDeAdesao_Id: true,
-              PrecoDeRecorrencia_Id: true
-            }
-          ],
           Produtos: [
             {
               where: {
@@ -70,19 +55,6 @@ async function getVehicleById(activeVehicleId: string) {
               Produto_Id: true,
               Identificador: true,
               TipoItem_Id: true
-            }
-          ],
-          Servicos: [
-            {
-              where: {
-                deleted_at: { _is_null: true },
-                Ativo: { _eq: true }
-              }
-            },
-            {
-              Servico_Id: true,
-              PrecoDeAdesao_Id: true,
-              PrecoDeRecorrencia_Id: true
             }
           ],
           Situacao: {

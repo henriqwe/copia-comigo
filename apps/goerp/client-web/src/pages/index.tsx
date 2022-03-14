@@ -30,6 +30,8 @@ export function Page() {
       rotas={rotas}
       companies={companies}
       theme={theme}
-    ></templates.Base>
+    >
+      <></>
+    </templates.Base>
   )
 }

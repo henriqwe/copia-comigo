@@ -11,7 +11,7 @@ import { GetServerSideProps } from 'next'
 // import * as tickets from '&crm/domains/services/Tickets'
 
 // import * as leads from '&crm/domains/services/Leads'
-// import * as users from '&crm/domains/identities/Users'
+// import * as users from '&crm/domains/Users'
 
 // import { CreateProposalPage } from '&crm/domains/commercial/Proposals/domains/page/CreateProposal'
 

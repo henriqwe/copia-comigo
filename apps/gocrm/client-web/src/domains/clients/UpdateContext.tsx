@@ -1,16 +1,4 @@
-import {
-  ApolloCache,
-  DefaultContext,
-  FetchResult,
-  MutationFunctionOptions,
-  OperationVariables
-} from '@apollo/client'
-import {
-  useTypedClientQuery,
-  useTypedMutation,
-  useTypedQuery,
-  $
-} from '&crm/graphql/generated/zeus/apollo'
+import { useTypedQuery, $ } from '&crm/graphql/generated/zeus/apollo'
 import { useRouter } from 'next/router'
 import {
   createContext,
@@ -21,15 +9,15 @@ import {
   useState
 } from 'react'
 import * as yup from 'yup'
-import {
-  order_by,
-  propostas_Propostas_Situacoes_enum
-} from '&crm/graphql/generated/zeus'
-import axios from 'axios'
+import { identidades_Clientes_Documentos_Situacoes_enum } from '&crm/graphql/generated/zeus'
+import { ClientType } from './types/client'
 
 type UpdateContextProps = {
   slidePanelState: SlidePanelStateType
   setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
+
+  totalValue: number
+  setTotalValue: Dispatch<SetStateAction<number>>
 
   categories: {
     title: string
@@ -44,50 +32,7 @@ type UpdateContextProps = {
   }
   setSelectedCategory: Dispatch<SetStateAction<unknown>>
 
-  clientData?: {
-    Id: string
-    Pessoa: {
-      Nome: string
-      Identificador: string
-      PessoaJuridica: boolean
-    }
-    VeiculosAtivos: {
-      Id: string
-      OS_Id?: string
-      Situacao_Id: string
-      Beneficios: {
-        Id: string
-        Portfolio_Id: string
-        TipoPortfolio: string
-        PortfolioPreco_Id?: string
-        PrecoDeAdesao_Id?: string
-        PrecoDeRecorrencia_Id?: string
-      }[]
-      Produtos: {
-        PrecoDeAdesao_Id?: string
-        PrecoDeRecorrencia_Id?: string
-        Produto_Id: string
-        Identificador?: string
-        TipoItem_Id?: string
-      }[]
-      Servicos: {
-        PrecoDeAdesao_Id?: string
-        PrecoDeRecorrencia_Id?: string
-        Servico_Id: string
-      }[]
-      Situacao: {
-        Comentario: string
-        Valor: string
-      }
-      Franquia_Id?: string
-      Veiculo: {
-        Id: string
-        Apelido?: string
-        Placa?: string
-        NumeroDoChassi?: string
-      }
-    }[]
-  }
+  clientData?: ClientType
   clientRefetch: () => void
   clientLoading: boolean
   vehiclesData?: {
@@ -95,120 +40,40 @@ type UpdateContextProps = {
     Apelido?: string
     NumeroDoChassi?: string
     Placa?: string
+    VeiculosAtivos: {
+      Id: string
+      Situacao_Id: string
+    }[]
   }[]
   vehiclesLoading: boolean
   vehiclesRefetch: () => void
-  getFranquiaById: (Id: string) => Promise<
-    | {
-        Nome: string
-        Id: string
-      }
-    | undefined
-  >
-  getServiceById: (
-    serviceId: string,
-    priceId: string,
-    secondPriceId?: string
-  ) => Promise<{
-    service: {
-      Id: string
-      Nome: string
-      GeraOS: boolean
-    }
-    price: {
-      Id: string
-      Valor: string
-      TipoDePreco?: {
-        Valor: string
-      }
-    }
-    secondPrice: {
-      Id: string
-      Valor: string
-      TipoDePreco?: {
-        Valor: string
-      }
-    }
-  }>
-  getProductById: (
-    productId: string,
-    priceId: string,
-    secondPriceId?: string
-  ) => Promise<{
-    product: {
-      Nome: string
-      Id: string
-    }
-    price: {
-      Id: string
-      Valor: string
-      TipoDePreco?: {
-        Valor: string
-      }
-    }
-    secondPrice: {
-      Id: string
-      Valor: string
-      TipoDePreco?: {
-        Valor: string
-      }
-    }
-  }>
-  getPlanById: (
-    planId: string,
-    priceId: string
-  ) => Promise<{
-    plan: {
-      Id: string
+  phonesData: {
+    Id: string
+    Telefone: string
+  }[]
+  phonesLoading: boolean
+  phonesRefetch: () => void
+  addressData: {
+    Id: string
+    Bairro: string
+    Cep?: string
+    Numero?: string
+    Logradouro: string
+    Cidade: {
       Nome: string
     }
-    price: {
-      Id: string
-      ValorDeAdesao: string
-      ValorDeRecorrencia: string
-    }
-  }>
-  getComboById: (
-    comboId: string,
-    priceId: string
-  ) => Promise<{
-    combo?: {
-      Id: string
+    Estado: {
       Nome: string
-      Planos: {
-        Plano_Id: string
-      }[]
-      Produtos: {
-        Produto_Id: string
-      }[]
-      Servicos: {
-        Servico_Id: string
-      }[]
     }
-    price?: {
-      Id: string
-      ValorDeAdesao: string
-      ValorDeRecorrencia: string
-    }
-  }>
-  getUserByClientId: (Id: string) => Promise<
-    {
-      Id: string
-    }[]
-  >
-  createProposal: (
-    options?: MutationFunctionOptions<
-      {
-        insert_propostas_Propostas_one?: {
-          Id: string
-        }
-      },
-      OperationVariables,
-      DefaultContext,
-      ApolloCache<unknown>
-    >
-  ) => Promise<FetchResult['data']>
-  createProposalLoading: boolean
+  }[]
+  addressLoading: boolean
+  addressRefetch: () => void
+  emailsData: {
+    Id: string
+    Email: string
+  }[]
+  emailsRefetch: () => void
+  emailsLoading: boolean
   userAndTicketData?: {
     atendimentos_Tickets?: {
       Id: string
@@ -221,10 +86,6 @@ type UpdateContextProps = {
   userAndTicketRefetch: () => void
   changeVehicleSchema: yup.AnyObjectSchema
   createVehicleSchema: yup.AnyObjectSchema
-  getItemIdentifier: (
-    IdentifierType: string,
-    Identifier: string
-  ) => Promise<string>
 }
 
 type ProviderProps = {
@@ -232,7 +93,12 @@ type ProviderProps = {
 }
 
 type SlidePanelStateType = {
-  type: 'ownership' | 'vehicle' | 'proposal' | 'createVehicle'
+  type:
+    | 'ownership'
+    | 'ownershipSingle'
+    | 'vehicle'
+    | 'proposal'
+    | 'createVehicle'
   open: boolean
 }
 
@@ -245,42 +111,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     open: false,
     type: 'ownership'
   })
+  const [totalValue, setTotalValue] = useState(0)
 
-  const [categories, setCategories] = useState([
-    {
-      title: 'Resumo',
-      type: 'Resume'
-    },
-    {
-      title: 'Geral',
-      type: 'General'
-    }
-  ])
+  const [categories, setCategories] = useState([])
 
-  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+  const [selectedCategory, setSelectedCategory] = useState(categories?.[0])
 
   const router = useRouter()
-
-  const [createProposal, { loading: createProposalLoading }] = useTypedMutation(
-    {
-      insert_propostas_Propostas_one: [
-        {
-          object: {
-            Id: $`Id`,
-            Veiculos: {
-              data: $`veiculosData`
-            },
-            Lead_Id: $`Lead_Id`,
-            Ticket_Id: $`Ticket_Id`,
-            Usuario_Id: $`Usuario_Id`,
-            Situacao_Id: propostas_Propostas_Situacoes_enum.criado,
-            Cliente_Id: $`Cliente_Id`
-          }
-        },
-        { Id: true }
-      ]
-    }
-  )
 
   const {
     data: clientData,
@@ -295,9 +132,28 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           Id: true,
           Pessoa: {
+            Id: true,
             Nome: true,
             Identificador: true,
-            PessoaJuridica: true
+            PessoaJuridica: true,
+            Profissao: true,
+            DataCriacao: true,
+            DataNascimento: true,
+            Sexo: true,
+            DadosDaApi: [{}, true],
+            Documentos: [
+              {
+                where: {
+                  deleted_at: { _is_null: true },
+                  Situacao_Id: {
+                    _eq: identidades_Clientes_Documentos_Situacoes_enum.aprovado
+                  }
+                }
+              },
+              {
+                Nome: true
+              }
+            ]
           },
           VeiculosAtivos: [
             {
@@ -306,22 +162,147 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               }
             },
             {
+              PossuiGNV: true,
               Id: true,
               OS_Id: true,
               Situacao_Id: true,
-              Beneficios: [
+              Planos: [
+                { where: { deleted_at: { _is_null: true } } },
                 {
-                  where: {
-                    deleted_at: { _is_null: true }
-                  }
-                },
+                  Plano_Id: true,
+                  PlanoPreco_Id: true,
+                  DataDeAtivacao: true,
+                  DataDeDesativacao: true,
+                  VeiculoAtivoCombo_Id: true,
+                  Ativo: true,
+                  Produtos: [
+                    {
+                      where: {
+                        deleted_at: { _is_null: true }
+                      }
+                    },
+                    {
+                      PrecoDeAdesao_Id: true,
+                      PrecoDeRecorrencia_Id: true,
+                      Produto_Id: true,
+                      Identificador: true,
+                      TipoItem_Id: true,
+                      DataDeAtivacao: true,
+                      DataDeDesativacao: true,
+                      Quantidade: true,
+                      VeiculoAtivoCombo_Id: true,
+                      VeiculoAtivoPlano_Id: true
+                    }
+                  ],
+                  Servicos: [
+                    {
+                      where: {
+                        deleted_at: { _is_null: true }
+                      }
+                    },
+                    {
+                      Servico_Id: true,
+                      PrecoDeAdesao_Id: true,
+                      PrecoDeRecorrencia_Id: true,
+                      DataDeAtivacao: true,
+                      DataDeDesativacao: true,
+                      Beneficio: true,
+                      VeiculoAtivoCombo_Id: true,
+                      VeiculoAtivoPlano_Id: true
+                    }
+                  ]
+                }
+              ],
+              Combos: [
+                { where: { deleted_at: { _is_null: true } } },
                 {
-                  Id: true,
-                  Portfolio_Id: true,
-                  TipoPortfolio: true,
-                  PortfolioPreco_Id: true,
-                  PrecoDeAdesao_Id: true,
-                  PrecoDeRecorrencia_Id: true
+                  Combo_Id: true,
+                  ComboPreco_Id: true,
+                  DataDeAtivacao: true,
+                  DataDeDesativacao: true,
+                  Ativo: true,
+                  Planos: [
+                    { where: { deleted_at: { _is_null: true } } },
+                    {
+                      Plano_Id: true,
+                      PlanoPreco_Id: true,
+                      DataDeAtivacao: true,
+                      DataDeDesativacao: true,
+                      VeiculoAtivoCombo_Id: true,
+                      Produtos: [
+                        {
+                          where: {
+                            deleted_at: { _is_null: true }
+                          }
+                        },
+                        {
+                          PrecoDeAdesao_Id: true,
+                          PrecoDeRecorrencia_Id: true,
+                          Produto_Id: true,
+                          Identificador: true,
+                          TipoItem_Id: true,
+                          DataDeAtivacao: true,
+                          DataDeDesativacao: true,
+                          Quantidade: true,
+                          VeiculoAtivoCombo_Id: true,
+                          VeiculoAtivoPlano_Id: true
+                        }
+                      ],
+                      Servicos: [
+                        {
+                          where: {
+                            deleted_at: { _is_null: true }
+                          }
+                        },
+                        {
+                          Servico_Id: true,
+                          PrecoDeAdesao_Id: true,
+                          PrecoDeRecorrencia_Id: true,
+                          DataDeAtivacao: true,
+                          DataDeDesativacao: true,
+                          Beneficio: true,
+                          VeiculoAtivoCombo_Id: true,
+                          VeiculoAtivoPlano_Id: true
+                        }
+                      ]
+                    }
+                  ],
+                  Produtos: [
+                    {
+                      where: {
+                        deleted_at: { _is_null: true }
+                      }
+                    },
+                    {
+                      PrecoDeAdesao_Id: true,
+                      PrecoDeRecorrencia_Id: true,
+                      Produto_Id: true,
+                      Identificador: true,
+                      TipoItem_Id: true,
+                      DataDeAtivacao: true,
+                      DataDeDesativacao: true,
+                      Quantidade: true,
+                      VeiculoAtivoCombo_Id: true,
+                      VeiculoAtivoPlano_Id: true
+                    }
+                  ],
+                  Servicos: [
+                    {
+                      where: {
+                        deleted_at: { _is_null: true }
+                      }
+                    },
+                    {
+                      Servico_Id: true,
+                      PrecoDeAdesao_Id: true,
+                      PrecoDeRecorrencia_Id: true,
+                      DataDeAtivacao: true,
+                      DataDeDesativacao: true,
+                      Beneficio: true,
+                      VeiculoAtivoCombo_Id: true,
+                      VeiculoAtivoPlano_Id: true
+                    }
+                  ]
                 }
               ],
               Produtos: [
@@ -335,7 +316,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                   PrecoDeRecorrencia_Id: true,
                   Produto_Id: true,
                   Identificador: true,
-                  TipoItem_Id: true
+                  TipoItem_Id: true,
+                  DataDeAtivacao: true,
+                  DataDeDesativacao: true,
+                  Quantidade: true,
+                  VeiculoAtivoCombo_Id: true,
+                  VeiculoAtivoPlano_Id: true,
+                  Ativo: true,
                 }
               ],
               Servicos: [
@@ -347,7 +334,13 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 {
                   Servico_Id: true,
                   PrecoDeAdesao_Id: true,
-                  PrecoDeRecorrencia_Id: true
+                  PrecoDeRecorrencia_Id: true,
+                  DataDeAtivacao: true,
+                  DataDeDesativacao: true,
+                  Beneficio: true,
+                  VeiculoAtivoCombo_Id: true,
+                  VeiculoAtivoPlano_Id: true,
+                  Ativo: true,
                 }
               ],
               Situacao: {
@@ -362,7 +355,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 NumeroDoChassi: true
               }
             }
-          ]
+          ],
+          FormaDePagamento_Id: true,
+          DiaDeFaturamento_Id: true
         }
       ]
     },
@@ -386,7 +381,14 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           Id: true,
           Apelido: true,
           NumeroDoChassi: true,
-          Placa: true
+          Placa: true,
+          VeiculosAtivos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Id: true,
+              Situacao_Id: true
+            }
+          ]
         }
       ]
     },
@@ -419,277 +421,94 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
   )
 
-  async function getUserByClientId(Id: string) {
-    const { data } = await useTypedClientQuery(
-      {
-        autenticacao_Usuarios: [
-          {
-            where: { deleted_at: { _is_null: true }, Cliente_Id: { _eq: Id } }
-          },
-          {
-            Id: true
+  const {
+    data: phonesData,
+    loading: phonesLoading,
+    refetch: phonesRefetch
+  } = useTypedQuery(
+    {
+      contatos_Telefones: [
+        {
+          where: {
+            deleted_at: { _is_null: true },
+            Identidades: { _contains: $`cliente` }
           }
-        ]
+        },
+        {
+          Id: true,
+          Telefone: true
+        }
+      ]
+    },
+    {
+      variables: {
+        cliente: { cliente: router.query.id }
       },
-      { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-    )
-    return data.autenticacao_Usuarios
-  }
-
-  async function getProductById(
-    productId: string,
-    priceId: string,
-    secondPriceId?: string
-  ) {
-    const { data } = await useTypedClientQuery({
-      comercial_Produtos_by_pk: [
-        {
-          Id: productId
-        },
-        {
-          Id: true,
-          Nome: true
-        }
-      ]
-    })
-
-    return {
-      product: data.comercial_Produtos_by_pk,
-      price: priceId ? await getProductPriceById(priceId) : null,
-      secondPrice: secondPriceId
-        ? await getProductPriceById(secondPriceId)
-        : null
+      fetchPolicy: 'no-cache',
+      notifyOnNetworkStatusChange: true
     }
-  }
+  )
 
-  async function getProductPriceById(priceId: string) {
-    const { data } = await useTypedClientQuery({
-      comercial_PrestadoresDeServicos_Produtos_Precos_by_pk: [
+  const {
+    data: addressData,
+    loading: addressLoading,
+    refetch: addressRefetch
+  } = useTypedQuery(
+    {
+      contatos_Enderecos: [
         {
-          Id: priceId
+          where: {
+            deleted_at: { _is_null: true },
+            Identidades: { _contains: $`cliente` }
+          }
         },
         {
           Id: true,
-          Valor: true,
-          TipoDePreco: { Valor: true }
+          Bairro: true,
+          Cep: true,
+          Numero: true,
+          Logradouro: true,
+          Cidade: { Nome: true },
+          Estado: { Nome: true }
         }
       ]
-    })
-
-    return data.comercial_PrestadoresDeServicos_Produtos_Precos_by_pk
-  }
-
-  async function getPlanById(planId: string, priceId: string) {
-    const { data } = await useTypedClientQuery({
-      comercial_Planos_by_pk: [
-        {
-          Id: planId
-        },
-        {
-          Id: true,
-          Nome: true
-        }
-      ],
-      comercial_Planos_Precos_by_pk: [
-        {
-          Id: priceId
-        },
-        {
-          Id: true,
-          ValorDeAdesao: true,
-          ValorDeRecorrencia: true
-        }
-      ]
-    })
-
-    return {
-      plan: data.comercial_Planos_by_pk,
-      price: data.comercial_Planos_Precos_by_pk
-    }
-  }
-
-  async function getComboById(comboId: string, priceId: string) {
-    const { data } = await useTypedClientQuery({
-      comercial_Combos_by_pk: [
-        {
-          Id: comboId
-        },
-        {
-          Id: true,
-          Nome: true,
-          Planos: [
-            { where: { deleted_at: { _is_null: true } } },
-            {
-              Plano_Id: true
-            }
-          ],
-          Produtos: [
-            { where: { deleted_at: { _is_null: true } } },
-            {
-              Produto_Id: true
-            }
-          ],
-          Servicos: [
-            { where: { deleted_at: { _is_null: true } } },
-            {
-              Servico_Id: true
-            }
-          ]
-        }
-      ],
-      comercial_Combos_Precos_by_pk: [
-        {
-          Id: priceId
-        },
-        {
-          Id: true,
-          ValorDeAdesao: true,
-          ValorDeRecorrencia: true
-        }
-      ]
-    })
-
-    return {
-      combo: data.comercial_Combos_by_pk,
-      price: data.comercial_Combos_Precos_by_pk
-    }
-  }
-
-  async function getServiceById(
-    serviceId: string,
-    priceId: string,
-    secondPriceId?: string
-  ) {
-    const { data } = await useTypedClientQuery({
-      comercial_Servicos_by_pk: [
-        {
-          Id: serviceId
-        },
-        {
-          Id: true,
-          Nome: true,
-          GeraOS: true
-        }
-      ]
-    })
-
-    return {
-      service: data.comercial_Servicos_by_pk,
-      price: priceId ? await getServicePriceById(priceId) : null,
-      secondPrice: secondPriceId
-        ? await getServicePriceById(secondPriceId)
-        : null
-    }
-  }
-
-  async function getServicePriceById(priceId: string) {
-    const { data } = await useTypedClientQuery({
-      comercial_PrestadoresDeServicos_Servicos_Precos_by_pk: [
-        {
-          Id: priceId
-        },
-        {
-          Id: true,
-          Valor: true,
-          TipoDePreco: { Valor: true }
-        }
-      ]
-    })
-
-    return data.comercial_PrestadoresDeServicos_Servicos_Precos_by_pk
-  }
-
-  async function getFranquiaById(Id: string) {
-    const { data } = await useTypedClientQuery({
-      comercial_PrestadoresDeServicos_by_pk: [
-        {
-          Id
-        },
-        {
-          Id: true,
-          Nome: true
-        }
-      ]
-    })
-
-    return data.comercial_PrestadoresDeServicos_by_pk
-  }
-
-  async function getItemIdentifier(IdentifierType: string, Identifier: string) {
-    if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname
-      let value = ''
-      switch (IdentifierType) {
-        case 'chips':
-          await axios
-            .get(
-              `http://${hostname}:3002/api/identificaveis/chips?Id=${Identifier}`
-            )
-            .then(({ data }) => {
-              value = data.data.NumeroDaLinha
-            })
-          break
-        case 'equipamentos':
-          await axios
-            .get(
-              `http://${hostname}:3002/api/identificaveis/equipment?Id=${Identifier}`
-            )
-            .then(({ data }) => {
-              value = data.data.Imei
-            })
-          break
-        case 'identificadores':
-          await axios
-            .get(
-              `http://${hostname}:3002/api/identificaveis/identifier?Id=${Identifier}`
-            )
-            .then(({ data }) => {
-              value = data.data.CodigoIdentificador
-            })
-          break
-        case 'rastreadores':
-          await axios
-            .get(
-              `http://${hostname}:3002/api/identificaveis/tracker?Id=${Identifier}`
-            )
-            .then(({ data }) => {
-              value =
-                'RTDR - ' +
-                data.data.CodigoReferencia +
-                ' - ' +
-                data.data.Chip.NumeroDaLinha +
-                ' - ' +
-                data.data.Equipamento.Imei
-            })
-          break
-        case 'kitsDeInsumo':
-          await axios
-            .get(
-              `http://${hostname}:3002/api/identificaveis/inputKits?Id=${Identifier}`
-            )
-            .then(({ data }) => {
-              value = 'KTISM - ' + data.data.CodigoReferencia
-            })
-          break
-        case 'kitsDeInstalacao':
-          await axios
-            .get(
-              `http://${hostname}:3002/api/identificaveis/installationKits?Id=${Identifier}`
-            )
-            .then(({ data }) => {
-              value =
-                'KTIST - ' +
-                data.data.CodigoReferencia +
-                ' - ' +
-                data.data.Rastreador.Chip.NumeroDaLinha +
-                ' - ' +
-                data.data.Rastreador.Equipamento.Imei
-            })
-          break
+    },
+    {
+      variables: {
+        cliente: { cliente: router.query.id },
+        fetchPolicy: 'no-cache',
+        notifyOnNetworkStatusChange: true
       }
-      return value
     }
-  }
+  )
+
+  const {
+    data: emailsData,
+    refetch: emailsRefetch,
+    loading: emailsLoading
+  } = useTypedQuery(
+    {
+      contatos_Emails: [
+        {
+          where: {
+            deleted_at: { _is_null: true },
+            Identidades: { _contains: $`cliente` }
+          }
+        },
+        {
+          Id: true,
+          Email: true
+        }
+      ]
+    },
+    {
+      variables: {
+        cliente: { cliente: router.query.id }
+      },
+      fetchPolicy: 'no-cache',
+      notifyOnNetworkStatusChange: true
+    }
+  )
 
   const changeVehicleSchema = yup.object().shape({
     Veiculo1: yup.object().required('Preencha o campo para continuar'),
@@ -703,22 +522,14 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
   return (
     <UpdateContext.Provider
       value={{
-        getServiceById,
         slidePanelState,
         setSlidePanelState,
         clientData: clientData?.identidades_Clientes_by_pk,
         clientRefetch,
         clientLoading,
-        getFranquiaById,
-        getProductById,
-        getPlanById,
-        getComboById,
-        createProposal,
-        createProposalLoading,
         userAndTicketData,
         userAndTicketLoading,
         userAndTicketRefetch,
-        getUserByClientId,
         changeVehicleSchema,
         vehiclesData: vehiclesData?.clientes_Veiculos,
         vehiclesLoading,
@@ -728,7 +539,17 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         setCategories,
         selectedCategory,
         setSelectedCategory,
-        getItemIdentifier
+        phonesData: phonesData?.contatos_Telefones,
+        phonesLoading,
+        phonesRefetch,
+        addressData: addressData?.contatos_Enderecos,
+        addressLoading,
+        addressRefetch,
+        emailsData: emailsData?.contatos_Emails,
+        emailsRefetch,
+        emailsLoading,
+        totalValue,
+        setTotalValue
       }}
     >
       {children}

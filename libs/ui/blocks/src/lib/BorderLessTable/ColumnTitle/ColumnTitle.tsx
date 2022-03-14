@@ -14,8 +14,8 @@ export function ColumnTitle({
           <th
             key={`table-title-${index}`}
             className={`${
-              index !== 0 ? 'text-right' : ''
-            } border-b-2 dark:border-dark-5 whitespace-nowrap`}
+              index !== 0 ? 'text-left' : ''
+            } border-b-2 dark:border-dark-5 whitespace-nowrap !px-1`}
           >
             {item.title}
           </th>

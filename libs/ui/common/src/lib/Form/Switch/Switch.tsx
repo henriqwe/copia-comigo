@@ -5,13 +5,15 @@ type SwitchProps = {
   onChange: () => void
   alt?: string
   size?: 'big' | 'medium' | 'small'
+  disabled?: boolean
 }
 
 export function Switch({
   value,
   onChange,
   alt = 'switch',
-  size = 'big'
+  size = 'big',
+  disabled = false
 }: SwitchProps) {
   let switchListWidth
   let switchListHeight
@@ -46,13 +48,16 @@ export function Switch({
       checked={value}
       onChange={onChange}
       className={`${value ? 'bg-success' : 'bg-gray-400'}
-relative inline-flex flex-shrink-0 ${switchListHeight} ${switchListWidth} border-0 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75 items-center`}
+relative inline-flex flex-shrink-0 ${switchListHeight} ${switchListWidth} border-0 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75 items-center disabled:bg-gray-600`}
+      disabled={disabled}
     >
       <span className="sr-only">{alt}</span>
       <span
         aria-hidden="true"
         className={`${value ? translateX : 'translate-x-0'}
-pointer-events-none inline-block ${switchButtonHeight} ${switchButtonWidth} rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200`}
+pointer-events-none inline-block ${switchButtonHeight} ${switchButtonWidth} rounded-full  shadow-lg transform ring-0 transition ease-in-out duration-200 ${
+          disabled ? 'bg-gray-400' : 'bg-white'
+        }`}
       />
     </SwitchHeadLess>
   )

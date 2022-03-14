@@ -1,5 +1,5 @@
 import * as vehicles from '&crm/domains/services/Vehicles'
-import * as clients from '&crm/domains/identities/Clients'
+import * as clients from '&crm/domains/clients'
 
 import * as templates from '@comigo/ui-templates'
 import rotas from '&crm/domains/routes'
@@ -10,19 +10,19 @@ import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function Vehicles() {
   return (
     <vehicles.VehicleProvider>
-      <clients.ListProvider>
+      <clients.ClientProvider>
         <ThemeProvider>
           {' '}
           <Page />{' '}
         </ThemeProvider>
-      </clients.ListProvider>
+      </clients.ClientProvider>
     </vehicles.VehicleProvider>
   )
 }
 
 export function Page() {
   const { vehiclesRefetch, vehiclesLoading } = vehicles.useVehicle()
-  const { clientsRefetch } = clients.useList()
+  const { clientsRefetch } = clients.useClient()
   const refetch = () => {
     clientsRefetch()
     vehiclesRefetch()

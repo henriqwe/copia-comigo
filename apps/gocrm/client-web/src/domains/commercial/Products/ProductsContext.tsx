@@ -3,15 +3,15 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
-import { GraphQLTypes, order_by } from '&crm/graphql/generated/zeus';
+  OperationVariables
+} from '@apollo/client'
+import { GraphQLTypes, order_by } from '&crm/graphql/generated/zeus'
 import {
   $,
   useTypedClientQuery,
   useTypedMutation,
-  useTypedQuery,
-} from '&crm/graphql/generated/zeus/apollo';
+  useTypedQuery
+} from '&crm/graphql/generated/zeus/apollo'
 import {
   createContext,
   Dispatch,
@@ -19,147 +19,147 @@ import {
   SetStateAction,
   useContext,
   useEffect,
-  useState,
-} from 'react';
-import * as yup from 'yup';
-import { AssertsShape, Assign, ObjectShape, TypeOfShape } from 'yup/lib/object';
-import { RequiredStringSchema } from 'yup/lib/string';
+  useState
+} from 'react'
+import * as yup from 'yup'
+import { AssertsShape, Assign, ObjectShape, TypeOfShape } from 'yup/lib/object'
+import { RequiredStringSchema } from 'yup/lib/string'
 
 type ProductContextProps = {
-  slidePanelState: SlidePanelStateType;
-  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>;
-  productsData?: Product[];
-  productsRefetch: () => void;
-  productsLoading: boolean;
-  filteredProducts?: FilteredManufacturers;
-  filters: { limit: number; offset: number; currentPage: number; where: any };
+  slidePanelState: SlidePanelStateType
+  setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
+  productsData?: Product[]
+  productsRefetch: () => void
+  productsLoading: boolean
+  filteredProducts?: FilteredManufacturers
+  filters: { limit: number; offset: number; currentPage: number; where: any }
   setFilters: Dispatch<
     SetStateAction<{
-      limit: number;
-      offset: number;
-      currentPage: number;
-      where: any;
+      limit: number
+      offset: number
+      currentPage: number
+      where: any
     }>
-  >;
+  >
 
   vehicleCategoriesData?: {
-    Id: string;
-    Nome: string;
-  }[];
-  vehicleCategoriesRefetch: () => void;
-  vehicleCategoriesLoading: boolean;
+    Id: string
+    Nome: string
+  }[]
+  vehicleCategoriesRefetch: () => void
+  vehicleCategoriesLoading: boolean
   productTypesData?: {
-    Comentario: string;
-    Valor: string;
-  }[];
-  productTypesRefetch: () => void;
-  productTypesLoading: boolean;
+    Comentario: string
+    Valor: string
+  }[]
+  productTypesRefetch: () => void
+  productTypesLoading: boolean
   createProduct: (
     options?: MutationFunctionOptions<
       {
         insert_comercial_Produtos_one?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  createProductLoading: boolean;
-  softDeleteProductLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  createProductLoading: boolean
+  softDeleteProductLoading: boolean
   softDeleteProduct: (
     options?: MutationFunctionOptions<
       {
         update_comercial_Produtos_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
+  ) => Promise<FetchResult['data']>
   productSchema: yup.ObjectSchema<
     Assign<
       ObjectShape,
       {
-        Nome: RequiredStringSchema<string | undefined, Record<string, string>>;
+        Nome: RequiredStringSchema<string | undefined, Record<string, string>>
       }
     >,
     Record<string, string>,
     TypeOfShape<{
-      Nome: RequiredStringSchema<string | undefined, Record<string, string>>;
+      Nome: RequiredStringSchema<string | undefined, Record<string, string>>
     }>,
     AssertsShape<{
-      Nome: RequiredStringSchema<string | undefined, Record<string, string>>;
+      Nome: RequiredStringSchema<string | undefined, Record<string, string>>
     }>
-  >;
-};
+  >
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 type SlidePanelStateType = {
-  data?: GraphQLTypes['comercial_Produtos'] | null;
-  open: boolean;
-};
+  data?: GraphQLTypes['comercial_Produtos'] | null
+  open: boolean
+}
 
 type FilteredManufacturers = {
-  comercial_Produtos: Product[];
+  comercial_Produtos: Product[]
   comercial_Produtos_aggregate: {
     aggregate?: {
-      count: number;
-    };
+      count: number
+    }
     nodes: {
-      Id: string;
-    }[];
-  };
-};
+      Id: string
+    }[]
+  }
+}
 
 type Product = {
-  Id: string;
-  Nome: string;
+  Id: string
+  Nome: string
   Tipo: {
-    Valor: string;
-    Comentario: string;
-  };
+    Valor: string
+    Comentario: string
+  }
   Categorias: {
-    key: string;
-    title: string;
-  }[];
+    key: string
+    title: string
+  }[]
   ProdutosQueDependo: {
-    Id: string;
+    Id: string
     ProdutoDependente: {
-      Nome: string;
-    };
-  }[];
+      Nome: string
+    }
+  }[]
   Servicos_Produtos: {
-    Id: string;
+    Id: string
     Servico: {
-      Nome: string;
-    };
-  }[];
-  Fornecedores: { Id: string; Precos: { Id: string; Valor: string }[] }[];
-};
+      Nome: string
+    }
+  }[]
+  Fornecedores: { Id: string; Precos: { Id: string; Valor: string }[] }[]
+}
 
 export const ProductContext = createContext<ProductContextProps>(
   {} as ProductContextProps
-);
+)
 
 export const ProductProvider = ({ children }: ProviderProps) => {
   const [filters, setFilters] = useState({
     limit: 10,
     offset: 0,
     currentPage: 1,
-    where: { deleted_at: { _is_null: true } },
-  });
+    where: { deleted_at: { _is_null: true } }
+  })
   const [filteredProducts, setFilteredProducts] =
-    useState<FilteredManufacturers>();
+    useState<FilteredManufacturers>()
   const [slidePanelState, setSlidePanelState] = useState<SlidePanelStateType>({
-    open: false,
-  });
+    open: false
+  })
 
   const [createProduct, { loading: createProductLoading }] = useTypedMutation({
     insert_comercial_Produtos_one: [
@@ -169,12 +169,12 @@ export const ProductProvider = ({ children }: ProviderProps) => {
           Categorias: $`Categorias`,
           ServicoDeInstalacao_Id: $`ServicoDeInstalacao_Id`,
           ServicoDeDesinstalacao_Id: $`ServicoDeDesinstalacao_Id`,
-          Tipo_Id: $`Tipo_Id`,
-        },
+          Tipo_Id: $`Tipo_Id`
+        }
       },
-      { Id: true },
-    ],
-  });
+      { Id: true }
+    ]
+  })
 
   const [softDeleteProduct, { loading: softDeleteProductLoading }] =
     useTypedMutation({
@@ -182,107 +182,107 @@ export const ProductProvider = ({ children }: ProviderProps) => {
         {
           pk_columns: { Id: $`Id` },
           _set: {
-            deleted_at: new Date(),
-          },
+            deleted_at: new Date()
+          }
         },
         {
-          Id: true,
-        },
-      ],
-    });
+          Id: true
+        }
+      ]
+    })
 
   const {
     data: productsData,
     refetch: productsRefetch,
-    loading: productsLoading,
+    loading: productsLoading
   } = useTypedQuery(
     {
       comercial_Produtos: [
         {
-          order_by: [{ created_at: 'desc' }],
-          where: { deleted_at: { _is_null: true } },
+          order_by: [{ created_at: order_by.desc }],
+          where: { deleted_at: { _is_null: true } }
         },
         {
           Id: true,
           Nome: true,
-          Categorias: true,
+          Categorias: [{}, true],
           Tipo: {
             Valor: true,
-            Comentario: true,
+            Comentario: true
           },
           ProdutosQueDependo: [
             {
               where: {
-                deleted_at: { _is_null: true },
-              },
+                deleted_at: { _is_null: true }
+              }
             },
             {
               Id: true,
-              ProdutoDependente: { Nome: true },
-            },
+              ProdutoDependente: { Nome: true }
+            }
           ],
           Servicos_Produtos: [
             {
               where: {
-                deleted_at: { _is_null: true },
-              },
+                deleted_at: { _is_null: true }
+              }
             },
             {
               Id: true,
               Servico: {
-                Nome: true,
-              },
-            },
+                Nome: true
+              }
+            }
           ],
           Fornecedores: [
             {},
             {
               Id: true,
               Precos: [
-                { order_by: [{ created_at: 'desc' }] },
-                { Id: true, Valor: true },
-              ],
-            },
-          ],
-        },
-      ],
+                { order_by: [{ created_at: order_by.desc }] },
+                { Id: true, Valor: true }
+              ]
+            }
+          ]
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const {
     data: vehicleCategoriesData,
     refetch: vehicleCategoriesRefetch,
-    loading: vehicleCategoriesLoading,
+    loading: vehicleCategoriesLoading
   } = useTypedQuery(
     {
       CategoriasDeVeiculos: [
         {},
         {
           Id: true,
-          Nome: true,
-        },
-      ],
+          Nome: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const {
     data: productTypesData,
     refetch: productTypesRefetch,
-    loading: productTypesLoading,
+    loading: productTypesLoading
   } = useTypedQuery(
     {
       comercial_Produtos_Tipos: [
         {},
         {
           Comentario: true,
-          Valor: true,
-        },
-      ],
+          Valor: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const productSchema = yup.object().shape({
     Nome: yup.string().required('Preencha o campo para continuar'),
@@ -292,8 +292,8 @@ export const ProductProvider = ({ children }: ProviderProps) => {
       .required('Selecione pelo menos uma categoria para continuar'),
     Tipo: yup
       .object()
-      .required('Selecione pelo menos uma categoria para continuar'),
-  });
+      .required('Selecione pelo menos uma categoria para continuar')
+  })
 
   async function getFilteredProducts() {
     const { data } = await useTypedClientQuery(
@@ -303,7 +303,7 @@ export const ProductProvider = ({ children }: ProviderProps) => {
             order_by: [{ created_at: order_by.desc }],
             where: filters.where,
             limit: filters.limit,
-            offset: filters.offset,
+            offset: filters.offset
           },
           {
             Id: true,
@@ -311,31 +311,31 @@ export const ProductProvider = ({ children }: ProviderProps) => {
             Categorias: [{ path: undefined }, true],
             Tipo: {
               Valor: true,
-              Comentario: true,
+              Comentario: true
             },
             ProdutosQueDependo: [
               {
                 where: {
-                  deleted_at: { _is_null: true },
-                },
+                  deleted_at: { _is_null: true }
+                }
               },
               {
                 Id: true,
-                ProdutoDependente: { Nome: true },
-              },
+                ProdutoDependente: { Nome: true }
+              }
             ],
             Servicos_Produtos: [
               {
                 where: {
-                  deleted_at: { _is_null: true },
-                },
+                  deleted_at: { _is_null: true }
+                }
               },
               {
                 Id: true,
                 Servico: {
-                  Nome: true,
-                },
-              },
+                  Nome: true
+                }
+              }
             ],
             Fornecedores: [
               {},
@@ -343,34 +343,34 @@ export const ProductProvider = ({ children }: ProviderProps) => {
                 Id: true,
                 Precos: [
                   { order_by: [{ created_at: order_by.desc }] },
-                  { Id: true, Valor: true },
-                ],
-              },
-            ],
-          },
+                  { Id: true, Valor: true }
+                ]
+              }
+            ]
+          }
         ],
         comercial_Produtos_aggregate: [
           {
-            where: filters.where,
+            where: filters.where
           },
           {
             aggregate: {
-              count: [{ columns: undefined, distinct: undefined }, true],
+              count: [{ columns: undefined, distinct: undefined }, true]
             },
             nodes: {
-              Id: true,
-            },
-          },
-        ],
+              Id: true
+            }
+          }
+        ]
       },
       { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-    );
-    setFilteredProducts(data);
+    )
+    setFilteredProducts(data)
   }
 
   useEffect(() => {
-    getFilteredProducts();
-  }, [filters, productsData]);
+    getFilteredProducts()
+  }, [filters, productsData])
 
   return (
     <ProductContext.Provider
@@ -393,14 +393,14 @@ export const ProductProvider = ({ children }: ProviderProps) => {
         productSchema,
         setFilters,
         filters,
-        filteredProducts,
+        filteredProducts
       }}
     >
       {children}
     </ProductContext.Provider>
-  );
-};
+  )
+}
 
 export const useProduct = () => {
-  return useContext(ProductContext);
-};
+  return useContext(ProductContext)
+}

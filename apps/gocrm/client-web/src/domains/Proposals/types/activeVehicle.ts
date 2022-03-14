@@ -6,13 +6,19 @@ export type ActiveVehicleDataType = {
   Situacao: {
     Valor: string
   }
-  Beneficios: {
+  Combos: {
     Id: string
-    Portfolio_Id: string
-    PortfolioPreco_Id?: string
-    TipoPortfolio: string
-    PrecoDeAdesao_Id?: string
-    PrecoDeRecorrencia_Id?: string
+    Ativo: boolean
+    ComboPreco_Id: string
+    Combo_Id: string
+  }[]
+
+  Planos: {
+    Id: string
+    Ativo: boolean
+    PlanoPreco_Id?: string
+    Plano_Id: string
+    VeiculoAtivoCombo_Id?: string
   }[]
 
   Produtos: {
@@ -23,6 +29,8 @@ export type ActiveVehicleDataType = {
     PrecoDeRecorrencia_Id?: string
     Identificador?: string
     TipoItem_Id?: string
+    VeiculoAtivoCombo_Id?: string
+    VeiculoAtivoPlano_Id?: string
   }[]
 
   Servicos: {
@@ -31,5 +39,8 @@ export type ActiveVehicleDataType = {
     Servico_Id: string
     PrecoDeAdesao_Id?: string
     PrecoDeRecorrencia_Id?: string
+    Beneficio: boolean
+    VeiculoAtivoCombo_Id?: string
+    VeiculoAtivoPlano_Id?: string
   }[]
 }

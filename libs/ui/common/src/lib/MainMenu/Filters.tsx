@@ -1,34 +1,35 @@
-import { useEffect, useState } from 'react'
+import * as common from '@comigo/ui-common'
+import Filter from './Filter'
 
 type FiltrosProps = {
   item: {
-    url?: string
-    handler?: () => any
     title: string
+    children?: {
+      url?: string
+      handler?: (reset?: boolean) => any
+      title: string
+    }[]
   }
   disabledAll: boolean
+  noSeparator?: boolean
 }
 
-export default function Filters({ item, disabledAll }: FiltrosProps) {
-  const [active, setActive] = useState(false)
-
-  useEffect(() => {
-    setActive(false)
-  }, [disabledAll])
+export default function Filters({
+  item,
+  disabledAll,
+  noSeparator = false
+}: FiltrosProps) {
   return (
-    <div
-      className="flex items-center px-3 py-2 rounded-md cursor-pointer"
-      onClick={() => {
-        item.handler && item.handler()
-        setActive(true)
-      }}
-    >
-      <div
-        className={`w-2 h-2 mr-3 rounded-full ${
-          active ? 'bg-green-500' : 'bg-orange-400'
-        }`}
-      />
-      {item.title}
+    <div>
+      {!noSeparator && <common.Separator className="!border-gray-200" />}
+      <p className="text-gray-600">{item.title}</p>
+      {item.children?.map((subItem) => (
+        <Filter
+          subItem={subItem}
+          disabledAll={disabledAll}
+          key={subItem.title}
+        />
+      ))}
     </div>
   )
 }

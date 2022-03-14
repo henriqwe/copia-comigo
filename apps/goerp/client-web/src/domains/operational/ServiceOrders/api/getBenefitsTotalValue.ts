@@ -20,7 +20,7 @@ export async function getBenefitsTotalValue({
     totalPrice += Number(benefit.RecurrencePrice)
   })
   await Promise.all(
-    serviceOrderData.Produtos?.map(async (product) => {
+    serviceOrderData?.Produtos?.map(async (product) => {
       if (product.PrecoDeRecorrencia_Id) {
         const price = await queries.getProductPriceById(
           product.PrecoDeRecorrencia_Id
@@ -30,7 +30,7 @@ export async function getBenefitsTotalValue({
     })
   )
   await Promise.all(
-    serviceOrderData.Servicos?.map(async (service) => {
+    serviceOrderData?.Servicos?.map(async (service) => {
       if (service.PrecoDeRecorrencia_Id) {
         const price = await queries.getServicePriceById(
           service.PrecoDeRecorrencia_Id

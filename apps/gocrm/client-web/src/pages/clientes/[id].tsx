@@ -1,5 +1,4 @@
 import * as activeVehicles from '&crm/domains/clients'
-import * as clients from '&crm/domains/identities/Clients'
 import * as proposals from '&crm/domains/commercial/Proposals'
 import * as vehicles from '&crm/domains/services/Vehicles'
 import * as templates from '@comigo/ui-templates'
@@ -15,15 +14,29 @@ import { ThemeProvider, useTheme } from '&crm/contexts/ThemeContext'
 export default function UpdateProvider() {
   return (
     <activeVehicles.UpdateProvider>
-        <proposals.CreateProvider>
-          <clients.ListProvider>
-            <vehicles.VehicleProvider>
-              <ThemeProvider>
-                <Page />
-              </ThemeProvider>
-            </vehicles.VehicleProvider>
-          </clients.ListProvider>
-        </proposals.CreateProvider>
+      <proposals.CreateProvider>
+        <activeVehicles.ClientProvider>
+          <vehicles.VehicleProvider>
+            <activeVehicles.Addresses.AddressProvider>
+              <activeVehicles.Emails.EmailProvider>
+                <activeVehicles.Phones.PhoneProvider>
+                  <activeVehicles.UpdateProvider>
+                    <activeVehicles.Representative.RepresentativeProvider>
+                      <activeVehicles.Doucments.DocumentProvider>
+                        <activeVehicles.users.UserProvider>
+                          <ThemeProvider>
+                            <Page />
+                          </ThemeProvider>
+                        </activeVehicles.users.UserProvider>
+                      </activeVehicles.Doucments.DocumentProvider>
+                    </activeVehicles.Representative.RepresentativeProvider>
+                  </activeVehicles.UpdateProvider>
+                </activeVehicles.Phones.PhoneProvider>
+              </activeVehicles.Emails.EmailProvider>
+            </activeVehicles.Addresses.AddressProvider>
+          </vehicles.VehicleProvider>
+        </activeVehicles.ClientProvider>
+      </proposals.CreateProvider>
     </activeVehicles.UpdateProvider>
   )
 }
@@ -31,7 +44,7 @@ export default function UpdateProvider() {
 function Page() {
   const { theme, changeTheme } = useTheme()
   const { clientLoading, clientRefetch } = activeVehicles.useUpdate()
-  const { clientsRefetch } = clients.useList()
+  const { clientsRefetch } = activeVehicles.useClient()
 
   const refetch = () => {
     clientsRefetch()

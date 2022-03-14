@@ -67,7 +67,6 @@ export default function UpdateAction() {
     });
   }, [slidePanelState.data, reset]);
 
-  console.log(slidePanelState.data?.Etapas_Id);
 
   return (
     <form

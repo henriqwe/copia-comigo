@@ -2,6 +2,12 @@ table:
   name: OrdemDeServico_Servicos
   schema: operacional
 object_relationships:
+- name: OSCombo
+  using:
+    foreign_key_constraint_on: OrdemDeServicoCombo_Id
+- name: OSPlano
+  using:
+    foreign_key_constraint_on: OrdemDeServicoPlano_Id
 - name: OrdemDeServico
   using:
     foreign_key_constraint_on: OrdemDeServico_Id

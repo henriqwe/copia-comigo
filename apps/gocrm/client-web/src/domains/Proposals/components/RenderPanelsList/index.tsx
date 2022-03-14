@@ -3,17 +3,17 @@ import * as utils from '@comigo/utils'
 import * as proposals from '&crm/domains/Proposals'
 
 type RenderPanelsListProps = {
-  categories: {
+  tabsForPage: {
     id?: number
     title: string
     type: string
   }[]
 }
 // FIXME: verificar erro de renderizar mais hooks do que a renderização anterior
-export const RenderPanelsList = ({ categories }: RenderPanelsListProps) => {
+export const RenderPanelsList = ({ tabsForPage }: RenderPanelsListProps) => {
   return (
     <>
-      {categories.map((category) => (
+      {tabsForPage.map((category) => (
         <Tab.Panel
           key={category.title}
           className={utils.classNames('bg-white rounded-lg')}

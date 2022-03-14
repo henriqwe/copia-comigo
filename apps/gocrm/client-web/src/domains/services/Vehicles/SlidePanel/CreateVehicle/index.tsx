@@ -1,37 +1,37 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as vehicles from '&crm/domains/services/Vehicles';
-import * as clients from '&crm/domains/identities/Clients';
+import * as vehicles from '&crm/domains/services/Vehicles'
+import * as clients from '&crm/domains/clients'
 
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 
-import { useRouter } from 'next/router';
-import rotas from '&crm/domains/routes';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router'
+import rotas from '&crm/domains/routes'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 type FormData = {
-  Id: string;
-  Placa: string;
+  Id: string
+  Placa: string
   Categoria_Id: {
-    key: string;
-    title: string;
-  };
+    key: string
+    title: string
+  }
   Cliente_Id: {
-    key: string;
-    title: string;
-  };
-  Apelido: string;
-  Chassi: string;
-};
+    key: string
+    title: string
+  }
+  Apelido: string
+  Chassi: string
+}
 
 export default function CreateVehicle() {
-  const router = useRouter();
-  const [apiData, setApiData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const router = useRouter()
+  const [apiData, setApiData] = useState([])
+  const [loading, setLoading] = useState(false)
   const {
     createVehicleLoading,
     createVehicle,
@@ -41,23 +41,21 @@ export default function CreateVehicle() {
     vehicleSchema,
     getVehicleCategoryByName,
     vehicleCategory,
-    setVehicleCategory,
-  } = vehicles.useVehicle();
-  const { clientsData } = clients.useList();
+    setVehicleCategory
+  } = vehicles.useVehicle()
+  const { clientsData } = clients.useClient()
   const {
     handleSubmit,
     formState: { errors },
     control,
     register,
     setValue,
-    watch,
+    watch
   } = useForm({
-    resolver: yupResolver(vehicleSchema),
-  });
+    resolver: yupResolver(vehicleSchema)
+  })
   const onSubmit = async (formData: FormData) => {
-    const categoryId = await getVehicleCategoryByName(
-      formData.Categoria_Id.key
-    );
+    const categoryId = await getVehicleCategoryByName(formData.Categoria_Id.key)
     createVehicle({
       variables: {
         Placa: vehicleCategory === 'placa' ? formData.Placa : null,
@@ -68,38 +66,38 @@ export default function CreateVehicle() {
         Cliente_Id: formData.Cliente_Id ? formData.Cliente_Id.key : null,
         DadosDaApi: apiData,
         Apelido: formData.Apelido,
-        NumeroDoChassi: vehicleCategory === 'chassi' ? formData.Chassi : null,
-      },
+        NumeroDoChassi: vehicleCategory === 'chassi' ? formData.Chassi : null
+      }
     })
       .then(() => {
-        vehiclesRefetch();
+        vehiclesRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
+          return { ...oldState, open: false }
+        })
         utils.notification(
           formData.Apelido + ' cadastrado com sucesso',
           'success'
-        );
+        )
       })
-      .catch((error) => utils.showError(error));
-  };
+      .catch((error) => utils.showError(error))
+  }
 
   function disableSearchButton() {
     if (loading) {
-      return true;
+      return true
     }
     if (watch('Placa')) {
       if (watch('Placa')[7] !== '_') {
-        return false;
+        return false
       }
-      return true;
+      return true
     }
-    return true;
+    return true
   }
 
   useEffect(() => {
-    setValue('Categoria_Id', undefined);
-  }, [vehicleCategory]);
+    setValue('Categoria_Id', undefined)
+  }, [vehicleCategory])
 
   return (
     <form
@@ -116,7 +114,7 @@ export default function CreateVehicle() {
                 <div className="inline-flex items-center gap-4">
                   <p className="text-sm">Placa</p>
                 </div>
-              ),
+              )
             },
             {
               value: 'chassi',
@@ -124,8 +122,8 @@ export default function CreateVehicle() {
                 <div className="inline-flex items-center gap-4">
                   <p className="text-sm">Chassi</p>
                 </div>
-              ),
-            },
+              )
+            }
           ]}
           horizontal
           selectedValue={{
@@ -134,7 +132,7 @@ export default function CreateVehicle() {
               <div className="inline-flex items-center gap-4">
                 <p className="text-sm">Placa</p>
               </div>
-            ),
+            )
           }}
           setSelectedOption={setVehicleCategory}
         />
@@ -150,28 +148,28 @@ export default function CreateVehicle() {
             <common.buttons.SecondaryButton
               type="button"
               handler={async () => {
-                setLoading(true);
+                setLoading(true)
                 await axios
                   .get(
                     `${process.env.NEXT_PUBLIC_INFOCAR_URL}/api/acoes/cadastrar-veiculo`,
                     {
                       params: {
-                        licensePlate: watch('Placa').split('-').join(''),
-                      },
+                        licensePlate: watch('Placa').split('-').join('')
+                      }
                     }
                   )
                   .then((response: { data: any }) => {
                     setValue('Categoria_Id', {
                       key: response.data.data[0][0].CATEGORIA_VEICULO[0],
-                      title: response.data.data[0][0].CATEGORIA_VEICULO[0],
-                    });
-                    setApiData(response.data.data);
+                      title: response.data.data[0][0].CATEGORIA_VEICULO[0]
+                    })
+                    setApiData(response.data.data)
                   })
                   .catch((err) => {
-                    setValue('Categoria_Id', undefined);
-                    utils.showError(err);
-                  });
-                setLoading(false);
+                    setValue('Categoria_Id', undefined)
+                    utils.showError(err)
+                  })
+                setLoading(false)
               }}
               title={<common.icons.ViewIcon />}
               disabled={disableSearchButton()}
@@ -198,8 +196,8 @@ export default function CreateVehicle() {
                     ? vehiclesTypeData.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Nome as string,
-                        };
+                          title: item.Nome as string
+                        }
                       })
                     : []
                 }
@@ -228,8 +226,8 @@ export default function CreateVehicle() {
                     ? clientsData.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Pessoa?.Nome as string,
-                        };
+                          title: item.Pessoa?.Nome as string
+                        }
                       })
                     : []
                 }
@@ -240,7 +238,7 @@ export default function CreateVehicle() {
               />
               <common.OpenModalLink
                 onClick={() =>
-                  router.push(rotas.identidades.clientes.cadastrar)
+                  router.push(rotas.clientes)
                 }
               >
                 Cadastrar Cliente
@@ -266,5 +264,5 @@ export default function CreateVehicle() {
         loading={createVehicleLoading}
       />
     </form>
-  );
+  )
 }

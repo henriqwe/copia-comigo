@@ -1,0 +1,48 @@
+table:
+  name: OrdemDeServico_Combos
+  schema: operacional
+object_relationships:
+- name: OrdemDeServico
+  using:
+    foreign_key_constraint_on: OrdemDeServico_Id
+array_relationships:
+- name: OSPlanos
+  using:
+    foreign_key_constraint_on:
+      column: OrdemDeServicoCombo_Id
+      table:
+        name: OrdemDeServico_Planos
+        schema: operacional
+- name: OSProdutos
+  using:
+    foreign_key_constraint_on:
+      column: OrdemDeServicoCombo_Id
+      table:
+        name: OrdemDeServico_Produtos
+        schema: operacional
+- name: OSServicos
+  using:
+    foreign_key_constraint_on:
+      column: OrdemDeServicoCombo_Id
+      table:
+        name: OrdemDeServico_Servicos
+        schema: operacional
+remote_relationships:
+- definition:
+    hasura_fields:
+    - Combo_Id
+    remote_field:
+      comercial_Combos_by_pk:
+        arguments:
+          Id: $Combo_Id
+    remote_schema: GoPortfolio
+  name: Combo
+- definition:
+    hasura_fields:
+    - ComboPreco_Id
+    remote_field:
+      comercial_Combos_Precos_by_pk:
+        arguments:
+          Id: $ComboPreco_Id
+    remote_schema: GoPortfolio
+  name: ComboPreco

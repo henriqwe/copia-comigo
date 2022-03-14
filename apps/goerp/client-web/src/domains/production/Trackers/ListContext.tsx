@@ -3,62 +3,67 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
+  OperationVariables
+} from '@apollo/client'
 import {
   $,
   useTypedMutation,
-  useTypedQuery,
-} from '&erp/graphql/generated/zeus/apollo';
-import { createContext, ReactNode, useContext } from 'react';
+  useTypedQuery
+} from '&erp/graphql/generated/zeus/apollo'
+import { createContext, ReactNode, useContext } from 'react'
+import { movimentacoes_Motivos_enum } from '&erp/graphql/generated/zeus'
 
 type ListContextProps = {
   trackersData?: {
-    Id: string;
-    CodigoReferencia: number;
+    Id: string
+    CodigoReferencia: number
     Chip: {
-      Id: string;
-      Iccid: string;
-      Item?: { Id: string };
-    };
+      Id: string
+      Iccid: string
+      Item?: { Id: string }
+    }
     Equipamento: {
-      Id: string;
-      Identificador: number;
-      Item: { Id: string };
-    };
+      Id: string
+      Identificador: number
+      Item: { Id: string }
+    }
     Item: {
-      Id: string;
-      Produto: { Nome: string };
-      Fabricante: { Nome: string };
-      Modelo?: { Nome: string };
-      Movimentacoes: { Tipo: string; Quantidade: number }[];
-    };
-  }[];
+      Id: string
+      Produto: { Nome: string }
+      Fabricante: { Nome: string }
+      Modelo?: { Nome: string }
+      Movimentacoes: { Tipo: string; Quantidade: number }[]
+    }
+    KitsDeInstalacao: {
+      Id: string
+      Ativo: boolean
+    }[]
+  }[]
 
-  trackersRefetch: () => void;
-  trackersLoading: boolean;
-  softDeleteTrackerLoading: boolean;
+  trackersRefetch: () => void
+  trackersLoading: boolean
+  softDeleteTrackerLoading: boolean
   softDeleteTracker: (
     options?: MutationFunctionOptions<
       {
         update_producao_Rastreadores_by_pk?: {
-          Id: string;
-        };
+          Id: string
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-};
+  ) => Promise<FetchResult['data']>
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const ListContext = createContext<ListContextProps>(
   {} as ListContextProps
-);
+)
 
 export const ListProvider = ({ children }: ProviderProps) => {
   const [softDeleteTracker, { loading: softDeleteTrackerLoading }] =
@@ -67,12 +72,12 @@ export const ListProvider = ({ children }: ProviderProps) => {
         {
           pk_columns: { Id: $`Id` },
           _set: {
-            deleted_at: new Date(),
-          },
+            deleted_at: new Date()
+          }
         },
         {
-          Id: true,
-        },
+          Id: true
+        }
       ],
       insert_movimentacoes_Movimentacoes: [
         {
@@ -83,7 +88,7 @@ export const ListProvider = ({ children }: ProviderProps) => {
               Valor: 0,
               Quantidade: 1,
               Tipo: 'saida',
-              Motivo_Id: 'exclusaoDeRastreador',
+              Motivo_Id: movimentacoes_Motivos_enum.exclusaoDeRastreador
             },
             {
               Data: new Date(),
@@ -91,7 +96,7 @@ export const ListProvider = ({ children }: ProviderProps) => {
               Valor: 0,
               Quantidade: 1,
               Tipo: 'entrada',
-              Motivo_Id: 'exclusaoDeRastreador',
+              Motivo_Id: movimentacoes_Motivos_enum.exclusaoDeRastreador
             },
             {
               Data: new Date(),
@@ -99,18 +104,18 @@ export const ListProvider = ({ children }: ProviderProps) => {
               Valor: 0,
               Quantidade: 1,
               Tipo: 'entrada',
-              Motivo_Id: 'exclusaoDeRastreador',
-            },
-          ],
+              Motivo_Id: movimentacoes_Motivos_enum.exclusaoDeRastreador
+            }
+          ]
         },
-        { returning: { Id: true } },
-      ],
-    });
+        { returning: { Id: true } }
+      ]
+    })
 
   const {
     data: trackersData,
     refetch: trackersRefetch,
-    loading: trackersLoading,
+    loading: trackersLoading
   } = useTypedQuery(
     {
       producao_Rastreadores: [
@@ -125,13 +130,20 @@ export const ListProvider = ({ children }: ProviderProps) => {
             Produto: { Nome: true },
             Fabricante: { Nome: true },
             Modelo: { Nome: true },
-            Movimentacoes: [{}, { Tipo: true, Quantidade: true }],
+            Movimentacoes: [{}, { Tipo: true, Quantidade: true }]
           },
-        },
-      ],
+          KitsDeInstalacao: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Id: true,
+              Ativo: true
+            }
+          ]
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   return (
     <ListContext.Provider
@@ -140,14 +152,14 @@ export const ListProvider = ({ children }: ProviderProps) => {
         trackersRefetch,
         trackersLoading,
         softDeleteTrackerLoading,
-        softDeleteTracker,
+        softDeleteTracker
       }}
     >
       {children}
     </ListContext.Provider>
-  );
-};
+  )
+}
 
 export const useList = () => {
-  return useContext(ListContext);
-};
+  return useContext(ListContext)
+}

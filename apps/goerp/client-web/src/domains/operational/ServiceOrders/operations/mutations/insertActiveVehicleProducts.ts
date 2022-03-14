@@ -7,6 +7,7 @@ type InsertActiveVehicleProductsProps = {
   VeiculoAtivo_Id: string
   TipoItem_Id: string
   Identificador: string
+  Quantidade: number
 }
 
 export async function insertActiveVehicleProducts({
@@ -15,7 +16,8 @@ export async function insertActiveVehicleProducts({
   Produto_Id,
   VeiculoAtivo_Id,
   TipoItem_Id,
-  Identificador
+  Identificador,
+  Quantidade = 1
 }: InsertActiveVehicleProductsProps) {
   useTypedClientMutation({
     insert_clientes_VeiculosAtivos_Produtos_one: [
@@ -27,6 +29,8 @@ export async function insertActiveVehicleProducts({
           VeiculoAtivo_Id,
           TipoItem_Id,
           Identificador,
+          DataDeAtivacao: new Date(),
+          Quantidade,
           Ativo: true
         }
       },

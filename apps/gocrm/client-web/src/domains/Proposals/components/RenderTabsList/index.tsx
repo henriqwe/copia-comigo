@@ -2,7 +2,7 @@ import * as utils from '@comigo/utils'
 import { Tab } from '@headlessui/react'
 
 type RenderTabsListProps = {
-  categories: {
+  tabsForPage: {
     id?: number
     title: string
     type: string
@@ -11,14 +11,14 @@ type RenderTabsListProps = {
 }
 
 export const RenderTabsList = ({
-  categories,
+  tabsForPage,
   format = (value: string) => value
 }: RenderTabsListProps) => {
   return (
     <>
-      {categories.map((category) => (
+      {tabsForPage.map((tab) => (
         <Tab
-          key={category.title}
+          key={tab.title}
           className={({ selected }) =>
             // Enviar função para lib utils
             utils.classNames(
@@ -30,9 +30,9 @@ export const RenderTabsList = ({
             )
           }
         >
-          {category.title.length === 7
-            ? format(category.title)
-            : category.title}
+          {tab.title.length === 7
+            ? format(tab.title)
+            : tab.title}
         </Tab>
       ))}
     </>

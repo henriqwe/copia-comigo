@@ -14,6 +14,12 @@ object_relationships:
 - name: Proposta
   using:
     foreign_key_constraint_on: Proposta_Id
+- name: PropostasCombo
+  using:
+    foreign_key_constraint_on: PropostaCombo_Id
+- name: PropostasPlano
+  using:
+    foreign_key_constraint_on: PropostaPlano_Id
 - name: PropostasVeiculo
   using:
     foreign_key_constraint_on: PropostaVeiculo_Id

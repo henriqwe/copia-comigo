@@ -1266,24 +1266,37 @@ VeiculosAtivos_aggregate?: [{	/** distinct select on columns */
 }>;
 	/** columns and relationships of "clientes.VeiculosAtivos" */
 ["clientes_VeiculosAtivos"]: AliasType<{
-Beneficios?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["clientes_VeiculosAtivos_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Beneficios"]],
-Beneficios_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["clientes_VeiculosAtivos_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Beneficios_aggregate"]],
 	/** An object relationship */
 	Cliente?:ValueTypes["identidades_Clientes"],
 	Cliente_Id?:boolean,
+Combos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Combos"]],
+Combos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Combos_aggregate"]],
 	Franquia_Id?:boolean,
 	Id?:boolean,
 	OS_Id?:boolean,
+Planos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Planos"]],
+Planos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Planos_aggregate"]],
+	PossuiGNV?:boolean,
 Produtos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -1319,200 +1332,474 @@ Servicos_aggregate?: [{	/** distinct select on columns */
 	updated_at?:boolean,
 		__typename?: boolean
 }>;
-	/** columns and relationships of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios"]: AliasType<{
+	/** columns and relationships of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos"]: AliasType<{
 	Ativo?:boolean,
+	ComboPreco_Id?:boolean,
+	Combo_Id?:boolean,
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
-	PortfolioPreco_Id?:boolean,
-	Portfolio_Id?:boolean,
-	PrecoDeAdesao_Id?:boolean,
-	PrecoDeRecorrencia_Id?:boolean,
-	TipoPortfolio?:boolean,
-	/** An object relationship */
-	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos"],
+Planos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Planos"]],
+Planos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Planos_aggregate"]],
+Produtos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Produtos"]],
+Produtos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Produtos_aggregate"]],
+Servicos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Servicos"]],
+Servicos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Servicos_aggregate"]],
 	VeiculoAtivo_Id?:boolean,
+	/** An object relationship */
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos"],
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
 		__typename?: boolean
 }>;
-	/** aggregated selection of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate"]: AliasType<{
-	aggregate?:ValueTypes["clientes_VeiculosAtivos_Beneficios_aggregate_fields"],
-	nodes?:ValueTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** aggregated selection of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["clientes_VeiculosAtivos_Combos_aggregate_fields"],
+	nodes?:ValueTypes["clientes_VeiculosAtivos_Combos"],
 		__typename?: boolean
 }>;
-	/** aggregate fields of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate_fields"]: AliasType<{
-count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column"][],	distinct?:boolean | null},boolean],
-	max?:ValueTypes["clientes_VeiculosAtivos_Beneficios_max_fields"],
-	min?:ValueTypes["clientes_VeiculosAtivos_Beneficios_min_fields"],
+	/** aggregate fields of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Combos_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["clientes_VeiculosAtivos_Combos_max_fields"],
+	min?:ValueTypes["clientes_VeiculosAtivos_Combos_min_fields"],
 		__typename?: boolean
 }>;
-	/** order by aggregate values of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate_order_by"]: {
+	/** order by aggregate values of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate_order_by"]: {
 	count?:ValueTypes["order_by"] | null,
-	max?:ValueTypes["clientes_VeiculosAtivos_Beneficios_max_order_by"] | null,
-	min?:ValueTypes["clientes_VeiculosAtivos_Beneficios_min_order_by"] | null
+	max?:ValueTypes["clientes_VeiculosAtivos_Combos_max_order_by"] | null,
+	min?:ValueTypes["clientes_VeiculosAtivos_Combos_min_order_by"] | null
 };
-	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input"]: {
-	data:ValueTypes["clientes_VeiculosAtivos_Beneficios_insert_input"][],
+	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_arr_rel_insert_input"]: {
+	data:ValueTypes["clientes_VeiculosAtivos_Combos_insert_input"][],
 	/** upsert condition */
-	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Beneficios_on_conflict"] | null
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Combos_on_conflict"] | null
 };
-	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Beneficios". All fields are combined with a logical 'AND'. */
-["clientes_VeiculosAtivos_Beneficios_bool_exp"]: {
+	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Combos". All fields are combined with a logical 'AND'. */
+["clientes_VeiculosAtivos_Combos_bool_exp"]: {
 	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
+	ComboPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Combo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	DataDeAtivacao?:ValueTypes["timestamptz_comparison_exp"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PortfolioPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	Portfolio_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	TipoPortfolio?:ValueTypes["String_comparison_exp"] | null,
-	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
+	Planos?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null,
+	Produtos?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null,
+	Servicos?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	_and?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"][],
-	_not?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"] | null,
-	_or?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"][],
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
+	_and?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"][],
+	_not?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null,
+	_or?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"][],
 	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
 	deleted_at?:ValueTypes["timestamptz_comparison_exp"] | null,
 	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
 };
-	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_constraint"]:clientes_VeiculosAtivos_Beneficios_constraint;
-	/** input type for inserting data into table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_insert_input"]: {
+	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_constraint"]:clientes_VeiculosAtivos_Combos_constraint;
+	/** input type for inserting data into table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_insert_input"]: {
 	Ativo?:boolean | null,
+	ComboPreco_Id?:ValueTypes["uuid"] | null,
+	Combo_Id?:ValueTypes["uuid"] | null,
+	DataDeAtivacao?:ValueTypes["timestamptz"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
-	PortfolioPreco_Id?:ValueTypes["uuid"] | null,
-	Portfolio_Id?:ValueTypes["uuid"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
-	TipoPortfolio?:string | null,
-	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
+	Planos?:ValueTypes["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"] | null,
+	Produtos?:ValueTypes["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"] | null,
+	Servicos?:ValueTypes["clientes_VeiculosAtivos_Servicos_arr_rel_insert_input"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
 	/** aggregate max on columns */
-["clientes_VeiculosAtivos_Beneficios_max_fields"]: AliasType<{
+["clientes_VeiculosAtivos_Combos_max_fields"]: AliasType<{
+	ComboPreco_Id?:boolean,
+	Combo_Id?:boolean,
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
-	PortfolioPreco_Id?:boolean,
-	Portfolio_Id?:boolean,
-	PrecoDeAdesao_Id?:boolean,
-	PrecoDeRecorrencia_Id?:boolean,
-	TipoPortfolio?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
 		__typename?: boolean
 }>;
-	/** order by max() on columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_max_order_by"]: {
+	/** order by max() on columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_max_order_by"]: {
+	ComboPreco_Id?:ValueTypes["order_by"] | null,
+	Combo_Id?:ValueTypes["order_by"] | null,
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
-	Portfolio_Id?:ValueTypes["order_by"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
-	TipoPortfolio?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
 };
 	/** aggregate min on columns */
-["clientes_VeiculosAtivos_Beneficios_min_fields"]: AliasType<{
+["clientes_VeiculosAtivos_Combos_min_fields"]: AliasType<{
+	ComboPreco_Id?:boolean,
+	Combo_Id?:boolean,
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
-	PortfolioPreco_Id?:boolean,
-	Portfolio_Id?:boolean,
-	PrecoDeAdesao_Id?:boolean,
-	PrecoDeRecorrencia_Id?:boolean,
-	TipoPortfolio?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
 		__typename?: boolean
 }>;
-	/** order by min() on columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_min_order_by"]: {
+	/** order by min() on columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_min_order_by"]: {
+	ComboPreco_Id?:ValueTypes["order_by"] | null,
+	Combo_Id?:ValueTypes["order_by"] | null,
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
-	Portfolio_Id?:ValueTypes["order_by"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
-	TipoPortfolio?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
 };
-	/** response of any mutation on the table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_mutation_response"]: AliasType<{
+	/** response of any mutation on the table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_mutation_response"]: AliasType<{
 	/** number of rows affected by the mutation */
 	affected_rows?:boolean,
 	/** data from the rows affected by the mutation */
-	returning?:ValueTypes["clientes_VeiculosAtivos_Beneficios"],
+	returning?:ValueTypes["clientes_VeiculosAtivos_Combos"],
 		__typename?: boolean
 }>;
-	/** on_conflict condition type for table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_on_conflict"]: {
-	constraint:ValueTypes["clientes_VeiculosAtivos_Beneficios_constraint"],
-	update_columns:ValueTypes["clientes_VeiculosAtivos_Beneficios_update_column"][],
-	where?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"] | null
+	/** input type for inserting object relation for remote table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"]: {
+	data:ValueTypes["clientes_VeiculosAtivos_Combos_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Combos_on_conflict"] | null
 };
-	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Beneficios". */
-["clientes_VeiculosAtivos_Beneficios_order_by"]: {
+	/** on_conflict condition type for table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_on_conflict"]: {
+	constraint:ValueTypes["clientes_VeiculosAtivos_Combos_constraint"],
+	update_columns:ValueTypes["clientes_VeiculosAtivos_Combos_update_column"][],
+	where?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Combos". */
+["clientes_VeiculosAtivos_Combos_order_by"]: {
 	Ativo?:ValueTypes["order_by"] | null,
+	ComboPreco_Id?:ValueTypes["order_by"] | null,
+	Combo_Id?:ValueTypes["order_by"] | null,
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
-	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
-	Portfolio_Id?:ValueTypes["order_by"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
-	TipoPortfolio?:ValueTypes["order_by"] | null,
-	VeiculoAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
+	Planos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Planos_aggregate_order_by"] | null,
+	Produtos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Produtos_aggregate_order_by"] | null,
+	Servicos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Servicos_aggregate_order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
 };
-	/** primary key columns input for table: clientes_VeiculosAtivos_Beneficios */
-["clientes_VeiculosAtivos_Beneficios_pk_columns_input"]: {
+	/** primary key columns input for table: clientes_VeiculosAtivos_Combos */
+["clientes_VeiculosAtivos_Combos_pk_columns_input"]: {
 	Id:ValueTypes["uuid"]
 };
-	/** select columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_select_column"]:clientes_VeiculosAtivos_Beneficios_select_column;
-	/** input type for updating data in table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_set_input"]: {
+	/** select columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_select_column"]:clientes_VeiculosAtivos_Combos_select_column;
+	/** input type for updating data in table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_set_input"]: {
 	Ativo?:boolean | null,
+	ComboPreco_Id?:ValueTypes["uuid"] | null,
+	Combo_Id?:ValueTypes["uuid"] | null,
+	DataDeAtivacao?:ValueTypes["timestamptz"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
-	PortfolioPreco_Id?:ValueTypes["uuid"] | null,
-	Portfolio_Id?:ValueTypes["uuid"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
-	TipoPortfolio?:string | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
-	/** update columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_update_column"]:clientes_VeiculosAtivos_Beneficios_update_column;
+	/** update columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_update_column"]:clientes_VeiculosAtivos_Combos_update_column;
+	/** columns and relationships of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos"]: AliasType<{
+	Ativo?:boolean,
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
+	Id?:boolean,
+	PlanoPreco_Id?:boolean,
+	Plano_Id?:boolean,
+Produtos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Produtos"]],
+Produtos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Produtos_aggregate"]],
+Servicos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Servicos"]],
+Servicos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Servicos_aggregate"]],
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivo_Id?:boolean,
+	/** An object relationship */
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos"],
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["clientes_VeiculosAtivos_Planos_aggregate_fields"],
+	nodes?:ValueTypes["clientes_VeiculosAtivos_Planos"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Planos_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["clientes_VeiculosAtivos_Planos_max_fields"],
+	min?:ValueTypes["clientes_VeiculosAtivos_Planos_min_fields"],
+		__typename?: boolean
+}>;
+	/** order by aggregate values of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate_order_by"]: {
+	count?:ValueTypes["order_by"] | null,
+	max?:ValueTypes["clientes_VeiculosAtivos_Planos_max_order_by"] | null,
+	min?:ValueTypes["clientes_VeiculosAtivos_Planos_min_order_by"] | null
+};
+	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"]: {
+	data:ValueTypes["clientes_VeiculosAtivos_Planos_insert_input"][],
+	/** upsert condition */
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Planos_on_conflict"] | null
+};
+	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Planos". All fields are combined with a logical 'AND'. */
+["clientes_VeiculosAtivos_Planos_bool_exp"]: {
+	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
+	DataDeAtivacao?:ValueTypes["timestamp_comparison_exp"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz_comparison_exp"] | null,
+	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PlanoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Plano_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Produtos?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null,
+	Servicos?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null,
+	_and?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"][],
+	_not?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null,
+	_or?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"][],
+	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	deleted_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
+};
+	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_constraint"]:clientes_VeiculosAtivos_Planos_constraint;
+	/** input type for inserting data into table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_insert_input"]: {
+	Ativo?:boolean | null,
+	DataDeAtivacao?:ValueTypes["timestamp"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
+	Id?:ValueTypes["uuid"] | null,
+	PlanoPreco_Id?:ValueTypes["uuid"] | null,
+	Plano_Id?:ValueTypes["uuid"] | null,
+	Produtos?:ValueTypes["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"] | null,
+	Servicos?:ValueTypes["clientes_VeiculosAtivos_Servicos_arr_rel_insert_input"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** aggregate max on columns */
+["clientes_VeiculosAtivos_Planos_max_fields"]: AliasType<{
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
+	Id?:boolean,
+	PlanoPreco_Id?:boolean,
+	Plano_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivo_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by max() on columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_max_order_by"]: {
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
+	Id?:ValueTypes["order_by"] | null,
+	PlanoPreco_Id?:ValueTypes["order_by"] | null,
+	Plano_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** aggregate min on columns */
+["clientes_VeiculosAtivos_Planos_min_fields"]: AliasType<{
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
+	Id?:boolean,
+	PlanoPreco_Id?:boolean,
+	Plano_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivo_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by min() on columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_min_order_by"]: {
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
+	Id?:ValueTypes["order_by"] | null,
+	PlanoPreco_Id?:ValueTypes["order_by"] | null,
+	Plano_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** response of any mutation on the table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["clientes_VeiculosAtivos_Planos"],
+		__typename?: boolean
+}>;
+	/** input type for inserting object relation for remote table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"]: {
+	data:ValueTypes["clientes_VeiculosAtivos_Planos_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Planos_on_conflict"] | null
+};
+	/** on_conflict condition type for table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_on_conflict"]: {
+	constraint:ValueTypes["clientes_VeiculosAtivos_Planos_constraint"],
+	update_columns:ValueTypes["clientes_VeiculosAtivos_Planos_update_column"][],
+	where?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Planos". */
+["clientes_VeiculosAtivos_Planos_order_by"]: {
+	Ativo?:ValueTypes["order_by"] | null,
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
+	Id?:ValueTypes["order_by"] | null,
+	PlanoPreco_Id?:ValueTypes["order_by"] | null,
+	Plano_Id?:ValueTypes["order_by"] | null,
+	Produtos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Produtos_aggregate_order_by"] | null,
+	Servicos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Servicos_aggregate_order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
+	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: clientes_VeiculosAtivos_Planos */
+["clientes_VeiculosAtivos_Planos_pk_columns_input"]: {
+	Id:ValueTypes["uuid"]
+};
+	/** select columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_select_column"]:clientes_VeiculosAtivos_Planos_select_column;
+	/** input type for updating data in table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_set_input"]: {
+	Ativo?:boolean | null,
+	DataDeAtivacao?:ValueTypes["timestamp"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
+	Id?:ValueTypes["uuid"] | null,
+	PlanoPreco_Id?:ValueTypes["uuid"] | null,
+	Plano_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** update columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_update_column"]:clientes_VeiculosAtivos_Planos_update_column;
 	/** columns and relationships of "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos"]: AliasType<{
 	Ativo?:boolean,
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
 	Identificador?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	Quantidade?:boolean,
 	TipoItem_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivoPlano_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	/** An object relationship */
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos"],
+	/** An object relationship */
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos"],
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -1526,16 +1813,32 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column
 }>;
 	/** aggregate fields of "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_aggregate_fields"]: AliasType<{
+	avg?:ValueTypes["clientes_VeiculosAtivos_Produtos_avg_fields"],
 count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"][],	distinct?:boolean | null},boolean],
 	max?:ValueTypes["clientes_VeiculosAtivos_Produtos_max_fields"],
 	min?:ValueTypes["clientes_VeiculosAtivos_Produtos_min_fields"],
+	stddev?:ValueTypes["clientes_VeiculosAtivos_Produtos_stddev_fields"],
+	stddev_pop?:ValueTypes["clientes_VeiculosAtivos_Produtos_stddev_pop_fields"],
+	stddev_samp?:ValueTypes["clientes_VeiculosAtivos_Produtos_stddev_samp_fields"],
+	sum?:ValueTypes["clientes_VeiculosAtivos_Produtos_sum_fields"],
+	var_pop?:ValueTypes["clientes_VeiculosAtivos_Produtos_var_pop_fields"],
+	var_samp?:ValueTypes["clientes_VeiculosAtivos_Produtos_var_samp_fields"],
+	variance?:ValueTypes["clientes_VeiculosAtivos_Produtos_variance_fields"],
 		__typename?: boolean
 }>;
 	/** order by aggregate values of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_aggregate_order_by"]: {
+	avg?:ValueTypes["clientes_VeiculosAtivos_Produtos_avg_order_by"] | null,
 	count?:ValueTypes["order_by"] | null,
 	max?:ValueTypes["clientes_VeiculosAtivos_Produtos_max_order_by"] | null,
-	min?:ValueTypes["clientes_VeiculosAtivos_Produtos_min_order_by"] | null
+	min?:ValueTypes["clientes_VeiculosAtivos_Produtos_min_order_by"] | null,
+	stddev?:ValueTypes["clientes_VeiculosAtivos_Produtos_stddev_order_by"] | null,
+	stddev_pop?:ValueTypes["clientes_VeiculosAtivos_Produtos_stddev_pop_order_by"] | null,
+	stddev_samp?:ValueTypes["clientes_VeiculosAtivos_Produtos_stddev_samp_order_by"] | null,
+	sum?:ValueTypes["clientes_VeiculosAtivos_Produtos_sum_order_by"] | null,
+	var_pop?:ValueTypes["clientes_VeiculosAtivos_Produtos_var_pop_order_by"] | null,
+	var_samp?:ValueTypes["clientes_VeiculosAtivos_Produtos_var_samp_order_by"] | null,
+	variance?:ValueTypes["clientes_VeiculosAtivos_Produtos_variance_order_by"] | null
 };
 	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"]: {
@@ -1543,17 +1846,33 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** upsert condition */
 	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Produtos_on_conflict"] | null
 };
+	/** aggregate avg on columns */
+["clientes_VeiculosAtivos_Produtos_avg_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by avg() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_avg_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
 	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Produtos". All fields are combined with a logical 'AND'. */
 ["clientes_VeiculosAtivos_Produtos_bool_exp"]: {
 	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
+	DataDeAtivacao?:ValueTypes["timestamptz_comparison_exp"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Identificador?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Quantidade?:ValueTypes["Int_comparison_exp"] | null,
 	TipoItem_Id?:ValueTypes["String_comparison_exp"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null,
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null,
 	_and?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"][],
 	_not?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null,
 	_or?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"][],
@@ -1563,29 +1882,45 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 };
 	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_constraint"]:clientes_VeiculosAtivos_Produtos_constraint;
+	/** input type for incrementing numeric columns in table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_inc_input"]: {
+	Quantidade?:number | null
+};
 	/** input type for inserting data into table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_insert_input"]: {
 	Ativo?:boolean | null,
+	DataDeAtivacao?:ValueTypes["timestamptz"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	Identificador?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	Quantidade?:number | null,
 	TipoItem_Id?:string | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["uuid"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"] | null,
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: AliasType<{
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
 	Identificador?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	Quantidade?:boolean,
 	TipoItem_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivoPlano_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -1594,12 +1929,17 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 }>;
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	Identificador?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	TipoItem_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -1607,12 +1947,17 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 };
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: AliasType<{
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
 	Identificador?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	Quantidade?:boolean,
 	TipoItem_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivoPlano_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -1621,12 +1966,17 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 }>;
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	Identificador?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	TipoItem_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -1649,14 +1999,21 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Produtos". */
 ["clientes_VeiculosAtivos_Produtos_order_by"]: {
 	Ativo?:ValueTypes["order_by"] | null,
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	Identificador?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	TipoItem_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_order_by"] | null,
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -1670,29 +2027,106 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"]
 	/** input type for updating data in table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_set_input"]: {
 	Ativo?:boolean | null,
+	DataDeAtivacao?:ValueTypes["timestamptz"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	Identificador?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	Quantidade?:number | null,
 	TipoItem_Id?:string | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["uuid"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
+	/** aggregate stddev on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_pop on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_pop_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_pop() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_pop_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_samp on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_samp_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_samp() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_samp_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate sum on columns */
+["clientes_VeiculosAtivos_Produtos_sum_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by sum() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_sum_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
 	/** update columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_update_column"]:clientes_VeiculosAtivos_Produtos_update_column;
+	/** aggregate var_pop on columns */
+["clientes_VeiculosAtivos_Produtos_var_pop_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_pop() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_var_pop_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate var_samp on columns */
+["clientes_VeiculosAtivos_Produtos_var_samp_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_samp() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_var_samp_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate variance on columns */
+["clientes_VeiculosAtivos_Produtos_variance_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by variance() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_variance_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
 	/** columns and relationships of "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos"]: AliasType<{
 	Ativo?:boolean,
+	Beneficio?:boolean,
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Servico_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivoPlano_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	/** An object relationship */
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos"],
+	/** An object relationship */
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos"],
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -1726,12 +2160,19 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Servicos". All fields are combined with a logical 'AND'. */
 ["clientes_VeiculosAtivos_Servicos_bool_exp"]: {
 	Ativo?:ValueTypes["Boolean_comparison_exp"] | null,
+	Beneficio?:ValueTypes["Boolean_comparison_exp"] | null,
+	DataDeAtivacao?:ValueTypes["timestamptz_comparison_exp"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null,
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null,
 	_and?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"][],
 	_not?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null,
 	_or?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"][],
@@ -1744,22 +2185,33 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** input type for inserting data into table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_insert_input"]: {
 	Ativo?:boolean | null,
+	Beneficio?:boolean | null,
+	DataDeAtivacao?:ValueTypes["timestamptz"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["uuid"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_obj_rel_insert_input"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"] | null,
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Servicos_max_fields"]: AliasType<{
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Servico_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivoPlano_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -1768,10 +2220,14 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 }>;
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_max_order_by"]: {
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -1779,10 +2235,14 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 };
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Servicos_min_fields"]: AliasType<{
+	DataDeAtivacao?:boolean,
+	DataDeDesativacao?:boolean,
 	Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Servico_Id?:boolean,
+	VeiculoAtivoCombo_Id?:boolean,
+	VeiculoAtivoPlano_Id?:boolean,
 	VeiculoAtivo_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -1791,10 +2251,14 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 }>;
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_min_order_by"]: {
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -1817,12 +2281,19 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Servicos". */
 ["clientes_VeiculosAtivos_Servicos_order_by"]: {
 	Ativo?:ValueTypes["order_by"] | null,
+	Beneficio?:ValueTypes["order_by"] | null,
+	DataDeAtivacao?:ValueTypes["order_by"] | null,
+	DataDeDesativacao?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["order_by"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["order_by"] | null,
 	VeiculoAtivo_Id?:ValueTypes["order_by"] | null,
 	VeiculosAtivo?:ValueTypes["clientes_VeiculosAtivos_order_by"] | null,
+	VeiculosAtivosCombo?:ValueTypes["clientes_VeiculosAtivos_Combos_order_by"] | null,
+	VeiculosAtivosPlano?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -1836,10 +2307,15 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_Servicos_select_column"]
 	/** input type for updating data in table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_set_input"]: {
 	Ativo?:boolean | null,
+	Beneficio?:boolean | null,
+	DataDeAtivacao?:ValueTypes["timestamptz"] | null,
+	DataDeDesativacao?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivoCombo_Id?:ValueTypes["uuid"] | null,
+	VeiculoAtivoPlano_Id?:ValueTypes["uuid"] | null,
 	VeiculoAtivo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -1982,12 +2458,14 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_select_column"][],	disti
 };
 	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos". All fields are combined with a logical 'AND'. */
 ["clientes_VeiculosAtivos_bool_exp"]: {
-	Beneficios?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"] | null,
 	Cliente?:ValueTypes["identidades_Clientes_bool_exp"] | null,
 	Cliente_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Combos?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null,
 	Franquia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	OS_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Planos?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null,
+	PossuiGNV?:ValueTypes["Boolean_comparison_exp"] | null,
 	Produtos?:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"] | null,
 	Servicos?:ValueTypes["clientes_VeiculosAtivos_Servicos_bool_exp"] | null,
 	Situacao?:ValueTypes["clientes_VeiculosAtivos_Situacao_bool_exp"] | null,
@@ -2005,12 +2483,14 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_select_column"][],	disti
 ["clientes_VeiculosAtivos_constraint"]:clientes_VeiculosAtivos_constraint;
 	/** input type for inserting data into table "clientes.VeiculosAtivos" */
 ["clientes_VeiculosAtivos_insert_input"]: {
-	Beneficios?:ValueTypes["clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input"] | null,
 	Cliente?:ValueTypes["identidades_Clientes_obj_rel_insert_input"] | null,
 	Cliente_Id?:ValueTypes["uuid"] | null,
+	Combos?:ValueTypes["clientes_VeiculosAtivos_Combos_arr_rel_insert_input"] | null,
 	Franquia_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	OS_Id?:ValueTypes["uuid"] | null,
+	Planos?:ValueTypes["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"] | null,
+	PossuiGNV?:boolean | null,
 	Produtos?:ValueTypes["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"] | null,
 	Servicos?:ValueTypes["clientes_VeiculosAtivos_Servicos_arr_rel_insert_input"] | null,
 	Situacao?:ValueTypes["clientes_VeiculosAtivos_Situacao_obj_rel_insert_input"] | null,
@@ -2089,12 +2569,14 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_select_column"][],	disti
 };
 	/** Ordering options when selecting data from "clientes.VeiculosAtivos". */
 ["clientes_VeiculosAtivos_order_by"]: {
-	Beneficios_aggregate?:ValueTypes["clientes_VeiculosAtivos_Beneficios_aggregate_order_by"] | null,
 	Cliente?:ValueTypes["identidades_Clientes_order_by"] | null,
 	Cliente_Id?:ValueTypes["order_by"] | null,
+	Combos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Combos_aggregate_order_by"] | null,
 	Franquia_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	OS_Id?:ValueTypes["order_by"] | null,
+	Planos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Planos_aggregate_order_by"] | null,
+	PossuiGNV?:ValueTypes["order_by"] | null,
 	Produtos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Produtos_aggregate_order_by"] | null,
 	Servicos_aggregate?:ValueTypes["clientes_VeiculosAtivos_Servicos_aggregate_order_by"] | null,
 	Situacao?:ValueTypes["clientes_VeiculosAtivos_Situacao_order_by"] | null,
@@ -2117,6 +2599,7 @@ count?: [{	columns?:ValueTypes["clientes_VeiculosAtivos_select_column"][],	disti
 	Franquia_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	OS_Id?:ValueTypes["uuid"] | null,
+	PossuiGNV?:boolean | null,
 	Situacao_Id?:ValueTypes["clientes_VeiculosAtivos_Situacao_enum"] | null,
 	Veiculo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -7187,6 +7670,18 @@ Propostas_aggregate?: [{	/** distinct select on columns */
 	offset?:number | null,	/** sort the rows by one or more columns */
 	order_by?:ValueTypes["propostas_Propostas_Produtos_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null},ValueTypes["propostas_Propostas_Produtos_aggregate"]],
+RegrasETermosDeUsos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Produtos_RegrasETermosDeUso"]],
+RegrasETermosDeUsos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Produtos_RegrasETermosDeUso_aggregate"]],
 	/** An object relationship */
 	ServicoDeDesinstalacao?:ValueTypes["comercial_Servicos"],
 	ServicoDeDesinstalacao_Id?:boolean,
@@ -7794,6 +8289,168 @@ count?: [{	columns?:ValueTypes["comercial_Produtos_Produtos_select_column"][],	d
 };
 	/** update columns of table "comercial.Produtos_Produtos" */
 ["comercial_Produtos_Produtos_update_column"]:comercial_Produtos_Produtos_update_column;
+	/** columns and relationships of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso"]: AliasType<{
+	Id?:boolean,
+	Mensagem?:boolean,
+	/** An object relationship */
+	Produto?:ValueTypes["comercial_Produtos"],
+	Produto_Id?:boolean,
+PropostasRegrasETermosDeUsos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
+PropostasRegrasETermosDeUsos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"]],
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_aggregate_fields"],
+	nodes?:ValueTypes["comercial_Produtos_RegrasETermosDeUso"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_max_fields"],
+	min?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_min_fields"],
+		__typename?: boolean
+}>;
+	/** order by aggregate values of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate_order_by"]: {
+	count?:ValueTypes["order_by"] | null,
+	max?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_max_order_by"] | null,
+	min?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_min_order_by"] | null
+};
+	/** input type for inserting array relation for remote table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input"]: {
+	data:ValueTypes["comercial_Produtos_RegrasETermosDeUso_insert_input"][],
+	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_on_conflict"] | null
+};
+	/** Boolean expression to filter rows from the table "comercial.Produtos_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["comercial_Produtos_RegrasETermosDeUso_bool_exp"]: {
+	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Mensagem?:ValueTypes["String_comparison_exp"] | null,
+	Produto?:ValueTypes["comercial_Produtos_bool_exp"] | null,
+	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PropostasRegrasETermosDeUsos?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null,
+	_and?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"][],
+	_not?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null,
+	_or?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"][],
+	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	deleted_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
+};
+	/** unique or primary key constraints on table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_constraint"]:comercial_Produtos_RegrasETermosDeUso_constraint;
+	/** input type for inserting data into table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_insert_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	Mensagem?:string | null,
+	Produto?:ValueTypes["comercial_Produtos_obj_rel_insert_input"] | null,
+	Produto_Id?:ValueTypes["uuid"] | null,
+	PropostasRegrasETermosDeUsos?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** aggregate max on columns */
+["comercial_Produtos_RegrasETermosDeUso_max_fields"]: AliasType<{
+	Id?:boolean,
+	Mensagem?:boolean,
+	Produto_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by max() on columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_max_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Mensagem?:ValueTypes["order_by"] | null,
+	Produto_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** aggregate min on columns */
+["comercial_Produtos_RegrasETermosDeUso_min_fields"]: AliasType<{
+	Id?:boolean,
+	Mensagem?:boolean,
+	Produto_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by min() on columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_min_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Mensagem?:ValueTypes["order_by"] | null,
+	Produto_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** response of any mutation on the table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["comercial_Produtos_RegrasETermosDeUso"],
+		__typename?: boolean
+}>;
+	/** input type for inserting object relation for remote table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input"]: {
+	data:ValueTypes["comercial_Produtos_RegrasETermosDeUso_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_on_conflict"] | null
+};
+	/** on_conflict condition type for table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_on_conflict"]: {
+	constraint:ValueTypes["comercial_Produtos_RegrasETermosDeUso_constraint"],
+	update_columns:ValueTypes["comercial_Produtos_RegrasETermosDeUso_update_column"][],
+	where?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "comercial.Produtos_RegrasETermosDeUso". */
+["comercial_Produtos_RegrasETermosDeUso_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Mensagem?:ValueTypes["order_by"] | null,
+	Produto?:ValueTypes["comercial_Produtos_order_by"] | null,
+	Produto_Id?:ValueTypes["order_by"] | null,
+	PropostasRegrasETermosDeUsos_aggregate?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: comercial_Produtos_RegrasETermosDeUso */
+["comercial_Produtos_RegrasETermosDeUso_pk_columns_input"]: {
+	Id:ValueTypes["uuid"]
+};
+	/** select columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_select_column"]:comercial_Produtos_RegrasETermosDeUso_select_column;
+	/** input type for updating data in table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_set_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	Mensagem?:string | null,
+	Produto_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** update columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_update_column"]:comercial_Produtos_RegrasETermosDeUso_update_column;
 	/** columns and relationships of "comercial.Produtos_Servicos" */
 ["comercial_Produtos_Servicos"]: AliasType<{
 	Id?:boolean,
@@ -8090,6 +8747,7 @@ count?: [{	columns?:ValueTypes["comercial_Produtos_select_column"][],	distinct?:
 	ProdutosDependentes?:ValueTypes["comercial_Produtos_Produtos_bool_exp"] | null,
 	ProdutosQueDependo?:ValueTypes["comercial_Produtos_Produtos_bool_exp"] | null,
 	Propostas?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null,
+	RegrasETermosDeUsos?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null,
 	ServicoDeDesinstalacao?:ValueTypes["comercial_Servicos_bool_exp"] | null,
 	ServicoDeDesinstalacao_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	ServicoDeInstalacao?:ValueTypes["comercial_Servicos_bool_exp"] | null,
@@ -8132,6 +8790,7 @@ count?: [{	columns?:ValueTypes["comercial_Produtos_select_column"][],	distinct?:
 	ProdutosDependentes?:ValueTypes["comercial_Produtos_Produtos_arr_rel_insert_input"] | null,
 	ProdutosQueDependo?:ValueTypes["comercial_Produtos_Produtos_arr_rel_insert_input"] | null,
 	Propostas?:ValueTypes["propostas_Propostas_Produtos_arr_rel_insert_input"] | null,
+	RegrasETermosDeUsos?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input"] | null,
 	ServicoDeDesinstalacao?:ValueTypes["comercial_Servicos_obj_rel_insert_input"] | null,
 	ServicoDeDesinstalacao_Id?:ValueTypes["uuid"] | null,
 	ServicoDeInstalacao?:ValueTypes["comercial_Servicos_obj_rel_insert_input"] | null,
@@ -8219,6 +8878,7 @@ count?: [{	columns?:ValueTypes["comercial_Produtos_select_column"][],	distinct?:
 	ProdutosDependentes_aggregate?:ValueTypes["comercial_Produtos_Produtos_aggregate_order_by"] | null,
 	ProdutosQueDependo_aggregate?:ValueTypes["comercial_Produtos_Produtos_aggregate_order_by"] | null,
 	Propostas_aggregate?:ValueTypes["propostas_Propostas_Produtos_aggregate_order_by"] | null,
+	RegrasETermosDeUsos_aggregate?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_aggregate_order_by"] | null,
 	ServicoDeDesinstalacao?:ValueTypes["comercial_Servicos_order_by"] | null,
 	ServicoDeDesinstalacao_Id?:ValueTypes["order_by"] | null,
 	ServicoDeInstalacao?:ValueTypes["comercial_Servicos_order_by"] | null,
@@ -8370,6 +9030,18 @@ Propostas_aggregate?: [{	/** distinct select on columns */
 	offset?:number | null,	/** sort the rows by one or more columns */
 	order_by?:ValueTypes["propostas_Propostas_Servicos_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null},ValueTypes["propostas_Propostas_Servicos_aggregate"]],
+RegrasETermosDeUsos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Servicos_RegrasETermosDeUso"]],
+RegrasETermosDeUsos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Servicos_RegrasETermosDeUso_aggregate"]],
 Servicos_Produtos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["comercial_Servicos_Produtos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -8995,6 +9667,168 @@ count?: [{	columns?:ValueTypes["comercial_Servicos_Produtos_select_column"][],	d
 };
 	/** update columns of table "comercial.Servicos_Produtos" */
 ["comercial_Servicos_Produtos_update_column"]:comercial_Servicos_Produtos_update_column;
+	/** columns and relationships of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso"]: AliasType<{
+	Id?:boolean,
+	Mensagem?:boolean,
+PropostasRegrasETermosDeUsos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
+PropostasRegrasETermosDeUsos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"]],
+	/** An object relationship */
+	Servico?:ValueTypes["comercial_Servicos"],
+	Servico_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_aggregate_fields"],
+	nodes?:ValueTypes["comercial_Servicos_RegrasETermosDeUso"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_max_fields"],
+	min?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_min_fields"],
+		__typename?: boolean
+}>;
+	/** order by aggregate values of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate_order_by"]: {
+	count?:ValueTypes["order_by"] | null,
+	max?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_max_order_by"] | null,
+	min?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_min_order_by"] | null
+};
+	/** input type for inserting array relation for remote table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input"]: {
+	data:ValueTypes["comercial_Servicos_RegrasETermosDeUso_insert_input"][],
+	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_on_conflict"] | null
+};
+	/** Boolean expression to filter rows from the table "comercial.Servicos_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["comercial_Servicos_RegrasETermosDeUso_bool_exp"]: {
+	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Mensagem?:ValueTypes["String_comparison_exp"] | null,
+	PropostasRegrasETermosDeUsos?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null,
+	Servico?:ValueTypes["comercial_Servicos_bool_exp"] | null,
+	Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	_and?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"][],
+	_not?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null,
+	_or?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"][],
+	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	deleted_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
+};
+	/** unique or primary key constraints on table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_constraint"]:comercial_Servicos_RegrasETermosDeUso_constraint;
+	/** input type for inserting data into table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_insert_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	Mensagem?:string | null,
+	PropostasRegrasETermosDeUsos?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"] | null,
+	Servico?:ValueTypes["comercial_Servicos_obj_rel_insert_input"] | null,
+	Servico_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** aggregate max on columns */
+["comercial_Servicos_RegrasETermosDeUso_max_fields"]: AliasType<{
+	Id?:boolean,
+	Mensagem?:boolean,
+	Servico_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by max() on columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_max_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Mensagem?:ValueTypes["order_by"] | null,
+	Servico_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** aggregate min on columns */
+["comercial_Servicos_RegrasETermosDeUso_min_fields"]: AliasType<{
+	Id?:boolean,
+	Mensagem?:boolean,
+	Servico_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by min() on columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_min_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Mensagem?:ValueTypes["order_by"] | null,
+	Servico_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** response of any mutation on the table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["comercial_Servicos_RegrasETermosDeUso"],
+		__typename?: boolean
+}>;
+	/** input type for inserting object relation for remote table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input"]: {
+	data:ValueTypes["comercial_Servicos_RegrasETermosDeUso_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_on_conflict"] | null
+};
+	/** on_conflict condition type for table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_on_conflict"]: {
+	constraint:ValueTypes["comercial_Servicos_RegrasETermosDeUso_constraint"],
+	update_columns:ValueTypes["comercial_Servicos_RegrasETermosDeUso_update_column"][],
+	where?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "comercial.Servicos_RegrasETermosDeUso". */
+["comercial_Servicos_RegrasETermosDeUso_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Mensagem?:ValueTypes["order_by"] | null,
+	PropostasRegrasETermosDeUsos_aggregate?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"] | null,
+	Servico?:ValueTypes["comercial_Servicos_order_by"] | null,
+	Servico_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: comercial_Servicos_RegrasETermosDeUso */
+["comercial_Servicos_RegrasETermosDeUso_pk_columns_input"]: {
+	Id:ValueTypes["uuid"]
+};
+	/** select columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_select_column"]:comercial_Servicos_RegrasETermosDeUso_select_column;
+	/** input type for updating data in table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_set_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	Mensagem?:string | null,
+	Servico_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** update columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_update_column"]:comercial_Servicos_RegrasETermosDeUso_update_column;
 	/** columns and relationships of "comercial.Servicos_Servicos" */
 ["comercial_Servicos_Servicos"]: AliasType<{
 	Id?:boolean,
@@ -9439,6 +10273,7 @@ count?: [{	columns?:ValueTypes["comercial_Servicos_select_column"][],	distinct?:
 	ProdutosInstalacao?:ValueTypes["comercial_Produtos_bool_exp"] | null,
 	Produtos_Servicos?:ValueTypes["comercial_Produtos_Servicos_bool_exp"] | null,
 	Propostas?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null,
+	RegrasETermosDeUsos?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null,
 	Servicos_Produtos?:ValueTypes["comercial_Servicos_Produtos_bool_exp"] | null,
 	Servicos_ServicosDependente?:ValueTypes["comercial_Servicos_Servicos_bool_exp"] | null,
 	Tarifas?:ValueTypes["comercial_Servicos_Tarifas_bool_exp"] | null,
@@ -9481,6 +10316,7 @@ count?: [{	columns?:ValueTypes["comercial_Servicos_select_column"][],	distinct?:
 	ProdutosInstalacao?:ValueTypes["comercial_Produtos_arr_rel_insert_input"] | null,
 	Produtos_Servicos?:ValueTypes["comercial_Produtos_Servicos_arr_rel_insert_input"] | null,
 	Propostas?:ValueTypes["propostas_Propostas_Servicos_arr_rel_insert_input"] | null,
+	RegrasETermosDeUsos?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input"] | null,
 	Servicos_Produtos?:ValueTypes["comercial_Servicos_Produtos_arr_rel_insert_input"] | null,
 	Servicos_ServicosDependente?:ValueTypes["comercial_Servicos_Servicos_arr_rel_insert_input"] | null,
 	Tarifas?:ValueTypes["comercial_Servicos_Tarifas_arr_rel_insert_input"] | null,
@@ -9560,6 +10396,7 @@ count?: [{	columns?:ValueTypes["comercial_Servicos_select_column"][],	distinct?:
 	ProdutosInstalacao_aggregate?:ValueTypes["comercial_Produtos_aggregate_order_by"] | null,
 	Produtos_Servicos_aggregate?:ValueTypes["comercial_Produtos_Servicos_aggregate_order_by"] | null,
 	Propostas_aggregate?:ValueTypes["propostas_Propostas_Servicos_aggregate_order_by"] | null,
+	RegrasETermosDeUsos_aggregate?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_aggregate_order_by"] | null,
 	Servicos_Produtos_aggregate?:ValueTypes["comercial_Servicos_Produtos_aggregate_order_by"] | null,
 	Servicos_ServicosDependente_aggregate?:ValueTypes["comercial_Servicos_Servicos_aggregate_order_by"] | null,
 	Tarifas_aggregate?:ValueTypes["comercial_Servicos_Tarifas_aggregate_order_by"] | null,
@@ -12474,6 +13311,8 @@ Colaboradores_aggregate?: [{	/** distinct select on columns */
 	where?:ValueTypes["identidades_Colaboradores_bool_exp"] | null},ValueTypes["identidades_Colaboradores_aggregate"]],
 DadosDaApi?: [{	/** JSON select path */
 	path?:string | null},boolean],
+	DataCriacao?:boolean,
+	DataNascimento?:boolean,
 Documentos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["identidades_Clientes_Documentos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -12492,6 +13331,7 @@ Documentos_aggregate?: [{	/** distinct select on columns */
 	Identificador?:boolean,
 	Nome?:boolean,
 	PessoaJuridica?:boolean,
+	Profissao?:boolean,
 Representantes?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["identidades_Representantes_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -12504,6 +13344,7 @@ Representantes_aggregate?: [{	/** distinct select on columns */
 	offset?:number | null,	/** sort the rows by one or more columns */
 	order_by?:ValueTypes["identidades_Representantes_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["identidades_Representantes_bool_exp"] | null},ValueTypes["identidades_Representantes_aggregate"]],
+	Sexo?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -12531,13 +13372,17 @@ count?: [{	columns?:ValueTypes["identidades_Pessoas_select_column"][],	distinct?
 	Cliente?:ValueTypes["identidades_Clientes_bool_exp"] | null,
 	Colaboradores?:ValueTypes["identidades_Colaboradores_bool_exp"] | null,
 	DadosDaApi?:ValueTypes["jsonb_comparison_exp"] | null,
+	DataCriacao?:ValueTypes["timestamptz_comparison_exp"] | null,
+	DataNascimento?:ValueTypes["timestamptz_comparison_exp"] | null,
 	Documentos?:ValueTypes["identidades_Clientes_Documentos_bool_exp"] | null,
 	Fornecedor?:ValueTypes["identidades_Fornecedores_bool_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Identificador?:ValueTypes["String_comparison_exp"] | null,
 	Nome?:ValueTypes["String_comparison_exp"] | null,
 	PessoaJuridica?:ValueTypes["Boolean_comparison_exp"] | null,
+	Profissao?:ValueTypes["String_comparison_exp"] | null,
 	Representantes?:ValueTypes["identidades_Representantes_bool_exp"] | null,
+	Sexo?:ValueTypes["String_comparison_exp"] | null,
 	_and?:ValueTypes["identidades_Pessoas_bool_exp"][],
 	_not?:ValueTypes["identidades_Pessoas_bool_exp"] | null,
 	_or?:ValueTypes["identidades_Pessoas_bool_exp"][],
@@ -12564,22 +13409,30 @@ count?: [{	columns?:ValueTypes["identidades_Pessoas_select_column"][],	distinct?
 	Cliente?:ValueTypes["identidades_Clientes_obj_rel_insert_input"] | null,
 	Colaboradores?:ValueTypes["identidades_Colaboradores_arr_rel_insert_input"] | null,
 	DadosDaApi?:ValueTypes["jsonb"] | null,
+	DataCriacao?:ValueTypes["timestamptz"] | null,
+	DataNascimento?:ValueTypes["timestamptz"] | null,
 	Documentos?:ValueTypes["identidades_Clientes_Documentos_arr_rel_insert_input"] | null,
 	Fornecedor?:ValueTypes["identidades_Fornecedores_obj_rel_insert_input"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	Identificador?:string | null,
 	Nome?:string | null,
 	PessoaJuridica?:boolean | null,
+	Profissao?:string | null,
 	Representantes?:ValueTypes["identidades_Representantes_arr_rel_insert_input"] | null,
+	Sexo?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
 	/** aggregate max on columns */
 ["identidades_Pessoas_max_fields"]: AliasType<{
+	DataCriacao?:boolean,
+	DataNascimento?:boolean,
 	Id?:boolean,
 	Identificador?:boolean,
 	Nome?:boolean,
+	Profissao?:boolean,
+	Sexo?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -12587,9 +13440,13 @@ count?: [{	columns?:ValueTypes["identidades_Pessoas_select_column"][],	distinct?
 }>;
 	/** aggregate min on columns */
 ["identidades_Pessoas_min_fields"]: AliasType<{
+	DataCriacao?:boolean,
+	DataNascimento?:boolean,
 	Id?:boolean,
 	Identificador?:boolean,
 	Nome?:boolean,
+	Profissao?:boolean,
+	Sexo?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -12620,13 +13477,17 @@ count?: [{	columns?:ValueTypes["identidades_Pessoas_select_column"][],	distinct?
 	Cliente?:ValueTypes["identidades_Clientes_order_by"] | null,
 	Colaboradores_aggregate?:ValueTypes["identidades_Colaboradores_aggregate_order_by"] | null,
 	DadosDaApi?:ValueTypes["order_by"] | null,
+	DataCriacao?:ValueTypes["order_by"] | null,
+	DataNascimento?:ValueTypes["order_by"] | null,
 	Documentos_aggregate?:ValueTypes["identidades_Clientes_Documentos_aggregate_order_by"] | null,
 	Fornecedor?:ValueTypes["identidades_Fornecedores_order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	Identificador?:ValueTypes["order_by"] | null,
 	Nome?:ValueTypes["order_by"] | null,
 	PessoaJuridica?:ValueTypes["order_by"] | null,
+	Profissao?:ValueTypes["order_by"] | null,
 	Representantes_aggregate?:ValueTypes["identidades_Representantes_aggregate_order_by"] | null,
+	Sexo?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -12644,10 +13505,14 @@ count?: [{	columns?:ValueTypes["identidades_Pessoas_select_column"][],	distinct?
 	/** input type for updating data in table "identidades.Pessoas" */
 ["identidades_Pessoas_set_input"]: {
 	DadosDaApi?:ValueTypes["jsonb"] | null,
+	DataCriacao?:ValueTypes["timestamptz"] | null,
+	DataNascimento?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	Identificador?:string | null,
 	Nome?:string | null,
 	PessoaJuridica?:boolean | null,
+	Profissao?:string | null,
+	Sexo?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -13430,9 +14295,12 @@ delete_clientes_Veiculos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["clientes_Veiculos_bool_exp"]},ValueTypes["clientes_Veiculos_mutation_response"]],
 delete_clientes_VeiculosAtivos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["clientes_VeiculosAtivos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_mutation_response"]],
-delete_clientes_VeiculosAtivos_Beneficios?: [{	/** filter the rows which have to be deleted */
-	where:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"]],
-delete_clientes_VeiculosAtivos_Beneficios_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["clientes_VeiculosAtivos_Beneficios"]],
+delete_clientes_VeiculosAtivos_Combos?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Combos_mutation_response"]],
+delete_clientes_VeiculosAtivos_Combos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["clientes_VeiculosAtivos_Combos"]],
+delete_clientes_VeiculosAtivos_Planos?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Planos_mutation_response"]],
+delete_clientes_VeiculosAtivos_Planos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["clientes_VeiculosAtivos_Planos"]],
 delete_clientes_VeiculosAtivos_Produtos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Produtos_mutation_response"]],
 delete_clientes_VeiculosAtivos_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["clientes_VeiculosAtivos_Produtos"]],
@@ -13530,6 +14398,9 @@ delete_comercial_Produtos_Oportunidades_by_pk?: [{	Id:ValueTypes["uuid"]},ValueT
 delete_comercial_Produtos_Produtos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["comercial_Produtos_Produtos_bool_exp"]},ValueTypes["comercial_Produtos_Produtos_mutation_response"]],
 delete_comercial_Produtos_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Produtos_Produtos"]],
+delete_comercial_Produtos_RegrasETermosDeUso?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"]},ValueTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"]],
+delete_comercial_Produtos_RegrasETermosDeUso_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Produtos_RegrasETermosDeUso"]],
 delete_comercial_Produtos_Servicos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["comercial_Produtos_Servicos_bool_exp"]},ValueTypes["comercial_Produtos_Servicos_mutation_response"]],
 delete_comercial_Produtos_Servicos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Produtos_Servicos"]],
@@ -13548,6 +14419,9 @@ delete_comercial_Servicos_Oportunidades_by_pk?: [{	Id:ValueTypes["uuid"]},ValueT
 delete_comercial_Servicos_Produtos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["comercial_Servicos_Produtos_bool_exp"]},ValueTypes["comercial_Servicos_Produtos_mutation_response"]],
 delete_comercial_Servicos_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Servicos_Produtos"]],
+delete_comercial_Servicos_RegrasETermosDeUso?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"]},ValueTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"]],
+delete_comercial_Servicos_RegrasETermosDeUso_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Servicos_RegrasETermosDeUso"]],
 delete_comercial_Servicos_Servicos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["comercial_Servicos_Servicos_bool_exp"]},ValueTypes["comercial_Servicos_Servicos_mutation_response"]],
 delete_comercial_Servicos_Servicos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Servicos_Servicos"]],
@@ -13635,9 +14509,18 @@ delete_operacional_OrdemDeServico_Agendamentos_by_pk?: [{	Id:ValueTypes["uuid"]}
 delete_operacional_OrdemDeServico_Atividades?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["operacional_OrdemDeServico_Atividades_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Atividades_mutation_response"]],
 delete_operacional_OrdemDeServico_Atividades_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Atividades"]],
-delete_operacional_OrdemDeServico_Beneficios?: [{	/** filter the rows which have to be deleted */
-	where:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Beneficios_mutation_response"]],
-delete_operacional_OrdemDeServico_Beneficios_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
+delete_operacional_OrdemDeServico_Checklist?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Checklist_mutation_response"]],
+delete_operacional_OrdemDeServico_Checklist_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Checklist"]],
+delete_operacional_OrdemDeServico_Combos?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Combos_mutation_response"]],
+delete_operacional_OrdemDeServico_Combos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Combos"]],
+delete_operacional_OrdemDeServico_ItensDeChecklist?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"]],
+delete_operacional_OrdemDeServico_ItensDeChecklist_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"]],
+delete_operacional_OrdemDeServico_Planos?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Planos_mutation_response"]],
+delete_operacional_OrdemDeServico_Planos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Planos"]],
 delete_operacional_OrdemDeServico_Produtos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Produtos_mutation_response"]],
 delete_operacional_OrdemDeServico_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Produtos"]],
@@ -13728,6 +14611,9 @@ delete_propostas_Propostas_Planos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["
 delete_propostas_Propostas_Produtos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["propostas_Propostas_Produtos_bool_exp"]},ValueTypes["propostas_Propostas_Produtos_mutation_response"]],
 delete_propostas_Propostas_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["propostas_Propostas_Produtos"]],
+delete_propostas_Propostas_RegrasETermosDeUso?: [{	/** filter the rows which have to be deleted */
+	where:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"]},ValueTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"]],
+delete_propostas_Propostas_RegrasETermosDeUso_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
 delete_propostas_Propostas_Servicos?: [{	/** filter the rows which have to be deleted */
 	where:ValueTypes["propostas_Propostas_Servicos_bool_exp"]},ValueTypes["propostas_Propostas_Servicos_mutation_response"]],
 delete_propostas_Propostas_Servicos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["propostas_Propostas_Servicos"]],
@@ -13801,12 +14687,18 @@ insert_clientes_Veiculos?: [{	/** the rows to be inserted */
 insert_clientes_VeiculosAtivos?: [{	/** the rows to be inserted */
 	objects:ValueTypes["clientes_VeiculosAtivos_insert_input"][],	/** upsert condition */
 	on_conflict?:ValueTypes["clientes_VeiculosAtivos_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_mutation_response"]],
-insert_clientes_VeiculosAtivos_Beneficios?: [{	/** the rows to be inserted */
-	objects:ValueTypes["clientes_VeiculosAtivos_Beneficios_insert_input"][],	/** upsert condition */
-	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Beneficios_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"]],
-insert_clientes_VeiculosAtivos_Beneficios_one?: [{	/** the row to be inserted */
-	object:ValueTypes["clientes_VeiculosAtivos_Beneficios_insert_input"],	/** upsert condition */
-	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Beneficios_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_Beneficios"]],
+insert_clientes_VeiculosAtivos_Combos?: [{	/** the rows to be inserted */
+	objects:ValueTypes["clientes_VeiculosAtivos_Combos_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Combos_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_Combos_mutation_response"]],
+insert_clientes_VeiculosAtivos_Combos_one?: [{	/** the row to be inserted */
+	object:ValueTypes["clientes_VeiculosAtivos_Combos_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Combos_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_Combos"]],
+insert_clientes_VeiculosAtivos_Planos?: [{	/** the rows to be inserted */
+	objects:ValueTypes["clientes_VeiculosAtivos_Planos_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Planos_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_Planos_mutation_response"]],
+insert_clientes_VeiculosAtivos_Planos_one?: [{	/** the row to be inserted */
+	object:ValueTypes["clientes_VeiculosAtivos_Planos_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Planos_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_Planos"]],
 insert_clientes_VeiculosAtivos_Produtos?: [{	/** the rows to be inserted */
 	objects:ValueTypes["clientes_VeiculosAtivos_Produtos_insert_input"][],	/** upsert condition */
 	on_conflict?:ValueTypes["clientes_VeiculosAtivos_Produtos_on_conflict"] | null},ValueTypes["clientes_VeiculosAtivos_Produtos_mutation_response"]],
@@ -14002,6 +14894,12 @@ insert_comercial_Produtos_Produtos?: [{	/** the rows to be inserted */
 insert_comercial_Produtos_Produtos_one?: [{	/** the row to be inserted */
 	object:ValueTypes["comercial_Produtos_Produtos_insert_input"],	/** upsert condition */
 	on_conflict?:ValueTypes["comercial_Produtos_Produtos_on_conflict"] | null},ValueTypes["comercial_Produtos_Produtos"]],
+insert_comercial_Produtos_RegrasETermosDeUso?: [{	/** the rows to be inserted */
+	objects:ValueTypes["comercial_Produtos_RegrasETermosDeUso_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_on_conflict"] | null},ValueTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"]],
+insert_comercial_Produtos_RegrasETermosDeUso_one?: [{	/** the row to be inserted */
+	object:ValueTypes["comercial_Produtos_RegrasETermosDeUso_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_on_conflict"] | null},ValueTypes["comercial_Produtos_RegrasETermosDeUso"]],
 insert_comercial_Produtos_Servicos?: [{	/** the rows to be inserted */
 	objects:ValueTypes["comercial_Produtos_Servicos_insert_input"][],	/** upsert condition */
 	on_conflict?:ValueTypes["comercial_Produtos_Servicos_on_conflict"] | null},ValueTypes["comercial_Produtos_Servicos_mutation_response"]],
@@ -14038,6 +14936,12 @@ insert_comercial_Servicos_Produtos?: [{	/** the rows to be inserted */
 insert_comercial_Servicos_Produtos_one?: [{	/** the row to be inserted */
 	object:ValueTypes["comercial_Servicos_Produtos_insert_input"],	/** upsert condition */
 	on_conflict?:ValueTypes["comercial_Servicos_Produtos_on_conflict"] | null},ValueTypes["comercial_Servicos_Produtos"]],
+insert_comercial_Servicos_RegrasETermosDeUso?: [{	/** the rows to be inserted */
+	objects:ValueTypes["comercial_Servicos_RegrasETermosDeUso_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_on_conflict"] | null},ValueTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"]],
+insert_comercial_Servicos_RegrasETermosDeUso_one?: [{	/** the row to be inserted */
+	object:ValueTypes["comercial_Servicos_RegrasETermosDeUso_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_on_conflict"] | null},ValueTypes["comercial_Servicos_RegrasETermosDeUso"]],
 insert_comercial_Servicos_Servicos?: [{	/** the rows to be inserted */
 	objects:ValueTypes["comercial_Servicos_Servicos_insert_input"][],	/** upsert condition */
 	on_conflict?:ValueTypes["comercial_Servicos_Servicos_on_conflict"] | null},ValueTypes["comercial_Servicos_Servicos_mutation_response"]],
@@ -14212,12 +15116,30 @@ insert_operacional_OrdemDeServico_Atividades?: [{	/** the rows to be inserted */
 insert_operacional_OrdemDeServico_Atividades_one?: [{	/** the row to be inserted */
 	object:ValueTypes["operacional_OrdemDeServico_Atividades_insert_input"],	/** upsert condition */
 	on_conflict?:ValueTypes["operacional_OrdemDeServico_Atividades_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Atividades"]],
-insert_operacional_OrdemDeServico_Beneficios?: [{	/** the rows to be inserted */
-	objects:ValueTypes["operacional_OrdemDeServico_Beneficios_insert_input"][],	/** upsert condition */
-	on_conflict?:ValueTypes["operacional_OrdemDeServico_Beneficios_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios_mutation_response"]],
-insert_operacional_OrdemDeServico_Beneficios_one?: [{	/** the row to be inserted */
-	object:ValueTypes["operacional_OrdemDeServico_Beneficios_insert_input"],	/** upsert condition */
-	on_conflict?:ValueTypes["operacional_OrdemDeServico_Beneficios_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
+insert_operacional_OrdemDeServico_Checklist?: [{	/** the rows to be inserted */
+	objects:ValueTypes["operacional_OrdemDeServico_Checklist_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Checklist_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Checklist_mutation_response"]],
+insert_operacional_OrdemDeServico_Checklist_one?: [{	/** the row to be inserted */
+	object:ValueTypes["operacional_OrdemDeServico_Checklist_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Checklist_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Checklist"]],
+insert_operacional_OrdemDeServico_Combos?: [{	/** the rows to be inserted */
+	objects:ValueTypes["operacional_OrdemDeServico_Combos_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Combos_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Combos_mutation_response"]],
+insert_operacional_OrdemDeServico_Combos_one?: [{	/** the row to be inserted */
+	object:ValueTypes["operacional_OrdemDeServico_Combos_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Combos_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Combos"]],
+insert_operacional_OrdemDeServico_ItensDeChecklist?: [{	/** the rows to be inserted */
+	objects:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"]],
+insert_operacional_OrdemDeServico_ItensDeChecklist_one?: [{	/** the row to be inserted */
+	object:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"]],
+insert_operacional_OrdemDeServico_Planos?: [{	/** the rows to be inserted */
+	objects:ValueTypes["operacional_OrdemDeServico_Planos_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Planos_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Planos_mutation_response"]],
+insert_operacional_OrdemDeServico_Planos_one?: [{	/** the row to be inserted */
+	object:ValueTypes["operacional_OrdemDeServico_Planos_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Planos_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Planos"]],
 insert_operacional_OrdemDeServico_Produtos?: [{	/** the rows to be inserted */
 	objects:ValueTypes["operacional_OrdemDeServico_Produtos_insert_input"][],	/** upsert condition */
 	on_conflict?:ValueTypes["operacional_OrdemDeServico_Produtos_on_conflict"] | null},ValueTypes["operacional_OrdemDeServico_Produtos_mutation_response"]],
@@ -14398,6 +15320,12 @@ insert_propostas_Propostas_Produtos?: [{	/** the rows to be inserted */
 insert_propostas_Propostas_Produtos_one?: [{	/** the row to be inserted */
 	object:ValueTypes["propostas_Propostas_Produtos_insert_input"],	/** upsert condition */
 	on_conflict?:ValueTypes["propostas_Propostas_Produtos_on_conflict"] | null},ValueTypes["propostas_Propostas_Produtos"]],
+insert_propostas_Propostas_RegrasETermosDeUso?: [{	/** the rows to be inserted */
+	objects:ValueTypes["propostas_Propostas_RegrasETermosDeUso_insert_input"][],	/** upsert condition */
+	on_conflict?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_on_conflict"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"]],
+insert_propostas_Propostas_RegrasETermosDeUso_one?: [{	/** the row to be inserted */
+	object:ValueTypes["propostas_Propostas_RegrasETermosDeUso_insert_input"],	/** upsert condition */
+	on_conflict?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_on_conflict"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
 insert_propostas_Propostas_Servicos?: [{	/** the rows to be inserted */
 	objects:ValueTypes["propostas_Propostas_Servicos_insert_input"][],	/** upsert condition */
 	on_conflict?:ValueTypes["propostas_Propostas_Servicos_on_conflict"] | null},ValueTypes["propostas_Propostas_Servicos_mutation_response"]],
@@ -14500,15 +15428,22 @@ update_clientes_Veiculos?: [{	/** append existing jsonb value of filtered column
 update_clientes_VeiculosAtivos?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["clientes_VeiculosAtivos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["clientes_VeiculosAtivos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_mutation_response"]],
-update_clientes_VeiculosAtivos_Beneficios?: [{	/** sets the columns of the filtered rows to the given values */
-	_set?:ValueTypes["clientes_VeiculosAtivos_Beneficios_set_input"] | null,	/** filter the rows which have to be updated */
-	where:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"]],
-update_clientes_VeiculosAtivos_Beneficios_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
-	_set?:ValueTypes["clientes_VeiculosAtivos_Beneficios_set_input"] | null,	pk_columns:ValueTypes["clientes_VeiculosAtivos_Beneficios_pk_columns_input"]},ValueTypes["clientes_VeiculosAtivos_Beneficios"]],
-update_clientes_VeiculosAtivos_Produtos?: [{	/** sets the columns of the filtered rows to the given values */
+update_clientes_VeiculosAtivos_Combos?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["clientes_VeiculosAtivos_Combos_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Combos_mutation_response"]],
+update_clientes_VeiculosAtivos_Combos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["clientes_VeiculosAtivos_Combos_set_input"] | null,	pk_columns:ValueTypes["clientes_VeiculosAtivos_Combos_pk_columns_input"]},ValueTypes["clientes_VeiculosAtivos_Combos"]],
+update_clientes_VeiculosAtivos_Planos?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["clientes_VeiculosAtivos_Planos_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Planos_mutation_response"]],
+update_clientes_VeiculosAtivos_Planos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["clientes_VeiculosAtivos_Planos_set_input"] | null,	pk_columns:ValueTypes["clientes_VeiculosAtivos_Planos_pk_columns_input"]},ValueTypes["clientes_VeiculosAtivos_Planos"]],
+update_clientes_VeiculosAtivos_Produtos?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["clientes_VeiculosAtivos_Produtos_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["clientes_VeiculosAtivos_Produtos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["clientes_VeiculosAtivos_Produtos_bool_exp"]},ValueTypes["clientes_VeiculosAtivos_Produtos_mutation_response"]],
-update_clientes_VeiculosAtivos_Produtos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+update_clientes_VeiculosAtivos_Produtos_by_pk?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["clientes_VeiculosAtivos_Produtos_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["clientes_VeiculosAtivos_Produtos_set_input"] | null,	pk_columns:ValueTypes["clientes_VeiculosAtivos_Produtos_pk_columns_input"]},ValueTypes["clientes_VeiculosAtivos_Produtos"]],
 update_clientes_VeiculosAtivos_Servicos?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["clientes_VeiculosAtivos_Servicos_set_input"] | null,	/** filter the rows which have to be updated */
@@ -14705,6 +15640,11 @@ update_comercial_Produtos_Produtos?: [{	/** sets the columns of the filtered row
 	where:ValueTypes["comercial_Produtos_Produtos_bool_exp"]},ValueTypes["comercial_Produtos_Produtos_mutation_response"]],
 update_comercial_Produtos_Produtos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["comercial_Produtos_Produtos_set_input"] | null,	pk_columns:ValueTypes["comercial_Produtos_Produtos_pk_columns_input"]},ValueTypes["comercial_Produtos_Produtos"]],
+update_comercial_Produtos_RegrasETermosDeUso?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"]},ValueTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"]],
+update_comercial_Produtos_RegrasETermosDeUso_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_set_input"] | null,	pk_columns:ValueTypes["comercial_Produtos_RegrasETermosDeUso_pk_columns_input"]},ValueTypes["comercial_Produtos_RegrasETermosDeUso"]],
 update_comercial_Produtos_Servicos?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["comercial_Produtos_Servicos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["comercial_Produtos_Servicos_bool_exp"]},ValueTypes["comercial_Produtos_Servicos_mutation_response"]],
@@ -14747,6 +15687,11 @@ update_comercial_Servicos_Produtos?: [{	/** sets the columns of the filtered row
 	where:ValueTypes["comercial_Servicos_Produtos_bool_exp"]},ValueTypes["comercial_Servicos_Produtos_mutation_response"]],
 update_comercial_Servicos_Produtos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["comercial_Servicos_Produtos_set_input"] | null,	pk_columns:ValueTypes["comercial_Servicos_Produtos_pk_columns_input"]},ValueTypes["comercial_Servicos_Produtos"]],
+update_comercial_Servicos_RegrasETermosDeUso?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"]},ValueTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"]],
+update_comercial_Servicos_RegrasETermosDeUso_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_set_input"] | null,	pk_columns:ValueTypes["comercial_Servicos_RegrasETermosDeUso_pk_columns_input"]},ValueTypes["comercial_Servicos_RegrasETermosDeUso"]],
 update_comercial_Servicos_Servicos?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["comercial_Servicos_Servicos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["comercial_Servicos_Servicos_bool_exp"]},ValueTypes["comercial_Servicos_Servicos_mutation_response"]],
@@ -14926,7 +15871,12 @@ update_operacional_OrdemDeServico?: [{	/** increments the numeric columns with g
 	_inc?:ValueTypes["operacional_OrdemDeServico_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["operacional_OrdemDeServico_bool_exp"]},ValueTypes["operacional_OrdemDeServico_mutation_response"]],
-update_operacional_OrdemDeServico_Agendamentos?: [{	/** sets the columns of the filtered rows to the given values */
+update_operacional_OrdemDeServico_Agendamentos?: [{	/** append existing jsonb value of filtered columns with new jsonb value */
+	_append?:ValueTypes["operacional_OrdemDeServico_Agendamentos_append_input"] | null,	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+	_delete_at_path?:ValueTypes["operacional_OrdemDeServico_Agendamentos_delete_at_path_input"] | null,	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+	_delete_elem?:ValueTypes["operacional_OrdemDeServico_Agendamentos_delete_elem_input"] | null,	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+	_delete_key?:ValueTypes["operacional_OrdemDeServico_Agendamentos_delete_key_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
+	_prepend?:ValueTypes["operacional_OrdemDeServico_Agendamentos_prepend_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Agendamentos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["operacional_OrdemDeServico_Agendamentos_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Agendamentos_mutation_response"]],
 update_operacional_OrdemDeServico_Agendamentos_Itens?: [{	/** sets the columns of the filtered rows to the given values */
@@ -14939,22 +15889,54 @@ update_operacional_OrdemDeServico_Agendamentos_Situacoes?: [{	/** sets the colum
 	where:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_mutation_response"]],
 update_operacional_OrdemDeServico_Agendamentos_Situacoes_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes"]],
-update_operacional_OrdemDeServico_Agendamentos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+update_operacional_OrdemDeServico_Agendamentos_by_pk?: [{	/** append existing jsonb value of filtered columns with new jsonb value */
+	_append?:ValueTypes["operacional_OrdemDeServico_Agendamentos_append_input"] | null,	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+	_delete_at_path?:ValueTypes["operacional_OrdemDeServico_Agendamentos_delete_at_path_input"] | null,	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+	_delete_elem?:ValueTypes["operacional_OrdemDeServico_Agendamentos_delete_elem_input"] | null,	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+	_delete_key?:ValueTypes["operacional_OrdemDeServico_Agendamentos_delete_key_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
+	_prepend?:ValueTypes["operacional_OrdemDeServico_Agendamentos_prepend_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Agendamentos_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Agendamentos_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Agendamentos"]],
 update_operacional_OrdemDeServico_Atividades?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Atividades_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["operacional_OrdemDeServico_Atividades_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Atividades_mutation_response"]],
 update_operacional_OrdemDeServico_Atividades_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Atividades_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Atividades_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Atividades"]],
-update_operacional_OrdemDeServico_Beneficios?: [{	/** sets the columns of the filtered rows to the given values */
-	_set?:ValueTypes["operacional_OrdemDeServico_Beneficios_set_input"] | null,	/** filter the rows which have to be updated */
-	where:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Beneficios_mutation_response"]],
-update_operacional_OrdemDeServico_Beneficios_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
-	_set?:ValueTypes["operacional_OrdemDeServico_Beneficios_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Beneficios_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
-update_operacional_OrdemDeServico_Produtos?: [{	/** sets the columns of the filtered rows to the given values */
+update_operacional_OrdemDeServico_Checklist?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_Checklist_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Checklist_mutation_response"]],
+update_operacional_OrdemDeServico_Checklist_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_Checklist_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Checklist_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Checklist"]],
+update_operacional_OrdemDeServico_Combos?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_Combos_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Combos_mutation_response"]],
+update_operacional_OrdemDeServico_Combos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_Combos_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Combos_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Combos"]],
+update_operacional_OrdemDeServico_ItensDeChecklist?: [{	/** append existing jsonb value of filtered columns with new jsonb value */
+	_append?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_append_input"] | null,	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+	_delete_at_path?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_at_path_input"] | null,	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+	_delete_elem?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_elem_input"] | null,	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+	_delete_key?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_key_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
+	_prepend?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_prepend_input"] | null,	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"]],
+update_operacional_OrdemDeServico_ItensDeChecklist_by_pk?: [{	/** append existing jsonb value of filtered columns with new jsonb value */
+	_append?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_append_input"] | null,	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+	_delete_at_path?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_at_path_input"] | null,	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+	_delete_elem?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_elem_input"] | null,	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+	_delete_key?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_key_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
+	_prepend?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_prepend_input"] | null,	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"]],
+update_operacional_OrdemDeServico_Planos?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_Planos_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Planos_mutation_response"]],
+update_operacional_OrdemDeServico_Planos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["operacional_OrdemDeServico_Planos_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Planos_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Planos"]],
+update_operacional_OrdemDeServico_Produtos?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["operacional_OrdemDeServico_Produtos_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Produtos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"]},ValueTypes["operacional_OrdemDeServico_Produtos_mutation_response"]],
-update_operacional_OrdemDeServico_Produtos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+update_operacional_OrdemDeServico_Produtos_by_pk?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["operacional_OrdemDeServico_Produtos_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Produtos_set_input"] | null,	pk_columns:ValueTypes["operacional_OrdemDeServico_Produtos_pk_columns_input"]},ValueTypes["operacional_OrdemDeServico_Produtos"]],
 update_operacional_OrdemDeServico_Servicos?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["operacional_OrdemDeServico_Servicos_set_input"] | null,	/** filter the rows which have to be updated */
@@ -15131,7 +16113,8 @@ update_producao_TiposDeKitDeInsumo_estoque_Itens?: [{	/** increments the numeric
 update_producao_TiposDeKitDeInsumo_estoque_Itens_by_pk?: [{	/** increments the numeric columns with given value of the filtered values */
 	_inc?:ValueTypes["producao_TiposDeKitDeInsumo_estoque_Itens_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["producao_TiposDeKitDeInsumo_estoque_Itens_set_input"] | null,	pk_columns:ValueTypes["producao_TiposDeKitDeInsumo_estoque_Itens_pk_columns_input"]},ValueTypes["producao_TiposDeKitDeInsumo_estoque_Itens"]],
-update_propostas_Propostas?: [{	/** sets the columns of the filtered rows to the given values */
+update_propostas_Propostas?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["propostas_Propostas_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["propostas_Propostas_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["propostas_Propostas_bool_exp"]},ValueTypes["propostas_Propostas_mutation_response"]],
 update_propostas_Propostas_Combos?: [{	/** sets the columns of the filtered rows to the given values */
@@ -15149,11 +16132,18 @@ update_propostas_Propostas_Planos?: [{	/** sets the columns of the filtered rows
 	where:ValueTypes["propostas_Propostas_Planos_bool_exp"]},ValueTypes["propostas_Propostas_Planos_mutation_response"]],
 update_propostas_Propostas_Planos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["propostas_Propostas_Planos_set_input"] | null,	pk_columns:ValueTypes["propostas_Propostas_Planos_pk_columns_input"]},ValueTypes["propostas_Propostas_Planos"]],
-update_propostas_Propostas_Produtos?: [{	/** sets the columns of the filtered rows to the given values */
+update_propostas_Propostas_Produtos?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["propostas_Propostas_Produtos_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["propostas_Propostas_Produtos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["propostas_Propostas_Produtos_bool_exp"]},ValueTypes["propostas_Propostas_Produtos_mutation_response"]],
-update_propostas_Propostas_Produtos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+update_propostas_Propostas_Produtos_by_pk?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["propostas_Propostas_Produtos_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["propostas_Propostas_Produtos_set_input"] | null,	pk_columns:ValueTypes["propostas_Propostas_Produtos_pk_columns_input"]},ValueTypes["propostas_Propostas_Produtos"]],
+update_propostas_Propostas_RegrasETermosDeUso?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_set_input"] | null,	/** filter the rows which have to be updated */
+	where:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"]},ValueTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"]],
+update_propostas_Propostas_RegrasETermosDeUso_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+	_set?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_set_input"] | null,	pk_columns:ValueTypes["propostas_Propostas_RegrasETermosDeUso_pk_columns_input"]},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
 update_propostas_Propostas_Servicos?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["propostas_Propostas_Servicos_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["propostas_Propostas_Servicos_bool_exp"]},ValueTypes["propostas_Propostas_Servicos_mutation_response"]],
@@ -15169,7 +16159,8 @@ update_propostas_Propostas_Veiculos?: [{	/** sets the columns of the filtered ro
 	where:ValueTypes["propostas_Propostas_Veiculos_bool_exp"]},ValueTypes["propostas_Propostas_Veiculos_mutation_response"]],
 update_propostas_Propostas_Veiculos_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["propostas_Propostas_Veiculos_set_input"] | null,	pk_columns:ValueTypes["propostas_Propostas_Veiculos_pk_columns_input"]},ValueTypes["propostas_Propostas_Veiculos"]],
-update_propostas_Propostas_by_pk?: [{	/** sets the columns of the filtered rows to the given values */
+update_propostas_Propostas_by_pk?: [{	/** increments the numeric columns with given value of the filtered values */
+	_inc?:ValueTypes["propostas_Propostas_inc_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["propostas_Propostas_set_input"] | null,	pk_columns:ValueTypes["propostas_Propostas_pk_columns_input"]},ValueTypes["propostas_Propostas"]],
 update_vendas_DiasDeFaturamento?: [{	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["vendas_DiasDeFaturamento_set_input"] | null,	/** filter the rows which have to be updated */
@@ -15214,20 +16205,33 @@ Atividades_aggregate?: [{	/** distinct select on columns */
 	offset?:number | null,	/** sort the rows by one or more columns */
 	order_by?:ValueTypes["operacional_OrdemDeServico_Atividades_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["operacional_OrdemDeServico_Atividades_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Atividades_aggregate"]],
-Beneficios?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["operacional_OrdemDeServico_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
-Beneficios_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_column"][],	/** limit the number of rows returned */
-	limit?:number | null,	/** skip the first n rows. Use only with order_by */
-	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["operacional_OrdemDeServico_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios_aggregate"]],
 	CodigoIdentificador?:boolean,
+Combos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Combos"]],
+Combos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Combos_aggregate"]],
 	Id?:boolean,
+Planos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos"]],
+Planos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos_aggregate"]],
+	PossuiGNV?:boolean,
 Produtos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -15271,6 +16275,9 @@ Servicos_aggregate?: [{	/** distinct select on columns */
 	Agendamento?:boolean,
 	Colaborador?:ValueTypes["identidades_Colaboradores"],
 	Colaborador_Id?:boolean,
+	Contato?:boolean,
+Endereco?: [{	/** JSON select path */
+	path?:string | null},boolean],
 	FimDoServico?:boolean,
 	Id?:boolean,
 	InicioDoServico?:boolean,
@@ -15289,6 +16296,7 @@ Itens_aggregate?: [{	/** distinct select on columns */
 	OS_Id?:boolean,
 	/** An object relationship */
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico"],
+	Responsavel?:boolean,
 	/** An object relationship */
 	Situacao?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes"],
 	Situacao_Id?:boolean,
@@ -15585,6 +16593,10 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 	max?:ValueTypes["operacional_OrdemDeServico_Agendamentos_max_order_by"] | null,
 	min?:ValueTypes["operacional_OrdemDeServico_Agendamentos_min_order_by"] | null
 };
+	/** append existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_Agendamentos_append_input"]: {
+	Endereco?:ValueTypes["jsonb"] | null
+};
 	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_arr_rel_insert_input"]: {
 	data:ValueTypes["operacional_OrdemDeServico_Agendamentos_insert_input"][],
@@ -15595,12 +16607,15 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 ["operacional_OrdemDeServico_Agendamentos_bool_exp"]: {
 	Agendamento?:ValueTypes["timestamptz_comparison_exp"] | null,
 	Colaborador_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Contato?:ValueTypes["String_comparison_exp"] | null,
+	Endereco?:ValueTypes["jsonb_comparison_exp"] | null,
 	FimDoServico?:ValueTypes["timestamptz_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	InicioDoServico?:ValueTypes["timestamptz_comparison_exp"] | null,
 	Itens?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Itens_bool_exp"] | null,
 	OS_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_bool_exp"] | null,
+	Responsavel?:ValueTypes["String_comparison_exp"] | null,
 	Situacao?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_bool_exp"] | null,
 	Situacao_Id?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum_comparison_exp"] | null,
 	_and?:ValueTypes["operacional_OrdemDeServico_Agendamentos_bool_exp"][],
@@ -15612,16 +16627,31 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 };
 	/** unique or primary key constraints on table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_constraint"]:operacional_OrdemDeServico_Agendamentos_constraint;
+	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+["operacional_OrdemDeServico_Agendamentos_delete_at_path_input"]: {
+	Endereco?:string[]
+};
+	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+["operacional_OrdemDeServico_Agendamentos_delete_elem_input"]: {
+	Endereco?:number | null
+};
+	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+["operacional_OrdemDeServico_Agendamentos_delete_key_input"]: {
+	Endereco?:string | null
+};
 	/** input type for inserting data into table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_insert_input"]: {
 	Agendamento?:ValueTypes["timestamptz"] | null,
 	Colaborador_Id?:ValueTypes["uuid"] | null,
+	Contato?:string | null,
+	Endereco?:ValueTypes["jsonb"] | null,
 	FimDoServico?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	InicioDoServico?:ValueTypes["timestamptz"] | null,
 	Itens?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Itens_arr_rel_insert_input"] | null,
 	OS_Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_obj_rel_insert_input"] | null,
+	Responsavel?:string | null,
 	Situacao?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_obj_rel_insert_input"] | null,
 	Situacao_Id?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -15632,10 +16662,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 ["operacional_OrdemDeServico_Agendamentos_max_fields"]: AliasType<{
 	Agendamento?:boolean,
 	Colaborador_Id?:boolean,
+	Contato?:boolean,
 	FimDoServico?:boolean,
 	Id?:boolean,
 	InicioDoServico?:boolean,
 	OS_Id?:boolean,
+	Responsavel?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -15645,10 +16677,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 ["operacional_OrdemDeServico_Agendamentos_max_order_by"]: {
 	Agendamento?:ValueTypes["order_by"] | null,
 	Colaborador_Id?:ValueTypes["order_by"] | null,
+	Contato?:ValueTypes["order_by"] | null,
 	FimDoServico?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	InicioDoServico?:ValueTypes["order_by"] | null,
 	OS_Id?:ValueTypes["order_by"] | null,
+	Responsavel?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -15657,10 +16691,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 ["operacional_OrdemDeServico_Agendamentos_min_fields"]: AliasType<{
 	Agendamento?:boolean,
 	Colaborador_Id?:boolean,
+	Contato?:boolean,
 	FimDoServico?:boolean,
 	Id?:boolean,
 	InicioDoServico?:boolean,
 	OS_Id?:boolean,
+	Responsavel?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -15670,10 +16706,12 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 ["operacional_OrdemDeServico_Agendamentos_min_order_by"]: {
 	Agendamento?:ValueTypes["order_by"] | null,
 	Colaborador_Id?:ValueTypes["order_by"] | null,
+	Contato?:ValueTypes["order_by"] | null,
 	FimDoServico?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	InicioDoServico?:ValueTypes["order_by"] | null,
 	OS_Id?:ValueTypes["order_by"] | null,
+	Responsavel?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -15702,12 +16740,15 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 ["operacional_OrdemDeServico_Agendamentos_order_by"]: {
 	Agendamento?:ValueTypes["order_by"] | null,
 	Colaborador_Id?:ValueTypes["order_by"] | null,
+	Contato?:ValueTypes["order_by"] | null,
+	Endereco?:ValueTypes["order_by"] | null,
 	FimDoServico?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	InicioDoServico?:ValueTypes["order_by"] | null,
 	Itens_aggregate?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Itens_aggregate_order_by"] | null,
 	OS_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_order_by"] | null,
+	Responsavel?:ValueTypes["order_by"] | null,
 	Situacao?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_order_by"] | null,
 	Situacao_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -15718,16 +16759,23 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Agendamentos_select_c
 ["operacional_OrdemDeServico_Agendamentos_pk_columns_input"]: {
 	Id:ValueTypes["uuid"]
 };
+	/** prepend existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_Agendamentos_prepend_input"]: {
+	Endereco?:ValueTypes["jsonb"] | null
+};
 	/** select columns of table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_select_column"]:operacional_OrdemDeServico_Agendamentos_select_column;
 	/** input type for updating data in table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_set_input"]: {
 	Agendamento?:ValueTypes["timestamptz"] | null,
 	Colaborador_Id?:ValueTypes["uuid"] | null,
+	Contato?:string | null,
+	Endereco?:ValueTypes["jsonb"] | null,
 	FimDoServico?:ValueTypes["timestamptz"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	InicioDoServico?:ValueTypes["timestamptz"] | null,
 	OS_Id?:ValueTypes["uuid"] | null,
+	Responsavel?:string | null,
 	Situacao_Id?:ValueTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -15895,189 +16943,654 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Atividades_select_col
 };
 	/** update columns of table "operacional.OrdemDeServico_Atividades" */
 ["operacional_OrdemDeServico_Atividades_update_column"]:operacional_OrdemDeServico_Atividades_update_column;
-	/** columns and relationships of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios"]: AliasType<{
+	/** columns and relationships of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist"]: AliasType<{
+	Descricao?:boolean,
 	Id?:boolean,
-	/** An object relationship */
-	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico"],
-	OrdemDeServico_Id?:boolean,
-	PortfolioPreco_Id?:boolean,
-	Portfolio_Id?:boolean,
-	PrecoDeAdesao_Id?:boolean,
-	PrecoDeRecorrencia_Id?:boolean,
-	TipoPortfolio?:boolean,
+	Nome?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
 		__typename?: boolean
 }>;
-	/** aggregated selection of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate"]: AliasType<{
-	aggregate?:ValueTypes["operacional_OrdemDeServico_Beneficios_aggregate_fields"],
-	nodes?:ValueTypes["operacional_OrdemDeServico_Beneficios"],
+	/** aggregated selection of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["operacional_OrdemDeServico_Checklist_aggregate_fields"],
+	nodes?:ValueTypes["operacional_OrdemDeServico_Checklist"],
 		__typename?: boolean
 }>;
-	/** aggregate fields of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate_fields"]: AliasType<{
-count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_column"][],	distinct?:boolean | null},boolean],
-	max?:ValueTypes["operacional_OrdemDeServico_Beneficios_max_fields"],
-	min?:ValueTypes["operacional_OrdemDeServico_Beneficios_min_fields"],
+	/** aggregate fields of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Checklist_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["operacional_OrdemDeServico_Checklist_max_fields"],
+	min?:ValueTypes["operacional_OrdemDeServico_Checklist_min_fields"],
 		__typename?: boolean
 }>;
-	/** order by aggregate values of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate_order_by"]: {
-	count?:ValueTypes["order_by"] | null,
-	max?:ValueTypes["operacional_OrdemDeServico_Beneficios_max_order_by"] | null,
-	min?:ValueTypes["operacional_OrdemDeServico_Beneficios_min_order_by"] | null
-};
-	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_arr_rel_insert_input"]: {
-	data:ValueTypes["operacional_OrdemDeServico_Beneficios_insert_input"][],
-	/** upsert condition */
-	on_conflict?:ValueTypes["operacional_OrdemDeServico_Beneficios_on_conflict"] | null
-};
-	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Beneficios". All fields are combined with a logical 'AND'. */
-["operacional_OrdemDeServico_Beneficios_bool_exp"]: {
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Checklist". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Checklist_bool_exp"]: {
+	Descricao?:ValueTypes["String_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Nome?:ValueTypes["String_comparison_exp"] | null,
+	_and?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"][],
+	_not?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"] | null,
+	_or?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"][],
+	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	deleted_at?:ValueTypes["timestamp_comparison_exp"] | null,
+	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
+};
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_constraint"]:operacional_OrdemDeServico_Checklist_constraint;
+	/** input type for inserting data into table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_insert_input"]: {
+	Descricao?:string | null,
+	Id?:ValueTypes["uuid"] | null,
+	Nome?:string | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamp"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_Checklist_max_fields"]: AliasType<{
+	Descricao?:boolean,
+	Id?:boolean,
+	Nome?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_Checklist_min_fields"]: AliasType<{
+	Descricao?:boolean,
+	Id?:boolean,
+	Nome?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** response of any mutation on the table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["operacional_OrdemDeServico_Checklist"],
+		__typename?: boolean
+}>;
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_on_conflict"]: {
+	constraint:ValueTypes["operacional_OrdemDeServico_Checklist_constraint"],
+	update_columns:ValueTypes["operacional_OrdemDeServico_Checklist_update_column"][],
+	where?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Checklist". */
+["operacional_OrdemDeServico_Checklist_order_by"]: {
+	Descricao?:ValueTypes["order_by"] | null,
+	Id?:ValueTypes["order_by"] | null,
+	Nome?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: operacional_OrdemDeServico_Checklist */
+["operacional_OrdemDeServico_Checklist_pk_columns_input"]: {
+	Id:ValueTypes["uuid"]
+};
+	/** select columns of table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_select_column"]:operacional_OrdemDeServico_Checklist_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_set_input"]: {
+	Descricao?:string | null,
+	Id?:ValueTypes["uuid"] | null,
+	Nome?:string | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamp"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** update columns of table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_update_column"]:operacional_OrdemDeServico_Checklist_update_column;
+	/** columns and relationships of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos"]: AliasType<{
+	Combo?:ValueTypes["comercial_Combos"],
+	ComboPreco?:ValueTypes["comercial_Combos_Precos"],
+	ComboPreco_Id?:boolean,
+	Combo_Id?:boolean,
+	Id?:boolean,
+OSPlanos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos"]],
+OSPlanos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos_aggregate"]],
+OSProdutos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Produtos"]],
+OSProdutos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Produtos_aggregate"]],
+OSServicos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Servicos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Servicos"]],
+OSServicos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Servicos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Servicos_aggregate"]],
+	/** An object relationship */
+	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico"],
+	OrdemDeServico_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["operacional_OrdemDeServico_Combos_aggregate_fields"],
+	nodes?:ValueTypes["operacional_OrdemDeServico_Combos"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Combos_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["operacional_OrdemDeServico_Combos_max_fields"],
+	min?:ValueTypes["operacional_OrdemDeServico_Combos_min_fields"],
+		__typename?: boolean
+}>;
+	/** order by aggregate values of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate_order_by"]: {
+	count?:ValueTypes["order_by"] | null,
+	max?:ValueTypes["operacional_OrdemDeServico_Combos_max_order_by"] | null,
+	min?:ValueTypes["operacional_OrdemDeServico_Combos_min_order_by"] | null
+};
+	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_arr_rel_insert_input"]: {
+	data:ValueTypes["operacional_OrdemDeServico_Combos_insert_input"][],
+	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Combos_on_conflict"] | null
+};
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Combos". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Combos_bool_exp"]: {
+	ComboPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Combo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	OSPlanos?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null,
+	OSProdutos?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null,
+	OSServicos?:ValueTypes["operacional_OrdemDeServico_Servicos_bool_exp"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_bool_exp"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PortfolioPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	Portfolio_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
-	TipoPortfolio?:ValueTypes["String_comparison_exp"] | null,
-	_and?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"][],
-	_not?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null,
-	_or?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"][],
+	_and?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"][],
+	_not?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null,
+	_or?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"][],
 	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
 	deleted_at?:ValueTypes["timestamptz_comparison_exp"] | null,
 	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
 };
-	/** unique or primary key constraints on table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_constraint"]:operacional_OrdemDeServico_Beneficios_constraint;
-	/** input type for inserting data into table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_insert_input"]: {
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_constraint"]:operacional_OrdemDeServico_Combos_constraint;
+	/** input type for inserting data into table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_insert_input"]: {
+	ComboPreco_Id?:ValueTypes["uuid"] | null,
+	Combo_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
+	OSPlanos?:ValueTypes["operacional_OrdemDeServico_Planos_arr_rel_insert_input"] | null,
+	OSProdutos?:ValueTypes["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"] | null,
+	OSServicos?:ValueTypes["operacional_OrdemDeServico_Servicos_arr_rel_insert_input"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_obj_rel_insert_input"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
-	PortfolioPreco_Id?:ValueTypes["uuid"] | null,
-	Portfolio_Id?:ValueTypes["uuid"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
-	TipoPortfolio?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
 	/** aggregate max on columns */
-["operacional_OrdemDeServico_Beneficios_max_fields"]: AliasType<{
+["operacional_OrdemDeServico_Combos_max_fields"]: AliasType<{
+	ComboPreco_Id?:boolean,
+	Combo_Id?:boolean,
 	Id?:boolean,
 	OrdemDeServico_Id?:boolean,
-	PortfolioPreco_Id?:boolean,
-	Portfolio_Id?:boolean,
-	PrecoDeAdesao_Id?:boolean,
-	PrecoDeRecorrencia_Id?:boolean,
-	TipoPortfolio?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
 		__typename?: boolean
 }>;
-	/** order by max() on columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_max_order_by"]: {
+	/** order by max() on columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_max_order_by"]: {
+	ComboPreco_Id?:ValueTypes["order_by"] | null,
+	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
-	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
-	Portfolio_Id?:ValueTypes["order_by"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
-	TipoPortfolio?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
 };
 	/** aggregate min on columns */
-["operacional_OrdemDeServico_Beneficios_min_fields"]: AliasType<{
+["operacional_OrdemDeServico_Combos_min_fields"]: AliasType<{
+	ComboPreco_Id?:boolean,
+	Combo_Id?:boolean,
 	Id?:boolean,
 	OrdemDeServico_Id?:boolean,
-	PortfolioPreco_Id?:boolean,
-	Portfolio_Id?:boolean,
-	PrecoDeAdesao_Id?:boolean,
-	PrecoDeRecorrencia_Id?:boolean,
-	TipoPortfolio?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
 		__typename?: boolean
 }>;
-	/** order by min() on columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_min_order_by"]: {
+	/** order by min() on columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_min_order_by"]: {
+	ComboPreco_Id?:ValueTypes["order_by"] | null,
+	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
-	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
-	Portfolio_Id?:ValueTypes["order_by"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
-	TipoPortfolio?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
 };
-	/** response of any mutation on the table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_mutation_response"]: AliasType<{
+	/** response of any mutation on the table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_mutation_response"]: AliasType<{
 	/** number of rows affected by the mutation */
 	affected_rows?:boolean,
 	/** data from the rows affected by the mutation */
-	returning?:ValueTypes["operacional_OrdemDeServico_Beneficios"],
+	returning?:ValueTypes["operacional_OrdemDeServico_Combos"],
 		__typename?: boolean
 }>;
-	/** on_conflict condition type for table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_on_conflict"]: {
-	constraint:ValueTypes["operacional_OrdemDeServico_Beneficios_constraint"],
-	update_columns:ValueTypes["operacional_OrdemDeServico_Beneficios_update_column"][],
-	where?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null
+	/** input type for inserting object relation for remote table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_obj_rel_insert_input"]: {
+	data:ValueTypes["operacional_OrdemDeServico_Combos_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Combos_on_conflict"] | null
 };
-	/** Ordering options when selecting data from "operacional.OrdemDeServico_Beneficios". */
-["operacional_OrdemDeServico_Beneficios_order_by"]: {
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_on_conflict"]: {
+	constraint:ValueTypes["operacional_OrdemDeServico_Combos_constraint"],
+	update_columns:ValueTypes["operacional_OrdemDeServico_Combos_update_column"][],
+	where?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Combos". */
+["operacional_OrdemDeServico_Combos_order_by"]: {
+	ComboPreco_Id?:ValueTypes["order_by"] | null,
+	Combo_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
+	OSPlanos_aggregate?:ValueTypes["operacional_OrdemDeServico_Planos_aggregate_order_by"] | null,
+	OSProdutos_aggregate?:ValueTypes["operacional_OrdemDeServico_Produtos_aggregate_order_by"] | null,
+	OSServicos_aggregate?:ValueTypes["operacional_OrdemDeServico_Servicos_aggregate_order_by"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
-	PortfolioPreco_Id?:ValueTypes["order_by"] | null,
-	Portfolio_Id?:ValueTypes["order_by"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
-	TipoPortfolio?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
 };
-	/** primary key columns input for table: operacional_OrdemDeServico_Beneficios */
-["operacional_OrdemDeServico_Beneficios_pk_columns_input"]: {
+	/** primary key columns input for table: operacional_OrdemDeServico_Combos */
+["operacional_OrdemDeServico_Combos_pk_columns_input"]: {
 	Id:ValueTypes["uuid"]
 };
-	/** select columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_select_column"]:operacional_OrdemDeServico_Beneficios_select_column;
-	/** input type for updating data in table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_set_input"]: {
+	/** select columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_select_column"]:operacional_OrdemDeServico_Combos_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_set_input"]: {
+	ComboPreco_Id?:ValueTypes["uuid"] | null,
+	Combo_Id?:ValueTypes["uuid"] | null,
 	Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
-	PortfolioPreco_Id?:ValueTypes["uuid"] | null,
-	Portfolio_Id?:ValueTypes["uuid"] | null,
-	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
-	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
-	TipoPortfolio?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
-	/** update columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_update_column"]:operacional_OrdemDeServico_Beneficios_update_column;
+	/** update columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_update_column"]:operacional_OrdemDeServico_Combos_update_column;
+	/** columns and relationships of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist"]: AliasType<{
+Checklist_Id?: [{	/** JSON select path */
+	path?:string | null},boolean],
+	Descricao?:boolean,
+	Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate_fields"],
+	nodes?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_max_fields"],
+	min?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_min_fields"],
+		__typename?: boolean
+}>;
+	/** append existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_ItensDeChecklist_append_input"]: {
+	Checklist_Id?:ValueTypes["jsonb"] | null
+};
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_ItensDeChecklist". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]: {
+	Checklist_Id?:ValueTypes["jsonb_comparison_exp"] | null,
+	Descricao?:ValueTypes["String_comparison_exp"] | null,
+	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	_and?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"][],
+	_not?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"] | null,
+	_or?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"][],
+	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	deleted_at?:ValueTypes["timestamp_comparison_exp"] | null,
+	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
+};
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_constraint"]:operacional_OrdemDeServico_ItensDeChecklist_constraint;
+	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_at_path_input"]: {
+	Checklist_Id?:string[]
+};
+	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_elem_input"]: {
+	Checklist_Id?:number | null
+};
+	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_key_input"]: {
+	Checklist_Id?:string | null
+};
+	/** input type for inserting data into table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_insert_input"]: {
+	Checklist_Id?:ValueTypes["jsonb"] | null,
+	Descricao?:string | null,
+	Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamp"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_ItensDeChecklist_max_fields"]: AliasType<{
+	Descricao?:boolean,
+	Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_ItensDeChecklist_min_fields"]: AliasType<{
+	Descricao?:boolean,
+	Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** response of any mutation on the table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+		__typename?: boolean
+}>;
+	/** on_conflict condition type for table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_on_conflict"]: {
+	constraint:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_constraint"],
+	update_columns:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_update_column"][],
+	where?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_ItensDeChecklist". */
+["operacional_OrdemDeServico_ItensDeChecklist_order_by"]: {
+	Checklist_Id?:ValueTypes["order_by"] | null,
+	Descricao?:ValueTypes["order_by"] | null,
+	Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: operacional_OrdemDeServico_ItensDeChecklist */
+["operacional_OrdemDeServico_ItensDeChecklist_pk_columns_input"]: {
+	Id:ValueTypes["uuid"]
+};
+	/** prepend existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_ItensDeChecklist_prepend_input"]: {
+	Checklist_Id?:ValueTypes["jsonb"] | null
+};
+	/** select columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_select_column"]:operacional_OrdemDeServico_ItensDeChecklist_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_set_input"]: {
+	Checklist_Id?:ValueTypes["jsonb"] | null,
+	Descricao?:string | null,
+	Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamp"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** update columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_update_column"]:operacional_OrdemDeServico_ItensDeChecklist_update_column;
+	/** columns and relationships of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos"]: AliasType<{
+	Id?:boolean,
+	/** An object relationship */
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos"],
+OSProdutos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Produtos"]],
+OSProdutos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Produtos_aggregate"]],
+OSServicos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Servicos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Servicos"]],
+OSServicos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Servicos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Servicos_aggregate"]],
+	/** An object relationship */
+	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServico_Id?:boolean,
+	Plano?:ValueTypes["comercial_Planos"],
+	PlanoPreco?:ValueTypes["comercial_Planos_Precos"],
+	PlanoPreco_Id?:boolean,
+	Plano_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["operacional_OrdemDeServico_Planos_aggregate_fields"],
+	nodes?:ValueTypes["operacional_OrdemDeServico_Planos"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["operacional_OrdemDeServico_Planos_max_fields"],
+	min?:ValueTypes["operacional_OrdemDeServico_Planos_min_fields"],
+		__typename?: boolean
+}>;
+	/** order by aggregate values of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate_order_by"]: {
+	count?:ValueTypes["order_by"] | null,
+	max?:ValueTypes["operacional_OrdemDeServico_Planos_max_order_by"] | null,
+	min?:ValueTypes["operacional_OrdemDeServico_Planos_min_order_by"] | null
+};
+	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_arr_rel_insert_input"]: {
+	data:ValueTypes["operacional_OrdemDeServico_Planos_insert_input"][],
+	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Planos_on_conflict"] | null
+};
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Planos". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Planos_bool_exp"]: {
+	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null,
+	OSProdutos?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null,
+	OSServicos?:ValueTypes["operacional_OrdemDeServico_Servicos_bool_exp"] | null,
+	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_bool_exp"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	OrdemDeServico_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PlanoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Plano_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	_and?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"][],
+	_not?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null,
+	_or?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"][],
+	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	deleted_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
+};
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_constraint"]:operacional_OrdemDeServico_Planos_constraint;
+	/** input type for inserting data into table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_insert_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_obj_rel_insert_input"] | null,
+	OSProdutos?:ValueTypes["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"] | null,
+	OSServicos?:ValueTypes["operacional_OrdemDeServico_Servicos_arr_rel_insert_input"] | null,
+	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_obj_rel_insert_input"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid"] | null,
+	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
+	PlanoPreco_Id?:ValueTypes["uuid"] | null,
+	Plano_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_Planos_max_fields"]: AliasType<{
+	Id?:boolean,
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServico_Id?:boolean,
+	PlanoPreco_Id?:boolean,
+	Plano_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by max() on columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_max_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
+	PlanoPreco_Id?:ValueTypes["order_by"] | null,
+	Plano_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_Planos_min_fields"]: AliasType<{
+	Id?:boolean,
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServico_Id?:boolean,
+	PlanoPreco_Id?:boolean,
+	Plano_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by min() on columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_min_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
+	PlanoPreco_Id?:ValueTypes["order_by"] | null,
+	Plano_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** response of any mutation on the table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["operacional_OrdemDeServico_Planos"],
+		__typename?: boolean
+}>;
+	/** input type for inserting object relation for remote table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_obj_rel_insert_input"]: {
+	data:ValueTypes["operacional_OrdemDeServico_Planos_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["operacional_OrdemDeServico_Planos_on_conflict"] | null
+};
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_on_conflict"]: {
+	constraint:ValueTypes["operacional_OrdemDeServico_Planos_constraint"],
+	update_columns:ValueTypes["operacional_OrdemDeServico_Planos_update_column"][],
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Planos". */
+["operacional_OrdemDeServico_Planos_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"] | null,
+	OSProdutos_aggregate?:ValueTypes["operacional_OrdemDeServico_Produtos_aggregate_order_by"] | null,
+	OSServicos_aggregate?:ValueTypes["operacional_OrdemDeServico_Servicos_aggregate_order_by"] | null,
+	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
+	PlanoPreco_Id?:ValueTypes["order_by"] | null,
+	Plano_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: operacional_OrdemDeServico_Planos */
+["operacional_OrdemDeServico_Planos_pk_columns_input"]: {
+	Id:ValueTypes["uuid"]
+};
+	/** select columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_select_column"]:operacional_OrdemDeServico_Planos_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_set_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid"] | null,
+	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
+	PlanoPreco_Id?:ValueTypes["uuid"] | null,
+	Plano_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** update columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_update_column"]:operacional_OrdemDeServico_Planos_update_column;
 	/** columns and relationships of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos"]: AliasType<{
 	Id?:boolean,
 	Identificavel_Id?:boolean,
 	/** An object relationship */
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos"],
+	/** An object relationship */
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos"],
+	/** An object relationship */
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServicoPlano_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
 	PrecoDeAdesao_Id?:boolean,
@@ -16085,6 +17598,7 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_col
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto?:ValueTypes["comercial_Produtos"],
 	Produto_Id?:boolean,
+	Quantidade?:boolean,
 	TipoDeIdentificavel_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -16099,16 +17613,32 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_col
 }>;
 	/** aggregate fields of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_aggregate_fields"]: AliasType<{
+	avg?:ValueTypes["operacional_OrdemDeServico_Produtos_avg_fields"],
 count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	distinct?:boolean | null},boolean],
 	max?:ValueTypes["operacional_OrdemDeServico_Produtos_max_fields"],
 	min?:ValueTypes["operacional_OrdemDeServico_Produtos_min_fields"],
+	stddev?:ValueTypes["operacional_OrdemDeServico_Produtos_stddev_fields"],
+	stddev_pop?:ValueTypes["operacional_OrdemDeServico_Produtos_stddev_pop_fields"],
+	stddev_samp?:ValueTypes["operacional_OrdemDeServico_Produtos_stddev_samp_fields"],
+	sum?:ValueTypes["operacional_OrdemDeServico_Produtos_sum_fields"],
+	var_pop?:ValueTypes["operacional_OrdemDeServico_Produtos_var_pop_fields"],
+	var_samp?:ValueTypes["operacional_OrdemDeServico_Produtos_var_samp_fields"],
+	variance?:ValueTypes["operacional_OrdemDeServico_Produtos_variance_fields"],
 		__typename?: boolean
 }>;
 	/** order by aggregate values of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_aggregate_order_by"]: {
+	avg?:ValueTypes["operacional_OrdemDeServico_Produtos_avg_order_by"] | null,
 	count?:ValueTypes["order_by"] | null,
 	max?:ValueTypes["operacional_OrdemDeServico_Produtos_max_order_by"] | null,
-	min?:ValueTypes["operacional_OrdemDeServico_Produtos_min_order_by"] | null
+	min?:ValueTypes["operacional_OrdemDeServico_Produtos_min_order_by"] | null,
+	stddev?:ValueTypes["operacional_OrdemDeServico_Produtos_stddev_order_by"] | null,
+	stddev_pop?:ValueTypes["operacional_OrdemDeServico_Produtos_stddev_pop_order_by"] | null,
+	stddev_samp?:ValueTypes["operacional_OrdemDeServico_Produtos_stddev_samp_order_by"] | null,
+	sum?:ValueTypes["operacional_OrdemDeServico_Produtos_sum_order_by"] | null,
+	var_pop?:ValueTypes["operacional_OrdemDeServico_Produtos_var_pop_order_by"] | null,
+	var_samp?:ValueTypes["operacional_OrdemDeServico_Produtos_var_samp_order_by"] | null,
+	variance?:ValueTypes["operacional_OrdemDeServico_Produtos_variance_order_by"] | null
 };
 	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"]: {
@@ -16116,15 +17646,29 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 	/** upsert condition */
 	on_conflict?:ValueTypes["operacional_OrdemDeServico_Produtos_on_conflict"] | null
 };
+	/** aggregate avg on columns */
+["operacional_OrdemDeServico_Produtos_avg_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by avg() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_avg_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Produtos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Produtos_bool_exp"]: {
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Identificavel_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null,
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_bool_exp"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Quantidade?:ValueTypes["Int_comparison_exp"] | null,
 	TipoDeIdentificavel_Id?:ValueTypes["String_comparison_exp"] | null,
 	_and?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"][],
 	_not?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null,
@@ -16135,15 +17679,24 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 };
 	/** unique or primary key constraints on table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_constraint"]:operacional_OrdemDeServico_Produtos_constraint;
+	/** input type for incrementing numeric columns in table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_inc_input"]: {
+	Quantidade?:number | null
+};
 	/** input type for inserting data into table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_insert_input"]: {
 	Id?:ValueTypes["uuid"] | null,
 	Identificavel_Id?:ValueTypes["uuid"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_obj_rel_insert_input"] | null,
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos_obj_rel_insert_input"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_obj_rel_insert_input"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	Quantidade?:number | null,
 	TipoDeIdentificavel_Id?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -16153,10 +17706,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 ["operacional_OrdemDeServico_Produtos_max_fields"]: AliasType<{
 	Id?:boolean,
 	Identificavel_Id?:boolean,
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServicoPlano_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	Quantidade?:boolean,
 	TipoDeIdentificavel_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -16167,10 +17723,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 ["operacional_OrdemDeServico_Produtos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Identificavel_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	TipoDeIdentificavel_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -16180,10 +17739,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 ["operacional_OrdemDeServico_Produtos_min_fields"]: AliasType<{
 	Id?:boolean,
 	Identificavel_Id?:boolean,
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServicoPlano_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	Quantidade?:boolean,
 	TipoDeIdentificavel_Id?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
@@ -16194,10 +17756,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 ["operacional_OrdemDeServico_Produtos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Identificavel_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	TipoDeIdentificavel_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -16221,11 +17786,16 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 ["operacional_OrdemDeServico_Produtos_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
 	Identificavel_Id?:ValueTypes["order_by"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"] | null,
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	TipoDeIdentificavel_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -16241,22 +17811,95 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Produtos_select_colum
 ["operacional_OrdemDeServico_Produtos_set_input"]: {
 	Id?:ValueTypes["uuid"] | null,
 	Identificavel_Id?:ValueTypes["uuid"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	Quantidade?:number | null,
 	TipoDeIdentificavel_Id?:string | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
+	/** aggregate stddev on columns */
+["operacional_OrdemDeServico_Produtos_stddev_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_pop on columns */
+["operacional_OrdemDeServico_Produtos_stddev_pop_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_pop() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_pop_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_samp on columns */
+["operacional_OrdemDeServico_Produtos_stddev_samp_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_samp() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_samp_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate sum on columns */
+["operacional_OrdemDeServico_Produtos_sum_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by sum() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_sum_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
 	/** update columns of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_update_column"]:operacional_OrdemDeServico_Produtos_update_column;
+	/** aggregate var_pop on columns */
+["operacional_OrdemDeServico_Produtos_var_pop_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_pop() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_var_pop_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate var_samp on columns */
+["operacional_OrdemDeServico_Produtos_var_samp_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_samp() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_var_samp_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate variance on columns */
+["operacional_OrdemDeServico_Produtos_variance_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by variance() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_variance_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
 	/** columns and relationships of "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos"]: AliasType<{
+	Beneficio?:boolean,
 	Id?:boolean,
 	/** An object relationship */
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos"],
+	/** An object relationship */
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos"],
+	/** An object relationship */
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServicoPlano_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
 	PrecoDeAdesao_Id?:boolean,
@@ -16301,8 +17944,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 };
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Servicos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Servicos_bool_exp"]: {
+	Beneficio?:ValueTypes["Boolean_comparison_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null,
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_bool_exp"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
@@ -16318,8 +17966,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 ["operacional_OrdemDeServico_Servicos_constraint"]:operacional_OrdemDeServico_Servicos_constraint;
 	/** input type for inserting data into table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_insert_input"]: {
+	Beneficio?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_obj_rel_insert_input"] | null,
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos_obj_rel_insert_input"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_obj_rel_insert_input"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
@@ -16331,6 +17984,8 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 	/** aggregate max on columns */
 ["operacional_OrdemDeServico_Servicos_max_fields"]: AliasType<{
 	Id?:boolean,
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServicoPlano_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
@@ -16343,6 +17998,8 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 	/** order by max() on columns of table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_max_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
@@ -16354,6 +18011,8 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 	/** aggregate min on columns */
 ["operacional_OrdemDeServico_Servicos_min_fields"]: AliasType<{
 	Id?:boolean,
+	OrdemDeServicoCombo_Id?:boolean,
+	OrdemDeServicoPlano_Id?:boolean,
 	OrdemDeServico_Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
@@ -16366,6 +18025,8 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 	/** order by min() on columns of table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_min_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
@@ -16390,8 +18051,13 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 };
 	/** Ordering options when selecting data from "operacional.OrdemDeServico_Servicos". */
 ["operacional_OrdemDeServico_Servicos_order_by"]: {
+	Beneficio?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
+	OSCombo?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"] | null,
+	OSPlano?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"] | null,
 	OrdemDeServico?:ValueTypes["operacional_OrdemDeServico_order_by"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["order_by"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["order_by"] | null,
 	OrdemDeServico_Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
@@ -16408,7 +18074,10 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_Servicos_select_colum
 ["operacional_OrdemDeServico_Servicos_select_column"]:operacional_OrdemDeServico_Servicos_select_column;
 	/** input type for updating data in table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_set_input"]: {
+	Beneficio?:boolean | null,
 	Id?:ValueTypes["uuid"] | null,
+	OrdemDeServicoCombo_Id?:ValueTypes["uuid"] | null,
+	OrdemDeServicoPlano_Id?:ValueTypes["uuid"] | null,
 	OrdemDeServico_Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
@@ -16704,9 +18373,11 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_select_column"][],	di
 ["operacional_OrdemDeServico_bool_exp"]: {
 	Agendamentos?:ValueTypes["operacional_OrdemDeServico_Agendamentos_bool_exp"] | null,
 	Atividades?:ValueTypes["operacional_OrdemDeServico_Atividades_bool_exp"] | null,
-	Beneficios?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null,
 	CodigoIdentificador?:ValueTypes["Int_comparison_exp"] | null,
+	Combos?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null,
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Planos?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null,
+	PossuiGNV?:ValueTypes["Boolean_comparison_exp"] | null,
 	Produtos?:ValueTypes["operacional_OrdemDeServico_Produtos_bool_exp"] | null,
 	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Servicos?:ValueTypes["operacional_OrdemDeServico_Servicos_bool_exp"] | null,
@@ -16732,9 +18403,11 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_select_column"][],	di
 ["operacional_OrdemDeServico_insert_input"]: {
 	Agendamentos?:ValueTypes["operacional_OrdemDeServico_Agendamentos_arr_rel_insert_input"] | null,
 	Atividades?:ValueTypes["operacional_OrdemDeServico_Atividades_arr_rel_insert_input"] | null,
-	Beneficios?:ValueTypes["operacional_OrdemDeServico_Beneficios_arr_rel_insert_input"] | null,
 	CodigoIdentificador?:number | null,
+	Combos?:ValueTypes["operacional_OrdemDeServico_Combos_arr_rel_insert_input"] | null,
 	Id?:ValueTypes["uuid"] | null,
+	Planos?:ValueTypes["operacional_OrdemDeServico_Planos_arr_rel_insert_input"] | null,
+	PossuiGNV?:boolean | null,
 	Produtos?:ValueTypes["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	Servicos?:ValueTypes["operacional_OrdemDeServico_Servicos_arr_rel_insert_input"] | null,
@@ -16813,9 +18486,11 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_select_column"][],	di
 ["operacional_OrdemDeServico_order_by"]: {
 	Agendamentos_aggregate?:ValueTypes["operacional_OrdemDeServico_Agendamentos_aggregate_order_by"] | null,
 	Atividades_aggregate?:ValueTypes["operacional_OrdemDeServico_Atividades_aggregate_order_by"] | null,
-	Beneficios_aggregate?:ValueTypes["operacional_OrdemDeServico_Beneficios_aggregate_order_by"] | null,
 	CodigoIdentificador?:ValueTypes["order_by"] | null,
+	Combos_aggregate?:ValueTypes["operacional_OrdemDeServico_Combos_aggregate_order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
+	Planos_aggregate?:ValueTypes["operacional_OrdemDeServico_Planos_aggregate_order_by"] | null,
+	PossuiGNV?:ValueTypes["order_by"] | null,
 	Produtos_aggregate?:ValueTypes["operacional_OrdemDeServico_Produtos_aggregate_order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	Servicos_aggregate?:ValueTypes["operacional_OrdemDeServico_Servicos_aggregate_order_by"] | null,
@@ -16838,6 +18513,7 @@ count?: [{	columns?:ValueTypes["operacional_OrdemDeServico_select_column"][],	di
 ["operacional_OrdemDeServico_set_input"]: {
 	CodigoIdentificador?:number | null,
 	Id?:ValueTypes["uuid"] | null,
+	PossuiGNV?:boolean | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	Situacao_Id?:ValueTypes["operacional_OrdemDeServico_Situacoes_enum"] | null,
 	Tipo_Id?:ValueTypes["operacional_OrdemDeServico_Tipo_enum"] | null,
@@ -21635,6 +23311,7 @@ count?: [{	columns?:ValueTypes["producao_TiposDeKitDeInsumo_estoque_Itens_select
 	/** columns and relationships of "propostas.Propostas" */
 ["propostas_Propostas"]: AliasType<{
 	Cliente_Id?:boolean,
+	CodigoReferencia?:boolean,
 Combos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["propostas_Propostas_Combos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -21687,6 +23364,19 @@ Produtos_aggregate?: [{	/** distinct select on columns */
 	offset?:number | null,	/** sort the rows by one or more columns */
 	order_by?:ValueTypes["propostas_Propostas_Produtos_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null},ValueTypes["propostas_Propostas_Produtos_aggregate"]],
+	PropostaGerada?:boolean,
+RegrasETermosDeUsos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
+RegrasETermosDeUsos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"]],
 Servicos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -21734,6 +23424,42 @@ Veiculos_aggregate?: [{	/** distinct select on columns */
 	Proposta?:ValueTypes["propostas_Propostas"],
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
+PropostasPlanos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Planos_bool_exp"] | null},ValueTypes["propostas_Propostas_Planos"]],
+PropostasPlanos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Planos_bool_exp"] | null},ValueTypes["propostas_Propostas_Planos_aggregate"]],
+PropostasProdutos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null},ValueTypes["propostas_Propostas_Produtos"]],
+PropostasProdutos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null},ValueTypes["propostas_Propostas_Produtos_aggregate"]],
+PropostasServicos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null},ValueTypes["propostas_Propostas_Servicos"]],
+PropostasServicos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null},ValueTypes["propostas_Propostas_Servicos_aggregate"]],
 	/** An object relationship */
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos"],
 	created_at?:boolean,
@@ -21776,6 +23502,9 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Combos_select_column"][],	di
 	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PropostasPlanos?:ValueTypes["propostas_Propostas_Planos_bool_exp"] | null,
+	PropostasProdutos?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null,
+	PropostasServicos?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_bool_exp"] | null,
 	_and?:ValueTypes["propostas_Propostas_Combos_bool_exp"][],
 	_not?:ValueTypes["propostas_Propostas_Combos_bool_exp"] | null,
@@ -21796,6 +23525,9 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Combos_select_column"][],	di
 	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
+	PropostasPlanos?:ValueTypes["propostas_Propostas_Planos_arr_rel_insert_input"] | null,
+	PropostasProdutos?:ValueTypes["propostas_Propostas_Produtos_arr_rel_insert_input"] | null,
+	PropostasServicos?:ValueTypes["propostas_Propostas_Servicos_arr_rel_insert_input"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -21855,6 +23587,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Combos_select_column"][],	di
 	returning?:ValueTypes["propostas_Propostas_Combos"],
 		__typename?: boolean
 }>;
+	/** input type for inserting object relation for remote table "propostas.Propostas_Combos" */
+["propostas_Propostas_Combos_obj_rel_insert_input"]: {
+	data:ValueTypes["propostas_Propostas_Combos_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["propostas_Propostas_Combos_on_conflict"] | null
+};
 	/** on_conflict condition type for table "propostas.Propostas_Combos" */
 ["propostas_Propostas_Combos_on_conflict"]: {
 	constraint:ValueTypes["propostas_Propostas_Combos_constraint"],
@@ -21871,6 +23609,9 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Combos_select_column"][],	di
 	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
+	PropostasPlanos_aggregate?:ValueTypes["propostas_Propostas_Planos_aggregate_order_by"] | null,
+	PropostasProdutos_aggregate?:ValueTypes["propostas_Propostas_Produtos_aggregate_order_by"] | null,
+	PropostasServicos_aggregate?:ValueTypes["propostas_Propostas_Servicos_aggregate_order_by"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -22080,8 +23821,35 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Oportunidades_select_column"
 	Plano_Id?:boolean,
 	/** An object relationship */
 	Proposta?:ValueTypes["propostas_Propostas"],
+	PropostaCombo_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
+	/** An object relationship */
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos"],
+PropostasProdutos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null},ValueTypes["propostas_Propostas_Produtos"]],
+PropostasProdutos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Produtos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null},ValueTypes["propostas_Propostas_Produtos_aggregate"]],
+PropostasServicos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null},ValueTypes["propostas_Propostas_Servicos"]],
+PropostasServicos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_Servicos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null},ValueTypes["propostas_Propostas_Servicos_aggregate"]],
 	/** An object relationship */
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos"],
 	created_at?:boolean,
@@ -22122,8 +23890,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	PlanoPreco_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Plano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_bool_exp"] | null,
+	PropostasProdutos?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null,
+	PropostasServicos?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_bool_exp"] | null,
 	_and?:ValueTypes["propostas_Propostas_Planos_bool_exp"][],
 	_not?:ValueTypes["propostas_Propostas_Planos_bool_exp"] | null,
@@ -22142,8 +23914,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	PlanoPreco_Id?:ValueTypes["uuid"] | null,
 	Plano_Id?:ValueTypes["uuid"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_obj_rel_insert_input"] | null,
+	PropostasProdutos?:ValueTypes["propostas_Propostas_Produtos_arr_rel_insert_input"] | null,
+	PropostasServicos?:ValueTypes["propostas_Propostas_Servicos_arr_rel_insert_input"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
@@ -22154,6 +23930,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	Id?:boolean,
 	PlanoPreco_Id?:boolean,
 	Plano_Id?:boolean,
+	PropostaCombo_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
 	created_at?:boolean,
@@ -22166,6 +23943,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	Id?:ValueTypes["order_by"] | null,
 	PlanoPreco_Id?:ValueTypes["order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -22177,6 +23955,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	Id?:boolean,
 	PlanoPreco_Id?:boolean,
 	Plano_Id?:boolean,
+	PropostaCombo_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
 	created_at?:boolean,
@@ -22189,6 +23968,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	Id?:ValueTypes["order_by"] | null,
 	PlanoPreco_Id?:ValueTypes["order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
@@ -22203,6 +23983,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	returning?:ValueTypes["propostas_Propostas_Planos"],
 		__typename?: boolean
 }>;
+	/** input type for inserting object relation for remote table "propostas.Propostas_Planos" */
+["propostas_Propostas_Planos_obj_rel_insert_input"]: {
+	data:ValueTypes["propostas_Propostas_Planos_insert_input"],
+	/** upsert condition */
+	on_conflict?:ValueTypes["propostas_Propostas_Planos_on_conflict"] | null
+};
 	/** on_conflict condition type for table "propostas.Propostas_Planos" */
 ["propostas_Propostas_Planos_on_conflict"]: {
 	constraint:ValueTypes["propostas_Propostas_Planos_constraint"],
@@ -22217,8 +24003,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	PlanoPreco_Id?:ValueTypes["order_by"] | null,
 	Plano_Id?:ValueTypes["order_by"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_order_by"] | null,
+	PropostasProdutos_aggregate?:ValueTypes["propostas_Propostas_Produtos_aggregate_order_by"] | null,
+	PropostasServicos_aggregate?:ValueTypes["propostas_Propostas_Servicos_aggregate_order_by"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
@@ -22235,6 +24025,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	Id?:ValueTypes["uuid"] | null,
 	PlanoPreco_Id?:ValueTypes["uuid"] | null,
 	Plano_Id?:ValueTypes["uuid"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -22257,10 +24048,17 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 	Produto_Id?:boolean,
 	/** An object relationship */
 	Proposta?:ValueTypes["propostas_Propostas"],
+	PropostaCombo_Id?:boolean,
+	PropostaPlano_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
 	/** An object relationship */
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos"],
+	/** An object relationship */
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos"],
+	/** An object relationship */
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos"],
+	Quantidade?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -22274,22 +24072,47 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Planos_select_column"][],	di
 }>;
 	/** aggregate fields of "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_aggregate_fields"]: AliasType<{
+	avg?:ValueTypes["propostas_Propostas_Produtos_avg_fields"],
 count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	distinct?:boolean | null},boolean],
 	max?:ValueTypes["propostas_Propostas_Produtos_max_fields"],
 	min?:ValueTypes["propostas_Propostas_Produtos_min_fields"],
+	stddev?:ValueTypes["propostas_Propostas_Produtos_stddev_fields"],
+	stddev_pop?:ValueTypes["propostas_Propostas_Produtos_stddev_pop_fields"],
+	stddev_samp?:ValueTypes["propostas_Propostas_Produtos_stddev_samp_fields"],
+	sum?:ValueTypes["propostas_Propostas_Produtos_sum_fields"],
+	var_pop?:ValueTypes["propostas_Propostas_Produtos_var_pop_fields"],
+	var_samp?:ValueTypes["propostas_Propostas_Produtos_var_samp_fields"],
+	variance?:ValueTypes["propostas_Propostas_Produtos_variance_fields"],
 		__typename?: boolean
 }>;
 	/** order by aggregate values of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_aggregate_order_by"]: {
+	avg?:ValueTypes["propostas_Propostas_Produtos_avg_order_by"] | null,
 	count?:ValueTypes["order_by"] | null,
 	max?:ValueTypes["propostas_Propostas_Produtos_max_order_by"] | null,
-	min?:ValueTypes["propostas_Propostas_Produtos_min_order_by"] | null
+	min?:ValueTypes["propostas_Propostas_Produtos_min_order_by"] | null,
+	stddev?:ValueTypes["propostas_Propostas_Produtos_stddev_order_by"] | null,
+	stddev_pop?:ValueTypes["propostas_Propostas_Produtos_stddev_pop_order_by"] | null,
+	stddev_samp?:ValueTypes["propostas_Propostas_Produtos_stddev_samp_order_by"] | null,
+	sum?:ValueTypes["propostas_Propostas_Produtos_sum_order_by"] | null,
+	var_pop?:ValueTypes["propostas_Propostas_Produtos_var_pop_order_by"] | null,
+	var_samp?:ValueTypes["propostas_Propostas_Produtos_var_samp_order_by"] | null,
+	variance?:ValueTypes["propostas_Propostas_Produtos_variance_order_by"] | null
 };
 	/** input type for inserting array relation for remote table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_arr_rel_insert_input"]: {
 	data:ValueTypes["propostas_Propostas_Produtos_insert_input"][],
 	/** upsert condition */
 	on_conflict?:ValueTypes["propostas_Propostas_Produtos_on_conflict"] | null
+};
+	/** aggregate avg on columns */
+["propostas_Propostas_Produtos_avg_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by avg() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_avg_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
 };
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Produtos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Produtos_bool_exp"]: {
@@ -22301,9 +24124,14 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	Produto?:ValueTypes["comercial_Produtos_bool_exp"] | null,
 	Produto_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PropostaPlano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_bool_exp"] | null,
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos_bool_exp"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_bool_exp"] | null,
+	Quantidade?:ValueTypes["Int_comparison_exp"] | null,
 	_and?:ValueTypes["propostas_Propostas_Produtos_bool_exp"][],
 	_not?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null,
 	_or?:ValueTypes["propostas_Propostas_Produtos_bool_exp"][],
@@ -22313,6 +24141,10 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 };
 	/** unique or primary key constraints on table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_constraint"]:propostas_Propostas_Produtos_constraint;
+	/** input type for incrementing numeric columns in table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_inc_input"]: {
+	Quantidade?:number | null
+};
 	/** input type for inserting data into table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_insert_input"]: {
 	Id?:ValueTypes["uuid"] | null,
@@ -22323,9 +24155,14 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	Produto?:ValueTypes["comercial_Produtos_obj_rel_insert_input"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid"] | null,
+	PropostaPlano_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_obj_rel_insert_input"] | null,
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos_obj_rel_insert_input"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"] | null,
+	Quantidade?:number | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
@@ -22336,8 +24173,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	PropostaCombo_Id?:boolean,
+	PropostaPlano_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
+	Quantidade?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -22349,8 +24189,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
+	PropostaPlano_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -22361,8 +24204,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
 	Produto_Id?:boolean,
+	PropostaCombo_Id?:boolean,
+	PropostaPlano_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
+	Quantidade?:boolean,
 	created_at?:boolean,
 	deleted_at?:boolean,
 	updated_at?:boolean,
@@ -22374,8 +24220,11 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
+	PropostaPlano_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -22404,9 +24253,14 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	Produto?:ValueTypes["comercial_Produtos_order_by"] | null,
 	Produto_Id?:ValueTypes["order_by"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
+	PropostaPlano_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_order_by"] | null,
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos_order_by"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_order_by"] | null,
+	Quantidade?:ValueTypes["order_by"] | null,
 	created_at?:ValueTypes["order_by"] | null,
 	deleted_at?:ValueTypes["order_by"] | null,
 	updated_at?:ValueTypes["order_by"] | null
@@ -22423,14 +24277,245 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Produto_Id?:ValueTypes["uuid"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid"] | null,
+	PropostaPlano_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
+	Quantidade?:number | null,
 	created_at?:ValueTypes["timestamptz"] | null,
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
+	/** aggregate stddev on columns */
+["propostas_Propostas_Produtos_stddev_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_pop on columns */
+["propostas_Propostas_Produtos_stddev_pop_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_pop() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_pop_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_samp on columns */
+["propostas_Propostas_Produtos_stddev_samp_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_samp() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_samp_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate sum on columns */
+["propostas_Propostas_Produtos_sum_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by sum() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_sum_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
 	/** update columns of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_update_column"]:propostas_Propostas_Produtos_update_column;
+	/** aggregate var_pop on columns */
+["propostas_Propostas_Produtos_var_pop_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_pop() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_var_pop_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate var_samp on columns */
+["propostas_Propostas_Produtos_var_samp_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_samp() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_var_samp_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** aggregate variance on columns */
+["propostas_Propostas_Produtos_variance_fields"]: AliasType<{
+	Quantidade?:boolean,
+		__typename?: boolean
+}>;
+	/** order by variance() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_variance_order_by"]: {
+	Quantidade?:ValueTypes["order_by"] | null
+};
+	/** columns and relationships of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso"]: AliasType<{
+	Id?:boolean,
+	Informado?:boolean,
+	/** An object relationship */
+	ProdutoRegrasETermosDeUso?:ValueTypes["comercial_Produtos_RegrasETermosDeUso"],
+	Produto_RegraETermosDeUso_Id?:boolean,
+	/** An object relationship */
+	Proposta?:ValueTypes["propostas_Propostas"],
+	Proposta_Id?:boolean,
+	/** An object relationship */
+	ServicoRegrasETermosDeUso?:ValueTypes["comercial_Servicos_RegrasETermosDeUso"],
+	Servico_RegraETermosDeUso_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** aggregated selection of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate"]: AliasType<{
+	aggregate?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_fields"],
+	nodes?:ValueTypes["propostas_Propostas_RegrasETermosDeUso"],
+		__typename?: boolean
+}>;
+	/** aggregate fields of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate_fields"]: AliasType<{
+count?: [{	columns?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	distinct?:boolean | null},boolean],
+	max?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_max_fields"],
+	min?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_min_fields"],
+		__typename?: boolean
+}>;
+	/** order by aggregate values of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"]: {
+	count?:ValueTypes["order_by"] | null,
+	max?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_max_order_by"] | null,
+	min?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_min_order_by"] | null
+};
+	/** input type for inserting array relation for remote table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"]: {
+	data:ValueTypes["propostas_Propostas_RegrasETermosDeUso_insert_input"][],
+	/** upsert condition */
+	on_conflict?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_on_conflict"] | null
+};
+	/** Boolean expression to filter rows from the table "propostas.Propostas_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["propostas_Propostas_RegrasETermosDeUso_bool_exp"]: {
+	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Informado?:ValueTypes["Boolean_comparison_exp"] | null,
+	ProdutoRegrasETermosDeUso?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null,
+	Produto_RegraETermosDeUso_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
+	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	ServicoRegrasETermosDeUso?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null,
+	Servico_RegraETermosDeUso_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	_and?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"][],
+	_not?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null,
+	_or?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"][],
+	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	deleted_at?:ValueTypes["timestamptz_comparison_exp"] | null,
+	updated_at?:ValueTypes["timestamptz_comparison_exp"] | null
+};
+	/** unique or primary key constraints on table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_constraint"]:propostas_Propostas_RegrasETermosDeUso_constraint;
+	/** input type for inserting data into table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_insert_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	Informado?:boolean | null,
+	ProdutoRegrasETermosDeUso?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input"] | null,
+	Produto_RegraETermosDeUso_Id?:ValueTypes["uuid"] | null,
+	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
+	Proposta_Id?:ValueTypes["uuid"] | null,
+	ServicoRegrasETermosDeUso?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input"] | null,
+	Servico_RegraETermosDeUso_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** aggregate max on columns */
+["propostas_Propostas_RegrasETermosDeUso_max_fields"]: AliasType<{
+	Id?:boolean,
+	Produto_RegraETermosDeUso_Id?:boolean,
+	Proposta_Id?:boolean,
+	Servico_RegraETermosDeUso_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by max() on columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_max_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Produto_RegraETermosDeUso_Id?:ValueTypes["order_by"] | null,
+	Proposta_Id?:ValueTypes["order_by"] | null,
+	Servico_RegraETermosDeUso_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** aggregate min on columns */
+["propostas_Propostas_RegrasETermosDeUso_min_fields"]: AliasType<{
+	Id?:boolean,
+	Produto_RegraETermosDeUso_Id?:boolean,
+	Proposta_Id?:boolean,
+	Servico_RegraETermosDeUso_Id?:boolean,
+	created_at?:boolean,
+	deleted_at?:boolean,
+	updated_at?:boolean,
+		__typename?: boolean
+}>;
+	/** order by min() on columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_min_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Produto_RegraETermosDeUso_Id?:ValueTypes["order_by"] | null,
+	Proposta_Id?:ValueTypes["order_by"] | null,
+	Servico_RegraETermosDeUso_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** response of any mutation on the table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_mutation_response"]: AliasType<{
+	/** number of rows affected by the mutation */
+	affected_rows?:boolean,
+	/** data from the rows affected by the mutation */
+	returning?:ValueTypes["propostas_Propostas_RegrasETermosDeUso"],
+		__typename?: boolean
+}>;
+	/** on_conflict condition type for table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_on_conflict"]: {
+	constraint:ValueTypes["propostas_Propostas_RegrasETermosDeUso_constraint"],
+	update_columns:ValueTypes["propostas_Propostas_RegrasETermosDeUso_update_column"][],
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null
+};
+	/** Ordering options when selecting data from "propostas.Propostas_RegrasETermosDeUso". */
+["propostas_Propostas_RegrasETermosDeUso_order_by"]: {
+	Id?:ValueTypes["order_by"] | null,
+	Informado?:ValueTypes["order_by"] | null,
+	ProdutoRegrasETermosDeUso?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_order_by"] | null,
+	Produto_RegraETermosDeUso_Id?:ValueTypes["order_by"] | null,
+	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
+	Proposta_Id?:ValueTypes["order_by"] | null,
+	ServicoRegrasETermosDeUso?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_order_by"] | null,
+	Servico_RegraETermosDeUso_Id?:ValueTypes["order_by"] | null,
+	created_at?:ValueTypes["order_by"] | null,
+	deleted_at?:ValueTypes["order_by"] | null,
+	updated_at?:ValueTypes["order_by"] | null
+};
+	/** primary key columns input for table: propostas_Propostas_RegrasETermosDeUso */
+["propostas_Propostas_RegrasETermosDeUso_pk_columns_input"]: {
+	Id:ValueTypes["uuid"]
+};
+	/** select columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_select_column"]:propostas_Propostas_RegrasETermosDeUso_select_column;
+	/** input type for updating data in table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_set_input"]: {
+	Id?:ValueTypes["uuid"] | null,
+	Informado?:boolean | null,
+	Produto_RegraETermosDeUso_Id?:ValueTypes["uuid"] | null,
+	Proposta_Id?:ValueTypes["uuid"] | null,
+	Servico_RegraETermosDeUso_Id?:ValueTypes["uuid"] | null,
+	created_at?:ValueTypes["timestamptz"] | null,
+	deleted_at?:ValueTypes["timestamptz"] | null,
+	updated_at?:ValueTypes["timestamptz"] | null
+};
+	/** update columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_update_column"]:propostas_Propostas_RegrasETermosDeUso_update_column;
 	/** columns and relationships of "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos"]: AliasType<{
 	Id?:boolean,
@@ -22442,8 +24527,14 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Produtos_select_column"][],	
 	PrecoDeRecorrencia_Id?:boolean,
 	/** An object relationship */
 	Proposta?:ValueTypes["propostas_Propostas"],
+	PropostaCombo_Id?:boolean,
+	PropostaPlano_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
+	/** An object relationship */
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos"],
+	/** An object relationship */
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos"],
 	/** An object relationship */
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos"],
 	/** An object relationship */
@@ -22487,8 +24578,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	PrecoDeRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PropostaPlano_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_bool_exp"] | null,
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos_bool_exp"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_bool_exp"] | null,
 	Servico?:ValueTypes["comercial_Servicos_bool_exp"] | null,
 	Servico_Id?:ValueTypes["uuid_comparison_exp"] | null,
@@ -22509,8 +24604,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	PrecoDeRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid"] | null,
+	PropostaPlano_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_obj_rel_insert_input"] | null,
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos_obj_rel_insert_input"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"] | null,
 	Servico?:ValueTypes["comercial_Servicos_obj_rel_insert_input"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
@@ -22523,6 +24622,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
+	PropostaCombo_Id?:boolean,
+	PropostaPlano_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
 	Servico_Id?:boolean,
@@ -22536,6 +24637,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
+	PropostaPlano_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
@@ -22548,6 +24651,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	Id?:boolean,
 	PrecoDeAdesao_Id?:boolean,
 	PrecoDeRecorrencia_Id?:boolean,
+	PropostaCombo_Id?:boolean,
+	PropostaPlano_Id?:boolean,
 	PropostaVeiculo_Id?:boolean,
 	Proposta_Id?:boolean,
 	Servico_Id?:boolean,
@@ -22561,6 +24666,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	Id?:ValueTypes["order_by"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
+	PropostaPlano_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
@@ -22590,8 +24697,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	PrecoDeRecorrencia?:ValueTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["order_by"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
+	PropostaCombo_Id?:ValueTypes["order_by"] | null,
+	PropostaPlano_Id?:ValueTypes["order_by"] | null,
 	PropostaVeiculo_Id?:ValueTypes["order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
+	PropostasCombo?:ValueTypes["propostas_Propostas_Combos_order_by"] | null,
+	PropostasPlano?:ValueTypes["propostas_Propostas_Planos_order_by"] | null,
 	PropostasVeiculo?:ValueTypes["propostas_Propostas_Veiculos_order_by"] | null,
 	Servico?:ValueTypes["comercial_Servicos_order_by"] | null,
 	Servico_Id?:ValueTypes["order_by"] | null,
@@ -22610,6 +24721,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	
 	Id?:ValueTypes["uuid"] | null,
 	PrecoDeAdesao_Id?:ValueTypes["uuid"] | null,
 	PrecoDeRecorrencia_Id?:ValueTypes["uuid"] | null,
+	PropostaCombo_Id?:ValueTypes["uuid"] | null,
+	PropostaPlano_Id?:ValueTypes["uuid"] | null,
 	PropostaVeiculo_Id?:ValueTypes["uuid"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	Servico_Id?:ValueTypes["uuid"] | null,
@@ -22730,6 +24843,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Situacoes_select_column"][],
 	/** columns and relationships of "propostas.Propostas_Veiculos" */
 ["propostas_Propostas_Veiculos"]: AliasType<{
 	Id?:boolean,
+	PossuiGNV?:boolean,
 	/** An object relationship */
 	Proposta?:ValueTypes["propostas_Propostas"],
 	Proposta_Id?:boolean,
@@ -22827,6 +24941,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Veiculos_select_column"][],	
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Veiculos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Veiculos_bool_exp"]: {
 	Id?:ValueTypes["uuid_comparison_exp"] | null,
+	PossuiGNV?:ValueTypes["Boolean_comparison_exp"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_bool_exp"] | null,
 	Proposta_Id?:ValueTypes["uuid_comparison_exp"] | null,
 	PropostasCombos?:ValueTypes["propostas_Propostas_Combos_bool_exp"] | null,
@@ -22847,6 +24962,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Veiculos_select_column"][],	
 	/** input type for inserting data into table "propostas.Propostas_Veiculos" */
 ["propostas_Propostas_Veiculos_insert_input"]: {
 	Id?:ValueTypes["uuid"] | null,
+	PossuiGNV?:boolean | null,
 	Proposta?:ValueTypes["propostas_Propostas_obj_rel_insert_input"] | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	PropostasCombos?:ValueTypes["propostas_Propostas_Combos_arr_rel_insert_input"] | null,
@@ -22920,6 +25036,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Veiculos_select_column"][],	
 	/** Ordering options when selecting data from "propostas.Propostas_Veiculos". */
 ["propostas_Propostas_Veiculos_order_by"]: {
 	Id?:ValueTypes["order_by"] | null,
+	PossuiGNV?:ValueTypes["order_by"] | null,
 	Proposta?:ValueTypes["propostas_Propostas_order_by"] | null,
 	Proposta_Id?:ValueTypes["order_by"] | null,
 	PropostasCombos_aggregate?:ValueTypes["propostas_Propostas_Combos_aggregate_order_by"] | null,
@@ -22941,6 +25058,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Veiculos_select_column"][],	
 	/** input type for updating data in table "propostas.Propostas_Veiculos" */
 ["propostas_Propostas_Veiculos_set_input"]: {
 	Id?:ValueTypes["uuid"] | null,
+	PossuiGNV?:boolean | null,
 	Proposta_Id?:ValueTypes["uuid"] | null,
 	Veiculo_Id?:ValueTypes["uuid"] | null,
 	created_at?:ValueTypes["timestamptz"] | null,
@@ -22957,16 +25075,32 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_Veiculos_select_column"][],	
 }>;
 	/** aggregate fields of "propostas.Propostas" */
 ["propostas_Propostas_aggregate_fields"]: AliasType<{
+	avg?:ValueTypes["propostas_Propostas_avg_fields"],
 count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?:boolean | null},boolean],
 	max?:ValueTypes["propostas_Propostas_max_fields"],
 	min?:ValueTypes["propostas_Propostas_min_fields"],
+	stddev?:ValueTypes["propostas_Propostas_stddev_fields"],
+	stddev_pop?:ValueTypes["propostas_Propostas_stddev_pop_fields"],
+	stddev_samp?:ValueTypes["propostas_Propostas_stddev_samp_fields"],
+	sum?:ValueTypes["propostas_Propostas_sum_fields"],
+	var_pop?:ValueTypes["propostas_Propostas_var_pop_fields"],
+	var_samp?:ValueTypes["propostas_Propostas_var_samp_fields"],
+	variance?:ValueTypes["propostas_Propostas_variance_fields"],
 		__typename?: boolean
 }>;
 	/** order by aggregate values of table "propostas.Propostas" */
 ["propostas_Propostas_aggregate_order_by"]: {
+	avg?:ValueTypes["propostas_Propostas_avg_order_by"] | null,
 	count?:ValueTypes["order_by"] | null,
 	max?:ValueTypes["propostas_Propostas_max_order_by"] | null,
-	min?:ValueTypes["propostas_Propostas_min_order_by"] | null
+	min?:ValueTypes["propostas_Propostas_min_order_by"] | null,
+	stddev?:ValueTypes["propostas_Propostas_stddev_order_by"] | null,
+	stddev_pop?:ValueTypes["propostas_Propostas_stddev_pop_order_by"] | null,
+	stddev_samp?:ValueTypes["propostas_Propostas_stddev_samp_order_by"] | null,
+	sum?:ValueTypes["propostas_Propostas_sum_order_by"] | null,
+	var_pop?:ValueTypes["propostas_Propostas_var_pop_order_by"] | null,
+	var_samp?:ValueTypes["propostas_Propostas_var_samp_order_by"] | null,
+	variance?:ValueTypes["propostas_Propostas_variance_order_by"] | null
 };
 	/** input type for inserting array relation for remote table "propostas.Propostas" */
 ["propostas_Propostas_arr_rel_insert_input"]: {
@@ -22974,9 +25108,19 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	/** upsert condition */
 	on_conflict?:ValueTypes["propostas_Propostas_on_conflict"] | null
 };
+	/** aggregate avg on columns */
+["propostas_Propostas_avg_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by avg() on columns of table "propostas.Propostas" */
+["propostas_Propostas_avg_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
 	/** Boolean expression to filter rows from the table "propostas.Propostas". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_bool_exp"]: {
 	Cliente_Id?:ValueTypes["uuid_comparison_exp"] | null,
+	CodigoReferencia?:ValueTypes["Int_comparison_exp"] | null,
 	Combos?:ValueTypes["propostas_Propostas_Combos_bool_exp"] | null,
 	DataAceito?:ValueTypes["timestamptz_comparison_exp"] | null,
 	FormaDePagamentoDaAdesao_Id?:ValueTypes["String_comparison_exp"] | null,
@@ -22985,6 +25129,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	Oportunidades?:ValueTypes["propostas_Propostas_Oportunidades_bool_exp"] | null,
 	Planos?:ValueTypes["propostas_Propostas_Planos_bool_exp"] | null,
 	Produtos?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null,
+	PropostaGerada?:ValueTypes["Boolean_comparison_exp"] | null,
+	RegrasETermosDeUsos?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null,
 	Servicos?:ValueTypes["propostas_Propostas_Servicos_bool_exp"] | null,
 	Situacao?:ValueTypes["propostas_Propostas_Situacoes_bool_exp"] | null,
 	Situacao_Id?:ValueTypes["propostas_Propostas_Situacoes_enum_comparison_exp"] | null,
@@ -23000,9 +25146,14 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 };
 	/** unique or primary key constraints on table "propostas.Propostas" */
 ["propostas_Propostas_constraint"]:propostas_Propostas_constraint;
+	/** input type for incrementing numeric columns in table "propostas.Propostas" */
+["propostas_Propostas_inc_input"]: {
+	CodigoReferencia?:number | null
+};
 	/** input type for inserting data into table "propostas.Propostas" */
 ["propostas_Propostas_insert_input"]: {
 	Cliente_Id?:ValueTypes["uuid"] | null,
+	CodigoReferencia?:number | null,
 	Combos?:ValueTypes["propostas_Propostas_Combos_arr_rel_insert_input"] | null,
 	DataAceito?:ValueTypes["timestamptz"] | null,
 	FormaDePagamentoDaAdesao_Id?:string | null,
@@ -23011,6 +25162,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	Oportunidades?:ValueTypes["propostas_Propostas_Oportunidades_arr_rel_insert_input"] | null,
 	Planos?:ValueTypes["propostas_Propostas_Planos_arr_rel_insert_input"] | null,
 	Produtos?:ValueTypes["propostas_Propostas_Produtos_arr_rel_insert_input"] | null,
+	PropostaGerada?:boolean | null,
+	RegrasETermosDeUsos?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"] | null,
 	Servicos?:ValueTypes["propostas_Propostas_Servicos_arr_rel_insert_input"] | null,
 	Situacao?:ValueTypes["propostas_Propostas_Situacoes_obj_rel_insert_input"] | null,
 	Situacao_Id?:ValueTypes["propostas_Propostas_Situacoes_enum"] | null,
@@ -23024,6 +25177,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	/** aggregate max on columns */
 ["propostas_Propostas_max_fields"]: AliasType<{
 	Cliente_Id?:boolean,
+	CodigoReferencia?:boolean,
 	DataAceito?:boolean,
 	FormaDePagamentoDaAdesao_Id?:boolean,
 	Id?:boolean,
@@ -23038,6 +25192,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	/** order by max() on columns of table "propostas.Propostas" */
 ["propostas_Propostas_max_order_by"]: {
 	Cliente_Id?:ValueTypes["order_by"] | null,
+	CodigoReferencia?:ValueTypes["order_by"] | null,
 	DataAceito?:ValueTypes["order_by"] | null,
 	FormaDePagamentoDaAdesao_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
@@ -23051,6 +25206,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	/** aggregate min on columns */
 ["propostas_Propostas_min_fields"]: AliasType<{
 	Cliente_Id?:boolean,
+	CodigoReferencia?:boolean,
 	DataAceito?:boolean,
 	FormaDePagamentoDaAdesao_Id?:boolean,
 	Id?:boolean,
@@ -23065,6 +25221,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	/** order by min() on columns of table "propostas.Propostas" */
 ["propostas_Propostas_min_order_by"]: {
 	Cliente_Id?:ValueTypes["order_by"] | null,
+	CodigoReferencia?:ValueTypes["order_by"] | null,
 	DataAceito?:ValueTypes["order_by"] | null,
 	FormaDePagamentoDaAdesao_Id?:ValueTypes["order_by"] | null,
 	Id?:ValueTypes["order_by"] | null,
@@ -23098,6 +25255,7 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	/** Ordering options when selecting data from "propostas.Propostas". */
 ["propostas_Propostas_order_by"]: {
 	Cliente_Id?:ValueTypes["order_by"] | null,
+	CodigoReferencia?:ValueTypes["order_by"] | null,
 	Combos_aggregate?:ValueTypes["propostas_Propostas_Combos_aggregate_order_by"] | null,
 	DataAceito?:ValueTypes["order_by"] | null,
 	FormaDePagamentoDaAdesao_Id?:ValueTypes["order_by"] | null,
@@ -23106,6 +25264,8 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	Oportunidades_aggregate?:ValueTypes["propostas_Propostas_Oportunidades_aggregate_order_by"] | null,
 	Planos_aggregate?:ValueTypes["propostas_Propostas_Planos_aggregate_order_by"] | null,
 	Produtos_aggregate?:ValueTypes["propostas_Propostas_Produtos_aggregate_order_by"] | null,
+	PropostaGerada?:ValueTypes["order_by"] | null,
+	RegrasETermosDeUsos_aggregate?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"] | null,
 	Servicos_aggregate?:ValueTypes["propostas_Propostas_Servicos_aggregate_order_by"] | null,
 	Situacao?:ValueTypes["propostas_Propostas_Situacoes_order_by"] | null,
 	Situacao_Id?:ValueTypes["order_by"] | null,
@@ -23125,10 +25285,12 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	/** input type for updating data in table "propostas.Propostas" */
 ["propostas_Propostas_set_input"]: {
 	Cliente_Id?:ValueTypes["uuid"] | null,
+	CodigoReferencia?:number | null,
 	DataAceito?:ValueTypes["timestamptz"] | null,
 	FormaDePagamentoDaAdesao_Id?:string | null,
 	Id?:ValueTypes["uuid"] | null,
 	Lead_Id?:ValueTypes["uuid"] | null,
+	PropostaGerada?:boolean | null,
 	Situacao_Id?:ValueTypes["propostas_Propostas_Situacoes_enum"] | null,
 	Ticket_Id?:ValueTypes["uuid"] | null,
 	Usuario_Id?:ValueTypes["uuid"] | null,
@@ -23136,8 +25298,71 @@ count?: [{	columns?:ValueTypes["propostas_Propostas_select_column"][],	distinct?
 	deleted_at?:ValueTypes["timestamptz"] | null,
 	updated_at?:ValueTypes["timestamptz"] | null
 };
+	/** aggregate stddev on columns */
+["propostas_Propostas_stddev_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_pop on columns */
+["propostas_Propostas_stddev_pop_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_pop() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_pop_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
+	/** aggregate stddev_samp on columns */
+["propostas_Propostas_stddev_samp_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by stddev_samp() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_samp_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
+	/** aggregate sum on columns */
+["propostas_Propostas_sum_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by sum() on columns of table "propostas.Propostas" */
+["propostas_Propostas_sum_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
 	/** update columns of table "propostas.Propostas" */
 ["propostas_Propostas_update_column"]:propostas_Propostas_update_column;
+	/** aggregate var_pop on columns */
+["propostas_Propostas_var_pop_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_pop() on columns of table "propostas.Propostas" */
+["propostas_Propostas_var_pop_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
+	/** aggregate var_samp on columns */
+["propostas_Propostas_var_samp_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by var_samp() on columns of table "propostas.Propostas" */
+["propostas_Propostas_var_samp_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
+	/** aggregate variance on columns */
+["propostas_Propostas_variance_fields"]: AliasType<{
+	CodigoReferencia?:boolean,
+		__typename?: boolean
+}>;
+	/** order by variance() on columns of table "propostas.Propostas" */
+["propostas_Propostas_variance_order_by"]: {
+	CodigoReferencia?:ValueTypes["order_by"] | null
+};
 	["query_root"]: AliasType<{
 Configuracoes?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["Configuracoes_select_column"][],	/** limit the number of rows returned */
@@ -23255,19 +25480,32 @@ clientes_VeiculosAtivos?: [{	/** distinct select on columns */
 	offset?:number | null,	/** sort the rows by one or more columns */
 	order_by?:ValueTypes["clientes_VeiculosAtivos_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["clientes_VeiculosAtivos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos"]],
-clientes_VeiculosAtivos_Beneficios?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column"][],	/** limit the number of rows returned */
+clientes_VeiculosAtivos_Combos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Combos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
 	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["clientes_VeiculosAtivos_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Beneficios"]],
-clientes_VeiculosAtivos_Beneficios_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Beneficios_select_column"][],	/** limit the number of rows returned */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Combos"]],
+clientes_VeiculosAtivos_Combos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Combos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
 	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["clientes_VeiculosAtivos_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Beneficios_aggregate"]],
-clientes_VeiculosAtivos_Beneficios_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["clientes_VeiculosAtivos_Beneficios"]],
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Combos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Combos_aggregate"]],
+clientes_VeiculosAtivos_Combos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["clientes_VeiculosAtivos_Combos"]],
+clientes_VeiculosAtivos_Planos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Planos"]],
+clientes_VeiculosAtivos_Planos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["clientes_VeiculosAtivos_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["clientes_VeiculosAtivos_Planos_bool_exp"] | null},ValueTypes["clientes_VeiculosAtivos_Planos_aggregate"]],
+clientes_VeiculosAtivos_Planos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["clientes_VeiculosAtivos_Planos"]],
 clientes_VeiculosAtivos_Produtos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["clientes_VeiculosAtivos_Produtos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -23691,6 +25929,19 @@ comercial_Produtos_Produtos_aggregate?: [{	/** distinct select on columns */
 	order_by?:ValueTypes["comercial_Produtos_Produtos_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["comercial_Produtos_Produtos_bool_exp"] | null},ValueTypes["comercial_Produtos_Produtos_aggregate"]],
 comercial_Produtos_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Produtos_Produtos"]],
+comercial_Produtos_RegrasETermosDeUso?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Produtos_RegrasETermosDeUso"]],
+comercial_Produtos_RegrasETermosDeUso_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Produtos_RegrasETermosDeUso_aggregate"]],
+comercial_Produtos_RegrasETermosDeUso_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Produtos_RegrasETermosDeUso"]],
 comercial_Produtos_Servicos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["comercial_Produtos_Servicos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -23769,6 +26020,19 @@ comercial_Servicos_Produtos_aggregate?: [{	/** distinct select on columns */
 	order_by?:ValueTypes["comercial_Servicos_Produtos_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["comercial_Servicos_Produtos_bool_exp"] | null},ValueTypes["comercial_Servicos_Produtos_aggregate"]],
 comercial_Servicos_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Servicos_Produtos"]],
+comercial_Servicos_RegrasETermosDeUso?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Servicos_RegrasETermosDeUso"]],
+comercial_Servicos_RegrasETermosDeUso_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["comercial_Servicos_RegrasETermosDeUso_aggregate"]],
+comercial_Servicos_RegrasETermosDeUso_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["comercial_Servicos_RegrasETermosDeUso"]],
 comercial_Servicos_Servicos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["comercial_Servicos_Servicos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -24146,19 +26410,58 @@ operacional_OrdemDeServico_Atividades_aggregate?: [{	/** distinct select on colu
 	order_by?:ValueTypes["operacional_OrdemDeServico_Atividades_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["operacional_OrdemDeServico_Atividades_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Atividades_aggregate"]],
 operacional_OrdemDeServico_Atividades_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Atividades"]],
-operacional_OrdemDeServico_Beneficios?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_column"][],	/** limit the number of rows returned */
+operacional_OrdemDeServico_Checklist?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Checklist_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
 	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["operacional_OrdemDeServico_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
-operacional_OrdemDeServico_Beneficios_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_column"][],	/** limit the number of rows returned */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Checklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Checklist"]],
+operacional_OrdemDeServico_Checklist_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Checklist_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
 	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["operacional_OrdemDeServico_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios_aggregate"]],
-operacional_OrdemDeServico_Beneficios_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
+	order_by?:ValueTypes["operacional_OrdemDeServico_Checklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Checklist_aggregate"]],
+operacional_OrdemDeServico_Checklist_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Checklist"]],
+operacional_OrdemDeServico_Combos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Combos"]],
+operacional_OrdemDeServico_Combos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Combos_aggregate"]],
+operacional_OrdemDeServico_Combos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Combos"]],
+operacional_OrdemDeServico_ItensDeChecklist?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"]],
+operacional_OrdemDeServico_ItensDeChecklist_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate"]],
+operacional_OrdemDeServico_ItensDeChecklist_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"]],
+operacional_OrdemDeServico_Planos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos"]],
+operacional_OrdemDeServico_Planos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos_aggregate"]],
+operacional_OrdemDeServico_Planos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Planos"]],
 operacional_OrdemDeServico_Produtos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -24549,6 +26852,19 @@ propostas_Propostas_Produtos_aggregate?: [{	/** distinct select on columns */
 	order_by?:ValueTypes["propostas_Propostas_Produtos_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["propostas_Propostas_Produtos_bool_exp"] | null},ValueTypes["propostas_Propostas_Produtos_aggregate"]],
 propostas_Propostas_Produtos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["propostas_Propostas_Produtos"]],
+propostas_Propostas_RegrasETermosDeUso?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
+propostas_Propostas_RegrasETermosDeUso_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"] | null},ValueTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"]],
+propostas_Propostas_RegrasETermosDeUso_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["propostas_Propostas_RegrasETermosDeUso"]],
 propostas_Propostas_Servicos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["propostas_Propostas_Servicos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -24877,19 +27193,58 @@ operacional_OrdemDeServico_Atividades_aggregate?: [{	/** distinct select on colu
 	order_by?:ValueTypes["operacional_OrdemDeServico_Atividades_order_by"][],	/** filter the rows returned */
 	where?:ValueTypes["operacional_OrdemDeServico_Atividades_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Atividades_aggregate"]],
 operacional_OrdemDeServico_Atividades_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Atividades"]],
-operacional_OrdemDeServico_Beneficios?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_column"][],	/** limit the number of rows returned */
+operacional_OrdemDeServico_Checklist?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Checklist_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
 	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["operacional_OrdemDeServico_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
-operacional_OrdemDeServico_Beneficios_aggregate?: [{	/** distinct select on columns */
-	distinct_on?:ValueTypes["operacional_OrdemDeServico_Beneficios_select_column"][],	/** limit the number of rows returned */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Checklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Checklist"]],
+operacional_OrdemDeServico_Checklist_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Checklist_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
 	offset?:number | null,	/** sort the rows by one or more columns */
-	order_by?:ValueTypes["operacional_OrdemDeServico_Beneficios_order_by"][],	/** filter the rows returned */
-	where?:ValueTypes["operacional_OrdemDeServico_Beneficios_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Beneficios_aggregate"]],
-operacional_OrdemDeServico_Beneficios_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Beneficios"]],
+	order_by?:ValueTypes["operacional_OrdemDeServico_Checklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Checklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Checklist_aggregate"]],
+operacional_OrdemDeServico_Checklist_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Checklist"]],
+operacional_OrdemDeServico_Combos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Combos"]],
+operacional_OrdemDeServico_Combos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Combos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Combos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Combos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Combos_aggregate"]],
+operacional_OrdemDeServico_Combos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Combos"]],
+operacional_OrdemDeServico_ItensDeChecklist?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"]],
+operacional_OrdemDeServico_ItensDeChecklist_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate"]],
+operacional_OrdemDeServico_ItensDeChecklist_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_ItensDeChecklist"]],
+operacional_OrdemDeServico_Planos?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos"]],
+operacional_OrdemDeServico_Planos_aggregate?: [{	/** distinct select on columns */
+	distinct_on?:ValueTypes["operacional_OrdemDeServico_Planos_select_column"][],	/** limit the number of rows returned */
+	limit?:number | null,	/** skip the first n rows. Use only with order_by */
+	offset?:number | null,	/** sort the rows by one or more columns */
+	order_by?:ValueTypes["operacional_OrdemDeServico_Planos_order_by"][],	/** filter the rows returned */
+	where?:ValueTypes["operacional_OrdemDeServico_Planos_bool_exp"] | null},ValueTypes["operacional_OrdemDeServico_Planos_aggregate"]],
+operacional_OrdemDeServico_Planos_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["operacional_OrdemDeServico_Planos"]],
 operacional_OrdemDeServico_Produtos?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["operacional_OrdemDeServico_Produtos_select_column"][],	/** limit the number of rows returned */
 	limit?:number | null,	/** skip the first n rows. Use only with order_by */
@@ -25224,6 +27579,19 @@ producao_TiposDeKitDeInsumo_estoque_Itens_aggregate?: [{	/** distinct select on 
 producao_TiposDeKitDeInsumo_estoque_Itens_by_pk?: [{	Id:ValueTypes["uuid"]},ValueTypes["producao_TiposDeKitDeInsumo_estoque_Itens"]],
 		__typename?: boolean
 }>;
+	["timestamp"]:unknown;
+	/** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
+["timestamp_comparison_exp"]: {
+	_eq?:ValueTypes["timestamp"] | null,
+	_gt?:ValueTypes["timestamp"] | null,
+	_gte?:ValueTypes["timestamp"] | null,
+	_in?:ValueTypes["timestamp"][],
+	_is_null?:boolean | null,
+	_lt?:ValueTypes["timestamp"] | null,
+	_lte?:ValueTypes["timestamp"] | null,
+	_neq?:ValueTypes["timestamp"] | null,
+	_nin?:ValueTypes["timestamp"][]
+};
 	["timestamptz"]:unknown;
 	/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 ["timestamptz_comparison_exp"]: {
@@ -26225,16 +28593,21 @@ export type ModelTypes = {
 };
 	/** columns and relationships of "clientes.VeiculosAtivos" */
 ["clientes_VeiculosAtivos"]: {
-		/** An array relationship */
-	Beneficios:ModelTypes["clientes_VeiculosAtivos_Beneficios"][],
-	/** An aggregate relationship */
-	Beneficios_aggregate:ModelTypes["clientes_VeiculosAtivos_Beneficios_aggregate"],
-	/** An object relationship */
+		/** An object relationship */
 	Cliente:ModelTypes["identidades_Clientes"],
 	Cliente_Id:ModelTypes["uuid"],
+	/** An array relationship */
+	Combos:ModelTypes["clientes_VeiculosAtivos_Combos"][],
+	/** An aggregate relationship */
+	Combos_aggregate:ModelTypes["clientes_VeiculosAtivos_Combos_aggregate"],
 	Franquia_Id?:ModelTypes["uuid"],
 	Id:ModelTypes["uuid"],
 	OS_Id?:ModelTypes["uuid"],
+	/** An array relationship */
+	Planos:ModelTypes["clientes_VeiculosAtivos_Planos"][],
+	/** An aggregate relationship */
+	Planos_aggregate:ModelTypes["clientes_VeiculosAtivos_Planos_aggregate"],
+	PossuiGNV:boolean,
 	/** An array relationship */
 	Produtos:ModelTypes["clientes_VeiculosAtivos_Produtos"][],
 	/** An aggregate relationship */
@@ -26253,104 +28626,222 @@ export type ModelTypes = {
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
 };
-	/** columns and relationships of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios"]: {
+	/** columns and relationships of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos"]: {
 		Ativo:boolean,
+	ComboPreco_Id:ModelTypes["uuid"],
+	Combo_Id:ModelTypes["uuid"],
+	DataDeAtivacao:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
 	Id:ModelTypes["uuid"],
-	PortfolioPreco_Id?:ModelTypes["uuid"],
-	Portfolio_Id:ModelTypes["uuid"],
-	PrecoDeAdesao_Id?:ModelTypes["uuid"],
-	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
-	TipoPortfolio:string,
-	/** An object relationship */
-	VeiculoAtivo:ModelTypes["clientes_VeiculosAtivos"],
+	/** An array relationship */
+	Planos:ModelTypes["clientes_VeiculosAtivos_Planos"][],
+	/** An aggregate relationship */
+	Planos_aggregate:ModelTypes["clientes_VeiculosAtivos_Planos_aggregate"],
+	/** An array relationship */
+	Produtos:ModelTypes["clientes_VeiculosAtivos_Produtos"][],
+	/** An aggregate relationship */
+	Produtos_aggregate:ModelTypes["clientes_VeiculosAtivos_Produtos_aggregate"],
+	/** An array relationship */
+	Servicos:ModelTypes["clientes_VeiculosAtivos_Servicos"][],
+	/** An aggregate relationship */
+	Servicos_aggregate:ModelTypes["clientes_VeiculosAtivos_Servicos_aggregate"],
 	VeiculoAtivo_Id:ModelTypes["uuid"],
+	/** An object relationship */
+	VeiculosAtivo:ModelTypes["clientes_VeiculosAtivos"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
 };
-	/** aggregated selection of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate"]: {
-		aggregate?:ModelTypes["clientes_VeiculosAtivos_Beneficios_aggregate_fields"],
-	nodes:ModelTypes["clientes_VeiculosAtivos_Beneficios"][]
+	/** aggregated selection of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate"]: {
+		aggregate?:ModelTypes["clientes_VeiculosAtivos_Combos_aggregate_fields"],
+	nodes:ModelTypes["clientes_VeiculosAtivos_Combos"][]
 };
-	/** aggregate fields of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate_fields"]: {
+	/** aggregate fields of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate_fields"]: {
 		count:number,
-	max?:ModelTypes["clientes_VeiculosAtivos_Beneficios_max_fields"],
-	min?:ModelTypes["clientes_VeiculosAtivos_Beneficios_min_fields"]
+	max?:ModelTypes["clientes_VeiculosAtivos_Combos_max_fields"],
+	min?:ModelTypes["clientes_VeiculosAtivos_Combos_min_fields"]
 };
-	/** order by aggregate values of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_aggregate_order_by"];
-	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input"];
-	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Beneficios". All fields are combined with a logical 'AND'. */
-["clientes_VeiculosAtivos_Beneficios_bool_exp"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"];
-	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_constraint"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_constraint"];
-	/** input type for inserting data into table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_insert_input"];
+	/** order by aggregate values of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_aggregate_order_by"];
+	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_arr_rel_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_arr_rel_insert_input"];
+	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Combos". All fields are combined with a logical 'AND'. */
+["clientes_VeiculosAtivos_Combos_bool_exp"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"];
+	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_constraint"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_constraint"];
+	/** input type for inserting data into table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_insert_input"];
 	/** aggregate max on columns */
-["clientes_VeiculosAtivos_Beneficios_max_fields"]: {
-		Id?:ModelTypes["uuid"],
-	PortfolioPreco_Id?:ModelTypes["uuid"],
-	Portfolio_Id?:ModelTypes["uuid"],
-	PrecoDeAdesao_Id?:ModelTypes["uuid"],
-	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
-	TipoPortfolio?:string,
+["clientes_VeiculosAtivos_Combos_max_fields"]: {
+		ComboPreco_Id?:ModelTypes["uuid"],
+	Combo_Id?:ModelTypes["uuid"],
+	DataDeAtivacao?:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
 };
-	/** order by max() on columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_max_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_max_order_by"];
+	/** order by max() on columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_max_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_max_order_by"];
 	/** aggregate min on columns */
-["clientes_VeiculosAtivos_Beneficios_min_fields"]: {
-		Id?:ModelTypes["uuid"],
-	PortfolioPreco_Id?:ModelTypes["uuid"],
-	Portfolio_Id?:ModelTypes["uuid"],
-	PrecoDeAdesao_Id?:ModelTypes["uuid"],
-	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
-	TipoPortfolio?:string,
+["clientes_VeiculosAtivos_Combos_min_fields"]: {
+		ComboPreco_Id?:ModelTypes["uuid"],
+	Combo_Id?:ModelTypes["uuid"],
+	DataDeAtivacao?:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
 };
-	/** order by min() on columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_min_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_min_order_by"];
-	/** response of any mutation on the table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_mutation_response"]: {
+	/** order by min() on columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_min_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_min_order_by"];
+	/** response of any mutation on the table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_mutation_response"]: {
 		/** number of rows affected by the mutation */
 	affected_rows:number,
 	/** data from the rows affected by the mutation */
-	returning:ModelTypes["clientes_VeiculosAtivos_Beneficios"][]
+	returning:ModelTypes["clientes_VeiculosAtivos_Combos"][]
 };
-	/** on_conflict condition type for table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_on_conflict"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_on_conflict"];
-	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Beneficios". */
-["clientes_VeiculosAtivos_Beneficios_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_order_by"];
-	/** primary key columns input for table: clientes_VeiculosAtivos_Beneficios */
-["clientes_VeiculosAtivos_Beneficios_pk_columns_input"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_pk_columns_input"];
-	/** select columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_select_column"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_select_column"];
-	/** input type for updating data in table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_set_input"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_set_input"];
-	/** update columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_update_column"]: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_update_column"];
+	/** input type for inserting object relation for remote table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"];
+	/** on_conflict condition type for table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_on_conflict"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_on_conflict"];
+	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Combos". */
+["clientes_VeiculosAtivos_Combos_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_order_by"];
+	/** primary key columns input for table: clientes_VeiculosAtivos_Combos */
+["clientes_VeiculosAtivos_Combos_pk_columns_input"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_pk_columns_input"];
+	/** select columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_select_column"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_select_column"];
+	/** input type for updating data in table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_set_input"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_set_input"];
+	/** update columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_update_column"]: GraphQLTypes["clientes_VeiculosAtivos_Combos_update_column"];
+	/** columns and relationships of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos"]: {
+		Ativo:boolean,
+	DataDeAtivacao:ModelTypes["timestamp"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id:ModelTypes["uuid"],
+	PlanoPreco_Id?:ModelTypes["uuid"],
+	Plano_Id:ModelTypes["uuid"],
+	/** An array relationship */
+	Produtos:ModelTypes["clientes_VeiculosAtivos_Produtos"][],
+	/** An aggregate relationship */
+	Produtos_aggregate:ModelTypes["clientes_VeiculosAtivos_Produtos_aggregate"],
+	/** An array relationship */
+	Servicos:ModelTypes["clientes_VeiculosAtivos_Servicos"][],
+	/** An aggregate relationship */
+	Servicos_aggregate:ModelTypes["clientes_VeiculosAtivos_Servicos_aggregate"],
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivo_Id:ModelTypes["uuid"],
+	/** An object relationship */
+	VeiculosAtivo:ModelTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?:ModelTypes["clientes_VeiculosAtivos_Combos"],
+	created_at:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at:ModelTypes["timestamptz"]
+};
+	/** aggregated selection of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate"]: {
+		aggregate?:ModelTypes["clientes_VeiculosAtivos_Planos_aggregate_fields"],
+	nodes:ModelTypes["clientes_VeiculosAtivos_Planos"][]
+};
+	/** aggregate fields of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["clientes_VeiculosAtivos_Planos_max_fields"],
+	min?:ModelTypes["clientes_VeiculosAtivos_Planos_min_fields"]
+};
+	/** order by aggregate values of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_aggregate_order_by"];
+	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"];
+	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Planos". All fields are combined with a logical 'AND'. */
+["clientes_VeiculosAtivos_Planos_bool_exp"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"];
+	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_constraint"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_constraint"];
+	/** input type for inserting data into table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_insert_input"];
+	/** aggregate max on columns */
+["clientes_VeiculosAtivos_Planos_max_fields"]: {
+		DataDeAtivacao?:ModelTypes["timestamp"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
+	PlanoPreco_Id?:ModelTypes["uuid"],
+	Plano_Id?:ModelTypes["uuid"],
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivo_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by max() on columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_max_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_max_order_by"];
+	/** aggregate min on columns */
+["clientes_VeiculosAtivos_Planos_min_fields"]: {
+		DataDeAtivacao?:ModelTypes["timestamp"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
+	PlanoPreco_Id?:ModelTypes["uuid"],
+	Plano_Id?:ModelTypes["uuid"],
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivo_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by min() on columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_min_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_min_order_by"];
+	/** response of any mutation on the table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["clientes_VeiculosAtivos_Planos"][]
+};
+	/** input type for inserting object relation for remote table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"];
+	/** on_conflict condition type for table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_on_conflict"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_on_conflict"];
+	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Planos". */
+["clientes_VeiculosAtivos_Planos_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_order_by"];
+	/** primary key columns input for table: clientes_VeiculosAtivos_Planos */
+["clientes_VeiculosAtivos_Planos_pk_columns_input"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_pk_columns_input"];
+	/** select columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_select_column"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_select_column"];
+	/** input type for updating data in table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_set_input"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_set_input"];
+	/** update columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_update_column"]: GraphQLTypes["clientes_VeiculosAtivos_Planos_update_column"];
 	/** columns and relationships of "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos"]: {
 		Ativo:boolean,
+	DataDeAtivacao:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
 	Id:ModelTypes["uuid"],
 	Identificador?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id:ModelTypes["uuid"],
+	Quantidade:number,
 	TipoItem_Id?:string,
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivoPlano_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo:ModelTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?:ModelTypes["clientes_VeiculosAtivos_Combos"],
+	/** An object relationship */
+	VeiculosAtivosPlano?:ModelTypes["clientes_VeiculosAtivos_Planos"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -26362,28 +28853,49 @@ export type ModelTypes = {
 };
 	/** aggregate fields of "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_aggregate_fields"]: {
-		count:number,
+		avg?:ModelTypes["clientes_VeiculosAtivos_Produtos_avg_fields"],
+	count:number,
 	max?:ModelTypes["clientes_VeiculosAtivos_Produtos_max_fields"],
-	min?:ModelTypes["clientes_VeiculosAtivos_Produtos_min_fields"]
+	min?:ModelTypes["clientes_VeiculosAtivos_Produtos_min_fields"],
+	stddev?:ModelTypes["clientes_VeiculosAtivos_Produtos_stddev_fields"],
+	stddev_pop?:ModelTypes["clientes_VeiculosAtivos_Produtos_stddev_pop_fields"],
+	stddev_samp?:ModelTypes["clientes_VeiculosAtivos_Produtos_stddev_samp_fields"],
+	sum?:ModelTypes["clientes_VeiculosAtivos_Produtos_sum_fields"],
+	var_pop?:ModelTypes["clientes_VeiculosAtivos_Produtos_var_pop_fields"],
+	var_samp?:ModelTypes["clientes_VeiculosAtivos_Produtos_var_samp_fields"],
+	variance?:ModelTypes["clientes_VeiculosAtivos_Produtos_variance_fields"]
 };
 	/** order by aggregate values of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_aggregate_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_aggregate_order_by"];
 	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"];
+	/** aggregate avg on columns */
+["clientes_VeiculosAtivos_Produtos_avg_fields"]: {
+		Quantidade?:number
+};
+	/** order by avg() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_avg_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_avg_order_by"];
 	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Produtos". All fields are combined with a logical 'AND'. */
 ["clientes_VeiculosAtivos_Produtos_bool_exp"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"];
 	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_constraint"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_constraint"];
+	/** input type for incrementing numeric columns in table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_inc_input"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_inc_input"];
 	/** input type for inserting data into table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_insert_input"];
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: {
-		Id?:ModelTypes["uuid"],
+		DataDeAtivacao?:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	Identificador?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	Quantidade?:number,
 	TipoItem_Id?:string,
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivoPlano_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -26393,12 +28905,17 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_max_order_by"];
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: {
-		Id?:ModelTypes["uuid"],
+		DataDeAtivacao?:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	Identificador?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	Quantidade?:number,
 	TipoItem_Id?:string,
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivoPlano_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -26423,18 +28940,69 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Produtos_select_column"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_select_column"];
 	/** input type for updating data in table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_set_input"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_set_input"];
+	/** aggregate stddev on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_order_by"];
+	/** aggregate stddev_pop on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_pop_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev_pop() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_pop_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_pop_order_by"];
+	/** aggregate stddev_samp on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_samp_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev_samp() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_samp_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_samp_order_by"];
+	/** aggregate sum on columns */
+["clientes_VeiculosAtivos_Produtos_sum_fields"]: {
+		Quantidade?:number
+};
+	/** order by sum() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_sum_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_sum_order_by"];
 	/** update columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_update_column"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_update_column"];
+	/** aggregate var_pop on columns */
+["clientes_VeiculosAtivos_Produtos_var_pop_fields"]: {
+		Quantidade?:number
+};
+	/** order by var_pop() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_var_pop_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_var_pop_order_by"];
+	/** aggregate var_samp on columns */
+["clientes_VeiculosAtivos_Produtos_var_samp_fields"]: {
+		Quantidade?:number
+};
+	/** order by var_samp() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_var_samp_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_var_samp_order_by"];
+	/** aggregate variance on columns */
+["clientes_VeiculosAtivos_Produtos_variance_fields"]: {
+		Quantidade?:number
+};
+	/** order by variance() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_variance_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Produtos_variance_order_by"];
 	/** columns and relationships of "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos"]: {
 		Ativo:boolean,
+	Beneficio:boolean,
+	DataDeAtivacao:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
 	Id:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Servico_Id:ModelTypes["uuid"],
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivoPlano_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo:ModelTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?:ModelTypes["clientes_VeiculosAtivos_Combos"],
+	/** An object relationship */
+	VeiculosAtivosPlano?:ModelTypes["clientes_VeiculosAtivos_Planos"],
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -26462,10 +29030,14 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Servicos_insert_input"]: GraphQLTypes["clientes_VeiculosAtivos_Servicos_insert_input"];
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Servicos_max_fields"]: {
-		Id?:ModelTypes["uuid"],
+		DataDeAtivacao?:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivoPlano_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -26475,10 +29047,14 @@ export type ModelTypes = {
 ["clientes_VeiculosAtivos_Servicos_max_order_by"]: GraphQLTypes["clientes_VeiculosAtivos_Servicos_max_order_by"];
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Servicos_min_fields"]: {
-		Id?:ModelTypes["uuid"],
+		DataDeAtivacao?:ModelTypes["timestamptz"],
+	DataDeDesativacao?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
+	VeiculoAtivoCombo_Id?:ModelTypes["uuid"],
+	VeiculoAtivoPlano_Id?:ModelTypes["uuid"],
 	VeiculoAtivo_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -29189,6 +31765,10 @@ export type ModelTypes = {
 	Propostas:ModelTypes["propostas_Propostas_Produtos"][],
 	/** An aggregate relationship */
 	Propostas_aggregate:ModelTypes["propostas_Propostas_Produtos_aggregate"],
+	/** An array relationship */
+	RegrasETermosDeUsos:ModelTypes["comercial_Produtos_RegrasETermosDeUso"][],
+	/** An aggregate relationship */
+	RegrasETermosDeUsos_aggregate:ModelTypes["comercial_Produtos_RegrasETermosDeUso_aggregate"],
 	/** An object relationship */
 	ServicoDeDesinstalacao?:ModelTypes["comercial_Servicos"],
 	ServicoDeDesinstalacao_Id?:ModelTypes["uuid"],
@@ -29505,6 +32085,85 @@ export type ModelTypes = {
 ["comercial_Produtos_Produtos_set_input"]: GraphQLTypes["comercial_Produtos_Produtos_set_input"];
 	/** update columns of table "comercial.Produtos_Produtos" */
 ["comercial_Produtos_Produtos_update_column"]: GraphQLTypes["comercial_Produtos_Produtos_update_column"];
+	/** columns and relationships of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso"]: {
+		Id:ModelTypes["uuid"],
+	Mensagem:string,
+	/** An object relationship */
+	Produto:ModelTypes["comercial_Produtos"],
+	Produto_Id:ModelTypes["uuid"],
+	/** An array relationship */
+	PropostasRegrasETermosDeUsos:ModelTypes["propostas_Propostas_RegrasETermosDeUso"][],
+	/** An aggregate relationship */
+	PropostasRegrasETermosDeUsos_aggregate:ModelTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
+	created_at:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at:ModelTypes["timestamptz"]
+};
+	/** aggregated selection of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate"]: {
+		aggregate?:ModelTypes["comercial_Produtos_RegrasETermosDeUso_aggregate_fields"],
+	nodes:ModelTypes["comercial_Produtos_RegrasETermosDeUso"][]
+};
+	/** aggregate fields of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["comercial_Produtos_RegrasETermosDeUso_max_fields"],
+	min?:ModelTypes["comercial_Produtos_RegrasETermosDeUso_min_fields"]
+};
+	/** order by aggregate values of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate_order_by"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_aggregate_order_by"];
+	/** input type for inserting array relation for remote table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input"];
+	/** Boolean expression to filter rows from the table "comercial.Produtos_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["comercial_Produtos_RegrasETermosDeUso_bool_exp"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"];
+	/** unique or primary key constraints on table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_constraint"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_constraint"];
+	/** input type for inserting data into table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_insert_input"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_insert_input"];
+	/** aggregate max on columns */
+["comercial_Produtos_RegrasETermosDeUso_max_fields"]: {
+		Id?:ModelTypes["uuid"],
+	Mensagem?:string,
+	Produto_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by max() on columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_max_order_by"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_max_order_by"];
+	/** aggregate min on columns */
+["comercial_Produtos_RegrasETermosDeUso_min_fields"]: {
+		Id?:ModelTypes["uuid"],
+	Mensagem?:string,
+	Produto_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by min() on columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_min_order_by"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_min_order_by"];
+	/** response of any mutation on the table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["comercial_Produtos_RegrasETermosDeUso"][]
+};
+	/** input type for inserting object relation for remote table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input"];
+	/** on_conflict condition type for table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_on_conflict"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_on_conflict"];
+	/** Ordering options when selecting data from "comercial.Produtos_RegrasETermosDeUso". */
+["comercial_Produtos_RegrasETermosDeUso_order_by"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_order_by"];
+	/** primary key columns input for table: comercial_Produtos_RegrasETermosDeUso */
+["comercial_Produtos_RegrasETermosDeUso_pk_columns_input"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_pk_columns_input"];
+	/** select columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_select_column"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_select_column"];
+	/** input type for updating data in table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_set_input"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_set_input"];
+	/** update columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_update_column"]: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_update_column"];
 	/** columns and relationships of "comercial.Produtos_Servicos" */
 ["comercial_Produtos_Servicos"]: {
 		Id:ModelTypes["uuid"],
@@ -29758,6 +32417,10 @@ export type ModelTypes = {
 	Propostas:ModelTypes["propostas_Propostas_Servicos"][],
 	/** An aggregate relationship */
 	Propostas_aggregate:ModelTypes["propostas_Propostas_Servicos_aggregate"],
+	/** An array relationship */
+	RegrasETermosDeUsos:ModelTypes["comercial_Servicos_RegrasETermosDeUso"][],
+	/** An aggregate relationship */
+	RegrasETermosDeUsos_aggregate:ModelTypes["comercial_Servicos_RegrasETermosDeUso_aggregate"],
 	/** An array relationship */
 	Servicos_Produtos:ModelTypes["comercial_Servicos_Produtos"][],
 	/** An aggregate relationship */
@@ -30076,6 +32739,85 @@ export type ModelTypes = {
 ["comercial_Servicos_Produtos_set_input"]: GraphQLTypes["comercial_Servicos_Produtos_set_input"];
 	/** update columns of table "comercial.Servicos_Produtos" */
 ["comercial_Servicos_Produtos_update_column"]: GraphQLTypes["comercial_Servicos_Produtos_update_column"];
+	/** columns and relationships of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso"]: {
+		Id:ModelTypes["uuid"],
+	Mensagem:string,
+	/** An array relationship */
+	PropostasRegrasETermosDeUsos:ModelTypes["propostas_Propostas_RegrasETermosDeUso"][],
+	/** An aggregate relationship */
+	PropostasRegrasETermosDeUsos_aggregate:ModelTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
+	/** An object relationship */
+	Servico:ModelTypes["comercial_Servicos"],
+	Servico_Id:ModelTypes["uuid"],
+	created_at:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at:ModelTypes["timestamptz"]
+};
+	/** aggregated selection of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate"]: {
+		aggregate?:ModelTypes["comercial_Servicos_RegrasETermosDeUso_aggregate_fields"],
+	nodes:ModelTypes["comercial_Servicos_RegrasETermosDeUso"][]
+};
+	/** aggregate fields of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["comercial_Servicos_RegrasETermosDeUso_max_fields"],
+	min?:ModelTypes["comercial_Servicos_RegrasETermosDeUso_min_fields"]
+};
+	/** order by aggregate values of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate_order_by"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_aggregate_order_by"];
+	/** input type for inserting array relation for remote table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input"];
+	/** Boolean expression to filter rows from the table "comercial.Servicos_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["comercial_Servicos_RegrasETermosDeUso_bool_exp"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"];
+	/** unique or primary key constraints on table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_constraint"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_constraint"];
+	/** input type for inserting data into table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_insert_input"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_insert_input"];
+	/** aggregate max on columns */
+["comercial_Servicos_RegrasETermosDeUso_max_fields"]: {
+		Id?:ModelTypes["uuid"],
+	Mensagem?:string,
+	Servico_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by max() on columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_max_order_by"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_max_order_by"];
+	/** aggregate min on columns */
+["comercial_Servicos_RegrasETermosDeUso_min_fields"]: {
+		Id?:ModelTypes["uuid"],
+	Mensagem?:string,
+	Servico_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by min() on columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_min_order_by"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_min_order_by"];
+	/** response of any mutation on the table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["comercial_Servicos_RegrasETermosDeUso"][]
+};
+	/** input type for inserting object relation for remote table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input"];
+	/** on_conflict condition type for table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_on_conflict"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_on_conflict"];
+	/** Ordering options when selecting data from "comercial.Servicos_RegrasETermosDeUso". */
+["comercial_Servicos_RegrasETermosDeUso_order_by"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_order_by"];
+	/** primary key columns input for table: comercial_Servicos_RegrasETermosDeUso */
+["comercial_Servicos_RegrasETermosDeUso_pk_columns_input"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_pk_columns_input"];
+	/** select columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_select_column"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_select_column"];
+	/** input type for updating data in table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_set_input"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_set_input"];
+	/** update columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_update_column"]: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_update_column"];
 	/** columns and relationships of "comercial.Servicos_Servicos" */
 ["comercial_Servicos_Servicos"]: {
 		Id:ModelTypes["uuid"],
@@ -31800,6 +34542,8 @@ export type ModelTypes = {
 	/** An aggregate relationship */
 	Colaboradores_aggregate:ModelTypes["identidades_Colaboradores_aggregate"],
 	DadosDaApi:ModelTypes["jsonb"],
+	DataCriacao?:ModelTypes["timestamptz"],
+	DataNascimento?:ModelTypes["timestamptz"],
 	/** An array relationship */
 	Documentos:ModelTypes["identidades_Clientes_Documentos"][],
 	/** An aggregate relationship */
@@ -31810,10 +34554,12 @@ export type ModelTypes = {
 	Identificador:string,
 	Nome:string,
 	PessoaJuridica:boolean,
+	Profissao?:string,
 	/** An array relationship */
 	Representantes:ModelTypes["identidades_Representantes"][],
 	/** An aggregate relationship */
 	Representantes_aggregate:ModelTypes["identidades_Representantes_aggregate"],
+	Sexo?:string,
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -31845,18 +34591,26 @@ export type ModelTypes = {
 ["identidades_Pessoas_insert_input"]: GraphQLTypes["identidades_Pessoas_insert_input"];
 	/** aggregate max on columns */
 ["identidades_Pessoas_max_fields"]: {
-		Id?:ModelTypes["uuid"],
+		DataCriacao?:ModelTypes["timestamptz"],
+	DataNascimento?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	Identificador?:string,
 	Nome?:string,
+	Profissao?:string,
+	Sexo?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
 };
 	/** aggregate min on columns */
 ["identidades_Pessoas_min_fields"]: {
-		Id?:ModelTypes["uuid"],
+		DataCriacao?:ModelTypes["timestamptz"],
+	DataNascimento?:ModelTypes["timestamptz"],
+	Id?:ModelTypes["uuid"],
 	Identificador?:string,
 	Nome?:string,
+	Profissao?:string,
+	Sexo?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -32300,10 +35054,14 @@ export type ModelTypes = {
 	delete_clientes_Veiculos?:ModelTypes["clientes_Veiculos_mutation_response"],
 	/** delete data from the table: "clientes.VeiculosAtivos" */
 	delete_clientes_VeiculosAtivos?:ModelTypes["clientes_VeiculosAtivos_mutation_response"],
-	/** delete data from the table: "clientes.VeiculosAtivos_Beneficios" */
-	delete_clientes_VeiculosAtivos_Beneficios?:ModelTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"],
-	/** delete single row from the table: "clientes.VeiculosAtivos_Beneficios" */
-	delete_clientes_VeiculosAtivos_Beneficios_by_pk?:ModelTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** delete data from the table: "clientes.VeiculosAtivos_Combos" */
+	delete_clientes_VeiculosAtivos_Combos?:ModelTypes["clientes_VeiculosAtivos_Combos_mutation_response"],
+	/** delete single row from the table: "clientes.VeiculosAtivos_Combos" */
+	delete_clientes_VeiculosAtivos_Combos_by_pk?:ModelTypes["clientes_VeiculosAtivos_Combos"],
+	/** delete data from the table: "clientes.VeiculosAtivos_Planos" */
+	delete_clientes_VeiculosAtivos_Planos?:ModelTypes["clientes_VeiculosAtivos_Planos_mutation_response"],
+	/** delete single row from the table: "clientes.VeiculosAtivos_Planos" */
+	delete_clientes_VeiculosAtivos_Planos_by_pk?:ModelTypes["clientes_VeiculosAtivos_Planos"],
 	/** delete data from the table: "clientes.VeiculosAtivos_Produtos" */
 	delete_clientes_VeiculosAtivos_Produtos?:ModelTypes["clientes_VeiculosAtivos_Produtos_mutation_response"],
 	/** delete single row from the table: "clientes.VeiculosAtivos_Produtos" */
@@ -32434,6 +35192,10 @@ export type ModelTypes = {
 	delete_comercial_Produtos_Produtos?:ModelTypes["comercial_Produtos_Produtos_mutation_response"],
 	/** delete single row from the table: "comercial.Produtos_Produtos" */
 	delete_comercial_Produtos_Produtos_by_pk?:ModelTypes["comercial_Produtos_Produtos"],
+	/** delete data from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	delete_comercial_Produtos_RegrasETermosDeUso?:ModelTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"],
+	/** delete single row from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	delete_comercial_Produtos_RegrasETermosDeUso_by_pk?:ModelTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** delete data from the table: "comercial.Produtos_Servicos" */
 	delete_comercial_Produtos_Servicos?:ModelTypes["comercial_Produtos_Servicos_mutation_response"],
 	/** delete single row from the table: "comercial.Produtos_Servicos" */
@@ -32458,6 +35220,10 @@ export type ModelTypes = {
 	delete_comercial_Servicos_Produtos?:ModelTypes["comercial_Servicos_Produtos_mutation_response"],
 	/** delete single row from the table: "comercial.Servicos_Produtos" */
 	delete_comercial_Servicos_Produtos_by_pk?:ModelTypes["comercial_Servicos_Produtos"],
+	/** delete data from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	delete_comercial_Servicos_RegrasETermosDeUso?:ModelTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"],
+	/** delete single row from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	delete_comercial_Servicos_RegrasETermosDeUso_by_pk?:ModelTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** delete data from the table: "comercial.Servicos_Servicos" */
 	delete_comercial_Servicos_Servicos?:ModelTypes["comercial_Servicos_Servicos_mutation_response"],
 	/** delete single row from the table: "comercial.Servicos_Servicos" */
@@ -32574,10 +35340,22 @@ export type ModelTypes = {
 	delete_operacional_OrdemDeServico_Atividades?:ModelTypes["operacional_OrdemDeServico_Atividades_mutation_response"],
 	/** delete single row from the table: "operacional.OrdemDeServico_Atividades" */
 	delete_operacional_OrdemDeServico_Atividades_by_pk?:ModelTypes["operacional_OrdemDeServico_Atividades"],
-	/** delete data from the table: "operacional.OrdemDeServico_Beneficios" */
-	delete_operacional_OrdemDeServico_Beneficios?:ModelTypes["operacional_OrdemDeServico_Beneficios_mutation_response"],
-	/** delete single row from the table: "operacional.OrdemDeServico_Beneficios" */
-	delete_operacional_OrdemDeServico_Beneficios_by_pk?:ModelTypes["operacional_OrdemDeServico_Beneficios"],
+	/** delete data from the table: "operacional.OrdemDeServico_Checklist" */
+	delete_operacional_OrdemDeServico_Checklist?:ModelTypes["operacional_OrdemDeServico_Checklist_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_Checklist" */
+	delete_operacional_OrdemDeServico_Checklist_by_pk?:ModelTypes["operacional_OrdemDeServico_Checklist"],
+	/** delete data from the table: "operacional.OrdemDeServico_Combos" */
+	delete_operacional_OrdemDeServico_Combos?:ModelTypes["operacional_OrdemDeServico_Combos_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_Combos" */
+	delete_operacional_OrdemDeServico_Combos_by_pk?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** delete data from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	delete_operacional_OrdemDeServico_ItensDeChecklist?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	delete_operacional_OrdemDeServico_ItensDeChecklist_by_pk?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** delete data from the table: "operacional.OrdemDeServico_Planos" */
+	delete_operacional_OrdemDeServico_Planos?:ModelTypes["operacional_OrdemDeServico_Planos_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_Planos" */
+	delete_operacional_OrdemDeServico_Planos_by_pk?:ModelTypes["operacional_OrdemDeServico_Planos"],
 	/** delete data from the table: "operacional.OrdemDeServico_Produtos" */
 	delete_operacional_OrdemDeServico_Produtos?:ModelTypes["operacional_OrdemDeServico_Produtos_mutation_response"],
 	/** delete single row from the table: "operacional.OrdemDeServico_Produtos" */
@@ -32698,6 +35476,10 @@ export type ModelTypes = {
 	delete_propostas_Propostas_Produtos?:ModelTypes["propostas_Propostas_Produtos_mutation_response"],
 	/** delete single row from the table: "propostas.Propostas_Produtos" */
 	delete_propostas_Propostas_Produtos_by_pk?:ModelTypes["propostas_Propostas_Produtos"],
+	/** delete data from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	delete_propostas_Propostas_RegrasETermosDeUso?:ModelTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"],
+	/** delete single row from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	delete_propostas_Propostas_RegrasETermosDeUso_by_pk?:ModelTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** delete data from the table: "propostas.Propostas_Servicos" */
 	delete_propostas_Propostas_Servicos?:ModelTypes["propostas_Propostas_Servicos_mutation_response"],
 	/** delete single row from the table: "propostas.Propostas_Servicos" */
@@ -32760,10 +35542,14 @@ export type ModelTypes = {
 	insert_clientes_Veiculos?:ModelTypes["clientes_Veiculos_mutation_response"],
 	/** insert data into the table: "clientes.VeiculosAtivos" */
 	insert_clientes_VeiculosAtivos?:ModelTypes["clientes_VeiculosAtivos_mutation_response"],
-	/** insert data into the table: "clientes.VeiculosAtivos_Beneficios" */
-	insert_clientes_VeiculosAtivos_Beneficios?:ModelTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"],
-	/** insert a single row into the table: "clientes.VeiculosAtivos_Beneficios" */
-	insert_clientes_VeiculosAtivos_Beneficios_one?:ModelTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** insert data into the table: "clientes.VeiculosAtivos_Combos" */
+	insert_clientes_VeiculosAtivos_Combos?:ModelTypes["clientes_VeiculosAtivos_Combos_mutation_response"],
+	/** insert a single row into the table: "clientes.VeiculosAtivos_Combos" */
+	insert_clientes_VeiculosAtivos_Combos_one?:ModelTypes["clientes_VeiculosAtivos_Combos"],
+	/** insert data into the table: "clientes.VeiculosAtivos_Planos" */
+	insert_clientes_VeiculosAtivos_Planos?:ModelTypes["clientes_VeiculosAtivos_Planos_mutation_response"],
+	/** insert a single row into the table: "clientes.VeiculosAtivos_Planos" */
+	insert_clientes_VeiculosAtivos_Planos_one?:ModelTypes["clientes_VeiculosAtivos_Planos"],
 	/** insert data into the table: "clientes.VeiculosAtivos_Produtos" */
 	insert_clientes_VeiculosAtivos_Produtos?:ModelTypes["clientes_VeiculosAtivos_Produtos_mutation_response"],
 	/** insert a single row into the table: "clientes.VeiculosAtivos_Produtos" */
@@ -32894,6 +35680,10 @@ export type ModelTypes = {
 	insert_comercial_Produtos_Produtos?:ModelTypes["comercial_Produtos_Produtos_mutation_response"],
 	/** insert a single row into the table: "comercial.Produtos_Produtos" */
 	insert_comercial_Produtos_Produtos_one?:ModelTypes["comercial_Produtos_Produtos"],
+	/** insert data into the table: "comercial.Produtos_RegrasETermosDeUso" */
+	insert_comercial_Produtos_RegrasETermosDeUso?:ModelTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"],
+	/** insert a single row into the table: "comercial.Produtos_RegrasETermosDeUso" */
+	insert_comercial_Produtos_RegrasETermosDeUso_one?:ModelTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** insert data into the table: "comercial.Produtos_Servicos" */
 	insert_comercial_Produtos_Servicos?:ModelTypes["comercial_Produtos_Servicos_mutation_response"],
 	/** insert a single row into the table: "comercial.Produtos_Servicos" */
@@ -32918,6 +35708,10 @@ export type ModelTypes = {
 	insert_comercial_Servicos_Produtos?:ModelTypes["comercial_Servicos_Produtos_mutation_response"],
 	/** insert a single row into the table: "comercial.Servicos_Produtos" */
 	insert_comercial_Servicos_Produtos_one?:ModelTypes["comercial_Servicos_Produtos"],
+	/** insert data into the table: "comercial.Servicos_RegrasETermosDeUso" */
+	insert_comercial_Servicos_RegrasETermosDeUso?:ModelTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"],
+	/** insert a single row into the table: "comercial.Servicos_RegrasETermosDeUso" */
+	insert_comercial_Servicos_RegrasETermosDeUso_one?:ModelTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** insert data into the table: "comercial.Servicos_Servicos" */
 	insert_comercial_Servicos_Servicos?:ModelTypes["comercial_Servicos_Servicos_mutation_response"],
 	/** insert a single row into the table: "comercial.Servicos_Servicos" */
@@ -33034,10 +35828,22 @@ export type ModelTypes = {
 	insert_operacional_OrdemDeServico_Atividades?:ModelTypes["operacional_OrdemDeServico_Atividades_mutation_response"],
 	/** insert a single row into the table: "operacional.OrdemDeServico_Atividades" */
 	insert_operacional_OrdemDeServico_Atividades_one?:ModelTypes["operacional_OrdemDeServico_Atividades"],
-	/** insert data into the table: "operacional.OrdemDeServico_Beneficios" */
-	insert_operacional_OrdemDeServico_Beneficios?:ModelTypes["operacional_OrdemDeServico_Beneficios_mutation_response"],
-	/** insert a single row into the table: "operacional.OrdemDeServico_Beneficios" */
-	insert_operacional_OrdemDeServico_Beneficios_one?:ModelTypes["operacional_OrdemDeServico_Beneficios"],
+	/** insert data into the table: "operacional.OrdemDeServico_Checklist" */
+	insert_operacional_OrdemDeServico_Checklist?:ModelTypes["operacional_OrdemDeServico_Checklist_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_Checklist" */
+	insert_operacional_OrdemDeServico_Checklist_one?:ModelTypes["operacional_OrdemDeServico_Checklist"],
+	/** insert data into the table: "operacional.OrdemDeServico_Combos" */
+	insert_operacional_OrdemDeServico_Combos?:ModelTypes["operacional_OrdemDeServico_Combos_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_Combos" */
+	insert_operacional_OrdemDeServico_Combos_one?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** insert data into the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	insert_operacional_OrdemDeServico_ItensDeChecklist?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	insert_operacional_OrdemDeServico_ItensDeChecklist_one?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** insert data into the table: "operacional.OrdemDeServico_Planos" */
+	insert_operacional_OrdemDeServico_Planos?:ModelTypes["operacional_OrdemDeServico_Planos_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_Planos" */
+	insert_operacional_OrdemDeServico_Planos_one?:ModelTypes["operacional_OrdemDeServico_Planos"],
 	/** insert data into the table: "operacional.OrdemDeServico_Produtos" */
 	insert_operacional_OrdemDeServico_Produtos?:ModelTypes["operacional_OrdemDeServico_Produtos_mutation_response"],
 	/** insert a single row into the table: "operacional.OrdemDeServico_Produtos" */
@@ -33158,6 +35964,10 @@ export type ModelTypes = {
 	insert_propostas_Propostas_Produtos?:ModelTypes["propostas_Propostas_Produtos_mutation_response"],
 	/** insert a single row into the table: "propostas.Propostas_Produtos" */
 	insert_propostas_Propostas_Produtos_one?:ModelTypes["propostas_Propostas_Produtos"],
+	/** insert data into the table: "propostas.Propostas_RegrasETermosDeUso" */
+	insert_propostas_Propostas_RegrasETermosDeUso?:ModelTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"],
+	/** insert a single row into the table: "propostas.Propostas_RegrasETermosDeUso" */
+	insert_propostas_Propostas_RegrasETermosDeUso_one?:ModelTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** insert data into the table: "propostas.Propostas_Servicos" */
 	insert_propostas_Propostas_Servicos?:ModelTypes["propostas_Propostas_Servicos_mutation_response"],
 	/** insert a single row into the table: "propostas.Propostas_Servicos" */
@@ -33220,10 +36030,14 @@ export type ModelTypes = {
 	update_clientes_Veiculos?:ModelTypes["clientes_Veiculos_mutation_response"],
 	/** update data of the table: "clientes.VeiculosAtivos" */
 	update_clientes_VeiculosAtivos?:ModelTypes["clientes_VeiculosAtivos_mutation_response"],
-	/** update data of the table: "clientes.VeiculosAtivos_Beneficios" */
-	update_clientes_VeiculosAtivos_Beneficios?:ModelTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"],
-	/** update single row of the table: "clientes.VeiculosAtivos_Beneficios" */
-	update_clientes_VeiculosAtivos_Beneficios_by_pk?:ModelTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** update data of the table: "clientes.VeiculosAtivos_Combos" */
+	update_clientes_VeiculosAtivos_Combos?:ModelTypes["clientes_VeiculosAtivos_Combos_mutation_response"],
+	/** update single row of the table: "clientes.VeiculosAtivos_Combos" */
+	update_clientes_VeiculosAtivos_Combos_by_pk?:ModelTypes["clientes_VeiculosAtivos_Combos"],
+	/** update data of the table: "clientes.VeiculosAtivos_Planos" */
+	update_clientes_VeiculosAtivos_Planos?:ModelTypes["clientes_VeiculosAtivos_Planos_mutation_response"],
+	/** update single row of the table: "clientes.VeiculosAtivos_Planos" */
+	update_clientes_VeiculosAtivos_Planos_by_pk?:ModelTypes["clientes_VeiculosAtivos_Planos"],
 	/** update data of the table: "clientes.VeiculosAtivos_Produtos" */
 	update_clientes_VeiculosAtivos_Produtos?:ModelTypes["clientes_VeiculosAtivos_Produtos_mutation_response"],
 	/** update single row of the table: "clientes.VeiculosAtivos_Produtos" */
@@ -33354,6 +36168,10 @@ export type ModelTypes = {
 	update_comercial_Produtos_Produtos?:ModelTypes["comercial_Produtos_Produtos_mutation_response"],
 	/** update single row of the table: "comercial.Produtos_Produtos" */
 	update_comercial_Produtos_Produtos_by_pk?:ModelTypes["comercial_Produtos_Produtos"],
+	/** update data of the table: "comercial.Produtos_RegrasETermosDeUso" */
+	update_comercial_Produtos_RegrasETermosDeUso?:ModelTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"],
+	/** update single row of the table: "comercial.Produtos_RegrasETermosDeUso" */
+	update_comercial_Produtos_RegrasETermosDeUso_by_pk?:ModelTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** update data of the table: "comercial.Produtos_Servicos" */
 	update_comercial_Produtos_Servicos?:ModelTypes["comercial_Produtos_Servicos_mutation_response"],
 	/** update single row of the table: "comercial.Produtos_Servicos" */
@@ -33378,6 +36196,10 @@ export type ModelTypes = {
 	update_comercial_Servicos_Produtos?:ModelTypes["comercial_Servicos_Produtos_mutation_response"],
 	/** update single row of the table: "comercial.Servicos_Produtos" */
 	update_comercial_Servicos_Produtos_by_pk?:ModelTypes["comercial_Servicos_Produtos"],
+	/** update data of the table: "comercial.Servicos_RegrasETermosDeUso" */
+	update_comercial_Servicos_RegrasETermosDeUso?:ModelTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"],
+	/** update single row of the table: "comercial.Servicos_RegrasETermosDeUso" */
+	update_comercial_Servicos_RegrasETermosDeUso_by_pk?:ModelTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** update data of the table: "comercial.Servicos_Servicos" */
 	update_comercial_Servicos_Servicos?:ModelTypes["comercial_Servicos_Servicos_mutation_response"],
 	/** update single row of the table: "comercial.Servicos_Servicos" */
@@ -33494,10 +36316,22 @@ export type ModelTypes = {
 	update_operacional_OrdemDeServico_Atividades?:ModelTypes["operacional_OrdemDeServico_Atividades_mutation_response"],
 	/** update single row of the table: "operacional.OrdemDeServico_Atividades" */
 	update_operacional_OrdemDeServico_Atividades_by_pk?:ModelTypes["operacional_OrdemDeServico_Atividades"],
-	/** update data of the table: "operacional.OrdemDeServico_Beneficios" */
-	update_operacional_OrdemDeServico_Beneficios?:ModelTypes["operacional_OrdemDeServico_Beneficios_mutation_response"],
-	/** update single row of the table: "operacional.OrdemDeServico_Beneficios" */
-	update_operacional_OrdemDeServico_Beneficios_by_pk?:ModelTypes["operacional_OrdemDeServico_Beneficios"],
+	/** update data of the table: "operacional.OrdemDeServico_Checklist" */
+	update_operacional_OrdemDeServico_Checklist?:ModelTypes["operacional_OrdemDeServico_Checklist_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_Checklist" */
+	update_operacional_OrdemDeServico_Checklist_by_pk?:ModelTypes["operacional_OrdemDeServico_Checklist"],
+	/** update data of the table: "operacional.OrdemDeServico_Combos" */
+	update_operacional_OrdemDeServico_Combos?:ModelTypes["operacional_OrdemDeServico_Combos_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_Combos" */
+	update_operacional_OrdemDeServico_Combos_by_pk?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** update data of the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	update_operacional_OrdemDeServico_ItensDeChecklist?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	update_operacional_OrdemDeServico_ItensDeChecklist_by_pk?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** update data of the table: "operacional.OrdemDeServico_Planos" */
+	update_operacional_OrdemDeServico_Planos?:ModelTypes["operacional_OrdemDeServico_Planos_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_Planos" */
+	update_operacional_OrdemDeServico_Planos_by_pk?:ModelTypes["operacional_OrdemDeServico_Planos"],
 	/** update data of the table: "operacional.OrdemDeServico_Produtos" */
 	update_operacional_OrdemDeServico_Produtos?:ModelTypes["operacional_OrdemDeServico_Produtos_mutation_response"],
 	/** update single row of the table: "operacional.OrdemDeServico_Produtos" */
@@ -33618,6 +36452,10 @@ export type ModelTypes = {
 	update_propostas_Propostas_Produtos?:ModelTypes["propostas_Propostas_Produtos_mutation_response"],
 	/** update single row of the table: "propostas.Propostas_Produtos" */
 	update_propostas_Propostas_Produtos_by_pk?:ModelTypes["propostas_Propostas_Produtos"],
+	/** update data of the table: "propostas.Propostas_RegrasETermosDeUso" */
+	update_propostas_Propostas_RegrasETermosDeUso?:ModelTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"],
+	/** update single row of the table: "propostas.Propostas_RegrasETermosDeUso" */
+	update_propostas_Propostas_RegrasETermosDeUso_by_pk?:ModelTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** update data of the table: "propostas.Propostas_Servicos" */
 	update_propostas_Propostas_Servicos?:ModelTypes["propostas_Propostas_Servicos_mutation_response"],
 	/** update single row of the table: "propostas.Propostas_Servicos" */
@@ -33655,12 +36493,17 @@ export type ModelTypes = {
 	Atividades:ModelTypes["operacional_OrdemDeServico_Atividades"][],
 	/** An aggregate relationship */
 	Atividades_aggregate:ModelTypes["operacional_OrdemDeServico_Atividades_aggregate"],
-	/** An array relationship */
-	Beneficios:ModelTypes["operacional_OrdemDeServico_Beneficios"][],
-	/** An aggregate relationship */
-	Beneficios_aggregate:ModelTypes["operacional_OrdemDeServico_Beneficios_aggregate"],
 	CodigoIdentificador:number,
+	/** An array relationship */
+	Combos:ModelTypes["operacional_OrdemDeServico_Combos"][],
+	/** An aggregate relationship */
+	Combos_aggregate:ModelTypes["operacional_OrdemDeServico_Combos_aggregate"],
 	Id:ModelTypes["uuid"],
+	/** An array relationship */
+	Planos:ModelTypes["operacional_OrdemDeServico_Planos"][],
+	/** An aggregate relationship */
+	Planos_aggregate:ModelTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	PossuiGNV:boolean,
 	/** An array relationship */
 	Produtos:ModelTypes["operacional_OrdemDeServico_Produtos"][],
 	/** An aggregate relationship */
@@ -33687,6 +36530,8 @@ export type ModelTypes = {
 		Agendamento:ModelTypes["timestamptz"],
 	Colaborador?:ModelTypes["identidades_Colaboradores"],
 	Colaborador_Id:ModelTypes["uuid"],
+	Contato:string,
+	Endereco:ModelTypes["jsonb"],
 	FimDoServico?:ModelTypes["timestamptz"],
 	Id:ModelTypes["uuid"],
 	InicioDoServico?:ModelTypes["timestamptz"],
@@ -33697,6 +36542,7 @@ export type ModelTypes = {
 	OS_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	OrdemDeServico:ModelTypes["operacional_OrdemDeServico"],
+	Responsavel:string,
 	/** An object relationship */
 	Situacao:ModelTypes["operacional_OrdemDeServico_Agendamentos_Situacoes"],
 	Situacao_Id:ModelTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum"],
@@ -33857,22 +36703,32 @@ export type ModelTypes = {
 };
 	/** order by aggregate values of table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_aggregate_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_aggregate_order_by"];
+	/** append existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_Agendamentos_append_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_append_input"];
 	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_arr_rel_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_arr_rel_insert_input"];
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Agendamentos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Agendamentos_bool_exp"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_bool_exp"];
 	/** unique or primary key constraints on table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_constraint"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_constraint"];
+	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+["operacional_OrdemDeServico_Agendamentos_delete_at_path_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_delete_at_path_input"];
+	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+["operacional_OrdemDeServico_Agendamentos_delete_elem_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_delete_elem_input"];
+	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+["operacional_OrdemDeServico_Agendamentos_delete_key_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_delete_key_input"];
 	/** input type for inserting data into table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_insert_input"];
 	/** aggregate max on columns */
 ["operacional_OrdemDeServico_Agendamentos_max_fields"]: {
 		Agendamento?:ModelTypes["timestamptz"],
 	Colaborador_Id?:ModelTypes["uuid"],
+	Contato?:string,
 	FimDoServico?:ModelTypes["timestamptz"],
 	Id?:ModelTypes["uuid"],
 	InicioDoServico?:ModelTypes["timestamptz"],
 	OS_Id?:ModelTypes["uuid"],
+	Responsavel?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -33883,10 +36739,12 @@ export type ModelTypes = {
 ["operacional_OrdemDeServico_Agendamentos_min_fields"]: {
 		Agendamento?:ModelTypes["timestamptz"],
 	Colaborador_Id?:ModelTypes["uuid"],
+	Contato?:string,
 	FimDoServico?:ModelTypes["timestamptz"],
 	Id?:ModelTypes["uuid"],
 	InicioDoServico?:ModelTypes["timestamptz"],
 	OS_Id?:ModelTypes["uuid"],
+	Responsavel?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -33908,6 +36766,8 @@ export type ModelTypes = {
 ["operacional_OrdemDeServico_Agendamentos_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_order_by"];
 	/** primary key columns input for table: operacional_OrdemDeServico_Agendamentos */
 ["operacional_OrdemDeServico_Agendamentos_pk_columns_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_pk_columns_input"];
+	/** prepend existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_Agendamentos_prepend_input"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_prepend_input"];
 	/** select columns of table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_select_column"]: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_select_column"];
 	/** input type for updating data in table "operacional.OrdemDeServico_Agendamentos" */
@@ -33993,97 +36853,337 @@ export type ModelTypes = {
 ["operacional_OrdemDeServico_Atividades_set_input"]: GraphQLTypes["operacional_OrdemDeServico_Atividades_set_input"];
 	/** update columns of table "operacional.OrdemDeServico_Atividades" */
 ["operacional_OrdemDeServico_Atividades_update_column"]: GraphQLTypes["operacional_OrdemDeServico_Atividades_update_column"];
-	/** columns and relationships of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios"]: {
-		Id:ModelTypes["uuid"],
+	/** columns and relationships of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist"]: {
+		Descricao:string,
+	Id:ModelTypes["uuid"],
+	Nome:string,
+	created_at:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamp"],
+	updated_at:ModelTypes["timestamptz"]
+};
+	/** aggregated selection of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_aggregate"]: {
+		aggregate?:ModelTypes["operacional_OrdemDeServico_Checklist_aggregate_fields"],
+	nodes:ModelTypes["operacional_OrdemDeServico_Checklist"][]
+};
+	/** aggregate fields of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["operacional_OrdemDeServico_Checklist_max_fields"],
+	min?:ModelTypes["operacional_OrdemDeServico_Checklist_min_fields"]
+};
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Checklist". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Checklist_bool_exp"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_bool_exp"];
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_constraint"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_constraint"];
+	/** input type for inserting data into table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_insert_input"];
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_Checklist_max_fields"]: {
+		Descricao?:string,
+	Id?:ModelTypes["uuid"],
+	Nome?:string,
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamp"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_Checklist_min_fields"]: {
+		Descricao?:string,
+	Id?:ModelTypes["uuid"],
+	Nome?:string,
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamp"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** response of any mutation on the table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["operacional_OrdemDeServico_Checklist"][]
+};
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_on_conflict"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_on_conflict"];
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Checklist". */
+["operacional_OrdemDeServico_Checklist_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_order_by"];
+	/** primary key columns input for table: operacional_OrdemDeServico_Checklist */
+["operacional_OrdemDeServico_Checklist_pk_columns_input"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_pk_columns_input"];
+	/** select columns of table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_select_column"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_select_column"];
+	/** input type for updating data in table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_set_input"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_set_input"];
+	/** update columns of table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_update_column"]: GraphQLTypes["operacional_OrdemDeServico_Checklist_update_column"];
+	/** columns and relationships of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos"]: {
+		Combo?:ModelTypes["comercial_Combos"],
+	ComboPreco?:ModelTypes["comercial_Combos_Precos"],
+	ComboPreco_Id:ModelTypes["uuid"],
+	Combo_Id:ModelTypes["uuid"],
+	Id:ModelTypes["uuid"],
+	/** An array relationship */
+	OSPlanos:ModelTypes["operacional_OrdemDeServico_Planos"][],
+	/** An aggregate relationship */
+	OSPlanos_aggregate:ModelTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	/** An array relationship */
+	OSProdutos:ModelTypes["operacional_OrdemDeServico_Produtos"][],
+	/** An aggregate relationship */
+	OSProdutos_aggregate:ModelTypes["operacional_OrdemDeServico_Produtos_aggregate"],
+	/** An array relationship */
+	OSServicos:ModelTypes["operacional_OrdemDeServico_Servicos"][],
+	/** An aggregate relationship */
+	OSServicos_aggregate:ModelTypes["operacional_OrdemDeServico_Servicos_aggregate"],
 	/** An object relationship */
 	OrdemDeServico:ModelTypes["operacional_OrdemDeServico"],
 	OrdemDeServico_Id:ModelTypes["uuid"],
-	PortfolioPreco_Id?:ModelTypes["uuid"],
-	Portfolio_Id:ModelTypes["uuid"],
-	PrecoDeAdesao_Id?:ModelTypes["uuid"],
-	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
-	TipoPortfolio:string,
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
 };
-	/** aggregated selection of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate"]: {
-		aggregate?:ModelTypes["operacional_OrdemDeServico_Beneficios_aggregate_fields"],
-	nodes:ModelTypes["operacional_OrdemDeServico_Beneficios"][]
+	/** aggregated selection of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate"]: {
+		aggregate?:ModelTypes["operacional_OrdemDeServico_Combos_aggregate_fields"],
+	nodes:ModelTypes["operacional_OrdemDeServico_Combos"][]
 };
-	/** aggregate fields of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate_fields"]: {
+	/** aggregate fields of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate_fields"]: {
 		count:number,
-	max?:ModelTypes["operacional_OrdemDeServico_Beneficios_max_fields"],
-	min?:ModelTypes["operacional_OrdemDeServico_Beneficios_min_fields"]
+	max?:ModelTypes["operacional_OrdemDeServico_Combos_max_fields"],
+	min?:ModelTypes["operacional_OrdemDeServico_Combos_min_fields"]
 };
-	/** order by aggregate values of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_aggregate_order_by"];
-	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_arr_rel_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_arr_rel_insert_input"];
-	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Beneficios". All fields are combined with a logical 'AND'. */
-["operacional_OrdemDeServico_Beneficios_bool_exp"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_bool_exp"];
-	/** unique or primary key constraints on table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_constraint"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_constraint"];
-	/** input type for inserting data into table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_insert_input"];
+	/** order by aggregate values of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Combos_aggregate_order_by"];
+	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_arr_rel_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Combos_arr_rel_insert_input"];
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Combos". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Combos_bool_exp"]: GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"];
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_constraint"]: GraphQLTypes["operacional_OrdemDeServico_Combos_constraint"];
+	/** input type for inserting data into table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Combos_insert_input"];
 	/** aggregate max on columns */
-["operacional_OrdemDeServico_Beneficios_max_fields"]: {
-		Id?:ModelTypes["uuid"],
+["operacional_OrdemDeServico_Combos_max_fields"]: {
+		ComboPreco_Id?:ModelTypes["uuid"],
+	Combo_Id?:ModelTypes["uuid"],
+	Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
-	PortfolioPreco_Id?:ModelTypes["uuid"],
-	Portfolio_Id?:ModelTypes["uuid"],
-	PrecoDeAdesao_Id?:ModelTypes["uuid"],
-	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
-	TipoPortfolio?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
 };
-	/** order by max() on columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_max_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_max_order_by"];
+	/** order by max() on columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_max_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Combos_max_order_by"];
 	/** aggregate min on columns */
-["operacional_OrdemDeServico_Beneficios_min_fields"]: {
-		Id?:ModelTypes["uuid"],
+["operacional_OrdemDeServico_Combos_min_fields"]: {
+		ComboPreco_Id?:ModelTypes["uuid"],
+	Combo_Id?:ModelTypes["uuid"],
+	Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
-	PortfolioPreco_Id?:ModelTypes["uuid"],
-	Portfolio_Id?:ModelTypes["uuid"],
-	PrecoDeAdesao_Id?:ModelTypes["uuid"],
-	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
-	TipoPortfolio?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
 };
-	/** order by min() on columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_min_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_min_order_by"];
-	/** response of any mutation on the table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_mutation_response"]: {
+	/** order by min() on columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_min_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Combos_min_order_by"];
+	/** response of any mutation on the table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_mutation_response"]: {
 		/** number of rows affected by the mutation */
 	affected_rows:number,
 	/** data from the rows affected by the mutation */
-	returning:ModelTypes["operacional_OrdemDeServico_Beneficios"][]
+	returning:ModelTypes["operacional_OrdemDeServico_Combos"][]
 };
-	/** on_conflict condition type for table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_on_conflict"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_on_conflict"];
-	/** Ordering options when selecting data from "operacional.OrdemDeServico_Beneficios". */
-["operacional_OrdemDeServico_Beneficios_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_order_by"];
-	/** primary key columns input for table: operacional_OrdemDeServico_Beneficios */
-["operacional_OrdemDeServico_Beneficios_pk_columns_input"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_pk_columns_input"];
-	/** select columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_select_column"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_select_column"];
-	/** input type for updating data in table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_set_input"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_set_input"];
-	/** update columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_update_column"]: GraphQLTypes["operacional_OrdemDeServico_Beneficios_update_column"];
+	/** input type for inserting object relation for remote table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_obj_rel_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Combos_obj_rel_insert_input"];
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_on_conflict"]: GraphQLTypes["operacional_OrdemDeServico_Combos_on_conflict"];
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Combos". */
+["operacional_OrdemDeServico_Combos_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Combos_order_by"];
+	/** primary key columns input for table: operacional_OrdemDeServico_Combos */
+["operacional_OrdemDeServico_Combos_pk_columns_input"]: GraphQLTypes["operacional_OrdemDeServico_Combos_pk_columns_input"];
+	/** select columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_select_column"]: GraphQLTypes["operacional_OrdemDeServico_Combos_select_column"];
+	/** input type for updating data in table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_set_input"]: GraphQLTypes["operacional_OrdemDeServico_Combos_set_input"];
+	/** update columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_update_column"]: GraphQLTypes["operacional_OrdemDeServico_Combos_update_column"];
+	/** columns and relationships of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist"]: {
+		Checklist_Id:ModelTypes["jsonb"],
+	Descricao:string,
+	Id:ModelTypes["uuid"],
+	created_at:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamp"],
+	updated_at:ModelTypes["timestamptz"]
+};
+	/** aggregated selection of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_aggregate"]: {
+		aggregate?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate_fields"],
+	nodes:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"][]
+};
+	/** aggregate fields of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_max_fields"],
+	min?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_min_fields"]
+};
+	/** append existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_ItensDeChecklist_append_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_append_input"];
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_ItensDeChecklist". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"];
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_constraint"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_constraint"];
+	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_at_path_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_at_path_input"];
+	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_elem_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_elem_input"];
+	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_key_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_delete_key_input"];
+	/** input type for inserting data into table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_insert_input"];
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_ItensDeChecklist_max_fields"]: {
+		Descricao?:string,
+	Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamp"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_ItensDeChecklist_min_fields"]: {
+		Descricao?:string,
+	Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamp"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** response of any mutation on the table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"][]
+};
+	/** on_conflict condition type for table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_on_conflict"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_on_conflict"];
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_ItensDeChecklist". */
+["operacional_OrdemDeServico_ItensDeChecklist_order_by"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_order_by"];
+	/** primary key columns input for table: operacional_OrdemDeServico_ItensDeChecklist */
+["operacional_OrdemDeServico_ItensDeChecklist_pk_columns_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_pk_columns_input"];
+	/** prepend existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_ItensDeChecklist_prepend_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_prepend_input"];
+	/** select columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_select_column"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_select_column"];
+	/** input type for updating data in table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_set_input"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_set_input"];
+	/** update columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_update_column"]: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_update_column"];
+	/** columns and relationships of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos"]: {
+		Id:ModelTypes["uuid"],
+	/** An object relationship */
+	OSCombo?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** An array relationship */
+	OSProdutos:ModelTypes["operacional_OrdemDeServico_Produtos"][],
+	/** An aggregate relationship */
+	OSProdutos_aggregate:ModelTypes["operacional_OrdemDeServico_Produtos_aggregate"],
+	/** An array relationship */
+	OSServicos:ModelTypes["operacional_OrdemDeServico_Servicos"][],
+	/** An aggregate relationship */
+	OSServicos_aggregate:ModelTypes["operacional_OrdemDeServico_Servicos_aggregate"],
+	/** An object relationship */
+	OrdemDeServico:ModelTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServico_Id:ModelTypes["uuid"],
+	Plano?:ModelTypes["comercial_Planos"],
+	PlanoPreco?:ModelTypes["comercial_Planos_Precos"],
+	PlanoPreco_Id?:ModelTypes["uuid"],
+	Plano_Id:ModelTypes["uuid"],
+	created_at:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at:ModelTypes["timestamptz"]
+};
+	/** aggregated selection of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate"]: {
+		aggregate?:ModelTypes["operacional_OrdemDeServico_Planos_aggregate_fields"],
+	nodes:ModelTypes["operacional_OrdemDeServico_Planos"][]
+};
+	/** aggregate fields of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["operacional_OrdemDeServico_Planos_max_fields"],
+	min?:ModelTypes["operacional_OrdemDeServico_Planos_min_fields"]
+};
+	/** order by aggregate values of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate_order_by"];
+	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_arr_rel_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Planos_arr_rel_insert_input"];
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Planos". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Planos_bool_exp"]: GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"];
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_constraint"]: GraphQLTypes["operacional_OrdemDeServico_Planos_constraint"];
+	/** input type for inserting data into table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Planos_insert_input"];
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_Planos_max_fields"]: {
+		Id?:ModelTypes["uuid"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServico_Id?:ModelTypes["uuid"],
+	PlanoPreco_Id?:ModelTypes["uuid"],
+	Plano_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by max() on columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_max_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Planos_max_order_by"];
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_Planos_min_fields"]: {
+		Id?:ModelTypes["uuid"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServico_Id?:ModelTypes["uuid"],
+	PlanoPreco_Id?:ModelTypes["uuid"],
+	Plano_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by min() on columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_min_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Planos_min_order_by"];
+	/** response of any mutation on the table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["operacional_OrdemDeServico_Planos"][]
+};
+	/** input type for inserting object relation for remote table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_obj_rel_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Planos_obj_rel_insert_input"];
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_on_conflict"]: GraphQLTypes["operacional_OrdemDeServico_Planos_on_conflict"];
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Planos". */
+["operacional_OrdemDeServico_Planos_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Planos_order_by"];
+	/** primary key columns input for table: operacional_OrdemDeServico_Planos */
+["operacional_OrdemDeServico_Planos_pk_columns_input"]: GraphQLTypes["operacional_OrdemDeServico_Planos_pk_columns_input"];
+	/** select columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_select_column"]: GraphQLTypes["operacional_OrdemDeServico_Planos_select_column"];
+	/** input type for updating data in table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_set_input"]: GraphQLTypes["operacional_OrdemDeServico_Planos_set_input"];
+	/** update columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_update_column"]: GraphQLTypes["operacional_OrdemDeServico_Planos_update_column"];
 	/** columns and relationships of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos"]: {
 		Id:ModelTypes["uuid"],
 	Identificavel_Id?:ModelTypes["uuid"],
 	/** An object relationship */
+	OSCombo?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** An object relationship */
+	OSPlano?:ModelTypes["operacional_OrdemDeServico_Planos"],
+	/** An object relationship */
 	OrdemDeServico:ModelTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServicoPlano_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id:ModelTypes["uuid"],
 	PrecoDeAdesao?:ModelTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
@@ -34091,6 +37191,7 @@ export type ModelTypes = {
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto?:ModelTypes["comercial_Produtos"],
 	Produto_Id:ModelTypes["uuid"],
+	Quantidade:number,
 	TipoDeIdentificavel_Id?:string,
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -34103,28 +37204,47 @@ export type ModelTypes = {
 };
 	/** aggregate fields of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_aggregate_fields"]: {
-		count:number,
+		avg?:ModelTypes["operacional_OrdemDeServico_Produtos_avg_fields"],
+	count:number,
 	max?:ModelTypes["operacional_OrdemDeServico_Produtos_max_fields"],
-	min?:ModelTypes["operacional_OrdemDeServico_Produtos_min_fields"]
+	min?:ModelTypes["operacional_OrdemDeServico_Produtos_min_fields"],
+	stddev?:ModelTypes["operacional_OrdemDeServico_Produtos_stddev_fields"],
+	stddev_pop?:ModelTypes["operacional_OrdemDeServico_Produtos_stddev_pop_fields"],
+	stddev_samp?:ModelTypes["operacional_OrdemDeServico_Produtos_stddev_samp_fields"],
+	sum?:ModelTypes["operacional_OrdemDeServico_Produtos_sum_fields"],
+	var_pop?:ModelTypes["operacional_OrdemDeServico_Produtos_var_pop_fields"],
+	var_samp?:ModelTypes["operacional_OrdemDeServico_Produtos_var_samp_fields"],
+	variance?:ModelTypes["operacional_OrdemDeServico_Produtos_variance_fields"]
 };
 	/** order by aggregate values of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_aggregate_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_aggregate_order_by"];
 	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"];
+	/** aggregate avg on columns */
+["operacional_OrdemDeServico_Produtos_avg_fields"]: {
+		Quantidade?:number
+};
+	/** order by avg() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_avg_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_avg_order_by"];
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Produtos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Produtos_bool_exp"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"];
 	/** unique or primary key constraints on table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_constraint"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_constraint"];
+	/** input type for incrementing numeric columns in table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_inc_input"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_inc_input"];
 	/** input type for inserting data into table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_insert_input"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_insert_input"];
 	/** aggregate max on columns */
 ["operacional_OrdemDeServico_Produtos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Identificavel_Id?:ModelTypes["uuid"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServicoPlano_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	Quantidade?:number,
 	TipoDeIdentificavel_Id?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -34136,10 +37256,13 @@ export type ModelTypes = {
 ["operacional_OrdemDeServico_Produtos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
 	Identificavel_Id?:ModelTypes["uuid"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServicoPlano_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	Quantidade?:number,
 	TipoDeIdentificavel_Id?:string,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
@@ -34164,13 +37287,62 @@ export type ModelTypes = {
 ["operacional_OrdemDeServico_Produtos_select_column"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_select_column"];
 	/** input type for updating data in table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_set_input"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_set_input"];
+	/** aggregate stddev on columns */
+["operacional_OrdemDeServico_Produtos_stddev_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_order_by"];
+	/** aggregate stddev_pop on columns */
+["operacional_OrdemDeServico_Produtos_stddev_pop_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev_pop() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_pop_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_pop_order_by"];
+	/** aggregate stddev_samp on columns */
+["operacional_OrdemDeServico_Produtos_stddev_samp_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev_samp() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_samp_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_samp_order_by"];
+	/** aggregate sum on columns */
+["operacional_OrdemDeServico_Produtos_sum_fields"]: {
+		Quantidade?:number
+};
+	/** order by sum() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_sum_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_sum_order_by"];
 	/** update columns of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_update_column"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_update_column"];
+	/** aggregate var_pop on columns */
+["operacional_OrdemDeServico_Produtos_var_pop_fields"]: {
+		Quantidade?:number
+};
+	/** order by var_pop() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_var_pop_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_var_pop_order_by"];
+	/** aggregate var_samp on columns */
+["operacional_OrdemDeServico_Produtos_var_samp_fields"]: {
+		Quantidade?:number
+};
+	/** order by var_samp() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_var_samp_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_var_samp_order_by"];
+	/** aggregate variance on columns */
+["operacional_OrdemDeServico_Produtos_variance_fields"]: {
+		Quantidade?:number
+};
+	/** order by variance() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_variance_order_by"]: GraphQLTypes["operacional_OrdemDeServico_Produtos_variance_order_by"];
 	/** columns and relationships of "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos"]: {
-		Id:ModelTypes["uuid"],
+		Beneficio:boolean,
+	Id:ModelTypes["uuid"],
+	/** An object relationship */
+	OSCombo?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** An object relationship */
+	OSPlano?:ModelTypes["operacional_OrdemDeServico_Planos"],
 	/** An object relationship */
 	OrdemDeServico:ModelTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServicoPlano_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id:ModelTypes["uuid"],
 	PrecoDeAdesao?:ModelTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
@@ -34206,6 +37378,8 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["operacional_OrdemDeServico_Servicos_max_fields"]: {
 		Id?:ModelTypes["uuid"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServicoPlano_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
@@ -34219,6 +37393,8 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["operacional_OrdemDeServico_Servicos_min_fields"]: {
 		Id?:ModelTypes["uuid"],
+	OrdemDeServicoCombo_Id?:ModelTypes["uuid"],
+	OrdemDeServicoPlano_Id?:ModelTypes["uuid"],
 	OrdemDeServico_Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
@@ -36927,6 +40103,7 @@ export type ModelTypes = {
 	/** columns and relationships of "propostas.Propostas" */
 ["propostas_Propostas"]: {
 		Cliente_Id?:ModelTypes["uuid"],
+	CodigoReferencia:number,
 	/** An array relationship */
 	Combos:ModelTypes["propostas_Propostas_Combos"][],
 	/** An aggregate relationship */
@@ -36947,6 +40124,11 @@ export type ModelTypes = {
 	Produtos:ModelTypes["propostas_Propostas_Produtos"][],
 	/** An aggregate relationship */
 	Produtos_aggregate:ModelTypes["propostas_Propostas_Produtos_aggregate"],
+	PropostaGerada:boolean,
+	/** An array relationship */
+	RegrasETermosDeUsos:ModelTypes["propostas_Propostas_RegrasETermosDeUso"][],
+	/** An aggregate relationship */
+	RegrasETermosDeUsos_aggregate:ModelTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
 	/** An array relationship */
 	Servicos:ModelTypes["propostas_Propostas_Servicos"][],
 	/** An aggregate relationship */
@@ -36977,6 +40159,18 @@ export type ModelTypes = {
 	Proposta:ModelTypes["propostas_Propostas"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id:ModelTypes["uuid"],
+	/** An array relationship */
+	PropostasPlanos:ModelTypes["propostas_Propostas_Planos"][],
+	/** An aggregate relationship */
+	PropostasPlanos_aggregate:ModelTypes["propostas_Propostas_Planos_aggregate"],
+	/** An array relationship */
+	PropostasProdutos:ModelTypes["propostas_Propostas_Produtos"][],
+	/** An aggregate relationship */
+	PropostasProdutos_aggregate:ModelTypes["propostas_Propostas_Produtos_aggregate"],
+	/** An array relationship */
+	PropostasServicos:ModelTypes["propostas_Propostas_Servicos"][],
+	/** An aggregate relationship */
+	PropostasServicos_aggregate:ModelTypes["propostas_Propostas_Servicos_aggregate"],
 	/** An object relationship */
 	PropostasVeiculo?:ModelTypes["propostas_Propostas_Veiculos"],
 	created_at:ModelTypes["timestamptz"],
@@ -37037,6 +40231,8 @@ export type ModelTypes = {
 	/** data from the rows affected by the mutation */
 	returning:ModelTypes["propostas_Propostas_Combos"][]
 };
+	/** input type for inserting object relation for remote table "propostas.Propostas_Combos" */
+["propostas_Propostas_Combos_obj_rel_insert_input"]: GraphQLTypes["propostas_Propostas_Combos_obj_rel_insert_input"];
 	/** on_conflict condition type for table "propostas.Propostas_Combos" */
 ["propostas_Propostas_Combos_on_conflict"]: GraphQLTypes["propostas_Propostas_Combos_on_conflict"];
 	/** Ordering options when selecting data from "propostas.Propostas_Combos". */
@@ -37140,13 +40336,24 @@ export type ModelTypes = {
 	/** An object relationship */
 	Plano:ModelTypes["comercial_Planos"],
 	/** An object relationship */
-	PlanoPreco:ModelTypes["comercial_Planos_Precos"],
-	PlanoPreco_Id:ModelTypes["uuid"],
+	PlanoPreco?:ModelTypes["comercial_Planos_Precos"],
+	PlanoPreco_Id?:ModelTypes["uuid"],
 	Plano_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	Proposta:ModelTypes["propostas_Propostas"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id:ModelTypes["uuid"],
+	/** An object relationship */
+	PropostasCombo?:ModelTypes["propostas_Propostas_Combos"],
+	/** An array relationship */
+	PropostasProdutos:ModelTypes["propostas_Propostas_Produtos"][],
+	/** An aggregate relationship */
+	PropostasProdutos_aggregate:ModelTypes["propostas_Propostas_Produtos_aggregate"],
+	/** An array relationship */
+	PropostasServicos:ModelTypes["propostas_Propostas_Servicos"][],
+	/** An aggregate relationship */
+	PropostasServicos_aggregate:ModelTypes["propostas_Propostas_Servicos_aggregate"],
 	/** An object relationship */
 	PropostasVeiculo?:ModelTypes["propostas_Propostas_Veiculos"],
 	created_at:ModelTypes["timestamptz"],
@@ -37179,6 +40386,7 @@ export type ModelTypes = {
 		Id?:ModelTypes["uuid"],
 	PlanoPreco_Id?:ModelTypes["uuid"],
 	Plano_Id?:ModelTypes["uuid"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
@@ -37192,6 +40400,7 @@ export type ModelTypes = {
 		Id?:ModelTypes["uuid"],
 	PlanoPreco_Id?:ModelTypes["uuid"],
 	Plano_Id?:ModelTypes["uuid"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
 	created_at?:ModelTypes["timestamptz"],
@@ -37207,6 +40416,8 @@ export type ModelTypes = {
 	/** data from the rows affected by the mutation */
 	returning:ModelTypes["propostas_Propostas_Planos"][]
 };
+	/** input type for inserting object relation for remote table "propostas.Propostas_Planos" */
+["propostas_Propostas_Planos_obj_rel_insert_input"]: GraphQLTypes["propostas_Propostas_Planos_obj_rel_insert_input"];
 	/** on_conflict condition type for table "propostas.Propostas_Planos" */
 ["propostas_Propostas_Planos_on_conflict"]: GraphQLTypes["propostas_Propostas_Planos_on_conflict"];
 	/** Ordering options when selecting data from "propostas.Propostas_Planos". */
@@ -37233,10 +40444,17 @@ export type ModelTypes = {
 	Produto_Id:ModelTypes["uuid"],
 	/** An object relationship */
 	Proposta:ModelTypes["propostas_Propostas"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
+	PropostaPlano_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id:ModelTypes["uuid"],
 	/** An object relationship */
+	PropostasCombo?:ModelTypes["propostas_Propostas_Combos"],
+	/** An object relationship */
+	PropostasPlano?:ModelTypes["propostas_Propostas_Planos"],
+	/** An object relationship */
 	PropostasVeiculo?:ModelTypes["propostas_Propostas_Veiculos"],
+	Quantidade:number,
 	created_at:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at:ModelTypes["timestamptz"]
@@ -37248,18 +40466,34 @@ export type ModelTypes = {
 };
 	/** aggregate fields of "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_aggregate_fields"]: {
-		count:number,
+		avg?:ModelTypes["propostas_Propostas_Produtos_avg_fields"],
+	count:number,
 	max?:ModelTypes["propostas_Propostas_Produtos_max_fields"],
-	min?:ModelTypes["propostas_Propostas_Produtos_min_fields"]
+	min?:ModelTypes["propostas_Propostas_Produtos_min_fields"],
+	stddev?:ModelTypes["propostas_Propostas_Produtos_stddev_fields"],
+	stddev_pop?:ModelTypes["propostas_Propostas_Produtos_stddev_pop_fields"],
+	stddev_samp?:ModelTypes["propostas_Propostas_Produtos_stddev_samp_fields"],
+	sum?:ModelTypes["propostas_Propostas_Produtos_sum_fields"],
+	var_pop?:ModelTypes["propostas_Propostas_Produtos_var_pop_fields"],
+	var_samp?:ModelTypes["propostas_Propostas_Produtos_var_samp_fields"],
+	variance?:ModelTypes["propostas_Propostas_Produtos_variance_fields"]
 };
 	/** order by aggregate values of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_aggregate_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_aggregate_order_by"];
 	/** input type for inserting array relation for remote table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_arr_rel_insert_input"]: GraphQLTypes["propostas_Propostas_Produtos_arr_rel_insert_input"];
+	/** aggregate avg on columns */
+["propostas_Propostas_Produtos_avg_fields"]: {
+		Quantidade?:number
+};
+	/** order by avg() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_avg_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_avg_order_by"];
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Produtos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Produtos_bool_exp"]: GraphQLTypes["propostas_Propostas_Produtos_bool_exp"];
 	/** unique or primary key constraints on table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_constraint"]: GraphQLTypes["propostas_Propostas_Produtos_constraint"];
+	/** input type for incrementing numeric columns in table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_inc_input"]: GraphQLTypes["propostas_Propostas_Produtos_inc_input"];
 	/** input type for inserting data into table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_insert_input"]: GraphQLTypes["propostas_Propostas_Produtos_insert_input"];
 	/** aggregate max on columns */
@@ -37268,8 +40502,11 @@ export type ModelTypes = {
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
+	PropostaPlano_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
+	Quantidade?:number,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -37282,8 +40519,11 @@ export type ModelTypes = {
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	Produto_Id?:ModelTypes["uuid"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
+	PropostaPlano_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
+	Quantidade?:number,
 	created_at?:ModelTypes["timestamptz"],
 	deleted_at?:ModelTypes["timestamptz"],
 	updated_at?:ModelTypes["timestamptz"]
@@ -37307,8 +40547,131 @@ export type ModelTypes = {
 ["propostas_Propostas_Produtos_select_column"]: GraphQLTypes["propostas_Propostas_Produtos_select_column"];
 	/** input type for updating data in table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_set_input"]: GraphQLTypes["propostas_Propostas_Produtos_set_input"];
+	/** aggregate stddev on columns */
+["propostas_Propostas_Produtos_stddev_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_stddev_order_by"];
+	/** aggregate stddev_pop on columns */
+["propostas_Propostas_Produtos_stddev_pop_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev_pop() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_pop_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_stddev_pop_order_by"];
+	/** aggregate stddev_samp on columns */
+["propostas_Propostas_Produtos_stddev_samp_fields"]: {
+		Quantidade?:number
+};
+	/** order by stddev_samp() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_samp_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_stddev_samp_order_by"];
+	/** aggregate sum on columns */
+["propostas_Propostas_Produtos_sum_fields"]: {
+		Quantidade?:number
+};
+	/** order by sum() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_sum_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_sum_order_by"];
 	/** update columns of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_update_column"]: GraphQLTypes["propostas_Propostas_Produtos_update_column"];
+	/** aggregate var_pop on columns */
+["propostas_Propostas_Produtos_var_pop_fields"]: {
+		Quantidade?:number
+};
+	/** order by var_pop() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_var_pop_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_var_pop_order_by"];
+	/** aggregate var_samp on columns */
+["propostas_Propostas_Produtos_var_samp_fields"]: {
+		Quantidade?:number
+};
+	/** order by var_samp() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_var_samp_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_var_samp_order_by"];
+	/** aggregate variance on columns */
+["propostas_Propostas_Produtos_variance_fields"]: {
+		Quantidade?:number
+};
+	/** order by variance() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_variance_order_by"]: GraphQLTypes["propostas_Propostas_Produtos_variance_order_by"];
+	/** columns and relationships of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso"]: {
+		Id:ModelTypes["uuid"],
+	Informado:boolean,
+	/** An object relationship */
+	ProdutoRegrasETermosDeUso?:ModelTypes["comercial_Produtos_RegrasETermosDeUso"],
+	Produto_RegraETermosDeUso_Id?:ModelTypes["uuid"],
+	/** An object relationship */
+	Proposta:ModelTypes["propostas_Propostas"],
+	Proposta_Id:ModelTypes["uuid"],
+	/** An object relationship */
+	ServicoRegrasETermosDeUso?:ModelTypes["comercial_Servicos_RegrasETermosDeUso"],
+	Servico_RegraETermosDeUso_Id?:ModelTypes["uuid"],
+	created_at:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at:ModelTypes["timestamptz"]
+};
+	/** aggregated selection of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate"]: {
+		aggregate?:ModelTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_fields"],
+	nodes:ModelTypes["propostas_Propostas_RegrasETermosDeUso"][]
+};
+	/** aggregate fields of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate_fields"]: {
+		count:number,
+	max?:ModelTypes["propostas_Propostas_RegrasETermosDeUso_max_fields"],
+	min?:ModelTypes["propostas_Propostas_RegrasETermosDeUso_min_fields"]
+};
+	/** order by aggregate values of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"];
+	/** input type for inserting array relation for remote table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"];
+	/** Boolean expression to filter rows from the table "propostas.Propostas_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["propostas_Propostas_RegrasETermosDeUso_bool_exp"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"];
+	/** unique or primary key constraints on table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_constraint"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_constraint"];
+	/** input type for inserting data into table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_insert_input"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_insert_input"];
+	/** aggregate max on columns */
+["propostas_Propostas_RegrasETermosDeUso_max_fields"]: {
+		Id?:ModelTypes["uuid"],
+	Produto_RegraETermosDeUso_Id?:ModelTypes["uuid"],
+	Proposta_Id?:ModelTypes["uuid"],
+	Servico_RegraETermosDeUso_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by max() on columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_max_order_by"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_max_order_by"];
+	/** aggregate min on columns */
+["propostas_Propostas_RegrasETermosDeUso_min_fields"]: {
+		Id?:ModelTypes["uuid"],
+	Produto_RegraETermosDeUso_Id?:ModelTypes["uuid"],
+	Proposta_Id?:ModelTypes["uuid"],
+	Servico_RegraETermosDeUso_Id?:ModelTypes["uuid"],
+	created_at?:ModelTypes["timestamptz"],
+	deleted_at?:ModelTypes["timestamptz"],
+	updated_at?:ModelTypes["timestamptz"]
+};
+	/** order by min() on columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_min_order_by"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_min_order_by"];
+	/** response of any mutation on the table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_mutation_response"]: {
+		/** number of rows affected by the mutation */
+	affected_rows:number,
+	/** data from the rows affected by the mutation */
+	returning:ModelTypes["propostas_Propostas_RegrasETermosDeUso"][]
+};
+	/** on_conflict condition type for table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_on_conflict"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_on_conflict"];
+	/** Ordering options when selecting data from "propostas.Propostas_RegrasETermosDeUso". */
+["propostas_Propostas_RegrasETermosDeUso_order_by"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_order_by"];
+	/** primary key columns input for table: propostas_Propostas_RegrasETermosDeUso */
+["propostas_Propostas_RegrasETermosDeUso_pk_columns_input"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_pk_columns_input"];
+	/** select columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_select_column"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_select_column"];
+	/** input type for updating data in table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_set_input"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_set_input"];
+	/** update columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_update_column"]: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_update_column"];
 	/** columns and relationships of "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos"]: {
 		Id:ModelTypes["uuid"],
@@ -37320,8 +40683,14 @@ export type ModelTypes = {
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
 	/** An object relationship */
 	Proposta:ModelTypes["propostas_Propostas"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
+	PropostaPlano_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id:ModelTypes["uuid"],
+	/** An object relationship */
+	PropostasCombo?:ModelTypes["propostas_Propostas_Combos"],
+	/** An object relationship */
+	PropostasPlano?:ModelTypes["propostas_Propostas_Planos"],
 	/** An object relationship */
 	PropostasVeiculo?:ModelTypes["propostas_Propostas_Veiculos"],
 	/** An object relationship */
@@ -37357,6 +40726,8 @@ export type ModelTypes = {
 		Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
+	PropostaPlano_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
@@ -37371,6 +40742,8 @@ export type ModelTypes = {
 		Id?:ModelTypes["uuid"],
 	PrecoDeAdesao_Id?:ModelTypes["uuid"],
 	PrecoDeRecorrencia_Id?:ModelTypes["uuid"],
+	PropostaCombo_Id?:ModelTypes["uuid"],
+	PropostaPlano_Id?:ModelTypes["uuid"],
 	PropostaVeiculo_Id?:ModelTypes["uuid"],
 	Proposta_Id?:ModelTypes["uuid"],
 	Servico_Id?:ModelTypes["uuid"],
@@ -37462,6 +40835,7 @@ export type ModelTypes = {
 	/** columns and relationships of "propostas.Propostas_Veiculos" */
 ["propostas_Propostas_Veiculos"]: {
 		Id:ModelTypes["uuid"],
+	PossuiGNV:boolean,
 	/** An object relationship */
 	Proposta:ModelTypes["propostas_Propostas"],
 	Proposta_Id:ModelTypes["uuid"],
@@ -37561,23 +40935,40 @@ export type ModelTypes = {
 };
 	/** aggregate fields of "propostas.Propostas" */
 ["propostas_Propostas_aggregate_fields"]: {
-		count:number,
+		avg?:ModelTypes["propostas_Propostas_avg_fields"],
+	count:number,
 	max?:ModelTypes["propostas_Propostas_max_fields"],
-	min?:ModelTypes["propostas_Propostas_min_fields"]
+	min?:ModelTypes["propostas_Propostas_min_fields"],
+	stddev?:ModelTypes["propostas_Propostas_stddev_fields"],
+	stddev_pop?:ModelTypes["propostas_Propostas_stddev_pop_fields"],
+	stddev_samp?:ModelTypes["propostas_Propostas_stddev_samp_fields"],
+	sum?:ModelTypes["propostas_Propostas_sum_fields"],
+	var_pop?:ModelTypes["propostas_Propostas_var_pop_fields"],
+	var_samp?:ModelTypes["propostas_Propostas_var_samp_fields"],
+	variance?:ModelTypes["propostas_Propostas_variance_fields"]
 };
 	/** order by aggregate values of table "propostas.Propostas" */
 ["propostas_Propostas_aggregate_order_by"]: GraphQLTypes["propostas_Propostas_aggregate_order_by"];
 	/** input type for inserting array relation for remote table "propostas.Propostas" */
 ["propostas_Propostas_arr_rel_insert_input"]: GraphQLTypes["propostas_Propostas_arr_rel_insert_input"];
+	/** aggregate avg on columns */
+["propostas_Propostas_avg_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by avg() on columns of table "propostas.Propostas" */
+["propostas_Propostas_avg_order_by"]: GraphQLTypes["propostas_Propostas_avg_order_by"];
 	/** Boolean expression to filter rows from the table "propostas.Propostas". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_bool_exp"]: GraphQLTypes["propostas_Propostas_bool_exp"];
 	/** unique or primary key constraints on table "propostas.Propostas" */
 ["propostas_Propostas_constraint"]: GraphQLTypes["propostas_Propostas_constraint"];
+	/** input type for incrementing numeric columns in table "propostas.Propostas" */
+["propostas_Propostas_inc_input"]: GraphQLTypes["propostas_Propostas_inc_input"];
 	/** input type for inserting data into table "propostas.Propostas" */
 ["propostas_Propostas_insert_input"]: GraphQLTypes["propostas_Propostas_insert_input"];
 	/** aggregate max on columns */
 ["propostas_Propostas_max_fields"]: {
 		Cliente_Id?:ModelTypes["uuid"],
+	CodigoReferencia?:number,
 	DataAceito?:ModelTypes["timestamptz"],
 	FormaDePagamentoDaAdesao_Id?:string,
 	Id?:ModelTypes["uuid"],
@@ -37593,6 +40984,7 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["propostas_Propostas_min_fields"]: {
 		Cliente_Id?:ModelTypes["uuid"],
+	CodigoReferencia?:number,
 	DataAceito?:ModelTypes["timestamptz"],
 	FormaDePagamentoDaAdesao_Id?:string,
 	Id?:ModelTypes["uuid"],
@@ -37624,8 +41016,50 @@ export type ModelTypes = {
 ["propostas_Propostas_select_column"]: GraphQLTypes["propostas_Propostas_select_column"];
 	/** input type for updating data in table "propostas.Propostas" */
 ["propostas_Propostas_set_input"]: GraphQLTypes["propostas_Propostas_set_input"];
+	/** aggregate stddev on columns */
+["propostas_Propostas_stddev_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by stddev() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_order_by"]: GraphQLTypes["propostas_Propostas_stddev_order_by"];
+	/** aggregate stddev_pop on columns */
+["propostas_Propostas_stddev_pop_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by stddev_pop() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_pop_order_by"]: GraphQLTypes["propostas_Propostas_stddev_pop_order_by"];
+	/** aggregate stddev_samp on columns */
+["propostas_Propostas_stddev_samp_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by stddev_samp() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_samp_order_by"]: GraphQLTypes["propostas_Propostas_stddev_samp_order_by"];
+	/** aggregate sum on columns */
+["propostas_Propostas_sum_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by sum() on columns of table "propostas.Propostas" */
+["propostas_Propostas_sum_order_by"]: GraphQLTypes["propostas_Propostas_sum_order_by"];
 	/** update columns of table "propostas.Propostas" */
 ["propostas_Propostas_update_column"]: GraphQLTypes["propostas_Propostas_update_column"];
+	/** aggregate var_pop on columns */
+["propostas_Propostas_var_pop_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by var_pop() on columns of table "propostas.Propostas" */
+["propostas_Propostas_var_pop_order_by"]: GraphQLTypes["propostas_Propostas_var_pop_order_by"];
+	/** aggregate var_samp on columns */
+["propostas_Propostas_var_samp_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by var_samp() on columns of table "propostas.Propostas" */
+["propostas_Propostas_var_samp_order_by"]: GraphQLTypes["propostas_Propostas_var_samp_order_by"];
+	/** aggregate variance on columns */
+["propostas_Propostas_variance_fields"]: {
+		CodigoReferencia?:number
+};
+	/** order by variance() on columns of table "propostas.Propostas" */
+["propostas_Propostas_variance_order_by"]: GraphQLTypes["propostas_Propostas_variance_order_by"];
 	["query_root"]: {
 		/** fetch data from the table: "Configuracoes" */
 	Configuracoes:ModelTypes["Configuracoes"][],
@@ -37679,12 +41113,18 @@ export type ModelTypes = {
 	clientes_Veiculos:ModelTypes["clientes_Veiculos"][],
 	/** fetch data from the table: "clientes.VeiculosAtivos" */
 	clientes_VeiculosAtivos:ModelTypes["clientes_VeiculosAtivos"][],
-	/** fetch data from the table: "clientes.VeiculosAtivos_Beneficios" */
-	clientes_VeiculosAtivos_Beneficios:ModelTypes["clientes_VeiculosAtivos_Beneficios"][],
-	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Beneficios" */
-	clientes_VeiculosAtivos_Beneficios_aggregate:ModelTypes["clientes_VeiculosAtivos_Beneficios_aggregate"],
-	/** fetch data from the table: "clientes.VeiculosAtivos_Beneficios" using primary key columns */
-	clientes_VeiculosAtivos_Beneficios_by_pk?:ModelTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Combos" */
+	clientes_VeiculosAtivos_Combos:ModelTypes["clientes_VeiculosAtivos_Combos"][],
+	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Combos" */
+	clientes_VeiculosAtivos_Combos_aggregate:ModelTypes["clientes_VeiculosAtivos_Combos_aggregate"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Combos" using primary key columns */
+	clientes_VeiculosAtivos_Combos_by_pk?:ModelTypes["clientes_VeiculosAtivos_Combos"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Planos" */
+	clientes_VeiculosAtivos_Planos:ModelTypes["clientes_VeiculosAtivos_Planos"][],
+	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Planos" */
+	clientes_VeiculosAtivos_Planos_aggregate:ModelTypes["clientes_VeiculosAtivos_Planos_aggregate"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Planos" using primary key columns */
+	clientes_VeiculosAtivos_Planos_by_pk?:ModelTypes["clientes_VeiculosAtivos_Planos"],
 	/** fetch data from the table: "clientes.VeiculosAtivos_Produtos" */
 	clientes_VeiculosAtivos_Produtos:ModelTypes["clientes_VeiculosAtivos_Produtos"][],
 	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Produtos" */
@@ -37881,6 +41321,12 @@ export type ModelTypes = {
 	comercial_Produtos_Produtos_aggregate:ModelTypes["comercial_Produtos_Produtos_aggregate"],
 	/** fetch data from the table: "comercial.Produtos_Produtos" using primary key columns */
 	comercial_Produtos_Produtos_by_pk?:ModelTypes["comercial_Produtos_Produtos"],
+	/** fetch data from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	comercial_Produtos_RegrasETermosDeUso:ModelTypes["comercial_Produtos_RegrasETermosDeUso"][],
+	/** fetch aggregated fields from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	comercial_Produtos_RegrasETermosDeUso_aggregate:ModelTypes["comercial_Produtos_RegrasETermosDeUso_aggregate"],
+	/** fetch data from the table: "comercial.Produtos_RegrasETermosDeUso" using primary key columns */
+	comercial_Produtos_RegrasETermosDeUso_by_pk?:ModelTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** fetch data from the table: "comercial.Produtos_Servicos" */
 	comercial_Produtos_Servicos:ModelTypes["comercial_Produtos_Servicos"][],
 	/** fetch aggregated fields from the table: "comercial.Produtos_Servicos" */
@@ -37917,6 +41363,12 @@ export type ModelTypes = {
 	comercial_Servicos_Produtos_aggregate:ModelTypes["comercial_Servicos_Produtos_aggregate"],
 	/** fetch data from the table: "comercial.Servicos_Produtos" using primary key columns */
 	comercial_Servicos_Produtos_by_pk?:ModelTypes["comercial_Servicos_Produtos"],
+	/** fetch data from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	comercial_Servicos_RegrasETermosDeUso:ModelTypes["comercial_Servicos_RegrasETermosDeUso"][],
+	/** fetch aggregated fields from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	comercial_Servicos_RegrasETermosDeUso_aggregate:ModelTypes["comercial_Servicos_RegrasETermosDeUso_aggregate"],
+	/** fetch data from the table: "comercial.Servicos_RegrasETermosDeUso" using primary key columns */
+	comercial_Servicos_RegrasETermosDeUso_by_pk?:ModelTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** fetch data from the table: "comercial.Servicos_Servicos" */
 	comercial_Servicos_Servicos:ModelTypes["comercial_Servicos_Servicos"][],
 	/** fetch aggregated fields from the table: "comercial.Servicos_Servicos" */
@@ -38091,12 +41543,30 @@ export type ModelTypes = {
 	operacional_OrdemDeServico_Atividades_aggregate:ModelTypes["operacional_OrdemDeServico_Atividades_aggregate"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Atividades" using primary key columns */
 	operacional_OrdemDeServico_Atividades_by_pk?:ModelTypes["operacional_OrdemDeServico_Atividades"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios:ModelTypes["operacional_OrdemDeServico_Beneficios"][],
-	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios_aggregate:ModelTypes["operacional_OrdemDeServico_Beneficios_aggregate"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" using primary key columns */
-	operacional_OrdemDeServico_Beneficios_by_pk?:ModelTypes["operacional_OrdemDeServico_Beneficios"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist:ModelTypes["operacional_OrdemDeServico_Checklist"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist_aggregate:ModelTypes["operacional_OrdemDeServico_Checklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" using primary key columns */
+	operacional_OrdemDeServico_Checklist_by_pk?:ModelTypes["operacional_OrdemDeServico_Checklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos:ModelTypes["operacional_OrdemDeServico_Combos"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos_aggregate:ModelTypes["operacional_OrdemDeServico_Combos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" using primary key columns */
+	operacional_OrdemDeServico_Combos_by_pk?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist_aggregate:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" using primary key columns */
+	operacional_OrdemDeServico_ItensDeChecklist_by_pk?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos:ModelTypes["operacional_OrdemDeServico_Planos"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos_aggregate:ModelTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" using primary key columns */
+	operacional_OrdemDeServico_Planos_by_pk?:ModelTypes["operacional_OrdemDeServico_Planos"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Produtos" */
 	operacional_OrdemDeServico_Produtos:ModelTypes["operacional_OrdemDeServico_Produtos"][],
 	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Produtos" */
@@ -38277,6 +41747,12 @@ export type ModelTypes = {
 	propostas_Propostas_Produtos_aggregate:ModelTypes["propostas_Propostas_Produtos_aggregate"],
 	/** fetch data from the table: "propostas.Propostas_Produtos" using primary key columns */
 	propostas_Propostas_Produtos_by_pk?:ModelTypes["propostas_Propostas_Produtos"],
+	/** fetch data from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	propostas_Propostas_RegrasETermosDeUso:ModelTypes["propostas_Propostas_RegrasETermosDeUso"][],
+	/** fetch aggregated fields from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	propostas_Propostas_RegrasETermosDeUso_aggregate:ModelTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
+	/** fetch data from the table: "propostas.Propostas_RegrasETermosDeUso" using primary key columns */
+	propostas_Propostas_RegrasETermosDeUso_by_pk?:ModelTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** fetch data from the table: "propostas.Propostas_Servicos" */
 	propostas_Propostas_Servicos:ModelTypes["propostas_Propostas_Servicos"][],
 	/** fetch aggregated fields from the table: "propostas.Propostas_Servicos" */
@@ -38429,12 +41905,30 @@ export type ModelTypes = {
 	operacional_OrdemDeServico_Atividades_aggregate:ModelTypes["operacional_OrdemDeServico_Atividades_aggregate"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Atividades" using primary key columns */
 	operacional_OrdemDeServico_Atividades_by_pk?:ModelTypes["operacional_OrdemDeServico_Atividades"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios:ModelTypes["operacional_OrdemDeServico_Beneficios"][],
-	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios_aggregate:ModelTypes["operacional_OrdemDeServico_Beneficios_aggregate"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" using primary key columns */
-	operacional_OrdemDeServico_Beneficios_by_pk?:ModelTypes["operacional_OrdemDeServico_Beneficios"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist:ModelTypes["operacional_OrdemDeServico_Checklist"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist_aggregate:ModelTypes["operacional_OrdemDeServico_Checklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" using primary key columns */
+	operacional_OrdemDeServico_Checklist_by_pk?:ModelTypes["operacional_OrdemDeServico_Checklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos:ModelTypes["operacional_OrdemDeServico_Combos"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos_aggregate:ModelTypes["operacional_OrdemDeServico_Combos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" using primary key columns */
+	operacional_OrdemDeServico_Combos_by_pk?:ModelTypes["operacional_OrdemDeServico_Combos"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist_aggregate:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" using primary key columns */
+	operacional_OrdemDeServico_ItensDeChecklist_by_pk?:ModelTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos:ModelTypes["operacional_OrdemDeServico_Planos"][],
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos_aggregate:ModelTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" using primary key columns */
+	operacional_OrdemDeServico_Planos_by_pk?:ModelTypes["operacional_OrdemDeServico_Planos"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Produtos" */
 	operacional_OrdemDeServico_Produtos:ModelTypes["operacional_OrdemDeServico_Produtos"][],
 	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Produtos" */
@@ -38590,6 +42084,9 @@ export type ModelTypes = {
 	/** fetch data from the table: "producao.TiposDeKitDeInsumo_estoque_Itens" using primary key columns */
 	producao_TiposDeKitDeInsumo_estoque_Itens_by_pk?:ModelTypes["producao_TiposDeKitDeInsumo_estoque_Itens"]
 };
+	["timestamp"]:any;
+	/** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
+["timestamp_comparison_exp"]: GraphQLTypes["timestamp_comparison_exp"];
 	["timestamptz"]:any;
 	/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
 ["timestamptz_comparison_exp"]: GraphQLTypes["timestamptz_comparison_exp"];
@@ -40016,16 +43513,21 @@ export type GraphQLTypes = {
 	/** columns and relationships of "clientes.VeiculosAtivos" */
 ["clientes_VeiculosAtivos"]: {
 	__typename: "clientes_VeiculosAtivos",
-	/** An array relationship */
-	Beneficios: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios"]>,
-	/** An aggregate relationship */
-	Beneficios_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_aggregate"],
 	/** An object relationship */
 	Cliente: GraphQLTypes["identidades_Clientes"],
 	Cliente_Id: GraphQLTypes["uuid"],
+	/** An array relationship */
+	Combos: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos"]>,
+	/** An aggregate relationship */
+	Combos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Combos_aggregate"],
 	Franquia_Id?: GraphQLTypes["uuid"],
 	Id: GraphQLTypes["uuid"],
 	OS_Id?: GraphQLTypes["uuid"],
+	/** An array relationship */
+	Planos: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos"]>,
+	/** An aggregate relationship */
+	Planos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Planos_aggregate"],
+	PossuiGNV: boolean,
 	/** An array relationship */
 	Produtos: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos"]>,
 	/** An aggregate relationship */
@@ -40044,201 +43546,435 @@ export type GraphQLTypes = {
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
 };
-	/** columns and relationships of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios"]: {
-	__typename: "clientes_VeiculosAtivos_Beneficios",
+	/** columns and relationships of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos"]: {
+	__typename: "clientes_VeiculosAtivos_Combos",
 	Ativo: boolean,
+	ComboPreco_Id: GraphQLTypes["uuid"],
+	Combo_Id: GraphQLTypes["uuid"],
+	DataDeAtivacao: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio: string,
-	/** An object relationship */
-	VeiculoAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
+	/** An array relationship */
+	Planos: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos"]>,
+	/** An aggregate relationship */
+	Planos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Planos_aggregate"],
+	/** An array relationship */
+	Produtos: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos"]>,
+	/** An aggregate relationship */
+	Produtos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Produtos_aggregate"],
+	/** An array relationship */
+	Servicos: Array<GraphQLTypes["clientes_VeiculosAtivos_Servicos"]>,
+	/** An aggregate relationship */
+	Servicos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Servicos_aggregate"],
 	VeiculoAtivo_Id: GraphQLTypes["uuid"],
+	/** An object relationship */
+	VeiculosAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
 };
-	/** aggregated selection of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate"]: {
-	__typename: "clientes_VeiculosAtivos_Beneficios_aggregate",
-	aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_aggregate_fields"],
-	nodes: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios"]>
+	/** aggregated selection of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate"]: {
+	__typename: "clientes_VeiculosAtivos_Combos_aggregate",
+	aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Combos_aggregate_fields"],
+	nodes: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos"]>
 };
-	/** aggregate fields of "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate_fields"]: {
-	__typename: "clientes_VeiculosAtivos_Beneficios_aggregate_fields",
+	/** aggregate fields of "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Combos_aggregate_fields",
 	count: number,
-	max?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_max_fields"],
-	min?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_min_fields"]
+	max?: GraphQLTypes["clientes_VeiculosAtivos_Combos_max_fields"],
+	min?: GraphQLTypes["clientes_VeiculosAtivos_Combos_min_fields"]
 };
-	/** order by aggregate values of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_aggregate_order_by"]: {
+	/** order by aggregate values of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_aggregate_order_by"]: {
 		count?: GraphQLTypes["order_by"],
-	max?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_max_order_by"],
-	min?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_min_order_by"]
+	max?: GraphQLTypes["clientes_VeiculosAtivos_Combos_max_order_by"],
+	min?: GraphQLTypes["clientes_VeiculosAtivos_Combos_min_order_by"]
 };
-	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input"]: {
-		data: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios_insert_input"]>,
+	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_arr_rel_insert_input"]: {
+		data: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos_insert_input"]>,
 	/** upsert condition */
-	on_conflict?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_on_conflict"]
+	on_conflict?: GraphQLTypes["clientes_VeiculosAtivos_Combos_on_conflict"]
 };
-	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Beneficios". All fields are combined with a logical 'AND'. */
-["clientes_VeiculosAtivos_Beneficios_bool_exp"]: {
+	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Combos". All fields are combined with a logical 'AND'. */
+["clientes_VeiculosAtivos_Combos_bool_exp"]: {
 		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
+	ComboPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Combo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	DataDeAtivacao?: GraphQLTypes["timestamptz_comparison_exp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
-	Portfolio_Id?: GraphQLTypes["uuid_comparison_exp"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
-	TipoPortfolio?: GraphQLTypes["String_comparison_exp"],
-	VeiculoAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
+	Planos?: GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"],
+	Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"],
+	Servicos?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_bool_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
-	_and?: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"]>,
-	_not?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"],
-	_or?: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"]>,
+	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
+	_and?: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"]>,
+	_not?: GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"],
+	_or?: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"]>,
 	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
 	deleted_at?: GraphQLTypes["timestamptz_comparison_exp"],
 	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
 };
-	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_constraint"]: clientes_VeiculosAtivos_Beneficios_constraint;
-	/** input type for inserting data into table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_insert_input"]: {
+	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_constraint"]: clientes_VeiculosAtivos_Combos_constraint;
+	/** input type for inserting data into table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_insert_input"]: {
 		Ativo?: boolean,
+	ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
-	VeiculoAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
+	Planos?: GraphQLTypes["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"],
+	Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"],
+	Servicos?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_arr_rel_insert_input"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
+	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
 	/** aggregate max on columns */
-["clientes_VeiculosAtivos_Beneficios_max_fields"]: {
-	__typename: "clientes_VeiculosAtivos_Beneficios_max_fields",
+["clientes_VeiculosAtivos_Combos_max_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Combos_max_fields",
+	ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
-	/** order by max() on columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_max_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
-	PortfolioPreco_Id?: GraphQLTypes["order_by"],
-	Portfolio_Id?: GraphQLTypes["order_by"],
-	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
-	TipoPortfolio?: GraphQLTypes["order_by"],
+	/** order by max() on columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_max_order_by"]: {
+		ComboPreco_Id?: GraphQLTypes["order_by"],
+	Combo_Id?: GraphQLTypes["order_by"],
+	DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
 };
 	/** aggregate min on columns */
-["clientes_VeiculosAtivos_Beneficios_min_fields"]: {
-	__typename: "clientes_VeiculosAtivos_Beneficios_min_fields",
+["clientes_VeiculosAtivos_Combos_min_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Combos_min_fields",
+	ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
-	/** order by min() on columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_min_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
-	PortfolioPreco_Id?: GraphQLTypes["order_by"],
-	Portfolio_Id?: GraphQLTypes["order_by"],
-	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
-	TipoPortfolio?: GraphQLTypes["order_by"],
+	/** order by min() on columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_min_order_by"]: {
+		ComboPreco_Id?: GraphQLTypes["order_by"],
+	Combo_Id?: GraphQLTypes["order_by"],
+	DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
 };
-	/** response of any mutation on the table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_mutation_response"]: {
-	__typename: "clientes_VeiculosAtivos_Beneficios_mutation_response",
+	/** response of any mutation on the table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_mutation_response"]: {
+	__typename: "clientes_VeiculosAtivos_Combos_mutation_response",
 	/** number of rows affected by the mutation */
 	affected_rows: number,
 	/** data from the rows affected by the mutation */
-	returning: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios"]>
+	returning: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos"]>
 };
-	/** on_conflict condition type for table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_on_conflict"]: {
-		constraint: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_constraint"],
-	update_columns: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios_update_column"]>,
-	where?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"]
+	/** input type for inserting object relation for remote table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"]: {
+		data: GraphQLTypes["clientes_VeiculosAtivos_Combos_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["clientes_VeiculosAtivos_Combos_on_conflict"]
 };
-	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Beneficios". */
-["clientes_VeiculosAtivos_Beneficios_order_by"]: {
+	/** on_conflict condition type for table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_on_conflict"]: {
+		constraint: GraphQLTypes["clientes_VeiculosAtivos_Combos_constraint"],
+	update_columns: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos_update_column"]>,
+	where?: GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"]
+};
+	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Combos". */
+["clientes_VeiculosAtivos_Combos_order_by"]: {
 		Ativo?: GraphQLTypes["order_by"],
+	ComboPreco_Id?: GraphQLTypes["order_by"],
+	Combo_Id?: GraphQLTypes["order_by"],
+	DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
-	PortfolioPreco_Id?: GraphQLTypes["order_by"],
-	Portfolio_Id?: GraphQLTypes["order_by"],
-	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
-	TipoPortfolio?: GraphQLTypes["order_by"],
-	VeiculoAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
+	Planos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Planos_aggregate_order_by"],
+	Produtos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_aggregate_order_by"],
+	Servicos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_aggregate_order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
+	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
 };
-	/** primary key columns input for table: clientes_VeiculosAtivos_Beneficios */
-["clientes_VeiculosAtivos_Beneficios_pk_columns_input"]: {
+	/** primary key columns input for table: clientes_VeiculosAtivos_Combos */
+["clientes_VeiculosAtivos_Combos_pk_columns_input"]: {
 		Id: GraphQLTypes["uuid"]
 };
-	/** select columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_select_column"]: clientes_VeiculosAtivos_Beneficios_select_column;
-	/** input type for updating data in table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_set_input"]: {
+	/** select columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_select_column"]: clientes_VeiculosAtivos_Combos_select_column;
+	/** input type for updating data in table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_set_input"]: {
 		Ativo?: boolean,
+	ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
-	/** update columns of table "clientes.VeiculosAtivos_Beneficios" */
-["clientes_VeiculosAtivos_Beneficios_update_column"]: clientes_VeiculosAtivos_Beneficios_update_column;
+	/** update columns of table "clientes.VeiculosAtivos_Combos" */
+["clientes_VeiculosAtivos_Combos_update_column"]: clientes_VeiculosAtivos_Combos_update_column;
+	/** columns and relationships of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos"]: {
+	__typename: "clientes_VeiculosAtivos_Planos",
+	Ativo: boolean,
+	DataDeAtivacao: GraphQLTypes["timestamp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
+	Id: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id: GraphQLTypes["uuid"],
+	/** An array relationship */
+	Produtos: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos"]>,
+	/** An aggregate relationship */
+	Produtos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Produtos_aggregate"],
+	/** An array relationship */
+	Servicos: Array<GraphQLTypes["clientes_VeiculosAtivos_Servicos"]>,
+	/** An aggregate relationship */
+	Servicos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Servicos_aggregate"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivo_Id: GraphQLTypes["uuid"],
+	/** An object relationship */
+	VeiculosAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos"],
+	created_at: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at: GraphQLTypes["timestamptz"]
+};
+	/** aggregated selection of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate"]: {
+	__typename: "clientes_VeiculosAtivos_Planos_aggregate",
+	aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Planos_aggregate_fields"],
+	nodes: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos"]>
+};
+	/** aggregate fields of "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Planos_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["clientes_VeiculosAtivos_Planos_max_fields"],
+	min?: GraphQLTypes["clientes_VeiculosAtivos_Planos_min_fields"]
+};
+	/** order by aggregate values of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_aggregate_order_by"]: {
+		count?: GraphQLTypes["order_by"],
+	max?: GraphQLTypes["clientes_VeiculosAtivos_Planos_max_order_by"],
+	min?: GraphQLTypes["clientes_VeiculosAtivos_Planos_min_order_by"]
+};
+	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"]: {
+		data: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos_insert_input"]>,
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["clientes_VeiculosAtivos_Planos_on_conflict"]
+};
+	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Planos". All fields are combined with a logical 'AND'. */
+["clientes_VeiculosAtivos_Planos_bool_exp"]: {
+		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
+	DataDeAtivacao?: GraphQLTypes["timestamp_comparison_exp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz_comparison_exp"],
+	Id?: GraphQLTypes["uuid_comparison_exp"],
+	PlanoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Plano_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"],
+	Servicos?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_bool_exp"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"],
+	_and?: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"]>,
+	_not?: GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"],
+	_or?: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"]>,
+	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	deleted_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
+};
+	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_constraint"]: clientes_VeiculosAtivos_Planos_constraint;
+	/** input type for inserting data into table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_insert_input"]: {
+		Ativo?: boolean,
+	DataDeAtivacao?: GraphQLTypes["timestamp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
+	Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"],
+	Servicos?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_arr_rel_insert_input"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
+	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate max on columns */
+["clientes_VeiculosAtivos_Planos_max_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Planos_max_fields",
+	DataDeAtivacao?: GraphQLTypes["timestamp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
+	Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by max() on columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_max_order_by"]: {
+		DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
+	PlanoPreco_Id?: GraphQLTypes["order_by"],
+	Plano_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** aggregate min on columns */
+["clientes_VeiculosAtivos_Planos_min_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Planos_min_fields",
+	DataDeAtivacao?: GraphQLTypes["timestamp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
+	Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by min() on columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_min_order_by"]: {
+		DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
+	PlanoPreco_Id?: GraphQLTypes["order_by"],
+	Plano_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** response of any mutation on the table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_mutation_response"]: {
+	__typename: "clientes_VeiculosAtivos_Planos_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos"]>
+};
+	/** input type for inserting object relation for remote table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"]: {
+		data: GraphQLTypes["clientes_VeiculosAtivos_Planos_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["clientes_VeiculosAtivos_Planos_on_conflict"]
+};
+	/** on_conflict condition type for table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_on_conflict"]: {
+		constraint: GraphQLTypes["clientes_VeiculosAtivos_Planos_constraint"],
+	update_columns: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos_update_column"]>,
+	where?: GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"]
+};
+	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Planos". */
+["clientes_VeiculosAtivos_Planos_order_by"]: {
+		Ativo?: GraphQLTypes["order_by"],
+	DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
+	PlanoPreco_Id?: GraphQLTypes["order_by"],
+	Plano_Id?: GraphQLTypes["order_by"],
+	Produtos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_aggregate_order_by"],
+	Servicos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_aggregate_order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
+	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: clientes_VeiculosAtivos_Planos */
+["clientes_VeiculosAtivos_Planos_pk_columns_input"]: {
+		Id: GraphQLTypes["uuid"]
+};
+	/** select columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_select_column"]: clientes_VeiculosAtivos_Planos_select_column;
+	/** input type for updating data in table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_set_input"]: {
+		Ativo?: boolean,
+	DataDeAtivacao?: GraphQLTypes["timestamp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
+	Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** update columns of table "clientes.VeiculosAtivos_Planos" */
+["clientes_VeiculosAtivos_Planos_update_column"]: clientes_VeiculosAtivos_Planos_update_column;
 	/** columns and relationships of "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos",
 	Ativo: boolean,
+	DataDeAtivacao: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id: GraphQLTypes["uuid"],
+	Quantidade: number,
 	TipoItem_Id?: string,
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos"],
+	/** An object relationship */
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -40252,15 +43988,31 @@ export type GraphQLTypes = {
 	/** aggregate fields of "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_aggregate_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos_aggregate_fields",
+	avg?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_avg_fields"],
 	count: number,
 	max?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_max_fields"],
-	min?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_min_fields"]
+	min?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_min_fields"],
+	stddev?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_fields"],
+	stddev_pop?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_pop_fields"],
+	stddev_samp?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_samp_fields"],
+	sum?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_sum_fields"],
+	var_pop?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_var_pop_fields"],
+	var_samp?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_var_samp_fields"],
+	variance?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_variance_fields"]
 };
 	/** order by aggregate values of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_aggregate_order_by"]: {
-		count?: GraphQLTypes["order_by"],
+		avg?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_avg_order_by"],
+	count?: GraphQLTypes["order_by"],
 	max?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_max_order_by"],
-	min?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_min_order_by"]
+	min?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_min_order_by"],
+	stddev?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_order_by"],
+	stddev_pop?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_pop_order_by"],
+	stddev_samp?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_stddev_samp_order_by"],
+	sum?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_sum_order_by"],
+	var_pop?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_var_pop_order_by"],
+	var_samp?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_var_samp_order_by"],
+	variance?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_variance_order_by"]
 };
 	/** input type for inserting array relation for remote table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"]: {
@@ -40268,17 +44020,33 @@ export type GraphQLTypes = {
 	/** upsert condition */
 	on_conflict?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_on_conflict"]
 };
+	/** aggregate avg on columns */
+["clientes_VeiculosAtivos_Produtos_avg_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_avg_fields",
+	Quantidade?: number
+};
+	/** order by avg() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_avg_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
 	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Produtos". All fields are combined with a logical 'AND'. */
 ["clientes_VeiculosAtivos_Produtos_bool_exp"]: {
 		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
+	DataDeAtivacao?: GraphQLTypes["timestamptz_comparison_exp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	Identificador?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Quantidade?: GraphQLTypes["Int_comparison_exp"],
 	TipoItem_Id?: GraphQLTypes["String_comparison_exp"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"],
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"],
 	_and?: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"]>,
 	_not?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"],
 	_or?: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"]>,
@@ -40288,17 +44056,28 @@ export type GraphQLTypes = {
 };
 	/** unique or primary key constraints on table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_constraint"]: clientes_VeiculosAtivos_Produtos_constraint;
+	/** input type for incrementing numeric columns in table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_inc_input"]: {
+		Quantidade?: number
+};
 	/** input type for inserting data into table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_insert_input"]: {
 		Ativo?: boolean,
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoItem_Id?: string,
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"],
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -40306,12 +44085,17 @@ export type GraphQLTypes = {
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Produtos_max_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos_max_fields",
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoItem_Id?: string,
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -40319,12 +44103,17 @@ export type GraphQLTypes = {
 };
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_max_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+		DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	Identificador?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	TipoItem_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -40333,12 +44122,17 @@ export type GraphQLTypes = {
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Produtos_min_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Produtos_min_fields",
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoItem_Id?: string,
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -40346,12 +44140,17 @@ export type GraphQLTypes = {
 };
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_min_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+		DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	Identificador?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	TipoItem_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -40374,14 +44173,21 @@ export type GraphQLTypes = {
 	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Produtos". */
 ["clientes_VeiculosAtivos_Produtos_order_by"]: {
 		Ativo?: GraphQLTypes["order_by"],
+	DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	Identificador?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	TipoItem_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_order_by"],
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -40395,30 +44201,107 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_set_input"]: {
 		Ativo?: boolean,
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoItem_Id?: string,
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
+	/** aggregate stddev on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_stddev_fields",
+	Quantidade?: number
+};
+	/** order by stddev() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_pop on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_pop_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_stddev_pop_fields",
+	Quantidade?: number
+};
+	/** order by stddev_pop() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_pop_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_samp on columns */
+["clientes_VeiculosAtivos_Produtos_stddev_samp_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_stddev_samp_fields",
+	Quantidade?: number
+};
+	/** order by stddev_samp() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_stddev_samp_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate sum on columns */
+["clientes_VeiculosAtivos_Produtos_sum_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_sum_fields",
+	Quantidade?: number
+};
+	/** order by sum() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_sum_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
 	/** update columns of table "clientes.VeiculosAtivos_Produtos" */
 ["clientes_VeiculosAtivos_Produtos_update_column"]: clientes_VeiculosAtivos_Produtos_update_column;
+	/** aggregate var_pop on columns */
+["clientes_VeiculosAtivos_Produtos_var_pop_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_var_pop_fields",
+	Quantidade?: number
+};
+	/** order by var_pop() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_var_pop_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate var_samp on columns */
+["clientes_VeiculosAtivos_Produtos_var_samp_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_var_samp_fields",
+	Quantidade?: number
+};
+	/** order by var_samp() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_var_samp_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate variance on columns */
+["clientes_VeiculosAtivos_Produtos_variance_fields"]: {
+	__typename: "clientes_VeiculosAtivos_Produtos_variance_fields",
+	Quantidade?: number
+};
+	/** order by variance() on columns of table "clientes.VeiculosAtivos_Produtos" */
+["clientes_VeiculosAtivos_Produtos_variance_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
 	/** columns and relationships of "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos"]: {
 	__typename: "clientes_VeiculosAtivos_Servicos",
 	Ativo: boolean,
+	Beneficio: boolean,
+	DataDeAtivacao: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	VeiculosAtivo: GraphQLTypes["clientes_VeiculosAtivos"],
+	/** An object relationship */
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos"],
+	/** An object relationship */
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos"],
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -40451,12 +44334,19 @@ export type GraphQLTypes = {
 	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos_Servicos". All fields are combined with a logical 'AND'. */
 ["clientes_VeiculosAtivos_Servicos_bool_exp"]: {
 		Ativo?: GraphQLTypes["Boolean_comparison_exp"],
+	Beneficio?: GraphQLTypes["Boolean_comparison_exp"],
+	DataDeAtivacao?: GraphQLTypes["timestamptz_comparison_exp"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_bool_exp"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"],
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"],
 	_and?: Array<GraphQLTypes["clientes_VeiculosAtivos_Servicos_bool_exp"]>,
 	_not?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_bool_exp"],
 	_or?: Array<GraphQLTypes["clientes_VeiculosAtivos_Servicos_bool_exp"]>,
@@ -40469,12 +44359,19 @@ export type GraphQLTypes = {
 	/** input type for inserting data into table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_insert_input"]: {
 		Ativo?: boolean,
+	Beneficio?: boolean,
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_obj_rel_insert_input"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_obj_rel_insert_input"],
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -40482,10 +44379,14 @@ export type GraphQLTypes = {
 	/** aggregate max on columns */
 ["clientes_VeiculosAtivos_Servicos_max_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Servicos_max_fields",
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -40493,10 +44394,14 @@ export type GraphQLTypes = {
 };
 	/** order by max() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_max_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+		DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -40505,10 +44410,14 @@ export type GraphQLTypes = {
 	/** aggregate min on columns */
 ["clientes_VeiculosAtivos_Servicos_min_fields"]: {
 	__typename: "clientes_VeiculosAtivos_Servicos_min_fields",
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -40516,10 +44425,14 @@ export type GraphQLTypes = {
 };
 	/** order by min() on columns of table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_min_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+		DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -40542,12 +44455,19 @@ export type GraphQLTypes = {
 	/** Ordering options when selecting data from "clientes.VeiculosAtivos_Servicos". */
 ["clientes_VeiculosAtivos_Servicos_order_by"]: {
 		Ativo?: GraphQLTypes["order_by"],
+	Beneficio?: GraphQLTypes["order_by"],
+	DataDeAtivacao?: GraphQLTypes["order_by"],
+	DataDeDesativacao?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["order_by"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["order_by"],
 	VeiculoAtivo_Id?: GraphQLTypes["order_by"],
 	VeiculosAtivo?: GraphQLTypes["clientes_VeiculosAtivos_order_by"],
+	VeiculosAtivosCombo?: GraphQLTypes["clientes_VeiculosAtivos_Combos_order_by"],
+	VeiculosAtivosPlano?: GraphQLTypes["clientes_VeiculosAtivos_Planos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -40561,10 +44481,15 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "clientes.VeiculosAtivos_Servicos" */
 ["clientes_VeiculosAtivos_Servicos_set_input"]: {
 		Ativo?: boolean,
+	Beneficio?: boolean,
+	DataDeAtivacao?: GraphQLTypes["timestamptz"],
+	DataDeDesativacao?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoCombo_Id?: GraphQLTypes["uuid"],
+	VeiculoAtivoPlano_Id?: GraphQLTypes["uuid"],
 	VeiculoAtivo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -40699,12 +44624,14 @@ export type GraphQLTypes = {
 };
 	/** Boolean expression to filter rows from the table "clientes.VeiculosAtivos". All fields are combined with a logical 'AND'. */
 ["clientes_VeiculosAtivos_bool_exp"]: {
-		Beneficios?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_bool_exp"],
-	Cliente?: GraphQLTypes["identidades_Clientes_bool_exp"],
+		Cliente?: GraphQLTypes["identidades_Clientes_bool_exp"],
 	Cliente_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Combos?: GraphQLTypes["clientes_VeiculosAtivos_Combos_bool_exp"],
 	Franquia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	OS_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Planos?: GraphQLTypes["clientes_VeiculosAtivos_Planos_bool_exp"],
+	PossuiGNV?: GraphQLTypes["Boolean_comparison_exp"],
 	Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_bool_exp"],
 	Servicos?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_bool_exp"],
 	Situacao?: GraphQLTypes["clientes_VeiculosAtivos_Situacao_bool_exp"],
@@ -40722,12 +44649,14 @@ export type GraphQLTypes = {
 ["clientes_VeiculosAtivos_constraint"]: clientes_VeiculosAtivos_constraint;
 	/** input type for inserting data into table "clientes.VeiculosAtivos" */
 ["clientes_VeiculosAtivos_insert_input"]: {
-		Beneficios?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input"],
-	Cliente?: GraphQLTypes["identidades_Clientes_obj_rel_insert_input"],
+		Cliente?: GraphQLTypes["identidades_Clientes_obj_rel_insert_input"],
 	Cliente_Id?: GraphQLTypes["uuid"],
+	Combos?: GraphQLTypes["clientes_VeiculosAtivos_Combos_arr_rel_insert_input"],
 	Franquia_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
 	OS_Id?: GraphQLTypes["uuid"],
+	Planos?: GraphQLTypes["clientes_VeiculosAtivos_Planos_arr_rel_insert_input"],
+	PossuiGNV?: boolean,
 	Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_arr_rel_insert_input"],
 	Servicos?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_arr_rel_insert_input"],
 	Situacao?: GraphQLTypes["clientes_VeiculosAtivos_Situacao_obj_rel_insert_input"],
@@ -40806,12 +44735,14 @@ export type GraphQLTypes = {
 };
 	/** Ordering options when selecting data from "clientes.VeiculosAtivos". */
 ["clientes_VeiculosAtivos_order_by"]: {
-		Beneficios_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_aggregate_order_by"],
-	Cliente?: GraphQLTypes["identidades_Clientes_order_by"],
+		Cliente?: GraphQLTypes["identidades_Clientes_order_by"],
 	Cliente_Id?: GraphQLTypes["order_by"],
+	Combos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Combos_aggregate_order_by"],
 	Franquia_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	OS_Id?: GraphQLTypes["order_by"],
+	Planos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Planos_aggregate_order_by"],
+	PossuiGNV?: GraphQLTypes["order_by"],
 	Produtos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_aggregate_order_by"],
 	Servicos_aggregate?: GraphQLTypes["clientes_VeiculosAtivos_Servicos_aggregate_order_by"],
 	Situacao?: GraphQLTypes["clientes_VeiculosAtivos_Situacao_order_by"],
@@ -40834,6 +44765,7 @@ export type GraphQLTypes = {
 	Franquia_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
 	OS_Id?: GraphQLTypes["uuid"],
+	PossuiGNV?: boolean,
 	Situacao_Id?: GraphQLTypes["clientes_VeiculosAtivos_Situacao_enum"],
 	Veiculo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -45583,6 +49515,10 @@ export type GraphQLTypes = {
 	Propostas: Array<GraphQLTypes["propostas_Propostas_Produtos"]>,
 	/** An aggregate relationship */
 	Propostas_aggregate: GraphQLTypes["propostas_Propostas_Produtos_aggregate"],
+	/** An array relationship */
+	RegrasETermosDeUsos: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"]>,
+	/** An aggregate relationship */
+	RegrasETermosDeUsos_aggregate: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_aggregate"],
 	/** An object relationship */
 	ServicoDeDesinstalacao?: GraphQLTypes["comercial_Servicos"],
 	ServicoDeDesinstalacao_Id?: GraphQLTypes["uuid"],
@@ -46165,6 +50101,160 @@ export type GraphQLTypes = {
 };
 	/** update columns of table "comercial.Produtos_Produtos" */
 ["comercial_Produtos_Produtos_update_column"]: comercial_Produtos_Produtos_update_column;
+	/** columns and relationships of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso"]: {
+	__typename: "comercial_Produtos_RegrasETermosDeUso",
+	Id: GraphQLTypes["uuid"],
+	Mensagem: string,
+	/** An object relationship */
+	Produto: GraphQLTypes["comercial_Produtos"],
+	Produto_Id: GraphQLTypes["uuid"],
+	/** An array relationship */
+	PropostasRegrasETermosDeUsos: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"]>,
+	/** An aggregate relationship */
+	PropostasRegrasETermosDeUsos_aggregate: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
+	created_at: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at: GraphQLTypes["timestamptz"]
+};
+	/** aggregated selection of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate"]: {
+	__typename: "comercial_Produtos_RegrasETermosDeUso_aggregate",
+	aggregate?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_aggregate_fields"],
+	nodes: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"]>
+};
+	/** aggregate fields of "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate_fields"]: {
+	__typename: "comercial_Produtos_RegrasETermosDeUso_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_max_fields"],
+	min?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_min_fields"]
+};
+	/** order by aggregate values of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_aggregate_order_by"]: {
+		count?: GraphQLTypes["order_by"],
+	max?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_max_order_by"],
+	min?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_min_order_by"]
+};
+	/** input type for inserting array relation for remote table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input"]: {
+		data: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_insert_input"]>,
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_on_conflict"]
+};
+	/** Boolean expression to filter rows from the table "comercial.Produtos_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["comercial_Produtos_RegrasETermosDeUso_bool_exp"]: {
+		Id?: GraphQLTypes["uuid_comparison_exp"],
+	Mensagem?: GraphQLTypes["String_comparison_exp"],
+	Produto?: GraphQLTypes["comercial_Produtos_bool_exp"],
+	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PropostasRegrasETermosDeUsos?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"],
+	_and?: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"]>,
+	_not?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"],
+	_or?: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"]>,
+	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	deleted_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
+};
+	/** unique or primary key constraints on table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_constraint"]: comercial_Produtos_RegrasETermosDeUso_constraint;
+	/** input type for inserting data into table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_insert_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	Produto?: GraphQLTypes["comercial_Produtos_obj_rel_insert_input"],
+	Produto_Id?: GraphQLTypes["uuid"],
+	PropostasRegrasETermosDeUsos?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate max on columns */
+["comercial_Produtos_RegrasETermosDeUso_max_fields"]: {
+	__typename: "comercial_Produtos_RegrasETermosDeUso_max_fields",
+	Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	Produto_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by max() on columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_max_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Mensagem?: GraphQLTypes["order_by"],
+	Produto_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** aggregate min on columns */
+["comercial_Produtos_RegrasETermosDeUso_min_fields"]: {
+	__typename: "comercial_Produtos_RegrasETermosDeUso_min_fields",
+	Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	Produto_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by min() on columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_min_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Mensagem?: GraphQLTypes["order_by"],
+	Produto_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** response of any mutation on the table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_mutation_response"]: {
+	__typename: "comercial_Produtos_RegrasETermosDeUso_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"]>
+};
+	/** input type for inserting object relation for remote table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input"]: {
+		data: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_on_conflict"]
+};
+	/** on_conflict condition type for table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_on_conflict"]: {
+		constraint: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_constraint"],
+	update_columns: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_update_column"]>,
+	where?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"]
+};
+	/** Ordering options when selecting data from "comercial.Produtos_RegrasETermosDeUso". */
+["comercial_Produtos_RegrasETermosDeUso_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Mensagem?: GraphQLTypes["order_by"],
+	Produto?: GraphQLTypes["comercial_Produtos_order_by"],
+	Produto_Id?: GraphQLTypes["order_by"],
+	PropostasRegrasETermosDeUsos_aggregate?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: comercial_Produtos_RegrasETermosDeUso */
+["comercial_Produtos_RegrasETermosDeUso_pk_columns_input"]: {
+		Id: GraphQLTypes["uuid"]
+};
+	/** select columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_select_column"]: comercial_Produtos_RegrasETermosDeUso_select_column;
+	/** input type for updating data in table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_set_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	Produto_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** update columns of table "comercial.Produtos_RegrasETermosDeUso" */
+["comercial_Produtos_RegrasETermosDeUso_update_column"]: comercial_Produtos_RegrasETermosDeUso_update_column;
 	/** columns and relationships of "comercial.Produtos_Servicos" */
 ["comercial_Produtos_Servicos"]: {
 	__typename: "comercial_Produtos_Servicos",
@@ -46453,6 +50543,7 @@ export type GraphQLTypes = {
 	ProdutosDependentes?: GraphQLTypes["comercial_Produtos_Produtos_bool_exp"],
 	ProdutosQueDependo?: GraphQLTypes["comercial_Produtos_Produtos_bool_exp"],
 	Propostas?: GraphQLTypes["propostas_Propostas_Produtos_bool_exp"],
+	RegrasETermosDeUsos?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"],
 	ServicoDeDesinstalacao?: GraphQLTypes["comercial_Servicos_bool_exp"],
 	ServicoDeDesinstalacao_Id?: GraphQLTypes["uuid_comparison_exp"],
 	ServicoDeInstalacao?: GraphQLTypes["comercial_Servicos_bool_exp"],
@@ -46495,6 +50586,7 @@ export type GraphQLTypes = {
 	ProdutosDependentes?: GraphQLTypes["comercial_Produtos_Produtos_arr_rel_insert_input"],
 	ProdutosQueDependo?: GraphQLTypes["comercial_Produtos_Produtos_arr_rel_insert_input"],
 	Propostas?: GraphQLTypes["propostas_Propostas_Produtos_arr_rel_insert_input"],
+	RegrasETermosDeUsos?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input"],
 	ServicoDeDesinstalacao?: GraphQLTypes["comercial_Servicos_obj_rel_insert_input"],
 	ServicoDeDesinstalacao_Id?: GraphQLTypes["uuid"],
 	ServicoDeInstalacao?: GraphQLTypes["comercial_Servicos_obj_rel_insert_input"],
@@ -46582,6 +50674,7 @@ export type GraphQLTypes = {
 	ProdutosDependentes_aggregate?: GraphQLTypes["comercial_Produtos_Produtos_aggregate_order_by"],
 	ProdutosQueDependo_aggregate?: GraphQLTypes["comercial_Produtos_Produtos_aggregate_order_by"],
 	Propostas_aggregate?: GraphQLTypes["propostas_Propostas_Produtos_aggregate_order_by"],
+	RegrasETermosDeUsos_aggregate?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_aggregate_order_by"],
 	ServicoDeDesinstalacao?: GraphQLTypes["comercial_Servicos_order_by"],
 	ServicoDeDesinstalacao_Id?: GraphQLTypes["order_by"],
 	ServicoDeInstalacao?: GraphQLTypes["comercial_Servicos_order_by"],
@@ -46661,6 +50754,10 @@ export type GraphQLTypes = {
 	Propostas: Array<GraphQLTypes["propostas_Propostas_Servicos"]>,
 	/** An aggregate relationship */
 	Propostas_aggregate: GraphQLTypes["propostas_Propostas_Servicos_aggregate"],
+	/** An array relationship */
+	RegrasETermosDeUsos: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"]>,
+	/** An aggregate relationship */
+	RegrasETermosDeUsos_aggregate: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_aggregate"],
 	/** An array relationship */
 	Servicos_Produtos: Array<GraphQLTypes["comercial_Servicos_Produtos"]>,
 	/** An aggregate relationship */
@@ -47245,6 +51342,160 @@ export type GraphQLTypes = {
 };
 	/** update columns of table "comercial.Servicos_Produtos" */
 ["comercial_Servicos_Produtos_update_column"]: comercial_Servicos_Produtos_update_column;
+	/** columns and relationships of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso"]: {
+	__typename: "comercial_Servicos_RegrasETermosDeUso",
+	Id: GraphQLTypes["uuid"],
+	Mensagem: string,
+	/** An array relationship */
+	PropostasRegrasETermosDeUsos: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"]>,
+	/** An aggregate relationship */
+	PropostasRegrasETermosDeUsos_aggregate: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
+	/** An object relationship */
+	Servico: GraphQLTypes["comercial_Servicos"],
+	Servico_Id: GraphQLTypes["uuid"],
+	created_at: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at: GraphQLTypes["timestamptz"]
+};
+	/** aggregated selection of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate"]: {
+	__typename: "comercial_Servicos_RegrasETermosDeUso_aggregate",
+	aggregate?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_aggregate_fields"],
+	nodes: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"]>
+};
+	/** aggregate fields of "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate_fields"]: {
+	__typename: "comercial_Servicos_RegrasETermosDeUso_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_max_fields"],
+	min?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_min_fields"]
+};
+	/** order by aggregate values of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_aggregate_order_by"]: {
+		count?: GraphQLTypes["order_by"],
+	max?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_max_order_by"],
+	min?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_min_order_by"]
+};
+	/** input type for inserting array relation for remote table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input"]: {
+		data: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_insert_input"]>,
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_on_conflict"]
+};
+	/** Boolean expression to filter rows from the table "comercial.Servicos_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["comercial_Servicos_RegrasETermosDeUso_bool_exp"]: {
+		Id?: GraphQLTypes["uuid_comparison_exp"],
+	Mensagem?: GraphQLTypes["String_comparison_exp"],
+	PropostasRegrasETermosDeUsos?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"],
+	Servico?: GraphQLTypes["comercial_Servicos_bool_exp"],
+	Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
+	_and?: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"]>,
+	_not?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"],
+	_or?: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"]>,
+	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	deleted_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
+};
+	/** unique or primary key constraints on table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_constraint"]: comercial_Servicos_RegrasETermosDeUso_constraint;
+	/** input type for inserting data into table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_insert_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	PropostasRegrasETermosDeUsos?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"],
+	Servico?: GraphQLTypes["comercial_Servicos_obj_rel_insert_input"],
+	Servico_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate max on columns */
+["comercial_Servicos_RegrasETermosDeUso_max_fields"]: {
+	__typename: "comercial_Servicos_RegrasETermosDeUso_max_fields",
+	Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	Servico_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by max() on columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_max_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Mensagem?: GraphQLTypes["order_by"],
+	Servico_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** aggregate min on columns */
+["comercial_Servicos_RegrasETermosDeUso_min_fields"]: {
+	__typename: "comercial_Servicos_RegrasETermosDeUso_min_fields",
+	Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	Servico_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by min() on columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_min_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Mensagem?: GraphQLTypes["order_by"],
+	Servico_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** response of any mutation on the table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_mutation_response"]: {
+	__typename: "comercial_Servicos_RegrasETermosDeUso_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"]>
+};
+	/** input type for inserting object relation for remote table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input"]: {
+		data: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_on_conflict"]
+};
+	/** on_conflict condition type for table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_on_conflict"]: {
+		constraint: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_constraint"],
+	update_columns: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_update_column"]>,
+	where?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"]
+};
+	/** Ordering options when selecting data from "comercial.Servicos_RegrasETermosDeUso". */
+["comercial_Servicos_RegrasETermosDeUso_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Mensagem?: GraphQLTypes["order_by"],
+	PropostasRegrasETermosDeUsos_aggregate?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"],
+	Servico?: GraphQLTypes["comercial_Servicos_order_by"],
+	Servico_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: comercial_Servicos_RegrasETermosDeUso */
+["comercial_Servicos_RegrasETermosDeUso_pk_columns_input"]: {
+		Id: GraphQLTypes["uuid"]
+};
+	/** select columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_select_column"]: comercial_Servicos_RegrasETermosDeUso_select_column;
+	/** input type for updating data in table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_set_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	Mensagem?: string,
+	Servico_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** update columns of table "comercial.Servicos_RegrasETermosDeUso" */
+["comercial_Servicos_RegrasETermosDeUso_update_column"]: comercial_Servicos_RegrasETermosDeUso_update_column;
 	/** columns and relationships of "comercial.Servicos_Servicos" */
 ["comercial_Servicos_Servicos"]: {
 	__typename: "comercial_Servicos_Servicos",
@@ -47681,6 +51932,7 @@ export type GraphQLTypes = {
 	ProdutosInstalacao?: GraphQLTypes["comercial_Produtos_bool_exp"],
 	Produtos_Servicos?: GraphQLTypes["comercial_Produtos_Servicos_bool_exp"],
 	Propostas?: GraphQLTypes["propostas_Propostas_Servicos_bool_exp"],
+	RegrasETermosDeUsos?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"],
 	Servicos_Produtos?: GraphQLTypes["comercial_Servicos_Produtos_bool_exp"],
 	Servicos_ServicosDependente?: GraphQLTypes["comercial_Servicos_Servicos_bool_exp"],
 	Tarifas?: GraphQLTypes["comercial_Servicos_Tarifas_bool_exp"],
@@ -47723,6 +51975,7 @@ export type GraphQLTypes = {
 	ProdutosInstalacao?: GraphQLTypes["comercial_Produtos_arr_rel_insert_input"],
 	Produtos_Servicos?: GraphQLTypes["comercial_Produtos_Servicos_arr_rel_insert_input"],
 	Propostas?: GraphQLTypes["propostas_Propostas_Servicos_arr_rel_insert_input"],
+	RegrasETermosDeUsos?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input"],
 	Servicos_Produtos?: GraphQLTypes["comercial_Servicos_Produtos_arr_rel_insert_input"],
 	Servicos_ServicosDependente?: GraphQLTypes["comercial_Servicos_Servicos_arr_rel_insert_input"],
 	Tarifas?: GraphQLTypes["comercial_Servicos_Tarifas_arr_rel_insert_input"],
@@ -47802,6 +52055,7 @@ export type GraphQLTypes = {
 	ProdutosInstalacao_aggregate?: GraphQLTypes["comercial_Produtos_aggregate_order_by"],
 	Produtos_Servicos_aggregate?: GraphQLTypes["comercial_Produtos_Servicos_aggregate_order_by"],
 	Propostas_aggregate?: GraphQLTypes["propostas_Propostas_Servicos_aggregate_order_by"],
+	RegrasETermosDeUsos_aggregate?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_aggregate_order_by"],
 	Servicos_Produtos_aggregate?: GraphQLTypes["comercial_Servicos_Produtos_aggregate_order_by"],
 	Servicos_ServicosDependente_aggregate?: GraphQLTypes["comercial_Servicos_Servicos_aggregate_order_by"],
 	Tarifas_aggregate?: GraphQLTypes["comercial_Servicos_Tarifas_aggregate_order_by"],
@@ -50480,6 +54734,8 @@ export type GraphQLTypes = {
 	/** An aggregate relationship */
 	Colaboradores_aggregate: GraphQLTypes["identidades_Colaboradores_aggregate"],
 	DadosDaApi: GraphQLTypes["jsonb"],
+	DataCriacao?: GraphQLTypes["timestamptz"],
+	DataNascimento?: GraphQLTypes["timestamptz"],
 	/** An array relationship */
 	Documentos: Array<GraphQLTypes["identidades_Clientes_Documentos"]>,
 	/** An aggregate relationship */
@@ -50490,10 +54746,12 @@ export type GraphQLTypes = {
 	Identificador: string,
 	Nome: string,
 	PessoaJuridica: boolean,
+	Profissao?: string,
 	/** An array relationship */
 	Representantes: Array<GraphQLTypes["identidades_Representantes"]>,
 	/** An aggregate relationship */
 	Representantes_aggregate: GraphQLTypes["identidades_Representantes_aggregate"],
+	Sexo?: string,
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -50520,13 +54778,17 @@ export type GraphQLTypes = {
 		Cliente?: GraphQLTypes["identidades_Clientes_bool_exp"],
 	Colaboradores?: GraphQLTypes["identidades_Colaboradores_bool_exp"],
 	DadosDaApi?: GraphQLTypes["jsonb_comparison_exp"],
+	DataCriacao?: GraphQLTypes["timestamptz_comparison_exp"],
+	DataNascimento?: GraphQLTypes["timestamptz_comparison_exp"],
 	Documentos?: GraphQLTypes["identidades_Clientes_Documentos_bool_exp"],
 	Fornecedor?: GraphQLTypes["identidades_Fornecedores_bool_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	Identificador?: GraphQLTypes["String_comparison_exp"],
 	Nome?: GraphQLTypes["String_comparison_exp"],
 	PessoaJuridica?: GraphQLTypes["Boolean_comparison_exp"],
+	Profissao?: GraphQLTypes["String_comparison_exp"],
 	Representantes?: GraphQLTypes["identidades_Representantes_bool_exp"],
+	Sexo?: GraphQLTypes["String_comparison_exp"],
 	_and?: Array<GraphQLTypes["identidades_Pessoas_bool_exp"]>,
 	_not?: GraphQLTypes["identidades_Pessoas_bool_exp"],
 	_or?: Array<GraphQLTypes["identidades_Pessoas_bool_exp"]>,
@@ -50553,13 +54815,17 @@ export type GraphQLTypes = {
 		Cliente?: GraphQLTypes["identidades_Clientes_obj_rel_insert_input"],
 	Colaboradores?: GraphQLTypes["identidades_Colaboradores_arr_rel_insert_input"],
 	DadosDaApi?: GraphQLTypes["jsonb"],
+	DataCriacao?: GraphQLTypes["timestamptz"],
+	DataNascimento?: GraphQLTypes["timestamptz"],
 	Documentos?: GraphQLTypes["identidades_Clientes_Documentos_arr_rel_insert_input"],
 	Fornecedor?: GraphQLTypes["identidades_Fornecedores_obj_rel_insert_input"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: string,
 	Nome?: string,
 	PessoaJuridica?: boolean,
+	Profissao?: string,
 	Representantes?: GraphQLTypes["identidades_Representantes_arr_rel_insert_input"],
+	Sexo?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -50567,9 +54833,13 @@ export type GraphQLTypes = {
 	/** aggregate max on columns */
 ["identidades_Pessoas_max_fields"]: {
 	__typename: "identidades_Pessoas_max_fields",
+	DataCriacao?: GraphQLTypes["timestamptz"],
+	DataNascimento?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: string,
 	Nome?: string,
+	Profissao?: string,
+	Sexo?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -50577,9 +54847,13 @@ export type GraphQLTypes = {
 	/** aggregate min on columns */
 ["identidades_Pessoas_min_fields"]: {
 	__typename: "identidades_Pessoas_min_fields",
+	DataCriacao?: GraphQLTypes["timestamptz"],
+	DataNascimento?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: string,
 	Nome?: string,
+	Profissao?: string,
+	Sexo?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -50609,13 +54883,17 @@ export type GraphQLTypes = {
 		Cliente?: GraphQLTypes["identidades_Clientes_order_by"],
 	Colaboradores_aggregate?: GraphQLTypes["identidades_Colaboradores_aggregate_order_by"],
 	DadosDaApi?: GraphQLTypes["order_by"],
+	DataCriacao?: GraphQLTypes["order_by"],
+	DataNascimento?: GraphQLTypes["order_by"],
 	Documentos_aggregate?: GraphQLTypes["identidades_Clientes_Documentos_aggregate_order_by"],
 	Fornecedor?: GraphQLTypes["identidades_Fornecedores_order_by"],
 	Id?: GraphQLTypes["order_by"],
 	Identificador?: GraphQLTypes["order_by"],
 	Nome?: GraphQLTypes["order_by"],
 	PessoaJuridica?: GraphQLTypes["order_by"],
+	Profissao?: GraphQLTypes["order_by"],
 	Representantes_aggregate?: GraphQLTypes["identidades_Representantes_aggregate_order_by"],
+	Sexo?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -50633,10 +54911,14 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "identidades.Pessoas" */
 ["identidades_Pessoas_set_input"]: {
 		DadosDaApi?: GraphQLTypes["jsonb"],
+	DataCriacao?: GraphQLTypes["timestamptz"],
+	DataNascimento?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	Identificador?: string,
 	Nome?: string,
 	PessoaJuridica?: boolean,
+	Profissao?: string,
+	Sexo?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -51418,10 +55700,14 @@ export type GraphQLTypes = {
 	delete_clientes_Veiculos?: GraphQLTypes["clientes_Veiculos_mutation_response"],
 	/** delete data from the table: "clientes.VeiculosAtivos" */
 	delete_clientes_VeiculosAtivos?: GraphQLTypes["clientes_VeiculosAtivos_mutation_response"],
-	/** delete data from the table: "clientes.VeiculosAtivos_Beneficios" */
-	delete_clientes_VeiculosAtivos_Beneficios?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"],
-	/** delete single row from the table: "clientes.VeiculosAtivos_Beneficios" */
-	delete_clientes_VeiculosAtivos_Beneficios_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** delete data from the table: "clientes.VeiculosAtivos_Combos" */
+	delete_clientes_VeiculosAtivos_Combos?: GraphQLTypes["clientes_VeiculosAtivos_Combos_mutation_response"],
+	/** delete single row from the table: "clientes.VeiculosAtivos_Combos" */
+	delete_clientes_VeiculosAtivos_Combos_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Combos"],
+	/** delete data from the table: "clientes.VeiculosAtivos_Planos" */
+	delete_clientes_VeiculosAtivos_Planos?: GraphQLTypes["clientes_VeiculosAtivos_Planos_mutation_response"],
+	/** delete single row from the table: "clientes.VeiculosAtivos_Planos" */
+	delete_clientes_VeiculosAtivos_Planos_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Planos"],
 	/** delete data from the table: "clientes.VeiculosAtivos_Produtos" */
 	delete_clientes_VeiculosAtivos_Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_mutation_response"],
 	/** delete single row from the table: "clientes.VeiculosAtivos_Produtos" */
@@ -51552,6 +55838,10 @@ export type GraphQLTypes = {
 	delete_comercial_Produtos_Produtos?: GraphQLTypes["comercial_Produtos_Produtos_mutation_response"],
 	/** delete single row from the table: "comercial.Produtos_Produtos" */
 	delete_comercial_Produtos_Produtos_by_pk?: GraphQLTypes["comercial_Produtos_Produtos"],
+	/** delete data from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	delete_comercial_Produtos_RegrasETermosDeUso?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"],
+	/** delete single row from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	delete_comercial_Produtos_RegrasETermosDeUso_by_pk?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** delete data from the table: "comercial.Produtos_Servicos" */
 	delete_comercial_Produtos_Servicos?: GraphQLTypes["comercial_Produtos_Servicos_mutation_response"],
 	/** delete single row from the table: "comercial.Produtos_Servicos" */
@@ -51576,6 +55866,10 @@ export type GraphQLTypes = {
 	delete_comercial_Servicos_Produtos?: GraphQLTypes["comercial_Servicos_Produtos_mutation_response"],
 	/** delete single row from the table: "comercial.Servicos_Produtos" */
 	delete_comercial_Servicos_Produtos_by_pk?: GraphQLTypes["comercial_Servicos_Produtos"],
+	/** delete data from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	delete_comercial_Servicos_RegrasETermosDeUso?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"],
+	/** delete single row from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	delete_comercial_Servicos_RegrasETermosDeUso_by_pk?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** delete data from the table: "comercial.Servicos_Servicos" */
 	delete_comercial_Servicos_Servicos?: GraphQLTypes["comercial_Servicos_Servicos_mutation_response"],
 	/** delete single row from the table: "comercial.Servicos_Servicos" */
@@ -51692,10 +55986,22 @@ export type GraphQLTypes = {
 	delete_operacional_OrdemDeServico_Atividades?: GraphQLTypes["operacional_OrdemDeServico_Atividades_mutation_response"],
 	/** delete single row from the table: "operacional.OrdemDeServico_Atividades" */
 	delete_operacional_OrdemDeServico_Atividades_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Atividades"],
-	/** delete data from the table: "operacional.OrdemDeServico_Beneficios" */
-	delete_operacional_OrdemDeServico_Beneficios?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_mutation_response"],
-	/** delete single row from the table: "operacional.OrdemDeServico_Beneficios" */
-	delete_operacional_OrdemDeServico_Beneficios_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Beneficios"],
+	/** delete data from the table: "operacional.OrdemDeServico_Checklist" */
+	delete_operacional_OrdemDeServico_Checklist?: GraphQLTypes["operacional_OrdemDeServico_Checklist_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_Checklist" */
+	delete_operacional_OrdemDeServico_Checklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Checklist"],
+	/** delete data from the table: "operacional.OrdemDeServico_Combos" */
+	delete_operacional_OrdemDeServico_Combos?: GraphQLTypes["operacional_OrdemDeServico_Combos_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_Combos" */
+	delete_operacional_OrdemDeServico_Combos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** delete data from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	delete_operacional_OrdemDeServico_ItensDeChecklist?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	delete_operacional_OrdemDeServico_ItensDeChecklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** delete data from the table: "operacional.OrdemDeServico_Planos" */
+	delete_operacional_OrdemDeServico_Planos?: GraphQLTypes["operacional_OrdemDeServico_Planos_mutation_response"],
+	/** delete single row from the table: "operacional.OrdemDeServico_Planos" */
+	delete_operacional_OrdemDeServico_Planos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Planos"],
 	/** delete data from the table: "operacional.OrdemDeServico_Produtos" */
 	delete_operacional_OrdemDeServico_Produtos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_mutation_response"],
 	/** delete single row from the table: "operacional.OrdemDeServico_Produtos" */
@@ -51816,6 +56122,10 @@ export type GraphQLTypes = {
 	delete_propostas_Propostas_Produtos?: GraphQLTypes["propostas_Propostas_Produtos_mutation_response"],
 	/** delete single row from the table: "propostas.Propostas_Produtos" */
 	delete_propostas_Propostas_Produtos_by_pk?: GraphQLTypes["propostas_Propostas_Produtos"],
+	/** delete data from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	delete_propostas_Propostas_RegrasETermosDeUso?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"],
+	/** delete single row from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	delete_propostas_Propostas_RegrasETermosDeUso_by_pk?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** delete data from the table: "propostas.Propostas_Servicos" */
 	delete_propostas_Propostas_Servicos?: GraphQLTypes["propostas_Propostas_Servicos_mutation_response"],
 	/** delete single row from the table: "propostas.Propostas_Servicos" */
@@ -51878,10 +56188,14 @@ export type GraphQLTypes = {
 	insert_clientes_Veiculos?: GraphQLTypes["clientes_Veiculos_mutation_response"],
 	/** insert data into the table: "clientes.VeiculosAtivos" */
 	insert_clientes_VeiculosAtivos?: GraphQLTypes["clientes_VeiculosAtivos_mutation_response"],
-	/** insert data into the table: "clientes.VeiculosAtivos_Beneficios" */
-	insert_clientes_VeiculosAtivos_Beneficios?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"],
-	/** insert a single row into the table: "clientes.VeiculosAtivos_Beneficios" */
-	insert_clientes_VeiculosAtivos_Beneficios_one?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** insert data into the table: "clientes.VeiculosAtivos_Combos" */
+	insert_clientes_VeiculosAtivos_Combos?: GraphQLTypes["clientes_VeiculosAtivos_Combos_mutation_response"],
+	/** insert a single row into the table: "clientes.VeiculosAtivos_Combos" */
+	insert_clientes_VeiculosAtivos_Combos_one?: GraphQLTypes["clientes_VeiculosAtivos_Combos"],
+	/** insert data into the table: "clientes.VeiculosAtivos_Planos" */
+	insert_clientes_VeiculosAtivos_Planos?: GraphQLTypes["clientes_VeiculosAtivos_Planos_mutation_response"],
+	/** insert a single row into the table: "clientes.VeiculosAtivos_Planos" */
+	insert_clientes_VeiculosAtivos_Planos_one?: GraphQLTypes["clientes_VeiculosAtivos_Planos"],
 	/** insert data into the table: "clientes.VeiculosAtivos_Produtos" */
 	insert_clientes_VeiculosAtivos_Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_mutation_response"],
 	/** insert a single row into the table: "clientes.VeiculosAtivos_Produtos" */
@@ -52012,6 +56326,10 @@ export type GraphQLTypes = {
 	insert_comercial_Produtos_Produtos?: GraphQLTypes["comercial_Produtos_Produtos_mutation_response"],
 	/** insert a single row into the table: "comercial.Produtos_Produtos" */
 	insert_comercial_Produtos_Produtos_one?: GraphQLTypes["comercial_Produtos_Produtos"],
+	/** insert data into the table: "comercial.Produtos_RegrasETermosDeUso" */
+	insert_comercial_Produtos_RegrasETermosDeUso?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"],
+	/** insert a single row into the table: "comercial.Produtos_RegrasETermosDeUso" */
+	insert_comercial_Produtos_RegrasETermosDeUso_one?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** insert data into the table: "comercial.Produtos_Servicos" */
 	insert_comercial_Produtos_Servicos?: GraphQLTypes["comercial_Produtos_Servicos_mutation_response"],
 	/** insert a single row into the table: "comercial.Produtos_Servicos" */
@@ -52036,6 +56354,10 @@ export type GraphQLTypes = {
 	insert_comercial_Servicos_Produtos?: GraphQLTypes["comercial_Servicos_Produtos_mutation_response"],
 	/** insert a single row into the table: "comercial.Servicos_Produtos" */
 	insert_comercial_Servicos_Produtos_one?: GraphQLTypes["comercial_Servicos_Produtos"],
+	/** insert data into the table: "comercial.Servicos_RegrasETermosDeUso" */
+	insert_comercial_Servicos_RegrasETermosDeUso?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"],
+	/** insert a single row into the table: "comercial.Servicos_RegrasETermosDeUso" */
+	insert_comercial_Servicos_RegrasETermosDeUso_one?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** insert data into the table: "comercial.Servicos_Servicos" */
 	insert_comercial_Servicos_Servicos?: GraphQLTypes["comercial_Servicos_Servicos_mutation_response"],
 	/** insert a single row into the table: "comercial.Servicos_Servicos" */
@@ -52152,10 +56474,22 @@ export type GraphQLTypes = {
 	insert_operacional_OrdemDeServico_Atividades?: GraphQLTypes["operacional_OrdemDeServico_Atividades_mutation_response"],
 	/** insert a single row into the table: "operacional.OrdemDeServico_Atividades" */
 	insert_operacional_OrdemDeServico_Atividades_one?: GraphQLTypes["operacional_OrdemDeServico_Atividades"],
-	/** insert data into the table: "operacional.OrdemDeServico_Beneficios" */
-	insert_operacional_OrdemDeServico_Beneficios?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_mutation_response"],
-	/** insert a single row into the table: "operacional.OrdemDeServico_Beneficios" */
-	insert_operacional_OrdemDeServico_Beneficios_one?: GraphQLTypes["operacional_OrdemDeServico_Beneficios"],
+	/** insert data into the table: "operacional.OrdemDeServico_Checklist" */
+	insert_operacional_OrdemDeServico_Checklist?: GraphQLTypes["operacional_OrdemDeServico_Checklist_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_Checklist" */
+	insert_operacional_OrdemDeServico_Checklist_one?: GraphQLTypes["operacional_OrdemDeServico_Checklist"],
+	/** insert data into the table: "operacional.OrdemDeServico_Combos" */
+	insert_operacional_OrdemDeServico_Combos?: GraphQLTypes["operacional_OrdemDeServico_Combos_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_Combos" */
+	insert_operacional_OrdemDeServico_Combos_one?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** insert data into the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	insert_operacional_OrdemDeServico_ItensDeChecklist?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	insert_operacional_OrdemDeServico_ItensDeChecklist_one?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** insert data into the table: "operacional.OrdemDeServico_Planos" */
+	insert_operacional_OrdemDeServico_Planos?: GraphQLTypes["operacional_OrdemDeServico_Planos_mutation_response"],
+	/** insert a single row into the table: "operacional.OrdemDeServico_Planos" */
+	insert_operacional_OrdemDeServico_Planos_one?: GraphQLTypes["operacional_OrdemDeServico_Planos"],
 	/** insert data into the table: "operacional.OrdemDeServico_Produtos" */
 	insert_operacional_OrdemDeServico_Produtos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_mutation_response"],
 	/** insert a single row into the table: "operacional.OrdemDeServico_Produtos" */
@@ -52276,6 +56610,10 @@ export type GraphQLTypes = {
 	insert_propostas_Propostas_Produtos?: GraphQLTypes["propostas_Propostas_Produtos_mutation_response"],
 	/** insert a single row into the table: "propostas.Propostas_Produtos" */
 	insert_propostas_Propostas_Produtos_one?: GraphQLTypes["propostas_Propostas_Produtos"],
+	/** insert data into the table: "propostas.Propostas_RegrasETermosDeUso" */
+	insert_propostas_Propostas_RegrasETermosDeUso?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"],
+	/** insert a single row into the table: "propostas.Propostas_RegrasETermosDeUso" */
+	insert_propostas_Propostas_RegrasETermosDeUso_one?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** insert data into the table: "propostas.Propostas_Servicos" */
 	insert_propostas_Propostas_Servicos?: GraphQLTypes["propostas_Propostas_Servicos_mutation_response"],
 	/** insert a single row into the table: "propostas.Propostas_Servicos" */
@@ -52338,10 +56676,14 @@ export type GraphQLTypes = {
 	update_clientes_Veiculos?: GraphQLTypes["clientes_Veiculos_mutation_response"],
 	/** update data of the table: "clientes.VeiculosAtivos" */
 	update_clientes_VeiculosAtivos?: GraphQLTypes["clientes_VeiculosAtivos_mutation_response"],
-	/** update data of the table: "clientes.VeiculosAtivos_Beneficios" */
-	update_clientes_VeiculosAtivos_Beneficios?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_mutation_response"],
-	/** update single row of the table: "clientes.VeiculosAtivos_Beneficios" */
-	update_clientes_VeiculosAtivos_Beneficios_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** update data of the table: "clientes.VeiculosAtivos_Combos" */
+	update_clientes_VeiculosAtivos_Combos?: GraphQLTypes["clientes_VeiculosAtivos_Combos_mutation_response"],
+	/** update single row of the table: "clientes.VeiculosAtivos_Combos" */
+	update_clientes_VeiculosAtivos_Combos_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Combos"],
+	/** update data of the table: "clientes.VeiculosAtivos_Planos" */
+	update_clientes_VeiculosAtivos_Planos?: GraphQLTypes["clientes_VeiculosAtivos_Planos_mutation_response"],
+	/** update single row of the table: "clientes.VeiculosAtivos_Planos" */
+	update_clientes_VeiculosAtivos_Planos_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Planos"],
 	/** update data of the table: "clientes.VeiculosAtivos_Produtos" */
 	update_clientes_VeiculosAtivos_Produtos?: GraphQLTypes["clientes_VeiculosAtivos_Produtos_mutation_response"],
 	/** update single row of the table: "clientes.VeiculosAtivos_Produtos" */
@@ -52472,6 +56814,10 @@ export type GraphQLTypes = {
 	update_comercial_Produtos_Produtos?: GraphQLTypes["comercial_Produtos_Produtos_mutation_response"],
 	/** update single row of the table: "comercial.Produtos_Produtos" */
 	update_comercial_Produtos_Produtos_by_pk?: GraphQLTypes["comercial_Produtos_Produtos"],
+	/** update data of the table: "comercial.Produtos_RegrasETermosDeUso" */
+	update_comercial_Produtos_RegrasETermosDeUso?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_mutation_response"],
+	/** update single row of the table: "comercial.Produtos_RegrasETermosDeUso" */
+	update_comercial_Produtos_RegrasETermosDeUso_by_pk?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** update data of the table: "comercial.Produtos_Servicos" */
 	update_comercial_Produtos_Servicos?: GraphQLTypes["comercial_Produtos_Servicos_mutation_response"],
 	/** update single row of the table: "comercial.Produtos_Servicos" */
@@ -52496,6 +56842,10 @@ export type GraphQLTypes = {
 	update_comercial_Servicos_Produtos?: GraphQLTypes["comercial_Servicos_Produtos_mutation_response"],
 	/** update single row of the table: "comercial.Servicos_Produtos" */
 	update_comercial_Servicos_Produtos_by_pk?: GraphQLTypes["comercial_Servicos_Produtos"],
+	/** update data of the table: "comercial.Servicos_RegrasETermosDeUso" */
+	update_comercial_Servicos_RegrasETermosDeUso?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_mutation_response"],
+	/** update single row of the table: "comercial.Servicos_RegrasETermosDeUso" */
+	update_comercial_Servicos_RegrasETermosDeUso_by_pk?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** update data of the table: "comercial.Servicos_Servicos" */
 	update_comercial_Servicos_Servicos?: GraphQLTypes["comercial_Servicos_Servicos_mutation_response"],
 	/** update single row of the table: "comercial.Servicos_Servicos" */
@@ -52612,10 +56962,22 @@ export type GraphQLTypes = {
 	update_operacional_OrdemDeServico_Atividades?: GraphQLTypes["operacional_OrdemDeServico_Atividades_mutation_response"],
 	/** update single row of the table: "operacional.OrdemDeServico_Atividades" */
 	update_operacional_OrdemDeServico_Atividades_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Atividades"],
-	/** update data of the table: "operacional.OrdemDeServico_Beneficios" */
-	update_operacional_OrdemDeServico_Beneficios?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_mutation_response"],
-	/** update single row of the table: "operacional.OrdemDeServico_Beneficios" */
-	update_operacional_OrdemDeServico_Beneficios_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Beneficios"],
+	/** update data of the table: "operacional.OrdemDeServico_Checklist" */
+	update_operacional_OrdemDeServico_Checklist?: GraphQLTypes["operacional_OrdemDeServico_Checklist_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_Checklist" */
+	update_operacional_OrdemDeServico_Checklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Checklist"],
+	/** update data of the table: "operacional.OrdemDeServico_Combos" */
+	update_operacional_OrdemDeServico_Combos?: GraphQLTypes["operacional_OrdemDeServico_Combos_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_Combos" */
+	update_operacional_OrdemDeServico_Combos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** update data of the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	update_operacional_OrdemDeServico_ItensDeChecklist?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	update_operacional_OrdemDeServico_ItensDeChecklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** update data of the table: "operacional.OrdemDeServico_Planos" */
+	update_operacional_OrdemDeServico_Planos?: GraphQLTypes["operacional_OrdemDeServico_Planos_mutation_response"],
+	/** update single row of the table: "operacional.OrdemDeServico_Planos" */
+	update_operacional_OrdemDeServico_Planos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Planos"],
 	/** update data of the table: "operacional.OrdemDeServico_Produtos" */
 	update_operacional_OrdemDeServico_Produtos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_mutation_response"],
 	/** update single row of the table: "operacional.OrdemDeServico_Produtos" */
@@ -52736,6 +57098,10 @@ export type GraphQLTypes = {
 	update_propostas_Propostas_Produtos?: GraphQLTypes["propostas_Propostas_Produtos_mutation_response"],
 	/** update single row of the table: "propostas.Propostas_Produtos" */
 	update_propostas_Propostas_Produtos_by_pk?: GraphQLTypes["propostas_Propostas_Produtos"],
+	/** update data of the table: "propostas.Propostas_RegrasETermosDeUso" */
+	update_propostas_Propostas_RegrasETermosDeUso?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_mutation_response"],
+	/** update single row of the table: "propostas.Propostas_RegrasETermosDeUso" */
+	update_propostas_Propostas_RegrasETermosDeUso_by_pk?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** update data of the table: "propostas.Propostas_Servicos" */
 	update_propostas_Propostas_Servicos?: GraphQLTypes["propostas_Propostas_Servicos_mutation_response"],
 	/** update single row of the table: "propostas.Propostas_Servicos" */
@@ -52774,12 +57140,17 @@ export type GraphQLTypes = {
 	Atividades: Array<GraphQLTypes["operacional_OrdemDeServico_Atividades"]>,
 	/** An aggregate relationship */
 	Atividades_aggregate: GraphQLTypes["operacional_OrdemDeServico_Atividades_aggregate"],
-	/** An array relationship */
-	Beneficios: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios"]>,
-	/** An aggregate relationship */
-	Beneficios_aggregate: GraphQLTypes["operacional_OrdemDeServico_Beneficios_aggregate"],
 	CodigoIdentificador: number,
+	/** An array relationship */
+	Combos: Array<GraphQLTypes["operacional_OrdemDeServico_Combos"]>,
+	/** An aggregate relationship */
+	Combos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Combos_aggregate"],
 	Id: GraphQLTypes["uuid"],
+	/** An array relationship */
+	Planos: Array<GraphQLTypes["operacional_OrdemDeServico_Planos"]>,
+	/** An aggregate relationship */
+	Planos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	PossuiGNV: boolean,
 	/** An array relationship */
 	Produtos: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos"]>,
 	/** An aggregate relationship */
@@ -52807,6 +57178,8 @@ export type GraphQLTypes = {
 	Agendamento: GraphQLTypes["timestamptz"],
 	Colaborador?: GraphQLTypes["identidades_Colaboradores"],
 	Colaborador_Id: GraphQLTypes["uuid"],
+	Contato: string,
+	Endereco: GraphQLTypes["jsonb"],
 	FimDoServico?: GraphQLTypes["timestamptz"],
 	Id: GraphQLTypes["uuid"],
 	InicioDoServico?: GraphQLTypes["timestamptz"],
@@ -52817,6 +57190,7 @@ export type GraphQLTypes = {
 	OS_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	OrdemDeServico: GraphQLTypes["operacional_OrdemDeServico"],
+	Responsavel: string,
 	/** An object relationship */
 	Situacao: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes"],
 	Situacao_Id: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum"],
@@ -53104,6 +57478,10 @@ export type GraphQLTypes = {
 	max?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_max_order_by"],
 	min?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_min_order_by"]
 };
+	/** append existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_Agendamentos_append_input"]: {
+		Endereco?: GraphQLTypes["jsonb"]
+};
 	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_arr_rel_insert_input"]: {
 		data: Array<GraphQLTypes["operacional_OrdemDeServico_Agendamentos_insert_input"]>,
@@ -53114,12 +57492,15 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Agendamentos_bool_exp"]: {
 		Agendamento?: GraphQLTypes["timestamptz_comparison_exp"],
 	Colaborador_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Contato?: GraphQLTypes["String_comparison_exp"],
+	Endereco?: GraphQLTypes["jsonb_comparison_exp"],
 	FimDoServico?: GraphQLTypes["timestamptz_comparison_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
 	InicioDoServico?: GraphQLTypes["timestamptz_comparison_exp"],
 	Itens?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Itens_bool_exp"],
 	OS_Id?: GraphQLTypes["uuid_comparison_exp"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_bool_exp"],
+	Responsavel?: GraphQLTypes["String_comparison_exp"],
 	Situacao?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_bool_exp"],
 	Situacao_Id?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum_comparison_exp"],
 	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_Agendamentos_bool_exp"]>,
@@ -53131,16 +57512,31 @@ export type GraphQLTypes = {
 };
 	/** unique or primary key constraints on table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_constraint"]: operacional_OrdemDeServico_Agendamentos_constraint;
+	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+["operacional_OrdemDeServico_Agendamentos_delete_at_path_input"]: {
+		Endereco?: Array<string>
+};
+	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+["operacional_OrdemDeServico_Agendamentos_delete_elem_input"]: {
+		Endereco?: number
+};
+	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+["operacional_OrdemDeServico_Agendamentos_delete_key_input"]: {
+		Endereco?: string
+};
 	/** input type for inserting data into table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_insert_input"]: {
 		Agendamento?: GraphQLTypes["timestamptz"],
 	Colaborador_Id?: GraphQLTypes["uuid"],
+	Contato?: string,
+	Endereco?: GraphQLTypes["jsonb"],
 	FimDoServico?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	InicioDoServico?: GraphQLTypes["timestamptz"],
 	Itens?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Itens_arr_rel_insert_input"],
 	OS_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_obj_rel_insert_input"],
+	Responsavel?: string,
 	Situacao?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_obj_rel_insert_input"],
 	Situacao_Id?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -53152,10 +57548,12 @@ export type GraphQLTypes = {
 	__typename: "operacional_OrdemDeServico_Agendamentos_max_fields",
 	Agendamento?: GraphQLTypes["timestamptz"],
 	Colaborador_Id?: GraphQLTypes["uuid"],
+	Contato?: string,
 	FimDoServico?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	InicioDoServico?: GraphQLTypes["timestamptz"],
 	OS_Id?: GraphQLTypes["uuid"],
+	Responsavel?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -53164,10 +57562,12 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Agendamentos_max_order_by"]: {
 		Agendamento?: GraphQLTypes["order_by"],
 	Colaborador_Id?: GraphQLTypes["order_by"],
+	Contato?: GraphQLTypes["order_by"],
 	FimDoServico?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	InicioDoServico?: GraphQLTypes["order_by"],
 	OS_Id?: GraphQLTypes["order_by"],
+	Responsavel?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -53177,10 +57577,12 @@ export type GraphQLTypes = {
 	__typename: "operacional_OrdemDeServico_Agendamentos_min_fields",
 	Agendamento?: GraphQLTypes["timestamptz"],
 	Colaborador_Id?: GraphQLTypes["uuid"],
+	Contato?: string,
 	FimDoServico?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	InicioDoServico?: GraphQLTypes["timestamptz"],
 	OS_Id?: GraphQLTypes["uuid"],
+	Responsavel?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -53189,10 +57591,12 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Agendamentos_min_order_by"]: {
 		Agendamento?: GraphQLTypes["order_by"],
 	Colaborador_Id?: GraphQLTypes["order_by"],
+	Contato?: GraphQLTypes["order_by"],
 	FimDoServico?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	InicioDoServico?: GraphQLTypes["order_by"],
 	OS_Id?: GraphQLTypes["order_by"],
+	Responsavel?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -53221,12 +57625,15 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Agendamentos_order_by"]: {
 		Agendamento?: GraphQLTypes["order_by"],
 	Colaborador_Id?: GraphQLTypes["order_by"],
+	Contato?: GraphQLTypes["order_by"],
+	Endereco?: GraphQLTypes["order_by"],
 	FimDoServico?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
 	InicioDoServico?: GraphQLTypes["order_by"],
 	Itens_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Itens_aggregate_order_by"],
 	OS_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_order_by"],
+	Responsavel?: GraphQLTypes["order_by"],
 	Situacao?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_order_by"],
 	Situacao_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -53237,16 +57644,23 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Agendamentos_pk_columns_input"]: {
 		Id: GraphQLTypes["uuid"]
 };
+	/** prepend existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_Agendamentos_prepend_input"]: {
+		Endereco?: GraphQLTypes["jsonb"]
+};
 	/** select columns of table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_select_column"]: operacional_OrdemDeServico_Agendamentos_select_column;
 	/** input type for updating data in table "operacional.OrdemDeServico_Agendamentos" */
 ["operacional_OrdemDeServico_Agendamentos_set_input"]: {
 		Agendamento?: GraphQLTypes["timestamptz"],
 	Colaborador_Id?: GraphQLTypes["uuid"],
+	Contato?: string,
+	Endereco?: GraphQLTypes["jsonb"],
 	FimDoServico?: GraphQLTypes["timestamptz"],
 	Id?: GraphQLTypes["uuid"],
 	InicioDoServico?: GraphQLTypes["timestamptz"],
 	OS_Id?: GraphQLTypes["uuid"],
+	Responsavel?: string,
 	Situacao_Id?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_Situacoes_enum"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -53414,190 +57828,614 @@ export type GraphQLTypes = {
 };
 	/** update columns of table "operacional.OrdemDeServico_Atividades" */
 ["operacional_OrdemDeServico_Atividades_update_column"]: operacional_OrdemDeServico_Atividades_update_column;
-	/** columns and relationships of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios"]: {
-	__typename: "operacional_OrdemDeServico_Beneficios",
+	/** columns and relationships of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist"]: {
+	__typename: "operacional_OrdemDeServico_Checklist",
+	Descricao: string,
 	Id: GraphQLTypes["uuid"],
+	Nome: string,
+	created_at: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at: GraphQLTypes["timestamptz"]
+};
+	/** aggregated selection of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_aggregate"]: {
+	__typename: "operacional_OrdemDeServico_Checklist_aggregate",
+	aggregate?: GraphQLTypes["operacional_OrdemDeServico_Checklist_aggregate_fields"],
+	nodes: Array<GraphQLTypes["operacional_OrdemDeServico_Checklist"]>
+};
+	/** aggregate fields of "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_aggregate_fields"]: {
+	__typename: "operacional_OrdemDeServico_Checklist_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["operacional_OrdemDeServico_Checklist_max_fields"],
+	min?: GraphQLTypes["operacional_OrdemDeServico_Checklist_min_fields"]
+};
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Checklist". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Checklist_bool_exp"]: {
+		Descricao?: GraphQLTypes["String_comparison_exp"],
+	Id?: GraphQLTypes["uuid_comparison_exp"],
+	Nome?: GraphQLTypes["String_comparison_exp"],
+	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_Checklist_bool_exp"]>,
+	_not?: GraphQLTypes["operacional_OrdemDeServico_Checklist_bool_exp"],
+	_or?: Array<GraphQLTypes["operacional_OrdemDeServico_Checklist_bool_exp"]>,
+	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	deleted_at?: GraphQLTypes["timestamp_comparison_exp"],
+	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
+};
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_constraint"]: operacional_OrdemDeServico_Checklist_constraint;
+	/** input type for inserting data into table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_insert_input"]: {
+		Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	Nome?: string,
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_Checklist_max_fields"]: {
+	__typename: "operacional_OrdemDeServico_Checklist_max_fields",
+	Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	Nome?: string,
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_Checklist_min_fields"]: {
+	__typename: "operacional_OrdemDeServico_Checklist_min_fields",
+	Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	Nome?: string,
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** response of any mutation on the table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_mutation_response"]: {
+	__typename: "operacional_OrdemDeServico_Checklist_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["operacional_OrdemDeServico_Checklist"]>
+};
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_on_conflict"]: {
+		constraint: GraphQLTypes["operacional_OrdemDeServico_Checklist_constraint"],
+	update_columns: Array<GraphQLTypes["operacional_OrdemDeServico_Checklist_update_column"]>,
+	where?: GraphQLTypes["operacional_OrdemDeServico_Checklist_bool_exp"]
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Checklist". */
+["operacional_OrdemDeServico_Checklist_order_by"]: {
+		Descricao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
+	Nome?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: operacional_OrdemDeServico_Checklist */
+["operacional_OrdemDeServico_Checklist_pk_columns_input"]: {
+		Id: GraphQLTypes["uuid"]
+};
+	/** select columns of table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_select_column"]: operacional_OrdemDeServico_Checklist_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_set_input"]: {
+		Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	Nome?: string,
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** update columns of table "operacional.OrdemDeServico_Checklist" */
+["operacional_OrdemDeServico_Checklist_update_column"]: operacional_OrdemDeServico_Checklist_update_column;
+	/** columns and relationships of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos"]: {
+	__typename: "operacional_OrdemDeServico_Combos",
+	Combo?: GraphQLTypes["comercial_Combos"],
+	ComboPreco?: GraphQLTypes["comercial_Combos_Precos"],
+	ComboPreco_Id: GraphQLTypes["uuid"],
+	Combo_Id: GraphQLTypes["uuid"],
+	Id: GraphQLTypes["uuid"],
+	/** An array relationship */
+	OSPlanos: Array<GraphQLTypes["operacional_OrdemDeServico_Planos"]>,
+	/** An aggregate relationship */
+	OSPlanos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	/** An array relationship */
+	OSProdutos: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos"]>,
+	/** An aggregate relationship */
+	OSProdutos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Produtos_aggregate"],
+	/** An array relationship */
+	OSServicos: Array<GraphQLTypes["operacional_OrdemDeServico_Servicos"]>,
+	/** An aggregate relationship */
+	OSServicos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Servicos_aggregate"],
 	/** An object relationship */
 	OrdemDeServico: GraphQLTypes["operacional_OrdemDeServico"],
 	OrdemDeServico_Id: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio: string,
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
 };
-	/** aggregated selection of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate"]: {
-	__typename: "operacional_OrdemDeServico_Beneficios_aggregate",
-	aggregate?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_aggregate_fields"],
-	nodes: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios"]>
+	/** aggregated selection of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate"]: {
+	__typename: "operacional_OrdemDeServico_Combos_aggregate",
+	aggregate?: GraphQLTypes["operacional_OrdemDeServico_Combos_aggregate_fields"],
+	nodes: Array<GraphQLTypes["operacional_OrdemDeServico_Combos"]>
 };
-	/** aggregate fields of "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate_fields"]: {
-	__typename: "operacional_OrdemDeServico_Beneficios_aggregate_fields",
+	/** aggregate fields of "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate_fields"]: {
+	__typename: "operacional_OrdemDeServico_Combos_aggregate_fields",
 	count: number,
-	max?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_max_fields"],
-	min?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_min_fields"]
+	max?: GraphQLTypes["operacional_OrdemDeServico_Combos_max_fields"],
+	min?: GraphQLTypes["operacional_OrdemDeServico_Combos_min_fields"]
 };
-	/** order by aggregate values of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_aggregate_order_by"]: {
+	/** order by aggregate values of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_aggregate_order_by"]: {
 		count?: GraphQLTypes["order_by"],
-	max?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_max_order_by"],
-	min?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_min_order_by"]
+	max?: GraphQLTypes["operacional_OrdemDeServico_Combos_max_order_by"],
+	min?: GraphQLTypes["operacional_OrdemDeServico_Combos_min_order_by"]
 };
-	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_arr_rel_insert_input"]: {
-		data: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios_insert_input"]>,
+	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_arr_rel_insert_input"]: {
+		data: Array<GraphQLTypes["operacional_OrdemDeServico_Combos_insert_input"]>,
 	/** upsert condition */
-	on_conflict?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_on_conflict"]
+	on_conflict?: GraphQLTypes["operacional_OrdemDeServico_Combos_on_conflict"]
 };
-	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Beneficios". All fields are combined with a logical 'AND'. */
-["operacional_OrdemDeServico_Beneficios_bool_exp"]: {
-		Id?: GraphQLTypes["uuid_comparison_exp"],
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Combos". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Combos_bool_exp"]: {
+		ComboPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Combo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Id?: GraphQLTypes["uuid_comparison_exp"],
+	OSPlanos?: GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"],
+	OSProdutos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"],
+	OSServicos?: GraphQLTypes["operacional_OrdemDeServico_Servicos_bool_exp"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_bool_exp"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid_comparison_exp"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
-	Portfolio_Id?: GraphQLTypes["uuid_comparison_exp"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
-	TipoPortfolio?: GraphQLTypes["String_comparison_exp"],
-	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios_bool_exp"]>,
-	_not?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_bool_exp"],
-	_or?: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios_bool_exp"]>,
+	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"]>,
+	_not?: GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"],
+	_or?: Array<GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"]>,
 	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
 	deleted_at?: GraphQLTypes["timestamptz_comparison_exp"],
 	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
 };
-	/** unique or primary key constraints on table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_constraint"]: operacional_OrdemDeServico_Beneficios_constraint;
-	/** input type for inserting data into table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_insert_input"]: {
-		Id?: GraphQLTypes["uuid"],
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_constraint"]: operacional_OrdemDeServico_Combos_constraint;
+	/** input type for inserting data into table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_insert_input"]: {
+		ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
+	Id?: GraphQLTypes["uuid"],
+	OSPlanos?: GraphQLTypes["operacional_OrdemDeServico_Planos_arr_rel_insert_input"],
+	OSProdutos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"],
+	OSServicos?: GraphQLTypes["operacional_OrdemDeServico_Servicos_arr_rel_insert_input"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_obj_rel_insert_input"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
 	/** aggregate max on columns */
-["operacional_OrdemDeServico_Beneficios_max_fields"]: {
-	__typename: "operacional_OrdemDeServico_Beneficios_max_fields",
+["operacional_OrdemDeServico_Combos_max_fields"]: {
+	__typename: "operacional_OrdemDeServico_Combos_max_fields",
+	ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
-	/** order by max() on columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_max_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+	/** order by max() on columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_max_order_by"]: {
+		ComboPreco_Id?: GraphQLTypes["order_by"],
+	Combo_Id?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
-	PortfolioPreco_Id?: GraphQLTypes["order_by"],
-	Portfolio_Id?: GraphQLTypes["order_by"],
-	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
-	TipoPortfolio?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
 };
 	/** aggregate min on columns */
-["operacional_OrdemDeServico_Beneficios_min_fields"]: {
-	__typename: "operacional_OrdemDeServico_Beneficios_min_fields",
+["operacional_OrdemDeServico_Combos_min_fields"]: {
+	__typename: "operacional_OrdemDeServico_Combos_min_fields",
+	ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
 	Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
-	/** order by min() on columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_min_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+	/** order by min() on columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_min_order_by"]: {
+		ComboPreco_Id?: GraphQLTypes["order_by"],
+	Combo_Id?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
-	PortfolioPreco_Id?: GraphQLTypes["order_by"],
-	Portfolio_Id?: GraphQLTypes["order_by"],
-	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
-	TipoPortfolio?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
 };
-	/** response of any mutation on the table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_mutation_response"]: {
-	__typename: "operacional_OrdemDeServico_Beneficios_mutation_response",
+	/** response of any mutation on the table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_mutation_response"]: {
+	__typename: "operacional_OrdemDeServico_Combos_mutation_response",
 	/** number of rows affected by the mutation */
 	affected_rows: number,
 	/** data from the rows affected by the mutation */
-	returning: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios"]>
+	returning: Array<GraphQLTypes["operacional_OrdemDeServico_Combos"]>
 };
-	/** on_conflict condition type for table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_on_conflict"]: {
-		constraint: GraphQLTypes["operacional_OrdemDeServico_Beneficios_constraint"],
-	update_columns: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios_update_column"]>,
-	where?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_bool_exp"]
+	/** input type for inserting object relation for remote table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_obj_rel_insert_input"]: {
+		data: GraphQLTypes["operacional_OrdemDeServico_Combos_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["operacional_OrdemDeServico_Combos_on_conflict"]
 };
-	/** Ordering options when selecting data from "operacional.OrdemDeServico_Beneficios". */
-["operacional_OrdemDeServico_Beneficios_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_on_conflict"]: {
+		constraint: GraphQLTypes["operacional_OrdemDeServico_Combos_constraint"],
+	update_columns: Array<GraphQLTypes["operacional_OrdemDeServico_Combos_update_column"]>,
+	where?: GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"]
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Combos". */
+["operacional_OrdemDeServico_Combos_order_by"]: {
+		ComboPreco_Id?: GraphQLTypes["order_by"],
+	Combo_Id?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
+	OSPlanos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate_order_by"],
+	OSProdutos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Produtos_aggregate_order_by"],
+	OSServicos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Servicos_aggregate_order_by"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
-	PortfolioPreco_Id?: GraphQLTypes["order_by"],
-	Portfolio_Id?: GraphQLTypes["order_by"],
-	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
-	TipoPortfolio?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
 };
-	/** primary key columns input for table: operacional_OrdemDeServico_Beneficios */
-["operacional_OrdemDeServico_Beneficios_pk_columns_input"]: {
+	/** primary key columns input for table: operacional_OrdemDeServico_Combos */
+["operacional_OrdemDeServico_Combos_pk_columns_input"]: {
 		Id: GraphQLTypes["uuid"]
 };
-	/** select columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_select_column"]: operacional_OrdemDeServico_Beneficios_select_column;
-	/** input type for updating data in table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_set_input"]: {
-		Id?: GraphQLTypes["uuid"],
+	/** select columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_select_column"]: operacional_OrdemDeServico_Combos_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_set_input"]: {
+		ComboPreco_Id?: GraphQLTypes["uuid"],
+	Combo_Id?: GraphQLTypes["uuid"],
+	Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
-	PortfolioPreco_Id?: GraphQLTypes["uuid"],
-	Portfolio_Id?: GraphQLTypes["uuid"],
-	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
-	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
-	TipoPortfolio?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
-	/** update columns of table "operacional.OrdemDeServico_Beneficios" */
-["operacional_OrdemDeServico_Beneficios_update_column"]: operacional_OrdemDeServico_Beneficios_update_column;
+	/** update columns of table "operacional.OrdemDeServico_Combos" */
+["operacional_OrdemDeServico_Combos_update_column"]: operacional_OrdemDeServico_Combos_update_column;
+	/** columns and relationships of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist"]: {
+	__typename: "operacional_OrdemDeServico_ItensDeChecklist",
+	Checklist_Id: GraphQLTypes["jsonb"],
+	Descricao: string,
+	Id: GraphQLTypes["uuid"],
+	created_at: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at: GraphQLTypes["timestamptz"]
+};
+	/** aggregated selection of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_aggregate"]: {
+	__typename: "operacional_OrdemDeServico_ItensDeChecklist_aggregate",
+	aggregate?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate_fields"],
+	nodes: Array<GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"]>
+};
+	/** aggregate fields of "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_aggregate_fields"]: {
+	__typename: "operacional_OrdemDeServico_ItensDeChecklist_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_max_fields"],
+	min?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_min_fields"]
+};
+	/** append existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_ItensDeChecklist_append_input"]: {
+		Checklist_Id?: GraphQLTypes["jsonb"]
+};
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_ItensDeChecklist". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]: {
+		Checklist_Id?: GraphQLTypes["jsonb_comparison_exp"],
+	Descricao?: GraphQLTypes["String_comparison_exp"],
+	Id?: GraphQLTypes["uuid_comparison_exp"],
+	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]>,
+	_not?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"],
+	_or?: Array<GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]>,
+	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	deleted_at?: GraphQLTypes["timestamp_comparison_exp"],
+	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
+};
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_constraint"]: operacional_OrdemDeServico_ItensDeChecklist_constraint;
+	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_at_path_input"]: {
+		Checklist_Id?: Array<string>
+};
+	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_elem_input"]: {
+		Checklist_Id?: number
+};
+	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+["operacional_OrdemDeServico_ItensDeChecklist_delete_key_input"]: {
+		Checklist_Id?: string
+};
+	/** input type for inserting data into table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_insert_input"]: {
+		Checklist_Id?: GraphQLTypes["jsonb"],
+	Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_ItensDeChecklist_max_fields"]: {
+	__typename: "operacional_OrdemDeServico_ItensDeChecklist_max_fields",
+	Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_ItensDeChecklist_min_fields"]: {
+	__typename: "operacional_OrdemDeServico_ItensDeChecklist_min_fields",
+	Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** response of any mutation on the table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_mutation_response"]: {
+	__typename: "operacional_OrdemDeServico_ItensDeChecklist_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"]>
+};
+	/** on_conflict condition type for table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_on_conflict"]: {
+		constraint: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_constraint"],
+	update_columns: Array<GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_update_column"]>,
+	where?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_bool_exp"]
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_ItensDeChecklist". */
+["operacional_OrdemDeServico_ItensDeChecklist_order_by"]: {
+		Checklist_Id?: GraphQLTypes["order_by"],
+	Descricao?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: operacional_OrdemDeServico_ItensDeChecklist */
+["operacional_OrdemDeServico_ItensDeChecklist_pk_columns_input"]: {
+		Id: GraphQLTypes["uuid"]
+};
+	/** prepend existing jsonb value of filtered columns with new jsonb value */
+["operacional_OrdemDeServico_ItensDeChecklist_prepend_input"]: {
+		Checklist_Id?: GraphQLTypes["jsonb"]
+};
+	/** select columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_select_column"]: operacional_OrdemDeServico_ItensDeChecklist_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_set_input"]: {
+		Checklist_Id?: GraphQLTypes["jsonb"],
+	Descricao?: string,
+	Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamp"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** update columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+["operacional_OrdemDeServico_ItensDeChecklist_update_column"]: operacional_OrdemDeServico_ItensDeChecklist_update_column;
+	/** columns and relationships of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos"]: {
+	__typename: "operacional_OrdemDeServico_Planos",
+	Id: GraphQLTypes["uuid"],
+	/** An object relationship */
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** An array relationship */
+	OSProdutos: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos"]>,
+	/** An aggregate relationship */
+	OSProdutos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Produtos_aggregate"],
+	/** An array relationship */
+	OSServicos: Array<GraphQLTypes["operacional_OrdemDeServico_Servicos"]>,
+	/** An aggregate relationship */
+	OSServicos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Servicos_aggregate"],
+	/** An object relationship */
+	OrdemDeServico: GraphQLTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServico_Id: GraphQLTypes["uuid"],
+	Plano?: GraphQLTypes["comercial_Planos"],
+	PlanoPreco?: GraphQLTypes["comercial_Planos_Precos"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id: GraphQLTypes["uuid"],
+	created_at: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at: GraphQLTypes["timestamptz"]
+};
+	/** aggregated selection of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate"]: {
+	__typename: "operacional_OrdemDeServico_Planos_aggregate",
+	aggregate?: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate_fields"],
+	nodes: Array<GraphQLTypes["operacional_OrdemDeServico_Planos"]>
+};
+	/** aggregate fields of "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate_fields"]: {
+	__typename: "operacional_OrdemDeServico_Planos_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["operacional_OrdemDeServico_Planos_max_fields"],
+	min?: GraphQLTypes["operacional_OrdemDeServico_Planos_min_fields"]
+};
+	/** order by aggregate values of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_aggregate_order_by"]: {
+		count?: GraphQLTypes["order_by"],
+	max?: GraphQLTypes["operacional_OrdemDeServico_Planos_max_order_by"],
+	min?: GraphQLTypes["operacional_OrdemDeServico_Planos_min_order_by"]
+};
+	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_arr_rel_insert_input"]: {
+		data: Array<GraphQLTypes["operacional_OrdemDeServico_Planos_insert_input"]>,
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["operacional_OrdemDeServico_Planos_on_conflict"]
+};
+	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Planos". All fields are combined with a logical 'AND'. */
+["operacional_OrdemDeServico_Planos_bool_exp"]: {
+		Id?: GraphQLTypes["uuid_comparison_exp"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"],
+	OSProdutos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"],
+	OSServicos?: GraphQLTypes["operacional_OrdemDeServico_Servicos_bool_exp"],
+	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_bool_exp"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	OrdemDeServico_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PlanoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Plano_Id?: GraphQLTypes["uuid_comparison_exp"],
+	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"]>,
+	_not?: GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"],
+	_or?: Array<GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"]>,
+	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	deleted_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
+};
+	/** unique or primary key constraints on table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_constraint"]: operacional_OrdemDeServico_Planos_constraint;
+	/** input type for inserting data into table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_insert_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_obj_rel_insert_input"],
+	OSProdutos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"],
+	OSServicos?: GraphQLTypes["operacional_OrdemDeServico_Servicos_arr_rel_insert_input"],
+	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_obj_rel_insert_input"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServico_Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate max on columns */
+["operacional_OrdemDeServico_Planos_max_fields"]: {
+	__typename: "operacional_OrdemDeServico_Planos_max_fields",
+	Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServico_Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by max() on columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_max_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServico_Id?: GraphQLTypes["order_by"],
+	PlanoPreco_Id?: GraphQLTypes["order_by"],
+	Plano_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** aggregate min on columns */
+["operacional_OrdemDeServico_Planos_min_fields"]: {
+	__typename: "operacional_OrdemDeServico_Planos_min_fields",
+	Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServico_Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by min() on columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_min_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServico_Id?: GraphQLTypes["order_by"],
+	PlanoPreco_Id?: GraphQLTypes["order_by"],
+	Plano_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** response of any mutation on the table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_mutation_response"]: {
+	__typename: "operacional_OrdemDeServico_Planos_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["operacional_OrdemDeServico_Planos"]>
+};
+	/** input type for inserting object relation for remote table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_obj_rel_insert_input"]: {
+		data: GraphQLTypes["operacional_OrdemDeServico_Planos_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["operacional_OrdemDeServico_Planos_on_conflict"]
+};
+	/** on_conflict condition type for table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_on_conflict"]: {
+		constraint: GraphQLTypes["operacional_OrdemDeServico_Planos_constraint"],
+	update_columns: Array<GraphQLTypes["operacional_OrdemDeServico_Planos_update_column"]>,
+	where?: GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"]
+};
+	/** Ordering options when selecting data from "operacional.OrdemDeServico_Planos". */
+["operacional_OrdemDeServico_Planos_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_order_by"],
+	OSProdutos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Produtos_aggregate_order_by"],
+	OSServicos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Servicos_aggregate_order_by"],
+	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServico_Id?: GraphQLTypes["order_by"],
+	PlanoPreco_Id?: GraphQLTypes["order_by"],
+	Plano_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: operacional_OrdemDeServico_Planos */
+["operacional_OrdemDeServico_Planos_pk_columns_input"]: {
+		Id: GraphQLTypes["uuid"]
+};
+	/** select columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_select_column"]: operacional_OrdemDeServico_Planos_select_column;
+	/** input type for updating data in table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_set_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServico_Id?: GraphQLTypes["uuid"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
+	Plano_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** update columns of table "operacional.OrdemDeServico_Planos" */
+["operacional_OrdemDeServico_Planos_update_column"]: operacional_OrdemDeServico_Planos_update_column;
 	/** columns and relationships of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos"]: {
 	__typename: "operacional_OrdemDeServico_Produtos",
 	Id: GraphQLTypes["uuid"],
 	Identificavel_Id?: GraphQLTypes["uuid"],
 	/** An object relationship */
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** An object relationship */
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos"],
+	/** An object relationship */
 	OrdemDeServico: GraphQLTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id: GraphQLTypes["uuid"],
 	PrecoDeAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Produtos_Precos"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
@@ -53605,6 +58443,7 @@ export type GraphQLTypes = {
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto?: GraphQLTypes["comercial_Produtos"],
 	Produto_Id: GraphQLTypes["uuid"],
+	Quantidade: number,
 	TipoDeIdentificavel_Id?: string,
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -53619,15 +58458,31 @@ export type GraphQLTypes = {
 	/** aggregate fields of "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_aggregate_fields"]: {
 	__typename: "operacional_OrdemDeServico_Produtos_aggregate_fields",
+	avg?: GraphQLTypes["operacional_OrdemDeServico_Produtos_avg_fields"],
 	count: number,
 	max?: GraphQLTypes["operacional_OrdemDeServico_Produtos_max_fields"],
-	min?: GraphQLTypes["operacional_OrdemDeServico_Produtos_min_fields"]
+	min?: GraphQLTypes["operacional_OrdemDeServico_Produtos_min_fields"],
+	stddev?: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_fields"],
+	stddev_pop?: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_pop_fields"],
+	stddev_samp?: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_samp_fields"],
+	sum?: GraphQLTypes["operacional_OrdemDeServico_Produtos_sum_fields"],
+	var_pop?: GraphQLTypes["operacional_OrdemDeServico_Produtos_var_pop_fields"],
+	var_samp?: GraphQLTypes["operacional_OrdemDeServico_Produtos_var_samp_fields"],
+	variance?: GraphQLTypes["operacional_OrdemDeServico_Produtos_variance_fields"]
 };
 	/** order by aggregate values of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_aggregate_order_by"]: {
-		count?: GraphQLTypes["order_by"],
+		avg?: GraphQLTypes["operacional_OrdemDeServico_Produtos_avg_order_by"],
+	count?: GraphQLTypes["order_by"],
 	max?: GraphQLTypes["operacional_OrdemDeServico_Produtos_max_order_by"],
-	min?: GraphQLTypes["operacional_OrdemDeServico_Produtos_min_order_by"]
+	min?: GraphQLTypes["operacional_OrdemDeServico_Produtos_min_order_by"],
+	stddev?: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_order_by"],
+	stddev_pop?: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_pop_order_by"],
+	stddev_samp?: GraphQLTypes["operacional_OrdemDeServico_Produtos_stddev_samp_order_by"],
+	sum?: GraphQLTypes["operacional_OrdemDeServico_Produtos_sum_order_by"],
+	var_pop?: GraphQLTypes["operacional_OrdemDeServico_Produtos_var_pop_order_by"],
+	var_samp?: GraphQLTypes["operacional_OrdemDeServico_Produtos_var_samp_order_by"],
+	variance?: GraphQLTypes["operacional_OrdemDeServico_Produtos_variance_order_by"]
 };
 	/** input type for inserting array relation for remote table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"]: {
@@ -53635,15 +58490,29 @@ export type GraphQLTypes = {
 	/** upsert condition */
 	on_conflict?: GraphQLTypes["operacional_OrdemDeServico_Produtos_on_conflict"]
 };
+	/** aggregate avg on columns */
+["operacional_OrdemDeServico_Produtos_avg_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_avg_fields",
+	Quantidade?: number
+};
+	/** order by avg() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_avg_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Produtos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Produtos_bool_exp"]: {
 		Id?: GraphQLTypes["uuid_comparison_exp"],
 	Identificavel_Id?: GraphQLTypes["uuid_comparison_exp"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"],
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_bool_exp"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Quantidade?: GraphQLTypes["Int_comparison_exp"],
 	TipoDeIdentificavel_Id?: GraphQLTypes["String_comparison_exp"],
 	_and?: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"]>,
 	_not?: GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"],
@@ -53654,15 +58523,24 @@ export type GraphQLTypes = {
 };
 	/** unique or primary key constraints on table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_constraint"]: operacional_OrdemDeServico_Produtos_constraint;
+	/** input type for incrementing numeric columns in table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_inc_input"]: {
+		Quantidade?: number
+};
 	/** input type for inserting data into table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_insert_input"]: {
 		Id?: GraphQLTypes["uuid"],
 	Identificavel_Id?: GraphQLTypes["uuid"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_obj_rel_insert_input"],
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos_obj_rel_insert_input"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_obj_rel_insert_input"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -53673,10 +58551,13 @@ export type GraphQLTypes = {
 	__typename: "operacional_OrdemDeServico_Produtos_max_fields",
 	Id?: GraphQLTypes["uuid"],
 	Identificavel_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -53686,10 +58567,13 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Produtos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Identificavel_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	TipoDeIdentificavel_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -53700,10 +58584,13 @@ export type GraphQLTypes = {
 	__typename: "operacional_OrdemDeServico_Produtos_min_fields",
 	Id?: GraphQLTypes["uuid"],
 	Identificavel_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -53713,10 +58600,13 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Produtos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Identificavel_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	TipoDeIdentificavel_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -53740,11 +58630,16 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Produtos_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
 	Identificavel_Id?: GraphQLTypes["order_by"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_order_by"],
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos_order_by"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	TipoDeIdentificavel_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -53760,23 +58655,96 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Produtos_set_input"]: {
 		Id?: GraphQLTypes["uuid"],
 	Identificavel_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	TipoDeIdentificavel_Id?: string,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
+	/** aggregate stddev on columns */
+["operacional_OrdemDeServico_Produtos_stddev_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_stddev_fields",
+	Quantidade?: number
+};
+	/** order by stddev() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_pop on columns */
+["operacional_OrdemDeServico_Produtos_stddev_pop_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_stddev_pop_fields",
+	Quantidade?: number
+};
+	/** order by stddev_pop() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_pop_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_samp on columns */
+["operacional_OrdemDeServico_Produtos_stddev_samp_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_stddev_samp_fields",
+	Quantidade?: number
+};
+	/** order by stddev_samp() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_stddev_samp_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate sum on columns */
+["operacional_OrdemDeServico_Produtos_sum_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_sum_fields",
+	Quantidade?: number
+};
+	/** order by sum() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_sum_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
 	/** update columns of table "operacional.OrdemDeServico_Produtos" */
 ["operacional_OrdemDeServico_Produtos_update_column"]: operacional_OrdemDeServico_Produtos_update_column;
+	/** aggregate var_pop on columns */
+["operacional_OrdemDeServico_Produtos_var_pop_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_var_pop_fields",
+	Quantidade?: number
+};
+	/** order by var_pop() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_var_pop_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate var_samp on columns */
+["operacional_OrdemDeServico_Produtos_var_samp_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_var_samp_fields",
+	Quantidade?: number
+};
+	/** order by var_samp() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_var_samp_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate variance on columns */
+["operacional_OrdemDeServico_Produtos_variance_fields"]: {
+	__typename: "operacional_OrdemDeServico_Produtos_variance_fields",
+	Quantidade?: number
+};
+	/** order by variance() on columns of table "operacional.OrdemDeServico_Produtos" */
+["operacional_OrdemDeServico_Produtos_variance_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
 	/** columns and relationships of "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos"]: {
 	__typename: "operacional_OrdemDeServico_Servicos",
+	Beneficio: boolean,
 	Id: GraphQLTypes["uuid"],
 	/** An object relationship */
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** An object relationship */
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos"],
+	/** An object relationship */
 	OrdemDeServico: GraphQLTypes["operacional_OrdemDeServico"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id: GraphQLTypes["uuid"],
 	PrecoDeAdesao?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
@@ -53815,8 +58783,13 @@ export type GraphQLTypes = {
 };
 	/** Boolean expression to filter rows from the table "operacional.OrdemDeServico_Servicos". All fields are combined with a logical 'AND'. */
 ["operacional_OrdemDeServico_Servicos_bool_exp"]: {
-		Id?: GraphQLTypes["uuid_comparison_exp"],
+		Beneficio?: GraphQLTypes["Boolean_comparison_exp"],
+	Id?: GraphQLTypes["uuid_comparison_exp"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"],
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_bool_exp"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
@@ -53832,8 +58805,13 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Servicos_constraint"]: operacional_OrdemDeServico_Servicos_constraint;
 	/** input type for inserting data into table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_insert_input"]: {
-		Id?: GraphQLTypes["uuid"],
+		Beneficio?: boolean,
+	Id?: GraphQLTypes["uuid"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_obj_rel_insert_input"],
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos_obj_rel_insert_input"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_obj_rel_insert_input"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
@@ -53846,6 +58824,8 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Servicos_max_fields"]: {
 	__typename: "operacional_OrdemDeServico_Servicos_max_fields",
 	Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
@@ -53857,6 +58837,8 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_max_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
@@ -53869,6 +58851,8 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Servicos_min_fields"]: {
 	__typename: "operacional_OrdemDeServico_Servicos_min_fields",
 	Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
@@ -53880,6 +58864,8 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_min_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
@@ -53904,8 +58890,13 @@ export type GraphQLTypes = {
 };
 	/** Ordering options when selecting data from "operacional.OrdemDeServico_Servicos". */
 ["operacional_OrdemDeServico_Servicos_order_by"]: {
-		Id?: GraphQLTypes["order_by"],
+		Beneficio?: GraphQLTypes["order_by"],
+	Id?: GraphQLTypes["order_by"],
+	OSCombo?: GraphQLTypes["operacional_OrdemDeServico_Combos_order_by"],
+	OSPlano?: GraphQLTypes["operacional_OrdemDeServico_Planos_order_by"],
 	OrdemDeServico?: GraphQLTypes["operacional_OrdemDeServico_order_by"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["order_by"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["order_by"],
 	OrdemDeServico_Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
@@ -53922,7 +58913,10 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_Servicos_select_column"]: operacional_OrdemDeServico_Servicos_select_column;
 	/** input type for updating data in table "operacional.OrdemDeServico_Servicos" */
 ["operacional_OrdemDeServico_Servicos_set_input"]: {
-		Id?: GraphQLTypes["uuid"],
+		Beneficio?: boolean,
+	Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoCombo_Id?: GraphQLTypes["uuid"],
+	OrdemDeServicoPlano_Id?: GraphQLTypes["uuid"],
 	OrdemDeServico_Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
@@ -54194,9 +59188,11 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_bool_exp"]: {
 		Agendamentos?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_bool_exp"],
 	Atividades?: GraphQLTypes["operacional_OrdemDeServico_Atividades_bool_exp"],
-	Beneficios?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_bool_exp"],
 	CodigoIdentificador?: GraphQLTypes["Int_comparison_exp"],
+	Combos?: GraphQLTypes["operacional_OrdemDeServico_Combos_bool_exp"],
 	Id?: GraphQLTypes["uuid_comparison_exp"],
+	Planos?: GraphQLTypes["operacional_OrdemDeServico_Planos_bool_exp"],
+	PossuiGNV?: GraphQLTypes["Boolean_comparison_exp"],
 	Produtos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_bool_exp"],
 	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Servicos?: GraphQLTypes["operacional_OrdemDeServico_Servicos_bool_exp"],
@@ -54222,9 +59218,11 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_insert_input"]: {
 		Agendamentos?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_arr_rel_insert_input"],
 	Atividades?: GraphQLTypes["operacional_OrdemDeServico_Atividades_arr_rel_insert_input"],
-	Beneficios?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_arr_rel_insert_input"],
 	CodigoIdentificador?: number,
+	Combos?: GraphQLTypes["operacional_OrdemDeServico_Combos_arr_rel_insert_input"],
 	Id?: GraphQLTypes["uuid"],
+	Planos?: GraphQLTypes["operacional_OrdemDeServico_Planos_arr_rel_insert_input"],
+	PossuiGNV?: boolean,
 	Produtos?: GraphQLTypes["operacional_OrdemDeServico_Produtos_arr_rel_insert_input"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Servicos?: GraphQLTypes["operacional_OrdemDeServico_Servicos_arr_rel_insert_input"],
@@ -54303,9 +59301,11 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_order_by"]: {
 		Agendamentos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Agendamentos_aggregate_order_by"],
 	Atividades_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Atividades_aggregate_order_by"],
-	Beneficios_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Beneficios_aggregate_order_by"],
 	CodigoIdentificador?: GraphQLTypes["order_by"],
+	Combos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Combos_aggregate_order_by"],
 	Id?: GraphQLTypes["order_by"],
+	Planos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate_order_by"],
+	PossuiGNV?: GraphQLTypes["order_by"],
 	Produtos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Produtos_aggregate_order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	Servicos_aggregate?: GraphQLTypes["operacional_OrdemDeServico_Servicos_aggregate_order_by"],
@@ -54328,6 +59328,7 @@ export type GraphQLTypes = {
 ["operacional_OrdemDeServico_set_input"]: {
 		CodigoIdentificador?: number,
 	Id?: GraphQLTypes["uuid"],
+	PossuiGNV?: boolean,
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Situacao_Id?: GraphQLTypes["operacional_OrdemDeServico_Situacoes_enum"],
 	Tipo_Id?: GraphQLTypes["operacional_OrdemDeServico_Tipo_enum"],
@@ -59008,6 +64009,7 @@ export type GraphQLTypes = {
 ["propostas_Propostas"]: {
 	__typename: "propostas_Propostas",
 	Cliente_Id?: GraphQLTypes["uuid"],
+	CodigoReferencia: number,
 	/** An array relationship */
 	Combos: Array<GraphQLTypes["propostas_Propostas_Combos"]>,
 	/** An aggregate relationship */
@@ -59028,6 +64030,11 @@ export type GraphQLTypes = {
 	Produtos: Array<GraphQLTypes["propostas_Propostas_Produtos"]>,
 	/** An aggregate relationship */
 	Produtos_aggregate: GraphQLTypes["propostas_Propostas_Produtos_aggregate"],
+	PropostaGerada: boolean,
+	/** An array relationship */
+	RegrasETermosDeUsos: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"]>,
+	/** An aggregate relationship */
+	RegrasETermosDeUsos_aggregate: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
 	/** An array relationship */
 	Servicos: Array<GraphQLTypes["propostas_Propostas_Servicos"]>,
 	/** An aggregate relationship */
@@ -59059,6 +64066,18 @@ export type GraphQLTypes = {
 	Proposta: GraphQLTypes["propostas_Propostas"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id: GraphQLTypes["uuid"],
+	/** An array relationship */
+	PropostasPlanos: Array<GraphQLTypes["propostas_Propostas_Planos"]>,
+	/** An aggregate relationship */
+	PropostasPlanos_aggregate: GraphQLTypes["propostas_Propostas_Planos_aggregate"],
+	/** An array relationship */
+	PropostasProdutos: Array<GraphQLTypes["propostas_Propostas_Produtos"]>,
+	/** An aggregate relationship */
+	PropostasProdutos_aggregate: GraphQLTypes["propostas_Propostas_Produtos_aggregate"],
+	/** An array relationship */
+	PropostasServicos: Array<GraphQLTypes["propostas_Propostas_Servicos"]>,
+	/** An aggregate relationship */
+	PropostasServicos_aggregate: GraphQLTypes["propostas_Propostas_Servicos_aggregate"],
 	/** An object relationship */
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos"],
 	created_at: GraphQLTypes["timestamptz"],
@@ -59100,6 +64119,9 @@ export type GraphQLTypes = {
 	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PropostasPlanos?: GraphQLTypes["propostas_Propostas_Planos_bool_exp"],
+	PropostasProdutos?: GraphQLTypes["propostas_Propostas_Produtos_bool_exp"],
+	PropostasServicos?: GraphQLTypes["propostas_Propostas_Servicos_bool_exp"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_bool_exp"],
 	_and?: Array<GraphQLTypes["propostas_Propostas_Combos_bool_exp"]>,
 	_not?: GraphQLTypes["propostas_Propostas_Combos_bool_exp"],
@@ -59120,6 +64142,9 @@ export type GraphQLTypes = {
 	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
+	PropostasPlanos?: GraphQLTypes["propostas_Propostas_Planos_arr_rel_insert_input"],
+	PropostasProdutos?: GraphQLTypes["propostas_Propostas_Produtos_arr_rel_insert_input"],
+	PropostasServicos?: GraphQLTypes["propostas_Propostas_Servicos_arr_rel_insert_input"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -59179,6 +64204,12 @@ export type GraphQLTypes = {
 	/** data from the rows affected by the mutation */
 	returning: Array<GraphQLTypes["propostas_Propostas_Combos"]>
 };
+	/** input type for inserting object relation for remote table "propostas.Propostas_Combos" */
+["propostas_Propostas_Combos_obj_rel_insert_input"]: {
+		data: GraphQLTypes["propostas_Propostas_Combos_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["propostas_Propostas_Combos_on_conflict"]
+};
 	/** on_conflict condition type for table "propostas.Propostas_Combos" */
 ["propostas_Propostas_Combos_on_conflict"]: {
 		constraint: GraphQLTypes["propostas_Propostas_Combos_constraint"],
@@ -59195,6 +64226,9 @@ export type GraphQLTypes = {
 	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
+	PropostasPlanos_aggregate?: GraphQLTypes["propostas_Propostas_Planos_aggregate_order_by"],
+	PropostasProdutos_aggregate?: GraphQLTypes["propostas_Propostas_Produtos_aggregate_order_by"],
+	PropostasServicos_aggregate?: GraphQLTypes["propostas_Propostas_Servicos_aggregate_order_by"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -59400,13 +64434,24 @@ export type GraphQLTypes = {
 	/** An object relationship */
 	Plano: GraphQLTypes["comercial_Planos"],
 	/** An object relationship */
-	PlanoPreco: GraphQLTypes["comercial_Planos_Precos"],
-	PlanoPreco_Id: GraphQLTypes["uuid"],
+	PlanoPreco?: GraphQLTypes["comercial_Planos_Precos"],
+	PlanoPreco_Id?: GraphQLTypes["uuid"],
 	Plano_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Proposta: GraphQLTypes["propostas_Propostas"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id: GraphQLTypes["uuid"],
+	/** An object relationship */
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos"],
+	/** An array relationship */
+	PropostasProdutos: Array<GraphQLTypes["propostas_Propostas_Produtos"]>,
+	/** An aggregate relationship */
+	PropostasProdutos_aggregate: GraphQLTypes["propostas_Propostas_Produtos_aggregate"],
+	/** An array relationship */
+	PropostasServicos: Array<GraphQLTypes["propostas_Propostas_Servicos"]>,
+	/** An aggregate relationship */
+	PropostasServicos_aggregate: GraphQLTypes["propostas_Propostas_Servicos_aggregate"],
 	/** An object relationship */
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos"],
 	created_at: GraphQLTypes["timestamptz"],
@@ -59446,8 +64491,12 @@ export type GraphQLTypes = {
 	PlanoPreco_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Plano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
+	PropostaCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_bool_exp"],
+	PropostasProdutos?: GraphQLTypes["propostas_Propostas_Produtos_bool_exp"],
+	PropostasServicos?: GraphQLTypes["propostas_Propostas_Servicos_bool_exp"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_bool_exp"],
 	_and?: Array<GraphQLTypes["propostas_Propostas_Planos_bool_exp"]>,
 	_not?: GraphQLTypes["propostas_Propostas_Planos_bool_exp"],
@@ -59466,8 +64515,12 @@ export type GraphQLTypes = {
 	PlanoPreco_Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
 	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_obj_rel_insert_input"],
+	PropostasProdutos?: GraphQLTypes["propostas_Propostas_Produtos_arr_rel_insert_input"],
+	PropostasServicos?: GraphQLTypes["propostas_Propostas_Servicos_arr_rel_insert_input"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"],
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
@@ -59479,6 +64532,7 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PlanoPreco_Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -59490,6 +64544,7 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["order_by"],
 	PlanoPreco_Id?: GraphQLTypes["order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -59502,6 +64557,7 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PlanoPreco_Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -59513,6 +64569,7 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["order_by"],
 	PlanoPreco_Id?: GraphQLTypes["order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
@@ -59526,6 +64583,12 @@ export type GraphQLTypes = {
 	affected_rows: number,
 	/** data from the rows affected by the mutation */
 	returning: Array<GraphQLTypes["propostas_Propostas_Planos"]>
+};
+	/** input type for inserting object relation for remote table "propostas.Propostas_Planos" */
+["propostas_Propostas_Planos_obj_rel_insert_input"]: {
+		data: GraphQLTypes["propostas_Propostas_Planos_insert_input"],
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["propostas_Propostas_Planos_on_conflict"]
 };
 	/** on_conflict condition type for table "propostas.Propostas_Planos" */
 ["propostas_Propostas_Planos_on_conflict"]: {
@@ -59541,8 +64604,12 @@ export type GraphQLTypes = {
 	PlanoPreco_Id?: GraphQLTypes["order_by"],
 	Plano_Id?: GraphQLTypes["order_by"],
 	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_order_by"],
+	PropostasProdutos_aggregate?: GraphQLTypes["propostas_Propostas_Produtos_aggregate_order_by"],
+	PropostasServicos_aggregate?: GraphQLTypes["propostas_Propostas_Servicos_aggregate_order_by"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
@@ -59559,6 +64626,7 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["uuid"],
 	PlanoPreco_Id?: GraphQLTypes["uuid"],
 	Plano_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -59582,10 +64650,17 @@ export type GraphQLTypes = {
 	Produto_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Proposta: GraphQLTypes["propostas_Propostas"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id: GraphQLTypes["uuid"],
 	/** An object relationship */
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos"],
+	/** An object relationship */
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos"],
+	/** An object relationship */
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos"],
+	Quantidade: number,
 	created_at: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at: GraphQLTypes["timestamptz"]
@@ -59599,21 +64674,46 @@ export type GraphQLTypes = {
 	/** aggregate fields of "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_aggregate_fields"]: {
 	__typename: "propostas_Propostas_Produtos_aggregate_fields",
+	avg?: GraphQLTypes["propostas_Propostas_Produtos_avg_fields"],
 	count: number,
 	max?: GraphQLTypes["propostas_Propostas_Produtos_max_fields"],
-	min?: GraphQLTypes["propostas_Propostas_Produtos_min_fields"]
+	min?: GraphQLTypes["propostas_Propostas_Produtos_min_fields"],
+	stddev?: GraphQLTypes["propostas_Propostas_Produtos_stddev_fields"],
+	stddev_pop?: GraphQLTypes["propostas_Propostas_Produtos_stddev_pop_fields"],
+	stddev_samp?: GraphQLTypes["propostas_Propostas_Produtos_stddev_samp_fields"],
+	sum?: GraphQLTypes["propostas_Propostas_Produtos_sum_fields"],
+	var_pop?: GraphQLTypes["propostas_Propostas_Produtos_var_pop_fields"],
+	var_samp?: GraphQLTypes["propostas_Propostas_Produtos_var_samp_fields"],
+	variance?: GraphQLTypes["propostas_Propostas_Produtos_variance_fields"]
 };
 	/** order by aggregate values of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_aggregate_order_by"]: {
-		count?: GraphQLTypes["order_by"],
+		avg?: GraphQLTypes["propostas_Propostas_Produtos_avg_order_by"],
+	count?: GraphQLTypes["order_by"],
 	max?: GraphQLTypes["propostas_Propostas_Produtos_max_order_by"],
-	min?: GraphQLTypes["propostas_Propostas_Produtos_min_order_by"]
+	min?: GraphQLTypes["propostas_Propostas_Produtos_min_order_by"],
+	stddev?: GraphQLTypes["propostas_Propostas_Produtos_stddev_order_by"],
+	stddev_pop?: GraphQLTypes["propostas_Propostas_Produtos_stddev_pop_order_by"],
+	stddev_samp?: GraphQLTypes["propostas_Propostas_Produtos_stddev_samp_order_by"],
+	sum?: GraphQLTypes["propostas_Propostas_Produtos_sum_order_by"],
+	var_pop?: GraphQLTypes["propostas_Propostas_Produtos_var_pop_order_by"],
+	var_samp?: GraphQLTypes["propostas_Propostas_Produtos_var_samp_order_by"],
+	variance?: GraphQLTypes["propostas_Propostas_Produtos_variance_order_by"]
 };
 	/** input type for inserting array relation for remote table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_arr_rel_insert_input"]: {
 		data: Array<GraphQLTypes["propostas_Propostas_Produtos_insert_input"]>,
 	/** upsert condition */
 	on_conflict?: GraphQLTypes["propostas_Propostas_Produtos_on_conflict"]
+};
+	/** aggregate avg on columns */
+["propostas_Propostas_Produtos_avg_fields"]: {
+	__typename: "propostas_Propostas_Produtos_avg_fields",
+	Quantidade?: number
+};
+	/** order by avg() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_avg_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
 };
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Produtos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Produtos_bool_exp"]: {
@@ -59625,9 +64725,14 @@ export type GraphQLTypes = {
 	Produto?: GraphQLTypes["comercial_Produtos_bool_exp"],
 	Produto_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
+	PropostaCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PropostaPlano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_bool_exp"],
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos_bool_exp"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_bool_exp"],
+	Quantidade?: GraphQLTypes["Int_comparison_exp"],
 	_and?: Array<GraphQLTypes["propostas_Propostas_Produtos_bool_exp"]>,
 	_not?: GraphQLTypes["propostas_Propostas_Produtos_bool_exp"],
 	_or?: Array<GraphQLTypes["propostas_Propostas_Produtos_bool_exp"]>,
@@ -59637,6 +64742,10 @@ export type GraphQLTypes = {
 };
 	/** unique or primary key constraints on table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_constraint"]: propostas_Propostas_Produtos_constraint;
+	/** input type for incrementing numeric columns in table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_inc_input"]: {
+		Quantidade?: number
+};
 	/** input type for inserting data into table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_insert_input"]: {
 		Id?: GraphQLTypes["uuid"],
@@ -59647,9 +64756,14 @@ export type GraphQLTypes = {
 	Produto?: GraphQLTypes["comercial_Produtos_obj_rel_insert_input"],
 	Produto_Id?: GraphQLTypes["uuid"],
 	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_obj_rel_insert_input"],
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos_obj_rel_insert_input"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"],
+	Quantidade?: number,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -59661,8 +64775,11 @@ export type GraphQLTypes = {
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -59673,8 +64790,11 @@ export type GraphQLTypes = {
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
+	PropostaPlano_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -59686,8 +64806,11 @@ export type GraphQLTypes = {
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
@@ -59698,8 +64821,11 @@ export type GraphQLTypes = {
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
+	PropostaPlano_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -59728,9 +64854,14 @@ export type GraphQLTypes = {
 	Produto?: GraphQLTypes["comercial_Produtos_order_by"],
 	Produto_Id?: GraphQLTypes["order_by"],
 	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
+	PropostaPlano_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_order_by"],
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos_order_by"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_order_by"],
+	Quantidade?: GraphQLTypes["order_by"],
 	created_at?: GraphQLTypes["order_by"],
 	deleted_at?: GraphQLTypes["order_by"],
 	updated_at?: GraphQLTypes["order_by"]
@@ -59747,14 +64878,245 @@ export type GraphQLTypes = {
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Produto_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
+	Quantidade?: number,
 	created_at?: GraphQLTypes["timestamptz"],
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
+	/** aggregate stddev on columns */
+["propostas_Propostas_Produtos_stddev_fields"]: {
+	__typename: "propostas_Propostas_Produtos_stddev_fields",
+	Quantidade?: number
+};
+	/** order by stddev() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_pop on columns */
+["propostas_Propostas_Produtos_stddev_pop_fields"]: {
+	__typename: "propostas_Propostas_Produtos_stddev_pop_fields",
+	Quantidade?: number
+};
+	/** order by stddev_pop() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_pop_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_samp on columns */
+["propostas_Propostas_Produtos_stddev_samp_fields"]: {
+	__typename: "propostas_Propostas_Produtos_stddev_samp_fields",
+	Quantidade?: number
+};
+	/** order by stddev_samp() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_stddev_samp_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate sum on columns */
+["propostas_Propostas_Produtos_sum_fields"]: {
+	__typename: "propostas_Propostas_Produtos_sum_fields",
+	Quantidade?: number
+};
+	/** order by sum() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_sum_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
 	/** update columns of table "propostas.Propostas_Produtos" */
 ["propostas_Propostas_Produtos_update_column"]: propostas_Propostas_Produtos_update_column;
+	/** aggregate var_pop on columns */
+["propostas_Propostas_Produtos_var_pop_fields"]: {
+	__typename: "propostas_Propostas_Produtos_var_pop_fields",
+	Quantidade?: number
+};
+	/** order by var_pop() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_var_pop_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate var_samp on columns */
+["propostas_Propostas_Produtos_var_samp_fields"]: {
+	__typename: "propostas_Propostas_Produtos_var_samp_fields",
+	Quantidade?: number
+};
+	/** order by var_samp() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_var_samp_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** aggregate variance on columns */
+["propostas_Propostas_Produtos_variance_fields"]: {
+	__typename: "propostas_Propostas_Produtos_variance_fields",
+	Quantidade?: number
+};
+	/** order by variance() on columns of table "propostas.Propostas_Produtos" */
+["propostas_Propostas_Produtos_variance_order_by"]: {
+		Quantidade?: GraphQLTypes["order_by"]
+};
+	/** columns and relationships of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso"]: {
+	__typename: "propostas_Propostas_RegrasETermosDeUso",
+	Id: GraphQLTypes["uuid"],
+	Informado: boolean,
+	/** An object relationship */
+	ProdutoRegrasETermosDeUso?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	/** An object relationship */
+	Proposta: GraphQLTypes["propostas_Propostas"],
+	Proposta_Id: GraphQLTypes["uuid"],
+	/** An object relationship */
+	ServicoRegrasETermosDeUso?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	created_at: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at: GraphQLTypes["timestamptz"]
+};
+	/** aggregated selection of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate"]: {
+	__typename: "propostas_Propostas_RegrasETermosDeUso_aggregate",
+	aggregate?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_fields"],
+	nodes: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"]>
+};
+	/** aggregate fields of "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate_fields"]: {
+	__typename: "propostas_Propostas_RegrasETermosDeUso_aggregate_fields",
+	count: number,
+	max?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_max_fields"],
+	min?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_min_fields"]
+};
+	/** order by aggregate values of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"]: {
+		count?: GraphQLTypes["order_by"],
+	max?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_max_order_by"],
+	min?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_min_order_by"]
+};
+	/** input type for inserting array relation for remote table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"]: {
+		data: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_insert_input"]>,
+	/** upsert condition */
+	on_conflict?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_on_conflict"]
+};
+	/** Boolean expression to filter rows from the table "propostas.Propostas_RegrasETermosDeUso". All fields are combined with a logical 'AND'. */
+["propostas_Propostas_RegrasETermosDeUso_bool_exp"]: {
+		Id?: GraphQLTypes["uuid_comparison_exp"],
+	Informado?: GraphQLTypes["Boolean_comparison_exp"],
+	ProdutoRegrasETermosDeUso?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_bool_exp"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["uuid_comparison_exp"],
+	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
+	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
+	ServicoRegrasETermosDeUso?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_bool_exp"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["uuid_comparison_exp"],
+	_and?: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"]>,
+	_not?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"],
+	_or?: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"]>,
+	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	deleted_at?: GraphQLTypes["timestamptz_comparison_exp"],
+	updated_at?: GraphQLTypes["timestamptz_comparison_exp"]
+};
+	/** unique or primary key constraints on table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_constraint"]: propostas_Propostas_RegrasETermosDeUso_constraint;
+	/** input type for inserting data into table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_insert_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	Informado?: boolean,
+	ProdutoRegrasETermosDeUso?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
+	Proposta_Id?: GraphQLTypes["uuid"],
+	ServicoRegrasETermosDeUso?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** aggregate max on columns */
+["propostas_Propostas_RegrasETermosDeUso_max_fields"]: {
+	__typename: "propostas_Propostas_RegrasETermosDeUso_max_fields",
+	Id?: GraphQLTypes["uuid"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	Proposta_Id?: GraphQLTypes["uuid"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by max() on columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_max_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["order_by"],
+	Proposta_Id?: GraphQLTypes["order_by"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** aggregate min on columns */
+["propostas_Propostas_RegrasETermosDeUso_min_fields"]: {
+	__typename: "propostas_Propostas_RegrasETermosDeUso_min_fields",
+	Id?: GraphQLTypes["uuid"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	Proposta_Id?: GraphQLTypes["uuid"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** order by min() on columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_min_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["order_by"],
+	Proposta_Id?: GraphQLTypes["order_by"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** response of any mutation on the table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_mutation_response"]: {
+	__typename: "propostas_Propostas_RegrasETermosDeUso_mutation_response",
+	/** number of rows affected by the mutation */
+	affected_rows: number,
+	/** data from the rows affected by the mutation */
+	returning: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"]>
+};
+	/** on_conflict condition type for table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_on_conflict"]: {
+		constraint: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_constraint"],
+	update_columns: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_update_column"]>,
+	where?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"]
+};
+	/** Ordering options when selecting data from "propostas.Propostas_RegrasETermosDeUso". */
+["propostas_Propostas_RegrasETermosDeUso_order_by"]: {
+		Id?: GraphQLTypes["order_by"],
+	Informado?: GraphQLTypes["order_by"],
+	ProdutoRegrasETermosDeUso?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_order_by"],
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["order_by"],
+	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
+	Proposta_Id?: GraphQLTypes["order_by"],
+	ServicoRegrasETermosDeUso?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_order_by"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["order_by"],
+	created_at?: GraphQLTypes["order_by"],
+	deleted_at?: GraphQLTypes["order_by"],
+	updated_at?: GraphQLTypes["order_by"]
+};
+	/** primary key columns input for table: propostas_Propostas_RegrasETermosDeUso */
+["propostas_Propostas_RegrasETermosDeUso_pk_columns_input"]: {
+		Id: GraphQLTypes["uuid"]
+};
+	/** select columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_select_column"]: propostas_Propostas_RegrasETermosDeUso_select_column;
+	/** input type for updating data in table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_set_input"]: {
+		Id?: GraphQLTypes["uuid"],
+	Informado?: boolean,
+	Produto_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	Proposta_Id?: GraphQLTypes["uuid"],
+	Servico_RegraETermosDeUso_Id?: GraphQLTypes["uuid"],
+	created_at?: GraphQLTypes["timestamptz"],
+	deleted_at?: GraphQLTypes["timestamptz"],
+	updated_at?: GraphQLTypes["timestamptz"]
+};
+	/** update columns of table "propostas.Propostas_RegrasETermosDeUso" */
+["propostas_Propostas_RegrasETermosDeUso_update_column"]: propostas_Propostas_RegrasETermosDeUso_update_column;
 	/** columns and relationships of "propostas.Propostas_Servicos" */
 ["propostas_Propostas_Servicos"]: {
 	__typename: "propostas_Propostas_Servicos",
@@ -59767,8 +65129,14 @@ export type GraphQLTypes = {
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	/** An object relationship */
 	Proposta: GraphQLTypes["propostas_Propostas"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id: GraphQLTypes["uuid"],
+	/** An object relationship */
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos"],
+	/** An object relationship */
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos"],
 	/** An object relationship */
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos"],
 	/** An object relationship */
@@ -59811,8 +65179,12 @@ export type GraphQLTypes = {
 	PrecoDeRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_bool_exp"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
+	PropostaCombo_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PropostaPlano_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid_comparison_exp"],
 	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_bool_exp"],
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos_bool_exp"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_bool_exp"],
 	Servico?: GraphQLTypes["comercial_Servicos_bool_exp"],
 	Servico_Id?: GraphQLTypes["uuid_comparison_exp"],
@@ -59833,8 +65205,12 @@ export type GraphQLTypes = {
 	PrecoDeRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_obj_rel_insert_input"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
 	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_obj_rel_insert_input"],
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos_obj_rel_insert_input"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_obj_rel_insert_input"],
 	Servico?: GraphQLTypes["comercial_Servicos_obj_rel_insert_input"],
 	Servico_Id?: GraphQLTypes["uuid"],
@@ -59848,6 +65224,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
@@ -59860,6 +65238,8 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
+	PropostaPlano_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
@@ -59873,6 +65253,8 @@ export type GraphQLTypes = {
 	Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
@@ -59885,6 +65267,8 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["order_by"],
 	PrecoDeAdesao_Id?: GraphQLTypes["order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
+	PropostaPlano_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
@@ -59914,8 +65298,12 @@ export type GraphQLTypes = {
 	PrecoDeRecorrencia?: GraphQLTypes["comercial_PrestadoresDeServicos_Servicos_Precos_order_by"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["order_by"],
 	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
+	PropostaCombo_Id?: GraphQLTypes["order_by"],
+	PropostaPlano_Id?: GraphQLTypes["order_by"],
 	PropostaVeiculo_Id?: GraphQLTypes["order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
+	PropostasCombo?: GraphQLTypes["propostas_Propostas_Combos_order_by"],
+	PropostasPlano?: GraphQLTypes["propostas_Propostas_Planos_order_by"],
 	PropostasVeiculo?: GraphQLTypes["propostas_Propostas_Veiculos_order_by"],
 	Servico?: GraphQLTypes["comercial_Servicos_order_by"],
 	Servico_Id?: GraphQLTypes["order_by"],
@@ -59934,6 +65322,8 @@ export type GraphQLTypes = {
 		Id?: GraphQLTypes["uuid"],
 	PrecoDeAdesao_Id?: GraphQLTypes["uuid"],
 	PrecoDeRecorrencia_Id?: GraphQLTypes["uuid"],
+	PropostaCombo_Id?: GraphQLTypes["uuid"],
+	PropostaPlano_Id?: GraphQLTypes["uuid"],
 	PropostaVeiculo_Id?: GraphQLTypes["uuid"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Servico_Id?: GraphQLTypes["uuid"],
@@ -60047,6 +65437,7 @@ export type GraphQLTypes = {
 ["propostas_Propostas_Veiculos"]: {
 	__typename: "propostas_Propostas_Veiculos",
 	Id: GraphQLTypes["uuid"],
+	PossuiGNV: boolean,
 	/** An object relationship */
 	Proposta: GraphQLTypes["propostas_Propostas"],
 	Proposta_Id: GraphQLTypes["uuid"],
@@ -60103,6 +65494,7 @@ export type GraphQLTypes = {
 	/** Boolean expression to filter rows from the table "propostas.Propostas_Veiculos". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_Veiculos_bool_exp"]: {
 		Id?: GraphQLTypes["uuid_comparison_exp"],
+	PossuiGNV?: GraphQLTypes["Boolean_comparison_exp"],
 	Proposta?: GraphQLTypes["propostas_Propostas_bool_exp"],
 	Proposta_Id?: GraphQLTypes["uuid_comparison_exp"],
 	PropostasCombos?: GraphQLTypes["propostas_Propostas_Combos_bool_exp"],
@@ -60123,6 +65515,7 @@ export type GraphQLTypes = {
 	/** input type for inserting data into table "propostas.Propostas_Veiculos" */
 ["propostas_Propostas_Veiculos_insert_input"]: {
 		Id?: GraphQLTypes["uuid"],
+	PossuiGNV?: boolean,
 	Proposta?: GraphQLTypes["propostas_Propostas_obj_rel_insert_input"],
 	Proposta_Id?: GraphQLTypes["uuid"],
 	PropostasCombos?: GraphQLTypes["propostas_Propostas_Combos_arr_rel_insert_input"],
@@ -60196,6 +65589,7 @@ export type GraphQLTypes = {
 	/** Ordering options when selecting data from "propostas.Propostas_Veiculos". */
 ["propostas_Propostas_Veiculos_order_by"]: {
 		Id?: GraphQLTypes["order_by"],
+	PossuiGNV?: GraphQLTypes["order_by"],
 	Proposta?: GraphQLTypes["propostas_Propostas_order_by"],
 	Proposta_Id?: GraphQLTypes["order_by"],
 	PropostasCombos_aggregate?: GraphQLTypes["propostas_Propostas_Combos_aggregate_order_by"],
@@ -60217,6 +65611,7 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "propostas.Propostas_Veiculos" */
 ["propostas_Propostas_Veiculos_set_input"]: {
 		Id?: GraphQLTypes["uuid"],
+	PossuiGNV?: boolean,
 	Proposta_Id?: GraphQLTypes["uuid"],
 	Veiculo_Id?: GraphQLTypes["uuid"],
 	created_at?: GraphQLTypes["timestamptz"],
@@ -60234,15 +65629,31 @@ export type GraphQLTypes = {
 	/** aggregate fields of "propostas.Propostas" */
 ["propostas_Propostas_aggregate_fields"]: {
 	__typename: "propostas_Propostas_aggregate_fields",
+	avg?: GraphQLTypes["propostas_Propostas_avg_fields"],
 	count: number,
 	max?: GraphQLTypes["propostas_Propostas_max_fields"],
-	min?: GraphQLTypes["propostas_Propostas_min_fields"]
+	min?: GraphQLTypes["propostas_Propostas_min_fields"],
+	stddev?: GraphQLTypes["propostas_Propostas_stddev_fields"],
+	stddev_pop?: GraphQLTypes["propostas_Propostas_stddev_pop_fields"],
+	stddev_samp?: GraphQLTypes["propostas_Propostas_stddev_samp_fields"],
+	sum?: GraphQLTypes["propostas_Propostas_sum_fields"],
+	var_pop?: GraphQLTypes["propostas_Propostas_var_pop_fields"],
+	var_samp?: GraphQLTypes["propostas_Propostas_var_samp_fields"],
+	variance?: GraphQLTypes["propostas_Propostas_variance_fields"]
 };
 	/** order by aggregate values of table "propostas.Propostas" */
 ["propostas_Propostas_aggregate_order_by"]: {
-		count?: GraphQLTypes["order_by"],
+		avg?: GraphQLTypes["propostas_Propostas_avg_order_by"],
+	count?: GraphQLTypes["order_by"],
 	max?: GraphQLTypes["propostas_Propostas_max_order_by"],
-	min?: GraphQLTypes["propostas_Propostas_min_order_by"]
+	min?: GraphQLTypes["propostas_Propostas_min_order_by"],
+	stddev?: GraphQLTypes["propostas_Propostas_stddev_order_by"],
+	stddev_pop?: GraphQLTypes["propostas_Propostas_stddev_pop_order_by"],
+	stddev_samp?: GraphQLTypes["propostas_Propostas_stddev_samp_order_by"],
+	sum?: GraphQLTypes["propostas_Propostas_sum_order_by"],
+	var_pop?: GraphQLTypes["propostas_Propostas_var_pop_order_by"],
+	var_samp?: GraphQLTypes["propostas_Propostas_var_samp_order_by"],
+	variance?: GraphQLTypes["propostas_Propostas_variance_order_by"]
 };
 	/** input type for inserting array relation for remote table "propostas.Propostas" */
 ["propostas_Propostas_arr_rel_insert_input"]: {
@@ -60250,9 +65661,19 @@ export type GraphQLTypes = {
 	/** upsert condition */
 	on_conflict?: GraphQLTypes["propostas_Propostas_on_conflict"]
 };
+	/** aggregate avg on columns */
+["propostas_Propostas_avg_fields"]: {
+	__typename: "propostas_Propostas_avg_fields",
+	CodigoReferencia?: number
+};
+	/** order by avg() on columns of table "propostas.Propostas" */
+["propostas_Propostas_avg_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
 	/** Boolean expression to filter rows from the table "propostas.Propostas". All fields are combined with a logical 'AND'. */
 ["propostas_Propostas_bool_exp"]: {
 		Cliente_Id?: GraphQLTypes["uuid_comparison_exp"],
+	CodigoReferencia?: GraphQLTypes["Int_comparison_exp"],
 	Combos?: GraphQLTypes["propostas_Propostas_Combos_bool_exp"],
 	DataAceito?: GraphQLTypes["timestamptz_comparison_exp"],
 	FormaDePagamentoDaAdesao_Id?: GraphQLTypes["String_comparison_exp"],
@@ -60261,6 +65682,8 @@ export type GraphQLTypes = {
 	Oportunidades?: GraphQLTypes["propostas_Propostas_Oportunidades_bool_exp"],
 	Planos?: GraphQLTypes["propostas_Propostas_Planos_bool_exp"],
 	Produtos?: GraphQLTypes["propostas_Propostas_Produtos_bool_exp"],
+	PropostaGerada?: GraphQLTypes["Boolean_comparison_exp"],
+	RegrasETermosDeUsos?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_bool_exp"],
 	Servicos?: GraphQLTypes["propostas_Propostas_Servicos_bool_exp"],
 	Situacao?: GraphQLTypes["propostas_Propostas_Situacoes_bool_exp"],
 	Situacao_Id?: GraphQLTypes["propostas_Propostas_Situacoes_enum_comparison_exp"],
@@ -60276,9 +65699,14 @@ export type GraphQLTypes = {
 };
 	/** unique or primary key constraints on table "propostas.Propostas" */
 ["propostas_Propostas_constraint"]: propostas_Propostas_constraint;
+	/** input type for incrementing numeric columns in table "propostas.Propostas" */
+["propostas_Propostas_inc_input"]: {
+		CodigoReferencia?: number
+};
 	/** input type for inserting data into table "propostas.Propostas" */
 ["propostas_Propostas_insert_input"]: {
 		Cliente_Id?: GraphQLTypes["uuid"],
+	CodigoReferencia?: number,
 	Combos?: GraphQLTypes["propostas_Propostas_Combos_arr_rel_insert_input"],
 	DataAceito?: GraphQLTypes["timestamptz"],
 	FormaDePagamentoDaAdesao_Id?: string,
@@ -60287,6 +65715,8 @@ export type GraphQLTypes = {
 	Oportunidades?: GraphQLTypes["propostas_Propostas_Oportunidades_arr_rel_insert_input"],
 	Planos?: GraphQLTypes["propostas_Propostas_Planos_arr_rel_insert_input"],
 	Produtos?: GraphQLTypes["propostas_Propostas_Produtos_arr_rel_insert_input"],
+	PropostaGerada?: boolean,
+	RegrasETermosDeUsos?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input"],
 	Servicos?: GraphQLTypes["propostas_Propostas_Servicos_arr_rel_insert_input"],
 	Situacao?: GraphQLTypes["propostas_Propostas_Situacoes_obj_rel_insert_input"],
 	Situacao_Id?: GraphQLTypes["propostas_Propostas_Situacoes_enum"],
@@ -60301,6 +65731,7 @@ export type GraphQLTypes = {
 ["propostas_Propostas_max_fields"]: {
 	__typename: "propostas_Propostas_max_fields",
 	Cliente_Id?: GraphQLTypes["uuid"],
+	CodigoReferencia?: number,
 	DataAceito?: GraphQLTypes["timestamptz"],
 	FormaDePagamentoDaAdesao_Id?: string,
 	Id?: GraphQLTypes["uuid"],
@@ -60314,6 +65745,7 @@ export type GraphQLTypes = {
 	/** order by max() on columns of table "propostas.Propostas" */
 ["propostas_Propostas_max_order_by"]: {
 		Cliente_Id?: GraphQLTypes["order_by"],
+	CodigoReferencia?: GraphQLTypes["order_by"],
 	DataAceito?: GraphQLTypes["order_by"],
 	FormaDePagamentoDaAdesao_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
@@ -60328,6 +65760,7 @@ export type GraphQLTypes = {
 ["propostas_Propostas_min_fields"]: {
 	__typename: "propostas_Propostas_min_fields",
 	Cliente_Id?: GraphQLTypes["uuid"],
+	CodigoReferencia?: number,
 	DataAceito?: GraphQLTypes["timestamptz"],
 	FormaDePagamentoDaAdesao_Id?: string,
 	Id?: GraphQLTypes["uuid"],
@@ -60341,6 +65774,7 @@ export type GraphQLTypes = {
 	/** order by min() on columns of table "propostas.Propostas" */
 ["propostas_Propostas_min_order_by"]: {
 		Cliente_Id?: GraphQLTypes["order_by"],
+	CodigoReferencia?: GraphQLTypes["order_by"],
 	DataAceito?: GraphQLTypes["order_by"],
 	FormaDePagamentoDaAdesao_Id?: GraphQLTypes["order_by"],
 	Id?: GraphQLTypes["order_by"],
@@ -60374,6 +65808,7 @@ export type GraphQLTypes = {
 	/** Ordering options when selecting data from "propostas.Propostas". */
 ["propostas_Propostas_order_by"]: {
 		Cliente_Id?: GraphQLTypes["order_by"],
+	CodigoReferencia?: GraphQLTypes["order_by"],
 	Combos_aggregate?: GraphQLTypes["propostas_Propostas_Combos_aggregate_order_by"],
 	DataAceito?: GraphQLTypes["order_by"],
 	FormaDePagamentoDaAdesao_Id?: GraphQLTypes["order_by"],
@@ -60382,6 +65817,8 @@ export type GraphQLTypes = {
 	Oportunidades_aggregate?: GraphQLTypes["propostas_Propostas_Oportunidades_aggregate_order_by"],
 	Planos_aggregate?: GraphQLTypes["propostas_Propostas_Planos_aggregate_order_by"],
 	Produtos_aggregate?: GraphQLTypes["propostas_Propostas_Produtos_aggregate_order_by"],
+	PropostaGerada?: GraphQLTypes["order_by"],
+	RegrasETermosDeUsos_aggregate?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate_order_by"],
 	Servicos_aggregate?: GraphQLTypes["propostas_Propostas_Servicos_aggregate_order_by"],
 	Situacao?: GraphQLTypes["propostas_Propostas_Situacoes_order_by"],
 	Situacao_Id?: GraphQLTypes["order_by"],
@@ -60401,10 +65838,12 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "propostas.Propostas" */
 ["propostas_Propostas_set_input"]: {
 		Cliente_Id?: GraphQLTypes["uuid"],
+	CodigoReferencia?: number,
 	DataAceito?: GraphQLTypes["timestamptz"],
 	FormaDePagamentoDaAdesao_Id?: string,
 	Id?: GraphQLTypes["uuid"],
 	Lead_Id?: GraphQLTypes["uuid"],
+	PropostaGerada?: boolean,
 	Situacao_Id?: GraphQLTypes["propostas_Propostas_Situacoes_enum"],
 	Ticket_Id?: GraphQLTypes["uuid"],
 	Usuario_Id?: GraphQLTypes["uuid"],
@@ -60412,8 +65851,71 @@ export type GraphQLTypes = {
 	deleted_at?: GraphQLTypes["timestamptz"],
 	updated_at?: GraphQLTypes["timestamptz"]
 };
+	/** aggregate stddev on columns */
+["propostas_Propostas_stddev_fields"]: {
+	__typename: "propostas_Propostas_stddev_fields",
+	CodigoReferencia?: number
+};
+	/** order by stddev() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_pop on columns */
+["propostas_Propostas_stddev_pop_fields"]: {
+	__typename: "propostas_Propostas_stddev_pop_fields",
+	CodigoReferencia?: number
+};
+	/** order by stddev_pop() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_pop_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
+	/** aggregate stddev_samp on columns */
+["propostas_Propostas_stddev_samp_fields"]: {
+	__typename: "propostas_Propostas_stddev_samp_fields",
+	CodigoReferencia?: number
+};
+	/** order by stddev_samp() on columns of table "propostas.Propostas" */
+["propostas_Propostas_stddev_samp_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
+	/** aggregate sum on columns */
+["propostas_Propostas_sum_fields"]: {
+	__typename: "propostas_Propostas_sum_fields",
+	CodigoReferencia?: number
+};
+	/** order by sum() on columns of table "propostas.Propostas" */
+["propostas_Propostas_sum_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
 	/** update columns of table "propostas.Propostas" */
 ["propostas_Propostas_update_column"]: propostas_Propostas_update_column;
+	/** aggregate var_pop on columns */
+["propostas_Propostas_var_pop_fields"]: {
+	__typename: "propostas_Propostas_var_pop_fields",
+	CodigoReferencia?: number
+};
+	/** order by var_pop() on columns of table "propostas.Propostas" */
+["propostas_Propostas_var_pop_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
+	/** aggregate var_samp on columns */
+["propostas_Propostas_var_samp_fields"]: {
+	__typename: "propostas_Propostas_var_samp_fields",
+	CodigoReferencia?: number
+};
+	/** order by var_samp() on columns of table "propostas.Propostas" */
+["propostas_Propostas_var_samp_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
+	/** aggregate variance on columns */
+["propostas_Propostas_variance_fields"]: {
+	__typename: "propostas_Propostas_variance_fields",
+	CodigoReferencia?: number
+};
+	/** order by variance() on columns of table "propostas.Propostas" */
+["propostas_Propostas_variance_order_by"]: {
+		CodigoReferencia?: GraphQLTypes["order_by"]
+};
 	["query_root"]: {
 	__typename: "query_root",
 	/** fetch data from the table: "Configuracoes" */
@@ -60468,12 +65970,18 @@ export type GraphQLTypes = {
 	clientes_Veiculos: Array<GraphQLTypes["clientes_Veiculos"]>,
 	/** fetch data from the table: "clientes.VeiculosAtivos" */
 	clientes_VeiculosAtivos: Array<GraphQLTypes["clientes_VeiculosAtivos"]>,
-	/** fetch data from the table: "clientes.VeiculosAtivos_Beneficios" */
-	clientes_VeiculosAtivos_Beneficios: Array<GraphQLTypes["clientes_VeiculosAtivos_Beneficios"]>,
-	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Beneficios" */
-	clientes_VeiculosAtivos_Beneficios_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Beneficios_aggregate"],
-	/** fetch data from the table: "clientes.VeiculosAtivos_Beneficios" using primary key columns */
-	clientes_VeiculosAtivos_Beneficios_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Beneficios"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Combos" */
+	clientes_VeiculosAtivos_Combos: Array<GraphQLTypes["clientes_VeiculosAtivos_Combos"]>,
+	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Combos" */
+	clientes_VeiculosAtivos_Combos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Combos_aggregate"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Combos" using primary key columns */
+	clientes_VeiculosAtivos_Combos_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Combos"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Planos" */
+	clientes_VeiculosAtivos_Planos: Array<GraphQLTypes["clientes_VeiculosAtivos_Planos"]>,
+	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Planos" */
+	clientes_VeiculosAtivos_Planos_aggregate: GraphQLTypes["clientes_VeiculosAtivos_Planos_aggregate"],
+	/** fetch data from the table: "clientes.VeiculosAtivos_Planos" using primary key columns */
+	clientes_VeiculosAtivos_Planos_by_pk?: GraphQLTypes["clientes_VeiculosAtivos_Planos"],
 	/** fetch data from the table: "clientes.VeiculosAtivos_Produtos" */
 	clientes_VeiculosAtivos_Produtos: Array<GraphQLTypes["clientes_VeiculosAtivos_Produtos"]>,
 	/** fetch aggregated fields from the table: "clientes.VeiculosAtivos_Produtos" */
@@ -60670,6 +66178,12 @@ export type GraphQLTypes = {
 	comercial_Produtos_Produtos_aggregate: GraphQLTypes["comercial_Produtos_Produtos_aggregate"],
 	/** fetch data from the table: "comercial.Produtos_Produtos" using primary key columns */
 	comercial_Produtos_Produtos_by_pk?: GraphQLTypes["comercial_Produtos_Produtos"],
+	/** fetch data from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	comercial_Produtos_RegrasETermosDeUso: Array<GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"]>,
+	/** fetch aggregated fields from the table: "comercial.Produtos_RegrasETermosDeUso" */
+	comercial_Produtos_RegrasETermosDeUso_aggregate: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso_aggregate"],
+	/** fetch data from the table: "comercial.Produtos_RegrasETermosDeUso" using primary key columns */
+	comercial_Produtos_RegrasETermosDeUso_by_pk?: GraphQLTypes["comercial_Produtos_RegrasETermosDeUso"],
 	/** fetch data from the table: "comercial.Produtos_Servicos" */
 	comercial_Produtos_Servicos: Array<GraphQLTypes["comercial_Produtos_Servicos"]>,
 	/** fetch aggregated fields from the table: "comercial.Produtos_Servicos" */
@@ -60706,6 +66220,12 @@ export type GraphQLTypes = {
 	comercial_Servicos_Produtos_aggregate: GraphQLTypes["comercial_Servicos_Produtos_aggregate"],
 	/** fetch data from the table: "comercial.Servicos_Produtos" using primary key columns */
 	comercial_Servicos_Produtos_by_pk?: GraphQLTypes["comercial_Servicos_Produtos"],
+	/** fetch data from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	comercial_Servicos_RegrasETermosDeUso: Array<GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"]>,
+	/** fetch aggregated fields from the table: "comercial.Servicos_RegrasETermosDeUso" */
+	comercial_Servicos_RegrasETermosDeUso_aggregate: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso_aggregate"],
+	/** fetch data from the table: "comercial.Servicos_RegrasETermosDeUso" using primary key columns */
+	comercial_Servicos_RegrasETermosDeUso_by_pk?: GraphQLTypes["comercial_Servicos_RegrasETermosDeUso"],
 	/** fetch data from the table: "comercial.Servicos_Servicos" */
 	comercial_Servicos_Servicos: Array<GraphQLTypes["comercial_Servicos_Servicos"]>,
 	/** fetch aggregated fields from the table: "comercial.Servicos_Servicos" */
@@ -60880,12 +66400,30 @@ export type GraphQLTypes = {
 	operacional_OrdemDeServico_Atividades_aggregate: GraphQLTypes["operacional_OrdemDeServico_Atividades_aggregate"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Atividades" using primary key columns */
 	operacional_OrdemDeServico_Atividades_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Atividades"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios"]>,
-	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios_aggregate: GraphQLTypes["operacional_OrdemDeServico_Beneficios_aggregate"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" using primary key columns */
-	operacional_OrdemDeServico_Beneficios_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Beneficios"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist: Array<GraphQLTypes["operacional_OrdemDeServico_Checklist"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist_aggregate: GraphQLTypes["operacional_OrdemDeServico_Checklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" using primary key columns */
+	operacional_OrdemDeServico_Checklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Checklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos: Array<GraphQLTypes["operacional_OrdemDeServico_Combos"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Combos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" using primary key columns */
+	operacional_OrdemDeServico_Combos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist: Array<GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist_aggregate: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" using primary key columns */
+	operacional_OrdemDeServico_ItensDeChecklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos: Array<GraphQLTypes["operacional_OrdemDeServico_Planos"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" using primary key columns */
+	operacional_OrdemDeServico_Planos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Planos"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Produtos" */
 	operacional_OrdemDeServico_Produtos: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos"]>,
 	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Produtos" */
@@ -61066,6 +66604,12 @@ export type GraphQLTypes = {
 	propostas_Propostas_Produtos_aggregate: GraphQLTypes["propostas_Propostas_Produtos_aggregate"],
 	/** fetch data from the table: "propostas.Propostas_Produtos" using primary key columns */
 	propostas_Propostas_Produtos_by_pk?: GraphQLTypes["propostas_Propostas_Produtos"],
+	/** fetch data from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	propostas_Propostas_RegrasETermosDeUso: Array<GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"]>,
+	/** fetch aggregated fields from the table: "propostas.Propostas_RegrasETermosDeUso" */
+	propostas_Propostas_RegrasETermosDeUso_aggregate: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso_aggregate"],
+	/** fetch data from the table: "propostas.Propostas_RegrasETermosDeUso" using primary key columns */
+	propostas_Propostas_RegrasETermosDeUso_by_pk?: GraphQLTypes["propostas_Propostas_RegrasETermosDeUso"],
 	/** fetch data from the table: "propostas.Propostas_Servicos" */
 	propostas_Propostas_Servicos: Array<GraphQLTypes["propostas_Propostas_Servicos"]>,
 	/** fetch aggregated fields from the table: "propostas.Propostas_Servicos" */
@@ -61219,12 +66763,30 @@ export type GraphQLTypes = {
 	operacional_OrdemDeServico_Atividades_aggregate: GraphQLTypes["operacional_OrdemDeServico_Atividades_aggregate"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Atividades" using primary key columns */
 	operacional_OrdemDeServico_Atividades_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Atividades"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios: Array<GraphQLTypes["operacional_OrdemDeServico_Beneficios"]>,
-	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Beneficios" */
-	operacional_OrdemDeServico_Beneficios_aggregate: GraphQLTypes["operacional_OrdemDeServico_Beneficios_aggregate"],
-	/** fetch data from the table: "operacional.OrdemDeServico_Beneficios" using primary key columns */
-	operacional_OrdemDeServico_Beneficios_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Beneficios"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist: Array<GraphQLTypes["operacional_OrdemDeServico_Checklist"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Checklist" */
+	operacional_OrdemDeServico_Checklist_aggregate: GraphQLTypes["operacional_OrdemDeServico_Checklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Checklist" using primary key columns */
+	operacional_OrdemDeServico_Checklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Checklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos: Array<GraphQLTypes["operacional_OrdemDeServico_Combos"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Combos" */
+	operacional_OrdemDeServico_Combos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Combos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Combos" using primary key columns */
+	operacional_OrdemDeServico_Combos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Combos"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist: Array<GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_ItensDeChecklist" */
+	operacional_OrdemDeServico_ItensDeChecklist_aggregate: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_ItensDeChecklist" using primary key columns */
+	operacional_OrdemDeServico_ItensDeChecklist_by_pk?: GraphQLTypes["operacional_OrdemDeServico_ItensDeChecklist"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos: Array<GraphQLTypes["operacional_OrdemDeServico_Planos"]>,
+	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Planos" */
+	operacional_OrdemDeServico_Planos_aggregate: GraphQLTypes["operacional_OrdemDeServico_Planos_aggregate"],
+	/** fetch data from the table: "operacional.OrdemDeServico_Planos" using primary key columns */
+	operacional_OrdemDeServico_Planos_by_pk?: GraphQLTypes["operacional_OrdemDeServico_Planos"],
 	/** fetch data from the table: "operacional.OrdemDeServico_Produtos" */
 	operacional_OrdemDeServico_Produtos: Array<GraphQLTypes["operacional_OrdemDeServico_Produtos"]>,
 	/** fetch aggregated fields from the table: "operacional.OrdemDeServico_Produtos" */
@@ -61379,6 +66941,19 @@ export type GraphQLTypes = {
 	producao_TiposDeKitDeInsumo_estoque_Itens_aggregate: GraphQLTypes["producao_TiposDeKitDeInsumo_estoque_Itens_aggregate"],
 	/** fetch data from the table: "producao.TiposDeKitDeInsumo_estoque_Itens" using primary key columns */
 	producao_TiposDeKitDeInsumo_estoque_Itens_by_pk?: GraphQLTypes["producao_TiposDeKitDeInsumo_estoque_Itens"]
+};
+	["timestamp"]:any;
+	/** Boolean expression to compare columns of type "timestamp". All fields are combined with logical 'AND'. */
+["timestamp_comparison_exp"]: {
+		_eq?: GraphQLTypes["timestamp"],
+	_gt?: GraphQLTypes["timestamp"],
+	_gte?: GraphQLTypes["timestamp"],
+	_in?: Array<GraphQLTypes["timestamp"]>,
+	_is_null?: boolean,
+	_lt?: GraphQLTypes["timestamp"],
+	_lte?: GraphQLTypes["timestamp"],
+	_neq?: GraphQLTypes["timestamp"],
+	_nin?: Array<GraphQLTypes["timestamp"]>
 };
 	["timestamptz"]:any;
 	/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
@@ -61894,33 +67469,63 @@ export const enum clientes_PerfisComerciais_update_column {
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
 }
-/** unique or primary key constraints on table "clientes.VeiculosAtivos_Beneficios" */
-export const enum clientes_VeiculosAtivos_Beneficios_constraint {
-	VeiculosAtivos_Beneficios_pkey = "VeiculosAtivos_Beneficios_pkey"
+/** unique or primary key constraints on table "clientes.VeiculosAtivos_Combos" */
+export const enum clientes_VeiculosAtivos_Combos_constraint {
+	VeiculosAtivos_Combos_pkey = "VeiculosAtivos_Combos_pkey"
 }
-/** select columns of table "clientes.VeiculosAtivos_Beneficios" */
-export const enum clientes_VeiculosAtivos_Beneficios_select_column {
+/** select columns of table "clientes.VeiculosAtivos_Combos" */
+export const enum clientes_VeiculosAtivos_Combos_select_column {
 	Ativo = "Ativo",
+	ComboPreco_Id = "ComboPreco_Id",
+	Combo_Id = "Combo_Id",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
 	Id = "Id",
-	PortfolioPreco_Id = "PortfolioPreco_Id",
-	Portfolio_Id = "Portfolio_Id",
-	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
-	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
-	TipoPortfolio = "TipoPortfolio",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
 }
-/** update columns of table "clientes.VeiculosAtivos_Beneficios" */
-export const enum clientes_VeiculosAtivos_Beneficios_update_column {
+/** update columns of table "clientes.VeiculosAtivos_Combos" */
+export const enum clientes_VeiculosAtivos_Combos_update_column {
 	Ativo = "Ativo",
+	ComboPreco_Id = "ComboPreco_Id",
+	Combo_Id = "Combo_Id",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
 	Id = "Id",
-	PortfolioPreco_Id = "PortfolioPreco_Id",
-	Portfolio_Id = "Portfolio_Id",
-	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
-	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
-	TipoPortfolio = "TipoPortfolio",
+	VeiculoAtivo_Id = "VeiculoAtivo_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** unique or primary key constraints on table "clientes.VeiculosAtivos_Planos" */
+export const enum clientes_VeiculosAtivos_Planos_constraint {
+	VeiculosAtivos_Planos_pkey = "VeiculosAtivos_Planos_pkey"
+}
+/** select columns of table "clientes.VeiculosAtivos_Planos" */
+export const enum clientes_VeiculosAtivos_Planos_select_column {
+	Ativo = "Ativo",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
+	Id = "Id",
+	PlanoPreco_Id = "PlanoPreco_Id",
+	Plano_Id = "Plano_Id",
+	VeiculoAtivoCombo_Id = "VeiculoAtivoCombo_Id",
+	VeiculoAtivo_Id = "VeiculoAtivo_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** update columns of table "clientes.VeiculosAtivos_Planos" */
+export const enum clientes_VeiculosAtivos_Planos_update_column {
+	Ativo = "Ativo",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
+	Id = "Id",
+	PlanoPreco_Id = "PlanoPreco_Id",
+	Plano_Id = "Plano_Id",
+	VeiculoAtivoCombo_Id = "VeiculoAtivoCombo_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -61933,12 +67538,17 @@ export const enum clientes_VeiculosAtivos_Produtos_constraint {
 /** select columns of table "clientes.VeiculosAtivos_Produtos" */
 export const enum clientes_VeiculosAtivos_Produtos_select_column {
 	Ativo = "Ativo",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
 	Id = "Id",
 	Identificador = "Identificador",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	Quantidade = "Quantidade",
 	TipoItem_Id = "TipoItem_Id",
+	VeiculoAtivoCombo_Id = "VeiculoAtivoCombo_Id",
+	VeiculoAtivoPlano_Id = "VeiculoAtivoPlano_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -61947,12 +67557,17 @@ export const enum clientes_VeiculosAtivos_Produtos_select_column {
 /** update columns of table "clientes.VeiculosAtivos_Produtos" */
 export const enum clientes_VeiculosAtivos_Produtos_update_column {
 	Ativo = "Ativo",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
 	Id = "Id",
 	Identificador = "Identificador",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	Quantidade = "Quantidade",
 	TipoItem_Id = "TipoItem_Id",
+	VeiculoAtivoCombo_Id = "VeiculoAtivoCombo_Id",
+	VeiculoAtivoPlano_Id = "VeiculoAtivoPlano_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -61965,10 +67580,15 @@ export const enum clientes_VeiculosAtivos_Servicos_constraint {
 /** select columns of table "clientes.VeiculosAtivos_Servicos" */
 export const enum clientes_VeiculosAtivos_Servicos_select_column {
 	Ativo = "Ativo",
+	Beneficio = "Beneficio",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
 	Id = "Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Servico_Id = "Servico_Id",
+	VeiculoAtivoCombo_Id = "VeiculoAtivoCombo_Id",
+	VeiculoAtivoPlano_Id = "VeiculoAtivoPlano_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -61977,10 +67597,15 @@ export const enum clientes_VeiculosAtivos_Servicos_select_column {
 /** update columns of table "clientes.VeiculosAtivos_Servicos" */
 export const enum clientes_VeiculosAtivos_Servicos_update_column {
 	Ativo = "Ativo",
+	Beneficio = "Beneficio",
+	DataDeAtivacao = "DataDeAtivacao",
+	DataDeDesativacao = "DataDeDesativacao",
 	Id = "Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Servico_Id = "Servico_Id",
+	VeiculoAtivoCombo_Id = "VeiculoAtivoCombo_Id",
+	VeiculoAtivoPlano_Id = "VeiculoAtivoPlano_Id",
 	VeiculoAtivo_Id = "VeiculoAtivo_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -62014,6 +67639,7 @@ export const enum clientes_VeiculosAtivos_select_column {
 	Franquia_Id = "Franquia_Id",
 	Id = "Id",
 	OS_Id = "OS_Id",
+	PossuiGNV = "PossuiGNV",
 	Situacao_Id = "Situacao_Id",
 	Veiculo_Id = "Veiculo_Id",
 	created_at = "created_at",
@@ -62026,6 +67652,7 @@ export const enum clientes_VeiculosAtivos_update_column {
 	Franquia_Id = "Franquia_Id",
 	Id = "Id",
 	OS_Id = "OS_Id",
+	PossuiGNV = "PossuiGNV",
 	Situacao_Id = "Situacao_Id",
 	Veiculo_Id = "Veiculo_Id",
 	created_at = "created_at",
@@ -62698,6 +68325,28 @@ export const enum comercial_Produtos_Produtos_update_column {
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
 }
+/** unique or primary key constraints on table "comercial.Produtos_RegrasETermosDeUso" */
+export const enum comercial_Produtos_RegrasETermosDeUso_constraint {
+	Produtos_RegrasETermosDeUso_pkey = "Produtos_RegrasETermosDeUso_pkey"
+}
+/** select columns of table "comercial.Produtos_RegrasETermosDeUso" */
+export const enum comercial_Produtos_RegrasETermosDeUso_select_column {
+	Id = "Id",
+	Mensagem = "Mensagem",
+	Produto_Id = "Produto_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** update columns of table "comercial.Produtos_RegrasETermosDeUso" */
+export const enum comercial_Produtos_RegrasETermosDeUso_update_column {
+	Id = "Id",
+	Mensagem = "Mensagem",
+	Produto_Id = "Produto_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
 /** unique or primary key constraints on table "comercial.Produtos_Servicos" */
 export const enum comercial_Produtos_Servicos_constraint {
 	Produtos_Servicos_pkey = "Produtos_Servicos_pkey"
@@ -62832,6 +68481,28 @@ export const enum comercial_Servicos_Produtos_select_column {
 export const enum comercial_Servicos_Produtos_update_column {
 	Id = "Id",
 	Produto_Id = "Produto_Id",
+	Servico_Id = "Servico_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** unique or primary key constraints on table "comercial.Servicos_RegrasETermosDeUso" */
+export const enum comercial_Servicos_RegrasETermosDeUso_constraint {
+	Servicos_RegrasETermosDeUso_pkey = "Servicos_RegrasETermosDeUso_pkey"
+}
+/** select columns of table "comercial.Servicos_RegrasETermosDeUso" */
+export const enum comercial_Servicos_RegrasETermosDeUso_select_column {
+	Id = "Id",
+	Mensagem = "Mensagem",
+	Servico_Id = "Servico_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** update columns of table "comercial.Servicos_RegrasETermosDeUso" */
+export const enum comercial_Servicos_RegrasETermosDeUso_update_column {
+	Id = "Id",
+	Mensagem = "Mensagem",
 	Servico_Id = "Servico_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -63335,10 +69006,14 @@ export const enum identidades_Pessoas_constraint {
 /** select columns of table "identidades.Pessoas" */
 export const enum identidades_Pessoas_select_column {
 	DadosDaApi = "DadosDaApi",
+	DataCriacao = "DataCriacao",
+	DataNascimento = "DataNascimento",
 	Id = "Id",
 	Identificador = "Identificador",
 	Nome = "Nome",
 	PessoaJuridica = "PessoaJuridica",
+	Profissao = "Profissao",
+	Sexo = "Sexo",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -63346,10 +69021,14 @@ export const enum identidades_Pessoas_select_column {
 /** update columns of table "identidades.Pessoas" */
 export const enum identidades_Pessoas_update_column {
 	DadosDaApi = "DadosDaApi",
+	DataCriacao = "DataCriacao",
+	DataNascimento = "DataNascimento",
 	Id = "Id",
 	Identificador = "Identificador",
 	Nome = "Nome",
 	PessoaJuridica = "PessoaJuridica",
+	Profissao = "Profissao",
+	Sexo = "Sexo",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -63522,10 +69201,13 @@ export const enum operacional_OrdemDeServico_Agendamentos_constraint {
 export const enum operacional_OrdemDeServico_Agendamentos_select_column {
 	Agendamento = "Agendamento",
 	Colaborador_Id = "Colaborador_Id",
+	Contato = "Contato",
+	Endereco = "Endereco",
 	FimDoServico = "FimDoServico",
 	Id = "Id",
 	InicioDoServico = "InicioDoServico",
 	OS_Id = "OS_Id",
+	Responsavel = "Responsavel",
 	Situacao_Id = "Situacao_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -63535,10 +69217,13 @@ export const enum operacional_OrdemDeServico_Agendamentos_select_column {
 export const enum operacional_OrdemDeServico_Agendamentos_update_column {
 	Agendamento = "Agendamento",
 	Colaborador_Id = "Colaborador_Id",
+	Contato = "Contato",
+	Endereco = "Endereco",
 	FimDoServico = "FimDoServico",
 	Id = "Id",
 	InicioDoServico = "InicioDoServico",
 	OS_Id = "OS_Id",
+	Responsavel = "Responsavel",
 	Situacao_Id = "Situacao_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -63570,32 +69255,96 @@ export const enum operacional_OrdemDeServico_Atividades_update_column {
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
 }
-/** unique or primary key constraints on table "operacional.OrdemDeServico_Beneficios" */
-export const enum operacional_OrdemDeServico_Beneficios_constraint {
-	OrdemDeServico_Beneficios_pkey = "OrdemDeServico_Beneficios_pkey"
+/** unique or primary key constraints on table "operacional.OrdemDeServico_Checklist" */
+export const enum operacional_OrdemDeServico_Checklist_constraint {
+	OrdemDeServico_CheckList_pkey = "OrdemDeServico_CheckList_pkey"
 }
-/** select columns of table "operacional.OrdemDeServico_Beneficios" */
-export const enum operacional_OrdemDeServico_Beneficios_select_column {
+/** select columns of table "operacional.OrdemDeServico_Checklist" */
+export const enum operacional_OrdemDeServico_Checklist_select_column {
+	Descricao = "Descricao",
 	Id = "Id",
-	OrdemDeServico_Id = "OrdemDeServico_Id",
-	PortfolioPreco_Id = "PortfolioPreco_Id",
-	Portfolio_Id = "Portfolio_Id",
-	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
-	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
-	TipoPortfolio = "TipoPortfolio",
+	Nome = "Nome",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
 }
-/** update columns of table "operacional.OrdemDeServico_Beneficios" */
-export const enum operacional_OrdemDeServico_Beneficios_update_column {
+/** update columns of table "operacional.OrdemDeServico_Checklist" */
+export const enum operacional_OrdemDeServico_Checklist_update_column {
+	Descricao = "Descricao",
+	Id = "Id",
+	Nome = "Nome",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** unique or primary key constraints on table "operacional.OrdemDeServico_Combos" */
+export const enum operacional_OrdemDeServico_Combos_constraint {
+	OrdemDeServico_Combos_pkey = "OrdemDeServico_Combos_pkey"
+}
+/** select columns of table "operacional.OrdemDeServico_Combos" */
+export const enum operacional_OrdemDeServico_Combos_select_column {
+	ComboPreco_Id = "ComboPreco_Id",
+	Combo_Id = "Combo_Id",
 	Id = "Id",
 	OrdemDeServico_Id = "OrdemDeServico_Id",
-	PortfolioPreco_Id = "PortfolioPreco_Id",
-	Portfolio_Id = "Portfolio_Id",
-	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
-	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
-	TipoPortfolio = "TipoPortfolio",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** update columns of table "operacional.OrdemDeServico_Combos" */
+export const enum operacional_OrdemDeServico_Combos_update_column {
+	ComboPreco_Id = "ComboPreco_Id",
+	Combo_Id = "Combo_Id",
+	Id = "Id",
+	OrdemDeServico_Id = "OrdemDeServico_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** unique or primary key constraints on table "operacional.OrdemDeServico_ItensDeChecklist" */
+export const enum operacional_OrdemDeServico_ItensDeChecklist_constraint {
+	OrdemDeServico_ItensDeChecklist_pkey = "OrdemDeServico_ItensDeChecklist_pkey"
+}
+/** select columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+export const enum operacional_OrdemDeServico_ItensDeChecklist_select_column {
+	Checklist_Id = "Checklist_Id",
+	Descricao = "Descricao",
+	Id = "Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** update columns of table "operacional.OrdemDeServico_ItensDeChecklist" */
+export const enum operacional_OrdemDeServico_ItensDeChecklist_update_column {
+	Checklist_Id = "Checklist_Id",
+	Descricao = "Descricao",
+	Id = "Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** unique or primary key constraints on table "operacional.OrdemDeServico_Planos" */
+export const enum operacional_OrdemDeServico_Planos_constraint {
+	OrdemDeServico_Planos_pkey = "OrdemDeServico_Planos_pkey"
+}
+/** select columns of table "operacional.OrdemDeServico_Planos" */
+export const enum operacional_OrdemDeServico_Planos_select_column {
+	Id = "Id",
+	OrdemDeServicoCombo_Id = "OrdemDeServicoCombo_Id",
+	OrdemDeServico_Id = "OrdemDeServico_Id",
+	PlanoPreco_Id = "PlanoPreco_Id",
+	Plano_Id = "Plano_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** update columns of table "operacional.OrdemDeServico_Planos" */
+export const enum operacional_OrdemDeServico_Planos_update_column {
+	Id = "Id",
+	OrdemDeServicoCombo_Id = "OrdemDeServicoCombo_Id",
+	OrdemDeServico_Id = "OrdemDeServico_Id",
+	PlanoPreco_Id = "PlanoPreco_Id",
+	Plano_Id = "Plano_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -63608,10 +69357,13 @@ export const enum operacional_OrdemDeServico_Produtos_constraint {
 export const enum operacional_OrdemDeServico_Produtos_select_column {
 	Id = "Id",
 	Identificavel_Id = "Identificavel_Id",
+	OrdemDeServicoCombo_Id = "OrdemDeServicoCombo_Id",
+	OrdemDeServicoPlano_Id = "OrdemDeServicoPlano_Id",
 	OrdemDeServico_Id = "OrdemDeServico_Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	Quantidade = "Quantidade",
 	TipoDeIdentificavel_Id = "TipoDeIdentificavel_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -63621,10 +69373,13 @@ export const enum operacional_OrdemDeServico_Produtos_select_column {
 export const enum operacional_OrdemDeServico_Produtos_update_column {
 	Id = "Id",
 	Identificavel_Id = "Identificavel_Id",
+	OrdemDeServicoCombo_Id = "OrdemDeServicoCombo_Id",
+	OrdemDeServicoPlano_Id = "OrdemDeServicoPlano_Id",
 	OrdemDeServico_Id = "OrdemDeServico_Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	Quantidade = "Quantidade",
 	TipoDeIdentificavel_Id = "TipoDeIdentificavel_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
@@ -63636,7 +69391,10 @@ export const enum operacional_OrdemDeServico_Servicos_constraint {
 }
 /** select columns of table "operacional.OrdemDeServico_Servicos" */
 export const enum operacional_OrdemDeServico_Servicos_select_column {
+	Beneficio = "Beneficio",
 	Id = "Id",
+	OrdemDeServicoCombo_Id = "OrdemDeServicoCombo_Id",
+	OrdemDeServicoPlano_Id = "OrdemDeServicoPlano_Id",
 	OrdemDeServico_Id = "OrdemDeServico_Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
@@ -63647,7 +69405,10 @@ export const enum operacional_OrdemDeServico_Servicos_select_column {
 }
 /** update columns of table "operacional.OrdemDeServico_Servicos" */
 export const enum operacional_OrdemDeServico_Servicos_update_column {
+	Beneficio = "Beneficio",
 	Id = "Id",
+	OrdemDeServicoCombo_Id = "OrdemDeServicoCombo_Id",
+	OrdemDeServicoPlano_Id = "OrdemDeServicoPlano_Id",
 	OrdemDeServico_Id = "OrdemDeServico_Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
@@ -63705,6 +69466,7 @@ export const enum operacional_OrdemDeServico_constraint {
 export const enum operacional_OrdemDeServico_select_column {
 	CodigoIdentificador = "CodigoIdentificador",
 	Id = "Id",
+	PossuiGNV = "PossuiGNV",
 	Proposta_Id = "Proposta_Id",
 	Situacao_Id = "Situacao_Id",
 	Tipo_Id = "Tipo_Id",
@@ -63717,6 +69479,7 @@ export const enum operacional_OrdemDeServico_select_column {
 export const enum operacional_OrdemDeServico_update_column {
 	CodigoIdentificador = "CodigoIdentificador",
 	Id = "Id",
+	PossuiGNV = "PossuiGNV",
 	Proposta_Id = "Proposta_Id",
 	Situacao_Id = "Situacao_Id",
 	Tipo_Id = "Tipo_Id",
@@ -64383,6 +70146,7 @@ export const enum propostas_Propostas_Planos_select_column {
 	Id = "Id",
 	PlanoPreco_Id = "PlanoPreco_Id",
 	Plano_Id = "Plano_Id",
+	PropostaCombo_Id = "PropostaCombo_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
 	created_at = "created_at",
@@ -64394,6 +70158,7 @@ export const enum propostas_Propostas_Planos_update_column {
 	Id = "Id",
 	PlanoPreco_Id = "PlanoPreco_Id",
 	Plano_Id = "Plano_Id",
+	PropostaCombo_Id = "PropostaCombo_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
 	created_at = "created_at",
@@ -64410,8 +70175,11 @@ export const enum propostas_Propostas_Produtos_select_column {
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	PropostaCombo_Id = "PropostaCombo_Id",
+	PropostaPlano_Id = "PropostaPlano_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
+	Quantidade = "Quantidade",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -64422,8 +70190,37 @@ export const enum propostas_Propostas_Produtos_update_column {
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
 	Produto_Id = "Produto_Id",
+	PropostaCombo_Id = "PropostaCombo_Id",
+	PropostaPlano_Id = "PropostaPlano_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
+	Quantidade = "Quantidade",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** unique or primary key constraints on table "propostas.Propostas_RegrasETermosDeUso" */
+export const enum propostas_Propostas_RegrasETermosDeUso_constraint {
+	Propostas_RegrasETermosDeUso_pkey = "Propostas_RegrasETermosDeUso_pkey"
+}
+/** select columns of table "propostas.Propostas_RegrasETermosDeUso" */
+export const enum propostas_Propostas_RegrasETermosDeUso_select_column {
+	Id = "Id",
+	Informado = "Informado",
+	Produto_RegraETermosDeUso_Id = "Produto_RegraETermosDeUso_Id",
+	Proposta_Id = "Proposta_Id",
+	Servico_RegraETermosDeUso_Id = "Servico_RegraETermosDeUso_Id",
+	created_at = "created_at",
+	deleted_at = "deleted_at",
+	updated_at = "updated_at"
+}
+/** update columns of table "propostas.Propostas_RegrasETermosDeUso" */
+export const enum propostas_Propostas_RegrasETermosDeUso_update_column {
+	Id = "Id",
+	Informado = "Informado",
+	Produto_RegraETermosDeUso_Id = "Produto_RegraETermosDeUso_Id",
+	Proposta_Id = "Proposta_Id",
+	Servico_RegraETermosDeUso_Id = "Servico_RegraETermosDeUso_Id",
 	created_at = "created_at",
 	deleted_at = "deleted_at",
 	updated_at = "updated_at"
@@ -64437,6 +70234,8 @@ export const enum propostas_Propostas_Servicos_select_column {
 	Id = "Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
+	PropostaCombo_Id = "PropostaCombo_Id",
+	PropostaPlano_Id = "PropostaPlano_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
 	Servico_Id = "Servico_Id",
@@ -64449,6 +70248,8 @@ export const enum propostas_Propostas_Servicos_update_column {
 	Id = "Id",
 	PrecoDeAdesao_Id = "PrecoDeAdesao_Id",
 	PrecoDeRecorrencia_Id = "PrecoDeRecorrencia_Id",
+	PropostaCombo_Id = "PropostaCombo_Id",
+	PropostaPlano_Id = "PropostaPlano_Id",
 	PropostaVeiculo_Id = "PropostaVeiculo_Id",
 	Proposta_Id = "Proposta_Id",
 	Servico_Id = "Servico_Id",
@@ -64482,6 +70283,7 @@ export const enum propostas_Propostas_Veiculos_constraint {
 /** select columns of table "propostas.Propostas_Veiculos" */
 export const enum propostas_Propostas_Veiculos_select_column {
 	Id = "Id",
+	PossuiGNV = "PossuiGNV",
 	Proposta_Id = "Proposta_Id",
 	Veiculo_Id = "Veiculo_Id",
 	created_at = "created_at",
@@ -64491,6 +70293,7 @@ export const enum propostas_Propostas_Veiculos_select_column {
 /** update columns of table "propostas.Propostas_Veiculos" */
 export const enum propostas_Propostas_Veiculos_update_column {
 	Id = "Id",
+	PossuiGNV = "PossuiGNV",
 	Proposta_Id = "Proposta_Id",
 	Veiculo_Id = "Veiculo_Id",
 	created_at = "created_at",
@@ -64504,10 +70307,12 @@ export const enum propostas_Propostas_constraint {
 /** select columns of table "propostas.Propostas" */
 export const enum propostas_Propostas_select_column {
 	Cliente_Id = "Cliente_Id",
+	CodigoReferencia = "CodigoReferencia",
 	DataAceito = "DataAceito",
 	FormaDePagamentoDaAdesao_Id = "FormaDePagamentoDaAdesao_Id",
 	Id = "Id",
 	Lead_Id = "Lead_Id",
+	PropostaGerada = "PropostaGerada",
 	Situacao_Id = "Situacao_Id",
 	Ticket_Id = "Ticket_Id",
 	Usuario_Id = "Usuario_Id",
@@ -64518,10 +70323,12 @@ export const enum propostas_Propostas_select_column {
 /** update columns of table "propostas.Propostas" */
 export const enum propostas_Propostas_update_column {
 	Cliente_Id = "Cliente_Id",
+	CodigoReferencia = "CodigoReferencia",
 	DataAceito = "DataAceito",
 	FormaDePagamentoDaAdesao_Id = "FormaDePagamentoDaAdesao_Id",
 	Id = "Id",
 	Lead_Id = "Lead_Id",
+	PropostaGerada = "PropostaGerada",
 	Situacao_Id = "Situacao_Id",
 	Ticket_Id = "Ticket_Id",
 	Usuario_Id = "Usuario_Id",
@@ -65100,4 +70907,4 @@ export const Zeus = <
 export const Selector = <T extends keyof ValueTypes>(key: T) => ZeusSelect<ValueTypes[T]>();
   
 
-export const Gql = Chain('http://localhost:9002/v1/graphql')
+export const Gql = Chain('http://localhost:7002/v1/graphql')

@@ -34,6 +34,13 @@ array_relationships:
       table:
         name: Propostas_Produtos
         schema: propostas
+- name: RegrasETermosDeUsos
+  using:
+    foreign_key_constraint_on:
+      column: Proposta_Id
+      table:
+        name: Propostas_RegrasETermosDeUso
+        schema: propostas
 - name: Servicos
   using:
     foreign_key_constraint_on:

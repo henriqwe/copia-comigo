@@ -23,12 +23,19 @@ array_relationships:
       table:
         name: OrdemDeServico_Atividades
         schema: operacional
-- name: Beneficios
+- name: Combos
   using:
     foreign_key_constraint_on:
       column: OrdemDeServico_Id
       table:
-        name: OrdemDeServico_Beneficios
+        name: OrdemDeServico_Combos
+        schema: operacional
+- name: Planos
+  using:
+    foreign_key_constraint_on:
+      column: OrdemDeServico_Id
+      table:
+        name: OrdemDeServico_Planos
         schema: operacional
 - name: Produtos
   using:

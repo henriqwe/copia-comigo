@@ -1,8 +1,7 @@
 import * as tickets from '&crm/domains/services/Tickets'
 import * as flows from '&crm/domains/services/Registration/Flows'
-import * as users from '&crm/domains/identities/Users'
 import * as leads from '&crm/domains/services/Leads'
-import * as clients from '&crm/domains/identities/Clients'
+import * as clients from '&crm/domains/clients'
 
 import * as templates from '@comigo/ui-templates'
 
@@ -18,15 +17,13 @@ export default function Tickets() {
   return (
     <tickets.TicketProvider>
       <flows.FlowProvider>
-        <users.UserProvider>
           <leads.LeadProvider>
-            <clients.ListProvider>
+            <clients.ClientProvider>
               <ThemeProvider>
                 <Page />
               </ThemeProvider>
-            </clients.ListProvider>
+            </clients.ClientProvider>
           </leads.LeadProvider>
-        </users.UserProvider>
       </flows.FlowProvider>
     </tickets.TicketProvider>
   )
@@ -36,12 +33,10 @@ export function Page() {
   const { theme, changeTheme } = useTheme()
   const { ticketsRefetch, ticketsLoading } = tickets.useTicket()
   const { flowsRefetch } = flows.useFlow()
-  const { usersRefetch } = users.useUser()
   const { leadsRefetch } = leads.useLead()
-  const { clientsRefetch } = clients.useList()
+  const { clientsRefetch } = clients.useClient()
   const refetch = () => {
     flowsRefetch()
-    usersRefetch()
     leadsRefetch()
     ticketsRefetch()
     clientsRefetch()

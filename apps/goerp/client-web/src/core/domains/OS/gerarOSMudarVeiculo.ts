@@ -6,209 +6,116 @@ import {
   useTypedClientMutation,
   useTypedClientQuery
 } from '&erp/graphql/generated/zeus/apollo'
+import { prepareOSProducts } from './prepareOSProducts'
+import { prepareOSServices } from './prepareOSServices'
+import { prepareOSPlans } from './prepareOSPlans'
+import { prepareOSCombo } from './prepareOSCombo'
+import { v4 as uuid } from 'uuid'
 
 type GerarOSProps = {
   proposal: {
     Id: string
     Cliente_Id?: string
     Veiculos: {
+      PossuiGNV: boolean
       Veiculo_Id?: string
-      PropostasCombos: {
-        Id: string
-        PropostaVeiculo_Id?: string
-        created_at: Date
-        Combo: {
-          Id: string
-          Servicos: {
-            Servico: {
-              GeraOS: boolean
-              Id: string
-              PrestadoresDeServicos: {
-                Precos: {
-                  Id: string
-                  TipoDePreco?: { Valor: string }
-                }[]
-              }[]
-            }
-          }[]
+      PropostasCombos: ProposalCombo[]
 
-          Produtos: {
-            Id: string
-            Produto: {
-              Id: string
-              ServicoDeDesinstalacao?: {
-                Id: string
-                PrestadoresDeServicos: {
-                  Prestador_Id: string
-                  Precos: {
-                    Id: string
-                    TipoDePreco?: { Valor: string }
-                  }[]
-                }[]
-              }
-              Fornecedores: {
-                Precos: {
-                  Id: string
-                  Valor: string
-                  TipoDePreco?: { Valor: string }
-                }[]
-              }[]
-            }
-          }[]
+      PropostasPlanos: ProposalPlan[]
 
-          Planos: {
-            Id: string
-            created_at: Date
-            Plano: {
-              Id: string
-              Produtos: {
-                Produto: {
-                  Id: string
-                  ServicoDeDesinstalacao?: {
-                    Id: string
-                    PrestadoresDeServicos: {
-                      Prestador_Id: string
-                      Precos: {
-                        Id: string
-                        TipoDePreco?: { Valor: string }
-                      }[]
-                    }[]
-                  }
-                  Fornecedores: {
-                    Precos: {
-                      Id: string
-                      Valor: string
-                      TipoDePreco?: { Valor: string }
-                    }[]
-                  }[]
-                }
-              }[]
+      PropostasProdutos: ProposalProduct[]
 
-              Servicos: {
-                Id: string
-                created_at: Date
-                Servico: {
-                  Id: string
-                  Nome: string
-                  GeraOS: boolean
-                  PrestadoresDeServicos: {
-                    Prestador_Id: string
-                    Precos: {
-                      Id: string
-                      TipoDePreco?: { Valor: string }
-                    }[]
-                  }[]
-                }
-              }[]
-            }
-            PlanoPreco: {
-              Id: string
-            }
-          }[]
-        }
-        ComboPreco_Id: string
-      }[]
-
-      PropostasPlanos: {
-        Id: string
-        created_at: Date
-        Plano: {
-          Id: string
-          Produtos: {
-            Produto: {
-              Id: string
-              ServicoDeDesinstalacao?: {
-                Id: string
-                PrestadoresDeServicos: {
-                  Prestador_Id: string
-                  Precos: {
-                    Id: string
-                    TipoDePreco?: { Valor: string }
-                  }[]
-                }[]
-              }
-              Fornecedores: {
-                Precos: {
-                  Id: string
-                  Valor: string
-                  TipoDePreco?: { Valor: string }
-                }[]
-              }[]
-            }
-          }[]
-
-          Servicos: {
-            Id: string
-            created_at: Date
-            Servico: {
-              Id: string
-              Nome: string
-              GeraOS: boolean
-              PrestadoresDeServicos: {
-                Prestador_Id: string
-                Precos: {
-                  Id: string
-                  TipoDePreco?: { Valor: string }
-                }[]
-              }[]
-            }
-          }[]
-        }
-        PlanoPreco: {
-          Id: string
-        }
-      }[]
-
-      PropostasProdutos: {
-        Id: string
-        PrecoAdesao?: {
-          Id: string
-          TipoDePreco?: { Valor: string }
-        }
-        PrecoRecorrencia?: {
-          Id: string
-          TipoDePreco?: { Valor: string }
-        }
-        Produto: {
-          Id: string
-          ServicoDeDesinstalacao?: {
-            Id: string
-            PrestadoresDeServicos: {
-              Prestador_Id: string
-              Precos: {
-                Id: string
-                TipoDePreco?: { Valor: string }
-              }[]
-            }[]
-          }
-        }
-        PropostaVeiculo_Id?: string
-        created_at: Date
-      }[]
-
-      PropostasServicos: {
-        Id: string
-        created_at: Date
-        Servico: {
-          Id: string
-          Nome: string
-          GeraOS: boolean
-        }
-        PrecoDeAdesao?: {
-          Id: string
-          TipoDePreco?: { Valor: string }
-        }
-        PrecoDeRecorrencia?: {
-          Id: string
-          TipoDePreco?: { Valor: string }
-        }
-      }[]
+      PropostasServicos: ProposalService[]
     }[]
 
     created_at: Date
   }
 }
 
+export type ProposalCombo = {
+  Id: string
+  PropostaVeiculo_Id?: string
+  created_at: Date
+  Combo: {
+    Id: string
+  }
+  ComboPreco_Id: string
+  PropostasPlanos: ProposalPlan[]
+  PropostasProdutos: ProposalProduct[]
+  PropostasServicos: ProposalService[]
+}
+
+export type ProposalPlan = {
+  Id: string
+  created_at: Date
+  Plano: {
+    Id: string
+  }
+  PlanoPreco?: {
+    Id: string
+  }
+  PropostaCombo_Id?: string
+  PropostasProdutos: ProposalProduct[]
+  PropostasServicos: ProposalService[]
+}
+
+export type ProposalProduct = {
+  Id: string
+  PropostaCombo_Id?: string
+  PropostaPlano_Id?: string
+  Quantidade: number
+  PrecoAdesao?: {
+    Id: string
+    TipoDePreco?: { Valor: string }
+  }
+  PrecoRecorrencia?: {
+    Id: string
+    TipoDePreco?: { Valor: string }
+  }
+  Produto: {
+    Id: string
+    Fornecedores: {
+      Itens: {
+        TipoDeItem_Id?: string
+        Item_Id: string
+      }[]
+    }[]
+    ServicoDeDesinstalacao?: {
+      Id: string
+      PrestadoresDeServicos: {
+        Prestador_Id: string
+        Precos: {
+          Id: string
+          TipoDePreco?: { Valor: string }
+        }[]
+      }[]
+    }
+  }
+  PropostaVeiculo_Id?: string
+  created_at: Date
+}
+
+export type ProposalService = {
+  Id: string
+  PropostaCombo_Id?: string
+  PropostaPlano_Id?: string
+  created_at: Date
+  Servico: {
+    Id: string
+    Nome: string
+    GeraOS: boolean
+  }
+  PrecoDeAdesao?: {
+    Id: string
+    TipoDePreco?: { Valor: string }
+  }
+  PrecoDeRecorrencia?: {
+    Id: string
+    TipoDePreco?: { Valor: string }
+  }
+}
+
+// OS MUDAR VEICULO
 export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
   try {
     const {
@@ -240,13 +147,14 @@ export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
               (provider) => provider.Prestador_Id === configData.Valor[0]
             )[0]?.Precos.filter(
               (price) => price.TipoDePreco.Valor === 'recorrencia'
-            )[0]?.Id
+            )[0]?.Id,
+          Beneficio: false
         }
       }
     })
 
     vehicle.PropostasPlanos.map((plan) => {
-      plan.Plano.Produtos.map((product) => {
+      plan.PropostasProdutos.map((product) => {
         if (product.Produto.ServicoDeDesinstalacao !== null) {
           services.push({
             Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
@@ -261,14 +169,15 @@ export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
                 (provider) => provider.Prestador_Id === configData.Valor[0]
               )[0]?.Precos.filter(
                 (price) => price.TipoDePreco.Valor === 'recorrencia'
-              )[0]?.Id
+              )[0]?.Id,
+            Beneficio: false
           })
         }
       })
     })
 
     vehicle.PropostasCombos.map((combo) => {
-      combo.Combo.Produtos.map((product) => {
+      combo.PropostasProdutos.map((product) => {
         if (product.Produto.ServicoDeDesinstalacao !== null) {
           services.push({
             Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
@@ -283,13 +192,14 @@ export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
                 (provider) => provider.Prestador_Id === configData.Valor[0]
               )[0]?.Precos.filter(
                 (price) => price.TipoDePreco.Valor === 'recorrencia'
-              )[0]?.Id
+              )[0]?.Id,
+            Beneficio: false
           })
         }
       })
 
-      combo.Combo.Planos.map((plan) => {
-        plan.Plano.Produtos.map((product) => {
+      combo.PropostasPlanos.map((plan) => {
+        plan.PropostasProdutos.map((product) => {
           if (product.Produto.ServicoDeDesinstalacao !== null) {
             services.push({
               Servico_Id: product.Produto.ServicoDeDesinstalacao.Id,
@@ -304,45 +214,47 @@ export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
                   (provider) => provider.Prestador_Id === configData.Valor[0]
                 )[0]?.Precos.filter(
                   (price) => price.TipoDePreco.Valor === 'recorrencia'
-                )[0]?.Id
+                )[0]?.Id,
+              Beneficio: false
             })
           }
         })
       })
     })
 
-    const filteredServices: {
-      Servico_Id: string
-      PrecoDeAdesao_Id: string
-      PrecoDeRecorrencia_Id: string
-    }[] = []
+    // const filteredServices: {
+    //   Servico_Id: string
+    //   PrecoDeAdesao_Id: string
+    //   PrecoDeRecorrencia_Id: string
+    // }[] = []
 
-    services
-      .filter((service) => service !== undefined)
-      .map((service) => {
-        const duplicatedPosition = filteredServices.findIndex(
-          (filteredService) =>
-            service?.Servico_Id === filteredService.Servico_Id
-        )
+    // services
+    //   .filter((service) => service !== undefined)
+    //   .map((service) => {
+    //     const duplicatedPosition = filteredServices.findIndex(
+    //       (filteredService) =>
+    //         service?.Servico_Id === filteredService.Servico_Id
+    //     )
 
-        if (!(duplicatedPosition > -1)) {
-          filteredServices.push({
-            Servico_Id: service?.Servico_Id as string,
-            PrecoDeAdesao_Id: service?.PrecoDeAdesao_Id,
-            PrecoDeRecorrencia_Id: service?.PrecoDeRecorrencia_Id
-          })
-        }
-      })
+    //     if (!(duplicatedPosition > -1)) {
+    //       filteredServices.push({
+    //         Servico_Id: service?.Servico_Id as string,
+    //         PrecoDeAdesao_Id: service?.PrecoDeAdesao_Id,
+    //         PrecoDeRecorrencia_Id: service?.PrecoDeRecorrencia_Id
+    //       })
+    //     }
+    //   })
 
     const result = await useTypedClientMutation({
       insert_operacional_OrdemDeServico_one: [
         {
           object: {
+            PossuiGNV: vehicle.PossuiGNV,
             Tipo_Id: operacional_OrdemDeServico_Tipo_enum.desinstalacao,
             Proposta_Id: proposal.Id,
             Veiculo_Id: vehicle.Veiculo_Id,
             Servicos: {
-              data: filteredServices
+              data: services.filter((service) => service !== undefined)
             },
             Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.aberta
           }
@@ -356,289 +268,21 @@ export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
         return 'success'
       })
       .catch((err) => {
+        console.log('insert_operacional_OrdemDeServico_one')
         console.log(err)
         return 'fail'
       })
 
     const secondVehicle = proposal.Veiculos[1]
-    const filteredBenefits: {
-      Portfolio_Id: string
-      TipoPortfolio: string
-      PortfolioPreco_Id: string
-      PrecoDeAdesao_Id: string
-      PrecoDeRecorrencia_Id: string
-      created_at: Date
-    }[] = []
-
-    const benefits = secondVehicle.PropostasServicos.filter(
-      (service) => !service.Servico.GeraOS
-    ).map((service) => {
-      return {
-        Portfolio_Id: service.Servico.Id,
-        TipoPortfolio: 'serviço',
-        PortfolioPreco_Id: null,
-        PrecoDeAdesao_Id: service.PrecoDeAdesao.Id,
-        PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia.Id,
-        created_at: service.created_at
-      }
-    })
-
-    benefits.push(
-      ...secondVehicle.PropostasPlanos.map((plan) => {
-        return {
-          Portfolio_Id: plan.Plano.Id,
-          TipoPortfolio: 'plano',
-          PortfolioPreco_Id: plan.PlanoPreco.Id,
-          PrecoDeAdesao_Id: null,
-          PrecoDeRecorrencia_Id: null,
-          created_at: plan.created_at
-        }
-      })
-    )
-
-    benefits.push(
-      ...secondVehicle.PropostasCombos.map((combo) => {
-        return {
-          Portfolio_Id: combo.Combo.Id,
-          TipoPortfolio: 'combo',
-          PortfolioPreco_Id: combo.ComboPreco_Id,
-          created_at: combo.created_at,
-          PrecoDeAdesao_Id: null,
-          PrecoDeRecorrencia_Id: null
-        }
-      })
-    )
-
-    benefits.map((benefit) => {
-      const duplicatedPosition = filteredBenefits.findIndex(
-        (filteredBenefit) =>
-          benefit.Portfolio_Id === filteredBenefit.Portfolio_Id &&
-          benefit.TipoPortfolio === filteredBenefit.TipoPortfolio
-      )
-
-      if (duplicatedPosition > -1) {
-        filteredBenefits[duplicatedPosition] = {
-          Portfolio_Id: benefit.Portfolio_Id,
-          TipoPortfolio: benefit.TipoPortfolio,
-          created_at: benefit.created_at,
-          PortfolioPreco_Id:
-            benefit.created_at > filteredBenefits[duplicatedPosition].created_at
-              ? benefit.PortfolioPreco_Id
-              : filteredBenefits[duplicatedPosition].PortfolioPreco_Id,
-          PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
-          PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id
-        }
-      }
-
-      if (!(duplicatedPosition > -1)) {
-        filteredBenefits.push({
-          Portfolio_Id: benefit.Portfolio_Id,
-          TipoPortfolio: benefit.TipoPortfolio,
-          PortfolioPreco_Id: benefit.PortfolioPreco_Id,
-          PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
-          PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id,
-          created_at: benefit.created_at
-        })
-      }
-    })
-
-    const installationServices = secondVehicle.PropostasServicos.filter(
-      (service) => service.Servico.GeraOS
-    ).map((service) => {
-      return {
-        Servico_Id: service.Servico.Id,
-        PrecoDeAdesao_Id: service.PrecoDeAdesao?.Id,
-        PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia?.Id
-      }
-    })
-
-    secondVehicle.PropostasPlanos.filter((plan) => {
-      if (
-        plan.Plano.Servicos.filter((service) => service.Servico.GeraOS).length >
-        0
-      ) {
-        return true
-      }
-    }).map((plan) => {
-      installationServices.push(
-        ...plan.Plano.Servicos.filter((service) => service.Servico.GeraOS).map(
-          (service) => {
-            const price = service.Servico.PrestadoresDeServicos[0].Precos
-            return {
-              Servico_Id: service.Servico.Id,
-              PrecoDeAdesao_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'adesao'
-              )[0]?.Id,
-              PrecoDeRecorrencia_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'recorrencia'
-              )[0]?.Id
-            }
-          }
-        )
-      )
-    })
-
-    secondVehicle.PropostasCombos.filter((combo) => {
-      if (
-        combo.Combo.Servicos.filter((service) => service.Servico.GeraOS)
-          .length > 0 ||
-        combo.Combo.Planos.filter(
-          (plan) =>
-            plan.Plano.Servicos.filter((service) => service.Servico.GeraOS)
-              .length > 0
-        ).length > 0
-      ) {
-        return true
-      }
-    }).map((combo) => {
-      installationServices.push(
-        ...combo.Combo.Servicos.filter((service) => service.Servico.GeraOS).map(
-          (service) => {
-            const price = service.Servico.PrestadoresDeServicos[0].Precos
-            return {
-              Servico_Id: service.Servico.Id,
-              PrecoDeAdesao_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'adesao'
-              )[0]?.Id,
-              PrecoDeRecorrencia_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'recorrencia'
-              )[0]?.Id
-            }
-          }
-        )
-      )
-
-      combo.Combo.Planos.filter((plan) => {
-        if (
-          plan.Plano.Servicos.filter((service) => service.Servico.GeraOS)
-            .length > 0
-        ) {
-          return true
-        }
-      }).map((plan) => {
-        installationServices.push(
-          ...plan.Plano.Servicos.filter(
-            (service) => service.Servico.GeraOS
-          ).map((service) => {
-            const price = service.Servico.PrestadoresDeServicos[0].Precos
-            return {
-              Servico_Id: service.Servico.Id,
-              PrecoDeAdesao_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'adesao'
-              )[0]?.Id,
-              PrecoDeRecorrencia_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'recorrencia'
-              )[0]?.Id
-            }
-          })
-        )
-      })
-    })
-
-    const secondFilteredServices: {
-      Servico_Id: string
-      PrecoDeAdesao_Id: string
-      PrecoDeRecorrencia_Id: string
-    }[] = []
-
-    installationServices.map((service) => {
-      const duplicatedPosition = secondFilteredServices.findIndex(
-        (filteredService) => service.Servico_Id === filteredService.Servico_Id
-      )
-
-      if (!(duplicatedPosition > -1)) {
-        secondFilteredServices.push({
-          Servico_Id: service.Servico_Id,
-          PrecoDeAdesao_Id: service.PrecoDeAdesao_Id,
-          PrecoDeRecorrencia_Id: service.PrecoDeRecorrencia_Id
-        })
-      }
-    })
-
-    const products = secondVehicle.PropostasProdutos.map((product) => {
-      return {
-        Produto_Id: product.Produto.Id,
-        PrecoDeAdesao_Id: product.PrecoAdesao.Id,
-        PrecoDeRecorrencia_Id: product.PrecoRecorrencia.Id
-      }
-    })
-
-    secondVehicle.PropostasPlanos.map((plan) => {
-      products.push(
-        ...plan.Plano.Produtos.map((product) => {
-          const price = product.Produto.Fornecedores[0].Precos
-          return {
-            Produto_Id: product.Produto.Id,
-            PrecoDeAdesao_Id: price.filter(
-              (price) => price.TipoDePreco.Valor === 'adesao'
-            )[0]?.Id,
-            PrecoDeRecorrencia_Id: price.filter(
-              (price) => price.TipoDePreco.Valor === 'recorrencia'
-            )[0]?.Id
-          }
-        })
-      )
-    })
-
-    secondVehicle.PropostasCombos.map((combo) => {
-      products.push(
-        ...combo.Combo.Produtos.map((product) => {
-          const price = product.Produto.Fornecedores[0].Precos
-          return {
-            Produto_Id: product.Produto.Id,
-            PrecoDeAdesao_Id: price.filter(
-              (price) => price.TipoDePreco.Valor === 'adesao'
-            )[0]?.Id,
-            PrecoDeRecorrencia_Id: price.filter(
-              (price) => price.TipoDePreco.Valor === 'recorrencia'
-            )[0]?.Id
-          }
-        })
-      )
-
-      combo.Combo.Planos.map((plan) => {
-        products.push(
-          ...plan.Plano.Produtos.map((product) => {
-            const price = product.Produto.Fornecedores[0].Precos
-            return {
-              Produto_Id: product.Produto.Id,
-              PrecoDeAdesao_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'adesao'
-              )[0]?.Id,
-              PrecoDeRecorrencia_Id: price.filter(
-                (price) => price.TipoDePreco.Valor === 'recorrencia'
-              )[0]?.Id
-            }
-          })
-        )
-      })
-    })
-
-    const filteredProducts: {
-      Produto_Id: string
-      PrecoDeAdesao_Id: string
-      PrecoDeRecorrencia_Id: string
-    }[] = []
-
-    products.map((product) => {
-      const duplicatedPosition = filteredProducts.findIndex(
-        (filteredProduct) => product.Produto_Id === filteredProduct.Produto_Id
-      )
-
-      if (!(duplicatedPosition > -1)) {
-        filteredProducts.push({
-          Produto_Id: product.Produto_Id,
-          PrecoDeAdesao_Id: product.PrecoDeAdesao_Id,
-          PrecoDeRecorrencia_Id: product.PrecoDeRecorrencia_Id
-        })
-      }
-    })
+    const OSUUID = uuid()
 
     return await useTypedClientMutation({
       insert_operacional_OrdemDeServico_one: [
         {
           object: {
+            Id: OSUUID,
             Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.aberta,
+            PossuiGNV: secondVehicle.PossuiGNV,
             Proposta_Id: proposal.Id,
             Veiculo_Id: secondVehicle.Veiculo_Id,
             Tipo_Id: operacional_OrdemDeServico_Tipo_enum.instalacao,
@@ -650,22 +294,21 @@ export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
                 }
               ]
             },
-            Beneficios: {
-              data: filteredBenefits.map((benefit) => {
-                return {
-                  Portfolio_Id: benefit.Portfolio_Id,
-                  TipoPortfolio: benefit.TipoPortfolio,
-                  PortfolioPreco_Id: benefit.PortfolioPreco_Id,
-                  PrecoDeAdesao_Id: benefit.PrecoDeAdesao_Id,
-                  PrecoDeRecorrencia_Id: benefit.PrecoDeRecorrencia_Id
-                }
+            Servicos: {
+              data: prepareOSServices(secondVehicle.PropostasServicos, 1, {
+                OSUUID
               })
             },
-            Servicos: {
-              data: secondFilteredServices
-            },
             Produtos: {
-              data: filteredProducts
+              data: prepareOSProducts(secondVehicle.PropostasProdutos, 1, {
+                OSUUID
+              })
+            },
+            Planos: {
+              data: prepareOSPlans(secondVehicle.PropostasPlanos, 1, { OSUUID })
+            },
+            Combos: {
+              data: prepareOSCombo(secondVehicle.PropostasCombos, OSUUID)
             }
           }
         },
@@ -676,6 +319,7 @@ export async function gerarOSMudarVeiculo({ proposal }: GerarOSProps) {
         return result + '- success'
       })
       .catch((err) => {
+        console.log('insert_operacional_OrdemDeServico_one')
         console.log(err)
         return 'fail'
       })

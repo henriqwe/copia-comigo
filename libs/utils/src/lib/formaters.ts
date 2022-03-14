@@ -9,7 +9,27 @@ export const datetimeFormat = (item: string | number | Date) => {
   return result
 }
 
+export const datetimeFormatPtBR = (item: Date) => {
+  let day: string | number = item.getDate()
+  if (day < 10) {
+    day = '0' + day
+  }
+  let month: string | number = item.getMonth() + 1
+  if (month < 10) {
+    month = '0' + month
+  }
+  return `${day}/${month}/${item.getFullYear()}`
+}
+
+export function camelCaseFormat(str: string) {
+  const strCamel = str.split(' ').map((string) => {
+    return capitalizeWord(string)
+  })
+  return strCamel.join(' ')
+}
+
 export const capitalizeWord = (text: string) => {
+  if (text === undefined) return ''
   text = text.toLowerCase()
   return text.charAt(0).toUpperCase() + text.slice(1)
 }
@@ -47,6 +67,14 @@ export const identifierUnformat = (identifier: string | number) => {
 
 export const CEPunformat = (identifier: string | number) => {
   return identifier.toString().split('-').join('')
+}
+export const CEPformat = (str: string) => {
+  const re = /^([\d]{2})\.*([\d]{3})-*([\d]{3})/ // Pode usar ? no lugar do *
+
+  if (re.test(str)) {
+    return str.replace(re, '$1$2-$3')
+  }
+  return ''
 }
 
 export const phoneFormat = (identifier: string | number) => {

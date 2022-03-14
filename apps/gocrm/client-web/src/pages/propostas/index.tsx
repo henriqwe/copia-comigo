@@ -5,7 +5,7 @@ import * as proposals from '&crm/domains/Proposals'
 
 import * as tickets from '&crm/domains/services/Tickets'
 import * as leads from '&crm/domains/services/Leads'
-import * as clients from '&crm/domains/identities/Clients'
+import * as clients from '&crm/domains/clients'
 
 import MainMenuItems from '&crm/domains/MainMenuItems'
 import rotas from '&crm/domains/routes'
@@ -17,7 +17,7 @@ import SlidePanel from '&crm/domains/Proposals/components/SlidePanel'
 function CreateProposalPage() {
   return (
     <proposals.ListProvider>
-      <clients.ListProvider>
+      <clients.ClientProvider>
         <leads.LeadProvider>
           <tickets.TicketProvider>
             <ThemeProvider>
@@ -25,7 +25,7 @@ function CreateProposalPage() {
             </ThemeProvider>
           </tickets.TicketProvider>
         </leads.LeadProvider>
-      </clients.ListProvider>
+      </clients.ClientProvider>
     </proposals.ListProvider>
   )
 }

@@ -13,8 +13,11 @@ type MainMenuProps = {
   }[]
   FiltersGroup?: {
     title: string
-    url?: string
-    handler?: () => any
+    children?: {
+      url?: string
+      handler?: (reset?: boolean) => any
+      title: string
+    }[]
   }[]
   ActionsGroup?: {
     title: string
@@ -46,12 +49,12 @@ export function MainMenu({
       >
         {ActionsGroup.length
           ? ActionsGroup.map((item, index) => (
-            <Actions
-              active={item.url === router.asPath}
-              item={item}
-              key={`left-side-nav-filter-${index}`}
-            />
-          ))
+              <Actions
+                active={item.url === router.asPath}
+                item={item}
+                key={`left-side-nav-filter-${index}`}
+              />
+            ))
           : null}
       </div>
 
@@ -87,16 +90,19 @@ export function MainMenu({
       )}
 
       <div
-        className={`mt-3 ${LinkGroup.length ? 'pt-4 border-t border-gray-300' : ''
-          } dark:border-dark-5`}
+        className={`mt-3 ${
+          LinkGroup.length ? 'pt-4 border-t border-gray-300' : ''
+        } dark:border-dark-5`}
         data-testid="filtros"
       >
-        {filters ? (
+        {/* {filters ? (
           filters.where ? (
             Object.keys(filters.where).length > 1 ? (
               <common.buttons.CancelButton
                 title="Remover filtros"
-                icon={<common.icons.DeleteIcon className="w-5 h-5 mr-2 text-white" />}
+                icon={
+                  <common.icons.DeleteIcon className="w-5 h-5 mr-2 text-white" />
+                }
                 onClick={() => {
                   setFilters((old: { limit: number }) => {
                     return {
@@ -115,16 +121,28 @@ export function MainMenu({
               />
             ) : null
           ) : null
-        ) : null}
+        ) : null} */}
 
         {FiltersGroup.length
-          ? FiltersGroup.map((item, index) => (
-            <Filters
-              item={item}
-              key={`left-side-nav-filter-${index}`}
-              disabledAll={disabledAll}
-            />
-          ))
+          ? FiltersGroup.map((item, index) => {
+              if (index === 0) {
+                return (
+                  <Filters
+                    noSeparator
+                    item={item}
+                    key={`left-side-nav-filter-${index}`}
+                    disabledAll={disabledAll}
+                  />
+                )
+              }
+              return (
+                <Filters
+                  item={item}
+                  key={`left-side-nav-filter-${index}`}
+                  disabledAll={disabledAll}
+                />
+              )
+            })
           : ''}
       </div>
     </div>

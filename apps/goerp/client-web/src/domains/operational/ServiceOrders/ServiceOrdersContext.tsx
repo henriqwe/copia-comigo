@@ -30,14 +30,17 @@ type ServiceOrdersContextProps = {
   serviceOrdersData?: {
     Id: string
     Situacao: {
+      Valor: string
       Comentario: string
     }
     Tipo: {
+      Valor: string
       Comentario: string
     }
     Agendamentos: {
       Agendamento: Date
       Colaborador?: {
+        Id: string
         Pessoa: {
           Nome: string
         }
@@ -280,7 +283,10 @@ type ServiceOrder = {
       }
     }
   }[]
-
+  Proposta?: {
+    Cliente_Id?: string
+  }
+  Veiculo_Id: string
   CodigoIdentificador: number
 }
 
@@ -388,16 +394,19 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
         {
           Id: true,
           Situacao: {
+            Valor: true,
             Comentario: true
           },
           Tipo: {
-            Comentario: true
+            Comentario: true,
+            Valor: true
           },
           Agendamentos: [
             { where: { deleted_at: { _is_null: true } } },
             {
               Agendamento: true,
               Colaborador: {
+                Id: true,
                 Pessoa: {
                   Nome: true
                 }
@@ -443,6 +452,7 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
             Situacao: {
               Comentario: true
             },
+
             Tipo: {
               Comentario: true
             },
@@ -457,6 +467,10 @@ export const ServiceOrderProvider = ({ children }: ProviderProps) => {
                 }
               }
             ],
+            Proposta: {
+              Cliente_Id: true
+            },
+            Veiculo_Id: true,
             CodigoIdentificador: true
           }
         ],

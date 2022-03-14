@@ -1,0 +1,15 @@
+table:
+  name: Produtos_RegrasETermosDeUso
+  schema: comercial
+object_relationships:
+- name: Produto
+  using:
+    foreign_key_constraint_on: Produto_Id
+array_relationships:
+- name: PropostasRegrasETermosDeUsos
+  using:
+    foreign_key_constraint_on:
+      column: Produto_RegraETermosDeUso_Id
+      table:
+        name: Propostas_RegrasETermosDeUso
+        schema: propostas

@@ -14,3 +14,25 @@ object_relationships:
 - name: PropostasVeiculo
   using:
     foreign_key_constraint_on: PropostaVeiculo_Id
+array_relationships:
+- name: PropostasPlanos
+  using:
+    foreign_key_constraint_on:
+      column: PropostaCombo_Id
+      table:
+        name: Propostas_Planos
+        schema: propostas
+- name: PropostasProdutos
+  using:
+    foreign_key_constraint_on:
+      column: PropostaCombo_Id
+      table:
+        name: Propostas_Produtos
+        schema: propostas
+- name: PropostasServicos
+  using:
+    foreign_key_constraint_on:
+      column: PropostaCombo_Id
+      table:
+        name: Propostas_Servicos
+        schema: propostas

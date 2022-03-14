@@ -3,6 +3,7 @@ export { getActivityUser } from './getActivityUser'
 export { getChipIdentifierByItemId } from './getChipIdentifierByItemId'
 export { getClientByVehicle } from './getClientByVehicle'
 export { getComboById } from './getComboById'
+export { getComboByIdOnlyId } from './getComboByIdOnlyId'
 export { getEquipmentIdentifierByItemId } from './getEquipmentIdentifierByItemId'
 export { getIdentifierByItemId } from './getIdentifierByItemId'
 export { getInputKitsIdentifierByItemId } from './getInputKitsIdentifierByItemId'
@@ -10,9 +11,19 @@ export { getInstallationKitsIdentifierByItemId } from './getInstallationKitsIden
 export { getItemById } from './getItemById'
 export { getItemIdByProductId } from './getItemIdByProductId'
 export { getPlanById } from './getPlanById'
+export { getPlanByIdOnlyId } from './getPlanByIdOnlyId'
 export { getProductPriceById } from './getProductPriceById'
 export { getProposalClient } from './getProposalClient'
 export { getServiceById } from './getServiceById'
+export { getServiceByIdOnlyId } from './getServiceByIdOnlyId'
 export { getServiceOrderVehicle } from './getServiceOrderVehicle'
 export { getServicePriceById } from './getServicePriceById'
 export { getTrackerIdentifierByItemId } from './getTrackerIdentifierByItemId'
+export { getClientById } from './getClientById'
+export { getVehicleById } from './getVehicleById'
+export {
+  getItensCheckListByNameChecklist,
+  getChecklistByName
+} from './getItensCheckListByIdChecklist'
+export { getPlanPriceById } from './getPlanPriceById'
+

@@ -6,12 +6,6 @@ export function Field({
   position?: 'left' | 'right'
 }) {
   return (
-    <td
-      className={`${
-        position === 'right' ? 'text-right' : 'text-left'
-      }  border-b dark:border-dark-5`}
-    >
-      {value}
-    </td>
+    <td className={`text-left border-b dark:border-dark-5 !px-1`}>{value}</td>
   )
 }

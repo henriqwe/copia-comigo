@@ -23,7 +23,13 @@ export function Page() {
       companies={companies}
       imageUrl={'/imagens/logoAssistencia.png'}
     >
-      <div>Teste</div>
+      <a
+        target="_blank"
+        href="http://localhost:3001/api/getPageToPrint"
+        rel="noreferrer"
+      >
+        gerar pdf
+      </a>
     </templates.Base>
   )
 }

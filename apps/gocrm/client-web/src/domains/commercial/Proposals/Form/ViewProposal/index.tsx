@@ -1,16 +1,16 @@
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as proposals from '&crm/domains/commercial/Proposals';
-import * as clients from '&crm/domains/identities/Clients';
-import * as blocks from '@comigo/ui-blocks';
+import * as proposals from '&crm/domains/commercial/Proposals'
+import * as clients from '&crm/domains/clients'
+import * as blocks from '@comigo/ui-blocks'
 
-import { useEffect, useState } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
-import * as utils from '@comigo/utils';
+import { useEffect, useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
+import * as utils from '@comigo/utils'
 
 const ProposalDetails = () => {
-  const router = useRouter();
+  const router = useRouter()
   const {
     proposalData,
     proposalInstallationsData,
@@ -41,34 +41,33 @@ const ProposalDetails = () => {
     updateActiveVehicleBenefit,
     changeVehicleOwnership,
     changeVehicleSituation,
-    createActiveVehicle,
-  } = proposals.useView();
-  const { clientsData } = clients.useList();
-  const { control, watch, setValue } = useForm();
+    createActiveVehicle
+  } = proposals.useView()
+  const { clientsData } = clients.useClient()
+  const { control, watch, setValue } = useForm()
   const [vehiclesGroup, setVehiclesGroup] = useState([
     {
       Id: null,
       content: { title: 'Veículo ', subtitle: 'Sem vínculo' },
-      position: 1,
-    },
-  ]);
+      position: 1
+    }
+  ])
   const [vehicleSelected, setVehicleSelected] = useState({
     Id: null,
     content: { title: 'Veículo ', subtitle: 'Sem vínculo' },
-    position: 1,
-  });
-  const [proposalArray, setProposalArray] =
-    useState<proposals.ProposalsArray>();
-  const [proposalArrayLoading, setProposalArrayLoading] = useState(false);
-  const [showAddVehicleButton, setShowAddVehicleButton] = useState(true);
-  const [generateProposal, setGenerateProposal] = useState(false);
+    position: 1
+  })
+  const [proposalArray, setProposalArray] = useState<proposals.ProposalsArray>()
+  const [proposalArrayLoading, setProposalArrayLoading] = useState(false)
+  const [showAddVehicleButton, setShowAddVehicleButton] = useState(true)
+  const [generateProposal, setGenerateProposal] = useState(false)
 
   function renderCreateVehicle() {
     if (proposalArrayLoading) {
-      return <proposals.VehicleSkeleton />;
+      return <proposals.VehicleSkeleton />
     }
     if (generateProposal) {
-      return <proposals.GenerateProposal />;
+      return <proposals.GenerateProposal />
     }
     if (
       proposalArray!.Combos.length > 0 ||
@@ -78,7 +77,7 @@ const ProposalDetails = () => {
     ) {
       const licensePlates = vehiclesGroup
         .filter((vehicle) => vehicle.content.subtitle !== 'Sem vínculo')
-        .map((vehicle) => vehicle.content.subtitle);
+        .map((vehicle) => vehicle.content.subtitle)
       return (
         <proposals.ViewVehicle
           proposalData={proposalArray}
@@ -88,7 +87,7 @@ const ProposalDetails = () => {
           proposalRefetch={proposalRefetch}
           licensePlates={licensePlates}
         />
-      );
+      )
     }
     return vehiclesGroup.map((vehicleGroup, index) => {
       if (vehicleSelected?.position === vehicleGroup.position) {
@@ -114,24 +113,24 @@ const ProposalDetails = () => {
               </div>
             )}
           />
-        );
+        )
       }
-    });
+    })
   }
 
   async function addClientToProposalSubmit() {
     await addClientToProposal({
       variables: {
-        Cliente_Id: watch('Cliente_Id').key || null,
-      },
+        Cliente_Id: watch('Cliente_Id').key || null
+      }
     }).then(() => {
-      proposalRefetch();
-      utils.notification('Cliente vinculado com sucesso', 'success');
-    });
+      proposalRefetch()
+      utils.notification('Cliente vinculado com sucesso', 'success')
+    })
   }
 
   async function acceptProposalSubmit() {
-    proposalRefetch();
+    proposalRefetch()
 
     // instalações para pegar os veiculos
     proposalInstallationsData?.map((installation) => {
@@ -140,7 +139,7 @@ const ProposalDetails = () => {
         async (Vehicles) => {
           const activeVehicles = Vehicles?.filter(
             (vehicle) => vehicle.Situacao.Valor === 'ativo'
-          );
+          )
 
           // beneficios da proposta
           const benefits = proposalData?.Planos.filter(
@@ -150,9 +149,9 @@ const ProposalDetails = () => {
               Portfolio_Id: plans.Plano.Id,
               TipoPortfolio: 'plano',
               PortfolioPreco_Id: plans.PlanoPreco.Id,
-              Ativo: true,
-            };
-          });
+              Ativo: true
+            }
+          })
           proposalData?.Produtos.filter(
             (product) =>
               product.ProdutoPreco.TipoDeRecorrencia_Id !== null &&
@@ -162,9 +161,9 @@ const ProposalDetails = () => {
               Portfolio_Id: product.Produto.Id,
               TipoPortfolio: 'produto',
               PortfolioPreco_Id: product.ProdutoPreco.Id,
-              Ativo: true,
-            });
-          });
+              Ativo: true
+            })
+          })
           proposalData?.Servicos.filter(
             (service) =>
               !service.Servico.GeraOS &&
@@ -174,9 +173,9 @@ const ProposalDetails = () => {
               Portfolio_Id: service.Servico.Id,
               TipoPortfolio: 'serviço',
               PortfolioPreco_Id: service.ServicosPreco.Id,
-              Ativo: true,
-            });
-          });
+              Ativo: true
+            })
+          })
           proposalData?.Combos.filter(
             (combo) => combo.Veiculo_Id === installation.Veiculo_Id
           ).map((combo) => {
@@ -184,34 +183,34 @@ const ProposalDetails = () => {
               Portfolio_Id: combo.Combo.Id,
               TipoPortfolio: 'combo',
               PortfolioPreco_Id: combo.ComboPreco.Id,
-              Ativo: true,
-            });
-          });
+              Ativo: true
+            })
+          })
           // ver se existe um veiculo
           if ((activeVehicles?.length || 0) > 0) {
             // ids dos planos da proposta
             const plansIds = proposalData?.Planos.filter(
               (plan) => plan.Veiculo_Id === installation.Veiculo_Id
-            ).map((plan) => plan.Plano.Id);
+            ).map((plan) => plan.Plano.Id)
 
             // ids dos produtos propostas
             const productsIds = proposalData?.Produtos.filter(
               (product) =>
                 product.ProdutoPreco.TipoDeRecorrencia_Id !== null &&
                 product.Veiculo_Id === installation.Veiculo_Id
-            ).map((product) => product.Produto.Id);
+            ).map((product) => product.Produto.Id)
 
             // ids dos serviços beneficios
             const servicesIds = proposalData?.Servicos.filter(
               (service) =>
                 !service.Servico.GeraOS &&
                 service.Veiculo_Id === installation.Veiculo_Id
-            ).map((service) => service.Servico.Id);
+            ).map((service) => service.Servico.Id)
 
             // ids dos combos da proposta
             const combosIds = proposalData?.Combos.filter(
               (combo) => combo.Veiculo_Id === installation.Veiculo_Id
-            ).map((combo) => combo.Combo.Id);
+            ).map((combo) => combo.Combo.Id)
 
             // troca de veiculo
             if (activeVehicles?.[0].Cliente_Id !== proposalData?.Cliente_Id) {
@@ -222,9 +221,9 @@ const ProposalDetails = () => {
                 return {
                   ProdutoPreco_Id: product.ProdutoPreco.Id,
                   Produto_Id: product.Produto.Id,
-                  Ativo: true,
-                };
-              });
+                  Ativo: true
+                }
+              })
 
               // serviços da proposta
               const services = proposalData?.Servicos.filter(
@@ -233,54 +232,54 @@ const ProposalDetails = () => {
                 return {
                   ServicoPreco_Id: service.ServicosPreco.Id,
                   Servico_Id: service.Servico.Id,
-                  Ativo: true,
-                };
-              });
+                  Ativo: true
+                }
+              })
 
               // veiculo inativo em outro cliente
               const inativeVehicle = Vehicles?.filter(
                 (vehicle) => vehicle.Cliente_Id === proposalData?.Cliente_Id
-              );
+              )
               if ((inativeVehicle?.length || 0) > 0) {
                 // ids dos beneficios do veiculo inativo
                 const inativeBenefitsIds = inativeVehicle?.[0].Beneficios.map(
                   (benefit) => benefit.Portfolio_Id
-                );
+                )
                 // ids dos serviços do veiculo inativo
                 const inativeServicesIds = inativeVehicle?.[0].Servicos.map(
                   (service) => service.Servico_Id
-                );
+                )
                 // ids dos produtos do veiculo inativo
                 const inativeProductsIds = inativeVehicle?.[0].Produtos.map(
                   (product) => product.Produto_Id
-                );
+                )
 
                 // planos dos beneficios dos veiculos inativos
                 const plans = inativeVehicle?.[0].Beneficios.filter(
                   (benefit) => benefit.TipoPortfolio === 'plano'
-                );
+                )
 
                 // remove planos dos veiculos inativos
-                await removeBenefit(plans, plansIds);
+                await removeBenefit(plans, plansIds)
 
                 // produtos dos beneficios dos veiculos inativos
                 const inativeProducts = inativeVehicle?.[0].Beneficios.filter(
                   (benefit) => benefit.TipoPortfolio === 'produto'
-                );
+                )
 
-                await removeBenefit(inativeProducts, productsIds);
+                await removeBenefit(inativeProducts, productsIds)
 
                 const inativeServices = inativeVehicle?.[0].Beneficios.filter(
                   (benefit) => benefit.TipoPortfolio === 'serviço'
-                );
+                )
 
-                await removeBenefit(inativeServices, servicesIds);
+                await removeBenefit(inativeServices, servicesIds)
 
                 const combos = inativeVehicle?.[0].Beneficios.filter(
                   (benefit) => benefit.TipoPortfolio === 'combo'
-                );
+                )
 
-                await removeBenefit(combos, combosIds);
+                await removeBenefit(combos, combosIds)
 
                 benefits?.map((benefit) => {
                   if (inativeBenefitsIds?.includes(benefit.Portfolio_Id)) {
@@ -290,32 +289,32 @@ const ProposalDetails = () => {
                           (vehicle) =>
                             vehicle.Portfolio_Id === benefit.Portfolio_Id
                         )[0].Id,
-                        PortfolioPreco_Id: benefit.PortfolioPreco_Id,
-                      },
-                    });
-                    return;
+                        PortfolioPreco_Id: benefit.PortfolioPreco_Id
+                      }
+                    })
+                    return
                   }
                   createActiveVehicleBenefit({
                     variables: {
                       Portfolio_Id: benefit.Portfolio_Id,
                       PortfolioPreco_Id: benefit.PortfolioPreco_Id,
                       TipoPortfolio: benefit.TipoPortfolio,
-                      VeiculoAtivo_Id: inativeVehicle?.[0].Id,
-                    },
-                  });
-                });
+                      VeiculoAtivo_Id: inativeVehicle?.[0].Id
+                    }
+                  })
+                })
                 products?.map((product) => {
                   if (!inativeProductsIds?.includes(product.Produto_Id)) {
                     createActiveVehicleProduct({
                       variables: {
                         VeiculoAtivo_Id: inativeVehicle?.[0].Id,
                         ProdutoPreco_Id: product.ProdutoPreco_Id,
-                        Produto_Id: product.Produto_Id,
-                      },
-                    });
-                    return;
+                        Produto_Id: product.Produto_Id
+                      }
+                    })
+                    return
                   }
-                });
+                })
 
                 services?.map((service) => {
                   if (!inativeServicesIds?.includes(service.Servico_Id)) {
@@ -323,27 +322,27 @@ const ProposalDetails = () => {
                       variables: {
                         VeiculoAtivo_Id: inativeVehicle?.[0].Id,
                         ServicoPreco_Id: service.ServicoPreco_Id,
-                        Servico_Id: service.Servico_Id,
-                      },
-                    });
-                    return;
+                        Servico_Id: service.Servico_Id
+                      }
+                    })
+                    return
                   }
-                });
+                })
                 await changeVehicleSituation({
                   variables: {
                     Id: inativeVehicle?.[0].Id,
-                    Situacao_Id: 'ativo',
-                  },
-                });
+                    Situacao_Id: 'ativo'
+                  }
+                })
                 await changeVehicleSituation({
                   variables: {
                     Id: activeVehicles?.[0].Id,
-                    Situacao_Id: 'inativo',
-                  },
-                });
-                await acceptProposal();
-                proposalRefetch();
-                return;
+                    Situacao_Id: 'inativo'
+                  }
+                })
+                await acceptProposal()
+                proposalRefetch()
+                return
               }
 
               await changeVehicleOwnership({
@@ -355,18 +354,18 @@ const ProposalDetails = () => {
                   OS_Id: activeVehicles?.[0].OS_Id,
                   Beneficios: benefits,
                   Produtos: products,
-                  Servicos: services,
-                },
-              });
-              await acceptProposal();
-              proposalRefetch();
-              return;
+                  Servicos: services
+                }
+              })
+              await acceptProposal()
+              proposalRefetch()
+              return
             }
             const plans = activeVehicles?.[0].Beneficios.filter(
               (benefit) => benefit.TipoPortfolio === 'plano'
-            );
+            )
 
-            await removeBenefit(plans, plansIds);
+            await removeBenefit(plans, plansIds)
             // Ações para os planos
             proposalData?.Planos.filter(
               (plan) => plan.Veiculo_Id === installation.Veiculo_Id
@@ -374,73 +373,73 @@ const ProposalDetails = () => {
               // pega o benefecio plano se existir
               const planBenefit = plans?.filter(
                 (benefit) => benefit.Portfolio_Id === plan.Plano.Id
-              );
+              )
               // verificar se exite o plano no veiculo ativo
               if ((planBenefit?.length || 0) > 0) {
                 updateActiveVehicleBenefit({
                   variables: {
                     Id: planBenefit?.[0].Id,
-                    PortfolioPreco_Id: plan.PlanoPreco.Id,
-                  },
-                });
-                return;
+                    PortfolioPreco_Id: plan.PlanoPreco.Id
+                  }
+                })
+                return
               }
               createActiveVehicleBenefit({
                 variables: {
                   Portfolio_Id: plan.Plano.Id,
                   PortfolioPreco_Id: plan.PlanoPreco.Id,
                   TipoPortfolio: 'plano',
-                  VeiculoAtivo_Id: activeVehicles?.[0].Id,
-                },
-              });
-              return;
-            });
+                  VeiculoAtivo_Id: activeVehicles?.[0].Id
+                }
+              })
+              return
+            })
 
             // produtos dos beneficios
             const products = activeVehicles?.[0].Beneficios.filter(
               (benefit) => benefit.TipoPortfolio === 'produto'
-            );
+            )
 
-            await removeBenefit(products, productsIds);
+            await removeBenefit(products, productsIds)
 
             // Ações para os produtos
             proposalData?.Produtos.filter((product) => {
               return (
                 product.ProdutoPreco.TipoDeRecorrencia_Id !== null &&
                 product.Veiculo_Id === installation.Veiculo_Id
-              );
+              )
             }).map((product) => {
               // pega o benefecio produto se existir
               const productBenefit = products?.filter(
                 (benefit) => benefit.Portfolio_Id === product.Produto.Id
-              );
+              )
               // verificar se exite o produto no veiculo ativo
               if ((productBenefit?.length || 0) > 0) {
                 updateActiveVehicleBenefit({
                   variables: {
                     Id: productBenefit?.[0].Id,
-                    PortfolioPreco_Id: product.ProdutoPreco.Id,
-                  },
-                });
-                return;
+                    PortfolioPreco_Id: product.ProdutoPreco.Id
+                  }
+                })
+                return
               }
               createActiveVehicleBenefit({
                 variables: {
                   Portfolio_Id: product.Produto.Id,
                   PortfolioPreco_Id: product.ProdutoPreco.Id,
                   TipoPortfolio: 'produto',
-                  VeiculoAtivo_Id: activeVehicles?.[0].Id,
-                },
-              });
-              return;
-            });
+                  VeiculoAtivo_Id: activeVehicles?.[0].Id
+                }
+              })
+              return
+            })
 
             // serviços dos beneficios
             const services = activeVehicles?.[0].Beneficios.filter(
               (benefit) => benefit.TipoPortfolio === 'serviço'
-            );
+            )
 
-            await removeBenefit(services, servicesIds);
+            await removeBenefit(services, servicesIds)
 
             // Ações para os serviços
             proposalData?.Servicos.filter(
@@ -451,34 +450,34 @@ const ProposalDetails = () => {
               // pega o benefecio serviço se existir
               const serviceBenefit = services?.filter(
                 (benefit) => benefit.Portfolio_Id === service.Servico.Id
-              );
+              )
               // verificar se exite o serviço no veiculo ativo
               if ((serviceBenefit?.length || 0) > 0) {
                 updateActiveVehicleBenefit({
                   variables: {
                     Id: serviceBenefit?.[0].Id,
-                    PortfolioPreco_Id: service.ServicosPreco.Id,
-                  },
-                });
-                return;
+                    PortfolioPreco_Id: service.ServicosPreco.Id
+                  }
+                })
+                return
               }
               createActiveVehicleBenefit({
                 variables: {
                   Portfolio_Id: service.Servico.Id,
                   PortfolioPreco_Id: service.ServicosPreco.Id,
                   TipoPortfolio: 'serviço',
-                  VeiculoAtivo_Id: activeVehicles?.[0].Id,
-                },
-              });
-              return;
-            });
+                  VeiculoAtivo_Id: activeVehicles?.[0].Id
+                }
+              })
+              return
+            })
 
             // combos dos beneficios
             const combos = activeVehicles?.[0].Beneficios.filter(
               (benefit) => benefit.TipoPortfolio === 'combo'
-            );
+            )
 
-            await removeBenefit(combos, combosIds);
+            await removeBenefit(combos, combosIds)
 
             // proposalData?.Combos.filter(
             //   (combo) => combo.Veiculo_Id === installation.Veiculo_Id
@@ -498,42 +497,42 @@ const ProposalDetails = () => {
               // pega os ids dos planos desse combo
               const comboPlansId = combo.Combo.Planos.map(
                 (plan) => plan.Plano.Id
-              );
+              )
 
               // verifica se existe beneficio que esse combo tem dentro, caso sim remove esse beneficio e deixa o combo
               plans?.map((plan) => {
                 if (comboPlansId.includes(plan.Portfolio_Id)) {
                   disableActiveVehicleBenefit({
                     variables: {
-                      Id: plan.Id,
-                    },
-                  });
+                      Id: plan.Id
+                    }
+                  })
                 }
-              });
+              })
 
               // pega os ids dos produtos que tem recorrencia desse combo
               const comboProductsId = combo.Combo.Produtos.filter(
                 (product) => product.ProdutoPreco.TipoDeRecorrencia_Id !== null
-              ).map((product) => product.Produto.Id);
+              ).map((product) => product.Produto.Id)
 
               // verifica se existe beneficio que esse combo tem dentro, caso sim remove esse beneficio e deixa o combo
               products?.map((product) => {
                 if (comboProductsId.includes(product.Portfolio_Id)) {
                   disableActiveVehicleBenefit({
                     variables: {
-                      Id: product.Id,
-                    },
-                  });
+                      Id: product.Id
+                    }
+                  })
                 }
-              });
+              })
 
               // produtos do veiculo ativo
-              const vehicleProducts = activeVehicles?.[0].Produtos;
+              const vehicleProducts = activeVehicles?.[0].Produtos
 
               // pega os ids dos produtos do veiculo
               const vehicleProductsIds = vehicleProducts?.map(
                 (product) => product.Produto_Id
-              );
+              )
 
               // confere se esse produto do combo não existe no veiculo ativo, caso ele não exista ele cria
               combo.Combo.Produtos.filter(
@@ -544,34 +543,34 @@ const ProposalDetails = () => {
                     variables: {
                       VeiculoAtivo_Id: activeVehicles?.[0].Id,
                       ProdutoPreco_Id: product.ProdutoPreco.Id,
-                      Produto_Id: product.Produto.Id,
-                    },
-                  });
+                      Produto_Id: product.Produto.Id
+                    }
+                  })
                 }
-              });
+              })
 
               // pega os ids dos serviços que não geram OS desse combo
               const comboServicesId = combo.Combo.Servicos.filter(
                 (service) => !service.Servico.GeraOS
-              ).map((service) => service.Servico.Id);
+              ).map((service) => service.Servico.Id)
 
               // verifica se existe beneficio que esse combo tem dentro, caso sim remove esse beneficio e deixa o combo
               services?.map((service) => {
                 if (comboServicesId.includes(service.Portfolio_Id)) {
                   disableActiveVehicleBenefit({
                     variables: {
-                      Id: service.Id,
-                    },
-                  });
+                      Id: service.Id
+                    }
+                  })
                 }
-              });
+              })
 
               // serviços do veiculo ativo
-              const vehicleServices = activeVehicles?.[0].Servicos;
+              const vehicleServices = activeVehicles?.[0].Servicos
 
               const vehicleServicesIds = vehicleServices?.map(
                 (service) => service.Servico_Id
-              );
+              )
 
               // confere se esse produto do combo não existe no veiculo ativo, caso ele não exista ele cria
               combo.Combo.Servicos.filter(
@@ -582,39 +581,39 @@ const ProposalDetails = () => {
                     variables: {
                       VeiculoAtivo_Id: activeVehicles?.[0].Id,
                       ServicoPreco_Id: service.ServicoPreco_Id,
-                      Servico_Id: service.Servico.Id,
-                    },
-                  });
+                      Servico_Id: service.Servico.Id
+                    }
+                  })
                 }
-              });
+              })
 
               // pega o benefecio combo se existir
               const comboBenefit = combos?.filter(
                 (benefit) => benefit.Portfolio_Id === combo.Combo.Id
-              );
+              )
               // verificar se exite o combo no veiculo ativo
               if ((comboBenefit?.length || 0) > 0) {
                 updateActiveVehicleBenefit({
                   variables: {
                     Id: comboBenefit?.[0].Id,
-                    PortfolioPreco_Id: combo.ComboPreco.Id,
-                  },
-                });
-                return;
+                    PortfolioPreco_Id: combo.ComboPreco.Id
+                  }
+                })
+                return
               }
               await createActiveVehicleBenefit({
                 variables: {
                   Portfolio_Id: combo.Combo.Id,
                   PortfolioPreco_Id: combo.ComboPreco.Id,
                   TipoPortfolio: 'combo',
-                  VeiculoAtivo_Id: activeVehicles?.[0].Id,
-                },
-              });
-            });
+                  VeiculoAtivo_Id: activeVehicles?.[0].Id
+                }
+              })
+            })
             // Aceita a proposta
-            await acceptProposal();
-            proposalRefetch();
-            return;
+            await acceptProposal()
+            proposalRefetch()
+            return
           }
 
           if (
@@ -622,7 +621,7 @@ const ProposalDetails = () => {
               return (
                 service.Servico.GeraOS &&
                 service.Veiculo_Id === installation.Veiculo_Id
-              );
+              )
             }).length === 0
           ) {
             await createActiveVehicle({
@@ -630,33 +629,33 @@ const ProposalDetails = () => {
                 Veiculo_Id: installation.Veiculo_Id,
                 Cliente_Id: watch('Cliente_Id').key,
                 Franquia_Id: null,
-                Beneficios: benefits,
-              },
-            });
+                Beneficios: benefits
+              }
+            })
           }
 
           // Aceita a proposta
-          await acceptProposal();
-          proposalRefetch();
+          await acceptProposal()
+          proposalRefetch()
         }
-      );
-    });
+      )
+    })
 
     // proposalRefetch()
-    utils.notification('Proposta aceita com sucesso', 'success');
+    utils.notification('Proposta aceita com sucesso', 'success')
   }
 
   async function removeBenefit(
     itens?: {
-      Id: string;
-      PortfolioPreco_Id: string;
-      Portfolio_Id: string;
-      TipoPortfolio: string;
+      Id: string
+      PortfolioPreco_Id: string
+      Portfolio_Id: string
+      TipoPortfolio: string
     }[],
     itemsIds?: string[]
   ) {
     // itens dos beneficios para excluir
-    let itensToExclude = itens;
+    let itensToExclude = itens
 
     itens?.map((item) => {
       // confere se esse item existe nos beneficios do veiculo ativo, caso sim ele tira do array para excluir
@@ -664,58 +663,58 @@ const ProposalDetails = () => {
         itensToExclude = itensToExclude?.filter(
           (productToExclude) =>
             productToExclude.Portfolio_Id !== item.Portfolio_Id
-        );
+        )
       }
-    });
+    })
 
     itensToExclude?.map((item) => {
       // desativa cada item que não existir mais no beneficio
       disableActiveVehicleBenefit({
         variables: {
-          Id: item.Id,
-        },
-      });
-    });
+          Id: item.Id
+        }
+      })
+    })
   }
 
   async function refuseProposalSubmit() {
     await refuseProposal().then(() => {
-      proposalRefetch();
-      utils.notification('Proposta recusada com sucesso', 'success');
-    });
+      proposalRefetch()
+      utils.notification('Proposta recusada com sucesso', 'success')
+    })
   }
 
   async function onSubmit(event: {
     planos?: {
-      Plano_Id: string;
-      PlanoPreco_Id: string;
-    }[];
+      Plano_Id: string
+      PlanoPreco_Id: string
+    }[]
     produtos?: {
-      Produto_Id: string;
-      ProdutoPreco_Id: string;
-    }[];
+      Produto_Id: string
+      ProdutoPreco_Id: string
+    }[]
     servicos?: {
-      ServicosPreco_Id: string;
-      Servico_Id: string;
-    }[];
+      ServicosPreco_Id: string
+      Servico_Id: string
+    }[]
     combos?: {
-      Combo_Id: string;
-      ComboPreco_Id: string;
-    }[];
+      Combo_Id: string
+      ComboPreco_Id: string
+    }[]
     oportunidades: {
-      OportunidadeProduto_Id: string | null;
-      OportunidadeServico_Id: string | null;
-    }[];
+      OportunidadeProduto_Id: string | null
+      OportunidadeServico_Id: string | null
+    }[]
   }) {
     event.combos?.map((combo) => {
       createProposalCombo({
         variables: {
           Combo_Id: combo.Combo_Id,
           ComboPreco_Id: combo.ComboPreco_Id,
-          Veiculo: vehicleSelected.position,
-        },
-      });
-    });
+          Veiculo: vehicleSelected.position
+        }
+      })
+    })
 
     event.servicos?.map((service) => {
       createProposalService({
@@ -723,10 +722,10 @@ const ProposalDetails = () => {
           Servico_Id: service.Servico_Id,
           ServicosPreco_Id: service.ServicosPreco_Id,
           Proposta_Id: router.query.id,
-          Veiculo: vehicleSelected.position,
-        },
-      });
-    });
+          Veiculo: vehicleSelected.position
+        }
+      })
+    })
 
     event.planos?.map((plan) => {
       createProposalPlan({
@@ -734,10 +733,10 @@ const ProposalDetails = () => {
           Plano_Id: plan.Plano_Id,
           PlanoPreco_Id: plan.PlanoPreco_Id,
           Proposta_Id: router.query.id,
-          Veiculo: vehicleSelected.position,
-        },
-      });
-    });
+          Veiculo: vehicleSelected.position
+        }
+      })
+    })
 
     event.produtos?.map((product) => {
       createProposalProduct({
@@ -745,10 +744,10 @@ const ProposalDetails = () => {
           Produto_Id: product.Produto_Id,
           Proposta_Id: router.query.id,
           ProdutoPreco_Id: product.ProdutoPreco_Id,
-          Veiculo: vehicleSelected.position,
-        },
-      });
-    });
+          Veiculo: vehicleSelected.position
+        }
+      })
+    })
 
     event.oportunidades.map((upSelling) => {
       createProposalUpSelling({
@@ -756,17 +755,17 @@ const ProposalDetails = () => {
           OportunidadeProduto_Id: upSelling.OportunidadeProduto_Id,
           OportunidadeServico_Id: upSelling.OportunidadeServico_Id,
           Proposta_Id: router.query.id,
-          Veiculo: vehicleSelected.position,
-        },
-      });
-    });
+          Veiculo: vehicleSelected.position
+        }
+      })
+    })
 
-    setProposalArrayLoading(true);
+    setProposalArrayLoading(true)
     await getProposalArray(vehicleSelected.position).then((proposal) => {
-      setProposalArray(proposal);
-      setShowAddVehicleButton(true);
-    });
-    setProposalArrayLoading(false);
+      setProposalArray(proposal)
+      setShowAddVehicleButton(true)
+    })
+    setProposalArrayLoading(false)
   }
 
   function addVehicle() {
@@ -774,113 +773,113 @@ const ProposalDetails = () => {
       setVehicleSelected({
         Id: null,
         content: { title: 'Veículo ', subtitle: 'Sem vínculo' },
-        position: lastArray[lastArray.length - 1].position + 1,
-      });
+        position: lastArray[lastArray.length - 1].position + 1
+      })
       return [
         ...lastArray,
         {
           Id: null,
           content: { title: 'Veículo ', subtitle: 'Sem vínculo' },
-          position: lastArray[lastArray.length - 1].position + 1,
-        },
-      ];
-    });
-    setShowAddVehicleButton(false);
+          position: lastArray[lastArray.length - 1].position + 1
+        }
+      ]
+    })
+    setShowAddVehicleButton(false)
   }
 
   async function refetchArraysData(action = 'update') {
-    setProposalArrayLoading(true);
+    setProposalArrayLoading(true)
     await getProposalArray(vehicleSelected.position).then((proposal) =>
       setProposalArray(proposal)
-    );
+    )
     if (action === 'delete') {
       setVehiclesGroup(
         vehiclesGroup.filter(
           (vehicle) => vehicle.position !== vehicleSelected.position
         )
-      );
-      setVehicleSelected(vehiclesGroup[0]);
+      )
+      setVehicleSelected(vehiclesGroup[0])
     }
-    setProposalArrayLoading(false);
+    setProposalArrayLoading(false)
   }
 
   useEffect(() => {
-    refetchArraysData();
-  }, [vehicleSelected, router.query.id]);
+    refetchArraysData()
+  }, [vehicleSelected, router.query.id])
 
   useEffect(() => {
     vehiclesGroup.map((item) => {
       if (item.position === vehicleSelected.position) {
-        setVehicleSelected(item);
+        setVehicleSelected(item)
       }
-    });
-  }, [vehiclesGroup]);
+    })
+  }, [vehiclesGroup])
 
   useEffect(() => {
-    const vehiclesArray: number[] = [];
+    const vehiclesArray: number[] = []
     const vehicles: (
       | {
-          Id: string;
-          Placa?: string;
-          Apelido?: string;
-          NumeroDoChassi?: string;
-          Categoria_Id?: string;
+          Id: string
+          Placa?: string
+          Apelido?: string
+          NumeroDoChassi?: string
+          Categoria_Id?: string
         }
       | undefined
       | null
-    )[] = [];
+    )[] = []
 
     async function setVehicles() {
       await Promise.all(
         proposalData!.Combos.map(async (combo) => {
           if (!vehiclesArray.includes(combo.Veiculo)) {
-            vehiclesArray.push(combo.Veiculo);
+            vehiclesArray.push(combo.Veiculo)
             const vehicle =
               combo.Veiculo_Id === null
                 ? undefined
-                : await getVehicleById(combo.Veiculo_Id as string);
-            vehicles.push(vehicle?.data === undefined ? null : vehicle.data);
+                : await getVehicleById(combo.Veiculo_Id as string)
+            vehicles.push(vehicle?.data === undefined ? null : vehicle.data)
           }
         })
-      );
+      )
       await Promise.all(
         proposalData!.Planos.map(async (plan) => {
           if (!vehiclesArray.includes(plan.Veiculo)) {
-            vehiclesArray.push(plan.Veiculo);
-            let vehicle: any | undefined = undefined;
+            vehiclesArray.push(plan.Veiculo)
+            let vehicle: any | undefined = undefined
             vehicle =
               plan.Veiculo_Id !== null
                 ? await getVehicleById(plan.Veiculo_Id as string)
-                : undefined;
+                : undefined
 
-            vehicles.push(vehicle?.data === undefined ? null : vehicle.data);
+            vehicles.push(vehicle?.data === undefined ? null : vehicle.data)
           }
         })
-      );
+      )
       await Promise.all(
         proposalData!.Produtos.map(async (product) => {
           if (!vehiclesArray.includes(product.Veiculo)) {
-            vehiclesArray.push(product.Veiculo);
+            vehiclesArray.push(product.Veiculo)
             const vehicle =
               product.Veiculo_Id === null
                 ? undefined
-                : await getVehicleById(product.Veiculo_Id as string);
-            vehicles.push(vehicle?.data === undefined ? null : vehicle.data);
+                : await getVehicleById(product.Veiculo_Id as string)
+            vehicles.push(vehicle?.data === undefined ? null : vehicle.data)
           }
         })
-      );
+      )
       await Promise.all(
         proposalData!.Servicos.map(async (service) => {
           if (!vehiclesArray.includes(service.Veiculo)) {
-            vehiclesArray.push(service.Veiculo);
+            vehiclesArray.push(service.Veiculo)
             const vehicle =
               service.Veiculo_Id === null
                 ? undefined
-                : await getVehicleById(service.Veiculo_Id as string);
-            vehicles.push(vehicle?.data === undefined ? null : vehicle.data);
+                : await getVehicleById(service.Veiculo_Id as string)
+            vehicles.push(vehicle?.data === undefined ? null : vehicle.data)
           }
         })
-      );
+      )
       const vehicleGroup = vehiclesArray.map((position, index) => {
         return {
           Id: vehicles[index]?.Id || null,
@@ -893,27 +892,27 @@ const ProposalDetails = () => {
                       ? vehicles[index]?.Placa
                       : vehicles[index]?.NumeroDoChassi?.substring(0, 10)
                   }`
-                : 'Sem vínculo',
+                : 'Sem vínculo'
           },
-          position,
-        };
-      });
+          position
+        }
+      })
       if (proposalData?.Cliente_Id) {
         getProposalClienteById(proposalData?.Cliente_Id).then((client) => {
           setValue('Cliente_Id', {
             key: client?.Id,
-            title: client?.Pessoa.Nome,
-          });
-        });
+            title: client?.Pessoa.Nome
+          })
+        })
       }
       setVehiclesGroup(
         vehicleGroup.sort((item1, item2) => item1.position - item2.position)
-      );
+      )
     }
     if (proposalData) {
-      setVehicles();
+      setVehicles()
     }
-  }, [proposalData]);
+  }, [proposalData])
 
   return (
     <main className="col-span-12">
@@ -958,8 +957,8 @@ const ProposalDetails = () => {
                           ? clientsData.map((item) => {
                               return {
                                 key: item.Id,
-                                title: item.Pessoa?.Nome as string,
-                              };
+                                title: item.Pessoa?.Nome as string
+                              }
                             })
                           : []
                       }
@@ -1062,7 +1061,7 @@ const ProposalDetails = () => {
       </form>
       <proposals.SlidePanel />
     </main>
-  );
-};
+  )
+}
 
-export default ProposalDetails;
+export default ProposalDetails

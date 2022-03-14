@@ -1,4 +1,4 @@
-import CreateRepresentative from '&crm/domains/identities/Clients/Forms/UpdateClient/createRepresentative';
+import CreateRepresentative from './createRepresentative';
 
 export default function Create() {
   return <CreateRepresentative />;

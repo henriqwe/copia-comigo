@@ -12,7 +12,6 @@ import * as proposals from '&crm/domains/commercial/Proposals'
 import * as plans from '&crm/domains/commercial/Plans'
 import * as leads from '&crm/domains/services/Leads'
 import * as tickets from '&crm/domains/services/Tickets'
-import * as users from '&crm/domains/identities/Users'
 import * as combos from '&crm/domains/commercial/Combos'
 import * as services from '&crm/domains/commercial/Services'
 import * as products from '&crm/domains/commercial/Products'
@@ -61,7 +60,6 @@ function refetchActions() {
   const { productsRefetch } = products.useProduct()
   const { leadsRefetch } = leads.useLead()
   const { ticketsRefetch } = tickets.useTicket()
-  const { usersRefetch } = users.useUser()
 
   const refetch = () => {
     combosRefetch()
@@ -69,7 +67,6 @@ function refetchActions() {
     productsRefetch()
     leadsRefetch()
     ticketsRefetch()
-    usersRefetch()
     servicesRefetch()
   }
   return { servicesLoading, refetch }

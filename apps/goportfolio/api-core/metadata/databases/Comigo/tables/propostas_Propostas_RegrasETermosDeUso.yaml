@@ -1,0 +1,13 @@
+table:
+  name: Propostas_RegrasETermosDeUso
+  schema: propostas
+object_relationships:
+- name: ProdutoRegrasETermosDeUso
+  using:
+    foreign_key_constraint_on: Produto_RegraETermosDeUso_Id
+- name: Proposta
+  using:
+    foreign_key_constraint_on: Proposta_Id
+- name: ServicoRegrasETermosDeUso
+  using:
+    foreign_key_constraint_on: Servico_RegraETermosDeUso_Id

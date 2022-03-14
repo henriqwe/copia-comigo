@@ -3,7 +3,7 @@ import { getServicePriceById } from "./getServicePriceById"
 
 export async function getServiceById(
   serviceId: string,
-  priceId: string,
+  priceId?: string,
   secondPriceId?: string
 ) {
   const { data } = await useTypedClientQuery({
@@ -21,7 +21,7 @@ export async function getServiceById(
 
   return {
     service: data.comercial_Servicos_by_pk,
-    price: await getServicePriceById(priceId),
+    price: priceId ? await getServicePriceById(priceId) : undefined,
     secondPrice: secondPriceId
       ? await getServicePriceById(secondPriceId)
       : undefined

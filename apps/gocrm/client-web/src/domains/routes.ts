@@ -25,19 +25,11 @@ export default {
     vehicles: '/atendimento/veiculos',
     index: '/atendimento'
   },
-  identidades: {
-    clientes: {
-      index: '/identidades/clients',
-      cadastrar: '/identidades/clients/cadastrar'
-    },
-    fornecedores: {
-      index: '/identidades/fornecedores',
-      cadastrar: '/identidades/fornecedores/cadastrar'
-    },
-    usuarios: '/identidades/usuarios',
-    colaboradores: '/identidades/colaboradores',
-    index: '/identidades'
+  fornecedores: {
+    index: '/fornecedores',
+    cadastrar: '/fornecedores/cadastrar'
   },
+  colaboradores: '/colaboradores',
   propostas: '/propostas',
   comercial: {
     cadastros: {
@@ -51,7 +43,8 @@ export default {
     combos: '/comercial/combos',
     propostas: {
       cadastrar: '/comercial/propostas/cadastrar',
-      index: '/comercial/propostas'
+      index: '/comercial/propostas',
+      toPrint: { index: '/comercial/propostas/toPrint' }
     },
     contratos: '/comercial/contratos',
     fornecedores: '/comercial/fornecedores',

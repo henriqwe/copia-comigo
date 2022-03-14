@@ -29,6 +29,7 @@ type FormData = {
 export function CreateVehicle() {
   const [apiData, setApiData] = useState([])
   const [loading, setLoading] = useState(false)
+  const [PossuiGNV, setPossuiGNV] = useState(false)
   const {
     vehiclesTypeData,
     vehicleSchema,
@@ -68,7 +69,8 @@ export function CreateVehicle() {
         try {
           await insertProposalVehicle({
             variables: {
-              Veiculo_Id: response.data.insert_clientes_Veiculos_one.Id
+              Veiculo_Id: response.data.insert_clientes_Veiculos_one.Id,
+              PossuiGNV
             }
           })
           proposalRefetch()
@@ -218,6 +220,14 @@ export function CreateVehicle() {
           title={`Apelido`}
           register={register}
         />
+
+        <div className="flex items-center justify-between w-full">
+          <p>Possui GNV?</p>
+          <common.form.Switch
+            onChange={() => setPossuiGNV(!PossuiGNV)}
+            value={PossuiGNV}
+          />
+        </div>
       </div>
       <common.Separator />
       <div className="flex items-center justify-between w-full">

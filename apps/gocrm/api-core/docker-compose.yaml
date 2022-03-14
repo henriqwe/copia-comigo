@@ -23,7 +23,7 @@ services:
     container_name: gocrm-graphql-engine
     image: hasura/graphql-engine:v2.2.0
     ports:
-      - '9001:8080'
+      - '7001:8080'
     depends_on:
       - 'postgres'
     restart: always

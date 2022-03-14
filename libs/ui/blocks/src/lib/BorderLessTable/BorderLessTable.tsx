@@ -1,15 +1,15 @@
 import * as table from './itens'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, ReactNode, SetStateAction } from 'react'
 
 type TableListType = {
   colection: any
   columnTitles: {
-    title: string
+    title: string | ReactNode
     fieldName: string
     type?: 'date' | 'relationship' | 'handler' | undefined
     relationshipName?: string
 
-    handler?: (valor: any) => string
+    handler?: (valor: any) => string | ReactNode
   }[]
   pagination?: {
     filters: { limit: number; offset: number; currentPage: number; where: any }
@@ -25,6 +25,7 @@ type TableListType = {
   tableName?: string
   search?: { field: string[]; where: any }
   actions?: (item: any) => any
+  noIntro?: boolean
 }
 
 export const BorderLessTable = ({
@@ -33,11 +34,14 @@ export const BorderLessTable = ({
   search,
   pagination,
   tableName,
-  actions
+  actions,
+  noIntro = false
 }: TableListType) => {
   return (
     <>
-      <div className="z-10 col-span-12 overflow-auto intro-y">
+      <div
+        className={`z-10 col-span-12 overflow-auto ${!noIntro && 'intro-y'}`}
+      >
         {search && <table.Search pagination={pagination} search={search} />}
         <table className="table">
           <thead>
@@ -50,6 +54,7 @@ export const BorderLessTable = ({
             {(tableName ? colection[tableName as unknown as number] : colection)
               .length ? (
               <table.Rows
+                noIntro
                 actions={actions}
                 lines={
                   tableName

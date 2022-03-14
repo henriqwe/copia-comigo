@@ -1,5 +1,7 @@
+import { ReactNode } from "react"
+
 export type CollectionType = {
-  Name: string
+  Name: ReactNode
   MembershipPrice: string | number
   RecurrencePrice: string | number
   Type: string

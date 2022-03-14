@@ -17,7 +17,8 @@ export async function updateActiveVehicleProduct({
         },
         _set: {
           Ativo,
-          updated_at: new Date()
+          updated_at: new Date(),
+          DataDeDesativacao: new Date()
         }
       },
       {

@@ -2,12 +2,23 @@ import {
   operacional_OrdemDeServico_Agendamentos_Situacoes_enum,
   operacional_OrdemDeServico_Situacoes_enum
 } from '&erp/graphql/generated/zeus'
-import { useTypedClientMutation } from '&erp/graphql/generated/zeus/apollo'
+import { useTypedClientMutation, $ } from '&erp/graphql/generated/zeus/apollo'
 
 type UpdateServiceOrdersProps = {
   OS_Id: string
   Agendamento: Date
   Colaborador_Id: string
+  Contato: string
+  Responsavel: string
+  Endereco: {
+    Bairro: string
+    Logradouro: string
+    Cep: string
+    Cidade: string
+    Estado: string
+    Numero: string
+    Complemento: string
+  }
   Itens: {
     Produto_Id: string
     Item_Id: string
@@ -19,7 +30,10 @@ export async function updateServiceOrders({
   OS_Id,
   Agendamento,
   Colaborador_Id,
-  Itens
+  Itens,
+  Contato,
+  Responsavel,
+  Endereco
 }: UpdateServiceOrdersProps) {
   useTypedClientMutation({
     update_operacional_OrdemDeServico_by_pk: [
@@ -38,6 +52,9 @@ export async function updateServiceOrders({
           OS_Id: OS_Id,
           Agendamento,
           Colaborador_Id,
+          Contato,
+          Responsavel,
+          Endereco: $`Endereco`,
           Situacao_Id:
             operacional_OrdemDeServico_Agendamentos_Situacoes_enum.criada,
           Itens: {
@@ -61,5 +78,7 @@ export async function updateServiceOrders({
         Id: true
       }
     ]
+  },{
+    Endereco
   })
 }

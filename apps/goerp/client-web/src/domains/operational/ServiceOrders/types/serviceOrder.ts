@@ -1,9 +1,11 @@
-import { Benefits } from './benefits'
+import { CombosType } from './combos'
+import { PlansType } from './plans'
 import { Products } from './products'
 import { Services } from './services'
 
 export type ServiceOrderData = {
   Id: string
+  PossuiGNV?: boolean
   Tipo: {
     Valor: string
     Comentario: string
@@ -18,6 +20,17 @@ export type ServiceOrderData = {
     FimDoServico?: Date
     InicioDoServico?: Date
     Colaborador_Id: string
+    Contato: string
+    Responsavel: string
+    Endereco: {
+      Bairro: string
+      Logradouro: string
+      Cep: string
+      Cidade: string
+      Estado: string
+      Numero: string
+      Complemento: string
+    }
     Situacao: {
       Valor: string
       Comentario: string
@@ -58,7 +71,9 @@ export type ServiceOrderData = {
     Cliente_Id?: string
   }
 
-  Beneficios: Benefits[]
+  Combos: CombosType[]
+
+  Planos: PlansType[]
   Servicos: Services[]
   Produtos: Products[]
   Veiculo_Id: string

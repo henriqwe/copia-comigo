@@ -1,5 +1,5 @@
 import {
-  clientes_VeiculosAtivos_Situacao_enum,
+  identidades_Clientes_Documentos_Situacoes_enum,
   order_by,
   propostas_Propostas_Situacoes_enum
 } from '&crm/graphql/generated/zeus'
@@ -29,10 +29,14 @@ import {
   useState
 } from 'react'
 import { ProposalsDataType } from './types/proposal'
+import * as utils from '@comigo/utils'
+import * as yup from 'yup'
+import { Clienttype } from './types/client'
+import { LeadType } from './types/lead'
 
 type UpdateContextProps = {
-  client: Client
-  setClient: Dispatch<SetStateAction<Client>>
+  client: Clienttype
+  setClient: Dispatch<SetStateAction<Clienttype>>
   vehiclesData?: {
     Id: string
     Apelido?: string
@@ -40,6 +44,7 @@ type UpdateContextProps = {
     NumeroDoChassi?: string
     VeiculosAtivos: {
       Id: string
+      Situacao_Id: string
     }[]
   }[]
 
@@ -47,18 +52,18 @@ type UpdateContextProps = {
   vehiclesLoading: boolean
   slidePanelState: SlidePanel
   setSlidePanelState: Dispatch<SetStateAction<SlidePanel>>
-  categories: {
+  tabsForPage: {
     title: string
     type: string
     id?: number
   }[]
-  setCategories: Dispatch<SetStateAction<unknown>>
-  selectedCategory: {
+  setTabsForPage: Dispatch<SetStateAction<unknown>>
+  selectedTab: {
     title: string
     type: string
     id?: number
   }
-  setSelectedCategory: Dispatch<SetStateAction<unknown>>
+  setSelectedTab: Dispatch<SetStateAction<unknown>>
   servicesData: {
     Id: string
     Nome: string
@@ -66,6 +71,10 @@ type UpdateContextProps = {
       Valor: string
       Comentario: string
     }
+    RegrasETermosDeUsos: {
+      Id: string
+      Mensagem: string
+    }[]
     PrestadoresDeServicos: {
       Precos: {
         Id: string
@@ -87,6 +96,10 @@ type UpdateContextProps = {
       Valor: string
       Comentario: string
     }
+    RegrasETermosDeUsos: {
+      Id: string
+      Mensagem: string
+    }[]
     Fornecedores: {
       Precos: {
         Id: string
@@ -98,6 +111,10 @@ type UpdateContextProps = {
     ServicoDeInstalacao?: {
       Id: string
       Nome: string
+      RegrasETermosDeUsos: {
+        Id: string
+        Mensagem: string
+      }[]
       PrestadoresDeServicos: {
         Precos: { Id: string; Valor: string; TipoDePreco?: { Valor: string } }[]
       }[]
@@ -116,6 +133,22 @@ type UpdateContextProps = {
       ValorDeAdesao: string
       ValorDeRecorrencia: string
     }[]
+    Produtos: {
+      Produto: {
+        RegrasETermosDeUsos: {
+          Id: string
+          Mensagem: string
+        }[]
+      }
+    }[]
+    Servicos: {
+      Servico: {
+        RegrasETermosDeUsos: {
+          Id: string
+          Mensagem: string
+        }[]
+      }
+    }[]
   }[]
   plansRefetch: () => void
   plansLoading: boolean
@@ -127,6 +160,48 @@ type UpdateContextProps = {
     Nome: string
     Precos: {
       Id: string
+    }[]
+    Planos: {
+      Plano: {
+        Id: string
+        Produtos: {
+          Produto: {
+            Id: string
+            RegrasETermosDeUsos: {
+              Id: string
+              Mensagem: string
+            }[]
+          }
+        }[]
+        Servicos: {
+          Servico: {
+            Id: string
+            RegrasETermosDeUsos: {
+              Id: string
+              Mensagem: string
+            }[]
+          }
+        }[]
+      }
+    }[]
+
+    Produtos: {
+      Produto: {
+        Id: string
+        RegrasETermosDeUsos: {
+          Id: string
+          Mensagem: string
+        }[]
+      }
+    }[]
+    Servicos: {
+      Servico: {
+        Id: string
+        RegrasETermosDeUsos: {
+          Id: string
+          Mensagem: string
+        }[]
+      }
     }[]
   }[]
   combosRefetch: () => void
@@ -207,6 +282,32 @@ type UpdateContextProps = {
     >
   ) => Promise<FetchResult['data']>
   insertProposalComboLoading: boolean
+  insertProposalAlert: (
+    options?: MutationFunctionOptions<
+      {
+        insert_propostas_Propostas_RegrasETermosDeUso_one?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  insertProposalAlertLoading: boolean
+  updateProposalAlert: (
+    options?: MutationFunctionOptions<
+      {
+        update_propostas_Propostas_RegrasETermosDeUso_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  updateProposalAlertLoading: boolean
   insertProposalUpSelling: (
     options?: MutationFunctionOptions<
       {
@@ -259,6 +360,34 @@ type UpdateContextProps = {
     >
   ) => Promise<FetchResult['data']>
   insertClientPaymentTypeLoading: boolean
+  insertOnlyClientPaymentType: (
+    options?: MutationFunctionOptions<
+      {
+        update_identidades_Clientes_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  insertOnlyClientPaymentTypeLoading: boolean
+
+  insertOnlyClientInvoiceDate: (
+    options?: MutationFunctionOptions<
+      {
+        update_identidades_Clientes_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  insertOnlyClientInvoiceDateLoading: boolean
+
   createVehicle: (
     options?: MutationFunctionOptions<
       {
@@ -291,28 +420,7 @@ type UpdateContextProps = {
     Placa?: string
     NumeroDoChassi?: string
   }>
-  getClientById: (Id: string) => Promise<{
-    Id: string
-    Pessoa: {
-      DadosDaApi: {
-        emails: {
-          email: string
-        }[]
-        enderecos: {
-          bairro: string
-          cidade: string
-          complemento: string
-          estado: string
-          logradouro: string
-          numero: string
-          pontoDeReferencia: string
-        }[]
-      }
-      Nome: string
-    }
-    FormaDePagamento_Id?: string
-    DiaDeFaturamento_Id?: string
-  }>
+  getClientById: (Id: string) => Promise<Clienttype>
   getPaymentTypeById: (Valor: string) => Promise<{
     Valor: string
     Comentario: string
@@ -324,6 +432,7 @@ type UpdateContextProps = {
   getClientProposalsByClientId: (Id: string) => Promise<
     {
       Id: string
+      Situacao_Id: string
     }[]
   >
   paymentType: PaymentType
@@ -332,29 +441,100 @@ type UpdateContextProps = {
   setClientPaymentType: Dispatch<SetStateAction<PaymentType>>
   disabledUpdateClientPaymentType: boolean
   setDisabledUpdateClientPaymentType: Dispatch<SetStateAction<boolean>>
-}
+  hasDependencies: boolean
+  setHasDependencies: Dispatch<SetStateAction<boolean>>
+  currentStage: number
+  setCurrentStage: Dispatch<SetStateAction<number>>
 
-type Client = {
-  Id: string
-  Pessoa: {
-    DadosDaApi: {
-      emails: {
-        email: string
-      }[]
-      enderecos: {
-        bairro: string
-        cidade: string
-        complemento: string
-        estado: string
-        logradouro: string
-        numero: string
-        pontoDeReferencia: string
-      }[]
-    }
+  createClient: (
+    options?: MutationFunctionOptions<
+      {
+        CadastrarCliente?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  createClientLoading: boolean
+  CPFSchema: yup.AnyObjectSchema
+  CNPJSchema: yup.AnyObjectSchema
+  insertClientToProposal: (
+    options?: MutationFunctionOptions<
+      {
+        update_propostas_Propostas_by_pk?: {
+          Id: string
+        }
+      },
+      OperationVariables,
+      DefaultContext,
+      ApolloCache<unknown>
+    >
+  ) => Promise<FetchResult['data']>
+  insertClientToProposalLoading: boolean
+  getClientPhonesByClientId: (Id: string) => Promise<
+    {
+      Id: string
+      Telefone: string
+    }[]
+  >
+  getClientAddressByClientId: (Id: string) => Promise<
+    {
+      Id: string
+      Bairro: string
+      Cep?: string
+      Numero?: string
+      Logradouro: string
+      Cidade: {
+        Nome: string
+      }
+      Estado: {
+        Nome: string
+      }
+    }[]
+  >
+  getClientEmailsByClientId: (Id: string) => Promise<
+    {
+      Id: string
+      Email: string
+    }[]
+  >
+  getLeadById: (Id: string) => Promise<{
     Nome: string
-  }
-  FormaDePagamento_Id?: string
-  DiaDeFaturamento_Id?: string
+    Email: string
+    Telefone: string
+    Id: string
+  }>
+  lead: LeadType
+  setLead: Dispatch<SetStateAction<LeadType>>
+  runClientQuery: (options?: QueryLazyOptions<OperationVariables>) => Promise<
+    LazyQueryResult<
+      {
+        identidades_Clientes: {
+          Id: string
+          Pessoa: {
+            Nome: string
+          }
+        }[]
+      },
+      OperationVariables
+    >
+  >
+  clientData: {
+    Id: any
+    Pessoa: {
+      Nome: string
+    }
+  }[]
+  clientRefetch: () => void
+  clientLoading: boolean
+  createProductSchema: yup.AnyObjectSchema
+  createPlanSchema: yup.AnyObjectSchema
+  createServiceSchema: yup.AnyObjectSchema
+  createComboSchema: yup.AnyObjectSchema
+  createVehicleSchema: yup.AnyObjectSchema
 }
 
 type ProviderProps = {
@@ -371,6 +551,7 @@ type SlidePanel = {
     | 'proposalCombo'
     | 'paymentType'
     | 'clientPaymentType'
+    | 'linkClient'
   open: boolean
 }
 
@@ -389,24 +570,27 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     open: false,
     type: 'proposalVehicle'
   })
-  const [client, setClient] = useState<Client>()
+  const [currentStage, setCurrentStage] = useState(0)
+  const [client, setClient] = useState<Clienttype>()
+  const [lead, setLead] = useState<LeadType>()
   const [paymentType, setPaymentType] = useState<PaymentType>()
   const [clientPaymentType, setClientPaymentType] = useState<PaymentType>()
   const [disabledUpdateClientPaymentType, setDisabledUpdateClientPaymentType] =
     useState(false)
+  const [hasDependencies, setHasDependencies] = useState<boolean>()
 
-  const [categories, setCategories] = useState([
+  const [tabsForPage, setTabsForPage] = useState([
     {
       title: 'Resumo',
       type: 'Resume'
     },
     {
-      title: 'Geral',
+      title: 'Venda avulsa',
       type: 'General'
     }
   ])
 
-  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+  const [selectedTab, setSelectedTab] = useState(tabsForPage[0])
 
   const [insertProposalVehicle, { loading: insertProposalVehicleLoading }] =
     useTypedMutation({
@@ -414,7 +598,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           object: {
             Veiculo_Id: $`Veiculo_Id`,
-            Proposta_Id: router.query.id
+            Proposta_Id: router.query.id,
+            PossuiGNV: $`PossuiGNV`
           }
         },
         {
@@ -457,6 +642,40 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         }
       ]
     })
+  const [
+    insertOnlyClientPaymentType,
+    { loading: insertOnlyClientPaymentTypeLoading }
+  ] = useTypedMutation({
+    update_identidades_Clientes_by_pk: [
+      {
+        pk_columns: { Id: $`Id` },
+        _set: {
+          FormaDePagamento_Id: $`FormaDePagamento_Id`,
+          updated_at: new Date()
+        }
+      },
+      {
+        Id: true
+      }
+    ]
+  })
+  const [
+    insertOnlyClientInvoiceDate,
+    { loading: insertOnlyClientInvoiceDateLoading }
+  ] = useTypedMutation({
+    update_identidades_Clientes_by_pk: [
+      {
+        pk_columns: { Id: $`Id` },
+        _set: {
+          DiaDeFaturamento_Id: $`DiaDeFaturamento_Id`,
+          updated_at: new Date()
+        }
+      },
+      {
+        Id: true
+      }
+    ]
+  })
 
   const [refuseProposal, { loading: refuseProposalLoading }] = useTypedMutation(
     {
@@ -500,7 +719,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             Proposta_Id: router.query.id,
             PropostaVeiculo_Id: $`PropostaVeiculo_Id`,
             PrecoDeAdesao_Id: $`PrecoDeAdesao_Id`,
-            PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`
+            PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`,
+            PropostaPlano_Id: $`PropostaPlano_Id`,
+            PropostaCombo_Id: $`PropostaCombo_Id`
           }
         },
         {
@@ -518,7 +739,10 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             Proposta_Id: router.query.id,
             PropostaVeiculo_Id: $`PropostaVeiculo_Id`,
             PrecoDeAdesao_Id: $`PrecoDeAdesao_Id`,
-            PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`
+            PrecoDeRecorrencia_Id: $`PrecoDeRecorrencia_Id`,
+            PropostaPlano_Id: $`PropostaPlano_Id`,
+            PropostaCombo_Id: $`PropostaCombo_Id`,
+            Quantidade: $`Quantidade`
           }
         },
         {
@@ -535,7 +759,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             PlanoPreco_Id: $`PlanoPreco_Id`,
             Plano_Id: $`Plano_Id`,
             Proposta_Id: router.query.id,
-            PropostaVeiculo_Id: $`PropostaVeiculo_Id`
+            PropostaVeiculo_Id: $`PropostaVeiculo_Id`,
+            PropostaCombo_Id: $`PropostaCombo_Id`
           }
         },
         {
@@ -561,6 +786,39 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
       ]
     })
 
+  const [insertProposalAlert, { loading: insertProposalAlertLoading }] =
+    useTypedMutation({
+      insert_propostas_Propostas_RegrasETermosDeUso_one: [
+        {
+          object: {
+            Produto_RegraETermosDeUso_Id: $`Produto_RegraETermosDeUso_Id`,
+            Servico_RegraETermosDeUso_Id: $`Servico_RegraETermosDeUso_Id`,
+            Proposta_Id: router.query.id
+          }
+        },
+        {
+          Id: true
+        }
+      ]
+    })
+
+  const [updateProposalAlert, { loading: updateProposalAlertLoading }] =
+    useTypedMutation({
+      update_propostas_Propostas_RegrasETermosDeUso_by_pk: [
+        {
+          pk_columns: {
+            Id: $`Id`
+          },
+          _set: {
+            Informado: $`Informado`
+          }
+        },
+        {
+          Id: true
+        }
+      ]
+    })
+
   const [insertProposalUpSelling, { loading: insertProposalUpSellingLoading }] =
     useTypedMutation({
       insert_propostas_Propostas_Oportunidades_one: [
@@ -570,6 +828,34 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             OportunidadeServico_Id: $`OportunidadeServico_Id`,
             Proposta_Id: router.query.id,
             PropostaVeiculo_Id: $`PropostaVeiculo_Id`
+          }
+        },
+        {
+          Id: true
+        }
+      ]
+    })
+
+  const [createClient, { loading: createClientLoading }] = useTypedMutation({
+    CadastrarCliente: [
+      {
+        Identificador: $`Identificador`,
+        PessoaJuridica: $`PessoaJuridica`
+      },
+      {
+        Id: true
+      }
+    ]
+  })
+
+  const [insertClientToProposal, { loading: insertClientToProposalLoading }] =
+    useTypedMutation({
+      update_propostas_Propostas_by_pk: [
+        {
+          pk_columns: { Id: router.query.id },
+          _set: {
+            Cliente_Id: $`Cliente_Id`,
+            updated_at: new Date()
           }
         },
         {
@@ -599,9 +885,30 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           VeiculosAtivos: [
             { where: { deleted_at: { _is_null: true } } },
             {
-              Id: true
+              Id: true,
+              Situacao_Id: true
             }
           ]
+        }
+      ]
+    },
+    { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
+  )
+
+  const [
+    runClientQuery,
+    { data: clientData, refetch: clientRefetch, loading: clientLoading }
+  ] = useTypedLazyQuery(
+    {
+      identidades_Clientes: [
+        {
+          where: { deleted_at: { _is_null: true } }
+        },
+        {
+          Id: true,
+          Pessoa: {
+            Nome: true
+          }
         }
       ]
     },
@@ -644,6 +951,15 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           Id: true,
           Nome: true,
+          RegrasETermosDeUsos: [
+            {
+              where: { deleted_at: { _is_null: true } }
+            },
+            {
+              Id: true,
+              Mensagem: true
+            }
+          ],
           Tipo: {
             Valor: true,
             Comentario: true
@@ -698,6 +1014,15 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             Valor: true,
             Comentario: true
           },
+          RegrasETermosDeUsos: [
+            {
+              where: { deleted_at: { _is_null: true } }
+            },
+            {
+              Id: true,
+              Mensagem: true
+            }
+          ],
           Fornecedores: [
             {
               where: {
@@ -724,6 +1049,15 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           ServicoDeInstalacao: {
             Id: true,
             Nome: true,
+            RegrasETermosDeUsos: [
+              {
+                where: { deleted_at: { _is_null: true } }
+              },
+              {
+                Id: true,
+                Mensagem: true
+              }
+            ],
             PrestadoresDeServicos: [
               {
                 where: {
@@ -760,6 +1094,36 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           Id: true,
           Nome: true,
+          Produtos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Produto: {
+                Id: true,
+                RegrasETermosDeUsos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Mensagem: true
+                  }
+                ]
+              }
+            }
+          ],
+          Servicos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Servico: {
+                Id: true,
+                RegrasETermosDeUsos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Mensagem: true
+                  }
+                ]
+              }
+            }
+          ],
           Precos: [
             {
               where: { deleted_at: { _is_null: true } },
@@ -787,6 +1151,74 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         {
           Id: true,
           Nome: true,
+          Planos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Plano: {
+                Id: true,
+                Produtos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Produto: {
+                      Id: true,
+                      RegrasETermosDeUsos: [
+                        { where: { deleted_at: { _is_null: true } } },
+                        {
+                          Id: true,
+                          Mensagem: true
+                        }
+                      ]
+                    }
+                  }
+                ],
+                Servicos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Servico: {
+                      Id: true,
+                      RegrasETermosDeUsos: [
+                        { where: { deleted_at: { _is_null: true } } },
+                        {
+                          Id: true,
+                          Mensagem: true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          Produtos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Produto: {
+                Id: true,
+                RegrasETermosDeUsos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Mensagem: true
+                  }
+                ]
+              }
+            }
+          ],
+          Servicos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Servico: {
+                Id: true,
+                RegrasETermosDeUsos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Mensagem: true
+                  }
+                ]
+              }
+            }
+          ],
           Precos: [
             {
               where: { deleted_at: { _is_null: true } },
@@ -832,11 +1264,31 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         Id: router.query.id
       },
       {
+        Lead_Id: true,
         Situacao: {
           Comentario: true
         },
         FormaDePagamentoDaAdesao_Id: true,
         Cliente_Id: true,
+        PropostaGerada: true,
+        RegrasETermosDeUsos: [
+          {
+            where: { deleted_at: { _is_null: true } },
+            order_by: [{ created_at: order_by.asc }]
+          },
+          {
+            Id: true,
+            Informado: true,
+            ProdutoRegrasETermosDeUso: {
+              Produto_Id: true,
+              Mensagem: true
+            },
+            ServicoRegrasETermosDeUso: {
+              Servico_Id: true,
+              Mensagem: true
+            }
+          }
+        ],
         Planos: [
           {
             where: {
@@ -845,15 +1297,62 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             }
           },
           {
+            Id: true,
             Plano: {
               Id: true,
               Nome: true
             },
+            PropostaCombo_Id: true,
             PlanoPreco: {
               Id: true,
               ValorDeAdesao: true,
               ValorDeRecorrencia: true
-            }
+            },
+            PropostasServicos: [
+              {
+                where: { deleted_at: { _is_null: true } }
+              },
+              {
+                Id: true,
+                Servico: {
+                  Id: true,
+                  Nome: true,
+                  GeraOS: true
+                },
+                PropostaCombo_Id: true,
+                PropostaPlano_Id: true,
+                PrecoDeAdesao: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                },
+                PrecoDeRecorrencia: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                }
+              }
+            ],
+            PropostasProdutos: [
+              { where: { deleted_at: { _is_null: true } } },
+              {
+                Id: true,
+                Quantidade: true,
+                PropostaCombo_Id: true,
+                PropostaPlano_Id: true,
+                Produto: { Id: true, Nome: true },
+                PrecoAdesao: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                },
+                PrecoRecorrencia: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                }
+              }
+            ]
           }
         ],
         Servicos: [
@@ -864,11 +1363,14 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             }
           },
           {
+            Id: true,
             Servico: {
               Id: true,
               Nome: true,
               GeraOS: true
             },
+            PropostaCombo_Id: true,
+            PropostaPlano_Id: true,
             PrecoDeAdesao: {
               Id: true,
               Valor: true,
@@ -889,6 +1391,10 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             }
           },
           {
+            Id: true,
+            Quantidade: true,
+            PropostaCombo_Id: true,
+            PropostaPlano_Id: true,
             Produto: { Id: true, Nome: true },
             PrecoAdesao: {
               Id: true,
@@ -910,6 +1416,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             }
           },
           {
+            Id: true,
             Combo: {
               Id: true,
               Nome: true
@@ -918,24 +1425,81 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               Id: true,
               ValorDeAdesao: true,
               ValorDeRecorrencia: true
-            }
-          }
-        ],
-        Veiculos: [
-          { where: { deleted_at: { _is_null: true } } },
-          {
-            Id: true,
-            Veiculo_Id: true,
+            },
+            PropostasPlanos: [
+              { where: { deleted_at: { _is_null: true } } },
+              {
+                Id: true,
+                Plano: {
+                  Id: true,
+                  Nome: true
+                },
+                PropostaCombo_Id: true,
+                PlanoPreco: {
+                  Id: true,
+                  ValorDeAdesao: true,
+                  ValorDeRecorrencia: true
+                },
+                PropostasProdutos: [
+                  {
+                    where: { deleted_at: { _is_null: true } }
+                  },
+                  {
+                    Id: true,
+                    Quantidade: true,
+                    PropostaCombo_Id: true,
+                    PropostaPlano_Id: true,
+                    Produto: { Id: true, Nome: true },
+                    PrecoAdesao: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    },
+                    PrecoRecorrencia: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    }
+                  }
+                ],
+                PropostasServicos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Servico: {
+                      Id: true,
+                      Nome: true,
+                      GeraOS: true
+                    },
+                    PropostaCombo_Id: true,
+                    PropostaPlano_Id: true,
+                    PrecoDeAdesao: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    },
+                    PrecoDeRecorrencia: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    }
+                  }
+                ]
+              }
+            ],
             PropostasServicos: [
               {
                 where: { deleted_at: { _is_null: true } }
               },
               {
+                Id: true,
                 Servico: {
                   Id: true,
                   Nome: true,
                   GeraOS: true
                 },
+                PropostaCombo_Id: true,
+                PropostaPlano_Id: true,
                 PrecoDeAdesao: {
                   Id: true,
                   Valor: true,
@@ -951,6 +1515,63 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             PropostasProdutos: [
               { where: { deleted_at: { _is_null: true } } },
               {
+                Id: true,
+                Quantidade: true,
+                PropostaCombo_Id: true,
+                PropostaPlano_Id: true,
+                Produto: { Id: true, Nome: true },
+                PrecoAdesao: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                },
+                PrecoRecorrencia: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                }
+              }
+            ]
+          }
+        ],
+        Veiculos: [
+          { where: { deleted_at: { _is_null: true } } },
+          {
+            Id: true,
+            Veiculo_Id: true,
+            PossuiGNV: true,
+            PropostasServicos: [
+              {
+                where: { deleted_at: { _is_null: true } }
+              },
+              {
+                Id: true,
+                Servico: {
+                  Id: true,
+                  Nome: true,
+                  GeraOS: true
+                },
+                PropostaCombo_Id: true,
+                PropostaPlano_Id: true,
+                PrecoDeAdesao: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                },
+                PrecoDeRecorrencia: {
+                  Id: true,
+                  Valor: true,
+                  TipoDePreco: { Valor: true }
+                }
+              }
+            ],
+            PropostasProdutos: [
+              { where: { deleted_at: { _is_null: true } } },
+              {
+                Id: true,
+                Quantidade: true,
+                PropostaCombo_Id: true,
+                PropostaPlano_Id: true,
                 Produto: { Id: true, Nome: true },
                 PrecoAdesao: {
                   Id: true,
@@ -967,122 +1588,183 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             PropostasPlanos: [
               { where: { deleted_at: { _is_null: true } } },
               {
+                Id: true,
                 Plano: {
                   Id: true,
-                  Nome: true,
-                  Produtos: [
-                    { where: { deleted_at: { _is_null: true } } },
-                    {
-                      Produto: { Id: true, Nome: true }
-                    }
-                  ],
-                  Servicos: [
-                    { where: { deleted_at: { _is_null: true } } },
-                    {
-                      Servico: { Id: true, Nome: true, GeraOS: true }
-                    }
-                  ]
+                  Nome: true
                 },
+                PropostaCombo_Id: true,
                 PlanoPreco: {
                   Id: true,
                   ValorDeAdesao: true,
                   ValorDeRecorrencia: true
-                }
+                },
+                PropostasProdutos: [
+                  {
+                    where: { deleted_at: { _is_null: true } }
+                  },
+                  {
+                    Id: true,
+                    Quantidade: true,
+                    PropostaCombo_Id: true,
+                    PropostaPlano_Id: true,
+                    Produto: { Id: true, Nome: true },
+                    PrecoAdesao: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    },
+                    PrecoRecorrencia: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    }
+                  }
+                ],
+                PropostasServicos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Servico: {
+                      Id: true,
+                      Nome: true,
+                      GeraOS: true
+                    },
+                    PropostaCombo_Id: true,
+                    PropostaPlano_Id: true,
+                    PrecoDeAdesao: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    },
+                    PrecoDeRecorrencia: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    }
+                  }
+                ]
               }
             ],
             PropostasCombos: [
               { where: { deleted_at: { _is_null: true } } },
               {
+                Id: true,
                 Combo: {
                   Id: true,
-                  Nome: true,
-                  Planos: [
-                    { where: { deleted_at: { _is_null: true } } },
-                    {
-                      Plano: {
-                        Id: true,
-                        Nome: true,
-                        Produtos: [
-                          { where: { deleted_at: { _is_null: true } } },
-                          {
-                            Produto: { Id: true, Nome: true }
-                          }
-                        ],
-                        Servicos: [
-                          { where: { deleted_at: { _is_null: true } } },
-                          {
-                            Servico: { Id: true, Nome: true, GeraOS: true }
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  Produtos: [
-                    { where: { deleted_at: { _is_null: true } } },
-                    {
-                      Produto: {
-                        Id: true,
-                        Nome: true,
-                        Fornecedores: [
-                          {
-                            where: {
-                              deleted_at: { _is_null: true },
-                              Fornecedor_Id: {
-                                _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
-                              }
-                            }
-                          },
-                          {
-                            Precos: [
-                              {
-                                where: { deleted_at: { _is_null: true } },
-                                order_by: [{ created_at: order_by.desc }]
-                              },
-                              {
-                                Id: true,
-                                TipoDePreco: { Valor: true }
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ],
-                  Servicos: [
-                    { where: { deleted_at: { _is_null: true } } },
-                    {
-                      Servico: {
-                        Id: true,
-                        Nome: true,
-                        GeraOS: true,
-                        PrestadoresDeServicos: [
-                          {
-                            where: {
-                              deleted_at: { _is_null: true },
-                              Prestador_Id: {
-                                _eq: '6fde7f19-6697-4076-befc-b9b73f03b3f5'
-                              }
-                            }
-                          },
-                          {
-                            Precos: [
-                              { order_by: [{ created_at: order_by.desc }] },
-                              {
-                                Id: true,
-                                TipoDePreco: { Valor: true }
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  Nome: true
                 },
                 ComboPreco: {
                   Id: true,
                   ValorDeAdesao: true,
                   ValorDeRecorrencia: true
-                }
+                },
+                PropostasPlanos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Plano: {
+                      Id: true,
+                      Nome: true
+                    },
+                    PropostaCombo_Id: true,
+                    PlanoPreco: {
+                      Id: true,
+                      ValorDeAdesao: true,
+                      ValorDeRecorrencia: true
+                    },
+                    PropostasProdutos: [
+                      {
+                        where: { deleted_at: { _is_null: true } }
+                      },
+                      {
+                        Id: true,
+                        Quantidade: true,
+                        PropostaCombo_Id: true,
+                        PropostaPlano_Id: true,
+                        Produto: { Id: true, Nome: true },
+                        PrecoAdesao: {
+                          Id: true,
+                          Valor: true,
+                          TipoDePreco: { Valor: true }
+                        },
+                        PrecoRecorrencia: {
+                          Id: true,
+                          Valor: true,
+                          TipoDePreco: { Valor: true }
+                        }
+                      }
+                    ],
+                    PropostasServicos: [
+                      { where: { deleted_at: { _is_null: true } } },
+                      {
+                        Id: true,
+                        Servico: {
+                          Id: true,
+                          Nome: true,
+                          GeraOS: true
+                        },
+                        PropostaCombo_Id: true,
+                        PropostaPlano_Id: true,
+                        PrecoDeAdesao: {
+                          Id: true,
+                          Valor: true,
+                          TipoDePreco: { Valor: true }
+                        },
+                        PrecoDeRecorrencia: {
+                          Id: true,
+                          Valor: true,
+                          TipoDePreco: { Valor: true }
+                        }
+                      }
+                    ]
+                  }
+                ],
+                PropostasProdutos: [
+                  {
+                    where: { deleted_at: { _is_null: true } }
+                  },
+                  {
+                    Id: true,
+                    Quantidade: true,
+                    PropostaCombo_Id: true,
+                    PropostaPlano_Id: true,
+                    Produto: { Id: true, Nome: true },
+                    PrecoAdesao: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    },
+                    PrecoRecorrencia: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    }
+                  }
+                ],
+                PropostasServicos: [
+                  { where: { deleted_at: { _is_null: true } } },
+                  {
+                    Id: true,
+                    Servico: {
+                      Id: true,
+                      Nome: true,
+                      GeraOS: true
+                    },
+                    PropostaCombo_Id: true,
+                    PropostaPlano_Id: true,
+                    PrecoDeAdesao: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    },
+                    PrecoDeRecorrencia: {
+                      Id: true,
+                      Valor: true,
+                      TipoDePreco: { Valor: true }
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -1150,7 +1832,21 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             Id: true,
             Pessoa: {
               DadosDaApi: [{}, true],
-              Nome: true
+              Nome: true,
+              Documentos: [
+                {
+                  where: {
+                    deleted_at: { _is_null: true },
+                    Situacao_Id: {
+                      _eq: identidades_Clientes_Documentos_Situacoes_enum.aprovado
+                    }
+                  }
+                },
+                {
+                  Nome: true
+                }
+              ],
+              PessoaJuridica: true
             },
             FormaDePagamento_Id: true,
             DiaDeFaturamento_Id: true
@@ -1162,6 +1858,24 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     return data.identidades_Clientes_by_pk
   }
 
+  async function getLeadById(Id: string) {
+    const { data } = await useTypedClientQuery(
+      {
+        clientes_Leads_by_pk: [
+          { Id },
+          {
+            Id: true,
+            Nome: true,
+            Email: true,
+            Telefone: true
+          }
+        ]
+      },
+      { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
+    )
+    return data.clientes_Leads_by_pk
+  }
+
   async function getClientProposalsByClientId(Id: string) {
     const { data } = await useTypedClientQuery(
       {
@@ -1170,7 +1884,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
             where: { deleted_at: { _is_null: true }, Cliente_Id: { _eq: Id } }
           },
           {
-            Id: true
+            Id: true,
+            Situacao_Id: true
           }
         ]
       },
@@ -1178,6 +1893,137 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
     )
     return data.propostas_Propostas
   }
+
+  async function getClientPhonesByClientId(Id: string) {
+    const { data } = await useTypedClientQuery(
+      {
+        contatos_Telefones: [
+          {
+            where: {
+              deleted_at: { _is_null: true },
+              Identidades: { _contains: $`cliente` }
+            }
+          },
+          {
+            Id: true,
+            Telefone: true
+          }
+        ]
+      },
+      {
+        cliente: { cliente: Id }
+      },
+      {
+        fetchPolicy: 'no-cache',
+        notifyOnNetworkStatusChange: true
+      }
+    )
+    return data.contatos_Telefones
+  }
+
+  async function getClientAddressByClientId(Id: string) {
+    const { data } = await useTypedClientQuery(
+      {
+        contatos_Enderecos: [
+          {
+            where: {
+              deleted_at: { _is_null: true },
+              Identidades: { _contains: $`cliente` }
+            }
+          },
+          {
+            Id: true,
+            Bairro: true,
+            Cep: true,
+            Numero: true,
+            Logradouro: true,
+            Cidade: { Nome: true },
+            Estado: { Nome: true }
+          }
+        ]
+      },
+      {
+        cliente: { cliente: Id }
+      },
+      {
+        fetchPolicy: 'no-cache',
+        notifyOnNetworkStatusChange: true
+      }
+    )
+    return data.contatos_Enderecos
+  }
+
+  async function getClientEmailsByClientId(Id: string) {
+    const { data } = await useTypedClientQuery(
+      {
+        contatos_Emails: [
+          {
+            where: {
+              deleted_at: { _is_null: true },
+              Identidades: { _contains: $`cliente` }
+            }
+          },
+          {
+            Id: true,
+            Email: true
+          }
+        ]
+      },
+      {
+        cliente: { cliente: Id }
+      },
+      {
+        fetchPolicy: 'no-cache',
+        notifyOnNetworkStatusChange: true
+      }
+    )
+    return data.contatos_Emails
+  }
+
+  const CPFSchema = yup.object().shape({
+    Identificador: yup
+      .string()
+      .required('Preencha o campo para continuar')
+      .test('equal', 'Complete todos os campos', (val: string | undefined) => {
+        return val?.toString().substring(13, 15) !== '_'
+      })
+      .test('equal', 'Digite um cpf válido', (val: string | undefined) => {
+        return utils.CPFValidation(val as string)
+      })
+  })
+
+  const CNPJSchema = yup.object().shape({
+    Identificador: yup
+      .string()
+      .required('Preencha o campo para continuar')
+      .test('equal', 'Complete todos os campos', (val: string | undefined) => {
+        return val?.toString().substring(17, 18) !== '_'
+      })
+      .test('equal', 'Digite um cnpj válido', (val: string | undefined) => {
+        return utils.CNPJValidation(val as string)
+      })
+  })
+
+  const createProductSchema = yup.object().shape({
+    Product_Id: yup.object().required('Preencha o campo para continuar'),
+    Quantidade: yup.string().required('Preencha o campo para continuar')
+  })
+
+  const createPlanSchema = yup.object().shape({
+    Plan_Id: yup.object().required('Preencha o campo para continuar')
+  })
+
+  const createServiceSchema = yup.object().shape({
+    Servico_Id: yup.object().required('Preencha o campo para continuar')
+  })
+
+  const createComboSchema = yup.object().shape({
+    Combo_Id: yup.object().required('Preencha o campo para continuar')
+  })
+
+  const createVehicleSchema = yup.object().shape({
+    Veiculo: yup.object().required('Preencha o campo para continuar')
+  })
 
   return (
     <UpdateContext.Provider
@@ -1187,8 +2033,8 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         vehiclesLoading,
         slidePanelState,
         setSlidePanelState,
-        categories,
-        setCategories,
+        tabsForPage,
+        setTabsForPage,
         servicesData: servicesData?.comercial_Servicos,
         servicesRefetch,
         servicesLoading,
@@ -1220,8 +2066,10 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         insertProposalUpSellingLoading,
         insertProposalVehicle,
         insertProposalVehicleLoading,
-        selectedCategory,
-        setSelectedCategory,
+        insertProposalAlert,
+        insertProposalAlertLoading,
+        selectedTab,
+        setSelectedTab,
         createVehicle,
         createVehicleLoading,
         getVehicleById,
@@ -1250,7 +2098,38 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         paymentDayData: paymentDayData?.vendas_DiasDeFaturamento,
         paymentDayRefetch,
         paymentDayLoading,
-        getPaymentDayById
+        getPaymentDayById,
+        insertOnlyClientPaymentType,
+        insertOnlyClientPaymentTypeLoading,
+        insertOnlyClientInvoiceDate,
+        insertOnlyClientInvoiceDateLoading,
+        currentStage,
+        setCurrentStage,
+        createClient,
+        createClientLoading,
+        CPFSchema,
+        CNPJSchema,
+        insertClientToProposal,
+        insertClientToProposalLoading,
+        getClientPhonesByClientId,
+        getClientAddressByClientId,
+        getClientEmailsByClientId,
+        updateProposalAlert,
+        updateProposalAlertLoading,
+        getLeadById,
+        lead,
+        setLead,
+        runClientQuery,
+        clientData: clientData?.identidades_Clientes,
+        clientRefetch,
+        clientLoading,
+        hasDependencies,
+        setHasDependencies,
+        createProductSchema,
+        createPlanSchema,
+        createServiceSchema,
+        createComboSchema,
+        createVehicleSchema
       }}
     >
       {children}

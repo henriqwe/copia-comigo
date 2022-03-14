@@ -1,27 +1,27 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as leads from '&crm/domains/services/Leads';
-import * as clients from '&crm/domains/identities/Clients';
+import * as leads from '&crm/domains/services/Leads'
+import * as clients from '&crm/domains/clients'
 
-import { useEffect } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import { useEffect } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 
-import router from 'next/router';
-import rotas from '&crm/domains/routes';
+import router from 'next/router'
+import rotas from '&crm/domains/routes'
 
 type FormData = {
-  Id: string;
-  Nome: string;
-  Email: string;
-  Telefone: string;
+  Id: string
+  Nome: string
+  Email: string
+  Telefone: string
   Cliente_Id: {
-    key: string;
-    title: string;
-  };
-};
+    key: string
+    title: string
+  }
+}
 
 export default function UpdateLead() {
   const {
@@ -30,18 +30,18 @@ export default function UpdateLead() {
     setSlidePanelState,
     leadsRefetch,
     leadSchema,
-    slidePanelState,
-  } = leads.useLead();
-  const { clientsData } = clients.useList();
+    slidePanelState
+  } = leads.useLead()
+  const { clientsData } = clients.useClient()
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-    control,
+    control
   } = useForm({
-    resolver: yupResolver(leadSchema),
-  });
+    resolver: yupResolver(leadSchema)
+  })
   const onSubmit = (formData: FormData) => {
     updateLead({
       variables: {
@@ -50,20 +50,20 @@ export default function UpdateLead() {
         Email: formData.Email,
         Telefone: utils.phoneUnformat(formData.Telefone),
         Cliente_Id:
-          formData.Cliente_Id.key !== '' ? formData.Cliente_Id.key : null,
-      },
+          formData.Cliente_Id.key !== '' ? formData.Cliente_Id.key : null
+      }
     })
       .then(() => {
-        leadsRefetch();
+        leadsRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification(formData.Nome + ' editado com sucesso', 'success');
+          return { ...oldState, open: false }
+        })
+        utils.notification(formData.Nome + ' editado com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
-  };
+        utils.showError(err)
+      })
+  }
 
   useEffect(() => {
     reset({
@@ -76,10 +76,10 @@ export default function UpdateLead() {
           : '',
         title: slidePanelState.data?.Cliente
           ? slidePanelState.data?.Cliente.Pessoa.Nome || ''
-          : '',
-      },
-    });
-  }, [slidePanelState.data, reset]);
+          : ''
+      }
+    })
+  }, [slidePanelState.data, reset])
 
   return (
     <form
@@ -119,8 +119,8 @@ export default function UpdateLead() {
                     ? clientsData.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Pessoa?.Nome as string,
-                        };
+                          title: item.Pessoa?.Nome as string
+                        }
                       })
                     : []
                 }
@@ -129,11 +129,7 @@ export default function UpdateLead() {
                 error={errors.Cliente_Id}
                 label="Cliente (opcional)"
               />
-              <common.OpenModalLink
-                onClick={() =>
-                  router.push(rotas.identidades.clientes.cadastrar)
-                }
-              >
+              <common.OpenModalLink onClick={() => router.push(rotas.clientes)}>
                 Cadastrar Cliente
               </common.OpenModalLink>
             </div>
@@ -147,5 +143,5 @@ export default function UpdateLead() {
         loading={updateLeadLoading}
       />
     </form>
-  );
+  )
 }

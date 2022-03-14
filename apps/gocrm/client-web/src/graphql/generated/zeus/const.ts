@@ -4634,9 +4634,9 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos:{
-		Beneficios:{
+		Combos:{
 			distinct_on:{
-				type:"clientes_VeiculosAtivos_Beneficios_select_column",
+				type:"clientes_VeiculosAtivos_Combos_select_column",
 				array:true,
 				arrayRequired:false,
 				required:true
@@ -4654,21 +4654,21 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			},
 			order_by:{
-				type:"clientes_VeiculosAtivos_Beneficios_order_by",
+				type:"clientes_VeiculosAtivos_Combos_order_by",
 				array:true,
 				arrayRequired:false,
 				required:true
 			},
 			where:{
-				type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+				type:"clientes_VeiculosAtivos_Combos_bool_exp",
 				array:false,
 				arrayRequired:false,
 				required:false
 			}
 		},
-		Beneficios_aggregate:{
+		Combos_aggregate:{
 			distinct_on:{
-				type:"clientes_VeiculosAtivos_Beneficios_select_column",
+				type:"clientes_VeiculosAtivos_Combos_select_column",
 				array:true,
 				arrayRequired:false,
 				required:true
@@ -4686,13 +4686,77 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			},
 			order_by:{
-				type:"clientes_VeiculosAtivos_Beneficios_order_by",
+				type:"clientes_VeiculosAtivos_Combos_order_by",
 				array:true,
 				arrayRequired:false,
 				required:true
 			},
 			where:{
-				type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+				type:"clientes_VeiculosAtivos_Combos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Planos:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Planos_aggregate:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -4827,10 +4891,204 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_aggregate_fields:{
+	clientes_VeiculosAtivos_Combos:{
+		Planos:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Planos_aggregate:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Produtos:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Produtos_aggregate:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Servicos:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Servicos_aggregate:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	clientes_VeiculosAtivos_Combos_aggregate_fields:{
 		count:{
 			columns:{
-				type:"clientes_VeiculosAtivos_Beneficios_select_column",
+				type:"clientes_VeiculosAtivos_Combos_select_column",
 				array:true,
 				arrayRequired:false,
 				required:true
@@ -4843,7 +5101,7 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_aggregate_order_by:{
+	clientes_VeiculosAtivos_Combos_aggregate_order_by:{
 		count:{
 			type:"order_by",
 			array:false,
@@ -4851,101 +5109,794 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		max:{
-			type:"clientes_VeiculosAtivos_Beneficios_max_order_by",
+			type:"clientes_VeiculosAtivos_Combos_max_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
 		min:{
-			type:"clientes_VeiculosAtivos_Beneficios_min_order_by",
+			type:"clientes_VeiculosAtivos_Combos_min_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input:{
+	clientes_VeiculosAtivos_Combos_arr_rel_insert_input:{
 		data:{
-			type:"clientes_VeiculosAtivos_Beneficios_insert_input",
+			type:"clientes_VeiculosAtivos_Combos_insert_input",
 			array:true,
 			arrayRequired:true,
 			required:true
 		},
 		on_conflict:{
-			type:"clientes_VeiculosAtivos_Beneficios_on_conflict",
+			type:"clientes_VeiculosAtivos_Combos_on_conflict",
 			array:false,
 			arrayRequired:false,
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_bool_exp:{
+	clientes_VeiculosAtivos_Combos_bool_exp:{
 		Ativo:{
 			type:"Boolean_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
+		ComboPreco_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combo_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PortfolioPreco_Id:{
+		Planos:{
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produtos:{
+			type:"clientes_VeiculosAtivos_Produtos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servicos:{
+			type:"clientes_VeiculosAtivos_Servicos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivo_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		Portfolio_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PrecoDeAdesao_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PrecoDeRecorrencia_Id:{
-			type:"uuid_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		TipoPortfolio:{
-			type:"String_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		VeiculoAtivo:{
+		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
+		_and:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		created_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_constraint: "enum",
+	clientes_VeiculosAtivos_Combos_insert_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ComboPreco_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Planos:{
+			type:"clientes_VeiculosAtivos_Planos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produtos:{
+			type:"clientes_VeiculosAtivos_Produtos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servicos:{
+			type:"clientes_VeiculosAtivos_Servicos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivo:{
+			type:"clientes_VeiculosAtivos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_max_order_by:{
+		ComboPreco_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_min_order_by:{
+		ComboPreco_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_obj_rel_insert_input:{
+		data:{
+			type:"clientes_VeiculosAtivos_Combos_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		on_conflict:{
+			type:"clientes_VeiculosAtivos_Combos_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_on_conflict:{
+		constraint:{
+			type:"clientes_VeiculosAtivos_Combos_constraint",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		update_columns:{
+			type:"clientes_VeiculosAtivos_Combos_update_column",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		where:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_order_by:{
+		Ativo:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ComboPreco_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Planos_aggregate:{
+			type:"clientes_VeiculosAtivos_Planos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produtos_aggregate:{
+			type:"clientes_VeiculosAtivos_Produtos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servicos_aggregate:{
+			type:"clientes_VeiculosAtivos_Servicos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivo:{
+			type:"clientes_VeiculosAtivos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_pk_columns_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	clientes_VeiculosAtivos_Combos_select_column: "enum",
+	clientes_VeiculosAtivos_Combos_set_input:{
+		Ativo:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ComboPreco_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Combos_update_column: "enum",
+	clientes_VeiculosAtivos_Planos:{
+		Produtos:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Produtos_aggregate:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Servicos:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		Servicos_aggregate:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	clientes_VeiculosAtivos_Planos_aggregate_fields:{
+		count:{
+			columns:{
+				type:"clientes_VeiculosAtivos_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			distinct:{
+				type:"Boolean",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	clientes_VeiculosAtivos_Planos_aggregate_order_by:{
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"clientes_VeiculosAtivos_Planos_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"clientes_VeiculosAtivos_Planos_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Planos_arr_rel_insert_input:{
+		data:{
+			type:"clientes_VeiculosAtivos_Planos_insert_input",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		on_conflict:{
+			type:"clientes_VeiculosAtivos_Planos_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Planos_bool_exp:{
+		Ativo:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamp_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PlanoPreco_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Plano_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produtos:{
+			type:"clientes_VeiculosAtivos_Produtos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servicos:{
+			type:"clientes_VeiculosAtivos_Servicos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		VeiculoAtivo_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
+		VeiculosAtivo:{
+			type:"clientes_VeiculosAtivos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		_and:{
-			type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
 			array:true,
 			arrayRequired:false,
 			required:true
 		},
 		_not:{
-			type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
 		_or:{
-			type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
 			array:true,
 			arrayRequired:false,
 			required:true
@@ -4969,10 +5920,22 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_constraint: "enum",
-	clientes_VeiculosAtivos_Beneficios_insert_input:{
+	clientes_VeiculosAtivos_Planos_constraint: "enum",
+	clientes_VeiculosAtivos_Planos_insert_input:{
 		Ativo:{
 			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -4983,44 +5946,50 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		PortfolioPreco_Id:{
+		PlanoPreco_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		Portfolio_Id:{
+		Plano_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PrecoDeAdesao_Id:{
+		Produtos:{
+			type:"clientes_VeiculosAtivos_Produtos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servicos:{
+			type:"clientes_VeiculosAtivos_Servicos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PrecoDeRecorrencia_Id:{
+		VeiculoAtivo_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		TipoPortfolio:{
-			type:"String",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		VeiculoAtivo:{
+		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		VeiculoAtivo_Id:{
-			type:"uuid",
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5044,38 +6013,38 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_max_order_by:{
+	clientes_VeiculosAtivos_Planos_max_order_by:{
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PortfolioPreco_Id:{
+		PlanoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		Portfolio_Id:{
+		Plano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PrecoDeAdesao_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PrecoDeRecorrencia_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		TipoPortfolio:{
+		VeiculoAtivoCombo_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5106,38 +6075,38 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_min_order_by:{
+	clientes_VeiculosAtivos_Planos_min_order_by:{
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PortfolioPreco_Id:{
+		PlanoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		Portfolio_Id:{
+		Plano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PrecoDeAdesao_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PrecoDeRecorrencia_Id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		TipoPortfolio:{
+		VeiculoAtivoCombo_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5168,77 +6137,109 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_on_conflict:{
+	clientes_VeiculosAtivos_Planos_obj_rel_insert_input:{
+		data:{
+			type:"clientes_VeiculosAtivos_Planos_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		on_conflict:{
+			type:"clientes_VeiculosAtivos_Planos_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Planos_on_conflict:{
 		constraint:{
-			type:"clientes_VeiculosAtivos_Beneficios_constraint",
+			type:"clientes_VeiculosAtivos_Planos_constraint",
 			array:false,
 			arrayRequired:false,
 			required:true
 		},
 		update_columns:{
-			type:"clientes_VeiculosAtivos_Beneficios_update_column",
+			type:"clientes_VeiculosAtivos_Planos_update_column",
 			array:true,
 			arrayRequired:true,
 			required:true
 		},
 		where:{
-			type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_order_by:{
+	clientes_VeiculosAtivos_Planos_order_by:{
 		Ativo:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PortfolioPreco_Id:{
+		PlanoPreco_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		Portfolio_Id:{
+		Plano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PrecoDeAdesao_Id:{
-			type:"order_by",
+		Produtos_aggregate:{
+			type:"clientes_VeiculosAtivos_Produtos_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PrecoDeRecorrencia_Id:{
-			type:"order_by",
+		Servicos_aggregate:{
+			type:"clientes_VeiculosAtivos_Servicos_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		TipoPortfolio:{
+		VeiculoAtivoCombo_Id:{
 			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		VeiculoAtivo:{
-			type:"clientes_VeiculosAtivos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
 		VeiculoAtivo_Id:{
 			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivo:{
+			type:"clientes_VeiculosAtivos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5262,7 +6263,7 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_pk_columns_input:{
+	clientes_VeiculosAtivos_Planos_pk_columns_input:{
 		Id:{
 			type:"uuid",
 			array:false,
@@ -5270,46 +6271,46 @@ export const AllTypesProps: Record<string,any> = {
 			required:true
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_select_column: "enum",
-	clientes_VeiculosAtivos_Beneficios_set_input:{
+	clientes_VeiculosAtivos_Planos_select_column: "enum",
+	clientes_VeiculosAtivos_Planos_set_input:{
 		Ativo:{
 			type:"Boolean",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
+		DataDeAtivacao:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PortfolioPreco_Id:{
+		PlanoPreco_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		Portfolio_Id:{
+		Plano_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
 		},
-		PrecoDeAdesao_Id:{
+		VeiculoAtivoCombo_Id:{
 			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		PrecoDeRecorrencia_Id:{
-			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		TipoPortfolio:{
-			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5339,7 +6340,7 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
-	clientes_VeiculosAtivos_Beneficios_update_column: "enum",
+	clientes_VeiculosAtivos_Planos_update_column: "enum",
 	clientes_VeiculosAtivos_Produtos_aggregate_fields:{
 		count:{
 			columns:{
@@ -5357,6 +6358,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_Produtos_aggregate_order_by:{
+		avg:{
+			type:"clientes_VeiculosAtivos_Produtos_avg_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		count:{
 			type:"order_by",
 			array:false,
@@ -5371,6 +6378,48 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		min:{
 			type:"clientes_VeiculosAtivos_Produtos_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev:{
+			type:"clientes_VeiculosAtivos_Produtos_stddev_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_pop:{
+			type:"clientes_VeiculosAtivos_Produtos_stddev_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_samp:{
+			type:"clientes_VeiculosAtivos_Produtos_stddev_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		sum:{
+			type:"clientes_VeiculosAtivos_Produtos_sum_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_pop:{
+			type:"clientes_VeiculosAtivos_Produtos_var_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_samp:{
+			type:"clientes_VeiculosAtivos_Produtos_var_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		variance:{
+			type:"clientes_VeiculosAtivos_Produtos_variance_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5390,9 +6439,29 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
+	clientes_VeiculosAtivos_Produtos_avg_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	clientes_VeiculosAtivos_Produtos_bool_exp:{
 		Ativo:{
 			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5427,8 +6496,26 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Quantidade:{
+			type:"Int_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoItem_Id:{
 			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
+			type:"uuid_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5441,6 +6528,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosPlano:{
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5483,9 +6582,29 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_Produtos_constraint: "enum",
+	clientes_VeiculosAtivos_Produtos_inc_input:{
+		Quantidade:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	clientes_VeiculosAtivos_Produtos_insert_input:{
 		Ativo:{
 			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5520,8 +6639,26 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Quantidade:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoItem_Id:{
 			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
+			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5534,6 +6671,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosPlano:{
+			type:"clientes_VeiculosAtivos_Planos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5558,6 +6707,18 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_Produtos_max_order_by:{
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
@@ -5588,7 +6749,25 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoItem_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5620,6 +6799,18 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_Produtos_min_order_by:{
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
@@ -5650,7 +6841,25 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoItem_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5708,6 +6917,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
@@ -5738,7 +6959,25 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoItem_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -5752,6 +6991,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosPlano:{
+			type:"clientes_VeiculosAtivos_Planos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5791,6 +7042,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		DataDeAtivacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid",
 			array:false,
@@ -5821,8 +7084,26 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Quantidade:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		TipoItem_Id:{
 			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
+			type:"uuid",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5852,7 +7133,63 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
+	clientes_VeiculosAtivos_Produtos_stddev_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Produtos_stddev_pop_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Produtos_stddev_samp_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Produtos_sum_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	clientes_VeiculosAtivos_Produtos_update_column: "enum",
+	clientes_VeiculosAtivos_Produtos_var_pop_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Produtos_var_samp_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	clientes_VeiculosAtivos_Produtos_variance_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	clientes_VeiculosAtivos_Servicos_aggregate_fields:{
 		count:{
 			columns:{
@@ -5910,6 +7247,24 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Beneficio:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -5934,6 +7289,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		VeiculoAtivoCombo_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		VeiculoAtivo_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -5942,6 +7309,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosPlano:{
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5991,6 +7370,24 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Beneficio:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid",
 			array:false,
@@ -6015,6 +7412,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		VeiculoAtivoCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		VeiculoAtivo_Id:{
 			type:"uuid",
 			array:false,
@@ -6023,6 +7432,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosPlano:{
+			type:"clientes_VeiculosAtivos_Planos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -6047,6 +7468,18 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_Servicos_max_order_by:{
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
@@ -6066,6 +7499,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -6097,6 +7542,18 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_Servicos_min_order_by:{
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
@@ -6116,6 +7573,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -6173,6 +7642,24 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Beneficio:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"order_by",
 			array:false,
@@ -6197,6 +7684,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		VeiculoAtivoCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		VeiculoAtivo_Id:{
 			type:"order_by",
 			array:false,
@@ -6205,6 +7704,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		VeiculosAtivo:{
 			type:"clientes_VeiculosAtivos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosCombo:{
+			type:"clientes_VeiculosAtivos_Combos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculosAtivosPlano:{
+			type:"clientes_VeiculosAtivos_Planos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -6244,6 +7755,24 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Beneficio:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeAtivacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataDeDesativacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid",
 			array:false,
@@ -6263,6 +7792,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Servico_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		VeiculoAtivoPlano_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -6597,12 +8138,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_bool_exp:{
-		Beneficios:{
-			type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Cliente:{
 			type:"identidades_Clientes_bool_exp",
 			array:false,
@@ -6611,6 +8146,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Cliente_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combos:{
+			type:"clientes_VeiculosAtivos_Combos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -6629,6 +8170,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		OS_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Planos:{
+			type:"clientes_VeiculosAtivos_Planos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PossuiGNV:{
+			type:"Boolean_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -6708,12 +8261,6 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	clientes_VeiculosAtivos_constraint: "enum",
 	clientes_VeiculosAtivos_insert_input:{
-		Beneficios:{
-			type:"clientes_VeiculosAtivos_Beneficios_arr_rel_insert_input",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Cliente:{
 			type:"identidades_Clientes_obj_rel_insert_input",
 			array:false,
@@ -6722,6 +8269,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Cliente_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combos:{
+			type:"clientes_VeiculosAtivos_Combos_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -6740,6 +8293,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		OS_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Planos:{
+			type:"clientes_VeiculosAtivos_Planos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PossuiGNV:{
+			type:"Boolean",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -6934,12 +8499,6 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	clientes_VeiculosAtivos_order_by:{
-		Beneficios_aggregate:{
-			type:"clientes_VeiculosAtivos_Beneficios_aggregate_order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		Cliente:{
 			type:"identidades_Clientes_order_by",
 			array:false,
@@ -6948,6 +8507,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Cliente_Id:{
 			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Combos_aggregate:{
+			type:"clientes_VeiculosAtivos_Combos_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -6965,6 +8530,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		OS_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Planos_aggregate:{
+			type:"clientes_VeiculosAtivos_Planos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PossuiGNV:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -7055,6 +8632,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		OS_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PossuiGNV:{
+			type:"Boolean",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -20855,6 +22438,70 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			}
 		},
+		RegrasETermosDeUsos:{
+			distinct_on:{
+				type:"comercial_Produtos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Produtos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		RegrasETermosDeUsos_aggregate:{
+			distinct_on:{
+				type:"comercial_Produtos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Produtos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
 		Servicos:{
 			distinct_on:{
 				type:"comercial_Produtos_Servicos_select_column",
@@ -22363,6 +24010,449 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_Produtos_Produtos_update_column: "enum",
+	comercial_Produtos_RegrasETermosDeUso:{
+		PropostasRegrasETermosDeUsos:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasRegrasETermosDeUsos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_aggregate_fields:{
+		count:{
+			columns:{
+				type:"comercial_Produtos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			distinct:{
+				type:"Boolean",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_aggregate_order_by:{
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"comercial_Produtos_RegrasETermosDeUso_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"comercial_Produtos_RegrasETermosDeUso_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input:{
+		data:{
+			type:"comercial_Produtos_RegrasETermosDeUso_insert_input",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		on_conflict:{
+			type:"comercial_Produtos_RegrasETermosDeUso_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_bool_exp:{
+		Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto:{
+			type:"comercial_Produtos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasRegrasETermosDeUsos:{
+			type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_and:{
+			type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		created_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_constraint: "enum",
+	comercial_Produtos_RegrasETermosDeUso_insert_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto:{
+			type:"comercial_Produtos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasRegrasETermosDeUsos:{
+			type:"propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_max_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_min_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input:{
+		data:{
+			type:"comercial_Produtos_RegrasETermosDeUso_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		on_conflict:{
+			type:"comercial_Produtos_RegrasETermosDeUso_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_on_conflict:{
+		constraint:{
+			type:"comercial_Produtos_RegrasETermosDeUso_constraint",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		update_columns:{
+			type:"comercial_Produtos_RegrasETermosDeUso_update_column",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		where:{
+			type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto:{
+			type:"comercial_Produtos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasRegrasETermosDeUsos_aggregate:{
+			type:"propostas_Propostas_RegrasETermosDeUso_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_pk_columns_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_select_column: "enum",
+	comercial_Produtos_RegrasETermosDeUso_set_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Produtos_RegrasETermosDeUso_update_column: "enum",
 	comercial_Produtos_Servicos_aggregate_fields:{
 		count:{
 			columns:{
@@ -23103,6 +25193,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		RegrasETermosDeUsos:{
+			type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		ServicoDeDesinstalacao:{
 			type:"comercial_Servicos_bool_exp",
 			array:false,
@@ -23276,6 +25372,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Propostas:{
 			type:"propostas_Propostas_Produtos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		RegrasETermosDeUsos:{
+			type:"comercial_Produtos_RegrasETermosDeUso_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -23532,6 +25634,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Propostas_aggregate:{
 			type:"propostas_Propostas_Produtos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		RegrasETermosDeUsos_aggregate:{
+			type:"comercial_Produtos_RegrasETermosDeUso_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -24257,6 +26365,70 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			where:{
 				type:"propostas_Propostas_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		RegrasETermosDeUsos:{
+			distinct_on:{
+				type:"comercial_Servicos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Servicos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		RegrasETermosDeUsos_aggregate:{
+			distinct_on:{
+				type:"comercial_Servicos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Servicos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -25898,6 +28070,449 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	comercial_Servicos_Produtos_update_column: "enum",
+	comercial_Servicos_RegrasETermosDeUso:{
+		PropostasRegrasETermosDeUsos:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasRegrasETermosDeUsos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_aggregate_fields:{
+		count:{
+			columns:{
+				type:"comercial_Servicos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			distinct:{
+				type:"Boolean",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_aggregate_order_by:{
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"comercial_Servicos_RegrasETermosDeUso_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"comercial_Servicos_RegrasETermosDeUso_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input:{
+		data:{
+			type:"comercial_Servicos_RegrasETermosDeUso_insert_input",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		on_conflict:{
+			type:"comercial_Servicos_RegrasETermosDeUso_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_bool_exp:{
+		Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasRegrasETermosDeUsos:{
+			type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico:{
+			type:"comercial_Servicos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_and:{
+			type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		created_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_constraint: "enum",
+	comercial_Servicos_RegrasETermosDeUso_insert_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasRegrasETermosDeUsos:{
+			type:"propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico:{
+			type:"comercial_Servicos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_max_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_min_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input:{
+		data:{
+			type:"comercial_Servicos_RegrasETermosDeUso_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		on_conflict:{
+			type:"comercial_Servicos_RegrasETermosDeUso_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_on_conflict:{
+		constraint:{
+			type:"comercial_Servicos_RegrasETermosDeUso_constraint",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		update_columns:{
+			type:"comercial_Servicos_RegrasETermosDeUso_update_column",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		where:{
+			type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasRegrasETermosDeUsos_aggregate:{
+			type:"propostas_Propostas_RegrasETermosDeUso_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico:{
+			type:"comercial_Servicos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_pk_columns_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_select_column: "enum",
+	comercial_Servicos_RegrasETermosDeUso_set_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Mensagem:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	comercial_Servicos_RegrasETermosDeUso_update_column: "enum",
 	comercial_Servicos_Servicos_aggregate_fields:{
 		count:{
 			columns:{
@@ -27013,6 +29628,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		RegrasETermosDeUsos:{
+			type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Servicos_Produtos:{
 			type:"comercial_Servicos_Produtos_bool_exp",
 			array:false,
@@ -27186,6 +29807,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Propostas:{
 			type:"propostas_Propostas_Servicos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		RegrasETermosDeUsos:{
+			type:"comercial_Servicos_RegrasETermosDeUso_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -27418,6 +30045,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Propostas_aggregate:{
 			type:"propostas_Propostas_Servicos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		RegrasETermosDeUsos_aggregate:{
+			type:"comercial_Servicos_RegrasETermosDeUso_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -32549,6 +35182,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		DataCriacao:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataNascimento:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Documentos:{
 			type:"identidades_Clientes_Documentos_bool_exp",
 			array:false,
@@ -32585,8 +35230,20 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Profissao:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Representantes:{
 			type:"identidades_Representantes_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Sexo:{
+			type:"String_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -32672,6 +35329,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		DataCriacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataNascimento:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Documentos:{
 			type:"identidades_Clientes_Documentos_arr_rel_insert_input",
 			array:false,
@@ -32708,8 +35377,20 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Profissao:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Representantes:{
 			type:"identidades_Representantes_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Sexo:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -32786,6 +35467,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		DataCriacao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataNascimento:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Documentos_aggregate:{
 			type:"identidades_Clientes_Documentos_aggregate_order_by",
 			array:false,
@@ -32822,8 +35515,20 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		Profissao:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Representantes_aggregate:{
 			type:"identidades_Representantes_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Sexo:{
+			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -32871,6 +35576,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		DataCriacao:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		DataNascimento:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Id:{
 			type:"uuid",
 			array:false,
@@ -32891,6 +35608,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		PessoaJuridica:{
 			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Profissao:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Sexo:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -34085,15 +36814,31 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
-		delete_clientes_VeiculosAtivos_Beneficios:{
+		delete_clientes_VeiculosAtivos_Combos:{
 			where:{
-				type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+				type:"clientes_VeiculosAtivos_Combos_bool_exp",
 				array:false,
 				arrayRequired:false,
 				required:true
 			}
 		},
-		delete_clientes_VeiculosAtivos_Beneficios_by_pk:{
+		delete_clientes_VeiculosAtivos_Combos_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_clientes_VeiculosAtivos_Planos:{
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_clientes_VeiculosAtivos_Planos_by_pk:{
 			Id:{
 				type:"uuid",
 				array:false,
@@ -34653,6 +37398,22 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
+		delete_comercial_Produtos_RegrasETermosDeUso:{
+			where:{
+				type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_comercial_Produtos_RegrasETermosDeUso_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		delete_comercial_Produtos_Servicos:{
 			where:{
 				type:"comercial_Produtos_Servicos_bool_exp",
@@ -34742,6 +37503,22 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		delete_comercial_Servicos_Produtos_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_comercial_Servicos_RegrasETermosDeUso:{
+			where:{
+				type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_comercial_Servicos_RegrasETermosDeUso_by_pk:{
 			Id:{
 				type:"uuid",
 				array:false,
@@ -35110,6 +37887,22 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		delete_propostas_Propostas_Produtos_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_propostas_Propostas_RegrasETermosDeUso:{
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		delete_propostas_Propostas_RegrasETermosDeUso_by_pk:{
 			Id:{
 				type:"uuid",
 				array:false,
@@ -35593,29 +38386,57 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			}
 		},
-		insert_clientes_VeiculosAtivos_Beneficios:{
+		insert_clientes_VeiculosAtivos_Combos:{
 			objects:{
-				type:"clientes_VeiculosAtivos_Beneficios_insert_input",
+				type:"clientes_VeiculosAtivos_Combos_insert_input",
 				array:true,
 				arrayRequired:true,
 				required:true
 			},
 			on_conflict:{
-				type:"clientes_VeiculosAtivos_Beneficios_on_conflict",
+				type:"clientes_VeiculosAtivos_Combos_on_conflict",
 				array:false,
 				arrayRequired:false,
 				required:false
 			}
 		},
-		insert_clientes_VeiculosAtivos_Beneficios_one:{
+		insert_clientes_VeiculosAtivos_Combos_one:{
 			object:{
-				type:"clientes_VeiculosAtivos_Beneficios_insert_input",
+				type:"clientes_VeiculosAtivos_Combos_insert_input",
 				array:false,
 				arrayRequired:false,
 				required:true
 			},
 			on_conflict:{
-				type:"clientes_VeiculosAtivos_Beneficios_on_conflict",
+				type:"clientes_VeiculosAtivos_Combos_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_clientes_VeiculosAtivos_Planos:{
+			objects:{
+				type:"clientes_VeiculosAtivos_Planos_insert_input",
+				array:true,
+				arrayRequired:true,
+				required:true
+			},
+			on_conflict:{
+				type:"clientes_VeiculosAtivos_Planos_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_clientes_VeiculosAtivos_Planos_one:{
+			object:{
+				type:"clientes_VeiculosAtivos_Planos_insert_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			on_conflict:{
+				type:"clientes_VeiculosAtivos_Planos_on_conflict",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -36587,6 +39408,34 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			}
 		},
+		insert_comercial_Produtos_RegrasETermosDeUso:{
+			objects:{
+				type:"comercial_Produtos_RegrasETermosDeUso_insert_input",
+				array:true,
+				arrayRequired:true,
+				required:true
+			},
+			on_conflict:{
+				type:"comercial_Produtos_RegrasETermosDeUso_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_comercial_Produtos_RegrasETermosDeUso_one:{
+			object:{
+				type:"comercial_Produtos_RegrasETermosDeUso_insert_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			on_conflict:{
+				type:"comercial_Produtos_RegrasETermosDeUso_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
 		insert_comercial_Produtos_Servicos:{
 			objects:{
 				type:"comercial_Produtos_Servicos_insert_input",
@@ -36750,6 +39599,34 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			on_conflict:{
 				type:"comercial_Servicos_Produtos_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_comercial_Servicos_RegrasETermosDeUso:{
+			objects:{
+				type:"comercial_Servicos_RegrasETermosDeUso_insert_input",
+				array:true,
+				arrayRequired:true,
+				required:true
+			},
+			on_conflict:{
+				type:"comercial_Servicos_RegrasETermosDeUso_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_comercial_Servicos_RegrasETermosDeUso_one:{
+			object:{
+				type:"comercial_Servicos_RegrasETermosDeUso_insert_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			on_conflict:{
+				type:"comercial_Servicos_RegrasETermosDeUso_on_conflict",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -37394,6 +40271,34 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			on_conflict:{
 				type:"propostas_Propostas_Produtos_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_propostas_Propostas_RegrasETermosDeUso:{
+			objects:{
+				type:"propostas_Propostas_RegrasETermosDeUso_insert_input",
+				array:true,
+				arrayRequired:true,
+				required:true
+			},
+			on_conflict:{
+				type:"propostas_Propostas_RegrasETermosDeUso_on_conflict",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		insert_propostas_Propostas_RegrasETermosDeUso_one:{
+			object:{
+				type:"propostas_Propostas_RegrasETermosDeUso_insert_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			},
+			on_conflict:{
+				type:"propostas_Propostas_RegrasETermosDeUso_on_conflict",
 				array:false,
 				arrayRequired:false,
 				required:false
@@ -38067,35 +40972,69 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
-		update_clientes_VeiculosAtivos_Beneficios:{
+		update_clientes_VeiculosAtivos_Combos:{
 			_set:{
-				type:"clientes_VeiculosAtivos_Beneficios_set_input",
+				type:"clientes_VeiculosAtivos_Combos_set_input",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			where:{
-				type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+				type:"clientes_VeiculosAtivos_Combos_bool_exp",
 				array:false,
 				arrayRequired:false,
 				required:true
 			}
 		},
-		update_clientes_VeiculosAtivos_Beneficios_by_pk:{
+		update_clientes_VeiculosAtivos_Combos_by_pk:{
 			_set:{
-				type:"clientes_VeiculosAtivos_Beneficios_set_input",
+				type:"clientes_VeiculosAtivos_Combos_set_input",
 				array:false,
 				arrayRequired:false,
 				required:false
 			},
 			pk_columns:{
-				type:"clientes_VeiculosAtivos_Beneficios_pk_columns_input",
+				type:"clientes_VeiculosAtivos_Combos_pk_columns_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_clientes_VeiculosAtivos_Planos:{
+			_set:{
+				type:"clientes_VeiculosAtivos_Planos_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_clientes_VeiculosAtivos_Planos_by_pk:{
+			_set:{
+				type:"clientes_VeiculosAtivos_Planos_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			pk_columns:{
+				type:"clientes_VeiculosAtivos_Planos_pk_columns_input",
 				array:false,
 				arrayRequired:false,
 				required:true
 			}
 		},
 		update_clientes_VeiculosAtivos_Produtos:{
+			_inc:{
+				type:"clientes_VeiculosAtivos_Produtos_inc_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
 			_set:{
 				type:"clientes_VeiculosAtivos_Produtos_set_input",
 				array:false,
@@ -38110,6 +41049,12 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		update_clientes_VeiculosAtivos_Produtos_by_pk:{
+			_inc:{
+				type:"clientes_VeiculosAtivos_Produtos_inc_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
 			_set:{
 				type:"clientes_VeiculosAtivos_Produtos_set_input",
 				array:false,
@@ -39349,6 +42294,34 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
+		update_comercial_Produtos_RegrasETermosDeUso:{
+			_set:{
+				type:"comercial_Produtos_RegrasETermosDeUso_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			where:{
+				type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_comercial_Produtos_RegrasETermosDeUso_by_pk:{
+			_set:{
+				type:"comercial_Produtos_RegrasETermosDeUso_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			pk_columns:{
+				type:"comercial_Produtos_RegrasETermosDeUso_pk_columns_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		update_comercial_Produtos_Servicos:{
 			_set:{
 				type:"comercial_Produtos_Servicos_set_input",
@@ -39584,6 +42557,34 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			pk_columns:{
 				type:"comercial_Servicos_Produtos_pk_columns_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_comercial_Servicos_RegrasETermosDeUso:{
+			_set:{
+				type:"comercial_Servicos_RegrasETermosDeUso_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			where:{
+				type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_comercial_Servicos_RegrasETermosDeUso_by_pk:{
+			_set:{
+				type:"comercial_Servicos_RegrasETermosDeUso_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			pk_columns:{
+				type:"comercial_Servicos_RegrasETermosDeUso_pk_columns_input",
 				array:false,
 				arrayRequired:false,
 				required:true
@@ -40582,6 +43583,12 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		update_propostas_Propostas:{
+			_inc:{
+				type:"propostas_Propostas_inc_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
 			_set:{
 				type:"propostas_Propostas_set_input",
 				array:false,
@@ -40680,6 +43687,12 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		update_propostas_Propostas_Produtos:{
+			_inc:{
+				type:"propostas_Propostas_Produtos_inc_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
 			_set:{
 				type:"propostas_Propostas_Produtos_set_input",
 				array:false,
@@ -40694,6 +43707,12 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		update_propostas_Propostas_Produtos_by_pk:{
+			_inc:{
+				type:"propostas_Propostas_Produtos_inc_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
 			_set:{
 				type:"propostas_Propostas_Produtos_set_input",
 				array:false,
@@ -40702,6 +43721,34 @@ export const AllTypesProps: Record<string,any> = {
 			},
 			pk_columns:{
 				type:"propostas_Propostas_Produtos_pk_columns_input",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_propostas_Propostas_RegrasETermosDeUso:{
+			_set:{
+				type:"propostas_Propostas_RegrasETermosDeUso_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		update_propostas_Propostas_RegrasETermosDeUso_by_pk:{
+			_set:{
+				type:"propostas_Propostas_RegrasETermosDeUso_set_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			pk_columns:{
+				type:"propostas_Propostas_RegrasETermosDeUso_pk_columns_input",
 				array:false,
 				arrayRequired:false,
 				required:true
@@ -40792,6 +43839,12 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		update_propostas_Propostas_by_pk:{
+			_inc:{
+				type:"propostas_Propostas_inc_input",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
 			_set:{
 				type:"propostas_Propostas_set_input",
 				array:false,
@@ -41260,6 +44313,70 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			}
 		},
+		RegrasETermosDeUsos:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		RegrasETermosDeUsos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
 		Servicos:{
 			distinct_on:{
 				type:"propostas_Propostas_Servicos_select_column",
@@ -41389,6 +44506,200 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		}
 	},
+	propostas_Propostas_Combos:{
+		PropostasPlanos:{
+			distinct_on:{
+				type:"propostas_Propostas_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasPlanos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasProdutos:{
+			distinct_on:{
+				type:"propostas_Propostas_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasProdutos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasServicos:{
+			distinct_on:{
+				type:"propostas_Propostas_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasServicos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
 	propostas_Propostas_Combos_aggregate_fields:{
 		count:{
 			columns:{
@@ -41488,6 +44799,24 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostasPlanos:{
+			type:"propostas_Propostas_Planos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasProdutos:{
+			type:"propostas_Propostas_Produtos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasServicos:{
+			type:"propostas_Propostas_Servicos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostasVeiculo:{
 			type:"propostas_Propostas_Veiculos_bool_exp",
 			array:false,
@@ -41577,6 +44906,24 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlanos:{
+			type:"propostas_Propostas_Planos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasProdutos:{
+			type:"propostas_Propostas_Produtos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasServicos:{
+			type:"propostas_Propostas_Servicos_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -41706,6 +45053,20 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
+	propostas_Propostas_Combos_obj_rel_insert_input:{
+		data:{
+			type:"propostas_Propostas_Combos_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		on_conflict:{
+			type:"propostas_Propostas_Combos_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	propostas_Propostas_Combos_on_conflict:{
 		constraint:{
 			type:"propostas_Propostas_Combos_constraint",
@@ -41771,6 +45132,24 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlanos_aggregate:{
+			type:"propostas_Propostas_Planos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasProdutos_aggregate:{
+			type:"propostas_Propostas_Produtos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasServicos_aggregate:{
+			type:"propostas_Propostas_Servicos_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -42331,6 +45710,136 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	propostas_Propostas_Oportunidades_update_column: "enum",
+	propostas_Propostas_Planos:{
+		PropostasProdutos:{
+			distinct_on:{
+				type:"propostas_Propostas_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasProdutos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_Produtos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Produtos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Produtos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasServicos:{
+			distinct_on:{
+				type:"propostas_Propostas_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		PropostasServicos_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_Servicos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_Servicos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_Servicos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
 	propostas_Propostas_Planos_aggregate_fields:{
 		count:{
 			columns:{
@@ -42418,6 +45927,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -42426,6 +45941,24 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasProdutos:{
+			type:"propostas_Propostas_Produtos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasServicos:{
+			type:"propostas_Propostas_Servicos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -42511,6 +46044,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid",
 			array:false,
@@ -42519,6 +46058,24 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasProdutos:{
+			type:"propostas_Propostas_Produtos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasServicos:{
+			type:"propostas_Propostas_Servicos_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -42562,6 +46119,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Plano_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaCombo_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -42617,6 +46180,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -42643,6 +46212,20 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		updated_at:{
 			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Planos_obj_rel_insert_input:{
+		data:{
+			type:"propostas_Propostas_Planos_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		on_conflict:{
+			type:"propostas_Propostas_Planos_on_conflict",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -42705,6 +46288,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -42713,6 +46302,24 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasProdutos_aggregate:{
+			type:"propostas_Propostas_Produtos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasServicos_aggregate:{
+			type:"propostas_Propostas_Servicos_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -42770,6 +46377,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid",
 			array:false,
@@ -42819,6 +46432,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	propostas_Propostas_Produtos_aggregate_order_by:{
+		avg:{
+			type:"propostas_Propostas_Produtos_avg_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		count:{
 			type:"order_by",
 			array:false,
@@ -42836,6 +46455,48 @@ export const AllTypesProps: Record<string,any> = {
 			array:false,
 			arrayRequired:false,
 			required:false
+		},
+		stddev:{
+			type:"propostas_Propostas_Produtos_stddev_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_pop:{
+			type:"propostas_Propostas_Produtos_stddev_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_samp:{
+			type:"propostas_Propostas_Produtos_stddev_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		sum:{
+			type:"propostas_Propostas_Produtos_sum_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_pop:{
+			type:"propostas_Propostas_Produtos_var_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_samp:{
+			type:"propostas_Propostas_Produtos_var_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		variance:{
+			type:"propostas_Propostas_Produtos_variance_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
 		}
 	},
 	propostas_Propostas_Produtos_arr_rel_insert_input:{
@@ -42847,6 +46508,14 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		on_conflict:{
 			type:"propostas_Propostas_Produtos_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_avg_order_by:{
+		Quantidade:{
+			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -42901,6 +46570,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -42913,8 +46594,26 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlano:{
+			type:"propostas_Propostas_Planos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostasVeiculo:{
 			type:"propostas_Propostas_Veiculos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Quantidade:{
+			type:"Int_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -42957,6 +46656,14 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	propostas_Propostas_Produtos_constraint: "enum",
+	propostas_Propostas_Produtos_inc_input:{
+		Quantidade:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	propostas_Propostas_Produtos_insert_input:{
 		Id:{
 			type:"uuid",
@@ -43006,6 +46713,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid",
 			array:false,
@@ -43018,8 +46737,26 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlano:{
+			type:"propostas_Propostas_Planos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostasVeiculo:{
 			type:"propostas_Propostas_Veiculos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Quantidade:{
+			type:"Int",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -43068,6 +46805,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -43075,6 +46824,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Proposta_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Quantidade:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -43124,6 +46879,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -43131,6 +46898,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Proposta_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Quantidade:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -43224,6 +46997,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -43236,8 +47021,26 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlano:{
+			type:"propostas_Propostas_Planos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostasVeiculo:{
 			type:"propostas_Propostas_Veiculos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Quantidade:{
+			type:"order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -43295,6 +47098,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid",
 			array:false,
@@ -43302,6 +47117,274 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		Proposta_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Quantidade:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_stddev_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_stddev_pop_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_stddev_samp_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_sum_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_update_column: "enum",
+	propostas_Propostas_Produtos_var_pop_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_var_samp_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_Produtos_variance_order_by:{
+		Quantidade:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_aggregate_fields:{
+		count:{
+			columns:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			distinct:{
+				type:"Boolean",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_aggregate_order_by:{
+		count:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		max:{
+			type:"propostas_Propostas_RegrasETermosDeUso_max_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		min:{
+			type:"propostas_Propostas_RegrasETermosDeUso_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input:{
+		data:{
+			type:"propostas_Propostas_RegrasETermosDeUso_insert_input",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		on_conflict:{
+			type:"propostas_Propostas_RegrasETermosDeUso_on_conflict",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_bool_exp:{
+		Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Informado:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ProdutoRegrasETermosDeUso:{
+			type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_RegraETermosDeUso_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta:{
+			type:"propostas_Propostas_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ServicoRegrasETermosDeUso:{
+			type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_RegraETermosDeUso_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_and:{
+			type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_not:{
+			type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_or:{
+			type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		created_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_constraint: "enum",
+	propostas_Propostas_RegrasETermosDeUso_insert_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Informado:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ProdutoRegrasETermosDeUso:{
+			type:"comercial_Produtos_RegrasETermosDeUso_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_RegraETermosDeUso_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta:{
+			type:"propostas_Propostas_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ServicoRegrasETermosDeUso:{
+			type:"comercial_Servicos_RegrasETermosDeUso_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_RegraETermosDeUso_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -43326,7 +47409,242 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
-	propostas_Propostas_Produtos_update_column: "enum",
+	propostas_Propostas_RegrasETermosDeUso_max_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_RegraETermosDeUso_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_RegraETermosDeUso_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_min_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_RegraETermosDeUso_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_RegraETermosDeUso_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_on_conflict:{
+		constraint:{
+			type:"propostas_Propostas_RegrasETermosDeUso_constraint",
+			array:false,
+			arrayRequired:false,
+			required:true
+		},
+		update_columns:{
+			type:"propostas_Propostas_RegrasETermosDeUso_update_column",
+			array:true,
+			arrayRequired:true,
+			required:true
+		},
+		where:{
+			type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_order_by:{
+		Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Informado:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ProdutoRegrasETermosDeUso:{
+			type:"comercial_Produtos_RegrasETermosDeUso_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_RegraETermosDeUso_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta:{
+			type:"propostas_Propostas_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		ServicoRegrasETermosDeUso:{
+			type:"comercial_Servicos_RegrasETermosDeUso_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_RegraETermosDeUso_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_pk_columns_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:true
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_select_column: "enum",
+	propostas_Propostas_RegrasETermosDeUso_set_input:{
+		Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Informado:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Produto_RegraETermosDeUso_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Proposta_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		Servico_RegraETermosDeUso_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		created_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		deleted_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		updated_at:{
+			type:"timestamptz",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_RegrasETermosDeUso_update_column: "enum",
 	propostas_Propostas_Servicos_aggregate_fields:{
 		count:{
 			columns:{
@@ -43414,6 +47732,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid_comparison_exp",
 			array:false,
@@ -43422,6 +47752,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlano:{
+			type:"propostas_Propostas_Planos_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -43519,6 +47861,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"uuid",
 			array:false,
@@ -43527,6 +47881,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_obj_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlano:{
+			type:"propostas_Propostas_Planos_obj_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -43587,6 +47953,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -43638,6 +48016,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		PrecoDeRecorrencia_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -43737,6 +48127,18 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PropostaCombo_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		PropostaVeiculo_Id:{
 			type:"order_by",
 			array:false,
@@ -43745,6 +48147,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Proposta_Id:{
 			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasCombo:{
+			type:"propostas_Propostas_Combos_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostasPlano:{
+			type:"propostas_Propostas_Planos_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -43809,6 +48223,18 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		PrecoDeRecorrencia_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaCombo_Id:{
+			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaPlano_Id:{
 			type:"uuid",
 			array:false,
 			arrayRequired:false,
@@ -44483,6 +48909,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PossuiGNV:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Proposta:{
 			type:"propostas_Propostas_bool_exp",
 			array:false,
@@ -44572,6 +49004,12 @@ export const AllTypesProps: Record<string,any> = {
 	propostas_Propostas_Veiculos_insert_input:{
 		Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PossuiGNV:{
+			type:"Boolean",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -44760,6 +49198,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PossuiGNV:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Proposta:{
 			type:"propostas_Propostas_order_by",
 			array:false,
@@ -44843,6 +49287,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		PossuiGNV:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Proposta_Id:{
 			type:"uuid",
 			array:false,
@@ -44892,6 +49342,12 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	propostas_Propostas_aggregate_order_by:{
+		avg:{
+			type:"propostas_Propostas_avg_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		count:{
 			type:"order_by",
 			array:false,
@@ -44906,6 +49362,48 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		min:{
 			type:"propostas_Propostas_min_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev:{
+			type:"propostas_Propostas_stddev_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_pop:{
+			type:"propostas_Propostas_stddev_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		stddev_samp:{
+			type:"propostas_Propostas_stddev_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		sum:{
+			type:"propostas_Propostas_sum_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_pop:{
+			type:"propostas_Propostas_var_pop_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		var_samp:{
+			type:"propostas_Propostas_var_samp_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		variance:{
+			type:"propostas_Propostas_variance_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -44925,9 +49423,23 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
+	propostas_Propostas_avg_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	propostas_Propostas_bool_exp:{
 		Cliente_Id:{
 			type:"uuid_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		CodigoReferencia:{
+			type:"Int_comparison_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -44976,6 +49488,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produtos:{
 			type:"propostas_Propostas_Produtos_bool_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaGerada:{
+			type:"Boolean_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		RegrasETermosDeUsos:{
+			type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -45054,9 +49578,23 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	propostas_Propostas_constraint: "enum",
+	propostas_Propostas_inc_input:{
+		CodigoReferencia:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	propostas_Propostas_insert_input:{
 		Cliente_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		CodigoReferencia:{
+			type:"Int",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -45105,6 +49643,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produtos:{
 			type:"propostas_Propostas_Produtos_arr_rel_insert_input",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaGerada:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		RegrasETermosDeUsos:{
+			type:"propostas_Propostas_RegrasETermosDeUso_arr_rel_insert_input",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -45171,6 +49721,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		DataAceito:{
 			type:"order_by",
 			array:false,
@@ -45228,6 +49784,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	propostas_Propostas_min_order_by:{
 		Cliente_Id:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		CodigoReferencia:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -45329,6 +49891,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		Combos_aggregate:{
 			type:"propostas_Propostas_Combos_aggregate_order_by",
 			array:false,
@@ -45373,6 +49941,18 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Produtos_aggregate:{
 			type:"propostas_Propostas_Produtos_aggregate_order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaGerada:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		RegrasETermosDeUsos_aggregate:{
+			type:"propostas_Propostas_RegrasETermosDeUso_aggregate_order_by",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -45448,6 +50028,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		CodigoReferencia:{
+			type:"Int",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		DataAceito:{
 			type:"timestamptz",
 			array:false,
@@ -45468,6 +50054,12 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		Lead_Id:{
 			type:"uuid",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		PropostaGerada:{
+			type:"Boolean",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -45509,7 +50101,63 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		}
 	},
+	propostas_Propostas_stddev_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_stddev_pop_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_stddev_samp_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_sum_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	propostas_Propostas_update_column: "enum",
+	propostas_Propostas_var_pop_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_var_samp_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
+	propostas_Propostas_variance_order_by:{
+		CodigoReferencia:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		}
+	},
 	query_root:{
 		CategoriasDeVeiculos:{
 			distinct_on:{
@@ -46295,9 +50943,9 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			}
 		},
-		clientes_VeiculosAtivos_Beneficios:{
+		clientes_VeiculosAtivos_Combos:{
 			distinct_on:{
-				type:"clientes_VeiculosAtivos_Beneficios_select_column",
+				type:"clientes_VeiculosAtivos_Combos_select_column",
 				array:true,
 				arrayRequired:false,
 				required:true
@@ -46315,21 +50963,21 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			},
 			order_by:{
-				type:"clientes_VeiculosAtivos_Beneficios_order_by",
+				type:"clientes_VeiculosAtivos_Combos_order_by",
 				array:true,
 				arrayRequired:false,
 				required:true
 			},
 			where:{
-				type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+				type:"clientes_VeiculosAtivos_Combos_bool_exp",
 				array:false,
 				arrayRequired:false,
 				required:false
 			}
 		},
-		clientes_VeiculosAtivos_Beneficios_aggregate:{
+		clientes_VeiculosAtivos_Combos_aggregate:{
 			distinct_on:{
-				type:"clientes_VeiculosAtivos_Beneficios_select_column",
+				type:"clientes_VeiculosAtivos_Combos_select_column",
 				array:true,
 				arrayRequired:false,
 				required:true
@@ -46347,19 +50995,91 @@ export const AllTypesProps: Record<string,any> = {
 				required:false
 			},
 			order_by:{
-				type:"clientes_VeiculosAtivos_Beneficios_order_by",
+				type:"clientes_VeiculosAtivos_Combos_order_by",
 				array:true,
 				arrayRequired:false,
 				required:true
 			},
 			where:{
-				type:"clientes_VeiculosAtivos_Beneficios_bool_exp",
+				type:"clientes_VeiculosAtivos_Combos_bool_exp",
 				array:false,
 				arrayRequired:false,
 				required:false
 			}
 		},
-		clientes_VeiculosAtivos_Beneficios_by_pk:{
+		clientes_VeiculosAtivos_Combos_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		clientes_VeiculosAtivos_Planos:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		clientes_VeiculosAtivos_Planos_aggregate:{
+			distinct_on:{
+				type:"clientes_VeiculosAtivos_Planos_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"clientes_VeiculosAtivos_Planos_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"clientes_VeiculosAtivos_Planos_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		clientes_VeiculosAtivos_Planos_by_pk:{
 			Id:{
 				type:"uuid",
 				array:false,
@@ -48855,6 +53575,78 @@ export const AllTypesProps: Record<string,any> = {
 				required:true
 			}
 		},
+		comercial_Produtos_RegrasETermosDeUso:{
+			distinct_on:{
+				type:"comercial_Produtos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Produtos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		comercial_Produtos_RegrasETermosDeUso_aggregate:{
+			distinct_on:{
+				type:"comercial_Produtos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Produtos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Produtos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		comercial_Produtos_RegrasETermosDeUso_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
 		comercial_Produtos_Servicos:{
 			distinct_on:{
 				type:"comercial_Produtos_Servicos_select_column",
@@ -49280,6 +54072,78 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		comercial_Servicos_Produtos_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		comercial_Servicos_RegrasETermosDeUso:{
+			distinct_on:{
+				type:"comercial_Servicos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Servicos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		comercial_Servicos_RegrasETermosDeUso_aggregate:{
+			distinct_on:{
+				type:"comercial_Servicos_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"comercial_Servicos_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"comercial_Servicos_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		comercial_Servicos_RegrasETermosDeUso_by_pk:{
 			Id:{
 				type:"uuid",
 				array:false,
@@ -50936,6 +55800,78 @@ export const AllTypesProps: Record<string,any> = {
 			}
 		},
 		propostas_Propostas_Produtos_by_pk:{
+			Id:{
+				type:"uuid",
+				array:false,
+				arrayRequired:false,
+				required:true
+			}
+		},
+		propostas_Propostas_RegrasETermosDeUso:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		propostas_Propostas_RegrasETermosDeUso_aggregate:{
+			distinct_on:{
+				type:"propostas_Propostas_RegrasETermosDeUso_select_column",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			limit:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			offset:{
+				type:"Int",
+				array:false,
+				arrayRequired:false,
+				required:false
+			},
+			order_by:{
+				type:"propostas_Propostas_RegrasETermosDeUso_order_by",
+				array:true,
+				arrayRequired:false,
+				required:true
+			},
+			where:{
+				type:"propostas_Propostas_RegrasETermosDeUso_bool_exp",
+				array:false,
+				arrayRequired:false,
+				required:false
+			}
+		},
+		propostas_Propostas_RegrasETermosDeUso_by_pk:{
 			Id:{
 				type:"uuid",
 				array:false,
@@ -52856,6 +57792,63 @@ export const AllTypesProps: Record<string,any> = {
 				arrayRequired:false,
 				required:true
 			}
+		}
+	},
+	timestamp: "String",
+	timestamp_comparison_exp:{
+		_eq:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gt:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_gte:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_in:{
+			type:"timestamp",
+			array:true,
+			arrayRequired:false,
+			required:true
+		},
+		_is_null:{
+			type:"Boolean",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lt:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_lte:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_neq:{
+			type:"timestamp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		_nin:{
+			type:"timestamp",
+			array:true,
+			arrayRequired:false,
+			required:true
 		}
 	},
 	timestamptz: "String",
@@ -55219,13 +60212,16 @@ export const ReturnTypes: Record<string,any> = {
 		updated_at:"timestamptz"
 	},
 	clientes_VeiculosAtivos:{
-		Beneficios:"clientes_VeiculosAtivos_Beneficios",
-		Beneficios_aggregate:"clientes_VeiculosAtivos_Beneficios_aggregate",
 		Cliente:"identidades_Clientes",
 		Cliente_Id:"uuid",
+		Combos:"clientes_VeiculosAtivos_Combos",
+		Combos_aggregate:"clientes_VeiculosAtivos_Combos_aggregate",
 		Franquia_Id:"uuid",
 		Id:"uuid",
 		OS_Id:"uuid",
+		Planos:"clientes_VeiculosAtivos_Planos",
+		Planos_aggregate:"clientes_VeiculosAtivos_Planos_aggregate",
+		PossuiGNV:"Boolean",
 		Produtos:"clientes_VeiculosAtivos_Produtos",
 		Produtos_aggregate:"clientes_VeiculosAtivos_Produtos_aggregate",
 		Servicos:"clientes_VeiculosAtivos_Servicos",
@@ -55238,67 +60234,133 @@ export const ReturnTypes: Record<string,any> = {
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
-	clientes_VeiculosAtivos_Beneficios:{
+	clientes_VeiculosAtivos_Combos:{
 		Ativo:"Boolean",
+		ComboPreco_Id:"uuid",
+		Combo_Id:"uuid",
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
-		PortfolioPreco_Id:"uuid",
-		Portfolio_Id:"uuid",
-		PrecoDeAdesao_Id:"uuid",
-		PrecoDeRecorrencia_Id:"uuid",
-		TipoPortfolio:"String",
-		VeiculoAtivo:"clientes_VeiculosAtivos",
+		Planos:"clientes_VeiculosAtivos_Planos",
+		Planos_aggregate:"clientes_VeiculosAtivos_Planos_aggregate",
+		Produtos:"clientes_VeiculosAtivos_Produtos",
+		Produtos_aggregate:"clientes_VeiculosAtivos_Produtos_aggregate",
+		Servicos:"clientes_VeiculosAtivos_Servicos",
+		Servicos_aggregate:"clientes_VeiculosAtivos_Servicos_aggregate",
 		VeiculoAtivo_Id:"uuid",
+		VeiculosAtivo:"clientes_VeiculosAtivos",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
-	clientes_VeiculosAtivos_Beneficios_aggregate:{
-		aggregate:"clientes_VeiculosAtivos_Beneficios_aggregate_fields",
-		nodes:"clientes_VeiculosAtivos_Beneficios"
+	clientes_VeiculosAtivos_Combos_aggregate:{
+		aggregate:"clientes_VeiculosAtivos_Combos_aggregate_fields",
+		nodes:"clientes_VeiculosAtivos_Combos"
 	},
-	clientes_VeiculosAtivos_Beneficios_aggregate_fields:{
+	clientes_VeiculosAtivos_Combos_aggregate_fields:{
 		count:"Int",
-		max:"clientes_VeiculosAtivos_Beneficios_max_fields",
-		min:"clientes_VeiculosAtivos_Beneficios_min_fields"
+		max:"clientes_VeiculosAtivos_Combos_max_fields",
+		min:"clientes_VeiculosAtivos_Combos_min_fields"
 	},
-	clientes_VeiculosAtivos_Beneficios_max_fields:{
+	clientes_VeiculosAtivos_Combos_max_fields:{
+		ComboPreco_Id:"uuid",
+		Combo_Id:"uuid",
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
-		PortfolioPreco_Id:"uuid",
-		Portfolio_Id:"uuid",
-		PrecoDeAdesao_Id:"uuid",
-		PrecoDeRecorrencia_Id:"uuid",
-		TipoPortfolio:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
-	clientes_VeiculosAtivos_Beneficios_min_fields:{
+	clientes_VeiculosAtivos_Combos_min_fields:{
+		ComboPreco_Id:"uuid",
+		Combo_Id:"uuid",
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
-		PortfolioPreco_Id:"uuid",
-		Portfolio_Id:"uuid",
-		PrecoDeAdesao_Id:"uuid",
-		PrecoDeRecorrencia_Id:"uuid",
-		TipoPortfolio:"String",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
-	clientes_VeiculosAtivos_Beneficios_mutation_response:{
+	clientes_VeiculosAtivos_Combos_mutation_response:{
 		affected_rows:"Int",
-		returning:"clientes_VeiculosAtivos_Beneficios"
+		returning:"clientes_VeiculosAtivos_Combos"
+	},
+	clientes_VeiculosAtivos_Planos:{
+		Ativo:"Boolean",
+		DataDeAtivacao:"timestamp",
+		DataDeDesativacao:"timestamptz",
+		Id:"uuid",
+		PlanoPreco_Id:"uuid",
+		Plano_Id:"uuid",
+		Produtos:"clientes_VeiculosAtivos_Produtos",
+		Produtos_aggregate:"clientes_VeiculosAtivos_Produtos_aggregate",
+		Servicos:"clientes_VeiculosAtivos_Servicos",
+		Servicos_aggregate:"clientes_VeiculosAtivos_Servicos_aggregate",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivo_Id:"uuid",
+		VeiculosAtivo:"clientes_VeiculosAtivos",
+		VeiculosAtivosCombo:"clientes_VeiculosAtivos_Combos",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	clientes_VeiculosAtivos_Planos_aggregate:{
+		aggregate:"clientes_VeiculosAtivos_Planos_aggregate_fields",
+		nodes:"clientes_VeiculosAtivos_Planos"
+	},
+	clientes_VeiculosAtivos_Planos_aggregate_fields:{
+		count:"Int",
+		max:"clientes_VeiculosAtivos_Planos_max_fields",
+		min:"clientes_VeiculosAtivos_Planos_min_fields"
+	},
+	clientes_VeiculosAtivos_Planos_max_fields:{
+		DataDeAtivacao:"timestamp",
+		DataDeDesativacao:"timestamptz",
+		Id:"uuid",
+		PlanoPreco_Id:"uuid",
+		Plano_Id:"uuid",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivo_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	clientes_VeiculosAtivos_Planos_min_fields:{
+		DataDeAtivacao:"timestamp",
+		DataDeDesativacao:"timestamptz",
+		Id:"uuid",
+		PlanoPreco_Id:"uuid",
+		Plano_Id:"uuid",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivo_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	clientes_VeiculosAtivos_Planos_mutation_response:{
+		affected_rows:"Int",
+		returning:"clientes_VeiculosAtivos_Planos"
 	},
 	clientes_VeiculosAtivos_Produtos:{
 		Ativo:"Boolean",
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
 		Identificador:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
+		Quantidade:"Int",
 		TipoItem_Id:"String",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivoPlano_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		VeiculosAtivo:"clientes_VeiculosAtivos",
+		VeiculosAtivosCombo:"clientes_VeiculosAtivos_Combos",
+		VeiculosAtivosPlano:"clientes_VeiculosAtivos_Planos",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -55308,29 +60370,50 @@ export const ReturnTypes: Record<string,any> = {
 		nodes:"clientes_VeiculosAtivos_Produtos"
 	},
 	clientes_VeiculosAtivos_Produtos_aggregate_fields:{
+		avg:"clientes_VeiculosAtivos_Produtos_avg_fields",
 		count:"Int",
 		max:"clientes_VeiculosAtivos_Produtos_max_fields",
-		min:"clientes_VeiculosAtivos_Produtos_min_fields"
+		min:"clientes_VeiculosAtivos_Produtos_min_fields",
+		stddev:"clientes_VeiculosAtivos_Produtos_stddev_fields",
+		stddev_pop:"clientes_VeiculosAtivos_Produtos_stddev_pop_fields",
+		stddev_samp:"clientes_VeiculosAtivos_Produtos_stddev_samp_fields",
+		sum:"clientes_VeiculosAtivos_Produtos_sum_fields",
+		var_pop:"clientes_VeiculosAtivos_Produtos_var_pop_fields",
+		var_samp:"clientes_VeiculosAtivos_Produtos_var_samp_fields",
+		variance:"clientes_VeiculosAtivos_Produtos_variance_fields"
+	},
+	clientes_VeiculosAtivos_Produtos_avg_fields:{
+		Quantidade:"Float"
 	},
 	clientes_VeiculosAtivos_Produtos_max_fields:{
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
 		Identificador:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
+		Quantidade:"Int",
 		TipoItem_Id:"String",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivoPlano_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
 	clientes_VeiculosAtivos_Produtos_min_fields:{
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
 		Identificador:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
+		Quantidade:"Int",
 		TipoItem_Id:"String",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivoPlano_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -55340,14 +60423,42 @@ export const ReturnTypes: Record<string,any> = {
 		affected_rows:"Int",
 		returning:"clientes_VeiculosAtivos_Produtos"
 	},
+	clientes_VeiculosAtivos_Produtos_stddev_fields:{
+		Quantidade:"Float"
+	},
+	clientes_VeiculosAtivos_Produtos_stddev_pop_fields:{
+		Quantidade:"Float"
+	},
+	clientes_VeiculosAtivos_Produtos_stddev_samp_fields:{
+		Quantidade:"Float"
+	},
+	clientes_VeiculosAtivos_Produtos_sum_fields:{
+		Quantidade:"Int"
+	},
+	clientes_VeiculosAtivos_Produtos_var_pop_fields:{
+		Quantidade:"Float"
+	},
+	clientes_VeiculosAtivos_Produtos_var_samp_fields:{
+		Quantidade:"Float"
+	},
+	clientes_VeiculosAtivos_Produtos_variance_fields:{
+		Quantidade:"Float"
+	},
 	clientes_VeiculosAtivos_Servicos:{
 		Ativo:"Boolean",
+		Beneficio:"Boolean",
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivoPlano_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		VeiculosAtivo:"clientes_VeiculosAtivos",
+		VeiculosAtivosCombo:"clientes_VeiculosAtivos_Combos",
+		VeiculosAtivosPlano:"clientes_VeiculosAtivos_Planos",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -55362,20 +60473,28 @@ export const ReturnTypes: Record<string,any> = {
 		min:"clientes_VeiculosAtivos_Servicos_min_fields"
 	},
 	clientes_VeiculosAtivos_Servicos_max_fields:{
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivoPlano_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
 	clientes_VeiculosAtivos_Servicos_min_fields:{
+		DataDeAtivacao:"timestamptz",
+		DataDeDesativacao:"timestamptz",
 		Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Servico_Id:"uuid",
+		VeiculoAtivoCombo_Id:"uuid",
+		VeiculoAtivoPlano_Id:"uuid",
 		VeiculoAtivo_Id:"uuid",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -56869,6 +61988,8 @@ export const ReturnTypes: Record<string,any> = {
 		ProdutosQueDependo_aggregate:"comercial_Produtos_Produtos_aggregate",
 		Propostas:"propostas_Propostas_Produtos",
 		Propostas_aggregate:"propostas_Propostas_Produtos_aggregate",
+		RegrasETermosDeUsos:"comercial_Produtos_RegrasETermosDeUso",
+		RegrasETermosDeUsos_aggregate:"comercial_Produtos_RegrasETermosDeUso_aggregate",
 		ServicoDeDesinstalacao:"comercial_Servicos",
 		ServicoDeDesinstalacao_Id:"uuid",
 		ServicoDeInstalacao:"comercial_Servicos",
@@ -57040,6 +62161,46 @@ export const ReturnTypes: Record<string,any> = {
 		affected_rows:"Int",
 		returning:"comercial_Produtos_Produtos"
 	},
+	comercial_Produtos_RegrasETermosDeUso:{
+		Id:"uuid",
+		Mensagem:"String",
+		Produto:"comercial_Produtos",
+		Produto_Id:"uuid",
+		PropostasRegrasETermosDeUsos:"propostas_Propostas_RegrasETermosDeUso",
+		PropostasRegrasETermosDeUsos_aggregate:"propostas_Propostas_RegrasETermosDeUso_aggregate",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	comercial_Produtos_RegrasETermosDeUso_aggregate:{
+		aggregate:"comercial_Produtos_RegrasETermosDeUso_aggregate_fields",
+		nodes:"comercial_Produtos_RegrasETermosDeUso"
+	},
+	comercial_Produtos_RegrasETermosDeUso_aggregate_fields:{
+		count:"Int",
+		max:"comercial_Produtos_RegrasETermosDeUso_max_fields",
+		min:"comercial_Produtos_RegrasETermosDeUso_min_fields"
+	},
+	comercial_Produtos_RegrasETermosDeUso_max_fields:{
+		Id:"uuid",
+		Mensagem:"String",
+		Produto_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	comercial_Produtos_RegrasETermosDeUso_min_fields:{
+		Id:"uuid",
+		Mensagem:"String",
+		Produto_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	comercial_Produtos_RegrasETermosDeUso_mutation_response:{
+		affected_rows:"Int",
+		returning:"comercial_Produtos_RegrasETermosDeUso"
+	},
 	comercial_Produtos_Servicos:{
 		Id:"uuid",
 		Produto:"comercial_Produtos",
@@ -57160,6 +62321,8 @@ export const ReturnTypes: Record<string,any> = {
 		Produtos_Servicos_aggregate:"comercial_Produtos_Servicos_aggregate",
 		Propostas:"propostas_Propostas_Servicos",
 		Propostas_aggregate:"propostas_Propostas_Servicos_aggregate",
+		RegrasETermosDeUsos:"comercial_Servicos_RegrasETermosDeUso",
+		RegrasETermosDeUsos_aggregate:"comercial_Servicos_RegrasETermosDeUso_aggregate",
 		Servicos_Produtos:"comercial_Servicos_Produtos",
 		Servicos_Produtos_aggregate:"comercial_Servicos_Produtos_aggregate",
 		Servicos_ServicosDependente:"comercial_Servicos_Servicos",
@@ -57330,6 +62493,46 @@ export const ReturnTypes: Record<string,any> = {
 	comercial_Servicos_Produtos_mutation_response:{
 		affected_rows:"Int",
 		returning:"comercial_Servicos_Produtos"
+	},
+	comercial_Servicos_RegrasETermosDeUso:{
+		Id:"uuid",
+		Mensagem:"String",
+		PropostasRegrasETermosDeUsos:"propostas_Propostas_RegrasETermosDeUso",
+		PropostasRegrasETermosDeUsos_aggregate:"propostas_Propostas_RegrasETermosDeUso_aggregate",
+		Servico:"comercial_Servicos",
+		Servico_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	comercial_Servicos_RegrasETermosDeUso_aggregate:{
+		aggregate:"comercial_Servicos_RegrasETermosDeUso_aggregate_fields",
+		nodes:"comercial_Servicos_RegrasETermosDeUso"
+	},
+	comercial_Servicos_RegrasETermosDeUso_aggregate_fields:{
+		count:"Int",
+		max:"comercial_Servicos_RegrasETermosDeUso_max_fields",
+		min:"comercial_Servicos_RegrasETermosDeUso_min_fields"
+	},
+	comercial_Servicos_RegrasETermosDeUso_max_fields:{
+		Id:"uuid",
+		Mensagem:"String",
+		Servico_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	comercial_Servicos_RegrasETermosDeUso_min_fields:{
+		Id:"uuid",
+		Mensagem:"String",
+		Servico_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	comercial_Servicos_RegrasETermosDeUso_mutation_response:{
+		affected_rows:"Int",
+		returning:"comercial_Servicos_RegrasETermosDeUso"
 	},
 	comercial_Servicos_Servicos:{
 		Id:"uuid",
@@ -58017,6 +63220,8 @@ export const ReturnTypes: Record<string,any> = {
 		Colaboradores:"identidades_Colaboradores",
 		Colaboradores_aggregate:"identidades_Colaboradores_aggregate",
 		DadosDaApi:"jsonb",
+		DataCriacao:"timestamptz",
+		DataNascimento:"timestamptz",
 		Documentos:"identidades_Clientes_Documentos",
 		Documentos_aggregate:"identidades_Clientes_Documentos_aggregate",
 		Fornecedor:"identidades_Fornecedores",
@@ -58024,8 +63229,10 @@ export const ReturnTypes: Record<string,any> = {
 		Identificador:"String",
 		Nome:"String",
 		PessoaJuridica:"Boolean",
+		Profissao:"String",
 		Representantes:"identidades_Representantes",
 		Representantes_aggregate:"identidades_Representantes_aggregate",
+		Sexo:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -58040,17 +63247,25 @@ export const ReturnTypes: Record<string,any> = {
 		min:"identidades_Pessoas_min_fields"
 	},
 	identidades_Pessoas_max_fields:{
+		DataCriacao:"timestamptz",
+		DataNascimento:"timestamptz",
 		Id:"uuid",
 		Identificador:"String",
 		Nome:"String",
+		Profissao:"String",
+		Sexo:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
 	},
 	identidades_Pessoas_min_fields:{
+		DataCriacao:"timestamptz",
+		DataNascimento:"timestamptz",
 		Id:"uuid",
 		Identificador:"String",
 		Nome:"String",
+		Profissao:"String",
+		Sexo:"String",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -58165,8 +63380,10 @@ export const ReturnTypes: Record<string,any> = {
 		delete_clientes_PerfisComerciais_by_pk:"clientes_PerfisComerciais",
 		delete_clientes_Veiculos:"clientes_Veiculos_mutation_response",
 		delete_clientes_VeiculosAtivos:"clientes_VeiculosAtivos_mutation_response",
-		delete_clientes_VeiculosAtivos_Beneficios:"clientes_VeiculosAtivos_Beneficios_mutation_response",
-		delete_clientes_VeiculosAtivos_Beneficios_by_pk:"clientes_VeiculosAtivos_Beneficios",
+		delete_clientes_VeiculosAtivos_Combos:"clientes_VeiculosAtivos_Combos_mutation_response",
+		delete_clientes_VeiculosAtivos_Combos_by_pk:"clientes_VeiculosAtivos_Combos",
+		delete_clientes_VeiculosAtivos_Planos:"clientes_VeiculosAtivos_Planos_mutation_response",
+		delete_clientes_VeiculosAtivos_Planos_by_pk:"clientes_VeiculosAtivos_Planos",
 		delete_clientes_VeiculosAtivos_Produtos:"clientes_VeiculosAtivos_Produtos_mutation_response",
 		delete_clientes_VeiculosAtivos_Produtos_by_pk:"clientes_VeiculosAtivos_Produtos",
 		delete_clientes_VeiculosAtivos_Servicos:"clientes_VeiculosAtivos_Servicos_mutation_response",
@@ -58236,6 +63453,8 @@ export const ReturnTypes: Record<string,any> = {
 		delete_comercial_Produtos_Oportunidades_by_pk:"comercial_Produtos_Oportunidades",
 		delete_comercial_Produtos_Produtos:"comercial_Produtos_Produtos_mutation_response",
 		delete_comercial_Produtos_Produtos_by_pk:"comercial_Produtos_Produtos",
+		delete_comercial_Produtos_RegrasETermosDeUso:"comercial_Produtos_RegrasETermosDeUso_mutation_response",
+		delete_comercial_Produtos_RegrasETermosDeUso_by_pk:"comercial_Produtos_RegrasETermosDeUso",
 		delete_comercial_Produtos_Servicos:"comercial_Produtos_Servicos_mutation_response",
 		delete_comercial_Produtos_Servicos_by_pk:"comercial_Produtos_Servicos",
 		delete_comercial_Produtos_Tipos:"comercial_Produtos_Tipos_mutation_response",
@@ -58248,6 +63467,8 @@ export const ReturnTypes: Record<string,any> = {
 		delete_comercial_Servicos_Oportunidades_by_pk:"comercial_Servicos_Oportunidades",
 		delete_comercial_Servicos_Produtos:"comercial_Servicos_Produtos_mutation_response",
 		delete_comercial_Servicos_Produtos_by_pk:"comercial_Servicos_Produtos",
+		delete_comercial_Servicos_RegrasETermosDeUso:"comercial_Servicos_RegrasETermosDeUso_mutation_response",
+		delete_comercial_Servicos_RegrasETermosDeUso_by_pk:"comercial_Servicos_RegrasETermosDeUso",
 		delete_comercial_Servicos_Servicos:"comercial_Servicos_Servicos_mutation_response",
 		delete_comercial_Servicos_Servicos_by_pk:"comercial_Servicos_Servicos",
 		delete_comercial_Servicos_Tarifas:"comercial_Servicos_Tarifas_mutation_response",
@@ -58294,6 +63515,8 @@ export const ReturnTypes: Record<string,any> = {
 		delete_propostas_Propostas_Planos_by_pk:"propostas_Propostas_Planos",
 		delete_propostas_Propostas_Produtos:"propostas_Propostas_Produtos_mutation_response",
 		delete_propostas_Propostas_Produtos_by_pk:"propostas_Propostas_Produtos",
+		delete_propostas_Propostas_RegrasETermosDeUso:"propostas_Propostas_RegrasETermosDeUso_mutation_response",
+		delete_propostas_Propostas_RegrasETermosDeUso_by_pk:"propostas_Propostas_RegrasETermosDeUso",
 		delete_propostas_Propostas_Servicos:"propostas_Propostas_Servicos_mutation_response",
 		delete_propostas_Propostas_Servicos_by_pk:"propostas_Propostas_Servicos",
 		delete_propostas_Propostas_Situacoes:"propostas_Propostas_Situacoes_mutation_response",
@@ -58337,8 +63560,10 @@ export const ReturnTypes: Record<string,any> = {
 		insert_clientes_PerfisComerciais_one:"clientes_PerfisComerciais",
 		insert_clientes_Veiculos:"clientes_Veiculos_mutation_response",
 		insert_clientes_VeiculosAtivos:"clientes_VeiculosAtivos_mutation_response",
-		insert_clientes_VeiculosAtivos_Beneficios:"clientes_VeiculosAtivos_Beneficios_mutation_response",
-		insert_clientes_VeiculosAtivos_Beneficios_one:"clientes_VeiculosAtivos_Beneficios",
+		insert_clientes_VeiculosAtivos_Combos:"clientes_VeiculosAtivos_Combos_mutation_response",
+		insert_clientes_VeiculosAtivos_Combos_one:"clientes_VeiculosAtivos_Combos",
+		insert_clientes_VeiculosAtivos_Planos:"clientes_VeiculosAtivos_Planos_mutation_response",
+		insert_clientes_VeiculosAtivos_Planos_one:"clientes_VeiculosAtivos_Planos",
 		insert_clientes_VeiculosAtivos_Produtos:"clientes_VeiculosAtivos_Produtos_mutation_response",
 		insert_clientes_VeiculosAtivos_Produtos_one:"clientes_VeiculosAtivos_Produtos",
 		insert_clientes_VeiculosAtivos_Servicos:"clientes_VeiculosAtivos_Servicos_mutation_response",
@@ -58408,6 +63633,8 @@ export const ReturnTypes: Record<string,any> = {
 		insert_comercial_Produtos_Oportunidades_one:"comercial_Produtos_Oportunidades",
 		insert_comercial_Produtos_Produtos:"comercial_Produtos_Produtos_mutation_response",
 		insert_comercial_Produtos_Produtos_one:"comercial_Produtos_Produtos",
+		insert_comercial_Produtos_RegrasETermosDeUso:"comercial_Produtos_RegrasETermosDeUso_mutation_response",
+		insert_comercial_Produtos_RegrasETermosDeUso_one:"comercial_Produtos_RegrasETermosDeUso",
 		insert_comercial_Produtos_Servicos:"comercial_Produtos_Servicos_mutation_response",
 		insert_comercial_Produtos_Servicos_one:"comercial_Produtos_Servicos",
 		insert_comercial_Produtos_Tipos:"comercial_Produtos_Tipos_mutation_response",
@@ -58420,6 +63647,8 @@ export const ReturnTypes: Record<string,any> = {
 		insert_comercial_Servicos_Oportunidades_one:"comercial_Servicos_Oportunidades",
 		insert_comercial_Servicos_Produtos:"comercial_Servicos_Produtos_mutation_response",
 		insert_comercial_Servicos_Produtos_one:"comercial_Servicos_Produtos",
+		insert_comercial_Servicos_RegrasETermosDeUso:"comercial_Servicos_RegrasETermosDeUso_mutation_response",
+		insert_comercial_Servicos_RegrasETermosDeUso_one:"comercial_Servicos_RegrasETermosDeUso",
 		insert_comercial_Servicos_Servicos:"comercial_Servicos_Servicos_mutation_response",
 		insert_comercial_Servicos_Servicos_one:"comercial_Servicos_Servicos",
 		insert_comercial_Servicos_Tarifas:"comercial_Servicos_Tarifas_mutation_response",
@@ -58466,6 +63695,8 @@ export const ReturnTypes: Record<string,any> = {
 		insert_propostas_Propostas_Planos_one:"propostas_Propostas_Planos",
 		insert_propostas_Propostas_Produtos:"propostas_Propostas_Produtos_mutation_response",
 		insert_propostas_Propostas_Produtos_one:"propostas_Propostas_Produtos",
+		insert_propostas_Propostas_RegrasETermosDeUso:"propostas_Propostas_RegrasETermosDeUso_mutation_response",
+		insert_propostas_Propostas_RegrasETermosDeUso_one:"propostas_Propostas_RegrasETermosDeUso",
 		insert_propostas_Propostas_Servicos:"propostas_Propostas_Servicos_mutation_response",
 		insert_propostas_Propostas_Servicos_one:"propostas_Propostas_Servicos",
 		insert_propostas_Propostas_Situacoes:"propostas_Propostas_Situacoes_mutation_response",
@@ -58509,8 +63740,10 @@ export const ReturnTypes: Record<string,any> = {
 		update_clientes_PerfisComerciais_by_pk:"clientes_PerfisComerciais",
 		update_clientes_Veiculos:"clientes_Veiculos_mutation_response",
 		update_clientes_VeiculosAtivos:"clientes_VeiculosAtivos_mutation_response",
-		update_clientes_VeiculosAtivos_Beneficios:"clientes_VeiculosAtivos_Beneficios_mutation_response",
-		update_clientes_VeiculosAtivos_Beneficios_by_pk:"clientes_VeiculosAtivos_Beneficios",
+		update_clientes_VeiculosAtivos_Combos:"clientes_VeiculosAtivos_Combos_mutation_response",
+		update_clientes_VeiculosAtivos_Combos_by_pk:"clientes_VeiculosAtivos_Combos",
+		update_clientes_VeiculosAtivos_Planos:"clientes_VeiculosAtivos_Planos_mutation_response",
+		update_clientes_VeiculosAtivos_Planos_by_pk:"clientes_VeiculosAtivos_Planos",
 		update_clientes_VeiculosAtivos_Produtos:"clientes_VeiculosAtivos_Produtos_mutation_response",
 		update_clientes_VeiculosAtivos_Produtos_by_pk:"clientes_VeiculosAtivos_Produtos",
 		update_clientes_VeiculosAtivos_Servicos:"clientes_VeiculosAtivos_Servicos_mutation_response",
@@ -58580,6 +63813,8 @@ export const ReturnTypes: Record<string,any> = {
 		update_comercial_Produtos_Oportunidades_by_pk:"comercial_Produtos_Oportunidades",
 		update_comercial_Produtos_Produtos:"comercial_Produtos_Produtos_mutation_response",
 		update_comercial_Produtos_Produtos_by_pk:"comercial_Produtos_Produtos",
+		update_comercial_Produtos_RegrasETermosDeUso:"comercial_Produtos_RegrasETermosDeUso_mutation_response",
+		update_comercial_Produtos_RegrasETermosDeUso_by_pk:"comercial_Produtos_RegrasETermosDeUso",
 		update_comercial_Produtos_Servicos:"comercial_Produtos_Servicos_mutation_response",
 		update_comercial_Produtos_Servicos_by_pk:"comercial_Produtos_Servicos",
 		update_comercial_Produtos_Tipos:"comercial_Produtos_Tipos_mutation_response",
@@ -58592,6 +63827,8 @@ export const ReturnTypes: Record<string,any> = {
 		update_comercial_Servicos_Oportunidades_by_pk:"comercial_Servicos_Oportunidades",
 		update_comercial_Servicos_Produtos:"comercial_Servicos_Produtos_mutation_response",
 		update_comercial_Servicos_Produtos_by_pk:"comercial_Servicos_Produtos",
+		update_comercial_Servicos_RegrasETermosDeUso:"comercial_Servicos_RegrasETermosDeUso_mutation_response",
+		update_comercial_Servicos_RegrasETermosDeUso_by_pk:"comercial_Servicos_RegrasETermosDeUso",
 		update_comercial_Servicos_Servicos:"comercial_Servicos_Servicos_mutation_response",
 		update_comercial_Servicos_Servicos_by_pk:"comercial_Servicos_Servicos",
 		update_comercial_Servicos_Tarifas:"comercial_Servicos_Tarifas_mutation_response",
@@ -58638,6 +63875,8 @@ export const ReturnTypes: Record<string,any> = {
 		update_propostas_Propostas_Planos_by_pk:"propostas_Propostas_Planos",
 		update_propostas_Propostas_Produtos:"propostas_Propostas_Produtos_mutation_response",
 		update_propostas_Propostas_Produtos_by_pk:"propostas_Propostas_Produtos",
+		update_propostas_Propostas_RegrasETermosDeUso:"propostas_Propostas_RegrasETermosDeUso_mutation_response",
+		update_propostas_Propostas_RegrasETermosDeUso_by_pk:"propostas_Propostas_RegrasETermosDeUso",
 		update_propostas_Propostas_Servicos:"propostas_Propostas_Servicos_mutation_response",
 		update_propostas_Propostas_Servicos_by_pk:"propostas_Propostas_Servicos",
 		update_propostas_Propostas_Situacoes:"propostas_Propostas_Situacoes_mutation_response",
@@ -58662,6 +63901,7 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas:{
 		Cliente_Id:"uuid",
+		CodigoReferencia:"Int",
 		Combos:"propostas_Propostas_Combos",
 		Combos_aggregate:"propostas_Propostas_Combos_aggregate",
 		DataAceito:"timestamptz",
@@ -58674,6 +63914,9 @@ export const ReturnTypes: Record<string,any> = {
 		Planos_aggregate:"propostas_Propostas_Planos_aggregate",
 		Produtos:"propostas_Propostas_Produtos",
 		Produtos_aggregate:"propostas_Propostas_Produtos_aggregate",
+		PropostaGerada:"Boolean",
+		RegrasETermosDeUsos:"propostas_Propostas_RegrasETermosDeUso",
+		RegrasETermosDeUsos_aggregate:"propostas_Propostas_RegrasETermosDeUso_aggregate",
 		Servicos:"propostas_Propostas_Servicos",
 		Servicos_aggregate:"propostas_Propostas_Servicos_aggregate",
 		Situacao:"propostas_Propostas_Situacoes",
@@ -58695,6 +63938,12 @@ export const ReturnTypes: Record<string,any> = {
 		Proposta:"propostas_Propostas",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
+		PropostasPlanos:"propostas_Propostas_Planos",
+		PropostasPlanos_aggregate:"propostas_Propostas_Planos_aggregate",
+		PropostasProdutos:"propostas_Propostas_Produtos",
+		PropostasProdutos_aggregate:"propostas_Propostas_Produtos_aggregate",
+		PropostasServicos:"propostas_Propostas_Servicos",
+		PropostasServicos_aggregate:"propostas_Propostas_Servicos_aggregate",
 		PropostasVeiculo:"propostas_Propostas_Veiculos",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -58787,8 +64036,14 @@ export const ReturnTypes: Record<string,any> = {
 		PlanoPreco_Id:"uuid",
 		Plano_Id:"uuid",
 		Proposta:"propostas_Propostas",
+		PropostaCombo_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
+		PropostasCombo:"propostas_Propostas_Combos",
+		PropostasProdutos:"propostas_Propostas_Produtos",
+		PropostasProdutos_aggregate:"propostas_Propostas_Produtos_aggregate",
+		PropostasServicos:"propostas_Propostas_Servicos",
+		PropostasServicos_aggregate:"propostas_Propostas_Servicos_aggregate",
 		PropostasVeiculo:"propostas_Propostas_Veiculos",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
@@ -58807,6 +64062,7 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		PlanoPreco_Id:"uuid",
 		Plano_Id:"uuid",
+		PropostaCombo_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
 		created_at:"timestamptz",
@@ -58817,6 +64073,7 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		PlanoPreco_Id:"uuid",
 		Plano_Id:"uuid",
+		PropostaCombo_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
 		created_at:"timestamptz",
@@ -58836,9 +64093,14 @@ export const ReturnTypes: Record<string,any> = {
 		Produto:"comercial_Produtos",
 		Produto_Id:"uuid",
 		Proposta:"propostas_Propostas",
+		PropostaCombo_Id:"uuid",
+		PropostaPlano_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
+		PropostasCombo:"propostas_Propostas_Combos",
+		PropostasPlano:"propostas_Propostas_Planos",
 		PropostasVeiculo:"propostas_Propostas_Veiculos",
+		Quantidade:"Int",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -58848,17 +64110,31 @@ export const ReturnTypes: Record<string,any> = {
 		nodes:"propostas_Propostas_Produtos"
 	},
 	propostas_Propostas_Produtos_aggregate_fields:{
+		avg:"propostas_Propostas_Produtos_avg_fields",
 		count:"Int",
 		max:"propostas_Propostas_Produtos_max_fields",
-		min:"propostas_Propostas_Produtos_min_fields"
+		min:"propostas_Propostas_Produtos_min_fields",
+		stddev:"propostas_Propostas_Produtos_stddev_fields",
+		stddev_pop:"propostas_Propostas_Produtos_stddev_pop_fields",
+		stddev_samp:"propostas_Propostas_Produtos_stddev_samp_fields",
+		sum:"propostas_Propostas_Produtos_sum_fields",
+		var_pop:"propostas_Propostas_Produtos_var_pop_fields",
+		var_samp:"propostas_Propostas_Produtos_var_samp_fields",
+		variance:"propostas_Propostas_Produtos_variance_fields"
+	},
+	propostas_Propostas_Produtos_avg_fields:{
+		Quantidade:"Float"
 	},
 	propostas_Propostas_Produtos_max_fields:{
 		Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
+		PropostaCombo_Id:"uuid",
+		PropostaPlano_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
+		Quantidade:"Int",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -58868,8 +64144,11 @@ export const ReturnTypes: Record<string,any> = {
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
 		Produto_Id:"uuid",
+		PropostaCombo_Id:"uuid",
+		PropostaPlano_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
+		Quantidade:"Int",
 		created_at:"timestamptz",
 		deleted_at:"timestamptz",
 		updated_at:"timestamptz"
@@ -58878,6 +64157,71 @@ export const ReturnTypes: Record<string,any> = {
 		affected_rows:"Int",
 		returning:"propostas_Propostas_Produtos"
 	},
+	propostas_Propostas_Produtos_stddev_fields:{
+		Quantidade:"Float"
+	},
+	propostas_Propostas_Produtos_stddev_pop_fields:{
+		Quantidade:"Float"
+	},
+	propostas_Propostas_Produtos_stddev_samp_fields:{
+		Quantidade:"Float"
+	},
+	propostas_Propostas_Produtos_sum_fields:{
+		Quantidade:"Int"
+	},
+	propostas_Propostas_Produtos_var_pop_fields:{
+		Quantidade:"Float"
+	},
+	propostas_Propostas_Produtos_var_samp_fields:{
+		Quantidade:"Float"
+	},
+	propostas_Propostas_Produtos_variance_fields:{
+		Quantidade:"Float"
+	},
+	propostas_Propostas_RegrasETermosDeUso:{
+		Id:"uuid",
+		Informado:"Boolean",
+		ProdutoRegrasETermosDeUso:"comercial_Produtos_RegrasETermosDeUso",
+		Produto_RegraETermosDeUso_Id:"uuid",
+		Proposta:"propostas_Propostas",
+		Proposta_Id:"uuid",
+		ServicoRegrasETermosDeUso:"comercial_Servicos_RegrasETermosDeUso",
+		Servico_RegraETermosDeUso_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	propostas_Propostas_RegrasETermosDeUso_aggregate:{
+		aggregate:"propostas_Propostas_RegrasETermosDeUso_aggregate_fields",
+		nodes:"propostas_Propostas_RegrasETermosDeUso"
+	},
+	propostas_Propostas_RegrasETermosDeUso_aggregate_fields:{
+		count:"Int",
+		max:"propostas_Propostas_RegrasETermosDeUso_max_fields",
+		min:"propostas_Propostas_RegrasETermosDeUso_min_fields"
+	},
+	propostas_Propostas_RegrasETermosDeUso_max_fields:{
+		Id:"uuid",
+		Produto_RegraETermosDeUso_Id:"uuid",
+		Proposta_Id:"uuid",
+		Servico_RegraETermosDeUso_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	propostas_Propostas_RegrasETermosDeUso_min_fields:{
+		Id:"uuid",
+		Produto_RegraETermosDeUso_Id:"uuid",
+		Proposta_Id:"uuid",
+		Servico_RegraETermosDeUso_Id:"uuid",
+		created_at:"timestamptz",
+		deleted_at:"timestamptz",
+		updated_at:"timestamptz"
+	},
+	propostas_Propostas_RegrasETermosDeUso_mutation_response:{
+		affected_rows:"Int",
+		returning:"propostas_Propostas_RegrasETermosDeUso"
+	},
 	propostas_Propostas_Servicos:{
 		Id:"uuid",
 		PrecoDeAdesao:"comercial_PrestadoresDeServicos_Servicos_Precos",
@@ -58885,8 +64229,12 @@ export const ReturnTypes: Record<string,any> = {
 		PrecoDeRecorrencia:"comercial_PrestadoresDeServicos_Servicos_Precos",
 		PrecoDeRecorrencia_Id:"uuid",
 		Proposta:"propostas_Propostas",
+		PropostaCombo_Id:"uuid",
+		PropostaPlano_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
+		PropostasCombo:"propostas_Propostas_Combos",
+		PropostasPlano:"propostas_Propostas_Planos",
 		PropostasVeiculo:"propostas_Propostas_Veiculos",
 		Servico:"comercial_Servicos",
 		Servico_Id:"uuid",
@@ -58907,6 +64255,8 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
+		PropostaCombo_Id:"uuid",
+		PropostaPlano_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
 		Servico_Id:"uuid",
@@ -58918,6 +64268,8 @@ export const ReturnTypes: Record<string,any> = {
 		Id:"uuid",
 		PrecoDeAdesao_Id:"uuid",
 		PrecoDeRecorrencia_Id:"uuid",
+		PropostaCombo_Id:"uuid",
+		PropostaPlano_Id:"uuid",
 		PropostaVeiculo_Id:"uuid",
 		Proposta_Id:"uuid",
 		Servico_Id:"uuid",
@@ -58958,6 +64310,7 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas_Veiculos:{
 		Id:"uuid",
+		PossuiGNV:"Boolean",
 		Proposta:"propostas_Propostas",
 		Proposta_Id:"uuid",
 		PropostasCombos:"propostas_Propostas_Combos",
@@ -59009,12 +64362,24 @@ export const ReturnTypes: Record<string,any> = {
 		nodes:"propostas_Propostas"
 	},
 	propostas_Propostas_aggregate_fields:{
+		avg:"propostas_Propostas_avg_fields",
 		count:"Int",
 		max:"propostas_Propostas_max_fields",
-		min:"propostas_Propostas_min_fields"
+		min:"propostas_Propostas_min_fields",
+		stddev:"propostas_Propostas_stddev_fields",
+		stddev_pop:"propostas_Propostas_stddev_pop_fields",
+		stddev_samp:"propostas_Propostas_stddev_samp_fields",
+		sum:"propostas_Propostas_sum_fields",
+		var_pop:"propostas_Propostas_var_pop_fields",
+		var_samp:"propostas_Propostas_var_samp_fields",
+		variance:"propostas_Propostas_variance_fields"
+	},
+	propostas_Propostas_avg_fields:{
+		CodigoReferencia:"Float"
 	},
 	propostas_Propostas_max_fields:{
 		Cliente_Id:"uuid",
+		CodigoReferencia:"Int",
 		DataAceito:"timestamptz",
 		FormaDePagamentoDaAdesao_Id:"String",
 		Id:"uuid",
@@ -59027,6 +64392,7 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	propostas_Propostas_min_fields:{
 		Cliente_Id:"uuid",
+		CodigoReferencia:"Int",
 		DataAceito:"timestamptz",
 		FormaDePagamentoDaAdesao_Id:"String",
 		Id:"uuid",
@@ -59040,6 +64406,27 @@ export const ReturnTypes: Record<string,any> = {
 	propostas_Propostas_mutation_response:{
 		affected_rows:"Int",
 		returning:"propostas_Propostas"
+	},
+	propostas_Propostas_stddev_fields:{
+		CodigoReferencia:"Float"
+	},
+	propostas_Propostas_stddev_pop_fields:{
+		CodigoReferencia:"Float"
+	},
+	propostas_Propostas_stddev_samp_fields:{
+		CodigoReferencia:"Float"
+	},
+	propostas_Propostas_sum_fields:{
+		CodigoReferencia:"Int"
+	},
+	propostas_Propostas_var_pop_fields:{
+		CodigoReferencia:"Float"
+	},
+	propostas_Propostas_var_samp_fields:{
+		CodigoReferencia:"Float"
+	},
+	propostas_Propostas_variance_fields:{
+		CodigoReferencia:"Float"
 	},
 	query_root:{
 		CategoriasDeVeiculos:"CategoriasDeVeiculos",
@@ -59074,9 +64461,12 @@ export const ReturnTypes: Record<string,any> = {
 		clientes_PerfisComerciais_by_pk:"clientes_PerfisComerciais",
 		clientes_Veiculos:"clientes_Veiculos",
 		clientes_VeiculosAtivos:"clientes_VeiculosAtivos",
-		clientes_VeiculosAtivos_Beneficios:"clientes_VeiculosAtivos_Beneficios",
-		clientes_VeiculosAtivos_Beneficios_aggregate:"clientes_VeiculosAtivos_Beneficios_aggregate",
-		clientes_VeiculosAtivos_Beneficios_by_pk:"clientes_VeiculosAtivos_Beneficios",
+		clientes_VeiculosAtivos_Combos:"clientes_VeiculosAtivos_Combos",
+		clientes_VeiculosAtivos_Combos_aggregate:"clientes_VeiculosAtivos_Combos_aggregate",
+		clientes_VeiculosAtivos_Combos_by_pk:"clientes_VeiculosAtivos_Combos",
+		clientes_VeiculosAtivos_Planos:"clientes_VeiculosAtivos_Planos",
+		clientes_VeiculosAtivos_Planos_aggregate:"clientes_VeiculosAtivos_Planos_aggregate",
+		clientes_VeiculosAtivos_Planos_by_pk:"clientes_VeiculosAtivos_Planos",
 		clientes_VeiculosAtivos_Produtos:"clientes_VeiculosAtivos_Produtos",
 		clientes_VeiculosAtivos_Produtos_aggregate:"clientes_VeiculosAtivos_Produtos_aggregate",
 		clientes_VeiculosAtivos_Produtos_by_pk:"clientes_VeiculosAtivos_Produtos",
@@ -59181,6 +64571,9 @@ export const ReturnTypes: Record<string,any> = {
 		comercial_Produtos_Produtos:"comercial_Produtos_Produtos",
 		comercial_Produtos_Produtos_aggregate:"comercial_Produtos_Produtos_aggregate",
 		comercial_Produtos_Produtos_by_pk:"comercial_Produtos_Produtos",
+		comercial_Produtos_RegrasETermosDeUso:"comercial_Produtos_RegrasETermosDeUso",
+		comercial_Produtos_RegrasETermosDeUso_aggregate:"comercial_Produtos_RegrasETermosDeUso_aggregate",
+		comercial_Produtos_RegrasETermosDeUso_by_pk:"comercial_Produtos_RegrasETermosDeUso",
 		comercial_Produtos_Servicos:"comercial_Produtos_Servicos",
 		comercial_Produtos_Servicos_aggregate:"comercial_Produtos_Servicos_aggregate",
 		comercial_Produtos_Servicos_by_pk:"comercial_Produtos_Servicos",
@@ -59199,6 +64592,9 @@ export const ReturnTypes: Record<string,any> = {
 		comercial_Servicos_Produtos:"comercial_Servicos_Produtos",
 		comercial_Servicos_Produtos_aggregate:"comercial_Servicos_Produtos_aggregate",
 		comercial_Servicos_Produtos_by_pk:"comercial_Servicos_Produtos",
+		comercial_Servicos_RegrasETermosDeUso:"comercial_Servicos_RegrasETermosDeUso",
+		comercial_Servicos_RegrasETermosDeUso_aggregate:"comercial_Servicos_RegrasETermosDeUso_aggregate",
+		comercial_Servicos_RegrasETermosDeUso_by_pk:"comercial_Servicos_RegrasETermosDeUso",
 		comercial_Servicos_Servicos:"comercial_Servicos_Servicos",
 		comercial_Servicos_Servicos_aggregate:"comercial_Servicos_Servicos_aggregate",
 		comercial_Servicos_Servicos_by_pk:"comercial_Servicos_Servicos",
@@ -59268,6 +64664,9 @@ export const ReturnTypes: Record<string,any> = {
 		propostas_Propostas_Produtos:"propostas_Propostas_Produtos",
 		propostas_Propostas_Produtos_aggregate:"propostas_Propostas_Produtos_aggregate",
 		propostas_Propostas_Produtos_by_pk:"propostas_Propostas_Produtos",
+		propostas_Propostas_RegrasETermosDeUso:"propostas_Propostas_RegrasETermosDeUso",
+		propostas_Propostas_RegrasETermosDeUso_aggregate:"propostas_Propostas_RegrasETermosDeUso_aggregate",
+		propostas_Propostas_RegrasETermosDeUso_by_pk:"propostas_Propostas_RegrasETermosDeUso",
 		propostas_Propostas_Servicos:"propostas_Propostas_Servicos",
 		propostas_Propostas_Servicos_aggregate:"propostas_Propostas_Servicos_aggregate",
 		propostas_Propostas_Servicos_by_pk:"propostas_Propostas_Servicos",

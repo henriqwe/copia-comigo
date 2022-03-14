@@ -11,11 +11,12 @@ type RowProps = {
     handler?: (valor: string) => string
   }[]
   item: any
+  noIntro?: boolean
 }
 
-export function Row({ columns, item, actions }: RowProps) {
+export function Row({ columns, item, actions, noIntro = false }: RowProps) {
   return (
-    <tr className="intro-x" data-testid="linha">
+    <tr className={`${!noIntro && 'intro-x'} `} data-testid="linha">
       {columns.map((coluna, index) => {
         if (coluna.type === 'date') {
           return (

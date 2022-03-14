@@ -1,0 +1,4 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- alter table "identidades"."Pessoas" add column "Profissao" text
+--  null;

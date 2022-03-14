@@ -68,6 +68,13 @@ array_relationships:
       table:
         name: Propostas_Produtos
         schema: propostas
+- name: RegrasETermosDeUsos
+  using:
+    foreign_key_constraint_on:
+      column: Produto_Id
+      table:
+        name: Produtos_RegrasETermosDeUso
+        schema: comercial
 - name: Servicos
   using:
     foreign_key_constraint_on:

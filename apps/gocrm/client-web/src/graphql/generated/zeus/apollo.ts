@@ -115,10 +115,10 @@ export function useTypedClientMutation<Z extends ValueTypes[O], O extends "mutat
 export function useTypedClientQuery<Z extends ValueTypes[O], O extends "query_root">(
   query: Z | ValueTypes[O],
   variables?: any,
-  options?: QueryOptions<
+  options?: Omit<QueryOptions<
     InputType<GraphQLTypes[O], Z>,
     Record<string, any>
-  >
+  >, 'query'>
 ) {
   return client.query<InputType<GraphQLTypes[O], Z>>({
     query: gql(Zeus("query",query)),

@@ -24,7 +24,7 @@ export function UpdateSlidePanel() {
       component = <proposals.CreateProposalCombos />
       break
     case 'proposalVehicle':
-      title = 'Adicionar veículo'
+      title = 'Vincular veículo'
       component = <proposals.CreateProposalVehicle />
       break
     case 'createVehicle':
@@ -35,6 +35,11 @@ export function UpdateSlidePanel() {
     case 'clientPaymentType':
       title = 'Trocar tipo de pagamento'
       component = <proposals.SelectPaymentType />
+      break
+    case 'linkClient':
+      title = 'Víncular cliente existente'
+      component = <proposals.LinkCliente />
+      break
   }
 
   return (

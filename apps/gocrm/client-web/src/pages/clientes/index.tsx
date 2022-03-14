@@ -14,8 +14,7 @@ export default function Providers() {
   return (
     <clients.ClientProvider>
       <ThemeProvider>
-        {' '}
-        <Page />{' '}
+        <Page />
       </ThemeProvider>
     </clients.ClientProvider>
   )
@@ -28,8 +27,9 @@ export function Page() {
     clientsRefetch()
   }
   return (
-    <templates.Base
+    <templates.InternalNavigationAndSlide
       setTheme={changeTheme}
+      SubMenu={<clients.InternalNavigation />}
       theme={theme}
       MainMenuItems={MainMenuItems}
       rotas={rotas}
@@ -43,6 +43,7 @@ export function Page() {
       ]}
     >
       <clients.List />
-    </templates.Base>
+      <clients.SlidePanel />
+    </templates.InternalNavigationAndSlide>
   )
 }

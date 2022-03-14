@@ -5,6 +5,7 @@ type InsertActiveVehicleServiceProps = {
   PrecoDeRecorrencia_Id: string
   Servico_Id: string
   VeiculoAtivo_Id: string
+  Beneficio: boolean
 }
 
 
@@ -12,7 +13,8 @@ export async function insertActiveVehicleService({
   PrecoDeAdesao_Id,
   PrecoDeRecorrencia_Id,
   Servico_Id,
-  VeiculoAtivo_Id
+  VeiculoAtivo_Id,
+  Beneficio
 }: InsertActiveVehicleServiceProps) {
   useTypedClientMutation({
     insert_clientes_VeiculosAtivos_Servicos_one: [
@@ -22,6 +24,8 @@ export async function insertActiveVehicleService({
           PrecoDeRecorrencia_Id,
           Servico_Id,
           VeiculoAtivo_Id,
+          Beneficio,
+          DataDeAtivacao: new Date(),
           Ativo: true
         }
       },

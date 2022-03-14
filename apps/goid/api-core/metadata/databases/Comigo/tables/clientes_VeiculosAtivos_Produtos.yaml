@@ -5,3 +5,9 @@ object_relationships:
 - name: VeiculosAtivo
   using:
     foreign_key_constraint_on: VeiculoAtivo_Id
+- name: VeiculosAtivosCombo
+  using:
+    foreign_key_constraint_on: VeiculoAtivoCombo_Id
+- name: VeiculosAtivosPlano
+  using:
+    foreign_key_constraint_on: VeiculoAtivoPlano_Id

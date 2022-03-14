@@ -1,4 +1,7 @@
-import { order_by } from '&erp/graphql/generated/zeus'
+import {
+  operacional_OrdemDeServico_Agendamentos_Situacoes_enum,
+  order_by
+} from '&erp/graphql/generated/zeus'
 import { useTypedQuery } from '&erp/graphql/generated/zeus/apollo'
 import { useRouter } from 'next/router'
 import {
@@ -10,9 +13,20 @@ import {
   useState
 } from 'react'
 import * as yup from 'yup'
+import { ClientType } from './types/client'
+import { ProductItensType } from './types/productItens'
 import { ServiceOrderData } from './types/serviceOrder'
+import { VehicleType } from './types/vehicle'
 
 type UpdateContextProps = {
+  client: ClientType
+  setClient: Dispatch<SetStateAction<ClientType>>
+  productItens: ProductItensType[]
+  setProductItens: Dispatch<SetStateAction<ProductItensType[]>>
+  activeEdit: boolean
+  setActiveEdit: Dispatch<SetStateAction<boolean>>
+  vehicle: VehicleType
+  setVehicle: Dispatch<SetStateAction<VehicleType>>
   slidePanelState: SlidePanelStateType
   setSlidePanelState: Dispatch<SetStateAction<SlidePanelStateType>>
   serviceOrderData?: ServiceOrderData
@@ -45,7 +59,7 @@ type ProviderProps = {
 }
 
 type SlidePanelStateType = {
-  type: 'schedule' | 'activities'
+  type: 'schedule' | 'activities' | 'giveBack'
   open: boolean
 }
 
@@ -54,6 +68,10 @@ export const UpdateContext = createContext<UpdateContextProps>(
 )
 
 export const UpdateProvider = ({ children }: ProviderProps) => {
+  const [client, setClient] = useState<ClientType>()
+  const [productItens, setProductItens] = useState<ProductItensType[]>([])
+  const [activeEdit, setActiveEdit] = useState(false)
+  const [vehicle, setVehicle] = useState<VehicleType>()
   const [slidePanelState, setSlidePanelState] = useState<SlidePanelStateType>({
     open: false,
     type: 'schedule'
@@ -86,6 +104,7 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         },
         {
           Id: true,
+          PossuiGNV: true,
           Tipo: {
             Valor: true,
             Comentario: true
@@ -96,7 +115,12 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           },
           Agendamentos: [
             {
-              where: { deleted_at: { _is_null: true } },
+              where: {
+                deleted_at: { _is_null: true },
+                Situacao_Id: {
+                  _neq: operacional_OrdemDeServico_Agendamentos_Situacoes_enum.frustada
+                }
+              },
               order_by: [{ created_at: order_by.desc }]
             },
             {
@@ -105,6 +129,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               FimDoServico: true,
               InicioDoServico: true,
               Colaborador_Id: true,
+              Contato: true,
+              Responsavel: true,
+              Endereco: [{}, true],
               Situacao: {
                 Valor: true,
                 Comentario: true
@@ -192,15 +219,145 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
           ],
           CodigoIdentificador: true,
           Proposta_Id: true,
-          Beneficios: [
+          Combos: [
             { where: { deleted_at: { _is_null: true } } },
             {
               Id: true,
-              Portfolio_Id: true,
-              TipoPortfolio: true,
-              PortfolioPreco_Id: true,
-              PrecoDeAdesao_Id: true,
-              PrecoDeRecorrencia_Id: true
+              Combo: {
+                Id: true,
+                Nome: true
+              },
+              ComboPreco: {
+                Id: true,
+                ValorDeAdesao: true,
+                ValorDeRecorrencia: true
+              },
+              OSPlanos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
+                  Id: true,
+                  PlanoPreco_Id: true,
+                  Plano: {
+                    Id: true,
+                    Nome: true
+                  },
+                  OrdemDeServicoCombo_Id: true,
+                  OSServicos: [
+                    { where: { deleted_at: { _is_null: true } } },
+                    {
+                      Id: true,
+                      Servico: {
+                        Id: true,
+                        Nome: true,
+                        GeraOS: true
+                      },
+                      Beneficio: true,
+                      Servico_Id: true,
+                      PrecoDeAdesao_Id: true,
+                      PrecoDeRecorrencia_Id: true,
+                      OrdemDeServicoCombo_Id: true,
+                      OrdemDeServicoPlano_Id: true
+                    }
+                  ],
+                  OSProdutos: [
+                    { where: { deleted_at: { _is_null: true } } },
+                    {
+                      Id: true,
+                      Quantidade: true,
+                      Produto: {
+                        Id: true,
+                        Nome: true
+                      },
+                      PrecoDeAdesao_Id: true,
+                      PrecoDeRecorrencia_Id: true,
+                      Identificavel_Id: true,
+                      TipoDeIdentificavel_Id: true,
+                      OrdemDeServicoCombo_Id: true,
+                      OrdemDeServicoPlano_Id: true
+                    }
+                  ]
+                }
+              ],
+              OSServicos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
+                  Id: true,
+                  Servico: {
+                    Id: true,
+                    Nome: true,
+                    GeraOS: true
+                  },
+                  Beneficio: true,
+                  Servico_Id: true,
+                  PrecoDeAdesao_Id: true,
+                  PrecoDeRecorrencia_Id: true,
+                  OrdemDeServicoCombo_Id: true,
+                  OrdemDeServicoPlano_Id: true
+                }
+              ],
+              OSProdutos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
+                  Id: true,
+                  Quantidade: true,
+                  Produto: {
+                    Id: true,
+                    Nome: true
+                  },
+                  PrecoDeAdesao_Id: true,
+                  PrecoDeRecorrencia_Id: true,
+                  Identificavel_Id: true,
+                  TipoDeIdentificavel_Id: true,
+                  OrdemDeServicoCombo_Id: true,
+                  OrdemDeServicoPlano_Id: true
+                }
+              ]
+            }
+          ],
+          Planos: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Id: true,
+              PlanoPreco_Id: true,
+              Plano: {
+                Id: true,
+                Nome: true
+              },
+              OrdemDeServicoCombo_Id: true,
+              OSServicos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
+                  Id: true,
+                  Servico: {
+                    Id: true,
+                    Nome: true,
+                    GeraOS: true
+                  },
+                  Beneficio: true,
+                  Servico_Id: true,
+                  PrecoDeAdesao_Id: true,
+                  PrecoDeRecorrencia_Id: true,
+                  OrdemDeServicoCombo_Id: true,
+                  OrdemDeServicoPlano_Id: true
+                }
+              ],
+              OSProdutos: [
+                { where: { deleted_at: { _is_null: true } } },
+                {
+                  Id: true,
+                  Quantidade: true,
+                  Produto: {
+                    Id: true,
+                    Nome: true
+                  },
+                  PrecoDeAdesao_Id: true,
+                  PrecoDeRecorrencia_Id: true,
+                  Identificavel_Id: true,
+                  TipoDeIdentificavel_Id: true,
+                  OrdemDeServicoCombo_Id: true,
+                  OrdemDeServicoPlano_Id: true
+                }
+              ]
             }
           ],
           Servicos: [
@@ -212,15 +369,19 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
                 Nome: true,
                 GeraOS: true
               },
+              Beneficio: true,
               Servico_Id: true,
               PrecoDeAdesao_Id: true,
-              PrecoDeRecorrencia_Id: true
+              PrecoDeRecorrencia_Id: true,
+              OrdemDeServicoCombo_Id: true,
+              OrdemDeServicoPlano_Id: true
             }
           ],
           Produtos: [
             { where: { deleted_at: { _is_null: true } } },
             {
               Id: true,
+              Quantidade: true,
               Produto: {
                 Id: true,
                 Nome: true
@@ -228,7 +389,9 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
               PrecoDeAdesao_Id: true,
               PrecoDeRecorrencia_Id: true,
               Identificavel_Id: true,
-              TipoDeIdentificavel_Id: true
+              TipoDeIdentificavel_Id: true,
+              OrdemDeServicoCombo_Id: true,
+              OrdemDeServicoPlano_Id: true
             }
           ],
           Veiculo_Id: true,
@@ -290,9 +453,12 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
 
   const serviceOrdersSchema = yup.object().shape({
     Agendamento: yup.date().required('Preencha o campo para continuar'),
-    Colaborador_Id: yup.object().required('Preencha o campo para continuar')
+    Colaborador_Id: yup.object().required('Preencha o campo para continuar'),
+    Responsavel: yup.string().required('Preencha o campo para continuar'),
+    Telefone: yup.string().required('Preencha o campo para continuar'),
+    Cep: yup.string().required('Preencha o campo para continuar'),
+    Numero: yup.string().required('Preencha o campo para continuar')
   })
-
   const rejectSchema = yup.object().shape({
     MotivoRecusado: yup.string().required('Digite o motivo para continuar')
   })
@@ -312,7 +478,15 @@ export const UpdateProvider = ({ children }: ProviderProps) => {
         serviceOrderActivitiesRefetch,
         serviceOrderActivitiesLoading,
         collaboratorsData: collaboratorsData?.identidades_Colaboradores,
-        collaboratorsRefetch
+        collaboratorsRefetch,
+        client,
+        setClient,
+        productItens,
+        setProductItens,
+        activeEdit,
+        setActiveEdit,
+        vehicle,
+        setVehicle
       }}
     >
       {children}

@@ -4,6 +4,8 @@ import * as common from '@comigo/ui-common'
 import * as proposals from '&crm/domains/Proposals'
 
 import * as utils from '@comigo/utils'
+import { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 type SelectItem = {
   key: {
@@ -19,26 +21,29 @@ type FormData = {
 }
 
 export function CreateProposalVehicle() {
+  const [PossuiGNV, setPossuiGNV] = useState(false)
   const {
     vehiclesData,
     setSlidePanelState,
     insertProposalVehicle,
     insertProposalVehicleLoading,
     proposalRefetch,
-    proposalData
+    proposalData,
+    createVehicleSchema
   } = proposals.useUpdate()
   const {
     handleSubmit,
     formState: { errors },
     control
-  } = useForm()
+  } = useForm({ resolver: yupResolver(createVehicleSchema) })
   const vehiclesIds = proposalData.Veiculos.map((vehicle) => vehicle.Veiculo_Id)
 
   const onSubmit = async (formData: FormData) => {
     try {
       await insertProposalVehicle({
         variables: {
-          Veiculo_Id: formData.Veiculo.key.Id
+          Veiculo_Id: formData.Veiculo.key.Id,
+          PossuiGNV
         }
       })
       proposalRefetch()
@@ -71,7 +76,10 @@ export function CreateProposalVehicle() {
                         .filter(
                           (vehicle) =>
                             !vehiclesIds.includes(vehicle.Id) &&
-                            vehicle.VeiculosAtivos.length === 0
+                            vehicle.VeiculosAtivos.filter(
+                              (activeVehicle) =>
+                                activeVehicle.Situacao_Id === 'ativo'
+                            ).length === 0
                         )
                         .map((vehicle) => {
                           return {
@@ -87,7 +95,7 @@ export function CreateProposalVehicle() {
                 }
                 value={value}
                 onChange={onChange}
-                error={errors.Colaborador_Id}
+                error={errors.Veiculo}
                 label="Veículo para a proposta"
               />
               <common.OpenModalLink
@@ -103,10 +111,17 @@ export function CreateProposalVehicle() {
             </div>
           )}
         />
+        <div className="flex items-center justify-between w-full">
+          <p>Possui GNV?</p>
+          <common.form.Switch
+            onChange={() => setPossuiGNV(!PossuiGNV)}
+            value={PossuiGNV}
+          />
+        </div>
       </div>
       <common.Separator />
       <common.buttons.PrimaryButton
-        title="Enviar"
+        title="Adicionar a proposta"
         disabled={insertProposalVehicleLoading}
         loading={insertProposalVehicleLoading}
       />

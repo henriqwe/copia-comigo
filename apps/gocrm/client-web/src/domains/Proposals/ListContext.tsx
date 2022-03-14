@@ -15,6 +15,7 @@ import {
   OperationVariables
 } from '@apollo/client'
 import { createContext, ReactNode, useContext } from 'react'
+import * as yup from 'yup'
 
 type ListContextProps = {
   paymentTypesData: {
@@ -26,13 +27,19 @@ type ListContextProps = {
     Valor: string
   }[]
   proposalsData?: {
+    CodigoReferencia: number
     Id: string
+    Cliente_Id?: string
+    Veiculos: {
+      Id: string
+      Veiculo_Id?: string
+    }[]
+    Lead_Id?: string
     Situacao: {
       Comentario: string
-    },
+    }
     created_at: Date
   }[]
-
   proposalsRefetch: () => void
   proposalsLoading: boolean
   softDeleteProposal: (
@@ -61,6 +68,7 @@ type ListContextProps = {
     >
   ) => Promise<FetchResult['data']>
   insertProposalLoading: boolean
+  proposalSchema: yup.AnyObjectSchema
 }
 
 type ProviderProps = {
@@ -141,6 +149,18 @@ export const ListProvider = ({ children }: ProviderProps) => {
         },
         {
           Id: true,
+          CodigoReferencia: true,
+          Cliente_Id: true,
+          Lead_Id: true,
+          Veiculos: [
+            {
+              where: { deleted_at: { _is_null: true } }
+            },
+            {
+              Id: true,
+              Veiculo_Id: true
+            }
+          ],
           Situacao: {
             Comentario: true
           },
@@ -150,6 +170,10 @@ export const ListProvider = ({ children }: ProviderProps) => {
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
   )
+
+  const proposalSchema = yup.object().shape({
+    Colaborador_Id: yup.object().required('Preencha o campo para continuar')
+  })
 
   return (
     <ListContext.Provider
@@ -162,7 +186,8 @@ export const ListProvider = ({ children }: ProviderProps) => {
         softDeleteProposal,
         softDeleteProposalLoading,
         insertProposal,
-        insertProposalLoading
+        insertProposalLoading,
+        proposalSchema
       }}
     >
       {children}

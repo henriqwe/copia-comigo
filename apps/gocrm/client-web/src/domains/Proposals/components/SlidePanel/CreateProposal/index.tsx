@@ -4,12 +4,13 @@ import * as common from '@comigo/ui-common'
 
 import * as tickets from '&crm/domains/services/Tickets'
 import * as leads from '&crm/domains/services/Leads'
-import * as clients from '&crm/domains/identities/Clients'
+import * as clients from '&crm/domains/clients'
 import * as proposals from '&crm/domains/Proposals'
 
 import * as utils from '@comigo/utils'
 import { useRouter } from 'next/router'
 import routes from '&crm/domains/routes'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 type SelectItem = {
   key: string
@@ -31,14 +32,15 @@ export function CreateProposal() {
   const router = useRouter()
   const { ticketsData, usersData } = tickets.useTicket()
   const { leadsData } = leads.useLead()
-  const { clientsData } = clients.useList()
-  const { insertProposalLoading, insertProposal } = proposals.useList()
+  const { clientsData } = clients.useClient()
+  const { insertProposalLoading, insertProposal, proposalSchema } =
+    proposals.useList()
   const {
     handleSubmit,
     formState: { errors },
     control,
     watch
-  } = useForm()
+  } = useForm({ resolver: yupResolver(proposalSchema) })
   const usersId = usersData?.map((user) => user.Id)
 
   const onSubmit = async (formData: FormData) => {
@@ -55,9 +57,7 @@ export function CreateProposal() {
       }
     }).then((response) => {
       router.push(
-        routes.propostas +
-          '/' +
-          response.data.insert_propostas_Propostas_one.Id
+        routes.propostas + '/' + response.data.insert_propostas_Propostas_one.Id
       )
       utils.notification('Proposta criada com sucesso', 'success')
     })

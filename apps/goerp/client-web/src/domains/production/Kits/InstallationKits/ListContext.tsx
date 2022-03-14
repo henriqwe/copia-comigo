@@ -11,6 +11,7 @@ import {
   useTypedQuery,
 } from '&erp/graphql/generated/zeus/apollo';
 import { createContext, ReactNode, useContext } from 'react';
+import { movimentacoes_Motivos_enum } from '&erp/graphql/generated/zeus';
 
 type ListContextProps = {
   installationKitsData?: {
@@ -86,7 +87,7 @@ export const ListProvider = ({ children }: ProviderProps) => {
             Valor: 0,
             Quantidade: 1,
             Tipo: 'saida',
-            Motivo_Id: 'exclusaoDeRastreador',
+            Motivo_Id: movimentacoes_Motivos_enum.exclusaoDeRastreador,
           },
           {
             Data: new Date(),
@@ -94,7 +95,7 @@ export const ListProvider = ({ children }: ProviderProps) => {
             Valor: 0,
             Quantidade: 1,
             Tipo: 'entrada',
-            Motivo_Id: 'exclusaoDeRastreador',
+            Motivo_Id: movimentacoes_Motivos_enum.exclusaoDeRastreador,
           },
           {
             Data: new Date(),
@@ -102,7 +103,7 @@ export const ListProvider = ({ children }: ProviderProps) => {
             Valor: 0,
             Quantidade: 1,
             Tipo: 'entrada',
-            Motivo_Id: 'exclusaoDeRastreador',
+            Motivo_Id: movimentacoes_Motivos_enum.exclusaoDeRastreador,
           },
         ],
       },

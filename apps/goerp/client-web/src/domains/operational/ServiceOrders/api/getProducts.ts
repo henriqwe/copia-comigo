@@ -186,9 +186,11 @@ export async function getProducts({
           ? serviceOrderData.Agendamentos[0].Situacao.Valor
           : false) !== 'criada' &&
         serviceOrderData.Situacao.Valor !== 'aberta' &&
-        serviceOrderData.Situacao.Valor !== 'frustada'
+        serviceOrderData.Situacao.Valor !== 'frustada' &&
+        serviceOrderData.Situacao.Valor !== 'cancelada'
           ? 'Sim'
-          : 'Não'
+          : 'Não',
+      Amount: product.Quantidade
     }
   })
 

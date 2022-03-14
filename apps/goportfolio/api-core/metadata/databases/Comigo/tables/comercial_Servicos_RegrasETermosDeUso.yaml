@@ -1,0 +1,15 @@
+table:
+  name: Servicos_RegrasETermosDeUso
+  schema: comercial
+object_relationships:
+- name: Servico
+  using:
+    foreign_key_constraint_on: Servico_Id
+array_relationships:
+- name: PropostasRegrasETermosDeUsos
+  using:
+    foreign_key_constraint_on:
+      column: Servico_RegraETermosDeUso_Id
+      table:
+        name: Propostas_RegrasETermosDeUso
+        schema: propostas

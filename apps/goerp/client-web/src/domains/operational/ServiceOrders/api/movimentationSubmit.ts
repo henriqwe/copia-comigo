@@ -21,22 +21,31 @@ export async function movimentationSubmit({
   setLoading
 }: movimentationSubmitProps) {
   setLoading(true)
-  serviceOrderData.Agendamentos[0].Itens.map((item) => {
-    registerMovement(
-      item,
-      1,
-      'saida',
-      movimentacoes_Motivos_enum.agendamentoDeOS
-    )
-    mutations
-      .updateServiceOrderScheduleItem({
-        Id: item.Id,
-        RetiradoDoEstoque: true
-      })
-      .catch((err) => {
-        utils.showError(err)
-      })
-  })
+  await Promise.all(
+    serviceOrderData.Agendamentos[0].Itens.map(async (item) => {
+      const product = serviceOrderData.Produtos.filter(
+        (product) => product.Produto.Id === item.Produto.Id
+      )
+
+      for (let index = 0; index < (product?.[0]?.Quantidade || 1); index++) {
+        await registerMovement(
+          item,
+          1,
+          'saida',
+          movimentacoes_Motivos_enum.agendamentoDeOS
+        )
+      }
+
+      await mutations
+        .updateServiceOrderScheduleItem({
+          Id: item.Id,
+          RetiradoDoEstoque: true
+        })
+        .catch((err) => {
+          utils.showError(err)
+        })
+    })
+  )
   await mutations
     .updateServiceOrdersSchedule({
       Id: serviceOrderData?.Agendamentos[0].Id,

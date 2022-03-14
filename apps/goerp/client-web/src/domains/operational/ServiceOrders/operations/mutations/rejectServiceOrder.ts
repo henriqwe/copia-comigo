@@ -42,7 +42,7 @@ export async function rejectServiceOrder({
         object: {
           OrdemDeServico_Id: OS_Id,
           MotivoRecusado,
-          Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.cancelada,
+          Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.frustada,
           Usuario_Id: '7fd2e5d7-a4c4-485b-8675-e56052e3ff5f'
         }
       },

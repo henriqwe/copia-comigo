@@ -101,7 +101,7 @@ const GiveBackInputKit = () => {
               name={'Item_Id' + index}
               defaultValue={{
                 key: item.Item.Id,
-                titulo:
+                title:
                   item.Item.Produto.Nome +
                   ' - ' +
                   item.Item.Fabricante.Nome +

@@ -1,0 +1,1 @@
+export { ToPrint } from './toPrint'

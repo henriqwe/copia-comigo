@@ -1,4 +1,4 @@
-import { useTypedClientQuery } from "&erp/graphql/generated/zeus/apollo"
+import { useTypedClientQuery } from '&erp/graphql/generated/zeus/apollo'
 
 export async function getServiceOrderVehicle(Id: string) {
   const { data } = await useTypedClientQuery({
@@ -10,7 +10,16 @@ export async function getServiceOrderVehicle(Id: string) {
         Id: true,
         Placa: true,
         NumeroDoChassi: true,
-        Apelido: true
+        Apelido: true,
+        DadosDaApi: [{}, true],
+        VeiculosAtivos: [
+          {
+            where: {
+              deleted_at: { _is_null: true }
+            }
+          },
+          { PossuiGNV: true }
+        ]
       }
     ]
   })

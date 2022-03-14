@@ -4,7 +4,7 @@
 // import * as plans from '&crm/domains/commercial/Plans'
 // import * as products from '&crm/domains/commercial/Products'
 // import * as vehicles from '&crm/domains/services/Vehicles'
-// import * as clients from '&crm/domains/identities/Clients'
+// import * as clients from '&crm/domains/Clients'
 // import * as templates from '@comigo/ui-templates'
 
 // import rotas from '&crm/domains/routes'
@@ -17,7 +17,7 @@
 
 export default function ProposalDetails() {
   return (
-    <div/>
+    <div />
     // <proposals.ViewProvider>
     //   <proposals.CreateProvider>
     //     <combos.ListProvider>

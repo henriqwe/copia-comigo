@@ -29,6 +29,7 @@ export { ListCard } from './lib/ListCard'
 export { Dropdown } from './lib/Dropdown'
 export { LineTitle } from './lib/LineTitle'
 export { LineInfoDetailsColumns } from './lib/LineInfoDetailsColumns'
+export { InfoDetails } from './lib/InfoDetails'
 
 export * as buttons from './lib/Buttons'
 export * as icons from './lib/Icons'

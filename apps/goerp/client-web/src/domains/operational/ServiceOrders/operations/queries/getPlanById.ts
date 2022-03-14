@@ -1,4 +1,4 @@
-import { useTypedClientQuery } from "&erp/graphql/generated/zeus/apollo"
+import { useTypedClientQuery } from '&erp/graphql/generated/zeus/apollo'
 
 export async function getPlanById(planId: string, priceId: string) {
   const { data } = await useTypedClientQuery({
@@ -7,7 +7,19 @@ export async function getPlanById(planId: string, priceId: string) {
         Id: planId
       },
       {
-        Nome: true
+        Nome: true,
+        Produtos: [
+          { where: { deleted_at: { _is_null: true } } },
+          {
+            Produto_Id: true
+          }
+        ],
+        Servicos: [
+          { where: { deleted_at: { _is_null: true } } },
+          {
+            Servico_Id: true
+          }
+        ]
       }
     ],
     comercial_Planos_Precos_by_pk: [

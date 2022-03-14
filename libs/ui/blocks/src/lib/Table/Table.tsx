@@ -1,5 +1,5 @@
 import * as table from '.'
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, ReactNode, SetStateAction } from 'react'
 import * as Styles from './_styles'
 type TableListType = {
   colection: any
@@ -9,7 +9,7 @@ type TableListType = {
     type?: 'date' | 'relationship' | 'handler' | undefined
     relationshipName?: string
 
-    handler?: (valor: any) => string
+    handler?: (valor: any) => string | ReactNode
   }[]
   pagination?: {
     filters: { limit: number; offset: number; currentPage: number; where: any }
@@ -39,7 +39,9 @@ export const Table = ({
     <>
       <div className="z-10 col-span-12 overflow-auto intro-y">
         {search && <table.Search pagination={pagination} search={search} />}
-        <table className={`${Styles.table['table']} ${Styles.tableReport['table-report']}`}>
+        <table
+          className={`${Styles.table['table']} ${Styles.tableReport['table-report']}`}
+        >
           <thead>
             <table.ColumnTitle
               disableActions={!actions}

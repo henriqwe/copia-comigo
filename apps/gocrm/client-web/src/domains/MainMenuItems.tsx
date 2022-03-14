@@ -14,13 +14,7 @@ export default [
     title: 'Propostas',
     url: rotas.propostas,
     icon: <DeviceMobileIcon className="w-4 h-4 mx-4" />,
-    children: [
-      {
-        title: 'Listar',
-        url: rotas.propostas,
-        icon: <ChipIcon className="w-4 h-4 mx-4" />
-      }
-    ]
+    children: []
   },
   {
     title: 'Atendimento',
@@ -72,32 +66,16 @@ export default [
     ]
   },
   {
-    title: 'Identidades',
-    url: rotas.identidades.index,
-    children: [
-      {
-        title: 'Clientes',
-        url: rotas.identidades.clientes.index,
-        icon: <ChipIcon className="w-4 h-4 mx-4" />
-      },
-      {
-        title: 'Colaboradores',
-        url: rotas.identidades.colaboradores,
-        icon: <ChipIcon className="w-4 h-4 mx-4" />
-      },
-      {
-        title: 'Fornecedores',
-        url: rotas.identidades.fornecedores.index,
-        icon: <ChipIcon className="w-4 h-4 mx-4" />
-      },
-      {
-        title: 'Usuários',
-        url: rotas.identidades.usuarios,
-        icon: <ChipIcon className="w-4 h-4 mx-4" />
-      }
-    ],
-    icon: <HomeIcon className="w-4 h-4 mx-4" />
+    title: 'Colaboradores',
+    url: rotas.colaboradores,
+    icon: <ChipIcon className="w-4 h-4 mx-4" />
   },
+  {
+    title: 'Fornecedores',
+    url: rotas.fornecedores.index,
+    icon: <ChipIcon className="w-4 h-4 mx-4" />
+  },
+
   {
     title: 'Comercial',
     url: rotas.comercial.index,

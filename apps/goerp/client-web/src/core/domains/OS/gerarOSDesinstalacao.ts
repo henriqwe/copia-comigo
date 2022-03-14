@@ -11,19 +11,11 @@ import {
 type GerarOSProps = {
   vehicle: {
     Id: string
+    PossuiGNV: boolean
     Cliente_Id: string
     OS_Id?: string
     Situacao_Id: string
     Veiculo_Id: string
-    Beneficios: {
-      Id: string
-      Portfolio_Id: string
-      TipoPortfolio: string
-      PortfolioPreco_Id?: string
-      PrecoDeAdesao_Id?: string
-      PrecoDeRecorrencia_Id?: string
-    }[]
-
     Produtos: {
       PrecoDeAdesao_Id?: string
       PrecoDeRecorrencia_Id?: string
@@ -31,13 +23,6 @@ type GerarOSProps = {
       Identificador?: string
       TipoItem_Id?: string
     }[]
-
-    Servicos: {
-      Servico_Id: string
-      PrecoDeAdesao_Id?: string
-      PrecoDeRecorrencia_Id?: string
-    }[]
-
     Situacao: {
       Comentario: string
       Valor: string
@@ -85,44 +70,46 @@ export async function gerarOSDesinstalacao({ vehicle }: GerarOSProps) {
                 (provider) => provider.Prestador_Id === configData.Valor[0]
               )[0]?.Precos.filter(
                 (price) => price.TipoDePreco.Valor === 'recorrencia'
-              )[0]?.Id
+              )[0]?.Id,
+            Beneficio: false
           }
         }
       })
     )
 
-    const filteredServices: {
-      Servico_Id: string
-      PrecoDeAdesao_Id: string
-      PrecoDeRecorrencia_Id: string
-    }[] = []
+    // const filteredServices: {
+    //   Servico_Id: string
+    //   PrecoDeAdesao_Id: string
+    //   PrecoDeRecorrencia_Id: string
+    // }[] = []
 
-    services
-      .filter((service) => service !== undefined)
-      .map((service) => {
-        const duplicatedPosition = filteredServices.findIndex(
-          (filteredService) =>
-            service?.Servico_Id === filteredService.Servico_Id
-        )
+    // services
+    //   .filter((service) => service !== undefined)
+    //   .map((service) => {
+    //     const duplicatedPosition = filteredServices.findIndex(
+    //       (filteredService) =>
+    //         service?.Servico_Id === filteredService.Servico_Id
+    //     )
 
-        if (!(duplicatedPosition > -1)) {
-          filteredServices.push({
-            Servico_Id: service?.Servico_Id as string,
-            PrecoDeAdesao_Id: service?.PrecoDeAdesao_Id,
-            PrecoDeRecorrencia_Id: service?.PrecoDeRecorrencia_Id
-          })
-        }
-      })
+    //     if (!(duplicatedPosition > -1)) {
+    //       filteredServices.push({
+    //         Servico_Id: service?.Servico_Id as string,
+    //         PrecoDeAdesao_Id: service?.PrecoDeAdesao_Id,
+    //         PrecoDeRecorrencia_Id: service?.PrecoDeRecorrencia_Id
+    //       })
+    //     }
+    //   })
 
     return await useTypedClientMutation({
       insert_operacional_OrdemDeServico_one: [
         {
           object: {
+            PossuiGNV: vehicle.PossuiGNV,
             Tipo_Id: operacional_OrdemDeServico_Tipo_enum.desinstalacao,
             Proposta_Id: null,
             Veiculo_Id: vehicle.Veiculo_Id,
             Servicos: {
-              data: filteredServices
+              data: services
             },
             Situacao_Id: operacional_OrdemDeServico_Situacoes_enum.aberta
           }

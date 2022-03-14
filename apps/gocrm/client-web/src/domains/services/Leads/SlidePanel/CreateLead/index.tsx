@@ -1,26 +1,26 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as leads from '&crm/domains/services/Leads';
-import * as clients from '&crm/domains/identities/Clients';
+import * as leads from '&crm/domains/services/Leads'
+import * as clients from '&crm/domains/clients'
 
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 
-import router from 'next/router';
-import rotas from '&crm/domains/routes';
+import router from 'next/router'
+import rotas from '&crm/domains/routes'
 
 type FormData = {
-  Id: string;
-  Nome: string;
-  Email: string;
-  Telefone: string;
+  Id: string
+  Nome: string
+  Email: string
+  Telefone: string
   Cliente_Id: {
-    key: string;
-    title: string;
-  };
-};
+    key: string
+    title: string
+  }
+}
 
 export default function CreateLead() {
   const {
@@ -28,40 +28,37 @@ export default function CreateLead() {
     createLead,
     setSlidePanelState,
     leadsRefetch,
-    leadSchema,
-  } = leads.useLead();
-  const { clientsData } = clients.useList();
+    leadSchema
+  } = leads.useLead()
+  const { clientsData } = clients.useClient()
   const {
     register,
     handleSubmit,
     formState: { errors },
-    control,
+    control
   } = useForm({
-    resolver: yupResolver(leadSchema),
-  });
+    resolver: yupResolver(leadSchema)
+  })
   const onSubmit = (formData: FormData) => {
     createLead({
       variables: {
         Nome: formData.Nome,
         Email: formData.Email,
         Telefone: utils.phoneUnformat(formData.Telefone),
-        Cliente_Id: formData.Cliente_Id ? formData.Cliente_Id.key : null,
-      },
+        Cliente_Id: formData.Cliente_Id ? formData.Cliente_Id.key : null
+      }
     })
       .then(() => {
-        leadsRefetch();
+        leadsRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification(
-          formData.Nome + ' cadastrado com sucesso',
-          'success'
-        );
+          return { ...oldState, open: false }
+        })
+        utils.notification(formData.Nome + ' cadastrado com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
-  };
+        utils.showError(err)
+      })
+  }
 
   return (
     <form
@@ -101,8 +98,8 @@ export default function CreateLead() {
                     ? clientsData.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Pessoa?.Nome as string,
-                        };
+                          title: item.Pessoa?.Nome as string
+                        }
                       })
                     : []
                 }
@@ -113,7 +110,7 @@ export default function CreateLead() {
               />
               <common.OpenModalLink
                 onClick={() =>
-                  router.push(rotas.identidades.clientes.cadastrar)
+                  router.push(rotas.clientes)
                 }
               >
                 Cadastrar Cliente
@@ -129,5 +126,5 @@ export default function CreateLead() {
         loading={createLeadLoading}
       />
     </form>
-  );
+  )
 }

@@ -1,58 +1,58 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as vehicles from '&crm/domains/services/Vehicles';
-import * as clients from '&crm/domains/identities/Clients';
+import * as vehicles from '&crm/domains/services/Vehicles'
+import * as clients from '&crm/domains/clients'
 
-import { useEffect, useState } from 'react';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useEffect, useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 export default function UpdateVehicle() {
-  const [category, setCategory] = useState<{ key: string; title: string }>();
+  const [category, setCategory] = useState<{ key: string; title: string }>()
   const {
     updateVehicleLoading,
     slidePanelState,
     vehicleSchema,
-    getVehicleCategoryById,
-  } = vehicles.useVehicle();
-  const { clientsData } = clients.useList();
+    getVehicleCategoryById
+  } = vehicles.useVehicle()
+  const { clientsData } = clients.useClient()
   const {
     handleSubmit,
     reset,
     formState: { errors },
     control,
-    register,
+    register
   } = useForm({
-    resolver: yupResolver(vehicleSchema),
-  });
+    resolver: yupResolver(vehicleSchema)
+  })
 
   useEffect(() => {
     getVehicleCategoryById(slidePanelState.data?.Categoria_Id).then(
       (category) => {
         setCategory({
           key: category?.Id as string,
-          title: category?.Nome as string,
-        });
+          title: category?.Nome as string
+        })
       }
-    );
-  }, [slidePanelState.data, reset]);
+    )
+  }, [slidePanelState.data, reset])
 
   useEffect(() => {
     reset({
       Placa: slidePanelState.data?.Placa || '',
       Cliente_Id: {
         key: slidePanelState.data?.Cliente?.Id || '',
-        title: slidePanelState.data?.Cliente?.Pessoa.Nome || '',
+        title: slidePanelState.data?.Cliente?.Pessoa.Nome || ''
       },
       Categoria_Id: {
         key: category?.key || '',
-        title: category?.title || '',
+        title: category?.title || ''
       },
       Apelido: slidePanelState.data?.Apelido || '',
-      Chassi: slidePanelState.data?.NumeroDoChassi || '',
-    });
-  }, [slidePanelState.data, reset]);
+      Chassi: slidePanelState.data?.NumeroDoChassi || ''
+    })
+  }, [slidePanelState.data, reset])
 
   return (
     <form data-testid="editForm" className="flex flex-col items-end">
@@ -124,5 +124,5 @@ export default function UpdateVehicle() {
         )}
       </div>
     </form>
-  );
+  )
 }

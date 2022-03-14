@@ -18,14 +18,7 @@ export const RenderPanelsList = ({ categories }: RenderPanelsListProps) => {
           key={category.title}
           className={utils.classNames('bg-white rounded-lg')}
         >
-          {category.title === 'Resumo' ? (
-            <client.Resume />
-          ) : category.title === 'Geral' ? (
-            <div />
-          ) : (
-            <client.Vehicle />
-          )}
-          {/* {proposals[category.type]()} */}
+          <client.Vehicle />
         </Tab.Panel>
       ))}
     </>

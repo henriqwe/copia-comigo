@@ -29,13 +29,13 @@ export function ActionsRow({ actions }: ActionsRowProps) {
   return (
     <td className=" table-report__action">
       <div
-        className="flex items-center justify-center gap-2"
+        className="flex items-center justify-end gap-2"
         data-testid="ações"
       >
         {actions.map((item, index) => (
           <p
             key={`actions-row-${index}`}
-            className="flex items-center cursor-pointer text-theme-6"
+            className="flex items-end cursor-pointer text-theme-6"
             onClick={() => {
               if (item.url) {
                 router.push(item.url)

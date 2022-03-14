@@ -21,16 +21,17 @@ export default function UpdateProduct() {
           <products.services.ServiceProvider>
             <products.upSelling.UpSellingProvider>
               <products.attributes.AttributeProvider>
-                <combos.ListProvider>
-                  <attributes.AttributeProvider>
-                    <services.ServiceProvider>
-                      <ThemeProvider>
-                        {' '}
-                        <Page />{' '}
-                      </ThemeProvider>
-                    </services.ServiceProvider>
-                  </attributes.AttributeProvider>
-                </combos.ListProvider>
+                <products.alerts.AlertsProvider>
+                  <combos.ListProvider>
+                    <attributes.AttributeProvider>
+                      <services.ServiceProvider>
+                        <ThemeProvider>
+                          <Page />
+                        </ThemeProvider>
+                      </services.ServiceProvider>
+                    </attributes.AttributeProvider>
+                  </combos.ListProvider>
+                </products.alerts.AlertsProvider>
               </products.attributes.AttributeProvider>
             </products.upSelling.UpSellingProvider>
           </products.services.ServiceProvider>
@@ -47,6 +48,7 @@ function Page() {
   const { servicesRefetch } = products.services.useService()
   const { upSellingRefetch } = products.upSelling.useUpSelling()
   const { attributesRefetch } = products.attributes.useAttribute()
+  const { alertsRefetch } = products.alerts.useAlerts()
   const { combosRefetch } = combos.useList()
   const { attributeRefetch } = attributes.useAttribute()
 
@@ -57,6 +59,7 @@ function Page() {
     combosRefetch()
     attributesRefetch()
     attributeRefetch()
+    alertsRefetch()
     productRefetch()
   }
 

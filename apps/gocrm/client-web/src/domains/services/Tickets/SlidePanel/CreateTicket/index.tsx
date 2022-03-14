@@ -1,51 +1,51 @@
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as flows from '&crm/domains/services/Registration/Flows';
-import * as tickets from '&crm/domains/services/Tickets';
-import * as leads from '&crm/domains/services/Leads';
-import * as clients from '&crm/domains/identities/Clients';
+import * as flows from '&crm/domains/services/Registration/Flows'
+import * as tickets from '&crm/domains/services/Tickets'
+import * as leads from '&crm/domains/services/Leads'
+import * as clients from '&crm/domains/clients'
 
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 
-import router from 'next/router';
-import rotas from '&crm/domains/routes';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import router from 'next/router'
+import rotas from '&crm/domains/routes'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 
 type FormData = {
-  Id: string;
-  Tipo_Id: SelectItem;
-  Etapa_Id: SelectItem;
-  Fluxo_Id: SelectItem;
-  Usuario_Id: SelectItem;
-  Lead_Id: SelectItem;
-  Cliente_Id: SelectItem;
-};
+  Id: string
+  Tipo_Id: SelectItem
+  Etapa_Id: SelectItem
+  Fluxo_Id: SelectItem
+  Usuario_Id: SelectItem
+  Lead_Id: SelectItem
+  Cliente_Id: SelectItem
+}
 
 type SelectItem = {
-  key: string;
-  title: string;
-};
+  key: string
+  title: string
+}
 
 type CreateTicketProps = {
-  defaultFlowValue?: { key: string; title: string };
-  defaultFlowStageValue?: { key: string; title: string };
-  defaultTicketTypeValue?: { key: string; title: string };
-};
+  defaultFlowValue?: { key: string; title: string }
+  defaultFlowStageValue?: { key: string; title: string }
+  defaultTicketTypeValue?: { key: string; title: string }
+}
 
 export default function CreateTicket({
   defaultFlowValue,
   defaultFlowStageValue,
-  defaultTicketTypeValue,
+  defaultTicketTypeValue
 }: CreateTicketProps) {
   const [personCategory, setPersonCategory] = useState<'lead' | 'cliente'>(
     'lead'
-  );
+  )
   const [flowStages, setFlowStages] = useState<{ Id: string; Nome: string }[]>(
     []
-  );
+  )
   const {
     createTicketLoading,
     createTicket,
@@ -55,27 +55,27 @@ export default function CreateTicket({
     ticketSchema,
     getFlowStageByFlow_Id,
     usersData,
-    ticketsData,
-  } = tickets.useTicket();
-  const { flowsData } = flows.useFlow();
-  const { leadsData } = leads.useLead();
-  const { clientsData } = clients.useList();
+    ticketsData
+  } = tickets.useTicket()
+  const { flowsData } = flows.useFlow()
+  const { leadsData } = leads.useLead()
+  const { clientsData } = clients.useClient()
   const {
     handleSubmit,
     formState: { errors },
     control,
     watch,
     reset,
-    setValue,
+    setValue
   } = useForm({
-    resolver: yupResolver(ticketSchema(personCategory)),
-  });
+    resolver: yupResolver(ticketSchema(personCategory))
+  })
   const LeadIds = ticketsData?.map((ticket) => {
-    return ticket.Lead_Id;
-  });
+    return ticket.Lead_Id
+  })
   const ClienteIds = ticketsData?.map((ticket) => {
-    return ticket.Cliente_Id;
-  });
+    return ticket.Cliente_Id
+  })
 
   const onSubmit = (formData: FormData) => {
     createTicket({
@@ -86,28 +86,28 @@ export default function CreateTicket({
         Usuario_Id: formData.Usuario_Id.key,
         Lead_Id: personCategory === 'lead' ? formData.Lead_Id.key : null,
         Cliente_Id:
-          personCategory === 'cliente' ? formData.Cliente_Id.key : null,
-      },
+          personCategory === 'cliente' ? formData.Cliente_Id.key : null
+      }
     })
       .then(() => {
-        ticketsRefetch();
+        ticketsRefetch()
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        utils.notification('Ticket cadastrado com sucesso', 'success');
+          return { ...oldState, open: false }
+        })
+        utils.notification('Ticket cadastrado com sucesso', 'success')
       })
       .catch((err) => {
-        utils.showError(err);
-      });
-  };
+        utils.showError(err)
+      })
+  }
 
   useEffect(() => {
     if (watch('Fluxo_Id') !== undefined) {
       getFlowStageByFlow_Id(watch('Fluxo_Id').key).then((flowStagesData) => {
-        setFlowStages(flowStagesData);
-      });
+        setFlowStages(flowStagesData)
+      })
     }
-  }, [watch('Fluxo_Id')]);
+  }, [watch('Fluxo_Id')])
 
   return (
     <form
@@ -128,32 +128,32 @@ export default function CreateTicket({
                     ? flowsData.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Nome,
-                        };
+                          title: item.Nome
+                        }
                       })
                     : []
                 }
                 value={value}
                 onChange={(e) => {
                   if (watch('Fluxo_Id') !== undefined) {
-                    setValue('Etapa_Id', undefined);
+                    setValue('Etapa_Id', undefined)
                     reset({
                       Etapa_Id: {
                         key: '',
-                        title: '',
+                        title: ''
                       },
                       Tipo_Id: {
                         key: watch('Tipo_Id').key || '',
-                        title: watch('Tipo_Id').title || '',
+                        title: watch('Tipo_Id').title || ''
                       },
                       Fluxo_Id: {
                         key: watch('Fluxo_Id').key || '',
-                        title: watch('Fluxo_Id').title || '',
-                      },
-                    });
+                        title: watch('Fluxo_Id').title || ''
+                      }
+                    })
                   }
 
-                  onChange(e);
+                  onChange(e)
                 }}
                 error={errors.Fluxo_Id}
                 label="Fluxo"
@@ -181,8 +181,8 @@ export default function CreateTicket({
                     ? flowStages.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Nome,
-                        };
+                          title: item.Nome
+                        }
                       })
                     : []
                 }
@@ -217,8 +217,8 @@ export default function CreateTicket({
                     ? ticketsTypeData.map((item) => {
                         return {
                           key: item.Valor,
-                          title: item.Comentario,
-                        };
+                          title: item.Comentario
+                        }
                       })
                     : []
                 }
@@ -243,8 +243,8 @@ export default function CreateTicket({
                     ? usersData.map((item) => {
                         return {
                           key: item.Id,
-                          title: item.Colaborador?.Pessoa.Nome as string,
-                        };
+                          title: item.Colaborador?.Pessoa.Nome as string
+                        }
                       })
                     : []
                 }
@@ -265,7 +265,7 @@ export default function CreateTicket({
                 <div className="inline-flex items-center gap-4">
                   <p className="text-sm">Lead</p>
                 </div>
-              ),
+              )
             },
             {
               value: 'cliente',
@@ -273,8 +273,8 @@ export default function CreateTicket({
                 <div className="inline-flex items-center gap-4">
                   <p className="text-sm">Cliente</p>
                 </div>
-              ),
-            },
+              )
+            }
           ]}
           horizontal
           selectedValue={{
@@ -283,7 +283,7 @@ export default function CreateTicket({
               <div className="inline-flex items-center gap-4">
                 <p className="text-sm">Lead</p>
               </div>
-            ),
+            )
           }}
           setSelectedOption={
             setPersonCategory as Dispatch<SetStateAction<string>>
@@ -302,21 +302,21 @@ export default function CreateTicket({
                       ? leadsData
                           .filter((lead) => {
                             if (!LeadIds?.includes(lead.Id)) {
-                              return true;
+                              return true
                             }
                           })
                           .map((item) => {
                             return {
                               key: item.Id,
-                              title: item.Nome,
-                            };
+                              title: item.Nome
+                            }
                           })
                       : []
                   }
                   value={value}
                   onChange={(e) => {
-                    setValue('Cliente_Id', undefined);
-                    onChange(e);
+                    setValue('Cliente_Id', undefined)
+                    onChange(e)
                   }}
                   error={errors.Lead_Id}
                   label="Lead"
@@ -338,21 +338,21 @@ export default function CreateTicket({
                       ? clientsData
                           .filter((clients) => {
                             if (!ClienteIds?.includes(clients.Id)) {
-                              return true;
+                              return true
                             }
                           })
                           .map((item) => {
                             return {
                               key: item.Id,
-                              title: item.Pessoa?.Nome as string,
-                            };
+                              title: item.Pessoa?.Nome as string
+                            }
                           })
                       : []
                   }
                   value={value}
                   onChange={(e) => {
-                    setValue('Lead_Id', undefined);
-                    onChange(e);
+                    setValue('Lead_Id', undefined)
+                    onChange(e)
                   }}
                   error={errors.Cliente_Id}
                   label="Cliente"
@@ -369,5 +369,5 @@ export default function CreateTicket({
         loading={createTicketLoading}
       />
     </form>
-  );
+  )
 }

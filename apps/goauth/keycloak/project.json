@@ -8,7 +8,7 @@
       "options": {
         "commands": [
           {
-            "command": "docker-compose -f apps/goauth/keycloak/docker-compose.yaml up -d"
+            "command": "COMPOSE_PROJECT_NAME=goauth docker-compose -f apps/goauth/keycloak/docker-compose.yaml up -d"
           }
         ]
       }

@@ -1,0 +1,4 @@
+-- Could not auto-generate a down migration.
+-- Please write an appropriate down migration for the SQL below:
+-- alter table "propostas"."Propostas_RegrasETermosDeUso" add column "Proposta_Id" uuid
+--  not null;

@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 
 // import { PhysicalPerson } from '../CreateClient/physicalPerson'
 // import { LegalPerson } from '../CreateClient/legalPerson'
-import { GraphQLTypes } from '&crm/graphql/generated/zeus';
+import { GraphQLTypes } from '&crm/graphql/generated/zeus'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as client from '&crm/domains/identities/Clients';
-import * as representative from '&crm/domains/identities/Clients/Tabs/Representative';
+import * as client from '&crm/domains/clients'
+import * as representative from '&crm/domains/clients/components/Tabs/Representative'
 
-type FormType = Pick<GraphQLTypes['identidades_Pessoas'], 'Identificador'>;
+type FormType = Pick<GraphQLTypes['identidades_Pessoas'], 'Identificador'>
 
 export default function CreateRepresentative() {
   const {
@@ -22,44 +22,44 @@ export default function CreateRepresentative() {
     CPFSchema,
     CNPJSchema,
     setSlidePanelState,
-    representativesDataRefetch,
-  } = representative.useRepresentative();
+    representativesDataRefetch
+  } = representative.useRepresentative()
 
-  const { clientData } = client.useUpdate();
+  const { clientData } = client.useUpdate()
 
-  const [kindOfPerson, setKindOfPerson] = useState('');
+  const [kindOfPerson, setKindOfPerson] = useState('')
 
   const {
     register,
     control,
     formState: { errors },
-    handleSubmit,
+    handleSubmit
   } = useForm({
-    resolver: yupResolver(kindOfPerson !== 'pj' ? CPFSchema : CNPJSchema),
-  });
+    resolver: yupResolver(kindOfPerson !== 'pj' ? CPFSchema : CNPJSchema)
+  })
 
   async function onSubmit(formData: FormType) {
     await createRepresentative({
       variables: {
         Identificador: utils.identifierUnformat(formData.Identificador),
         PessoaJuridica: kindOfPerson !== 'pj' ? false : true,
-        PessoaRepresentada: clientData?.Pessoa.Id,
-      },
+        PessoaRepresentada: clientData?.Pessoa.Id
+      }
     })
       .then((/*resposta*/) => {
         utils.notification(
           formData.Identificador + ' cadastrado com sucesso',
           'success'
-        );
+        )
         setSlidePanelState((oldState) => {
-          return { ...oldState, open: false };
-        });
-        representativesDataRefetch();
+          return { ...oldState, open: false }
+        })
+        representativesDataRefetch()
       })
       .catch((erros) => {
-        console.log(erros);
-        utils.showError(erros);
-      });
+        console.log(erros)
+        utils.showError(erros)
+      })
   }
 
   return (
@@ -114,5 +114,5 @@ export default function CreateRepresentative() {
         </div>
       </div>
     </form>
-  );
+  )
 }

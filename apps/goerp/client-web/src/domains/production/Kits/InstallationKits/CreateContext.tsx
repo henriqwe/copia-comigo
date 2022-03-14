@@ -3,15 +3,16 @@ import {
   DefaultContext,
   FetchResult,
   MutationFunctionOptions,
-  OperationVariables,
-} from '@apollo/client';
+  OperationVariables
+} from '@apollo/client'
 import {
   $,
   useTypedClientQuery,
   useTypedMutation,
-  useTypedQuery,
-} from '&erp/graphql/generated/zeus/apollo';
-import { createContext, ReactNode, useContext } from 'react';
+  useTypedQuery
+} from '&erp/graphql/generated/zeus/apollo'
+import { createContext, ReactNode, useContext } from 'react'
+import { movimentacoes_Motivos_enum } from '&erp/graphql/generated/zeus'
 
 type CreateContextProps = {
   createInstallationKit: (
@@ -19,101 +20,104 @@ type CreateContextProps = {
       {
         insert_producao_KitsDeInstalacao?: {
           returning: {
-            Id: string;
-          }[];
-        };
+            Id: string
+          }[]
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
-  createInstallationKitLoading: boolean;
+  ) => Promise<FetchResult['data']>
+  createInstallationKitLoading: boolean
   configData?: {
-    Valor: string[];
-  };
+    Valor: string[]
+  }
   moveStock: (
     options?: MutationFunctionOptions<
       {
         insert_movimentacoes_Movimentacoes?: {
           returning: {
-            Id: string;
-          }[];
-        };
+            Id: string
+          }[]
+        }
       },
       OperationVariables,
       DefaultContext,
       ApolloCache<unknown>
     >
-  ) => Promise<FetchResult['data']>;
+  ) => Promise<FetchResult['data']>
   getItensPerFamily: () => Promise<
     {
-      Id: string;
+      Id: string
       Produto: {
-        Id: string;
-        Nome: string;
-      };
+        Id: string
+        Nome: string
+      }
       Fabricante: {
-        Id: string;
-        Nome: string;
-      };
+        Id: string
+        Nome: string
+      }
       Modelo?: {
-        Id: string;
-        Nome: string;
-      };
+        Id: string
+        Nome: string
+      }
       Grupo: {
-        Nome: string;
-      };
-      Familia: { Nome: string };
+        Nome: string
+      }
+      Familia: { Nome: string }
     }[]
-  >;
+  >
   kitsTypesData?: {
-    Id: string;
-    Nome: string;
-  }[];
+    Id: string
+    Nome: string
+  }[]
   getInputKitByType(Tipo_Id: string): Promise<
     {
-      Id: string;
-      CodigoReferencia: number;
+      Id: string
+      CodigoReferencia: number
       Itens: {
-        Id: string;
+        Id: string
         Item: {
-          Id: string;
-        };
-      }[];
+          Id: string
+        }
+      }[]
       TiposDeKitDeInsumo: {
-        Id: string;
-        Nome: string;
-      };
+        Id: string
+        Nome: string
+      }
       Item: {
-        Id: string;
+        Id: string
         Produto: {
-          Nome: string;
-        };
-        Movimentacoes: { Tipo: string; Quantidade: number }[];
-      };
+          Nome: string
+        }
+        Movimentacoes: { Tipo: string; Quantidade: number }[]
+      }
+      KitsDeInstalacao: {
+        Id: string
+      }[]
     }[]
-  >;
-};
+  >
+}
 
 type ProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 export const CreateContext = createContext<CreateContextProps>(
   {} as CreateContextProps
-);
+)
 
 export const CreateProvider = ({ children }: ProviderProps) => {
   const [createInstallationKit, { loading: createInstallationKitLoading }] =
     useTypedMutation({
       insert_producao_KitsDeInstalacao: [
         {
-          objects: $`data`,
+          objects: $`data`
         },
-        { returning: { Id: true } },
-      ],
-    });
+        { returning: { Id: true } }
+      ]
+    })
 
   const [moveStock] = useTypedMutation({
     insert_movimentacoes_Movimentacoes: [
@@ -123,33 +127,33 @@ export const CreateProvider = ({ children }: ProviderProps) => {
             Data: new Date(),
             Quantidade: 1,
             Tipo: 'entrada',
-            Motivo_Id: 'criacaoDeKitDeInstalacao',
+            Motivo_Id: movimentacoes_Motivos_enum.criacaoDeKitDeInstalacao,
             Item_Id: $`Item_Id`,
-            Valor: 0,
+            Valor: 0
           },
           {
             Data: new Date(),
             Quantidade: 1,
             Tipo: 'saida',
-            Motivo_Id: 'criacaoDeKitDeInstalacao',
+            Motivo_Id: movimentacoes_Motivos_enum.criacaoDeKitDeInstalacao,
             Item_Id: $`ItemRastreador_Id`,
-            Valor: 0,
+            Valor: 0
           },
           {
             Data: new Date(),
             Quantidade: 1,
             Tipo: 'saida',
-            Motivo_Id: 'criacaoDeKitDeInstalacao',
+            Motivo_Id: movimentacoes_Motivos_enum.criacaoDeKitDeInstalacao,
             Item_Id: $`ItemKitDeInsumo_Id`,
-            Valor: 0,
-          },
-        ],
+            Valor: 0
+          }
+        ]
       },
       {
-        returning: { Id: true },
-      },
-    ],
-  });
+        returning: { Id: true }
+      }
+    ]
+  })
 
   const { data: kitsTypesData } = useTypedQuery(
     {
@@ -157,29 +161,29 @@ export const CreateProvider = ({ children }: ProviderProps) => {
         {
           where: {
             deleted_at: { _is_null: true },
-            KitsDeInsumo: { Id: { _is_null: false } },
-          },
+            KitsDeInsumo: { Id: { _is_null: false } }
+          }
         },
         {
           Id: true,
-          Nome: true,
-        },
-      ],
+          Nome: true
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   const { data: configData } = useTypedQuery(
     {
       Configuracoes_by_pk: [
         { Slug: 'familiaKitsDeInstalacao' },
         {
-          Valor: [{}, true],
-        },
-      ],
+          Valor: [{}, true]
+        }
+      ]
     },
     { fetchPolicy: 'no-cache', notifyOnNetworkStatusChange: true }
-  );
+  )
 
   async function getItensPerFamily() {
     const { data: itensPerFamily } = await useTypedClientQuery({
@@ -189,42 +193,42 @@ export const CreateProvider = ({ children }: ProviderProps) => {
             deleted_at: { _is_null: true },
             Familia: {
               Pai: {
-                Id: { _eq: configData?.Configuracoes_by_pk?.Valor[0] },
-              },
-            },
+                Id: { _eq: configData?.Configuracoes_by_pk?.Valor[0] }
+              }
+            }
             // { Familia_Id: { _eq: Id } },
-          },
+          }
         },
         {
           Id: true,
           Produto: {
             Id: true,
-            Nome: true,
+            Nome: true
           },
           Fabricante: {
             Id: true,
-            Nome: true,
+            Nome: true
           },
           Modelo: {
             Id: true,
-            Nome: true,
+            Nome: true
           },
           Grupo: {
-            Nome: true,
+            Nome: true
           },
-          Familia: { Nome: true },
-        },
-      ],
-    });
+          Familia: { Nome: true }
+        }
+      ]
+    })
 
-    return itensPerFamily.estoque_Itens;
+    return itensPerFamily.estoque_Itens
   }
 
   async function getInputKitByType(Tipo_Id: string) {
     const { data: inputKitData } = await useTypedClientQuery({
       producao_KitsDeInsumo: [
         {
-          where: { deleted_at: { _is_null: true }, Tipo_Id: { _eq: Tipo_Id } },
+          where: { deleted_at: { _is_null: true }, Tipo_Id: { _eq: Tipo_Id } }
         },
         {
           Id: true,
@@ -232,18 +236,24 @@ export const CreateProvider = ({ children }: ProviderProps) => {
           Itens: [{}, { Id: true, Item: { Id: true } }],
           TiposDeKitDeInsumo: {
             Id: true,
-            Nome: true,
+            Nome: true
           },
           Item: {
             Id: true,
             Produto: { Nome: true },
-            Movimentacoes: [{}, { Tipo: true, Quantidade: true }],
+            Movimentacoes: [{}, { Tipo: true, Quantidade: true }]
           },
-        },
-      ],
-    });
+          KitsDeInstalacao: [
+            { where: { deleted_at: { _is_null: true } } },
+            {
+              Id: true
+            }
+          ]
+        }
+      ]
+    })
 
-    return inputKitData.producao_KitsDeInsumo;
+    return inputKitData.producao_KitsDeInsumo
   }
 
   return (
@@ -255,14 +265,14 @@ export const CreateProvider = ({ children }: ProviderProps) => {
         configData: configData?.Configuracoes_by_pk,
         getItensPerFamily,
         kitsTypesData: kitsTypesData?.producao_TiposDeKitDeInsumo,
-        getInputKitByType,
+        getInputKitByType
       }}
     >
       {children}
     </CreateContext.Provider>
-  );
-};
+  )
+}
 
 export const useCreate = () => {
-  return useContext(CreateContext);
-};
+  return useContext(CreateContext)
+}

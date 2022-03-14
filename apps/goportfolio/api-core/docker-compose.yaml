@@ -23,7 +23,7 @@ services:
     container_name: goportfolio-graphql-engine
     image: hasura/graphql-engine:v2.2.0
     ports:
-      - '9004:8080'
+      - '7004:8080'
     depends_on:
       - 'postgres'
     restart: always

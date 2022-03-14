@@ -23,16 +23,17 @@ export default function UpdateService() {
             <services.services.ServiceProvider>
               <services.attributes.AttributeProvider>
                 <services.tariffs.TariffProvider>
-                  <combos.ListProvider>
-                    <attributes.AttributeProvider>
-                      <tariffs.TariffsProvider>
-                        <ThemeProvider>
-                          {' '}
-                          <Page />{' '}
-                        </ThemeProvider>
-                      </tariffs.TariffsProvider>
-                    </attributes.AttributeProvider>
-                  </combos.ListProvider>
+                  <services.alerts.AlertsProvider>
+                    <combos.ListProvider>
+                      <attributes.AttributeProvider>
+                        <tariffs.TariffsProvider>
+                          <ThemeProvider>
+                            <Page />
+                          </ThemeProvider>
+                        </tariffs.TariffsProvider>
+                      </attributes.AttributeProvider>
+                    </combos.ListProvider>
+                  </services.alerts.AlertsProvider>
                 </services.tariffs.TariffProvider>
               </services.attributes.AttributeProvider>
             </services.services.ServiceProvider>

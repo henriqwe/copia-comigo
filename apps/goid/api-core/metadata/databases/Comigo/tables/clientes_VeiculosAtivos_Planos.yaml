@@ -1,0 +1,25 @@
+table:
+  name: VeiculosAtivos_Planos
+  schema: clientes
+object_relationships:
+- name: VeiculosAtivo
+  using:
+    foreign_key_constraint_on: VeiculoAtivo_Id
+- name: VeiculosAtivosCombo
+  using:
+    foreign_key_constraint_on: VeiculoAtivoCombo_Id
+array_relationships:
+- name: Produtos
+  using:
+    foreign_key_constraint_on:
+      column: VeiculoAtivoPlano_Id
+      table:
+        name: VeiculosAtivos_Produtos
+        schema: clientes
+- name: Servicos
+  using:
+    foreign_key_constraint_on:
+      column: VeiculoAtivoPlano_Id
+      table:
+        name: VeiculosAtivos_Servicos
+        schema: clientes

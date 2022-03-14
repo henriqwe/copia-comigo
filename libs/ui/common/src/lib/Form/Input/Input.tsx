@@ -63,7 +63,7 @@ export function Input({
         </label>
         {icon && iconPosition === 'right' && <p className="mr-2">{icon}</p>}
       </div>
-      <p className="mt-1 text-xs text-primary-3">{error && error.message}</p>
+      <p className="mt-1 text-xs text-danger">{error && error.message}</p>
     </div>
   )
 }

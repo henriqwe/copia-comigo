@@ -1,61 +1,65 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as utils from '@comigo/utils';
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as utils from '@comigo/utils'
 
-import { PhysicalPerson } from '&crm/domains/identities/Clients/Forms/CreateClient/physicalPerson';
-import { LegalPerson } from '&crm/domains/identities/Clients/Forms/CreateClient/legalPerson';
-import { GraphQLTypes } from '&crm/graphql/generated/zeus';
+import { PhysicalPerson } from '&crm/domains/clients/components/SlidePanel/CreateClient/physicalPerson'
+import { LegalPerson } from '&crm/domains/clients/components/SlidePanel/CreateClient/legalPerson'
+import { GraphQLTypes } from '&crm/graphql/generated/zeus'
 
-import * as common from '@comigo/ui-common';
+import * as common from '@comigo/ui-common'
 
-import * as client from '&crm/domains/identities/Clients';
-import * as proposal from '&crm/domains/commercial/Proposals';
+import * as client from '&crm/domains/clients'
+import * as proposal from '&crm/domains/commercial/Proposals'
 
-type FormType = Pick<GraphQLTypes['identidades_Pessoas'], 'Identificador'>;
+type FormType = Pick<GraphQLTypes['identidades_Pessoas'], 'Identificador'>
 
 export default function CreateRepresentative() {
-  const { createClient, createClientLoading, CNPJSchema, CPFSchema } =
-    client.useCreate();
-  const { clientsRefetch } = client.useList();
-  const { setSlidePanelState } = proposal.useView();
+  const {
+    createClient,
+    createClientLoading,
+    CNPJSchema,
+    CPFSchema,
+    clientsRefetch
+  } = client.useClient()
+  const { setSlidePanelState } = proposal.useView()
 
-  const [kindOfPerson, setKindOfPerson] = useState('');
+  const [kindOfPerson, setKindOfPerson] = useState('')
 
   const {
     register,
     control,
     formState: { errors },
     handleSubmit,
-    reset,
+    reset
   } = useForm({
-    resolver: yupResolver(kindOfPerson !== 'pj' ? CPFSchema : CNPJSchema),
-  });
+    resolver: yupResolver(kindOfPerson !== 'pj' ? CPFSchema : CNPJSchema)
+  })
 
   async function onSubmit(formData: FormType) {
     await createClient({
       variables: {
         Identificador: utils.identifierUnformat(formData.Identificador),
-        PessoaJuridica: kindOfPerson !== 'pj' ? false : true,
-      },
+        PessoaJuridica: kindOfPerson !== 'pj' ? false : true
+      }
     })
       .then(() => {
-        clientsRefetch();
-        setSlidePanelState({ open: false });
+        clientsRefetch()
+        setSlidePanelState({ open: false, type: 'createClient' })
         utils.notification(
           formData.Identificador + ' cadastrado com sucesso',
           'success'
-        );
+        )
       })
-      .catch((erros) => utils.showError(erros));
+      .catch((erros) => utils.showError(erros))
   }
 
   useEffect(() => {
     reset({
-      Identificador: '',
-    });
-  }, [reset, kindOfPerson]);
+      Identificador: ''
+    })
+  }, [reset, kindOfPerson])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,12 +70,12 @@ export default function CreateRepresentative() {
               options={[
                 {
                   value: 'pf',
-                  content: <PhysicalPerson />,
+                  content: <PhysicalPerson />
                 },
                 {
                   value: 'pj',
-                  content: <LegalPerson />,
-                },
+                  content: <LegalPerson />
+                }
               ]}
               setSelectedOption={setKindOfPerson}
             />
@@ -109,5 +113,5 @@ export default function CreateRepresentative() {
         </div>
       </div>
     </form>
-  );
+  )
 }
