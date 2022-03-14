@@ -1,0 +1,55 @@
+{
+  "root": "apps/midone-theme/rubick",
+  "sourceRoot": "apps/midone-theme/rubick",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/midone-theme/rubick",
+        "outputPath": "dist/apps/midone-theme/rubick"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "midone-theme-rubick:build",
+        "dev": true,
+        "port": 5002
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "midone-theme-rubick:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "midone-theme-rubick:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/midone-theme/rubick"],
+      "options": {
+        "jestConfig": "apps/midone-theme/rubick/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/midone-theme/rubick/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

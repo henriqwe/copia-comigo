@@ -1,0 +1,55 @@
+{
+  "root": "apps/midone-theme/thinker",
+  "sourceRoot": "apps/midone-theme/thinker",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/midone-theme/thinker",
+        "outputPath": "dist/apps/midone-theme/thinker"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "midone-theme-thinker:build",
+        "dev": true,
+        "port": 5003
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "midone-theme-thinker:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "midone-theme-thinker:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/midone-theme/thinker"],
+      "options": {
+        "jestConfig": "apps/midone-theme/thinker/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/midone-theme/thinker/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
